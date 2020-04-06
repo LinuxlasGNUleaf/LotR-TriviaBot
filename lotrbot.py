@@ -10,7 +10,7 @@ with open("/home/jakobw/.config/discord/bots/lotr-bot/token.tk","r") as tokenfil
 marker = '*'
 insults = ["Stupid fat hobbit! ~Smeagol","Fool of a took! ~Gandalf","I would cut off your head {}... if it stood but a little higher from the ground. ~Éomer",
 "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs? ~Saruman",
-"Hey, Stinker! Don't go getting too far behind. ~Sam","Feanor gave up because of your dumbness"]
+"Hey, Stinker! Don't go getting too far behind. ~Sam","Feanor gave up because of your stupidity"]
 compliments = ["Well done, my dear hobbit!","{}, you should be counted amongst the wise of middleearth.","I could not have done it better myself!"]
 scoreboard = {}
 class PendingEvent():
@@ -22,12 +22,19 @@ class PendingEvent():
 
 pending = []
 
-def format_questionString(user,num,question,answers):
+def format_questionString(bot,user,num,question,answers):
+    # random color
+    cl = discord.Color.from_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+
+    embed = discord.Embed(color=cl)
+    embed.title = "LotR trivia quiz for {} (number {})".format(user,num)
+    embed.set_author(name=bot.user.display_name, icon_url=bot.user.avatar_url)
     ans_str = ""
     for i in range(0,len(answers)):
         ans_str += "    {}) {}\n".format(i+1,answers[i])
-    out = "**LotR trivia quiz for {} (number {})**```\n {}\n\n{}```""".format(user,num,question,ans_str)
-    return out
+    out = "****```\n {}\n\n{}```""".format(question,ans_str)
+    embed.description = ans_str
+    return embed
 
 def stripName(name):
     return str(name).split("#")[0]
@@ -113,7 +120,7 @@ class MyClient(discord.Client):
                 except ValueError:
                     await message.channel.send(createMsg(True,stripName(message.author))+"\nThis is not a valid answer! Don't you know how to count to four?")
                 pending.remove(pend_event)
-                break
+                return
         
         # if the message is the trivia command
         if message.content == "lotriv":
@@ -128,12 +135,10 @@ class MyClient(discord.Client):
 
             # if the author is already in the scoreboard, retrieve info
             if message.author in scoreboard.keys():
-                print("in keys!")
                 content = scoreboard[message.author]
-                count = content[0]
-                print("content: {}".format(content))
+                scoreboard[message.author] = (content[0]+1,[content[1]])
+                count = content[0]+1
             else:
-                print("not in keys!")
                 scoreboard[message.author] = (1,0)
                 count = 1
 
@@ -144,7 +149,7 @@ class MyClient(discord.Client):
             ind = answers.index(correct_answer) + 1
 
             # send the question message
-            await message.channel.send(format_questionString(stripName(message.author),count,question,answers))
+            await message.channel.send(embed=format_questionString(self,stripName(message.author),count,question,answers))
 
             # create a new pending object
             newpending = PendingEvent(ind,message.author,message.created_at,message.channel)
