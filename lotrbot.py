@@ -4,6 +4,7 @@ import os
 import random
 import pickle
 import time
+import asyncio.exceptions
 
 # aquire token from file
 with open("/home/jakobw/.config/discord/bots/lotr-bot/token.tk","r") as tokenfile:
@@ -21,54 +22,35 @@ insults = ["Stupid fat hobbit! ~Smeagol","Fool of a took! ~Gandalf","I would cut
 
 compliments = ["Well done, my dear hobbit!","{}, you should be counted amongst the wise of middleearth.","I could not have done it better myself!"]
 
-class PendingEvent():
-    def __init__(self,correct_ind,author,timestamp,channel):
-        self.correct_ind = correct_ind
-        self.author = author
-        self.timestamp = timestamp
-        self.channel = channel
-
 scoreboard = {}
-pending = []
 
 def format_questionString(user,num,question,answers):
     # random color
-    cl = discord.Color.from_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
-
-    embed = discord.Embed(color=cl)
+    color = discord.Color.from_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+    embed = discord.Embed(color=color)
     embed.set_author(name="{}'s {} trial in the Arts of Middle Earth trivia".format(user.display_name,ordinal(num)), icon_url=user.avatar_url)
     embed.title = question
+    embed.set_footer(text="A discord bot written in Python by JaWs")
     ans_str = ""
     for i in range(0,len(answers)):
         ans_str += "    {}) {}\n".format(i+1,answers[i])
     embed.description = ans_str
     return embed
 
-def createMsg(insult,user):
-    if insult:
-        msg = "`"+insults[random.randint(0,len(insults)-1)]+"`"
-    else:
-        msg = "`"+compliments[random.randint(0,len(compliments)-1)]+"`"
-    if "{}" in msg:
-        return msg.format(user)
-    return msg
+def createMsg(user,insult=True):
+    msg = insults[random.randint(0,len(insults)-1)] if insult else compliments[random.randint(0,len(compliments)-1)]
+    return msg if "{}" not in msg else msg.format(user.display_name)
 
 class MyClient(discord.Client):
 
     async def on_ready(self):
-        print("Booting up... ")
-        print("Setting status...")
-
-        # sets status to "watching Boromir die"
+        print("PreInit...")
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Boromir die"))
-        print("done.")
-        
         # importing the questions from the .csv file
-        print("Attempting to import the questions from questions.csv...")
+        print("Importing questions from questions.csv...")
         self.questions = []
         try:
             with open("questions.csv","r") as q_file:
-                # one line, one question
                 for line in q_file.readlines():
                     # strip the line of trailing whitespaces, then split at ', and cut the first and last element off
                     items = line.strip().split('\'')[1:-1]
@@ -100,36 +82,15 @@ class MyClient(discord.Client):
         
         print("online. All systems operational.")
 
-
     async def on_message(self, message):
         user = message.author
+        content = message.content
+        channel = message.channel
+
         if user == client.user:
             return
 
-        # check for user who sended the message
-        for pend_event in pending:
-
-            # if author and the channel matches
-            if user == pend_event.author and message.channel == pend_event.channel:
-
-                # try to parse the answer given to an int
-                content = scoreboard[user]
-                try:
-                    answer = int(message.content)
-                    # if answer is correct:
-                    if answer == pend_event.correct_ind:
-                        await message.channel.send(createMsg(False,user.display_name))
-                        scoreboard[user] = (scoreboard[user][0],content[1]+1)
-                    # if not:
-                    else:
-                        await message.channel.send(createMsg(True,user.display_name))
-                except ValueError:
-                    await message.channel.send(createMsg(True,user.display_name)+"\nThis is not a valid answer! Don't you know how to count to four?")
-                pending.remove(pend_event)
-                return
-        
-        # if the message is the trivia command
-        if message.content == "lotriv":
+        if content == "lotriv":
             # get random question
             answers = self.questions[random.randint(0,len(self.questions)-1)].copy()
             # strip the question (first element)
@@ -156,23 +117,27 @@ class MyClient(discord.Client):
 
             # send the question message
             await message.channel.send(embed=format_questionString(user,count,question,answers))
-            time.sleep(5)
-            await message.channel.send("yeet")
 
-            # create a new pending object
-            newpending = PendingEvent(ind,user,message.created_at,message.channel)
+            def check(m):
+                return m.author == user and m.channel == channel
+            try:
+                msg = await client.wait_for('message',check=check,timeout=15)
+            except asyncio.TimeoutError:
+                await message.channel.send(createMsg(user,insult=True)+"\nYou took to long to answer!")
+                return
 
-            # append to pending list (lol)
-            pending.append(newpending)
-
-        elif message.content == "lotrprofile":
-            if user in scoreboard:
-                content = scoreboard[user]
-                await message.channel.send("Profile for {}\n```Total played trivia games: {}\nTotal trivia won games   :{}".format(message.author.display_name,content[0],content[1]))
-
+            if msg.content.isdigit(): # if msg is a digit
+                if int(msg.content) == ind:
+                    await message.channel.send(createMsg(user,insult=False))
+                    scoreboard[user] = (scoreboard[user][0],scoreboard[user][1]+1) # increase the won games counter
+                else:
+                    await message.channel.send(createMsg(user,insult=True))
+            else: # not a digit
+                await message.channel.send(createMsg(user,insult=True)+"\nWhat is that supposed to be? Clearly not a digit...")
+                
 try:
     with open("scoreboard.pyobj", 'rb') as sc_file:
-        scoreboard =  pickle.load(sc_file)
+        scoreboard = pickle.load(sc_file)
 except (FileNotFoundError,EOFError):
     print("scoreboard file not found, skipping.")
 
