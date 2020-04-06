@@ -10,7 +10,7 @@ with open("/home/jakobw/.config/discord/bots/lotr-bot/token.tk","r") as tokenfil
 marker = '*'
 insults = ["Stupid fat hobbit! ~Smeagol","Fool of a took! ~Gandalf","I would cut off your head {}... if it stood but a little higher from the ground. ~Éomer",
 "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs? ~Saruman",
-"Hey, Stinker! Don't go getting too far behind. ~Sam"]
+"Hey, Stinker! Don't go getting too far behind. ~Sam","Feanor gave up because of your dumbness"]
 compliments = ["Well done, my dear hobbit!","{}, you should be counted amongst the wise of middleearth.","I could not have done it better myself!"]
 scoreboard = {}
 class PendingEvent():
