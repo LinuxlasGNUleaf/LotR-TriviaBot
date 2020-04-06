@@ -53,7 +53,7 @@ class MyClient(discord.Client):
             with open("questions.csv","r") as q_file:
                 for line in q_file.readlines():
                     # strip the line of trailing whitespaces, then split at ', and cut the first and last element off
-                    items = line.strip().split('\'')[1:-1]
+                    items = line.strip().split('\"')[1:-1]
 
                     # remove all entries that contain only ','
                     while ',' in items:
