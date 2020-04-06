@@ -4,7 +4,7 @@ import random
 import pickle
 import time
 
-with open("token.txt","r") as tokenfile:
+with open("/home/jakobw/.config/discord/bots/lotr-bot/token.tk","r") as tokenfile:
     token = tokenfile.readline().strip()
     
 marker = '*'
