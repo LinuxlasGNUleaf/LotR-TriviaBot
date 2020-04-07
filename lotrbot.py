@@ -15,6 +15,7 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4])
 
 # ==========================> CONFIG <==================================
 marker = '*'
+key = "lotr "
 
 insults = ["Stupid fat {}! ~Smeagol","Fool of a {}! ~Gandalf","I would cut off your head {}... if it stood but a little higher from the ground. ~Éomer",
 "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs? ~Saruman",
@@ -46,8 +47,8 @@ def createQuestion(user,num,question,answers):
 
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
-def createScoreboard(user):
-    played,wins = scoreboard[str(user)]
+def createProfile(user):
+    played,wins = scoreboard[user.id]
     ratio = wins/played
     color = (int(255-ratio*255),int(ratio*255),0)
     author_name = "{}'s results for their trials in the Art of Middle Earth trivia".format(user.display_name)
@@ -104,19 +105,18 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         user = message.author
-        name = str(user)
         content = message.content
         channel = message.channel
 
         if user == client.user or user in blocked:
             return
 
-        if content == "lotriv":
+        if content == key+"trivia":
 
             #get info from scoreboard
-            if name in scoreboard.keys():
-                print("user found in scoreboard!\n{}".format(scoreboard[name]))
-                count,wins = scoreboard[name]
+            if user.id in scoreboard.keys():
+                print("user found in scoreboard!\n{}".format(scoreboard[user.id]))
+                count,wins = scoreboard[user.id]
                 count += 1
             else:
                 print("user NOT found in scoreboard!")
@@ -148,13 +148,13 @@ class MyClient(discord.Client):
             def check(m):
                 return m.author == user and m.channel == channel
 
-            blocked.append(name)
+            blocked.append(user.id)
             try:
                 msg = await client.wait_for('message',check=check,timeout=15)
             except asyncio.TimeoutError:
                 await channel.send(createReply(user,insult=True)+"\nYou took too long to answer!")
                 return
-            blocked.remove(name)
+            blocked.remove(user.id)
 
             if msg.content.isdigit(): 
                 # if msg is a digit
@@ -169,14 +169,14 @@ class MyClient(discord.Client):
                 # not a digit
                 await channel.send(createReply(user,insult=True)+"\nWhat is that supposed to be? Clearly not a digit...")
             
-            scoreboard[name] = (count,wins)
+            scoreboard[user.id] = (count,wins)
 
 
-        elif content == "lotrscoreboard":
-            if name in scoreboard.keys():
-                await channel.send(embed=createScoreboard(user))
+        elif content == key+"profile":
+            if user.id in scoreboard.keys():
+                await channel.send(embed=createProfile(user))
             else:
-                await channel.send("You have to play a game of trivia before a scoreboard can be generated! use `lotriv` to take a quiz!")
+                await channel.send("You have to play a game of trivia before a profile can be generated! use `lotriv` to take a quiz!")
                 
 try:
     with open("scoreboard.pyobj", 'rb') as sc_file:
