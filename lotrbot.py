@@ -15,7 +15,7 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4])
 
 # ==========================> CONFIG <==================================
 marker = '*'
-key = "lotr "
+key = "lotr"
 
 insults = ["Stupid fat {}! ~Smeagol","Fool of a {}! ~Gandalf","I would cut off your head {}... if it stood but a little higher from the ground. ~Éomer",
 "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs? ~Saruman",
@@ -105,13 +105,13 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         user = message.author
-        content = message.content
+        content = message.content.lower()
         channel = message.channel
 
         if user == client.user or user in blocked:
             return
 
-        if content == key+"trivia":
+        if content == key+" trivia":
 
             #get info from scoreboard
             if user.id in scoreboard.keys():
@@ -172,7 +172,7 @@ class MyClient(discord.Client):
             scoreboard[user.id] = (count,wins)
 
 
-        elif content == key+"profile":
+        elif content == key+" profile":
             if user.id in scoreboard.keys():
                 await channel.send(embed=createProfile(user))
             else:
