@@ -13,9 +13,22 @@ with open("/home/jakobw/.config/discord/bots/lotr-bot/token.tk","r") as tokenfil
 # some lambda code stolen from Gareth on codegolf to create ordinals:
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4])
 
+# crappy ASCII art for hangman game
+states = [
+"\n\n\n\n\n\nililililillllililii",
+"    //\n    ||\n    ||\n    ||\n    ||    ||\nililililillllililii",
+"    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii",
+"    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii",
+"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii",
+"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||\n    ||\nililililillllililii",
+"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii",
+"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii"]
+
 # ==========================> CONFIG <==================================
 marker = '*'
 key = "lotr"
+
+footer = "A discord bot written in Python by JaWs"
 
 insults = ["Stupid fat {}! ~Smeagol","Fool of a {}! ~Gandalf","I would cut off your head {}... if it stood but a little higher from the ground. ~Éomer",
 "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs? ~Saruman",
@@ -40,7 +53,6 @@ def createQuestion(user,num,question,answers):
     author_name = "{}'s {} trial in the Arts of Middle Earth trivia".format(user.display_name,ordinal(num))
     icon_url = user.avatar_url
     title = question
-    footer = "A discord bot written in Python by JaWs"
     content = ""
     for i in range(0,len(answers)):
         content += "    {}) {}\n".format(i+1,answers[i])
@@ -55,8 +67,29 @@ def createProfile(user):
     icon_url = user.avatar_url
     title = "{}'s results".format(user.display_name)
     content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%".format(played,wins,round(ratio*100,2))
-    footer = "A discord bot written in Python by JaWs"
     return createEmbed(title,author_name,icon_url,content,color,footer)
+
+def createHangman(user,word,state,used_chars):
+    color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+    hangman = ""
+    for split_word in word.split(" "):
+        for char in split_word:
+            if char.lower() in used_chars:
+                hangman += char+" "
+            else:
+                hangman += "_ "
+        hangman += " "
+    hangman = hangman.strip()
+
+    used = ""
+    for char in used_chars:
+        used += ":{}: ".format(char)
+    used = used.strip()
+
+    content = hangman+"\n"+used+"\n"+states[state]
+
+    title = "Hangman game for {}".format(user.display_name)
+    return createEmbed(title,user.display_name,user.avatar_url,content,color,footer)
 
 def createReply(user,insult=True):
     msg = insults[random.randint(0,len(insults)-1)] if insult else compliments[random.randint(0,len(compliments)-1)]
@@ -68,39 +101,34 @@ class MyClient(discord.Client):
         print("PreInit...")
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Boromir die"))
         # importing the questions from the .csv file
-        print("Importing questions from questions.csv...")
+        print("Importing from csv files...")
         self.questions = []
-        try:
-            with open("questions.csv","r") as q_file:
-                for line in q_file.readlines():
-                    # strip the line of trailing whitespaces, then split at ', and cut the first and last element off
-                    items = line.strip().split('\"')[1:-1]
-
-                    # remove all entries that contain only ','
-                    while ',' in items:
-                        items.remove(',')
-
-                    # search for the (ultimate) answer
-                    for item in items: 
-                        # if item is marked
-                        if item.startswith(marker):
-
-                            # get index and remove marker, add the correct index (-1 for the question) to the back of the list
-                            index = items.index(item)
-                            items[index] = items[index][1:]
-                            items.append(index-1)
-                            break
-                    
-                    # add it to the questions
-                    self.questions.append(items)
-
-            print("done.")
         
-        # if file does not exist, exit.
-        except FileNotFoundError:
-            print("failed. questions.csv not found. Aborting.")
-            exit(-1)
+        # import questions
+        with open("questions.csv","r") as csvfile:
+            for line in csvfile.readlines():
+                # parse file to object
+                items = line.strip().split(',')
+                correct_ans_marked = False
+                for i in range(len(items)):
+                    items[i] = items[i][1:-1]
+                    if items[i].startswith(marker):
+                        if not correct_ans_marked:
+                            correct_ans_marked = True
+                            items[i] = items[i][1:]
+                            items.append(i-1)
+                        else:
+                            raise Exception("Too many marked answers!")
+
+                self.questions.append(items)
         
+        # import words for hangman
+        with open("words.csv","r") as csvfile:
+            self.words = csvfile.readline().strip().split(',')
+            for i in range(len(self.words)):
+                self.words[i] = self.words[i][1:-1]
+        print(self.words)
+
         print("online. All systems operational.")
 
     async def on_message(self, message):
@@ -177,6 +205,10 @@ class MyClient(discord.Client):
                 await channel.send(embed=createProfile(user))
             else:
                 await channel.send("You have to play a game of trivia before a profile can be generated! use `lotriv` to take a quiz!")
+        
+        elif content == key+" hangman":
+            word = self.words[random.randint(0,len(self.words))]
+            await channel.send(embed=createHangman(user,word,0,[]))
                 
 try:
     with open("scoreboard.pyobj", 'rb') as sc_file:
