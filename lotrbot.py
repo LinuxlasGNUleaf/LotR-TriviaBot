@@ -15,14 +15,17 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4])
 
 # crappy ASCII art for hangman game
 states = [
-"\n\n\n\n\n\nililililillllililii",
-"    //\n    ||\n    ||\n    ||\n    ||    ||\nililililillllililii",
-"    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii",
-"    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii",
-"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii",
-"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||\n    ||\nililililillllililii",
-"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii",
-"    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii"]
+"``` \n \n \n \n \n \nililililillllililii```",
+"```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```",
+"```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```",
+"```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```",
+"```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii```",
+"```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||\n    ||\nililililillllililii```",
+"```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii```",
+"```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```",
+"```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"]
+
+alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 # ==========================> CONFIG <==================================
 marker = '*'
@@ -69,27 +72,34 @@ def createProfile(user):
     content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%".format(played,wins,round(ratio*100,2))
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
-def createHangman(user,word,state,used_chars):
+def createHangman(user,word,state,used_chars,game_status):
+
     color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
     hangman = ""
     for split_word in word.split(" "):
         for char in split_word:
-            if char.lower() in used_chars:
+            if char.lower() in used_chars or game_status != 0:
                 hangman += char+" "
             else:
-                hangman += "_ "
+                hangman += "\_ "
         hangman += " "
     hangman = hangman.strip()
 
-    used = ""
-    for char in used_chars:
-        used += ":{}: ".format(char)
-    used = used.strip()
+    if used_chars:
+        used = "\nUsed letters: "
+        for char in used_chars:
+            used += ":regional_indicator_{}: ".format(char)
+        used = used.strip()
+    else:
+        used = ""
+    if game_status == 0:
+        content = states[state]+used
+    elif game_status == -1:
+        content = states[-2]+used+"\nGame over! You lost."
+    elif game_status == 1:
+        content = states[-1]+used+"\nGame over! You won!"
 
-    content = hangman+"\n"+used+"\n"+states[state]
-
-    title = "Hangman game for {}".format(user.display_name)
-    return createEmbed(title,user.display_name,user.avatar_url,content,color,footer)
+    return createEmbed(hangman,user.display_name,user.avatar_url,content,color,footer)
 
 def createReply(user,insult=True):
     msg = insults[random.randint(0,len(insults)-1)] if insult else compliments[random.randint(0,len(compliments)-1)]
@@ -205,10 +215,59 @@ class MyClient(discord.Client):
                 await channel.send(embed=createProfile(user))
             else:
                 await channel.send("You have to play a game of trivia before a profile can be generated! use `lotriv` to take a quiz!")
-        
+
+
         elif content == key+" hangman":
-            word = self.words[random.randint(0,len(self.words))]
-            await channel.send(embed=createHangman(user,word,0,[]))
+            word = self.words[random.randint(0,len(self.words)-1)]
+            
+            used_chars = []
+            state_ind = 0
+            state = states[0]
+
+            hangman_msg = await channel.send(embed=createHangman(user,word,0,[],0))
+            
+            def check(m):
+                return m.author == user and m.channel == channel and m.content.lower() in alpha and m.content.lower() not in used_chars
+
+            game = True
+
+            blocked.append(user.id)
+            while game:
+                try:
+                    msg = await client.wait_for('message',check=check,timeout=15)
+                    msg = msg.content.lower()
+                    used_chars.append(msg)
+                    used_chars.sort()
+                    if msg not in word:
+                        state_ind += 1
+                        state = states[state_ind]
+                    
+                    if state_ind == 7:
+                        await hangman_msg.edit(embed=createHangman(user,word,state,used_chars,-1))
+                        await channel.send("Game over! You lost all your lives!")
+                        game = False
+                        continue
+
+                    all_chars_found = True
+                    for char in word.lower():
+                        if char not in used_chars:
+                            all_chars_found = False
+                    
+                    if all_chars_found:
+                        await hangman_msg.edit(embed=createHangman(user,word,-1,used_chars,1))
+                        await channel.send("Congratulations! You won the game!")
+                        game = False
+                        continue
+
+                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,used_chars,0))
+                    
+                except asyncio.TimeoutError:
+                    await hangman_msg.edit(embed=createHangman(user,word,state,used_chars,True))
+                    await channel.send("Game over! You took too long to answer!")
+                    game = False
+            blocked.remove(user.id)
+        
+
                 
 try:
     with open("scoreboard.pyobj", 'rb') as sc_file:
