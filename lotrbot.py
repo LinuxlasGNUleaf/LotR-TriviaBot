@@ -72,8 +72,8 @@ def createProfile(user):
     content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%".format(played,wins,round(ratio*100,2))
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
-def createHangman(user,word,state_ind,used_chars,game_status):
-    ratio = (state_ind+1)/8
+def createHangman(user,word,state_ind,steps,used_chars,game_status):
+    ratio = (state_ind+1)*steps/8
     color = (int(255*ratio),int(255-255*ratio),0)
     hangman = ""
     for split_word in word.split(" "):
@@ -93,13 +93,13 @@ def createHangman(user,word,state_ind,used_chars,game_status):
     
     if game_status == 0:
         content = states[state_ind]+used
-        lives = 7-state_ind
+        lives = (7-state_ind)//steps
     elif game_status == -1:
         content = states[-2]+used+"\nGame over! You lost."
         lives = 0
     elif game_status == 1:
         content = states[-1]+used+"\nGame over! You won!"
-        lives = 7-state_ind
+        lives = (7-state_ind)//steps
 
     return createEmbed(hangman,user.display_name+"'s hangman game ({} lives left)".format(lives),user.avatar_url,content,color,footer)
 
@@ -133,13 +133,14 @@ class MyClient(discord.Client):
                             raise Exception("Too many marked answers!")
 
                 self.questions.append(items)
-        
+        print("successfully imported questions.csv")
+
         # import words for hangman
         with open("words.csv","r") as csvfile:
             self.words = csvfile.readline().strip().split(',')
             for i in range(len(self.words)):
                 self.words[i] = self.words[i][1:-1]
-        print(self.words)
+        print("successfully imported words.csv")
 
         print("online. All systems operational.")
 
@@ -225,24 +226,36 @@ class MyClient(discord.Client):
             used_chars = []
             state_ind = 0
 
-            hangman_msg = await channel.send(embed=createHangman(user,word,0,[],0))
+            if len(word) <= 6:
+                steps = 2
+            else:
+                steps = 1
+
+            hangman_msg = await channel.send(embed=createHangman(user,word,0,steps,[],0))
             
             def check(m):
-                return m.author == user and m.channel == channel and m.content.lower() in alpha and m.content.lower() not in used_chars
+                con = m.content.lower()
+                for char in con:
+                    if char not in alpha:
+                        return False
+                return m.author == user and m.channel == channel
 
             blocked.append(user.id)
             while True:
                 try:
                     msg = await client.wait_for('message',check=check,timeout=15)
                     msg = msg.content.lower()
+                    for char in msg[::-1]:
+                        if char in used_chars:
+                            msg[::-1].remove(char)
                     used_chars.append(msg)
                     used_chars.sort()
 
                     if msg not in word_condensed:
-                        state_ind += 1
+                        state_ind += steps
                     
-                    if state_ind == 7:
-                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,used_chars,-1))
+                    if state_ind >= 7:
+                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,-1))
                         await channel.send("Game over! You lost all your lives!")
                         break
 
@@ -252,19 +265,19 @@ class MyClient(discord.Client):
                             all_chars_found = False
                     
                     if all_chars_found:
-                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,used_chars,1))
+                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,1))
                         await channel.send("Congratulations! You won the game!")
                         break
 
-                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,used_chars,0))
+                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,0))
                     
                 except asyncio.TimeoutError:
-                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,used_chars,True))
+                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,True))
                     await channel.send("Game over! You took too long to answer!")
                     break
             blocked.remove(user.id)
-        
-                
+
+
 try:
     with open("scoreboard.pyobj", 'rb') as sc_file:
         scoreboard = pickle.load(sc_file)
