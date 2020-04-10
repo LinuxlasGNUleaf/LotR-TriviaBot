@@ -42,8 +42,12 @@ compliments = ["Well done, my dear {}!","{}, you should be counted amongst the w
 scoreboard = {}
 blocked = [] #temporarily blocked users (cannot issue commands)
 
+def map(x, in_min, in_max, out_min, out_max):
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
+
 def createEmbed(title,author_name,avatar_url,content,color,footnote):
-    embed = discord.Embed(color=discord.Color.from_rgb(color[0],color[1],color[2]))
+    embed = discord.Embed(color=discord.Color.from_rgb(int(color[0]),int(color[1]),int(color[2])))
     embed.set_author(name=author_name, icon_url=avatar_url)
     embed.title = title
     embed.set_footer(text=footnote)
@@ -52,6 +56,9 @@ def createEmbed(title,author_name,avatar_url,content,color,footnote):
 
 def createQuestion(user,num,question,answers):
     # random color
+    for i in range(len(answers)):
+        if answers[i].startswith("*"):
+            answers[i] = answers[i][1:]
     color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
     author_name = "{}'s {} trial in the Arts of Middle Earth trivia".format(user.display_name,ordinal(num))
     icon_url = user.avatar_url
@@ -64,8 +71,7 @@ def createQuestion(user,num,question,answers):
 
 def createProfile(user):
     played,wins = scoreboard[user.id]
-    ratio = wins/played
-    color = (int(255-ratio*255),int(ratio*255),0)
+    color = (map(wins/played,0,1,255,0),map(wins/played,0,1,0,255),0)
     author_name = "{}'s results for their trials in the Art of Middle Earth trivia".format(user.display_name)
     icon_url = user.avatar_url
     title = "{}'s results".format(user.display_name)
@@ -73,8 +79,7 @@ def createProfile(user):
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
 def createHangman(user,word,state_ind,steps,used_chars,game_status):
-    ratio = (state_ind+1)*steps/8
-    color = (int(255*ratio),int(255-255*ratio),0)
+    color = (map(state_ind,0,8,255,0),map(state_ind,0,7,0,255),0)
     hangman = ""
     for split_word in word.split(" "):
         for char in split_word:
@@ -119,20 +124,10 @@ class MyClient(discord.Client):
         # import questions
         with open("questions.csv","r") as csvfile:
             for line in csvfile.readlines():
-                # parse file to object
-                items = line.strip().split(',')
-                correct_ans_marked = False
-                for i in range(len(items)):
-                    items[i] = items[i][1:-1]
-                    if items[i].startswith(marker):
-                        if not correct_ans_marked:
-                            correct_ans_marked = True
-                            items[i] = items[i][1:]
-                            items.append(i-1)
-                        else:
-                            raise Exception("Too many marked answers!")
-
-                self.questions.append(items)
+                content = line.strip().split('"')[1:-1]
+                while "," in content:
+                    content.remove(",")
+                self.questions.append(content)
         print("successfully imported questions.csv")
 
         # import words for hangman
@@ -152,6 +147,7 @@ class MyClient(discord.Client):
         if user == client.user or user in blocked:
             return
 
+
         if content == key+" trivia":
 
             #get info from scoreboard
@@ -167,24 +163,12 @@ class MyClient(discord.Client):
             answers = self.questions[random.randint(0,len(self.questions)-1)].copy()
             # pop the question (first element)
             question = answers.pop(0)
-            # get the correct answer from the last element of the list
-            try:
-                correct_answer = answers[int(answers[len(answers)-1])]
-            except ValueError:
-                print("An error occured during retrieving the right index. Probably caused by a missing marker at the correct answer.\nThe question is: {}".format(question))
-                await channel.send("An error occured during parsing of the question. Please contact the developer at: `The_Legolas#1169`\nThe question was: `{}`".format(question))
-                return
-            # remove the last element (the correct index)
-            answers.pop()
 
             # shuffle answers
             random.shuffle(answers)            
 
-            # save the correct index, plus 1 (for GUI)
-            ind = answers.index(correct_answer) + 1
-
             # send the question message
-            await channel.send(embed=createQuestion(user,count,question,answers))
+            await channel.send(embed=createQuestion(user,count,question,answers.copy()))
 
             def check(m):
                 return m.author == user and m.channel == channel
@@ -195,20 +179,26 @@ class MyClient(discord.Client):
             except asyncio.TimeoutError:
                 await channel.send(createReply(user,insult=True)+"\nYou took too long to answer!")
                 return
-            blocked.remove(user.id)
 
-            if msg.content.isdigit(): 
+            blocked.remove(user.id)
+            msg = msg.content
+            if msg.isdigit(): 
                 # if msg is a digit
-                if int(msg.content) == ind:
-                    # right answer
-                    await channel.send(createReply(user,insult=False))
-                    wins += 1
+                msg = int(msg)-1
+                if msg in range(len(answers)):
+                    if answers[msg].startswith(marker):
+                        # right answer
+                        await channel.send(createReply(user,insult=False))
+                        wins += 1
+                    else:
+                        # invalid digit
+                        await channel.send(createReply(user,insult=True))
                 else:
-                    # wrong answer
-                    await channel.send(createReply(user,insult=True))
+                    # invalid digit
+                    await channel.send(createReply(user,insult=True)+"\nHmm... maybe next time picking a valid digit?")
             else: 
                 # not a digit
-                await channel.send(createReply(user,insult=True)+"\nWhat is that supposed to be? Clearly not a digit...")
+                await channel.send(createReply(user,insult=True)+"\nWhat is that supposed to be? Clearly not a positive digit...")
             
             scoreboard[user.id] = (count,wins)
 
@@ -234,10 +224,6 @@ class MyClient(discord.Client):
             hangman_msg = await channel.send(embed=createHangman(user,word,0,steps,[],0))
             
             def check(m):
-                con = m.content.lower()
-                for char in con:
-                    if char not in alpha:
-                        return False
                 return m.author == user and m.channel == channel
 
             blocked.append(user.id)
@@ -245,36 +231,42 @@ class MyClient(discord.Client):
                 try:
                     msg = await client.wait_for('message',check=check,timeout=15)
                     msg = msg.content.lower()
-                    for char in msg[::-1]:
-                        if char in used_chars:
-                            msg[::-1].remove(char)
-                    used_chars.append(msg)
-                    used_chars.sort()
-
-                    if msg not in word_condensed:
-                        state_ind += steps
-                    
-                    if state_ind >= 7:
-                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,-1))
-                        await channel.send("Game over! You lost all your lives!")
-                        break
-
-                    all_chars_found = True
-                    for char in word_condensed:
-                        if char not in used_chars:
-                            all_chars_found = False
-                    
-                    if all_chars_found:
-                        await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,1))
-                        await channel.send("Congratulations! You won the game!")
-                        break
-
-                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,0))
-                    
                 except asyncio.TimeoutError:
                     await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,True))
                     await channel.send("Game over! You took too long to answer!")
                     break
+                    
+                for i in range(len(msg)):
+                    if msg[i] not in alpha:
+                        msg.replace(msg[i],"")                      
+                
+                for char in msg:
+                    if char in used_chars:
+                        continue
+                    else:
+                        used_chars.append(char)
+                    if char not in word_condensed:
+                        state_ind += steps
+
+                used_chars.sort()
+                
+                if state_ind >= 7:
+                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,-1))
+                    await channel.send("Game over! You lost all your lives!")
+                    break
+
+                all_chars_found = True
+                for char in word_condensed:
+                    if char not in used_chars:
+                        all_chars_found = False
+                
+                if all_chars_found:
+                    await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,1))
+                    await channel.send("Congratulations! You won the game!")
+                    break
+                
+                await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,0))
+
             blocked.remove(user.id)
 
 
