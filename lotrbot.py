@@ -1,9 +1,7 @@
 # imports
 import discord
-import os
 import random
 import pickle
-import time
 import asyncio.exceptions
 
 # aquire token from file
@@ -79,7 +77,7 @@ def createProfile(user):
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
 def createHangman(user,word,state_ind,steps,used_chars,game_status):
-    color = (map(state_ind,0,8,255,0),map(state_ind,0,7,0,255),0)
+    color = (map(state_ind,0,8,0,255),map(state_ind,0,7,255,0),0)
     hangman = ""
     for split_word in word.split(" "):
         for char in split_word:
@@ -87,7 +85,7 @@ def createHangman(user,word,state_ind,steps,used_chars,game_status):
                 hangman += "__{}__ ".format(char)
             else:
                 hangman += '\_ '
-        hangman += " "
+        hangman += "  "
     hangman = hangman.strip()
 
     used = "Used letters:\n "
@@ -234,14 +232,10 @@ class MyClient(discord.Client):
                 except asyncio.TimeoutError:
                     await hangman_msg.edit(embed=createHangman(user,word,state_ind,steps,used_chars,True))
                     await channel.send("Game over! You took too long to answer!")
-                    break
-                    
-                for i in range(len(msg)):
-                    if msg[i] not in alpha:
-                        msg.replace(msg[i],"")                      
+                    break                   
                 
                 for char in msg:
-                    if char in used_chars:
+                    if char in used_chars or char not in alpha:
                         continue
                     else:
                         used_chars.append(char)
