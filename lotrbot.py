@@ -262,7 +262,7 @@ class MyClient(discord.Client):
                 await channel.send(embed=create_profile(user))
             else:
                 await channel.send("You have to play a game of trivia before a \
-                                   profile can be generated! use `lotriv` to take a quiz!")
+profile can be generated! use `lotriv` to take a quiz!")
 
 
         elif content == KEY+" hangman":
@@ -343,10 +343,10 @@ CLIENT = MyClient()
 try:
     CLIENT.run(TOKEN)
     print("\nShutting down...")
-    with open(SCOREBOARD_LOC, 'wb') as sc_file:
-        pickle.dump(SCOREBOARD, sc_file)
+    with open(SCOREBOARD_LOC, 'wb') as SC_FILE:
+        pickle.dump(SCOREBOARD, SC_FILE)
 
 except (KeyboardInterrupt, RuntimeError):
     print("\nCatched error... Shutting down...")
-    with open("scoreboard.pyobj", 'wb') as sc_file:
-        pickle.dump(SCOREBOARD, sc_file)
+    with open(SCOREBOARD_LOC, 'wb') as SC_FILE:
+        pickle.dump(SCOREBOARD, SC_FILE)
