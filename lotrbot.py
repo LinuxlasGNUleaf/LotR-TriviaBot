@@ -1,3 +1,4 @@
+# coding=utf-8
 # imports
 import discord
 import random
@@ -80,7 +81,7 @@ def createProfile(user):
     author_name = "{}'s results for their trials in the Art of Middle Earth trivia".format(user.display_name)
     icon_url = user.avatar_url
     title = "{}'s results".format(user.display_name)
-    content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%".format(played,wins,round(ratio*100,2))
+    content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%".format(played,wins,round(wins/played*100,2))
     return createEmbed(title,author_name,icon_url,content,color,footer)
 
 def createHangman(user,word,state_ind,steps,used_chars,game_status):
