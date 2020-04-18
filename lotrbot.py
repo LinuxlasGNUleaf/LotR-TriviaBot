@@ -24,15 +24,15 @@ STATES = [
     "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```",
     "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```",
     "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nil\
-        ilililillllililii```",
+ilililillllililii```",
     "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-        ||\n    ||\nililililillllililii```",
+||\n    ||\nililililillllililii```",
     "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-        ||   /\n    ||\nililililillllililii```",
+||   /\n    ||\nililililillllililii```",
     "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-        ||   / \\\n    ||\nililililillllililii```",
+||   / \\\n    ||\nililililillllililii```",
     "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n \
-           ||   / \\\nililililillllililii```"]
+   ||   / \\\nililililillllililii```"]
 
 ALPHA = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
          'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -57,10 +57,17 @@ COMPLIMENTS = ["Well done, my dear {}!",
 SCOREBOARD = {}
 BLOCKED = [] #temporarily blocked users (cannot issue commands)
 
+def constrain_val(val, in_min, in_max):
+    """
+    constrains a value in a range
+    """
+    return min(max(val, in_min), in_max)
+
 def map_vals(val, in_min, in_max, out_min, out_max):
     """
     maps a value in a range to another range
     """
+    val = constrain_val(val, in_min, in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 # algorithm R(3.4.2) (Waterman's "Reservoir Algorithm")
@@ -91,17 +98,17 @@ def create_question(user, num, question, answers):
     create Trivia question
     """
     # random color
-    for i in enumerate(answers):
-        if answers[i].startswith("*"):
-            answers[i] = answers[i][1:]
+    for num, cont in enumerate(answers):
+        if cont.startswith(MARKER):
+            answers[num] = cont[1:]
     color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     author_name = "{}'s {} trial in the Arts of Middle Earth trivia"\
                   .format(user.display_name, ORDINAL(num))
     icon_url = user.avatar_url
     title = question
     content = ""
-    for i in enumerate(answers):
-        content += "    {}) {}\n".format(i+1, answers[i])
+    for num, cont in enumerate(answers):
+        content += "    {}) {}\n".format(num+1, cont)
 
     return create_embed(title, author_name, icon_url, content, color, FOOTER)
 
