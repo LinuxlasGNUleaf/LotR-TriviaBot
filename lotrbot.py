@@ -2,6 +2,7 @@
 A LotR-bot written by JaWs
 """
 # coding=utf-8
+
 # imports
 import random
 import pickle
@@ -9,11 +10,8 @@ import asyncio
 import os
 import discord
 
-# aquire token from file
-with open(os.path.join(os.getenv("HOME"),\
-    ".config/discord/bots/lotr-bot/token.tk"), "r") as tokenfile:
-    TOKEN = tokenfile.readline().strip()
 
+# ==========================> UTILS <==================================
 # some lambda code stolen from Gareth on codegolf to create ordinals:
 ORDINAL = lambda n: "%d%s" % (n, "tsnrhtdd"[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
@@ -40,8 +38,10 @@ ALPHA = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 # ==========================> CONFIG <==================================
 MARKER = '*'
 KEY = "lotr"
-
 FOOTER = "A discord bot written in Python by JaWs"
+
+TOKEN_LOC = os.path.join(os.getenv("HOME"), ".config/discord/bots/lotr-bot/token.tk")
+SCOREBOARD_LOC = os.path.join(os.getenv("HOME"), ".config/discord/bots/lotr-bot/scoreboard.pyobj")
 
 INSULTS = ["Stupid fat {}!", "Fool of a {}!",
            "I would cut off your head {}... if it stood but a little higher from the ground.",
@@ -54,9 +54,12 @@ COMPLIMENTS = ["Well done, my dear {}!",
                "{}, you should be counted amongst the wise of middleearth.",
                "Very good {}, I could not have done it better myself!"]
 
+
+# ==========================> LISTS <==================================
 SCOREBOARD = {}
 BLOCKED = [] #temporarily blocked users (cannot issue commands)
 
+# ==========================> FUNCTIONS <==================================
 def constrain_val(val, in_min, in_max):
     """
     constrains a value in a range
@@ -170,6 +173,7 @@ def create_reply(user, insult=True):
         msg = random.choice(COMPLIMENTS)
     return msg if "{}" not in msg else msg.format(user.display_name)
 
+# ==========================> CLIENT <==================================
 class MyClient(discord.Client):
     """
     Bot client, inheriting from discord.Client
@@ -321,8 +325,13 @@ class MyClient(discord.Client):
             BLOCKED.remove(user.id)
 
 
+# ==========================> STARTUP <==================================
+# aquire token from file
+with open(TOKEN_LOC, "r") as tokenfile:
+    TOKEN = tokenfile.readline().strip()
+
 try:
-    with open("scoreboard.pyobj", 'rb') as SC_FILE:
+    with open(SCOREBOARD_LOC, 'rb') as SC_FILE:
         SCOREBOARD = pickle.load(SC_FILE)
         print("successfully loaded scoreboard.pyobj")
 except (FileNotFoundError, EOFError):
@@ -334,7 +343,7 @@ CLIENT = MyClient()
 try:
     CLIENT.run(TOKEN)
     print("\nShutting down...")
-    with open("scoreboard.pyobj", 'wb') as sc_file:
+    with open(SCOREBOARD_LOC, 'wb') as sc_file:
         pickle.dump(SCOREBOARD, sc_file)
 
 except (KeyboardInterrupt, RuntimeError):
