@@ -43,6 +43,13 @@ blocked = [] #temporarily blocked users (cannot issue commands)
 def map(x, in_min, in_max, out_min, out_max):
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
+# algorithm R(3.4.2) (Waterman's "Reservoir Algorithm")
+def random_line(afile):
+    line = next(afile)
+    for num, aline in enumerate(afile, 2):
+      if random.randrange(num): continue
+      line = aline
+    return line
 
 def createEmbed(title,author_name,avatar_url,content,color,footnote):
     embed = discord.Embed(color=discord.Color.from_rgb(int(color[0]),int(color[1]),int(color[2])))
@@ -115,26 +122,6 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print("PreInit...")
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Boromir die"))
-        # importing the questions from the .csv file
-        print("Importing from csv files...")
-        self.questions = []
-        
-        # import questions
-        with open("questions.csv","r") as csvfile:
-            for line in csvfile.readlines():
-                content = line.strip().split('"')[1:-1]
-                while "," in content:
-                    content.remove(",")
-                self.questions.append(content)
-        print("successfully imported questions.csv")
-
-        # import words for hangman
-        with open("words.csv","r") as csvfile:
-            self.words = csvfile.readline().strip().split(',')
-            for i in range(len(self.words)):
-                self.words[i] = self.words[i][1:-1]
-        print("successfully imported words.csv")
-
         print("online. All systems operational.")
 
     async def on_message(self, message):
@@ -150,23 +137,23 @@ class MyClient(discord.Client):
 
             #get info from scoreboard
             if user.id in scoreboard.keys():
-                print("user found in scoreboard!\n{}".format(scoreboard[user.id]))
                 count,wins = scoreboard[user.id]
                 count += 1
             else:
-                print("user NOT found in scoreboard!")
                 count,wins = (1,0)
             
             # get random question
-            answers = self.questions[random.randint(0,len(self.questions)-1)].copy()
+            with open("questions.csv","r") as csvfile:
+                content = random_line(csvfile).strip().split('"')[1:-1]
+                while "," in content[::-1]:
+                    content.remove(",")
             # pop the question (first element)
-            question = answers.pop(0)
-
+            question = content.pop(0)
             # shuffle answers
-            random.shuffle(answers)            
+            random.shuffle(content)            
 
             # send the question message
-            await channel.send(embed=createQuestion(user,count,question,answers.copy()))
+            await channel.send(embed=createQuestion(user,count,question,content.copy()))
 
             def check(m):
                 return m.author == user and m.channel == channel
@@ -183,8 +170,8 @@ class MyClient(discord.Client):
             if msg.isdigit(): 
                 # if msg is a digit
                 msg = int(msg)-1
-                if msg in range(len(answers)):
-                    if answers[msg].startswith(marker):
+                if msg in range(len(content)):
+                    if content[msg].startswith(marker):
                         # right answer
                         await channel.send(createReply(user,insult=False))
                         wins += 1
@@ -209,12 +196,14 @@ class MyClient(discord.Client):
 
 
         elif content == key+" hangman":
-            word = self.words[random.randint(0,len(self.words)-1)]
+            # import words for hangman
+            with open("words.csv","r") as csvfile:
+                word = random.choice(csvfile.readline().strip().split(','))[1:-1]
             word_condensed = word.lower().replace(" ","")
             used_chars = []
             state_ind = 0
 
-            if len(word) <= 6:
+            if len(word_condensed) <= 6:
                 steps = 2
             else:
                 steps = 1
