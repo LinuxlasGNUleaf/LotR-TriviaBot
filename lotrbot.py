@@ -6,11 +6,12 @@ A LotR-bot written by JaWs
 import random
 import pickle
 import asyncio
-
+import os
 import discord
 
 # aquire token from file
-with open("~/.config/discord/bots/lotr-bot/token.tk", "r") as tokenfile:
+with open(os.path.join(os.getenv("HOME"),\
+    ".config/discord/bots/lotr-bot/token.tk"), "r") as tokenfile:
     TOKEN = tokenfile.readline().strip()
 
 # some lambda code stolen from Gareth on codegolf to create ordinals:
