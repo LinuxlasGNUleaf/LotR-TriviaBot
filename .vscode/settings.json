@@ -1,4 +1,5 @@
 {
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "/home/jakobw/.pyenv/versions/3.6.9/bin/python"
 }
