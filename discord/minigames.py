@@ -127,7 +127,8 @@ def create_trivia_question(user, scoreboard, config):
         while "," in content[::-1]:
             content.remove(",")
 
-    # pop the question (first element)
+    # pop the source and the question (first element)
+    source = content.pop(0)
     question = content.pop(0)
     # shuffle answers
     random.shuffle(content)
@@ -141,19 +142,19 @@ def create_trivia_question(user, scoreboard, config):
             correct_index = num+1
 
     title = question
-    embed_text = ""
+    embed_text = "```markdown"
     for num, cont in enumerate(answers):
         embed_text += "    {}) {}\n".format(num+1, cont)
-
+    embed_text += "```\nsource: {}".format(source)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
     return (create_embed(title, author_name, icon_url, embed_text, color, config.FOOTER), correct_index, len(answers))
 
-def create_trivia_reply(user, msg, timeout, scoreboard, correct_index, len_answers, config):
+def create_trivia_reply(user, msg, scoreboard, correct_index, len_answers, config):
     """
     creates an appropiate reply to a trivia question. changes scoreboard according to outcome.
     """
-    if timeout:
+    if not msg:
         return create_reply(user, True, config)+"\nYou took too long to answer!"
 
     if user.id in scoreboard.keys():
@@ -165,7 +166,7 @@ def create_trivia_reply(user, msg, timeout, scoreboard, correct_index, len_answe
     if msg.isdigit():
         # if msg is a digit
         msg = int(msg)
-        if msg > 0 and msg < len_answers:
+        if msg > 0 and msg <= len_answers:
             if msg == correct_index:
                 # right answer
                 wins += 1
@@ -180,7 +181,7 @@ def create_trivia_reply(user, msg, timeout, scoreboard, correct_index, len_answe
     else:
         # not a digit
         ret_string = create_reply(user, True, config) + \
-            "\nWhat is that supposed to be? Clearly not a positive digit..."
+            "\nWhat is that supposed to be? Clearly not a digit..."
 
     scoreboard[user.id] = (count+1, wins)
     return ret_string

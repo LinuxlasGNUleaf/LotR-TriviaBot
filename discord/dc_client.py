@@ -29,7 +29,7 @@ class LotrBot(discord.Client):
 
         if message.author == self.user or message.author.id in self.blocked:
             return
-        
+
         user = message.author
         content = message.content.lower()
         channel = message.channel
@@ -38,21 +38,18 @@ class LotrBot(discord.Client):
             # send the question message
             embed, correct_ind, len_answers = minigames.create_trivia_question(user, self.scoreboard, self.config)
             await channel.send(embed=embed)
-            
+
             def check(chk_msg):
                 return chk_msg.author == user and chk_msg.channel == channel
 
             self.blocked.append(user.id)
             try:
                 msg = await self.wait_for('message', check=check, timeout=15)
-                timeout = False
             except asyncio.TimeoutError:
-                timeout = True
                 msg = ""
             self.blocked.remove(user.id)
 
-
-            reply = minigames.create_trivia_reply(user, msg, timeout, self.scoreboard, correct_ind, len_answers, self.config)
+            reply = minigames.create_trivia_reply(user, msg, self.scoreboard, correct_ind, len_answers, self.config)
             await channel.send(reply)
 
 
@@ -73,7 +70,8 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
 
             self.blocked.append(user.id)
 
-            while True:
+            failed = False
+            while not failed:
                 try:
                     msg = await self.wait_for('message', check=check, timeout=15)
                 except asyncio.TimeoutError:
@@ -83,7 +81,5 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                 await hangman_msg.edit(embed=embed)
                 if message:
                     await channel.send(message)
-                if failed:
-                    break
 
             self.blocked.remove(user.id)

@@ -37,12 +37,12 @@ with open(lotr_config.REDDIT_CREDENTIALS, "r") as tokenfile:
     username = info[2]
     password = info[3]
 
-reddit = praw.Reddit(client_id=client_id,
-                     client_secret=client_secret,
-                     password=password,
-                     user_agent="reddit post yoinker by /u/_LegolasGreenleaf",
-                     username=username)
-print(reddit.user.me())
+# reddit = praw.Reddit(client_id=client_id,
+#                      client_secret=client_secret,
+#                      password=password,
+#                      user_agent="reddit post yoinker by /u/_LegolasGreenleaf",
+#                      username=username)
+# print(reddit.user.me())
 
 try:
     with open(lotr_config.SCOREBOARD_LOC, 'rb') as SC_FILE:

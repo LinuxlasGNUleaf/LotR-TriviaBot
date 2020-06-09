@@ -78,7 +78,7 @@ def set_prefs(prefs):
 
     # If `True`, rope ignores unresolvable imports.  Otherwise, they
     # appear in the importing namespace.
-    prefs['ignore_bad_imports'] = False
+    prefs['ignore_bad_imports'] = True
 
     # If `True`, rope will insert new module imports as
     # `from <package> import <module>` by default.

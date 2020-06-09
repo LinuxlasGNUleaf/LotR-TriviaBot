@@ -32,7 +32,7 @@ INSULTS = ["Stupid fat {}!", "Fool of a {}!",
            "Dotard! What is the house of {} but a thatched barn where brigands \
 drink in the reek, and their brats roll on the floor among the dogs?",
            "Hey, {}! Don't go getting too far behind. ~Sam", "Feanor gave up because of \
-your stupidity, {}!"]
+your stupidity, {}!","Feanor did nothing wrong, but the same can not be said about you, {}!"]
 
 COMPLIMENTS = ["Well done, my dear {}!",
                "{}, you should be counted amongst the wise of middleearth.",
