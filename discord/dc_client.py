@@ -1,4 +1,6 @@
+import os
 import asyncio
+
 import discord
 
 import minigames
@@ -11,6 +13,10 @@ class LotrBot(discord.Client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
+        self.autoscript = True
+        self.script = []
+        self.script_condensed = []
+        minigames.parseScript('lotr_fellowship.txt', self.script, self.script_condensed)
         super().__init__()
 
     async def on_ready(self):
@@ -34,7 +40,22 @@ class LotrBot(discord.Client):
         content = message.content.lower()
         channel = message.channel
 
-        if content == self.config.KEY+" trivia":
+        if content.startswith(self.config.KEY+" config "):
+            content = content.split(" ")[2:]
+            if content[0] == "autoscript":
+                if content[1] == "true":
+                    self.autoscript = True
+                    await channel.send("option `autoscript` was enabled!")
+                elif content[1] == "false":
+                    self.autoscript = False
+                    await channel.send("option `autoscript` was disabled!")
+                else:
+                    await channel.send("status for option `autoscript` was not recognized!")
+            else:
+                await channel.send("option `{}` was not recognized!".format(content[0]))
+
+
+        elif content == self.config.KEY+" trivia":
             # send the question message
             embed, correct_ind, len_answers = minigames.create_trivia_question(user, self.scoreboard, self.config)
             await channel.send(embed=embed)
@@ -83,3 +104,30 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                     await channel.send(message)
 
             self.blocked.remove(user.id)
+        
+        else:
+            result = minigames.findSimilarfromScript(message.content, self.script_condensed)
+            punctuations = [".", "?", "!"]
+            if result != -1:
+                ind, line_ind = result
+                print(result)
+                line = self.script[ind].split("|")[1]
+                parts = []
+                punctuation_found = False
+                temp = ""
+                for char in line:
+                    if char in punctuations:
+                        punctuation_found = True
+                    elif punctuation_found:
+                        punctuation_found = False
+                        parts.append(temp.strip())
+                        temp = ""
+                    temp += char
+                
+                print(parts)
+                if (line_ind < len(parts)-1):
+                    temp = ""
+                    print(parts[line_ind+1:])
+                    for part in parts[line_ind+1:]:
+                        temp += part+" "
+                    await channel.send(temp)

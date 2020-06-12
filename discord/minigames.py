@@ -3,6 +3,10 @@ The LotR-Bot discord integration. This is the main class for the bot.
 """
 import random
 import discord
+from difflib import SequenceMatcher
+
+PUNCTUATION_CHARS = ["?", "!"]
+ELIMINATION_CHARS = ["'", ","]
 
 def constrain_val(val, in_min, in_max):
     """
@@ -28,6 +32,9 @@ def random_line(afile):
             continue
         line = aline
     return line
+
+def matchSequences(a, b):
+    return SequenceMatcher(None, a, b).ratio()
 
 def create_embed(title, author_name, avatar_url, content, color, footnote):
     """
@@ -140,11 +147,12 @@ def create_trivia_question(user, scoreboard, config):
         if answers[num].startswith(config.MARKER):
             answers[num] = answers[num][1:]
             correct_index = num+1
+            break
 
     title = question
-    embed_text = "```markdown"
+    embed_text = "```markdown\n"
     for num, cont in enumerate(answers):
-        embed_text += "    {}) {}\n".format(num+1, cont)
+        embed_text += "{}. {}\n".format(num+1, cont)
     embed_text += "```\nsource: {}".format(source)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
@@ -254,3 +262,88 @@ def update_hangman_game(user, msg, game_info, config):
     ret_str = ""
     ret_break = False
     return (ret_embed, ret_break, ret_str, game_info)
+
+def parseScript(file, arr, condensed_arr):
+    with open(file, "r") as script:
+        temp = ""
+        last = ""
+        for line in script:
+            line = line.strip()
+
+            if not line and temp:
+                arr.append(temp)
+                temp = ""
+            else:
+                temp += line
+                if last:
+                    temp += " "
+                if not last and line != "STOP":
+                    temp += "|"
+
+            last = line
+
+    for line in arr:
+        if line.startswith("STOP"):
+            condensed_arr.append("STOP")
+            continue
+
+        line = line.lower().split('|', 1)[1]
+
+        for char in PUNCTUATION_CHARS:
+            line = line.replace(char, ".")
+
+        for char in ELIMINATION_CHARS:
+            line = line.replace(char, "")
+
+        temp = []
+        for item in list(filter(("").__ne__, line.split("."))):
+            item = item.strip()
+            if len(item.split(" ")) > 2:
+                temp.append(item)
+
+        condensed_arr.append(temp)
+
+def findSimilarfromScript(msg, condensed_arr):
+    msg = msg.lower()
+    for char in PUNCTUATION_CHARS:
+        msg = msg.replace(char, ".")
+
+    for char in ELIMINATION_CHARS:
+        msg = msg.replace(char, "")
+
+    msg = msg.split(".")
+    found_parts = {}
+
+    for msg_part in msg:
+        for line in condensed_arr:
+            if not line:
+                continue
+            if isinstance(line, str):
+                if line == "STOP":
+                    continue
+            for line_part in line:
+                ratio = matchSequences(line_part, msg_part)
+                if ratio > 0.85:
+                    arr_ind = condensed_arr.index(line)
+                    line_ind = line.index(line_part)
+                    print("found match in line {}, confidence: {} part: {}".format(arr_ind, ratio, line_ind))
+                    if arr_ind in found_parts.keys():
+                        if found_parts[arr_ind][0] < line_ind:
+                            print("line already matched, but later part found! Updating...")
+                            found_parts[arr_ind] = (line_ind, max(found_parts[arr_ind][1], ratio))
+                    else:
+                        print("line not yet matched! Creating entry...")
+                        found_parts[arr_ind] = (line_ind, ratio)
+
+
+    if found_parts.keys():
+        max_conf = 0
+        current_ind = -1
+        for key, entry in found_parts.items():
+            if entry[1] > max_conf:
+                max_conf = entry[1]
+                current_ind = key
+        return (current_ind, found_parts[current_ind][0])
+
+    else:
+        return -1
