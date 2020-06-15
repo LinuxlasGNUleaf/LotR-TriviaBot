@@ -322,7 +322,7 @@ def findSimilarfromScript(msg, condensed_arr):
                 if line == "STOP":
                     continue
             for line_part in line:
-		print(msg_part+" "+line_part)
+		        print(msg_part+" "+line_part)
                 ratio = matchSequences(line_part, msg_part)
                 if ratio > 0.85:
                     arr_ind = condensed_arr.index(line)
