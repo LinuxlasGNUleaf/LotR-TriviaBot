@@ -5,7 +5,7 @@ import random
 import discord
 from difflib import SequenceMatcher
 
-PUNCTUATION_CHARS = ["?", "!", "."]
+PUNCTUATION_CHARS = ["?", "!", ".", ":"]
 ELIMINATION_CHARS = ["'", ","]
 
 def constrain_val(val, in_min, in_max):
