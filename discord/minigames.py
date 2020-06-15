@@ -5,7 +5,7 @@ import random
 import discord
 from difflib import SequenceMatcher
 
-PUNCTUATION_CHARS = ["?", "!"]
+PUNCTUATION_CHARS = ["?", "!", "."]
 ELIMINATION_CHARS = ["'", ","]
 
 def constrain_val(val, in_min, in_max):
@@ -288,20 +288,20 @@ def parseScript(file, arr, condensed_arr):
             continue
 
         line = line.lower().split('|', 1)[1]
-
-        for char in PUNCTUATION_CHARS:
-            line = line.replace(char, ".")
-
-        for char in ELIMINATION_CHARS:
-            line = line.replace(char, "")
-
-        temp = []
-        for item in list(filter(("").__ne__, line.split("."))):
-            item = item.strip()
-            if len(item.split(" ")) > 2:
-                temp.append(item)
-
-        condensed_arr.append(temp)
+        punctuation_found = False
+        temp_arr = []
+        
+        for char in line:
+            if char in ELIMINATION_CHARS:
+                continue
+            if char in PUNCTUATION_CHARS:
+                punctuation_found = True
+            elif punctuation_found:
+                punctuation_found = False
+                temp_arr.append(temp.strip())
+                temp = ""
+            temp += char
+        condensed_arr.append(temp_arr)
 
 def findSimilarfromScript(msg, condensed_arr):
     msg = msg.lower()
@@ -322,17 +322,15 @@ def findSimilarfromScript(msg, condensed_arr):
                 if line == "STOP":
                     continue
             for line_part in line:
+		print(msg_part+" "+line_part)
                 ratio = matchSequences(line_part, msg_part)
                 if ratio > 0.85:
                     arr_ind = condensed_arr.index(line)
                     line_ind = line.index(line_part)
-                    print("found match in line {}, confidence: {} part: {}".format(arr_ind, ratio, line_ind))
                     if arr_ind in found_parts.keys():
                         if found_parts[arr_ind][0] < line_ind:
-                            print("line already matched, but later part found! Updating...")
                             found_parts[arr_ind] = (line_ind, max(found_parts[arr_ind][1], ratio))
                     else:
-                        print("line not yet matched! Creating entry...")
                         found_parts[arr_ind] = (line_ind, ratio)
 
 

@@ -1,4 +1,3 @@
-import os
 import asyncio
 
 import discord
@@ -104,14 +103,14 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                     await channel.send(message)
 
             self.blocked.remove(user.id)
-        
+
         else:
             result = minigames.findSimilarfromScript(message.content, self.script_condensed)
             punctuations = [".", "?", "!"]
             if result != -1:
+                # message.add_reaction(discord.Emoji(self.guild,":white_check_mark:"))
                 ind, line_ind = result
-                print(result)
-                line = self.script[ind].split("|")[1]
+                author, line = self.script[ind].split("|")
                 parts = []
                 punctuation_found = False
                 temp = ""
@@ -123,11 +122,14 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                         parts.append(temp.strip())
                         temp = ""
                     temp += char
-                
-                print(parts)
+
                 if (line_ind < len(parts)-1):
                     temp = ""
-                    print(parts[line_ind+1:])
                     for part in parts[line_ind+1:]:
                         temp += part+" "
-                    await channel.send(temp)
+                    await channel.send("**{}**: ... {}".format(author.title(), temp))
+
+                if (ind < len(self.script)-1):
+                    if self.script[ind+1] != "STOP":
+                        author, text = self.script[ind+1].split("|")
+                        await channel.send("**{}**: {}".format(author.title(), text))

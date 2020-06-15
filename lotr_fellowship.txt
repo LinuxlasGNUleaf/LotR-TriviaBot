@@ -1,7 +1,7 @@
 GALADRIEL
 The world is changed: I feel it in the
 water, I feel it in the earth, I smell it
-in the air...Much that once was is lost,
+in the air. Much that once was is lost,
 for none now live who remember it.
 
 GALADRIEL
@@ -10,14 +10,14 @@ Rings.
 
 GALADRIEL
 Three were given to the Elves, immortal,
-wisest...fairest of all beings.
+wisest and fairest of all beings.
 
 GALADRIEL
 Seven to the Dwarf Lords, great miners
 and craftsmen of the mountain halls.
 
 GALADRIEL
-And Nine...nine rings were gifted to the
+And Nine, nine rings were gifted to the
 race of Men who, above all else, desire
 power.
 
@@ -29,7 +29,7 @@ GALADRIEL
 But they were all of them deceived.
 
 GALADRIEL
-...for another ring was made.
+for another ring was made.
 
 GALADRIEL
 In the land of Mordor, in the fires of
@@ -38,19 +38,19 @@ in secret a Master Ring to control all
 others.
 
 GALADRIEL
-...and into this Ring he poured his
+and into this Ring he poured his
 cruelty, his malice and his will to
 dominate all life.
 
 GALADRIEL
-One Ring to rule them all...
+One Ring to rule them all.
 
 GALADRIEL
 One by one the Free lands of Middle earth
 fell to the power of the ring.
 
 GALADRIEL
-But there were some...who resisted.
+But there were some who resisted.
 
 GALADRIEL
 A last alliance of Men and Elves marched
@@ -77,7 +77,7 @@ Sauron, the enemy of the Free Peoples of
 Middle Earth, was defeated.
 
 GALADRIEL
-The Ring passed to Isildur...who had this
+The Ring passed to Isildur, who had this
 one chance to destroy evil forever.
 
 GALADRIEL
@@ -90,10 +90,10 @@ It betrayed Isildur to his death.
 
 GALADRIEL
 And some things that should not have been
-forgotten...were lost.
+forgotten, were lost.
 
 GALADRIEL
-History became legend...legend became
+History became legend, legend became
 myth.
 
 GALADRIEL
@@ -105,7 +105,7 @@ Until, when chance came, it ensnared a
 new bearer!
 
 GOLLUM
-My Precious...
+My Precious.
 
 GALADRIEL
 The Ring came to the creature Gollum, who
@@ -113,44 +113,38 @@ took it deep into the tunnels of the
 Misty Mountains.
 
 GALADRIEL
-And there, it consumed him. A RASPY VOICE
-mutters in the half light...
+And there, it consumed him.
 
 GOLLUM
-It came to me. My own. My love...
-(ecstatic whisper)
-My preciousness.
+It came to me. My own. My love,
+my preciousness.
 
 GALADRIEL
 The Ring brought to Gollum unnatural long
 life. For five hundred years it poisoned
 his mind. And in the gloom of Gollum's
-cave...
-
-GALADRIEL
-It waited.
+cave, it waited.
 
 GALADRIEL
 Darkness crept back into the forests of
 the world. Rumor grew of a Shadow in the
-East...whispers of a nameless fear. And
-the Ring of Power perceived...its time
+East. Whispers of a nameless fear. And
+the Ring of Power perceived its time
 had now come. It abandoned Gollum.
 
 GALADRIEL
 But something happened then the Ring did
-not intend...
+not intend.
 
 GALADRIEL
 It was picked up by the most unlikely
-creature imaginable...
+creature imaginable.
 
 BILBO
-(to himself)
 What's this?
 
 GALADRIEL
-A Hobbit....Bilbo Baggins of the Shire.
+A Hobbit. Bilbo Baggins of the Shire.
 
 BILBO
 (surprised)
@@ -186,17 +180,14 @@ everything!
 
 GANDALF
 What, everything? Far too eager and
-curious for a Hobbit. Most unnatural...
+curious for a Hobbit. Most unnatural.
 
 GANDALF
 Well, what can I tell you? Life in the
 wide world goes on much as if it has past
 age. Full of its own comings and goings,
 scarcely even aware of the existence of
-Hobbits...
-
-GANDALF
-...for which I am very thankful.
+Hobbits, for which I am very thankful.
 
 STOP
 
@@ -206,14 +197,14 @@ the old rascal? I hear it's going to be
 a Party of Special Magnificence.
 
 FRODO
-You know Bilbo...he's got he whole place
+You know Bilbo. He's got he whole place
 in an uproar.
 
 GANDALF
-Oh, well...that should please him.
+Oh, well. That should please him.
 
 FRODO
-Half the Shire's been invited...
+Half the Shire's been invited.
 
 GANDALF
 Good gracious, me.
@@ -225,7 +216,7 @@ GANDALF
 Oh, really?
 
 FRODO
-Alright then..keep your secrets. Before
+Alright then. Keep your secrets. Before
 you came along we Bagginses were very
 well thought of.
 
@@ -238,12 +229,12 @@ unexpected.
 
 GANDALF
 If you're referring to the incident with
-the Dragon...I was barely involved...all
+the Dragon, i was barely involved. All
 I did was give your Uncle a little nudge
 out the door.
 
 FRODO
-Whatever you did...you've been officially
+Whatever you did, you've been officially
 labelled as a Disturber of the Peace.
 
 GANDALF
@@ -252,19 +243,17 @@ Oh, really?
 STOP
 
 FRODO
-Gandalf... I'm glad you're back. Frodo
-leaps expertly from the cart. Gandalf
-smiles.
+Gandalf, I'm glad you're back.
 
 GANDALF
-So am I, dear boy...so am I
+So am I, dear boy. So am I
 
 STOP
 
 BILBO
 No, thank you! We don't want any more
 visitors, well wishers, or distant
-relations.
+relations!
 
 GANDALF
 And what about very old friends?
@@ -292,9 +281,9 @@ Come on, come in! Welcome, welcome!!
 STOP
 
 BILBO
-Tea? Or maybe something stronger... I've
+Tea? Or maybe something stronger? I've
 a few bottles of the Old Winyard left,
-1296...a very good year, almost as old as
+1296. A very good year, almost as old as
 I am. It was laid down by my father. What
 say we open one, eh?
 
@@ -306,24 +295,24 @@ will.
 
 BILBO
 You've caught me a bit unprepared, I'm
-afraid...we've only got cold chicken, bit
-of pickle, some cheese here...ooh, no,
-that might be a little risky...
+afraid. We've only got cold chicken, bit
+of pickle, some cheese here, ooh, no,
+that might be a little risky
 
 BILBO
 Er, we've got raspberry jam and apple
-tart...got some custard somewhere. Not
+tart. Got some custard somewhere. Not
 much for Afters, I'm afraid. Oh
-no...we're alright...I've just found some
+no, we're alright! I've just found some
 sponge cake. Nice little snack. Hope
-it's enough.
-I could do you some eggs if you like?
+it's enough. I could do you some eggs 
+if you like?
 
 GANDALF
 Just tea, thank you.
 
 BILBO
-Oh..right. You don't mind if...?
+Oh..right. You don't mind if?
 
 GANDALF
 No, not at all. Go ahead.
@@ -341,23 +330,23 @@ I've got to get away from these
 confounded relatives, hanging on the bell
 all day, never giving me a moment's
 peace. I want to see mountains
-again...mountains, Gandalf... and then
+again. Mountains, Gandalf! And then
 find somewhere quiet where I can finish
-my book...Oh, Tea!
+my book. Oh, Tea!
 
 GANDALF
 So, you mean to go through with your
 plan, then?
 
 BILBO
-Yes, yes...it's all inhand. All the
+Yes, yes, it's all inhand. All the
 arrangements are made.
 
 GANDALF
 Frodo suspects something.
 
 BILBO
-'Course he does, he's a Baggins...not
+'Course he does, he's a Baggins! Not
 some block headed Bracegirdle from
 Hardbottle!
 
@@ -374,26 +363,20 @@ BILBO
 I know. He'd probably come with me if I
 asked him. I think, in his heart,
 Frodo's still in love with the Shire, the
-woods and the fields... little rivers.
-Bilbo stands gazing out of the kitchen
-window.
+woods and the fields, little rivers.
 
 BILBO
-I am old, Gandalf... Bilbo looks at
-Gandalf sadly...
+I am old, Gandalf.
 
 BILBO
 I know I don't look it, but I'm beginning
 to feel it in my heart.
 
-Bilbo's fingers close around his waistcoat pocket...gripping
-a small, unseen object.
-
 BILBO
-I feel thin...sort of stretched, like
+I feel thin, sort of stretched, like
 butter scraped over too much bread. I
-need a holiday...a very long holiday and
-I don't expect I shall return...in fact,
+need a holiday. A very long holiday and
+I don't expect I shall return. In fact,
 I mean not to.
 
 STOP
@@ -403,7 +386,7 @@ Old Toby, the finest weed in
 Southfarthing!
 
 BILBO
-Ohhhh, Gandalf my old friend...this will be a
+Ohhhh, Gandalf my old friend, this will be a
 night to remember!
 
 STOP
@@ -1459,9 +1442,6 @@ doesn't he?
 
 MERRY
 I wouldn't count on it.
-
-An apple is thrown to Merry, who deftly catches it. Another,
-aimed at Pippin, catches him on the forehead.
 
 STOP
 
@@ -2976,7 +2956,7 @@ people.
 If you would but lend me the ring...
 
 FRODO
-No. . .
+No...
 
 BOROMIR
 Why do you recoil? I am no thief.
@@ -3148,7 +3128,7 @@ FRODO
 No, Sam.
 
 FRODO
-Go back,Sam. I'm going to Mordor alone.
+Go back, Sam. I'm going to Mordor alone.
 
 SAM
 Of course you are...and I'm coming with
