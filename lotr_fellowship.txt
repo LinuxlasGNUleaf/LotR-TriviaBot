@@ -68,7 +68,7 @@ But the power of the Ring could not be
 undone.
 
 GALADRIEL
-It was in this moment..when all hope had
+It was in this moment, when all hope had
 faded, that Isildur, son of the king,
 took up his father's sword.
 
@@ -305,14 +305,14 @@ tart. Got some custard somewhere. Not
 much for Afters, I'm afraid. Oh
 no, we're alright! I've just found some
 sponge cake. Nice little snack. Hope
-it's enough. I could do you some eggs 
+it's enough. I could do you some eggs
 if you like?
 
 GANDALF
 Just tea, thank you.
 
 BILBO
-Oh..right. You don't mind if?
+Oh, right. You don't mind if?
 
 GANDALF
 No, not at all. Go ahead.
@@ -320,7 +320,7 @@ No, not at all. Go ahead.
 STOP
 
 MRS. SACKVILLE BAGGINS
-Bilbo Baggins, you open this door..I know you're in there.
+Bilbo Baggins, you open this door! I know you're in there.
 
 BILBO
 I'm not home.
@@ -456,7 +456,7 @@ PIPPIN
 Let's get another one!
 
 GANDALF
-Meridoc Brandybuck and Peregrin Took. 
+Meridoc Brandybuck and Peregrin Took.
 I might have known!
 
 STOP
@@ -486,7 +486,7 @@ I should like; and I like less than half
 of you as well as well as you deserve.
 
 BILBO
-I have..things to do and I have put this
+I have things to do and I have put this
 off for far too long.
 
 BILBO
@@ -531,7 +531,7 @@ Yes, yes, it's in an envelope, over
 there on the mantelpiece.
 
 BILBO
-No, wait. It's here in my pocket. 
+No, wait. It's here in my pocket.
 Isn't that odd now? Yet, after
 all, why not? Why shouldn't I keep it?
 
@@ -776,7 +776,7 @@ inane babble, they discerned two words.
 
 GOLLUM
 (screaming)
-S...Shire! Baggins!
+Shire! Baggins!
 
 FRODO
 Shire! Baggins! That will lead them
@@ -786,7 +786,7 @@ FRODO
 Take it! Take it!
 
 GANDALF
-No, Frodo...
+No, Frodo.
 
 FRODO
 You must take it.
@@ -1020,12 +1020,12 @@ Why? Why should we fear to use it?
 
 GANDALF
 They are not all accounted for, the lost
-seeing-stones...we do not know who else
+seeing-stones. We do not know who else
 may be watching.
 
 SARUMAN
 The hour is later than you think.
-Sauron's forces are already moving...the
+Sauron's forces are already moving. The
 Nine have left Minas Morgul.
 
 GANDALF
@@ -1040,7 +1040,7 @@ GANDALF
 They have reached the Shire?
 
 SARUMAN
-They will find the ring...and kill the
+They will find the ring, and kill the
 one who carries it.
 
 SARUMAN
@@ -1075,18 +1075,18 @@ FRODO
 What are you talking about?
 
 SAM
-It's just something Gandalf said...
+It's just something Gandalf said.
 
 FRODO
 What did he say?
 
 SAM
-He said..."Don't you leave him, Samwise
+He said: "Don't you leave him, Samwise
 Gamgee."
 And I don't mean to.
 
 FRODO
-Sam...we're still in the Shire...what
+Sam, we're still in the Shire. What
 could possibly happen?
 
 PIPPIN
@@ -1099,7 +1099,7 @@ SAM
 What's the meaning of this!
 
 MERRY
-Sam, hold this...
+Sam, hold this.
 
 SAM
 You've been into Farmer Maggot's crop!
@@ -1107,14 +1107,14 @@ You've been into Farmer Maggot's crop!
 FARMER MAGGOT
 Who's that in my field! Get out of it!
 Get out of my field, you young varmits!
-I'll show you...get out of my corn!
+I'll show you! Get out of my corn!
 
 MERRY
 I don't know why he's so upset, it's only
 a couple of carrots.
 
 PIPPIN
-And some cabbages...and those three bags
+And some cabbages! And those three bags
 of potatoes that we lifted last week.
 And then the mushrooms the week before.
 
@@ -1131,14 +1131,14 @@ PIPPIN
 That was close.
 
 MERRY
-Ow...I think I've broken something.
+Ow! I think I've broken something.
 
 SAM
 Trust a Brandybuck and a Took.
 
 MERRY
-What? That was just a detour...a
-shortcut.
+What? That was just a detour.
+A shortcut!
 
 SAM
 A shortcut to what?
@@ -1168,20 +1168,17 @@ What is going on?
 
 MERRY
 The Black rider was looking for
-something...or someone...Frodo?
+something. Or someone. Frodo?
 
 SAM
 Get down!
 
 FRODO
-I have to leave the Shire...Sam and I
+I have to leave the Shire. Sam and I
 must get to Bree.
 
-Merry looks at his friend...realizing Frodo is in deep
-trouble.
-
 MERRY
-Right...Buckleberry Ferry...follow me !
+Right. Buckleberry Ferry. Follow me !
 
 MERRY
 There's another one!! Frodo, this way!
@@ -1199,7 +1196,7 @@ FRODO
 How far to the nearest crossing?
 
 MERRY
-The brandwine bridge...twenty miles.
+The brandwine bridge. Twenty miles.
 
 STOP
 
@@ -1218,7 +1215,7 @@ out of the Shire by your talk. What
 business brings you to Bree?
 
 FRODO
-We wish to stay at the inn...our business
+We wish to stay at the inn. Our business
 is our own.
 
 GATEKEEPER
@@ -1227,7 +1224,7 @@ All right, young sir, I meant no offense.
 GATEKEEPER
 It's my job to ask questions after
 nightfall. There's talk of strange fold
-abroad...can't be too careful.
+abroad. Can't be too careful.
 
 STOP
 
@@ -1238,22 +1235,22 @@ BUTTERBUR
 Good evening, little masters. If you're
 seeking accommodation, we've got some
 nice, cozy Hobbit sized rooms available,
-Mister..ah...
+Mister?
 
 FRODO
-Underhill...my name's Underbill.
+Underhill. My name's Underbill.
 
 BUTTERBUR
 Underhill? Hmmmm.
 
 FRODO
-We're friends of Gandalf the Grey...can
+We're friends of Gandalf the Grey. Can
 you tell him we've arrived?
 
 BUTTERBUR
-Gandalf...Gandalf...Oh...
-Oh yes! I remember...elderly chap...big
-grey beard...pointy hat?
+Gandalf, Gandalf. Oh.
+Oh yes! I remember! Elderly chap, big
+grey beard, pointy hat?
 
 BUTTERBUR
 Not seen him for six months.
@@ -1294,26 +1291,26 @@ Strider.
 STOP
 
 PIPPIN
-Baggins? Sure, I know a Baggins...he's
-over there...
+Baggins? Sure, I know a Baggins! He's
+over there!
 
 PIPPIN
 Frodo Baggins. He's my second cousin
 once removed, on his mother's side and my
 third cousin twice removed on his
-father's side...if you follow me.
+father's side, if you follow me.
 
 STOP
 
 STRIDER
 You draw far too much attention to
-yourself...Mister Underhill
+yourself, Mister Underhill.
 
 FRODO
 What do you want?
 
 STRIDER
-A little more caution from you...that is
+A little more caution from you, that is
 no trinket you carry.
 
 FRODO
@@ -1321,7 +1318,7 @@ I carry nothing.
 
 STRIDER
 Indeed? I can usually avoid being seen
-if I wish, but to disappear entirely...
+if I wish, but to disappear entirely,
 that is a rare gift.
 
 FRODO
@@ -1342,7 +1339,7 @@ Let him go or I'll have you, Longshanks!
 
 STRIDER
 You have a stout heart, little Hobbit,
-but that alone won't save you...You can
+but that alone won't save you. You can
 no longer wait for the Wizard, Frodo.
 They're coming.
 
@@ -1365,8 +1362,8 @@ his will.
 STRIDER
 They are the Nazgul, Ringwraiths, neither
 living or dead. At all times they feel
-the presence of the ring...drawn to the
-power of the one..they will never stop
+the presence of the ring, drawn to the
+power of the one. They will never stop
 hunting you.
 
 STOP
@@ -1388,7 +1385,7 @@ STRIDER
 But where is he leading us?
 
 STRIDER
-To Rivendell, Master Gamgee...to the
+To Rivendell, Master Gamgee. To the
 house of Elrond.
 
 SAM
@@ -1408,7 +1405,7 @@ STRIDER
 You've already had it.
 
 PIPPIN
-We've had one, yes...but what about
+We've had one, yes! But what about
 Second Breakfast?
 
 MERRY
@@ -1417,7 +1414,7 @@ breakfast, Pip.
 
 PIPPIN
 What about Elvenses, Luncheon, Afternoon
-Tea, dinner...he knows about them,
+Tea, dinner? He knows about them,
 doesn't he?
 
 MERRY
@@ -1473,7 +1470,7 @@ FRODO
 Put it out, you fools! Put it out!
 
 PIPPIN
-Oh, that's nice...ash on my tomatoes!
+Oh, that's nice! Ash on my tomatoes!
 
 FRODO
 Go!
@@ -1508,7 +1505,7 @@ SAM
 He'll never make it!
 
 FRODO
-Gandalf...Gandalf?
+Gandalf? Gandalf?
 
 STOP
 
@@ -1545,7 +1542,7 @@ guard?
 STOP
 
 ARWEN
-Frodo, Im Arwen...telin let thaed. I am
+Frodo, Im Arwen. Telin let thaed. I am
 Arwen, I have come here to help you.
 Hear my voice, come back to the light. Frodo's
 eyes close.
@@ -1560,7 +1557,7 @@ SAM
 She's an elf.
 
 ARWEN
-He's fading...he's not gong to last. We
+He's fading, he's not going to last. We
 must get him to my father.
 
 ARWEN
@@ -1574,7 +1571,7 @@ There are five Wraiths behind you, where
 the other four are, I do not know.
 
 STRIDER
-Stay with the hobbits...I'll
+Stay with the hobbits. I'll
 send horses for you.
 
 ARWEN
@@ -1594,7 +1591,7 @@ ARWEN
 I do not fear them.
 
 STRIDER
-Arwen...ride hard, don't look back.
+Arwen: ride hard, don't look back.
 
 ARWEN
 Noro Lim, Asfaloth, Noro Lim!
@@ -1622,8 +1619,8 @@ Nin o Chitaeglir, lasto Beth daer: Rimmo
 nin Bruinen Dan in Ulaer!
 
 ARWEN
-No, no...Frodo, no! Frodo, don't give
-in...not now!
+No, no Frodo, no! Frodo, don't give
+in! Not now!
 
 ARWEN
 What grace is given me, let it pass to
@@ -1666,7 +1663,7 @@ Ring or embrace your own destruction!
 
 GANDALF
 There is only one Lord of the Ring. Only
-one who can bend it to his will...and he
+one who can bend it to his will, and he
 does not share power.
 
 SARUMAN
@@ -1679,7 +1676,7 @@ Gandalf! What is it? Gandalf returns his
 attention to Frodo.
 
 GANDALF
-Nothing, Frodo...
+Nothing, Frodo.
 
 SAM
 Frodo! Frodo! Bless you, you're awake!!
@@ -1716,22 +1713,22 @@ FRODO
 This is wonderful.
 
 BILBO
-I meant to go back...wander the paths of
+I meant to go back, wander the paths of
 Mirkwood, visit Laketown, see the Lonely
-Mountain again...but age, it seems, has
+Mountain again. But age, it seems, has
 finally caught up with me.
 
 FRODO
-I miss the Shire...I spent all my
+I miss the Shire. I spent all my
 childhood pretending I was off somewhere
-else...off with you, on one of your
-adventures...
+else. Off with you, on one of your
+adventures.
 But my own adventure, turned out to be
-quite different...I'm not like you,
+quite different. I'm not like you,
 Bilbo.
 
 BILBO
-My dear boy...
+My dear boy.
 
 STOP
 
@@ -1750,23 +1747,23 @@ I thought you wanted to see the Elves,
 Sam?
 
 SAM
-I do...
+I do.
 
 FRODO
 More than anything.
 
 SAM
-I did. It's just...we did what Gandalf
+I did. It's just - we did what Gandalf
 wanted, didn't we? We got the Ring this
-far, to Rivendell...and I thought...
-seeing as how you're on the mend, we'd be
+far, to Rivendell, and I thought:
+Seeing as how you're on the mend, we'd be
 off soon. Off home.
 
 FRODO
-You're right, Sam. Frodo looks at Sam...
+You're right, Sam.
 
 FRODO
-...we did what we set out to do.
+We did what we set out to do.
 
 FRODO
 The ring will be safe in Rivendell. I am
@@ -1783,7 +1780,7 @@ carry it the rest of his life.
 
 ELROND
 And yet to have come so far still bearing
-the Ring...the hobbit has shown
+the Ring. The hobbit has shown
 extraordinary resilience to its evil.
 
 GANDALF
@@ -1800,7 +1797,7 @@ allies grows thin.
 GANDALF
 His treachery runs deeper than you know.
 By foul craft, Saruman has crossed Orc
-with Goblin Men...he is breeding an army
+with Goblin Men. He is breeding an army
 in the caverns of Isengard. An army that
 can move in Sunlight and cover great
 distance at speed. Saruman is coming for
@@ -1808,9 +1805,9 @@ the Ring.
 
 ELROND
 This evil cannot be concealed by the
-power of the Elves...We do not have the
+power of the Elves. We do not have the
 strength to fight both Mordor and
-Isengard...Gandalf...the ring cannot stay
+Isengard. Gandalf, the ring cannot stay
 here.
 
 ELROND
@@ -1837,7 +1834,7 @@ spent, its pride anddignity forgotten.
 It is because of menthe Ring survives.
 
 ELROND
-I was there, Gandalf...I was there three
+I was there, Gandalf. I was there three
 thousand years ago when Isildur took the
 ring.
 
@@ -1848,7 +1845,7 @@ failed.
 STOP
 
 ELROND
-Isildur...hurry...follow me!
+Isildur, hurry! Follow me!
 
 ELROND
 I let Isildur into the heart of Mount
@@ -1856,7 +1853,7 @@ Doom, where the ring was forged: the one
 place it could be destroyed.
 
 ELROND
-Cast it into the fire...destroy it!
+Cast it into the fire! Destroy it!
 
 ISILDUR
 No.
@@ -1869,7 +1866,7 @@ STOP
 ELROND
 It should have ended that day, but evil
 was allowed to endure. Isildur kept the
-Ring...and the line of Kings was broken.
+Ring, and the line of Kings was broken.
 There's no strength left in the world of
 Men. They're scattered, divided,
 leaderless.
@@ -1885,7 +1882,7 @@ He has chosen exile.
 STOP
 
 BOROMIR
-The shards of Narsil...the blade that cut
+The shards of Narsil! The blade that cut
 the Ring from Sauron's hand.
 
 BOROMIR
@@ -1898,18 +1895,18 @@ STOP
 
 ARWEN
 Why do you fear the past? You are
-Isildur's heir...not Isildur himself. You
+Isildur's heir, not Isildur himself. You
 are not bound to his fate.
 
 STRIDER
-The same blood flows in my veins...the
-same weakness...
+The same blood flows in my veins. The
+same weakness.
 
 ARWEN
 Your time will come. You will face the
-same evil...and you will defeat it.
+same evil and you will defeat it.
 The shadow does not hold
-sway yet...not over you and not over me.
+sway yet. Not over you and not over me.
 
 STOP
 
@@ -1920,7 +1917,7 @@ STRIDER
 I thought I had strayed into a dream.
 
 ARWEN
-Long years have passed...you
+Long years have passed. You
 did not have the care you carry now.
 
 ARWEN
@@ -1949,13 +1946,13 @@ my heart.
 STOP
 
 ELROND
-Strangers from distant lands ... friends
+Strangers from distant lands, friends
 of old. You have been summoned here to
 answer the threat of Mordor. Middle-earth
 stands upon the brink of destruction.
-None can escape it. You will unite...or
+None can escape it. You will unite, or
 you will fall. Each race is bound to this
-fate...this one doom...
+fate, this one doom.
 
 ELROND
 Bring forth the ring, Frodo.
@@ -1970,17 +1967,17 @@ GIMLI
 The doom of man!
 
 BOROMIR
-It is a gift...a gift to the foes of
+It is a gift. A gift to the foes of
 Mordor! Why not use this Ring? Long has
 my father, the Steward of Gondor, held
-the forces of Mordor at bay...by the
+the forces of Mordor at bay. By the
 blood of our people are your lands kept
 safe. Give Gondor the weapon of the
-enemy...let us use it against him!
+enemy! Let us use it against him!
 
 STRIDER
 You cannot wield it. None of us can.
-The one ring answers to Sauron alone...it
+The one ring answers to Sauron alone, it
 has no other master.
 
 BOROMIR
@@ -1999,25 +1996,25 @@ LEGOLAS
 And heir to the throne of Gondor.
 
 ARAGORN
-Legolas...Sit down, Legolas..
+Legolas! Sit down, Legolas.
 
 BOROMIR
 Gondor needs no king.
 
 GANDALF
-Aragorn is right...we cannot use it.
+Aragorn is right. We cannot use it.
 
 ELROND
-You have only one choice..the ring must
+You have only one choice. The ring must
 be destroyed.
 
 GIMLI
-Then...what are we waiting for?
+Then what are we waiting for?
 
 ELROND
 The ring cannot be destroyed, Gimli, son
 of Gloin, by any craft that we here possess.
-The ring was made in the fires of Mount Doom...
+The ring was made in the fires of Mount Doom,
 only there can it be unmade. It must be
 taken deep into Mordor, and cast back into
 the fiery chasm from whence it came.
@@ -2029,7 +2026,7 @@ black gates are guarded by more than just
 Orcs. There is evil there that does not
 sleep and the Great Eye is ever watchful.
 It is a barren wasteland, riddled with
-fire and ash and dust...the very air you
+fire and ash and dust. The very air you
 breathe is a poisonous fume. Not with
 ten thousand men could you do this. It
 is folly.
@@ -2061,29 +2058,28 @@ destroyed, your homes burnt and your
 families put to the sword!
 
 FRODO
-I will take it...I will take it...I will
+I will take it. I will take it! I will
 take the Ring to Mordor.
 
 FRODO
-Though...I do not know the way. Gandalf
-rises to his feet.
+Though I do not know the way.
 
 GANDALF
 I will help you bear this burden, Frodo
 Baggins, as long as it is yours to bear.
 
 ARAGORN
-If, by my life or death, I can protect
+If, by my life or death I can protect
 you, I will.
 
 ARAGORN
-...you have my sword.
+you have my sword.
 
 LEGOLAS
 And you have my bow.
 
 GIMLI
-And my axe.
+And my axe!
 
 BOROMIR
 You carry the fate of us all, little one.
@@ -2097,8 +2093,8 @@ Here!
 Mister Frodo's not going anywhere without me.
 
 ELROND
-No, Indeed...it is hardly possible to
-separate you...even when he is summoned
+No, Indeed. It is hardly possible to
+separate you, even when he is summoned
 to a secret council and you are not.
 
 MERRY
@@ -2107,16 +2103,16 @@ send us home tied up in a sack to stop
 us.
 
 PIPPIN
-Anyway...you need people of intelligence
-on this sort of
-mission...quest...thing...
+Anyway, you need people of intelligence
+on this sort of -
+mission. quest. thing.
 
 MERRY
 Well, that rules you out, Pip.
 
 ELROND
-Nine companions ... so be it.
-You shall be the "Fellowship of the ring"
+Nine companions. So be it.
+You shall be the Fellowship of the Ring
 
 PIPPIN
 Great. Where are we going?
@@ -2124,7 +2120,7 @@ Great. Where are we going?
 STOP
 
 BILBO
-My old sword "Sting"...here, take it!
+My old sword "Sting". Here, take it!
 
 FRODO
 It's so light!
@@ -2132,7 +2128,7 @@ It's so light!
 BILBO
 Yes, yes, made by the Elves, you know.
 The blade glows blue when Orcs are
-close...and it's times like that, my lad,
+close. And it's times like that, my lad,
 when you have to be extra careful.
 
 BILBO
@@ -2142,26 +2138,29 @@ scales. Let me see you put it on. Come
 on.
 
 BILBO
-Oh! My old Ring...
+Oh! My old Ring!
 
 BILBO
 I should very much like to hold it again,
 one last time.
 
 BILBO
+AARRRGH!
+
+BILBO
 I'm sorry, that I brought this upon you,
-my boy...I'm sorry that you must carry
+my boy, I'm sorry that you must carry
 this burden. I'm sorry for everything.
 
 STOP
 
 BOROMIR
-Get away from the blade, Pippin...on your
-toes...good, very good...I want you to
+Get away from the blade, Pippin! On your
+toes - good, very good. I want you to
 react, not think.
 
 SAM
-Should not be too hard...
+Should not be too hard.
 
 BOROMIR
 Move your feet.
@@ -2190,10 +2189,10 @@ SAM
 What is that?
 
 GIMLI
-Nothing...it's just a wisp of a cloud.
+Nothing, it's just a wisp of a cloud.
 
 BOROMIR
-It's moving fast...against the wind.
+It's moving fast. Against the wind.
 
 LEGOLAS
 Crebain from Dunland!
@@ -2202,7 +2201,7 @@ ARAGORN
 Hide!
 
 BOROMIR
-Merry..Pippin...Sam...take cover!
+Merry, Pippin, Sam! Take cover!
 
 GANDALF
 Spies of Saruman.The passage South is
@@ -2219,10 +2218,10 @@ Boromir?
 BOROMIR
 It is a strange fate that we should
 suffer so much fear and doubt over so
-small a thing...such a little thing.
+small a thing. Such a little thing.
 
 ARAGORN
-Boromir...give the ring to Frodo.
+Boromir! Give the ring to Frodo.
 
 BOROMIR
 As you wish. I care not.
@@ -2230,10 +2229,9 @@ As you wish. I care not.
 STOP
 
 SARUMAN
-So, Gandalf...you try to lead them over
-Caradhras. And if that fails...where
-then will you go? THE FELLOWSHIP
-struggles through the snow.
+So, Gandalf, you try to lead them over
+Caradhras. And if that fails, where
+then will you go?
 
 SARUMAN
 If the mountain defeats you, will you
@@ -2297,7 +2295,7 @@ GIMLI
 The walls of Moria!
 
 GANDALF
-Ithildin...it mirrors only starlight and
+Ithildin. It mirrors only starlight and
 moonlight.
 
 GANDALF
@@ -2323,7 +2321,7 @@ SAM
 Bye, Bill.
 
 ARAGORN
-Go on, Bill, go on..don't worry, Sam...he
+Go on, Bill, go on. Don't worry, Sam. He
 knows his way home.
 
 SAM
@@ -2333,7 +2331,7 @@ ARAGORN
 Do not disturb the water.
 
 FRODO
-It's a riddle...
+It's a riddle.
 
 FRODO
 Speak, friend, and enter. What's the
@@ -2349,15 +2347,14 @@ So, master elf, you will enjoy the fabled
 hospitality of the dwarves; roaring
 fires, malt beer, red meat off the bone.
 This, my friend, is the home of my
-cousin, Balin...and they call this a
-Mine...
-A mine!
+cousin, Balin, and they call this a
+Mine. A mine!
 
 BOROMIR
-This is no mine...it's a tomb!
+This is no mine. It's a tomb!
 
 GIMLI
-Oh...no...no..no...!
+Oh no. No.No!
 
 LEGOLAS
 Goblins!
@@ -2373,9 +2370,9 @@ BOROMIR
 Legolas!
 
 GANDALF
-We now have but one choice...we must face
+We now have but one choice: We must face
 the long dark of Moria. Be on your
-guard...there are older and fouler things
+guard! There are older and fouler things
 than the Orcs in the deep places of the
 world.
 
@@ -2421,14 +2418,14 @@ FRODO
 He escaped the dungeons of Barad- dur?
 
 GANDALF
-Escaped...or was set loose. And now the
-Ring has drawn him here...he will never
+Escaped, or was set loose. And now the
+Ring has drawn him here. He will never
 be rid of his need for it. He hates and
 loves the ring, as he hates and loves
 himself. Smeagol's life is a sad story.
 
 GANDALF
-Yes...Smeagol he was once called...Before
+Yes, Smeagol he was once called. Before
 the ring came to him, before it drove him
 mad.
 
@@ -2444,14 +2441,14 @@ it to them, Frodo?
 
 GANDALF
 Do not be too eager to deal out death in
-judgment...even the very wise cannot see
+judgment, even the very wise cannot see
 all ends. My heart tells me that Gollum
 has some part to play yet, for good or
 ill, before this is over. The pity of
 Bilbo may rule the fate of many.
 
 FRODO
-I wish the ring had never come to me...
+I wish the ring had never come to me.
 I wish none of this had happened.
 
 GANDALF
@@ -2465,7 +2462,7 @@ There are other forces at work in this
 world, Frodo, besides the will of evil.
 Bilbo was meant to find the ring. In
 which case, you also were meant to have
-it...and that is an encouraging thought.
+it, and that is an encouraging thought.
 
 GANDALF
 Ah! That it's that way!
@@ -2495,7 +2492,7 @@ GANDALF
 Gimli!!
 
 GIMLI
-No...no...oh, no!
+No. No - oh, no!
 
 GANDALF
 "Here lies Balin, son of Fudin, Lord of
@@ -2507,10 +2504,10 @@ We must move on, we cannot linger.
 
 GANDALF
 "They have taken the Bridge and the
-second hall: we have barred the
-gates...but cannot hold them for
-long...the ground shakes...drums in the
-deep...we cannot get out. A shadow moves
+second hall: We have barred the
+gates, but cannot hold them for
+long. The ground shakes. Drums in the
+deep. We cannot get out. A shadow moves
 in the dark. Will no-one save us? They
 are coming."
 
@@ -2566,7 +2563,7 @@ BOROMIR
 What is this new devilry?
 
 GANDALF
-A Balrog..a demon of the ancient world!
+A Balrog. A demon of the ancient world!
 This foe is beyond any of you!
 Run! Quickly!
 
@@ -2617,7 +2614,7 @@ ARAGORN
 Legolas, get them up!
 
 BOROMIR
-Give them a moment...for pity's sake!
+Give them a moment for pity's sake!
 
 ARAGORN
 By nightfall these hills will be swarming
@@ -2631,19 +2628,19 @@ Frodo? Frodo!
 STOP
 
 GIMLI
-Stay close, young hobbits..they say a
+Stay close, young hobbits. They say a
 Sorceress lives in these woods. An elf-
 witch of terrible power. All who look
-upon her fall under her spell...
+upon her fall under her spell.
 
 GALADRIEL
-Frodo...
+Frodo.
 
 GIMLI
 And are never seen again!
 
 GALADRIEL
-...your coming to us is as the footsteps
+Your coming to us is as the footsteps
 of doom. You bring great evil here,
 Ringbearer.
 
@@ -2683,12 +2680,12 @@ Gandalf, for I much desire to speak with
 him.
 
 GALADRIEL
-...he has fallen into shadow.
+He has fallen into shadow.
 
 GALADRIEL
 The Quest stands upon the edge of a
 knife. Stray but a little and it will
-fail, to the ruin of all...Yet hope
+fail, to the ruin of all. Yet hope
 remains while the company is true.
 
 GALADRIEL
@@ -2698,15 +2695,15 @@ sorrow and much toil.
 
 GALADRIEL
 Tonight you will sleep in peace.
-Welcome, Frodo of the Shire...
+Welcome, Frodo of the Shire.
 
 GALADRIEL
-...one who has seen the eye.
+The one who has seen the eye.
 
 STOP
 
 LEGOLAS
-A lament for Gandalf...
+A lament for Gandalf.
 
 MERRY
 What do they say about him?
@@ -2716,32 +2713,32 @@ I have not the heart to tell you. For me,
 the grief is still too near.
 
 ARAGORN
-Take some rest..these borders are well
+Take some rest. These borders are well
 protected.
 
 BOROMIR
 I will find no rest here. I heard her
-voice inside my head...she spoke of my
+voice inside my head. She spoke of my
 father and the fall of Gondor, and she
-said to me: "Even now, there is hope left.
-But I cannot see it...it is long since
+said to me: "Even now, there is hope left."
+But I cannot see it! It is long since
 we had any hope.
 
 BOROMIR
 My father is a noble man, but his rule is
-failing and our..our people lose faith.
-He looks to me to make things right...and
+failing and our - our people lose faith.
+He looks to me to make things right. And
 I would do it, I would see the glory of
 Gondor restored. Have you ever seen it,
 Aragorn? The White Tower of Ecthelion,
 glimmering like a spike of pearl and
 silver, its banners caught high in the
-morning breeze...have you ever been
+morning breeze. Have you ever been
 called home by the clear ringing of
 silver trumpets?
 
 ARAGORN
-I have seen the white city..long ago.
+I have seen the white city, long ago.
 
 BOROMIR
 One day our paths will lead us there, and
@@ -2758,14 +2755,14 @@ What will I see?
 
 GALADRIEL
 Even the wisest cannot tell for the
-mirror shows many things...things that
-were ..things that are...and some things
+mirror shows many things: Things that
+were. Things that are. And some things
 that have not yet come to pass.
 
 STOP
 
 GALADRIEL
-I know what it is you saw...for it is
+I know what it is you saw, for it is
 also in my mind. It is the future,
 Frodo. It is what will come to pass if
 you should fail.
@@ -2781,15 +2778,15 @@ If you ask it of me, I will give you the
 One Ring.
 
 GALADRIEL
-You offer it to me freely...I do not deny
+You offer it to me freely! I do not deny
 that my heart has greatly desired this.
 
 GALADRIEL
 In place of the Dark Lord, you would have
 a Queen, not dark, but beautiful and
-terrible as the Dawn. Treacherous as the
+terrible as the Dawn! Treacherous as the
 Sea! Stronger than the foundations of
-the earth...all shall love me and
+the earth! All shall love me and
 despair!
 
 GALADRIEL
@@ -2798,17 +2795,17 @@ I will diminish and go into the west and
 remain Galadriel.
 
 FRODO
-I cannot do this alone...
+I cannot do this alone.
 
 GALADRIEL
-You are the ring-bearer, Frodo...to bear
+You are the ring-bearer, Frodo. To bear
 a ring of power is to be alone. This task
 was appointed to you, and if you do not
 find a way, no one will.
 
 FRODO
 Then I know what I must do. It's
-just...I'm afraid to do it.
+just: I'm afraid to do it.
 
 GALADRIEL
 Even the smallest person can change the
@@ -2821,9 +2818,9 @@ Do you know how the Orcs first came into being?
 
 SARUMAN
 They were Elves once. Taken by the Dark
-Powers ... tortured and mutilated...a
+Powers, tortured and mutilated. A
 ruined and terrible form of life. And
-now...perfected. My fighting Uruk-Hai.
+now, perfected. My fighting Uruk-Hai.
 Whom do you serve?
 
 LURTZ
@@ -2836,8 +2833,8 @@ not know fear. You will taste man-flesh.
 
 SARUMAN
 One of the Halflings carries something of
-great value...bring him to me...alive and
-unspoiled...kill the others.
+great value. Bring him to me, alive and
+unspoiled. Kill the others.
 
 STOP
 
@@ -2852,32 +2849,32 @@ when all other lights go out.
 STOP
 
 ARAGORN
-The Argonath...
+The Argonath.
 
 ARAGORN
 Long have I desired to look upon the
-kings of old...my kin.
+kings of old. My kin.
 
 ARAGORN
 We cross the lake at nightfall, hide the
-boats and continue on foot..we approach
+boats and continue on foot. We approach
 Mordor from the North.
 
 GIMLI
 Oh, yes, just a simple matter of finding
 our way through Emyn Muil, an impassable
 labyrinth of razor sharp rocks. And
-after that gets even better...a
+after that gets even better! A
 festering, stinking marshland, far as the
 eye can see.
 
 ARAGORN
-That is our Road...I suggest you take
+That is our Road. I suggest you take
 some rest and recover your strength,
 Master Dwarf.
 
 GIMLI
-Recover my...
+Recover my-
 
 LEGOLAS
 We should leave now.
@@ -2902,7 +2899,7 @@ STOP
 
 BOROMIR
 None of us should wander alone; you least
-of all. So much depends on you...Frodo?
+of all. So much depends on you. Frodo?
 
 BOROMIR
 I know why you seek solitude. You
@@ -2911,7 +2908,7 @@ sure you do not suffer needlessly?
 
 BOROMIR
 Let me help you. There are other ways,
-Frodo..other paths that we might take.
+Frodo, other paths that we might take.
 
 FRODO
 I know what you would say, and it would
@@ -2924,7 +2921,7 @@ Warning? Against what?
 BOROMIR
 We are all afraid, Frodo. But to let that
 fear drive us to destroy what hope we
-have...don't you see that is madness?
+have. Don't you see that is madness?
 
 FRODO
 There is no other way.
@@ -2932,10 +2929,10 @@ There is no other way.
 BOROMIR
 I ask only for the strength to defend my
 people.
-If you would but lend me the ring...
+If you would but lend me the ring-
 
 FRODO
-No...
+No!
 
 BOROMIR
 Why do you recoil? I am no thief.
@@ -2951,24 +2948,24 @@ end.
 
 BOROMIR
 You fool! It is not yours save by
-unhappy chance...it might have been mine.
+unhappy chance! It might have been mine.
 It should be mine. Give it to me! Give
-me the ring.
+me the ring!
 
 BOROMIR
-I see your mind...you will take the ring
+I see your mind. You will take the ring
 to Sauron. You will betray us! You go to
-your death and the death of us all.
+your death - and the death of us all!
 
 BOROMIR
 Curse you! Curse you and your Halflings!
 
 BOROMIR
 Frodo! Frodo! What have I done. Please,
-Frodo...
+Frodo.
 
 BOROMIR
-I'm sorry, Frodo...Frodo...
+I'm sorry, Frodo. Frodo-
 
 STOP
 
@@ -3077,7 +3074,7 @@ and my city to ruin..Aragorn..
 
 ARAGORN
 I do not know what strength is in my
-blood, but I swear to you... I will not
+blood, but I swear to you: I will not
 let the White City fall, nor your people
 fail...
 
