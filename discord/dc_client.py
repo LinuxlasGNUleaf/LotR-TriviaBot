@@ -132,4 +132,4 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                 if (ind < len(self.script)-1):
                     if self.script[ind+1] != "STOP":
                         author, text = self.script[ind+1].split("|")
-                        await channel.send("**{}:** {}".format(author.title(), text))Yes
+                        await channel.send("**{}:** {}".format(author.title(), text))
