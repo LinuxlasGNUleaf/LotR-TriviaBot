@@ -132,7 +132,7 @@ def create_trivia_question(user, scoreboard, config):
     # get random question
     with open("questions.csv", "r") as csvfile:
         csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        content = random.choice(csvreader)
+        content = random.choice(list(csvreader))
 
     # pop the source and the question (first element)
     source = content.pop(0)
