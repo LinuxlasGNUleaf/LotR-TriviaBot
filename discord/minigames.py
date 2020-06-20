@@ -3,6 +3,7 @@ The LotR-Bot discord integration. This is the main class for the bot.
 """
 import random
 import discord
+import csv
 from difflib import SequenceMatcher
 
 PUNCTUATION_CHARS = ["?", "!", ".", ":"]
@@ -130,9 +131,8 @@ def create_trivia_question(user, scoreboard, config):
 
     # get random question
     with open("questions.csv", "r") as csvfile:
-        content = random_line(csvfile).strip().split('"')[1:-1]
-        while "," in content[::-1]:
-            content.remove(",")
+        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        content = random.choice(csvreader)
 
     # pop the source and the question (first element)
     source = content.pop(0)
@@ -205,9 +205,8 @@ def initiate_hangman_game(user, config):
     state_ind = 0
     # import words for hangman
     with open("words.csv", "r") as csvfile:
-        word = random.choice(csvfile.readline().strip().split(','))[1:-1]
+        word = random.choice(csv.reader(csvfile, delimiter=',', quotechar='"'))
     word_condensed = word.lower().replace(" ", "")
-
 
     if len(word_condensed) <= 6:
         steps = 2
