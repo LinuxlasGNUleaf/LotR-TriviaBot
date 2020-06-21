@@ -80,7 +80,7 @@ times she takes other shapes. Some there are who have seen her standing like a t
 crowned with the Sun; and from all its branches there spilled a golden dew upon the barren earth, and
 it grew green with corn; but the roots of the tree were in the waters of Ulmo, and the winds of Manwe
 spoke in its leaves. Kementari, Queen of the Earth, she is surnamed in the Eldarin tongue.
-The FEanturi, masters of spirits, are brethren, and they are called most often Mandos and Lorien.
+The Feanturi, masters of spirits, are brethren, and they are called most often Mandos and Lorien.
 Yet these are rightly the names of the places of their dwelling, and their true names are Namo and
 Irmo.
 Namo the elder dwells in Mandos, which is westward in Valinor. He is the keeper of the Houses of
@@ -95,7 +95,7 @@ healer of hurts and of weariness, is his spouse. Grey is her raiment; and rest i
 by day, but sleeps upon an island in the tree-shadowed lake of Lorellin. From the fountains of Irmo
 and EstE all those who dwell in Valinor draw refreshment; and often the Valar come themselves to
 Lorien and there find repose and easing of the burden of Arda.
-Mightier than EstE is Nienna, sister of the FEanturi; she dwells alone. She is acquainted with grief,
+Mightier than EstE is Nienna, sister of the Feanturi; she dwells alone. She is acquainted with grief,
 and mourns for every wound that Arda has suffered in the marring of Melkor. So great was her
 sorrow, as the Music unfolded, that her song turned to lamentation long before its end, and the sound
 of mourning was woven into the themes of the World before it began. But she does not weep for
@@ -897,14 +897,14 @@ freely, and by their labour enriched all Valinor.
 The Noldor afterwards came back to Middle-earth, and this tale tells mostly of their deeds;
 therefore the names and kinship of their princes may here be told, in that form which these names later
 bore in the tongue of the Elves of Beleriand.
-FinwE was King of the Noldor. The sons of FinwE were FEanor, and Fingolfin, and Finarfin; but the
-mother of FEanor was Miriel SerindE, whereas the mother of Fingolfin and Finarfin was Indis of the
+FinwE was King of the Noldor. The sons of FinwE were Feanor, and Fingolfin, and Finarfin; but the
+mother of Feanor was Miriel SerindE, whereas the mother of Fingolfin and Finarfin was Indis of the
 Vanyar.
-FEanor was the mightiest in skill of word and of hand, more learned than his brothers; his spirit
+Feanor was the mightiest in skill of word and of hand, more learned than his brothers; his spirit
 burned as a flame. Fingolfin was the strongest, the most steadfast, and the most valiant. Finarfin was
 the fairest, and the most wise of heart; and afterwards he was a friend of the sons of OlwE, lord of the
 Teleri, and had to wife Earwen, the swan-maiden of AlqualondE, OlwE’s daughter.
-The seven sons of FEanor were Maedhros the tall; Maglor the mighty singer, whose voice was
+The seven sons of Feanor were Maedhros the tall; Maglor the mighty singer, whose voice was
 heard far over land and sea; Celegorm the fair, and Caranthir the dark; Curufin the crafty, who
 inherited most his father’s skill of hand; and the youngest Amrod and Amras, who were twin brothers,
 alike in mood and face. In later days they were great hunters in the woods of Middle-earth; and a
@@ -913,7 +913,7 @@ The sons of Fingolfin were Fingon, who was afterwards King of the Noldor in the 
 world, and Turgon, lord of Gondolin; their sister was Aredhel the White. She was younger in the
 years of the Eldar than her brothers; and when she was grown to full stature and beauty she was tall
 and strong, and loved much to ride and hunt in the forests. There she was often in the company of the
-sons of FEanor, her kin; but to none was her heart’s love given. Ar-Feiniel she was called, the White
+sons of Feanor, her kin; but to none was her heart’s love given. Ar-Feiniel she was called, the White
 Lady of the Noldor, for she was pale, though her hair was dark, and she was never arrayed but in
 silver and white.
 The sons of Finarfin were Finrod the faithful (who was afterwards named Felagund, Lord of
@@ -949,7 +949,7 @@ of the Valar, making far journeys in search of the secrets of land and water and
 the peoples of Tuna and AlqualondE drew together in those days. FinwE was king in Tirion and OlwE
 in AlqualondE; but IngwE was ever held the High King of all the Elves. He abode thereafter at the feet
 of Manwe upon Taniquetil.
-FEanor and his sons abode seldom in one place for long, but travelled far and wide upon the
+Feanor and his sons abode seldom in one place for long, but travelled far and wide upon the
 confines of Valinor, going even to the borders of the Dark and the cold shores of the Outer Sea,
 seeking the unknown. Often they were guests in the halls of Aule; but Celegorm went rather to the
 house of OromE, and there he got great knowledge of birds and beasts, and all their tongues he knew.
@@ -970,14 +970,14 @@ fitting signs for the recording of speech and song, some for graving upon metal 
 drawing with brush or with pen.
 In that time was born in Eldamar, in the house of the King in Tirion upon the crown of Tuna, the
 eldest of the sons of FinwE, and the most beloved. CurufinwE was his name, but by his mother he was
-called FEanor, Spirit of Fire; and thus he is remembered in all the tales of the Noldor.
+called Feanor, Spirit of Fire; and thus he is remembered in all the tales of the Noldor.
 Miriel was the name of his mother, who was called SerindE, because of her surpassing skill in
 weaving and needlework; for her hands were more skilled to fineness than any hands even among the
 Noldor. The love of FinwE and Miriel was great and glad, for it began in the Blessed Realm in the
 Days of Bliss. But in the bearing of her son Miriel was consumed in spirit and body; and after his
 birth she yearned for release from the labour of living. And when she had named him, she said to
 FinwE: ‘Never again shall I bear child; for strength that would have nourished the life of many has
-gone forth into FEanor.’
+gone forth into Feanor.’
 Then FinwE was grieved, for the Noldor were in the youth of their days, and he desired to bring
 forth many children into the bliss of Aman; and he said: ‘Surely there is healing in Aman? Here all
 weariness can find rest.’ But when Miriel languished still, FinwE sought the counsel of Manwe, and
@@ -992,36 +992,36 @@ EstE tended the body of Miriel, and it remained unwithered; but she did not retu
 in sorrow; and he went often to the gardens of Lorien, and sitting beneath the silver willows beside
 the body of his wife he called her by her names. But it was unavailing; and alone in all the Blessed
 Realm he was deprived of joy. After a while he went to Lorien no more.
-All his love he gave thereafter to his son; and FEanor grew swiftly, as if a secret fire were kindled
+All his love he gave thereafter to his son; and Feanor grew swiftly, as if a secret fire were kindled
 within him. He was tall, and fair of face, and masterful, his eyes piercingly bright and his hair ravendark;
 in the pursuit of all his purposes eager and steadfast. Few ever changed his courses by counsel,
 none by force. He became of all the Noldor, then or after, the most subtle in mind and the most skilled
 in hand. In his youth, bettering the work of Rumil, he devised those letters which bear his name, and
 which the Eldar used ever after; and he it was who, first of the Noldor, discovered how gems greater
-and brighter than those of the Earth might be made with skill. The first gems that FEanor made were
+and brighter than those of the Earth might be made with skill. The first gems that Feanor made were
 white and colourless, but being set under starlight they would blaze with blue and silver fires brighter
 than Helluin; and other crystals he made also, wherein things far away could be seen small but clear,
-as with the eyes of the eagles of Manwe. Seldom were the hands and mind of FEanor at rest.
+as with the eyes of the eagles of Manwe. Seldom were the hands and mind of Feanor at rest.
 While still in his early youth he wedded Nerdanel, the daughter of a great smith named Mahtan,
 among those of the Noldor most dear to Aule; and of Mahtan he learned much of the making of things
-in metal and in stone. Nerdanel also was firm of will, but more patient than FEanor, desiring to
+in metal and in stone. Nerdanel also was firm of will, but more patient than Feanor, desiring to
 understand minds rather than to master them, and at first she restrained him when the fire of his heart
 grew too hot; but his later deeds grieved her, and they became estranged. Seven sons she bore to
-FEanor; her mood she bequeathed in part to some of them, but not to all.
+Feanor; her mood she bequeathed in part to some of them, but not to all.
 Now it came to pass that FinwE took as his second wife Indis the Fair. She was a Vanya, close kin
 of IngwE the High King, golden-haired and tall, and in all ways unlike Miriel. FinwE loved her
 greatly, and was glad again. But the shadow of Miriel did not depart from the house of FinwE, nor
-from his heart; and of all whom he loved FEanor had ever the chief share of his thought.
-The wedding of his father was not pleasing to FEanor; and he had no great love for Indis, nor for
+from his heart; and of all whom he loved Feanor had ever the chief share of his thought.
+The wedding of his father was not pleasing to Feanor; and he had no great love for Indis, nor for
 Fingolfin and Finarfin, her sons. He lived apart from them, exploring the land of Aman, or busying
 himself with the knowledge and the crafts in which he delighted. In those unhappy things which later
-came to pass, and in which FEanor was the leader, many saw the effect of this breach within the house
+came to pass, and in which Feanor was the leader, many saw the effect of this breach within the house
 of FinwE, judging that if FinwE had endured his loss and been content with the fathering of his mighty
-son, the courses of FEanor would have been otherwise, and great evil might have been prevented; for
+son, the courses of Feanor would have been otherwise, and great evil might have been prevented; for
 the sorrow and the strife in the house of FinwE is graven in the memory of the Noldorin Elves. But the
 children of Indis were great and glorious, and their children also; and if they had not lived the history
 of the Eldar would have been diminished.
-Now even while FEanor and the craftsmen of the Noldor worked with delight, foreseeing no end to
+Now even while Feanor and the craftsmen of the Noldor worked with delight, foreseeing no end to
 their labours, and while the sons of Indis grew to their full stature, the Noontide of Valinor was
 drawing to its close. For it came to pass that Melkor, as the Valar had decreed, completed the term of
 his bondage, dwelling for three ages in the duress of Mandos, alone. At length, as Manwe had
@@ -1050,41 +1050,41 @@ labour in any great deed that they would do. The Vanyar indeed held him in suspi
 in the light of the Trees and were content; and to the Teleri he gave small heed, thinking them of little
 worth, tools too weak for his designs. But the Noldor took delight in the hidden knowledge that he
 could reveal to them; and some hearkened to words that it would have been better for them never to
-have heard. Melkor indeed declared afterwards that FEanor had learned much art from him in secret,
+have heard. Melkor indeed declared afterwards that Feanor had learned much art from him in secret,
 and had been instructed by him in the greatest of all his works; but he lied in his lust and his envy, for
-none of the EldaliE ever hated Melkor more than FEanor son of FinwE, who first named him Morgoth;
+none of the EldaliE ever hated Melkor more than Feanor son of FinwE, who first named him Morgoth;
 and snared though he was in the webs of Melkor’s malice against the Valar he held no converse with
-him and took no counsel from him. For FEanor was driven by the fire of his own heart only, working
+him and took no counsel from him. For Feanor was driven by the fire of his own heart only, working
 ever swiftly and alone; and he asked the aid and sought the counsel of none that dwelt in Aman, great
 or small, save only and for a little while of Nerdanel the wise, his wife.
 
 CHAPTER 7
 OF THE SILMARILS AND THE UNREST OF THE NOLDOR
 In that time were made those things that afterwards were most renowned of all the works of the Elves.
-For FEanor, being come to his full might, was filled with a new thought, or it may be that some
+For Feanor, being come to his full might, was filled with a new thought, or it may be that some
 shadow of foreknowledge came to him of the doom that drew near; and he pondered how the light of
 the Trees, the glory of the Blessed Realm, might be preserved imperishable. Then he began a long and
 secret labour, and he summoned all his lore, and his power, and his subtle skill; and at the end of all
 he made the Silmarils.
-As three great jewels they were in form. But not until the End, when FEanor shall return who
+As three great jewels they were in form. But not until the End, when Feanor shall return who
 perished ere the Sun was made, and sits now in the Halls of Awaiting and comes no more among his
 kin; not until the Sun passes and the Moon falls, shall it be known of what substance they were made.
 Like the crystal of diamonds it appeared, and yet was more strong than adamant, so that no violence
 could mar it or break it within the Kingdom of Arda. Yet that crystal was to the Silmarils but as is the
 body to the Children of Iluvatar: the house of its inner fire, that is within it and yet in all parts of it,
-and is its life. And the inner fire of the Silmarils FEanor made of the blended light of the Trees of
+and is its life. And the inner fire of the Silmarils Feanor made of the blended light of the Trees of
 Valinor, which lives in them yet, though the Trees have long withered and shine no more. Therefore
 even in the darkness of the deepest treasury the Silmarils of their own radiance shone like the stars of
 Varda; and yet, as were they indeed living things, they rejoiced in light and received it and gave it
 back in hues more marvellous than before.
-All who dwelt in Aman were filled with wonder and delight at the work of FEanor. And Varda
+All who dwelt in Aman were filled with wonder and delight at the work of Feanor. And Varda
 hallowed the Silmarils, so that thereafter no mortal flesh, nor hands unclean, nor anything of evil will
 might touch them, but it was scorched and withered; and Mandos foretold that the fates of Arda, earth,
-sea, and air, lay locked within them. The heart of FEanor was fast bound to these things that he himself
+sea, and air, lay locked within them. The heart of Feanor was fast bound to these things that he himself
 had made.
 Then Melkor lusted for the Silmarils, and the very memory of their radiance was a gnawing fire in
 his heart. From that time forth, inflamed by this desire, he sought ever more eagerly how he should
-destroy FEanor and end the friendship of the Valar and the Elves; but he dissembled his purposes with
+destroy Feanor and end the friendship of the Valar and the Elves; but he dissembled his purposes with
 cunning, and nothing of his malice could yet be seen in the semblance that he wore. Long was he at
 work, and slow at first and barren was his labour. But he that sows lies in the end shall not lack of a
 harvest, and soon he may rest from toil indeed while others reap and sow in his stead. Ever Melkor
@@ -1110,16 +1110,16 @@ many of the Noldor believed, or half believed, the evil words.
 Thus ere the Valar were aware, the peace of Valinor was poisoned. The Noldor began to murmur
 against them, and many became filled with pride, forgetting how much of what they had and knew
 came to them in gift from the Valar. Fiercest burned the new flame of desire for freedom and wider
-realms in the eager heart of FEanor; and Melkor laughed in his secrecy, for to that mark his lies had
-been addressed, hating FEanor above all, and lusting ever for the Silmarils. But these he was not
-suffered to approach; for though at great feasts FEanor would wear them, blazing on his brow, at other
-times they were guarded close, locked in the deep chambers of his hoard in Tirion. For FEanor began
+realms in the eager heart of Feanor; and Melkor laughed in his secrecy, for to that mark his lies had
+been addressed, hating Feanor above all, and lusting ever for the Silmarils. But these he was not
+suffered to approach; for though at great feasts Feanor would wear them, blazing on his brow, at other
+times they were guarded close, locked in the deep chambers of his hoard in Tirion. For Feanor began
 to love the Silmarils with a greedy love, and grudged the sight of them to all save to his father and his
 seven sons; he seldom remembered now that the light within them was not his own.
-High princes were FEanor and Fingolfin, the elder sons of FinwE, honoured by all in Aman; but
+High princes were Feanor and Fingolfin, the elder sons of FinwE, honoured by all in Aman; but
 now they grew proud and jealous each of his rights and his possessions. Then Melkor set new lies
-abroad in Eldamar, and whispers came to FEanor that Fingolfin and his sons were plotting to usurp
-the leadership of FinwE and of the elder line of FEanor, and to supplant them by the leave of the Valar;
+abroad in Eldamar, and whispers came to Feanor that Fingolfin and his sons were plotting to usurp
+the leadership of FinwE and of the elder line of Feanor, and to supplant them by the leave of the Valar;
 for the Valar were ill-pleased that the Silmarils lay in Tirion and were not committed to their keeping.
 But to Fingolfin and Finarfin it was said: ‘Beware! Small love has the proud son of Miriel ever had
 for the children of Indis. Now he has become great, and he has his father in his hand. It will not be
@@ -1128,13 +1128,13 @@ And when Melkor saw that these lies were smouldering, and that pride and anger w
 among the Noldor, he spoke to them concerning weapons; and in that time the Noldor began the
 smithying of swords and axes and spears. Shields also they made displaying the tokens of many
 houses and kindreds that vied one with another; and these only they wore abroad, and of other
-weapons they did not speak, for each believed that he alone had received the warning. And FEanor
+weapons they did not speak, for each believed that he alone had received the warning. And Feanor
 made a secret forge, of which not even Melkor was aware; and there he tempered fell swords for
 himself and for his sons, and made tall helms with plumes of red. Bitterly did Mahtan rue the day
 when he taught to the husband of Nerdanel all the lore of metalwork that he had learned of Aule.
 Thus with lies and evil whisperings and false counsel Melkor kindled the hearts of the Noldor to
 strife; and of their quarrels came at length the end of the high days of Valinor and the evening of its
-ancient glory. For FEanor now began openly to speak words of rebellion against the Valar, crying
+ancient glory. For Feanor now began openly to speak words of rebellion against the Valar, crying
 aloud that he would depart from Valinor back to the world without, and would deliver the Noldor
 from thraldom, if they would follow him.
 Then there was great unrest in Tirion, and FinwE was troubled; and he summoned all his lords to
@@ -1144,12 +1144,12 @@ what right does he speak for all our people, as if he were King? Thou it was who
 before the Quendi, bidding them accept the summons of the Valar to Aman. Thou it was that led the
 Noldor upon the long road through the perils of Middle-earth to the light of Eldamar. If thou dost not
 now repent of it, two sons at least thou hast to honour thy words.’
-But even as Fingolfin spoke, FEanor strode into the chamber, and he was fully armed: his high helm
+But even as Fingolfin spoke, Feanor strode into the chamber, and he was fully armed: his high helm
 upon his head, and at his side a mighty sword. ‘So it is, even as I guessed,’ he said. ‘My half-brother
 would be before me with my father, in this as in all other matters.’ Then turning upon Fingolfin he
 drew his sword, crying: ‘Get thee gone, and take thy due place!’
-Fingolfin bowed before FinwE, and without word or glance to FEanor he went from the chamber.
-But FEanor followed him, and at the door of the king’s house he stayed him; and the point of his bright
+Fingolfin bowed before FinwE, and without word or glance to Feanor he went from the chamber.
+But Feanor followed him, and at the door of the king’s house he stayed him; and the point of his bright
 sword he set against Fingolfin’s breast. ‘See, half-brother!’ he said. ‘This is sharper than thy tongue.
 Try but once more to usurp my place and the love of my father, and maybe it will rid the Noldor of
 one who seeks to be the master of thralls.’
@@ -1157,52 +1157,52 @@ These words were heard by many, for the house of FinwE was in the great square b
 Mindon; but again Fingolfin made no answer, and passing through the throng in silence he went to
 seek Finarfin his brother.
 Now the unrest of the Noldor was not indeed hidden from the Valar, but its seed had been sown in
-the dark; and therefore, since FEanor first spoke openly against them, they judged that he was the
+the dark; and therefore, since Feanor first spoke openly against them, they judged that he was the
 mover of discontent, being eminent in self-will and arrogance, though all the Noldor had become
 proud. And Manwe was grieved, but he watched and said no word. The Valar had brought the Eldar
 to their land freely, to dwell or to depart; and though they might judge departure to be folly, they might
-not restrain them from it. But now the deeds of FEanor could not be passed over, and the Valar were
+not restrain them from it. But now the deeds of Feanor could not be passed over, and the Valar were
 angered and dismayed; and he was summoned to appear before them at the gates of Valmar, to answer
 for all his words and deeds. There also were summoned all others who had any part in this matter, or
-any knowledge of it; and FEanor standing before Mandos in the Ring of Doom was commanded to
+any knowledge of it; and Feanor standing before Mandos in the Ring of Doom was commanded to
 answer all that was asked of him. Then at last the root was laid bare, and the malice of Melkor
 revealed; and straightway Tulkas left the council to lay hands upon him and bring him again to
-judgement. But FEanor was not held guiltless, for he it was that had broken the peace of Valinor and
+judgement. But Feanor was not held guiltless, for he it was that had broken the peace of Valinor and
 drawn his sword upon his kinsman; and Mandos said to him: ‘Thou speakest of thraldom. If thraldom
 it be, thou canst not escape it: for Manwe is King of Arda, and not of Aman only. And this deed was
 unlawful, whether in Aman or not in Aman. Therefore this doom is now made: for twelve years thou
 shalt leave Tirion where this threat was uttered. In that time take counsel with thyself, and remember
 who and what thou art. But after that time this matter shall be set in peace and held redressed, if
 others will release thee.’
-Then Fingolfin said: ‘I will release my brother.’ But FEanor spoke no word in answer, standing
+Then Fingolfin said: ‘I will release my brother.’ But Feanor spoke no word in answer, standing
 silent before the Valar. Then he turned and left the council, and departed from Valmar.
 With him into banishment went his seven sons, and northward in Valinor they made a strong place
 and treasury in the hills; and there at Formenos a multitude of gems were laid in hoard, and weapons
 also, and the Silmarils were shut in a chamber of iron. Thither also came FinwE the King, because of
-the love that he bore to FEanor; and Fingolfin ruled the Noldor in Tirion. Thus the lies of Melkor
-were made true in seeming, though FEanor by his own deeds had brought this thing to pass; and the
+the love that he bore to Feanor; and Fingolfin ruled the Noldor in Tirion. Thus the lies of Melkor
+were made true in seeming, though Feanor by his own deeds had brought this thing to pass; and the
 bitterness that Melkor had sown endured, and lived still long afterwards between the sons of
-Fingolfin and FEanor.
+Fingolfin and Feanor.
 Now Melkor, knowing that his devices had been revealed, hid himself and passed from place to
 place as a cloud in the hills; and Tulkas sought for him in vain. Then it seemed to the people of
 Valinor that the light of the Trees was dimmed, and the shadows of all standing things grew longer and
 darker in that time.
 It is told that for a time Melkor was not seen again in Valinor, nor was any rumour heard of him,
-until suddenly he came to Formenos, and spoke with FEanor before his doors. Friendship he feigned
+until suddenly he came to Formenos, and spoke with Feanor before his doors. Friendship he feigned
 with cunning argument, urging him to his former thought of flight from the trammels of the Valar; and
 he said: ‘Behold the truth of all that I have spoken, and how thou art banished unjustly. But if the heart
-of FEanor is yet free and bold as were his words in Tirion, then I will aid him, and bring him far from
+of Feanor is yet free and bold as were his words in Tirion, then I will aid him, and bring him far from
 this narrow land. For am I not Vala also? Yea, and more than those who sit in pride in Valimar; and I
 have ever been a friend to the Noldor, most skilled and most valiant of the people of Arda.’
-Now FEanor’s heart was still bitter at his humiliation before Mandos, and he looked at Melkor in
+Now Feanor’s heart was still bitter at his humiliation before Mandos, and he looked at Melkor in
 silence, pondering if indeed he might yet trust him so far as to aid him in his flight. And Melkor,
-seeing that FEanor wavered, and knowing that the Silmarils held his heart in thrall, said at the last:
+seeing that Feanor wavered, and knowing that the Silmarils held his heart in thrall, said at the last:
 ‘Here is a strong place, and well guarded; but think not that the Silmarils will lie safe in any treasury
 within the realm of the Valar!’
 But his cunning overreached his aim; his words touched too deep, and awoke a fire more fierce
-than he designed; and FEanor looked upon Melkor with eyes that burned through his fair semblance
+than he designed; and Feanor looked upon Melkor with eyes that burned through his fair semblance
 and pierced the cloaks of his mind, perceiving there his fierce lust for the Silmarils. Then hate
-overcame FEanor’s fear, and he cursed Melkor and bade him be gone, saying: ‘Get thee gone from my
+overcame Feanor’s fear, and he cursed Melkor and bade him be gone, saying: ‘Get thee gone from my
 gate, thou jail-crow of Mandos!’ And he shut the doors of his house in the face of the mightiest of all
 the dwellers in Ea.
 Then Melkor departed in shame, for he was himself in peril, and he saw not his time yet for
@@ -1288,20 +1288,20 @@ In that day the streets of Valmar were empty, and the stairs of Tirion were sile
 sleeping in peace. Only the Teleri beyond the mountains still sang upon the shores of the sea; for they
 recked little of seasons or times, and gave no thought to the cares of the Rulers of Arda, or the
 shadow that had fallen on Valinor, for it had not touched them, as yet.
-One thing only marred the design of Manwe.FEanor came indeed, for him alone Manwe had
+One thing only marred the design of Manwe.Feanor came indeed, for him alone Manwe had
 commanded to come; but FinwE came not, nor any others of the Noldor of Formenos. For said FinwE:
-‘While the ban lasts upon FEanor my son, that he may not go to Tirion, I hold myself unkinged, and I
-will not meet my people.’ And FEanor came not in raiment of festival, and he wore no ornament,
+‘While the ban lasts upon Feanor my son, that he may not go to Tirion, I hold myself unkinged, and I
+will not meet my people.’ And Feanor came not in raiment of festival, and he wore no ornament,
 neither silver nor gold nor any gem; and he denied the sight of the Silmarils to the Valar and the Eldar,
 and left them locked in Formenos in their chamber of iron. Nevertheless he met Fingolfin before the
 throne of Manwe, and was reconciled, in word; and Fingolfin set at naught the unsheathing of the
 sword. For Fingolfin held forth his hand, saying: ‘As I promised, I do now. I release thee, and
 remember no grievance.’
-Then FEanor took his hand in silence; but Fingolfin said: ‘Half-brother in blood, full brother in
+Then Feanor took his hand in silence; but Fingolfin said: ‘Half-brother in blood, full brother in
 heart will I be. Thou shalt lead and I will follow. May no new grief divide us.’
-‘I hear thee,’ said FEanor. ‘So be it.’ But they did not know the meaning that their words would
+‘I hear thee,’ said Feanor. ‘So be it.’ But they did not know the meaning that their words would
 bear.
-It is told that even as FEanor and Fingolfin stood before Manwe there came the mingling of the
+It is told that even as Feanor and Fingolfin stood before Manwe there came the mingling of the
 lights, when both Trees were shining, and the silent city of Valmar was filled with a radiance of silver
 and gold. And in that very hour Melkor and Ungoliant came hastening over the fields of Valinor, as the
 shadow of a black cloud upon the wind fleets over the sunlit earth; and they came before the green
@@ -1346,24 +1346,24 @@ hands upon the Trees, but they were dead and dark, and each branch that she touc
 lifeless at her feet. Then many voices were lifted in lamentation; and it seemed to those that mourned
 that they had drained to the dregs the cup of woe that Melkor had filled for them. But it was not so.
 Yavanna spoke before the Valar, saying: ‘The Light of the Trees has passed away, and lives now
-only in the Silmarils of FEanor. Foresighted was he! Even for those who are mightiest under Iluvatar
+only in the Silmarils of Feanor. Foresighted was he! Even for those who are mightiest under Iluvatar
 there is some work that they may accomplish once, and once only. The Light of the Trees I brought
 into being, and within Ea I can do so never again. Yet had I but a little of that light I could recall life
 to the Trees, ere their roots decay; and then our hurt should be healed, and the malice of Melkor be
 confounded.’
-Then Manwe spoke and said: ‘Hearest thou, FEanor son of FinwE, the words of Yavanna? Wilt thou
+Then Manwe spoke and said: ‘Hearest thou, Feanor son of FinwE, the words of Yavanna? Wilt thou
 grant what she would ask?’
-There was long silence, but FEanor answered no word. Then Tulkas cried: ‘Speak, O Noldo, yea
+There was long silence, but Feanor answered no word. Then Tulkas cried: ‘Speak, O Noldo, yea
 or nay! But who shall deny Yavanna? And did not the light of the Silmarils come from her work in the
 beginning?’
 But Aule the Maker said: ‘Be not hasty! We ask a greater thing than thou knowest. Let him have
 peace yet awhile.’
-But FEanor spoke then, and cried bitterly: ‘For the less even as for the greater there is some deed
+But Feanor spoke then, and cried bitterly: ‘For the less even as for the greater there is some deed
 that he may accomplish but once only; and in that deed his heart shall rest. It may be that I can unlock
 my jewels, but never again shall I make their like; and if I must break them, I shall break my heart, and
 I shall be slain; first of all the Eldar in Aman.’
 ‘Not the first,’ said Mandos, but they did not understand his word; and again there was silence,
-while FEanor brooded in the dark. It seemed to him that he was beset in a ring of enemies, and the
+while Feanor brooded in the dark. It seemed to him that he was beset in a ring of enemies, and the
 words of Melkor returned to him, saying that the Silmarils were not safe, if the Valar would possess
 them. ‘And is he not Vala as are they,’ said his thought, ‘and does he not understand their hearts? Yea,
 a thief shall reveal thieves!’ Then he cried aloud: ‘This thing I will not do of free will. But if the
@@ -1374,22 +1374,22 @@ mourning for the bitterness of the world and the Marring of Arda.
 But even as Nienna mourned, there came messengers from Formenos, and they were Noldor and
 bore new tidings of evil. For they told how a blind Darkness came northward, and in the midst
 walked some power for which there was no name, and the Darkness issued from it. But Melkor also
-was there, and he came to the house of FEanor, and there he slew FinwE King of the Noldor before his
+was there, and he came to the house of Feanor, and there he slew FinwE King of the Noldor before his
 doors, and spilled the first blood in the Blessed Realm; for FinwE alone had not fled from the horror
 of the Dark. And they told that Melkor had broken the stronghold of Formenos, and taken all the
 jewels of the Noldor that were hoarded in that place; and the Silmarils were gone.
-Then FEanor rose, and lifting up his hand before Manwe he cursed Melkor, naming him Morgoth,
+Then Feanor rose, and lifting up his hand before Manwe he cursed Melkor, naming him Morgoth,
 the Black Foe of the World; and by that name only was he known to the Eldar ever after. And he
 cursed also the summons of Manwe and the hour in which he came to Taniquetil, thinking in the
 madness of his rage and grief that had he been at Formenos his strength would have availed more than
-to be slain also, as Melkor had purposed. Then FEanor ran from the Ring of Doom, and fled into the
+to be slain also, as Melkor had purposed. Then Feanor ran from the Ring of Doom, and fled into the
 night; for his father was dearer to him than the Light of Valinor or the peerless works of his hands; and
 who among sons, of Elves or of Men, have held their fathers of greater worth?
-Many there grieved for the anguish of FEanor, but his loss was not his alone; and Yavanna wept by
+Many there grieved for the anguish of Feanor, but his loss was not his alone; and Yavanna wept by
 the mound, in fear that the Darkness should swallow the last rays of the Light of Valinor for ever. For
 though the Valar did not yet understand fully what had befallen, they perceived that Melkor had called
 upon some aid that came from beyond Arda. The Silmarils had passed away, and all one it may seem
-whether FEanor had said yea or nay to Yavanna; yet had he said yea at the first, before the tidings
+whether Feanor had said yea or nay to Yavanna; yet had he said yea at the first, before the tidings
 came from Formenos, it may be that his after deeds would have been other than they were. But now
 the doom of the Noldor drew near.
 Meanwhile Morgoth escaping from the pursuit of the Valar came to the wastes of Araman. This
@@ -1458,11 +1458,11 @@ Valar remained long seated in darkness in the Ring of Doom, and the Maiar and th
 beside them and wept; but the Noldor for the most part returned to Tirion and mourned for the
 darkening of their fair city. Through the dim ravine of the Calacirya fogs drifted in from the shadowy
 seas and mantled its towers, and the lamp of the Mindon burned pale in the gloom.
-Then suddenly FEanor appeared in the city and called on all to come to the high court of the King
+Then suddenly Feanor appeared in the city and called on all to come to the high court of the King
 upon the summit of Tuna; but the doom of banishment that had been laid upon him was not yet lifted,
 and he rebelled against the Valar. A great multitude gathered swiftly, therefore, to hear what he would
 say; and the hill and all the stairs and streets that climbed upon it were lit with the light of many
-torches that each one bore in hand. FEanor was a master of words, and his tongue had great power
+torches that each one bore in hand. Feanor was a master of words, and his tongue had great power
 over hearts when he would use it; and that night he made a speech before the Noldor which they ever
 remembered. Fierce and fell were his words, and filled with anger and pride; and hearing them the
 Noldor were stirred to madness. His wrath and his hate were given most to Morgoth, and yet well
@@ -1491,7 +1491,7 @@ we will never turn back from pursuit. After Morgoth to the ends of the Earth! Wa
 hatred undying. But when we have conquered and have regained the Silmarils, then we and we alone
 shall be lords of the unsullied Light, and masters of the bliss and beauty of Arda. No other race shall
 oust us!’
-Then FEanor swore a terrible oath. His seven sons leapt straightway to his side and took the
+Then Feanor swore a terrible oath. His seven sons leapt straightway to his side and took the
 selfsame vow together, and red as blood shone their drawn swords in the glare of the torches. They
 swore an oath which none shall break, and none should take, by the name even of Iluvatar, calling the
 Everlasting Dark upon them if they kept it not; and Manwe they named in witness, and Varda, and the
@@ -1502,60 +1502,60 @@ possession.
 Thus spoke Maedhros and Maglor and Celegorm, Curufin and Caranthir, Amrod and Amras,
 princes of the Noldor; and many quailed to hear the dread words. For so sworn, good or evil, an oath
 may not be broken, and it shall pursue oathkeeper and oathbreaker to the world’s end. Fingolfin and
-Turgon his son therefore spoke against FEanor, and fierce words awoke, so that once again wrath
+Turgon his son therefore spoke against Feanor, and fierce words awoke, so that once again wrath
 came near to the edge of swords. But Finarfin spoke softly, as was his wont, and sought to calm the
 Noldor, persuading them to pause and ponder ere deeds were done that could not be undone: and
 Orodreth, alone of his sons, spoke in like manner. Finrod was with Turgon, his friend; but Galadriel,
 the only woman of the Noldor to stand that day tall and valiant among the contending princes, was
-eager to be gone. No oaths she swore, but the words of FEanor concerning Middle-earth had kindled
+eager to be gone. No oaths she swore, but the words of Feanor concerning Middle-earth had kindled
 in her heart, for she yearned to see the wide unguarded lands and to rule there a realm at her own
-will. Of like mind with Galadriel was Fingon Fingolfin’s son, being moved also by FEanor’s words,
+will. Of like mind with Galadriel was Fingon Fingolfin’s son, being moved also by Feanor’s words,
 though he loved him little; and with Fingon stood as they ever did Angrod and Aegnor, sons of
 Finarfin. But these held their peace and spoke not against their fathers.
-At length after long debate FEanor prevailed, and the greater part of the Noldor there assembled he
+At length after long debate Feanor prevailed, and the greater part of the Noldor there assembled he
 set aflame with the desire of new things and strange countries. Therefore when Finarfin spoke yet
-again for heed and delay, a great shout went up: ‘Nay, let us be gone!’ And straightway FEanor and his
+again for heed and delay, a great shout went up: ‘Nay, let us be gone!’ And straightway Feanor and his
 sons began to prepare for the marching forth.
 Little foresight could there be for those who dared to take so dark a road. Yet all was done in overhaste;
-for FEanor drove them on, fearing lest in the cooling of their hearts his words should wane and
+for Feanor drove them on, fearing lest in the cooling of their hearts his words should wane and
 other counsels yet prevail; and for all his proud words he did not forget the power of the Valar. But
 from Valmar no message came, and Manwe was silent. He would not yet either forbid or hinder
-FEanor’s purpose; for the Valar were aggrieved that they were charged with evil intent to the Eldar, or
+Feanor’s purpose; for the Valar were aggrieved that they were charged with evil intent to the Eldar, or
 that any were held captive by them against their will. Now they watched and waited, for they did not
-yet believe that FEanor could hold the host of the Noldor to his will.
-And indeed when FEanor began the marshalling of the Noldor for their setting-out, then at once
+yet believe that Feanor could hold the host of the Noldor to his will.
+And indeed when Feanor began the marshalling of the Noldor for their setting-out, then at once
 dissension arose. For though he had brought the assembly in a mind to depart, by no means all were of
-a mind to take FEanor as King. Greater love was given to Fingolfin and his sons, and his household
+a mind to take Feanor as King. Greater love was given to Fingolfin and his sons, and his household
 and the most part of the dwellers in Tirion refused to renounce him, if he would go with them; and
-thus at the last as two divided hosts the Noldor set forth upon their bitter road. FEanor and his
+thus at the last as two divided hosts the Noldor set forth upon their bitter road. Feanor and his
 following were in the van, but the greater host came behind under Fingolfin; and he marched against
 his wisdom, because Fingon his son so urged him, and because he would not be sundered from his
-people that were eager to go, nor leave them to the rash counsels of FEanor. Nor did he forget his
+people that were eager to go, nor leave them to the rash counsels of Feanor. Nor did he forget his
 words before the throne of Manwe. With Fingolfin went Finarfin also and for like reasons; but most
 loath was he to depart. And of all the Noldor in Valinor, who were grown now to a great people, but
 one tithe refused to take the road: some for the love that they bore to the Valar (and to Aule not least),
 some for the love of Tirion and the many things that they had made; none for fear of peril by the way.
-But even as the trumpet sang and FEanor issued from the gates of Tirion a messenger came at last
-from Manwe, saying: ‘Against the folly of FEanor shall be set my counsel only. Go not forth! For the
+But even as the trumpet sang and Feanor issued from the gates of Tirion a messenger came at last
+from Manwe, saying: ‘Against the folly of Feanor shall be set my counsel only. Go not forth! For the
 hour is evil, and your road leads to sorrow that ye do not foresee. No aid will the Valar lend you in
 this quest; but neither will they hinder you; for this ye shall know: as ye came hither freely, freely
-shall ye depart. But thou FEanor FinwE’s son, by thine oath art exiled. The lies of Melkor thou shalt
+shall ye depart. But thou Feanor FinwE’s son, by thine oath art exiled. The lies of Melkor thou shalt
 unlearn in bitterness. Vala he is, thou saist. Then thou hast sworn in vain, for none of the Valar canst
 thou overcome now or ever within the halls of Ea, not though Eru whom thou namest had made thee
 thrice greater than thou art.’
-But FEanor laughed, and spoke not to the herald, but to the Noldor, saying: ‘So! Then will this
+But Feanor laughed, and spoke not to the herald, but to the Noldor, saying: ‘So! Then will this
 valiant people send forth the heir of their King alone into banishment with his sons only, and return to
 their bondage? But if any will come with me, I say to them: Is sorrow foreboded to you? But in Aman
 we have seen it. In Aman we have come through bliss to woe. The other now we will try: through
 sorrow to find joy; or freedom, at the least.’
-Then turning to the herald he cried: ‘Say this to Manwe Sulimo, High King of Arda: if FEanor
+Then turning to the herald he cried: ‘Say this to Manwe Sulimo, High King of Arda: if Feanor
 cannot overthrow Morgoth, at least he delays not to assail him, and sits not idle in grief. And it may
 be that Eru has set in me a fire greater than thou knowest. Such hurt at the least will I do to the Foe of
 the Valar that even the mighty in the Ring of Doom shall wonder to hear it. Yea, in the end they shall
 follow me. Farewell!’
-In that hour the voice of FEanor grew so great and so potent that even the herald of the Valar bowed
+In that hour the voice of Feanor grew so great and so potent that even the herald of the Valar bowed
 before him as one full-answered, and departed; and the Noldor were over-ruled. Therefore they
-continued their march; and the House of FEanor hastened before them along the coasts of ElendE: not
+continued their march; and the House of Feanor hastened before them along the coasts of ElendE: not
 once did they turn their eyes back to Tirion on the green hill of Tuna. Slower and less eagerly came
 the host of Fingolfin after them. Of those Fingon was the foremost; but at the rear went Finarfin and
 Finrod, and many of the noblest and wisest of the Noldor; and often they looked behind them to see
@@ -1563,10 +1563,10 @@ their fair city, until the lamp of the Mindon Eldalieva was lost in the night. M
 Exiles they carried thence memories of the bliss they had forsaken, and some even of the things that
 they had made there they took with them: a solace and a burden on the road.
 
-Now FEanor led the Noldor northward, because his first purpose was to follow Morgoth.
+Now Feanor led the Noldor northward, because his first purpose was to follow Morgoth.
 Moreover Tuna beneath Taniquetil was set nigh to the girdle of Arda, and there the Great Sea was
 immeasurably wide, whereas ever northward the sundering seas grew narrower, as the wasteland of
-Araman and the coasts of Middle-earth drew together. But as the mind of FEanor cooled and took
+Araman and the coasts of Middle-earth drew together. But as the mind of Feanor cooled and took
 counsel he perceived over-late that all these great companies would never overcome the long leagues
 to the north, nor cross the seas at the last, save with the aid of ships; yet it would need long time and
 toil to build so great a fleet, even were there any among the Noldor skilled in that craft. He resolved
@@ -1581,7 +1581,7 @@ other home but the strands of Eldamar, and no other lord than OlwE, prince of Al
 had never lent ear to Morgoth, nor welcomed him to his land, and he trusted still that Ulmo and the
 other great among the Valar would redress the hurts of Morgoth, and that the night would pass yet to a
 new dawn.
-Then FEanor grew wrathful, for he still feared delay; and hotly he spoke to OlwE. ‘You renounce
+Then Feanor grew wrathful, for he still feared delay; and hotly he spoke to OlwE. ‘You renounce
 your friendship, even in the hour of our need,’ he said. ‘Yet you were glad indeed to receive our aid
 when you came at last to these shores, fainthearted loiterers, and wellnigh emptyhanded. In huts on the
 beaches would you be dwelling still, had not the Noldor carved out your haven and toiled upon your
@@ -1592,14 +1592,14 @@ land of Aman we were to dwell for ever, as brothers whose houses stand side by s
 white ships: those you gave us not. We learned not that craft from the Noldor, but from the Lords of
 the Sea; and the white timbers we wrought with our own hands, and the white sails were woven by
 our wives and our daughters. Therefore we will neither give them nor sell them for any league or
-friendship. For I say to you, FEanor son of FinwE, these are to us as are the gems of the Noldor: the
+friendship. For I say to you, Feanor son of FinwE, these are to us as are the gems of the Noldor: the
 work of our hearts, whose like we shall not make again.’
-Thereupon FEanor left him, and sat in dark thought beyond the walls of AlqualondE, until his host
+Thereupon Feanor left him, and sat in dark thought beyond the walls of AlqualondE, until his host
 was assembled. When he judged that his strength was enough, he went to the Haven of the Swans and
 began to man the ships that were anchored there and to take them away by force. But the Teleri
 withstood him, and cast many of the Noldor into the sea. Then swords were drawn, and a bitter fight
 was fought upon the ships, and about the lamplit quays and piers of the Haven, and even upon the
-great arch of its gate. Thrice the people of FEanor were driven back, and many were slain upon either
+great arch of its gate. Thrice the people of Feanor were driven back, and many were slain upon either
 side; but the vanguard of the Noldor were succoured by Fingon with the foremost of the host of
 Fingolfin, who coming up found a battle joined and their own kin falling, and rushed in before they
 knew rightly the cause of the quarrel; some thought indeed that the Teleri had sought to waylay the
@@ -1625,7 +1625,7 @@ prophecy which is called the Prophecy of the North, and the Doom of the Noldor. 
 dark words, which the Noldor understood not until the woes indeed after befell them; but all heard the
 curse that was uttered upon those that would not stay nor seek the doom and pardon of the Valar.
 ‘Tears unnumbered ye shall shed; and the Valar will fence Valinor against you, and shut you out, so
-that not even the echo of your lamentation shall pass over the mountains. On the House of FEanor the
+that not even the echo of your lamentation shall pass over the mountains. On the House of Feanor the
 wrath of the Valar lieth from the West unto the uttermost East, and upon all that will follow them it
 shall be laid also. Their Oath shall drive them, and yet betray them, and ever snatch away the very
 treasures that they have sworn to pursue. To evil end shall all things turn that they begin well; and by
@@ -1639,18 +1639,18 @@ Mandos. There long shall ye abide and yearn for your bodies, and find little pit
 have slain should entreat for you. And those that endure in Middle-earth and come not to Mandos
 shall grow weary of the world as with a great burden, and shall wane, and become as shadows of
 regret before the younger race that cometh after. The Valar have spoken.’
-Then many quailed; but FEanor hardened his heart and said: ‘We have sworn, and not lightly. This
+Then many quailed; but Feanor hardened his heart and said: ‘We have sworn, and not lightly. This
 oath we will keep. We are threatened with many evils, and treason not least; but one thing is not said:
 that we shall suffer from cowardice, from cravens or the fear of cravens. Therefore I say that we will
 go on, and this doom I add: the deeds that we shall do shall be the matter of song until the last days of
 Arda.’
 But in that hour Finarfin forsook the march, and turned back, being filled with grief, and with
-bitterness against the House of FEanor, because of his kinship with OlwE of AlqualondE; and many of
+bitterness against the House of Feanor, because of his kinship with OlwE of AlqualondE; and many of
 his people went with him, retracing their steps in sorrow, until they beheld once more the far beam of
 the Mindon upon Tuna still shining in the night, and so came at last to Valinor. There they received the
 pardon of the Valar, and Finarfin was set to rule the remnant of the Noldor in the Blessed Realm. But
 his sons were not with him, for they would not forsake the sons of Fingolfin; and all Fingolfin’s folk
-went forward still, feeling the constraint of their kinship and the will of FEanor, and fearing to face
+went forward still, feeling the constraint of their kinship and the will of Feanor, and fearing to face
 the doom of the Valar, since not all of them had been guiltless of the Kinslaying at AlqualondE.
 Moreover Fingon and Turgon were bold and fiery of heart, and loath to abandon any task to which
 they had put their hands until the bitter end, if bitter it must be. So the main host held on, and swiftly
@@ -1662,44 +1662,44 @@ westward, there was a narrow strait, through which the chill waters of the Encir
 waves of Belegaer flowed together, and there were vast fogs and mists of deathly cold, and the seastreams
 were filled with clashing hills of ice and the grinding of ice deep-sunken. Such was the
 HelcaraxE, and there none yet had dared to tread save the Valar only and Ungoliant.
-Therefore FEanor halted and the Noldor debated what course they should now take. But they began
+Therefore Feanor halted and the Noldor debated what course they should now take. But they began
 to suffer anguish from the cold, and the clinging mists through which no gleam of star could pierce;
 and many repented of the road and began to murmur, especially those that followed Fingolfin, cursing
-FEanor, and naming him as the cause of all the woes of the Eldar. But FEanor, knowing all that was
+Feanor, and naming him as the cause of all the woes of the Eldar. But Feanor, knowing all that was
 said, took counsel with his sons; and two courses only they saw to escape from Araman and come
 into Endor: by the straits or by ship. But the HelcaraxE they deemed impassable, whereas the ships
 were too few. Many had been lost upon their long journey, and there remained now not enough to bear
 across all the great host together; yet none were willing to abide upon the western coast while others
 were ferried first: already the fear of treachery was awake among the Noldor. Therefore it came into
-the hearts of FEanor and his sons to seize all the ships and depart suddenly; for they had retained the
+the hearts of Feanor and his sons to seize all the ships and depart suddenly; for they had retained the
 mastery of the fleet since the battle of the Haven, and it was manned only by those who had fought
-there and were bound to FEanor. And as though it came at his call, there sprang up a wind from the
-north-west, and FEanor slipped away secretly with all whom he deemed true to him, and went aboard,
+there and were bound to Feanor. And as though it came at his call, there sprang up a wind from the
+north-west, and Feanor slipped away secretly with all whom he deemed true to him, and went aboard,
 and put out to sea, and left Fingolfin in Araman. And since the sea was there narrow, steering east and
 somewhat south he passed over without loss, and first of all the Noldor set foot once more upon the
-shores of Middle-earth; and the landing of FEanor was at the mouth of the firth which was called
+shores of Middle-earth; and the landing of Feanor was at the mouth of the firth which was called
 Drengist and ran into Dor-lomin.
 But when they were landed, Maedhros the eldest of his sons, and on a time the friend of Fingon ere
-Morgoth’s lies came between, spoke to FEanor, saying: ‘Now what ships and rowers will you spare
+Morgoth’s lies came between, spoke to Feanor, saying: ‘Now what ships and rowers will you spare
 to return, and whom shall they bear hither first? Fingon the valiant?’
-Then FEanor laughed as one fey, and he cried: ‘None and none! What I have left behind I count now
+Then Feanor laughed as one fey, and he cried: ‘None and none! What I have left behind I count now
 no loss; needless baggage on the road it has proved. Let those that cursed my name, curse me still, and
 whine their way back to the cages of the Valar! Let the ships burn!’ Then Maedhros alone stood aside,
-but FEanor caused fire to be set to the white ships of the Teleri. So in that place which was called
+but Feanor caused fire to be set to the white ships of the Teleri. So in that place which was called
 Losgar at the outlet of the Firth of Drengist ended the fairest vessels that ever sailed the sea, in a great
 burning, bright and terrible. And Fingolfin and his people saw the light afar off, red beneath the
 clouds; and they knew that they were betrayed. This was the firstfruits of the Kinslaying and the Doom
 of the Noldor.
-Then Fingolfin seeing that FEanor had left him to perish in Araman or return in shame to Valinor
+Then Fingolfin seeing that Feanor had left him to perish in Araman or return in shame to Valinor
 was filled with bitterness; but he desired now as never before to come by some way to Middle-earth,
-and meet FEanor again. And he and his host wandered long in misery, but their valour and endurance
+and meet Feanor again. And he and his host wandered long in misery, but their valour and endurance
 grew with hardship; for they were a mighty people, the elder children undying of Eru Iluvatar, but
 new-come from the Blessed Realm, and not yet weary with the weariness of Earth. The fire of their
 hearts was young, and led by Fingolfin and his sons, and by Finrod and Galadriel, they dared to pass
 into the bitterest North; and finding no other way they endured at last the terror of the HelcaraxE and
 the cruel hills of ice. Few of the deeds of the Noldor thereafter surpassed that desperate crossing in
 hardihood or woe. There ElenwE the wife of Turgon was lost, and many others perished also; and it
-was with a lessened host that Fingolfin set foot at last upon the Outer Lands. Small love for FEanor or
+was with a lessened host that Fingolfin set foot at last upon the Outer Lands. Small love for Feanor or
 his sons had those that marched at last behind him, and blew their trumpets in Middle-earth at the first
 rising of the Moon.
 
@@ -1882,28 +1882,28 @@ there was yet a watchful peace; but without there was peril and great fear, and 
 Morgoth roamed at will, save in the walled havens of the Falas.
 But new tidings were at hand, which none in Middle-earth had foreseen, neither Morgoth in his pits
 nor Melian in Menegroth; for no news came out of Aman, whether by messenger, or by spirit, or by
-vision in dream, after the death of the Trees. In this same time FEanor came over the Sea in the white
+vision in dream, after the death of the Trees. In this same time Feanor came over the Sea in the white
 ships of the Teleri, and landed in the Firth of Drengist, and there burned the ships at Losgar.
 
 CHAPTER 11
 OF THE SUN AND MOON AND THE HIDING OF VALINOR
 It is told that after the flight of Melkor the Valar sat long unmoved upon their thrones in the Ring of
-Doom; but they were not idle, as FEanor declared in the folly of his heart. For the Valar may work
+Doom; but they were not idle, as Feanor declared in the folly of his heart. For the Valar may work
 many things with thought rather than with hands, and without voices in silence they may hold council
 one with another. Thus they held vigil in the night of Valinor, and their thought passed back beyond Ea
 and forth to the End; yet neither power nor wisdom assuaged their grief, and the knowing of evil in the
-hour of its being. And they mourned not more for the death of the Trees than for the marring of FEanor:
-of the works of Melkor one of the most evil. For FEanor was made the mightiest in all parts of body
+hour of its being. And they mourned not more for the death of the Trees than for the marring of Feanor:
+of the works of Melkor one of the most evil. For Feanor was made the mightiest in all parts of body
 and mind, in valour, in endurance, in beauty, in understanding, in skill, in strength and in subtlety
 alike, of all the Children of Iluvatar, and a bright flame was in him. The works of wonder for the
 glory of Arda that he might otherwise have wrought only Manwe might in some measure conceive.
 And it was told by the Vanyar who held vigil with the Valar that when the messengers declared to
-Manwe the answers of FEanor to his heralds, Manwe wept and bowed his head. But at that last word
-of FEanor: that at the least the Noldor should do deeds to live in song for ever, he raised his head, as
+Manwe the answers of Feanor to his heralds, Manwe wept and bowed his head. But at that last word
+of Feanor: that at the least the Noldor should do deeds to live in song for ever, he raised his head, as
 one that hears a voice far off, and he said: ‘So shall it be! Dear-bought those songs shall be
 accounted, and yet shall be well-bought. For the price could be no other. Thus even as Eru spoke to us
 shall beauty not before conceived be brought into Ea, and evil yet be good to have been.’
-But Mandos said: ‘And yet remain evil. To me shall FEanor come soon.’
+But Mandos said: ‘And yet remain evil. To me shall Feanor come soon.’
 But when at last the Valar learned that the Noldor had indeed passed out of Aman and were come
 back into Middle-earth, they arose and began to set forth in deeds those counsels which they had taken
 in thought for the redress of the evils of Melkor. Then Manwe bade Yavanna and Nienna to put forth
@@ -2063,7 +2063,7 @@ But the dawn is brief and the day full often belies its promise; and now the tim
 great wars of the powers of the North, when Noldor and Sindar and Men strove against the hosts of
 Morgoth Bauglir, and went down in ruin. To this end the cunning lies of Morgoth that he sowed of old,
 and sowed ever anew among his foes, and the curse that came of the slaying at AlqualondE, and the
-oath of FEanor, were ever at work. Only a part is here told of the deeds of those days, and most is
+oath of Feanor, were ever at work. Only a part is here told of the deeds of those days, and most is
 said of the Noldor, and the Silmarils, and the mortals that became entangled in their fate. In those days
 Elves and Men were of like stature and strength of body, but the Elves had greater wisdom, and skill,
 and beauty; and those who had dwelt in Valinor and looked upon the Powers as much surpassed the
@@ -2094,23 +2094,23 @@ elf and mortal, Earendil, and Elwing, and Elrond their child.
 
 CHAPTER 13
 OF THE RETURN OF THE NOLDOR
-It has been told that FEanor and his sons came first of the Exiles to Middle-earth, and landed in the
+It has been told that Feanor and his sons came first of the Exiles to Middle-earth, and landed in the
 waste of Lammoth, the Great Echo, upon the outer shores of the Firth of Drengist. And even as the
 Noldor set foot upon the strand their cries were taken up into the hills and multiplied, so that a
 clamour as of countless mighty voices filled all the coasts of the North; and the noise of the burning of
 the ships at Losgar went down the winds of the sea as a tumult of great wrath, and far away all who
 heard that sound were filled with wonder.
-Now the flames of that burning were seen not only by Fingolfin, whom FEanor had deserted in
+Now the flames of that burning were seen not only by Fingolfin, whom Feanor had deserted in
 Araman, but also by the Orcs and the watchers of Morgoth. No tale has told what Morgoth thought in
-his heart at the tidings that FEanor, his bitterest foe, had brought a host out of the West. It may be that
+his heart at the tidings that Feanor, his bitterest foe, had brought a host out of the West. It may be that
 he feared him little, for he had as yet no proof of the swords of the Noldor; and soon it was seen that
 he purposed to drive them back into the sea.
-Under the cold stars before the rising of the Moon the host of FEanor went up the long Firth of
+Under the cold stars before the rising of the Moon the host of Feanor went up the long Firth of
 Drengist that pierced the Echoing Hills of Ered Lomin, and passed thus from the shores into the great
 land of Hithlum; and they came at length to the long lake of Mithrim, and upon its northern shore made
 their encampment in the region that bore the same name. But the host of Morgoth, aroused by the
 tumult of Lammoth and the light of the burning at Losgar, came through the passes of Ered Wethrin, the
-Mountains of Shadow, and assailed FEanor on a sudden, before his camp was full-wrought or put in
+Mountains of Shadow, and assailed Feanor on a sudden, before his camp was full-wrought or put in
 defence; and there on the grey fields of Mithrim was fought the Second Battle in the Wars of
 Beleriand. Dagor-nuin-Giliath it is named, the Battle-under-Stars, for the Moon had not yet risen; and
 it is renowned in song. The Noldor, outnumbered and taken at unawares, were yet swiftly victorious;
@@ -2119,12 +2119,12 @@ anger, and their swords were long and terrible. The Orcs fled before them, and t
 from Mithrim with great slaughter, and hunted over the Mountains of Shadow into the great plain of
 Ard-galen, that lay northward of Dorthonion. There the armies of Morgoth that had passed south into
 the Vale of Sirion and beleaguered Cirdan in the Havens of the Falas came up to their aid, and were
-caught in their ruin. For Celegorm, FEanor’s son, having news of them, waylaid them with a part of
+caught in their ruin. For Celegorm, Feanor’s son, having news of them, waylaid them with a part of
 the Elven-host, and coming down upon them out of the hills near Eithel Sirion drove them into the Fen
 of Serech. Evil indeed were the tidings that came at last to Angband, and Morgoth was dismayed. Ten
 days that battle lasted, and from it returned of all the hosts that he had prepared for the conquest of
 Beleriand no more than a handful of leaves.
-Yet cause he had for great joy, though it was hidden from him for a while. For FEanor, in his wrath
+Yet cause he had for great joy, though it was hidden from him for a while. For Feanor, in his wrath
 against the Enemy, would not halt, but pressed on behind the remnant of the Orcs, thinking so to come
 at Morgoth himself; and he laughed aloud as he wielded his sword, rejoicing that he had dared the
 wrath of the Valar and the evils of the road, that he might see the hour of his vengeance. Nothing did
@@ -2132,13 +2132,13 @@ he know of Angband or the great strength of defence that Morgoth had so swiftly 
 had he known it would not have deterred him, for he was fey, consumed by the flame of his own
 wrath. Thus it was that he drew far ahead of the van of his host; and seeing this the servants of
 Morgoth turned to bay, and there issued from Angband Balrogs to aid them. There upon the confines
-of Dor Daedeloth, the land of Morgoth, FEanor was surrounded, with few friends about him. Long he
+of Dor Daedeloth, the land of Morgoth, Feanor was surrounded, with few friends about him. Long he
 fought on, and undismayed, though he was wrapped in fire and wounded with many wounds; but at the
 last he was smitten to the ground by Gothmog, Lord of Balrogs, whom Ecthelion after slew in
 Gondolin. There he would have perished, had not his sons in that moment come up with force to his
 aid; and the Balrogs left him, and departed to Angband.
 Then his sons raised up their father and bore him back towards Mithrim. But as they drew near to
-Eithel Sirion and were upon the upward path to the pass over the mountains, FEanor bade them halt;
+Eithel Sirion and were upon the upward path to the pass over the mountains, Feanor bade them halt;
 for his wounds were mortal, and he knew that his hour was come. And looking out from the slopes of
 Ered Wethrin with his last sight he beheld far off the peaks of Thangorodrim, mightiest of the towers
 of Middle-earth, and knew with the foreknowledge of death that no power of the Noldor would ever
@@ -2156,7 +2156,7 @@ tidings of these great deeds in the north came south to Menegroth, and to the ha
 Eglarest. Then all the Elves of Beleriand were filled with wonder and with hope at the coming of
 their mighty kindred, who thus returned unlooked-for from the West in the very hour of their need,
 believing indeed at first that they came as emissaries of the Valar to deliver them.
-But even in the hour of the death of FEanor an embassy came to his sons from Morgoth,
+But even in the hour of the death of Feanor an embassy came to his sons from Morgoth,
 acknowledging defeat, and offering terms, even to the surrender of a Silmaril. Then Maedhros the tall,
 the eldest son, persuaded his brothers to feign to treat with Morgoth, and to meet his emissaries at the
 place appointed; but the Noldor had as little thought of faith as had he. Wherefore each embassy came
@@ -2166,7 +2166,7 @@ Morgoth, and brought to Angband.
 Then the brothers of Maedhros drew back, and fortified a great camp in Hithlum; but Morgoth held
 Maedhros as hostage, and sent word that he would not release him unless the Noldor would forsake
 their war, returning into the West, or else departing far from Beleriand into the South of the world. But
-the sons of FEanor knew that Morgoth would betray them, and would not release Maedhros,
+the sons of Feanor knew that Morgoth would betray them, and would not release Maedhros,
 whatsoever they might do; and they were constrained also by their oath, and might not for any cause
 forsake the war against their Enemy. Therefore Morgoth took Maedhros and hung him from the face of
 a precipice upon Thangorodrim, and he was caught to the rock by the wrist of his right hand in a band
@@ -2180,18 +2180,18 @@ fled into Angband, and Fingolfin passed unopposed through the fastness of Dor Da
 foes hid beneath the earth. Then the Elves smote upon the gates of Angband, and the challenge of their
 trumpets shook the towers of Thangorodrim; and Maedhros heard them amid his torment and cried
 aloud, but his voice was lost in the echoes of the stone.
-But Fingolfin, being of other temper than FEanor, and wary of the wiles of Morgoth, withdrew from
+But Fingolfin, being of other temper than Feanor, and wary of the wiles of Morgoth, withdrew from
 Dor Daedeloth and turned back towards Mithrim, for he had heard tidings that there he should find the
-sons of FEanor, and he desired also to have the shield of the Mountains of Shadow while his people
+sons of Feanor, and he desired also to have the shield of the Mountains of Shadow while his people
 rested and grew strong; for he had seen the strength of Angband, and thought not that it would fall to
 the sound of trumpets only. Therefore coming at length to Hithlum he made his first camp and
 dwelling by the northern shores of Lake Mithrim. No love was there in the hearts of those that
-followed Fingolfin for the House of FEanor, for the agony of those that endured the crossing of the Ice
+followed Fingolfin for the House of Feanor, for the agony of those that endured the crossing of the Ice
 had been great, and Fingolfin held the sons the accomplices of their father. Then there was peril of
 strife between the hosts; but grievous as were their losses upon the road, the people of Fingolfin and
-of Finrod son of Finarfin were still more numerous than the followers of FEanor, and these now
+of Finrod son of Finarfin were still more numerous than the followers of Feanor, and these now
 withdrew before them, and removed their dwelling to the southern shore; and the lake lay between
-them. Many of FEanor’s people indeed repented of the burning at Losgar, and were filled with
+them. Many of Feanor’s people indeed repented of the burning at Losgar, and were filled with
 amazement at the valour that had brought the friends whom they had abandoned over the Ice of the
 North; and they would have welcomed them, but they dared not, for shame.
 Thus because of the curse that lay upon them the Noldor achieved nothing, while Morgoth
@@ -2236,12 +2236,12 @@ There Maedhros in time was healed; for the fire of life was hot within him, and 
 the ancient world, such as those possessed who were nurtured in Valinor. His body recovered from
 his torment and became hale, but the shadow of his pain was in his heart; and he lived to wield his
 sword with left hand more deadly than his right had been. By this deed Fingon won great renown, and
-all the Noldor praised him; and the hatred between the houses of Fingolfin and FEanor was assuaged.
+all the Noldor praised him; and the hatred between the houses of Fingolfin and Feanor was assuaged.
 For Maedhros begged forgiveness for the desertion in Araman; and he waived his claim to kingship
 over all the Noldor, saying to Fingolfin: ‘If there lay no grievance between us, lord, still the kingship
 would rightly come to you, the eldest here of the house of FinwE, and not the least wise.’ But to this
 his brothers did not all in their hearts agree.
-Therefore even as Mandos foretold the House of FEanor were called the Dispossessed, because the
+Therefore even as Mandos foretold the House of Feanor were called the Dispossessed, because the
 overlordship passed from it, the elder, to the house of Fingolfin, both in ElendE and in Beleriand, and
 because also of the loss of the Silmarils. But the Noldor being again united set a watch upon the
 borders of Dor Daedeloth, and Angband was beleaguered from west, and south, and east; and they
@@ -2257,7 +2257,7 @@ Angrod son of Finarfin was the first of the Exiles to come to Menegroth, as mess
 brother Finrod, and he spoke long with the King, telling him of the deeds of the Noldor in the north,
 and of their numbers, and of the ordering of their force; but being true, and wisehearted, and thinking
 all griefs now forgiven, he spoke no word concerning the kinslaying, nor of the manner of the exile of
-the Noldor and the oath of FEanor. King Thingol hearkened to the words of Angrod; and ere he went
+the Noldor and the oath of Feanor. King Thingol hearkened to the words of Angrod; and ere he went
 he said to him: ‘Thus shall you speak for me to those that sent you. In Hithlum the Noldor have leave
 to dwell, and in the highlands of Dorthonion, and in the lands east of Doriath that are empty and wild;
 but elsewhere there are many of my people, and I would not have them restrained of their freedom,
@@ -2265,7 +2265,7 @@ still less ousted from their homes. Beware therefore how you princes of the West
 I am the Lord of Beleriand, and all who seek to dwell there shall hear my word. Into Doriath none
 shall come to abide but only such as I call as guests, or who seek me in great need.’
 Now the lords of the Noldor held council in Mithrim, and thither came Angrod out of Doriath,
-bearing the message of King Thingol. Cold seemed its welcome to the Noldor, and the sons of FEanor
+bearing the message of King Thingol. Cold seemed its welcome to the Noldor, and the sons of Feanor
 were angered at the words; but Maedhros laughed, saying: ‘A king is he that can hold his own, or else
 his title is vain. Thingol does but grant us lands where his power does not run. Indeed Doriath alone
 would be his realm this day, but for the coming of the Noldor. Therefore in Doriath let him reign, and
@@ -2278,7 +2278,7 @@ be come indeed to Beleriand, let them not so swiftly forget that their father is
 though their mother be of other kin.’
 Then Angrod was wrathful and went forth from the council. Maedhros indeed rebuked Caranthir;
 but the greater part of the Noldor, of both followings, hearing his words were troubled in heart,
-fearing the fell spirit of the sons of FEanor that it seemed would ever be like to burst forth in rash
+fearing the fell spirit of the sons of Feanor that it seemed would ever be like to burst forth in rash
 word or violence. But Maedhros restrained his brothers, and they departed from the council, and soon
 afterwards they left Mithrim and went eastward beyond Aros to the wide lands about the Hill of
 Himring. That region was named thereafter the March of Maedhros; for northwards there was little
@@ -2306,7 +2306,7 @@ was held in the spring near to the pools of Ivrin, whence the swift river Narog 
 lands were green and fair at the feet of the Mountains of Shadow that shielded them from the north.
 The joy of that feast was long remembered in later days of sorrow; and it was called Mereth
 Aderthad, the Feast of Reuniting. Thither came many of the chieftains and people of Fingolfin and
-Finrod; and of the sons of FEanor Maedhros and Maglor, with warriors of the eastern March; and
+Finrod; and of the sons of Feanor Maedhros and Maglor, with warriors of the eastern March; and
 there came also great numbers of the Grey-elves, wanderers of the woods of Beleriand and folk of the
 Havens, with Cirdan their lord. There came even Green-elves from Ossiriand, the Land of Seven
 Rivers, far off under the walls of the Blue Mountains; but out of Doriath there came but two
@@ -2315,7 +2315,7 @@ At Mereth Aderthad many counsels were taken in good will, and oaths were sworn o
 friendship; and it is told that at this feast the tongue of the Grey-elves was most spoken even by the
 Noldor, for they learned swiftly the speech of Beleriand, whereas the Sindar were slow to master the
 tongue of Valinor. The hearts of the Noldor were high and full of hope, and to many among them it
-seemed that the words of FEanor had been justified, bidding them seek freedom and fair kingdoms in
+seemed that the words of Feanor had been justified, bidding them seek freedom and fair kingdoms in
 Middle-earth; and indeed there followed after long years of peace, while their swords fenced
 Beleriand from the ruin of Morgoth, and his power was shut behind his gates. In those days there was
 joy beneath the new Sun and Moon, and all the land was glad; but still the Shadow brooded in the
@@ -2386,7 +2386,7 @@ times went out, and came by devious routes into Beleriand. And desiring above al
 disunion among the Eldar, he commanded the Orcs to take alive any of them that they could and bring
 them bound to Angband; and some he so daunted by the terror of his eyes that they needed no chains
 more, but walked ever in fear of him, doing his will wherever they might be. Thus Morgoth learned
-much of all that had befallen since the rebellion of FEanor, and he rejoiced, seeing therein the seed of
+much of all that had befallen since the rebellion of Feanor, and he rejoiced, seeing therein the seed of
 many dissensions among his foes.
 
 When nearly one hundred years had run since the Dagor Aglareb, Morgoth endeavoured to take
@@ -2414,7 +2414,7 @@ things they made in those days, and poems and histories and books of lore. In ma
 the Noldor and the Sindar became welded into one people, and spoke the same tongue; though this
 difference remained between them, that the Noldor had the greater power of mind and body, and were
 the mightier warriors and sages, and they built with stone, and loved the hill-slopes and open lands.
-But the Sindar had the fairer voices and were more skilled in music, save only Maglor son of FEanor,
+But the Sindar had the fairer voices and were more skilled in music, save only Maglor son of Feanor,
 and they loved the woods and the riversides; and some of the Grey-elves still wandered far and wide
 without settled abode, and they sang as they went.
 
@@ -2524,7 +2524,7 @@ only at great need, by paths near to the borders of Doriath and furthest from th
 way was made long before, in the time ere Morgoth returned to Middle-earth; and if one fared upon it
 he came eastwards to Esgalduin, where still there stood in the days of the Siege the stone bridge of
 Iant Iaur. Thence he passed through Dor Dinen, the Silent Land, and crossing the Arossiach (which
-signifies the Fords of Aros) came to the north marches of Beleriand, where dwelt the sons of FEanor.
+signifies the Fords of Aros) came to the north marches of Beleriand, where dwelt the sons of Feanor.
 Southward lay the guarded woods of Doriath, abode of Thingol the Hidden King, into whose realm
 none passed save by his will. Its northern and lesser part, the Forest of Neldoreth, was bounded east
 and south by the dark river Esgalduin, which bent westward in the midst of the land; and between
@@ -2580,7 +2580,7 @@ Gelion; wherefore the Noldor named that country Lindon, the land of music, and t
 they named Ered Lindon, for they first saw them from Ossiriand.
 East of Dorthonion the marches of Beleriand were most open to attack, and only hills of no great
 height guarded the vale of Gelion from the north. In that region, upon the March of Maedhros and in
-the lands behind, dwelt the sons of FEanor with many people; and their riders passed often over the
+the lands behind, dwelt the sons of Feanor with many people; and their riders passed often over the
 vast northern plain, Lothlann the wide and empty, east of Ard-galen, lest Morgoth should attempt any
 sortie towards East Beleriand. The chief citadel of Maedhros was upon the Hill of Himring, the Evercold;
 and that was wide-shouldered, bare of trees, and flat upon its summit, surrounded by many
@@ -2599,7 +2599,7 @@ dark, and beside it Caranthir had his abode; but all the great land between Geli
 and between Rerir and the River Ascar, was called by the Noldor Thargelion, which signifies the
 Land beyond Gelion, or Dor Caranthir, the Land of Caranthir; and it was here that the Noldor first met
 the Dwarves. But Thargelion was before called by the Grey-elves Talath Rhunen, the East Vale.
-Thus the sons of FEanor under Maedhros were the lords of East Beleriand, but their people were in
+Thus the sons of Feanor under Maedhros were the lords of East Beleriand, but their people were in
 that time mostly in the north of the land, and southward they rode only to hunt in the greenwoods. But
 there Amrod and Amras had their abode, and they came seldom northward while the Siege lasted; and
 there also other of the Elf-lords would ride at times, even from afar, for the land was wild but very
@@ -2673,7 +2673,7 @@ of the Valar, as was said at first: not though they came in the very hour of our
 never of the Valar, nor have their high lords brought any message to Thingol, whether from Manwe, or
 Ulmo, or even from OlwE the King’s brother, and his own folk that went over the sea. For what cause,
 Galadriel, were the high people of the Noldor driven forth as exiles from Aman? Or what evil lies on
-the sons of FEanor that they are so haughty and so fell? Do I not strike near the truth?’
+the sons of Feanor that they are so haughty and so fell? Do I not strike near the truth?’
 ‘Near,’ said Galadriel; ‘save that we were not driven forth, but came of our own will, and against
 that of the Valar. And through great peril and in despite of the Valar for this purpose we came: to take
 vengeance upon Morgoth, and regain what he stole.’
@@ -2685,9 +2685,9 @@ long road from Tirion, but I see evil there, which Thingol should learn for his 
 And Melian spoke then no more of these matters with Galadriel; but she told to King Thingol all
 that she had heard of the Silmarils. ‘This is a great matter,’ she said, ‘greater indeed than the Noldor
 themselves understand; for the Light of Aman and the fate of Arda lie locked now in these things, the
-work of FEanor, who is gone. They shall not be recovered, I foretell, by any power of the Eldar; and
+work of Feanor, who is gone. They shall not be recovered, I foretell, by any power of the Eldar; and
 the world shall be broken in battles that are to come, ere they are wrested from Morgoth. See now!
-FEanor they have slain, and many another, as I guess; but first of all the deaths they have brought and
+Feanor they have slain, and many another, as I guess; but first of all the deaths they have brought and
 yet shall bring was FinwE your friend. Morgoth slew him, ere he fled from Aman.’
 Then Thingol was silent, being filled with grief and foreboding; but at length he said: ‘Now at last I
 understand the coming of the Noldor out of the West, at which I wondered much before. Not to our aid
@@ -2696,9 +2696,9 @@ own devices, until the uttermost need. For vengeance and redress of their loss t
 all the more sure shall they be as allies against Morgoth, with whom it is not now to be thought that
 they shall ever make treaty.’
 But Melian said: ‘Truly for these causes they came; but for others also. Beware of the sons of
-FEanor! The shadow of the wrath of the Valar lies upon them; and they have done evil, I perceive,
+Feanor! The shadow of the wrath of the Valar lies upon them; and they have done evil, I perceive,
 both in Aman and to their own kin. A grief but lulled to sleep lies between the princes of the Noldor.’
-And Thingol answered: ‘What is that to me? Of FEanor I have heard but report, which makes him
+And Thingol answered: ‘What is that to me? Of Feanor I have heard but report, which makes him
 great indeed. Of his sons I hear little to my pleasure; yet they are likely to prove the deadliest foes of
 our foe.’
 ‘Their swords and their counsels shall have two edges,’ said Melian; and afterwards they spoke no
@@ -2725,12 +2725,12 @@ Then Finrod was greatly troubled, but he was silent, for he could not defend him
 bringing charges against the other princes of the Noldor; and that he was loath to do before Thingol.
 But in Angrod’s heart the memory of the words of Caranthir welled up again in bitterness, and he
 cried: ‘Lord, I know not what lies you have heard, nor whence; but we came not red-handed.
-Guiltless we came forth, save maybe of folly, to listen to the words of fell FEanor, and become as if
+Guiltless we came forth, save maybe of folly, to listen to the words of fell Feanor, and become as if
 besotted with wine, and as briefly. No evil did we do on our road, but suffered ourselves great
 wrong; and forgave it. For this we are named tale-bearers to you and treasonable to the Noldor:
 untruly as you know, for we have of our loyalty been silent before you, and thus earned your anger.
 But now these charges are no longer to be borne, and the truth you shall know.’
-Then Angrod spoke bitterly against the sons of FEanor, telling of the blood at AlqualondE, and the
+Then Angrod spoke bitterly against the sons of Feanor, telling of the blood at AlqualondE, and the
 Doom of Mandos, and the burning of the ships at Losgar. And he cried: ‘Where-fore should we that
 endured the Grinding Ice bear the name of kinslayers and traitors?’
 ‘Yet the shadow of Mandos lies on you also,’ said Melian. But Thingol was long silent ere he
@@ -2743,7 +2743,7 @@ Nor in all my realm shall it be openly spoken, while my power endures. All the S
 command that they shall neither speak with the tongue of the Noldor nor answer to it. And all such as
 use it shall be held slayers of kin and betrayers of kin unrepentant.’
 Then the sons of Finarfin departed from Menegroth with heavy hearts, perceiving how the words of
-Mandos would ever be made true, and that none of the Noldor that followed after FEanor could
+Mandos would ever be made true, and that none of the Noldor that followed after Feanor could
 escape from the shadow that lay upon his house. And it came to pass even as Thingol had spoken; for
 the Sindar heard his word, and thereafter throughout Beleriand they refused the tongue of the Noldor,
 and shunned those that spoke it aloud; but the Exiles took the Sindarin tongue in all their daily uses,
@@ -2779,10 +2779,10 @@ yet hemmed in the North there are many perils in Middle-earth of which the Lady 
 Then Aredhel departed from Gondolin, and Turgon’s heart was heavy at her going.
 But when she came to the Ford of Brithiach in the River Sirion she said to her companions: ‘Turn
 now south and not north, for I will not ride to Hithlum; my heart desires rather to find the sons of
-FEanor, my friends of old.’ And since she could not be dissuaded they turned south as she
+Feanor, my friends of old.’ And since she could not be dissuaded they turned south as she
 commanded, and sought admittance into Doriath. But the march-wardens denied them; for Thingol
 would suffer none of the Noldor to pass the Girdle, save his kinsfolk of the house of Finarfin, and
-least of all those that were friends of the sons of FEanor. Therefore the march-wardens said to
+least of all those that were friends of the sons of Feanor. Therefore the march-wardens said to
 Aredhel: ‘To the land of Celegorm for which you seek, Lady, you may by no means pass through the
 realm of King Thingol; you must ride beyond the Girdle of Melian, to the south or to the north. The
 speediest way is by the paths that lead east from the Brithiach through Dimbar and along the northmarch
@@ -2836,7 +2836,7 @@ there she remained; for Eol took her to wife, and it was long ere any of her kin
 It is not said that Aredhel was wholly unwilling, nor that her life in Nan Elmoth was hateful to her
 for many years. For though at Eol’s command she must shun the sunlight, they wandered far together
 under the stars or by the light of the sickle moon; or she might fare alone as she would, save that Eol
-forbade her to seek the sons of FEanor, or any others of the Noldor. And Aredhel bore to Eol a son in
+forbade her to seek the sons of Feanor, or any others of the Noldor. And Aredhel bore to Eol a son in
 the shadows of Nan Elmoth, and in her heart she gave him a name in the forbidden tongue of the
 Noldor, Lomion, that signifies Child of the Twilight; but his father gave him no name until he was
 twelve years old. Then he called him Maeglin, which is Sharp Glance, for he perceived that the eyes
@@ -2861,7 +2861,7 @@ shadows when both her son and her husband were away. Of these tales also grew th
 Maeglin and Eol. For by no means would his mother reveal to Maeglin where Turgon dwelt, nor by
 what means one might come thither, and he bided his time, trusting yet to wheedle the secret from her,
 or perhaps to read her unguarded mind; but ere that could be done he desired to look on the Noldor
-and speak with the sons of FEanor, his kin, that dwelt not far away. But when he declared his purpose
+and speak with the sons of Feanor, his kin, that dwelt not far away. But when he declared his purpose
 to Eol, his father was wrathful. ‘You are of the house of Eol, Maeglin, my son,’ he said, ‘and not of
 the Golodhrim. All this land is the land of the Teleri, and I will not deal nor have my son deal with
 the slayers of our kin, the invaders and usurpers of our homes. In this you shall obey me, or I will set
@@ -2875,7 +2875,7 @@ while there is time! What hope is there in this wood for you or for me? Here we 
 and no profit shall I find here; for I have learned all that my father has to teach, or that the Naugrim
 will reveal to me. Shall we not seek for Gondolin? You shall be my guide, and I will be your guard!’
 Then Aredhel was glad, and looked with pride upon her son; and telling the servants of Eol that
-they went to seek the sons of FEanor they departed and rode away to the north eaves of Nan Elmoth.
+they went to seek the sons of Feanor they departed and rode away to the north eaves of Nan Elmoth.
 There they crossed the slender stream of Celon into the land of Himlad and rode on to the Fords of
 Aros, and so westward along the fences of Doriath.
 Now Eol returned out of the east sooner than Maeglin had foreseen, and found his wife and his son
@@ -3008,7 +3008,7 @@ CHAPTER 17
 OF THE COMING OF MEN INTO THE WEST
 When three hundred years and more were gone since the Noldor came to Beleriand, in the days of the
 Long Peace, Finrod Felagund lord of Nargothrond journeyed east of Sirion and went hunting with
-Maglor and Maedhros, sons of FEanor. But he wearied of the chase and passed on alone towards the
+Maglor and Maedhros, sons of Feanor. But he wearied of the chase and passed on alone towards the
 mountains of Ered Lindon that he saw shining afar; and taking the Dwarf-road he crossed Gelion at
 the ford of Sarn Athrad, and turning south over the upper streams of Ascar, he came into the north of
 Ossiriand.
@@ -3088,7 +3088,7 @@ before had been Balan; for BEor signified ‘Vassal’ in the tongue of his peop
 committed to Baran his elder son; and he did not return again to Estolad.
 Soon after the departure of Felagund the other Men of whom BEor had spoken came also into
 Beleriand. First came the Haladin; but meeting the unfriendship of the Green-elves they turned north
-and dwelt in Thargelion, in the country of Caranthir son of FEanor: there for a time they had peace,
+and dwelt in Thargelion, in the country of Caranthir son of Feanor: there for a time they had peace,
 and the people of Caranthir paid little heed to them. In the next year Marach led his people over the
 mountains; they were a tall and warlike folk, marching in ordered companies, and the Elves of
 Ossiriand hid themselves and did not waylay them. But Marach, hearing that the people of BEor were
@@ -3279,7 +3279,7 @@ for the Noldor did not yet comprehend the fullness of the power of Morgoth, nor 
 unaided war upon him was without final hope, whether they hasted or delayed. But because the land
 was fair and their kingdoms wide, most of the Noldor were content with things as they were, trusting
 them to last, and slow to begin an assault in which many must surely perish were it in victory or in
-defeat. Therefore they were little disposed to hearken to Fingolfin, and the sons of FEanor at that time
+defeat. Therefore they were little disposed to hearken to Fingolfin, and the sons of Feanor at that time
 least of all. Among the chieftains of the Noldor Angrod and Aegnor alone were of like mind with the
 King; for they dwelt in regions whence Thangorodrim could be descried, and the threat of Morgoth
 was present to their thought. Thus the designs of Fingolfin came to naught, and the land had peace yet
@@ -3341,7 +3341,7 @@ the Shadowy Mountains, which withstood the torrent of fire, and by the valour of
 Men of the North, which neither Orc nor Balrog could yet overcome, Hithlum remained unconquered,
 a threat upon the flank of Morgoth’s attack; but Fingolfin was sundered from his kinsmen by a sea of
 foes.
-For the war had gone ill with the sons of FEanor, and well nigh all the east marches were taken by
+For the war had gone ill with the sons of Feanor, and well nigh all the east marches were taken by
 assault. The Pass of Aglon was forced, though with great cost to the hosts of Morgoth; and Celegorm
 and Curufin being defeated fled south and west by the marches of Doriath, and coming at last to
 Nargothrond sought harbour with Finrod Felagund. Thus it came to pass that their people swelled the
@@ -3351,7 +3351,7 @@ for since his torment upon Thangorodrim his spirit burned like a white fire with
 that returns from the dead. Thus the great fortress upon the Hill of Himring could not be taken, and
 many of the most valiant that remained, both of the people of Dorthonion and of the east marches,
 rallied there to Maedhros; and for a while he closed once more the Pass of Aglon, so that the Orcs
-could not enter Beleriand by that road. But they overwhelmed the riders of the people of FEanor upon
+could not enter Beleriand by that road. But they overwhelmed the riders of the people of Feanor upon
 Lothlann, for Glaurung came thither, and passed through Maglor’s Gap, and destroyed all the land
 between the arms of Gelion. And the Orcs took the fortress upon the west slopes of Mount Rerir, and
 ravaged all Thargelion, the land of Caranthir; and they defiled Lake Helevorn. Thence they passed
@@ -3361,7 +3361,7 @@ Amrod and Amras, and they retreated and passed Ramdal in the south. Upon Amon Er
 maintained a watch and some strength of war, and they had aid of the Green-elves; and the Orcs came
 not into Ossiriand, nor to Taur-im-Duinath and the wilds of the south.
 Now news came to Hithlum that Dorthonion was lost and the sons of Finarfin overthrown, and that
-the sons of FEanor were driven from their lands. Then Fingolfin beheld (as it seemed to him) the utter
+the sons of Feanor were driven from their lands. Then Fingolfin beheld (as it seemed to him) the utter
 ruin of the Noldor, and the defeat beyond redress of all their houses; and filled with wrath and
 despair he mounted upon Rochallor his great horse and rode forth alone, and none might restrain him.
 He passed over Dor-nu-Fauglith like a wind amid the dust, and all that beheld his onset fled in amaze,
@@ -3749,7 +3749,7 @@ generous.’
 Thus he wrought the doom of Doriath, and was ensnared within the curse of Mandos. And those
 that heard these words perceived that Thingol would save his oath, and yet send Beren to his death;
 for they knew that not all the power of the Noldor, before the Siege was broken, had availed even to
-see from afar the shining Silmarils of FEanor. For they were set in the Iron Crown, and treasured in
+see from afar the shining Silmarils of Feanor. For they were set in the Iron Crown, and treasured in
 Angband above all wealth; and Balrogs were about them, and countless swords, and strong bars, and
 unassailable walls, and the dark majesty of Morgoth.
 But Beren laughed. ‘For little price,’ he said, ‘do Elven-kings sell their daughters: for gems, and
@@ -3794,9 +3794,9 @@ Barahir, and of all that had befallen him in Doriath; and he wept, recalling Lut
 together. But Felagund heard his tale in wonder and disquiet; and he knew that the oath he had sworn
 was come upon him for his death, as long before he had foretold to Galadriel. He spoke then to Beren
 in heaviness of heart. ‘It is plain that Thingol desires your death; but it seems that this doom goes
-beyond his purpose, and that the Oath of FEanor is again at work. For the Silmarils are cursed with an
+beyond his purpose, and that the Oath of Feanor is again at work. For the Silmarils are cursed with an
 oath of hatred, and he that even names them in desire moves a great power from slumber; and the sons
-of FEanor would lay all the Elf-kingdoms in ruin rather than suffer any other than themselves to win or
+of Feanor would lay all the Elf-kingdoms in ruin rather than suffer any other than themselves to win or
 possess a Silmaril, for the Oath drives them. And now Celegorm and Curufin are dwelling in my
 halls; and though I, Finarfin’s son, am King, they have won a strong power in the realm, and lead
 many of their own people. They have shown friendship to me in every need, but I fear that they will
@@ -3807,7 +3807,7 @@ declared that it was laid upon him to aid the son of Barahir in his need, and he
 chieftains. Then Celegorm arose amid the throng, and drawing his sword he cried: ‘Be he friend or
 foe, whether demon of Morgoth, or Elf, or child of Men, or any other living thing in Arda, neither law,
 nor love, nor league of hell, nor might of the Valar, nor any power of wizardry, shall defend him from
-the pursuing hate of FEanor’s sons, if he take or find a Silmaril and keep it. For the Silmarils we
+the pursuing hate of Feanor’s sons, if he take or find a Silmaril and keep it. For the Silmarils we
 alone claim, until the world ends.’
 Many other words he spoke, as potent as were long before in Tirion the words of his father that
 first inflamed the Noldor to rebellion. And after Celegorm Curufin spoke, more softly but with no less
@@ -4002,14 +4002,14 @@ and the birds sang beneath the snowclad hills. But Huan being faithful went back
 master; yet their love was less than before.
 There was tumult in Nargothrond. For thither now returned many Elves that had been prisoners in
 the isle of Sauron; and a clamour arose that no words of Celegorm could still. They lamented bitterly
-the fall of Felagund their king, saying that a maiden had dared that which the sons of FEanor had not
+the fall of Felagund their king, saying that a maiden had dared that which the sons of Feanor had not
 dared to do; but many perceived that it was treachery rather than fear that had guided Celegorm and
 Curufin. Therefore the hearts of the people of Nargothrond were released from their dominion, and
 turned again to the house of Finarfin; and they obeyed Orodreth. But he would not suffer them to slay
 the brothers, as some desired, for the spilling of kindred blood by kin would bind the curse of
 Mandos more closely upon them all. Yet neither bread nor rest would he grant to Celegorm and
 Curufin within his realm, and he swore that there should be little love between Nargothrond and the
-sons of FEanor thereafter.
+sons of Feanor thereafter.
 ‘Let it be so!’ said Celegorm, and there was a light of menace in his eyes; but Curufin smiled. Then
 they took horse and rode away like fire, to find if they might their kindred in the east. But none would
 go with them, not even those that were of their own people; for all perceived that the curse lay
@@ -4050,7 +4050,7 @@ turned away and took no heed of their words. But Curufin, being filled with sham
 the bow of Celegorm and shot back as they went; and the arrow was aimed at Luthien. Huan leaping
 caught it in his mouth; but Curufin shot again, and Beren sprang before Luthien, and the dart smote him
 in the breast.
-It is told that Huan pursued the sons of FEanor, and they fled in fear; and returning he brought to
+It is told that Huan pursued the sons of Feanor, and they fled in fear; and returning he brought to
 Luthien a herb out of the forest. With that leaf she staunched Beren’s wound, and by her arts and by
 her love she healed him; and thus at last they returned to Doriath. There Beren, being torn between his
 oath and his love, and knowing Luthien to be now safe, arose one morning before the sun, and
@@ -4155,7 +4155,7 @@ and he cast aside the wolf-hame. Then he drew forth the knife Angrist; and from 
 held it he cut a Silmaril.
 As he closed it in his hand, the radiance welled through his living flesh, and his hand became as a
 shining lamp; but the jewel suffered his touch and hurt him not. It came then into Beren’s mind that he
-would go beyond his vow, and bear out of Angband all three of the Jewels of FEanor; but such was
+would go beyond his vow, and bear out of Angband all three of the Jewels of Feanor; but such was
 not the doom of the Silmarils. The knife Angrist snapped, and a shard of the blade flying smote the
 cheek of Morgoth. He groaned and stirred, and all the host of Angband moved in sleep.
 Then terror fell upon Beren and Luthien, and they fled, heedless and without disguise, desiring only
@@ -4220,7 +4220,7 @@ was lost. Long they had sought for her in vain. And it is told that in that time
 Thingol strayed from the land, and was seen no more. He it was that made music for the dance and
 song of Luthien, before Beren came to Doriath; and he had loved her, and set all his thought of her in
 his music. He became the greatest of all the minstrels of the Elves east of the Sea, named even before
-Maglor son of FEanor. But seeking for Luthien in despair he wandered upon strange paths, and
+Maglor son of Feanor. But seeking for Luthien in despair he wandered upon strange paths, and
 passing over the mountains he came into the East of Middle-earth, where for many ages he made
 lament beside dark waters for Luthien, daughter of Thingol, most beautiful of all living things.
 In that time Thingol turned to Melian; but now she withheld her counsel from him, saying that the
@@ -4230,7 +4230,7 @@ Celegorm, as has been told, saying that Felagund was dead, and Beren was dead, b
 Nargothrond, and that Celegorm would wed her. Then Thingol was wrathful, and he sent forth spies,
 thinking to make war upon Nargothrond; and thus he learned that Luthien was again fled, and that
 Celegorm and Curufin were driven from Nargothrond. Then his counsel was in doubt, for he had not
-the strength to assail the seven sons of FEanor; but he sent messengers to Himring to summon their aid
+the strength to assail the seven sons of Feanor; but he sent messengers to Himring to summon their aid
 in seeking for Luthien, since Celegorm had not sent her to the house of her father, nor had he kept her
 safely.
 But in the north of his realm his messengers met with a peril sudden and unlooked for: the onslaught
@@ -4352,14 +4352,14 @@ them ceased. The Eldar afterwards called that country Dor Firn-i-Guinar, the Lan
 Live; and there was born Dior Aranel the beautiful, who was after known as Dior Eluchil, which is
 Thingol’s Heir. No mortal man spoke ever again with Beren son of Barahir; and none saw Beren or
 Luthien leave the world, or marked where at last their bodies lay.
-In those days Maedhros son of FEanor lifted up his heart, perceiving that Morgoth was not
+In those days Maedhros son of Feanor lifted up his heart, perceiving that Morgoth was not
 unassailable; for the deeds of Beren and Luthien were sung in many songs throughout Beleriand. Yet
 Morgoth would destroy them all, one by one, if they could not again unite, and make new league and
 common council; and he began those counsels for the raising of the fortunes of the Eldar that are
 called the Union of Maedhros.
-Yet the oath of FEanor and the evil deeds that it had wrought did injury to the design of Maedhros,
+Yet the oath of Feanor and the evil deeds that it had wrought did injury to the design of Maedhros,
 and he had less aid than should have been. Orodreth would not march forth at the word of any son of
-FEanor, because of the deeds of Celegorm and Curufin; and the Elves of Nargothrond trusted still to
+Feanor, because of the deeds of Celegorm and Curufin; and the Elves of Nargothrond trusted still to
 defend their hidden stronghold by secrecy and stealth. Thence came only a small company, following
 Gwindor son of Guilin, a very valiant prince; and against the will of Orodreth he went to the northern
 war, because he grieved for the loss of Gelmir his brother in the Dagor Bragollach. They took the
@@ -4368,7 +4368,7 @@ back, save one.
 From Doriath came little help. For Maedhros and his brothers, being constrained by their oath, had
 before sent to Thingol and reminded him with haughty words of their claim, summoning him to yield
 the Silmaril, or become their enemy. Melian counselled him to surrender it; but the words of the sons
-of FEanor were proud and threatening, and Thin-gol was filled with anger, thinking of the anguish of
+of Feanor were proud and threatening, and Thin-gol was filled with anger, thinking of the anguish of
 Luthien and the blood of Beren whereby the jewel had been won, despite the malice of Celegorm and
 Curufin. And every day that he looked upon the Silmaril the more he desired to keep it for ever; for
 such was its power. Therefore he sent back the messengers with scornful words. Maedhros made no
@@ -4376,7 +4376,7 @@ answer, for he had now begun to devise the league and union of the Elves; but Ce
 vowed openly to slay Thingol and destroy his people, if they came victorious from war, and the jewel
 were not surrendered of free will. Then Thingol fortified the marches of his realm, and went not to
 war, nor any out of Doriath save Mablung and Beleg, who were unwilling to have no part in these
-great deeds. To them Thingol gave leave to go, so long as they served not the sons of FEanor; and they
+great deeds. To them Thingol gave leave to go, so long as they served not the sons of Feanor; and they
 joined themselves to the host of Fingon.
 But Maedhros had the help of the Naugrim, both in armed force and in great store of weapons; and
 the smithies of Nogrod and Belegost were busy in those days. And he gathered together again all his
@@ -4390,7 +4390,7 @@ But Maedhros made trial of his strength too soon, ere his plans were full-wrough
 Orcs were driven out of all the northward regions of Beleriand, and even Dorthonion was freed for a
 while, Morgoth was warned of the uprising of the Eldar and the Elf-friends, and took counsel against
 them. Many spies and workers of treason he sent forth among them, as he was the better able now to
-do, for the faithless Men of his secret allegiance were yet deep in the secrets of the sons of FEanor.
+do, for the faithless Men of his secret allegiance were yet deep in the secrets of the sons of Feanor.
 At length Maedhros, having gathered all the strength that he could of Elves and Men and Dwarves,
 resolved to assault Angband from east and west; and he purposed to march with banners displayed in
 open force over Anfauglith. But when he had drawn forth, as he hoped, the armies of Morgoth in
@@ -4398,7 +4398,7 @@ answer, then Fingon should issue forth from the passes of Hithlum; and thus they
 might of Morgoth as between anvil and hammer, and break it to pieces. And the signal for this was to
 be the firing of a great beacon in Dorthonion.
 On the appointed day, on the morning of Midsummer, the trumpets of the Eldar greeted the rising of
-the sun; and in the east was raised the standard of the sons of FEanor, and in the west the standard of
+the sun; and in the east was raised the standard of the sons of Feanor, and in the west the standard of
 Fingon, High King of the Noldor. Then Fingon looked out from the walls of Eithel Sirion, and his host
 was arrayed in the valleys and the woods upon the east of Ered Wethrin, well hid from the eyes of the
 Enemy; but he knew that it was very great. For there all the Noldor of Hithlum were assembled,
@@ -4468,7 +4468,7 @@ Now the phalanx of the guard of the King broke through the ranks of the Orcs, an
 his way to the side of his brother; and it is told that the meeting of Turgon with Hurin, who stood
 beside Fingon, was glad in the midst of battle. Then hope was renewed in the hearts of the Elves; and
 in that very time, at the third hour of morning, the trumpets of Maedhros were heard at last coming up
-from the east, and the banners of the sons of FEanor assailed the enemy in the rear. Some have said
+from the east, and the banners of the sons of Feanor assailed the enemy in the rear. Some have said
 that even then the Eldar might have won the day, had all their hosts proved faithful; for the Orcs
 wavered, and their onslaught was stayed, and already some were turning to flight. But even as the
 vanguard of Maedhros came upon the Orcs, Morgoth loosed his last strength, and Angband was
@@ -4479,12 +4479,12 @@ apart.
 Yet neither by wolf, nor by Balrog, nor by Dragon, would Morgoth have achieved his end, but for
 the treachery of Men. In this hour the plots of Ulfang were revealed. Many of the Easterlings turned
 and fled, their hearts being filled with lies and fear; but the sons of Ulfang went over suddenly to
-Morgoth and drove in upon the rear of the sons of FEanor, and in the confusion that they wrought they
+Morgoth and drove in upon the rear of the sons of Feanor, and in the confusion that they wrought they
 came near to the standard of Maedhros. They reaped not the reward that Morgoth promised them, for
 Maglor slew Uldor the accursed, the leader in treason, and the sons of Bor slew Ulfast and Ulwarth
 ere they themselves were slain. But new strength of evil Men came up that Uldor had summoned and
 kept hidden in the eastern hills, and the host of Maedhros was assailed now on three sides, and it
-broke, and was scattered, and fled this way and that. Yet fate saved the sons of FEanor, and though all
+broke, and was scattered, and fled this way and that. Yet fate saved the sons of Feanor, and though all
 were wounded none were slain, for they drew together, and gathering a remnant of the Noldor and the
 Naugrim about them they hewed a way out of the battle and escaped far away towards Mount Dolmed
 in the east.
@@ -4550,7 +4550,7 @@ Great was the triumph of Morgoth, and his design was accomplished in a manner af
 heart; for Men took the lives of Men, and betrayed the Eldar, and fear and hatred were aroused among
 those that should have been united against him. From that day the hearts of the Elves were estranged
 from Men, save only those of the Three Houses of the Edain.
-The realm of Fingon was no more; and the sons of FEanor wandered as leaves before the wind.
+The realm of Fingon was no more; and the sons of Feanor wandered as leaves before the wind.
 Their arms were scattered, and their league broken; and they took to a wild and woodland life
 beneath the feet of Ered Lindon, mingling with the Green-elves of Ossiriand, bereft of their power
 and glory of old. In Brethil some few of the Haladin yet dwelt in the protection of their woods, and
@@ -5586,7 +5586,7 @@ said that Hurin would not live thereafter, being bereft of all purpose and desir
 last into the western sea; and so ended the mightiest of the warriors of mortal Men.
 But when Hurin was gone from Menegroth, Thingol sat long in silence, gazing upon the great
 treasure that lay upon his knees; and it came into his mind that it should be remade, and in it should be
-set the Silmaril. For as the years passed Thingol’s thought turned unceasingly to the jewel of FEanor,
+set the Silmaril. For as the years passed Thingol’s thought turned unceasingly to the jewel of Feanor,
 and became bound to it, and he liked not to let it rest even behind the doors of his inmost treasury; and
 he was minded now to bear it with him always, waking and sleeping.
 In those days the Dwarves still came on their journeys into Beleriand from their mansions in Ered
@@ -5598,7 +5598,7 @@ they dwelt in Menegroth at such times in chambers and smithies set apart for the
 great craftsmen of Nogrod were lately come into Doriath; and the King therefore summoning them
 declared his desire, that if their skill were great enough they should remake the Nauglamir, and in it
 set the Silmaril. Then the Dwarves looked upon the work of their fathers, and they beheld with
-wonder the shining jewel of FEanor; and they were filled with a great lust to possess them, and carry
+wonder the shining jewel of Feanor; and they were filled with a great lust to possess them, and carry
 them off to their far homes in the mountains. But they dissembled their mind, and consented to the task.
 Long was their labour; and Thingol went down alone to their deep smithies, and sat ever among
 them as they worked. In time his desire was achieved, and the greatest of the works of Elves and
@@ -5676,7 +5676,7 @@ the Shepherds of the Trees, and they drove the Dwarves into the shadowy woods of
 whence, it is said, came never one to climb the high passes that led to their homes.
 In that battle by Sarn Athrad Beren fought his last fight, and himself slew the Lord of Nogrod, and
 wrested from him the Necklace of the Dwarves; but he dying laid his curse upon all the treasure. Then
-Beren gazed in wonder on the selfsame jewel of FEanor that he had cut from Morgoth’s iron crown,
+Beren gazed in wonder on the selfsame jewel of Feanor that he had cut from Morgoth’s iron crown,
 now shining set amid gold and gems by the cunning of the Dwarves; and he washed it clean of blood
 in the waters of the river. And when all was finished the treasure of Doriath was drowned in the
 River Ascar, and from that time the river was named anew, Rathloriel, the Goldenbed; but Beren took
@@ -5705,18 +5705,18 @@ Then Dior arose, and about his neck he clasped the Nauglamir; and now he appeare
 of all the children of the world, of threefold race: of the Edain, and of the Eldar, and of the Maiar of
 the Blessed Realm.
 But now the rumour ran among the scattered Elves of Beleriand that Dior Thingol’s heir wore the
-Nauglamir, and they said: ‘A Silmaril of FEanor burns again in the woods of Doriath’; and the oath of
-the sons of FEanor was waked again from sleep. For while Luthien wore the Necklace of the
+Nauglamir, and they said: ‘A Silmaril of Feanor burns again in the woods of Doriath’; and the oath of
+the sons of Feanor was waked again from sleep. For while Luthien wore the Necklace of the
 Dwarves no Elf would dare to assail her; but now hearing of the renewal of Doriath and of Dior’s
 pride the seven gathered again from wandering, and they sent to him to claim their own.
-But Dior returned no answer to the sons of FEanor; and Celegorm stirred up his brothers to prepare
+But Dior returned no answer to the sons of Feanor; and Celegorm stirred up his brothers to prepare
 an assault upon Doriath. They came at unawares in the middle of winter, and fought with Dior in the
 Thousand Caves; and so befell the second slaying of Elf by Elf. There fell Celegorm by Dior’s hand,
 and there fell Curufin, and dark Caranthir; but Dior was slain also, and Nimloth his wife, and the
 cruel servants of Celegorm seized his young sons and left them to starve in the forest. Of this
 Maedhros indeed repented, and sought for them long in the woods of Doriath; but his search was
 unavailing, and of the fate of Elured and Elurin no tale tells.
-Thus Doriath was destroyed, and never rose again. But the sons of FEanor gained not what they
+Thus Doriath was destroyed, and never rose again. But the sons of Feanor gained not what they
 sought; for a remnant of the people fled before them, and with them was Elwing Dior’s daughter, and
 they escaped, and bearing with them the Silmaril they came in time to the mouths of the River Sirion
 by the sea.
@@ -5803,7 +5803,7 @@ that time the very entrance to the hidden door in the Encircling Mountains was c
 up; and thereafter none went ever forth from Gondolin on any errand of peace or war, while that city
 stood. Tidings were brought by Thorondor Lord of Eagles of the fall of Nargothrond, and after of the
 slaying of Thingol and of Dior his heir, and of the ruin of Doriath; but Turgon shut his ear to word of
-the woes without, and vowed to march never at the side of any son of FEanor; and his people he
+the woes without, and vowed to march never at the side of any son of Feanor; and his people he
 forbade ever to pass the leaguer of the hills.
 And Tuor remained in Gondolin, for its bliss and its beauty and the wisdom of its people held him
 enthralled; and he became mighty in stature and in mind, and learned deeply of the lore of the exiled
@@ -5902,7 +5902,7 @@ departed from Nan-tathren, and went southwards down the river to the sea; and th
 the mouths of Sirion, and joined their people to the company of Elwing Dior’s daughter, that had fled
 thither but a little while before. And when the tidings came to Balar of the fall of Gondolin and the
 death of Turgon, Ereinion Gil-galad son of Fingon was named High King of the Noldor in Middleearth.
-But Morgoth thought that his triumph was fulfilled, recking little of the sons of FEanor, and of their
+But Morgoth thought that his triumph was fulfilled, recking little of the sons of Feanor, and of their
 oath, which had harmed him never and turned always to his mightiest aid; and in his black thought he
 laughed, regretting not the one Silmaril that he had lost, for by it as he deemed the last shred of the
 people of the Eldar should vanish from Middle-earth and trouble it no more. If he knew of the
@@ -5917,8 +5917,8 @@ overmastering might of Morgoth, and win back the Silmarils, wherein alone now bl
 the Days of Bliss when the Two Trees still shone in Valinor. But Manwe moved not; and of the
 counsels of his heart what tale shall tell? The wise have said that the hour was not yet come, and that
 only one speaking in person for the cause of both Elves and Men, pleading for pardon on their misdeeds
-and pity on their woes, might move the counsels of the Powers; and the oath of FEanor perhaps
-even Manwe could not loose, until it found its end, and the sons of FEanor relinquished the Silmarils,
+and pity on their woes, might move the counsels of the Powers; and the oath of Feanor perhaps
+even Manwe could not loose, until it found its end, and the sons of Feanor relinquished the Silmarils,
 upon which they had laid their ruthless claim. For the light which lit the Silmarils the Valar
 themselves had made.
 
@@ -5958,11 +5958,11 @@ had worn, and for which Dior the fair was slain; and least of all while Earendil
 sea, for it seemed to them that in the Silmaril lay the healing and the blessing that had come upon their
 houses and their ships. And so there came to pass the last and cruellest of the slayings of Elf by Elf;
 and that was the third of the great wrongs achieved by the accursed oath.
-For the sons of FEanor that yet lived came down suddenly upon the exiles of Gondolin and the
+For the sons of Feanor that yet lived came down suddenly upon the exiles of Gondolin and the
 remnant of Doriath, and destroyed them. In that battle some of their people stood aside, and some few
 rebelled and were slain upon the other part aiding Elwing against their own lords (for such was the
 sorrow and confusion in the hearts of the Eldar in those days); but Maedhros and Maglor won the day,
-though they alone remained thereafter of the sons of FEanor, for both Amrod and Amras were slain.
+though they alone remained thereafter of the sons of Feanor, for both Amrod and Amras were slain.
 Too late the ships of Cirdan and Gil-galad the High King came hasting to the aid of the Elves of
 Sirion; and Elwing was gone, and her sons. Then such few of that people as did not perish in the
 assault joined themselves to Gil-galad, and went with him to Balar; and they told that Elros and
@@ -6125,8 +6125,8 @@ But Maedhros and Maglor would not hearken, and they prepared, though now with we
 and loathing, to attempt in despair the fulfilment of their oath; for they would have given battle for the
 Silmarils, were they withheld, even against the victorious host of Valinor, even though they stood
 alone against all the world. And they sent a message therefore to EonwE, bidding him yield up now
-those jewels which of old FEanor their father made and Morgoth stole from him.
-But EonwE answered that the right to the work of their father, which the sons of FEanor formerly
+those jewels which of old Feanor their father made and Morgoth stole from him.
+But EonwE answered that the right to the work of their father, which the sons of Feanor formerly
 possessed, had now perished, because of their many and merciless deeds, being blinded by their oath,
 and most of all because of their slaying of Dior and the assault upon the Havens. The light of the
 Silmarils should go now into the West, whence it came in the beginning; and to Valinor must
@@ -6149,7 +6149,7 @@ Yet he yielded at last to the will of Maedhros, and they took counsel together h
 hands on the Silmarils. And they disguised themselves, and came in the night to the camp of EonwE,
 and crept into the place where the Silmarils were guarded; and they slew the guards, and laid hands
 on the jewels. Then all the camp was raised against them, and they prepared to die, defending
-themselves until the last. But EonwE would not permit the slaying of the sons of FEanor; and departing
+themselves until the last. But EonwE would not permit the slaying of the sons of Feanor; and departing
 unfought they fled far away. Each of them took to himself a Silmaril, for they said: ‘Since one is lost
 to us, and but two remain, and we two alone of our brothers, so is it plain that fate would have us
 share the heirlooms of our father.’
@@ -6901,7 +6901,7 @@ Dwarves that were named Khazad-dum, but by the Elves Hadhodrond, and afterwards 
 Ost-in-Edhil, the city of the Elves, the highroad ran to the west gate of Khazad-dum, for a friendship
 arose between Dwarves and Elves, such as has never elsewhere been, to the enrichment of both those
 peoples. In Eregion the craftsmen of the Gwaith-i-Mirdain, the People of the Jewel-smiths, surpassed
-in cunning all that have ever wrought, save only FEanor himself; and indeed greatest in skill among
+in cunning all that have ever wrought, save only Feanor himself; and indeed greatest in skill among
 them was Celebrimbor, son of Curufin, who was estranged from his father and remained in
 Nargothrond when Celegorm and Curufin were driven forth, as is told in the Quenta Silmarillion.
 
