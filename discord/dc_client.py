@@ -13,6 +13,7 @@ class LotrBot(discord.Client):
         self.scoreboard = scoreboard
         self.blocked = []
         self.autoscript = True
+        self.meme_progress= {} #keeps track of sent memes in each server
         self.script = []
         self.script_condensed = []
         self.reddit_client = reddit_client
@@ -106,9 +107,8 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
             self.blocked.remove(user.id)
         
         elif content == self.config.KEY + " meme":
-            output = self.reddit_client.get_posts_from_subreddit("lotrmemes",1)
-            for submission in output:
-                await channel.send(embed=minigames.create_embed(submission.title, user.display_name, user.avatar_url, "", submission.url, (0,0,0),"test"))
+            embed = minigames.reddit_meme(message, self.reddit_client, self.meme_progress, self.config)
+            await channel.send(embed=embed)
 
         elif self.autoscript:
             result = minigames.findSimilarfromScript(message.content, self.script_condensed)

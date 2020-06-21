@@ -37,22 +37,29 @@ def random_line(afile):
 def matchSequences(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
-def create_embed(title, author_name, avatar_url, content, url, color, footnote):
+def create_embed(title, content = False, urls = False, footnote = False, color=False, author_info=False):
     """
     creates an Discord Embed with title, content, footer, etc.
     """
-    embed = discord.Embed(color=discord.Color.from_rgb(
-        int(color[0]),
-        int(color[1]),
-        int(color[2])),
-                          title=title)
-    embed.set_author(name=author_name, icon_url=avatar_url)
-    embed.set_footer(text=footnote)
+
+    embed = discord.Embed(title=title)
+    if color:
+        embed.color = discord.Color.from_rgb(int(color[0]),int(color[1]),int(color[2]))
+    else:
+        embed.color = discord.Color.from_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+
+    if author_info:
+        author_name, avatar_url = author_info
+        embed.set_author(name=author_name, icon_url=avatar_url)
+        embed.set_footer(text=footnote)
+
     if content:
         embed.description = content
-    if url:
-        embed.url = url
-        embed.set_image(url=url)
+
+    if urls:
+        title_url, image_url = urls
+        embed.url = title_url
+        embed.set_image(url=image_url)
     return embed
 
 def create_trivia_profile(user, scoreboard, config):
@@ -63,18 +70,18 @@ def create_trivia_profile(user, scoreboard, config):
     color = (map_vals(wins/played, 0, 1, 255, 0), map_vals(wins/played, 0, 1, 0, 255), 0)
     author_name = "{}'s results for their trials in the Art of Middle Earth trivia"\
                   .format(user.display_name)
-    icon_url = user.avatar_url
+    
     title = "{}'s results".format(user.display_name)
     content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%"\
               .format(played, wins, round(wins/played*100, 2))
-    return create_embed(title, author_name, icon_url, content, "", color, config.FOOTER)
+    author_info = (author_name, user.avatar_url)
+    return create_embed(title, author_info=author_info, content=content, color=color, footnote=config.FOOTER)
 
 def create_hangman_embed(user, game_info, game_status, config):
     """
     creates Hangman embed
     """
     word, _, steps, used_chars, state_ind = game_info
-    color = (map_vals(state_ind, 0, 8, 0, 255), map_vals(state_ind, 0, 7, 255, 0), 0)
     hangman = ""
     for split_word in word.split(" "):
         for char in split_word:
@@ -101,8 +108,12 @@ def create_hangman_embed(user, game_info, game_status, config):
         content = config.STATES[-1]+used+"\nGame over! You won!"
         lives = (7-state_ind)//steps
 
-    return create_embed(hangman, user.display_name+"'s hangman game ({} lives left)"\
-    .format(lives), user.avatar_url, content, "", color, config.FOOTER)
+    author_info = (user.display_name+"'s hangman game ({} lives left)"\
+    .format(lives), user.avatar_url)
+
+    color = (map_vals(state_ind, 0, 8, 0, 255), map_vals(state_ind, 0, 7, 255, 0), 0)
+    
+    return create_embed(hangman, author_info=author_info, content=content, color=color, footnote=config.FOOTER)
 
 def create_reply(user, insult, config):
     """
@@ -119,10 +130,6 @@ def create_trivia_question(user, scoreboard, config):
     returns an embed with a trivia question for a specific user AND the
     correct index
     """
-
-    # config variables for the embed
-    color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    icon_url = user.avatar_url
 
     #get info from scoreboard
     if user.id in scoreboard.keys():
@@ -143,7 +150,6 @@ def create_trivia_question(user, scoreboard, config):
     question = content.pop(0)
     # shuffle answers
     random.shuffle(content)
-    # create_question(user, count, question, content.copy())
 
     answers = content.copy()
     correct_index = 0
@@ -160,7 +166,9 @@ def create_trivia_question(user, scoreboard, config):
     embed_text += "```\nsource: {}".format(source)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
-    return (create_embed(title, author_name, icon_url, embed_text, "", color, config.FOOTER), correct_index, len(answers))
+    author_info = (author_name, user.avatar_url)
+    embed = create_embed(title, author_info=author_info, content=embed_text, footnote=config.FOOTER)
+    return (embed, correct_index, len(answers))
 
 def create_trivia_reply(user, msg, scoreboard, correct_index, len_answers, config):
     """
@@ -209,7 +217,7 @@ def initiate_hangman_game(user, config):
     state_ind = 0
     # import words for hangman
     with open("words.csv", "r") as csvfile:
-        word = random.choice(csv.reader(csvfile, delimiter=',', quotechar='"'))
+        word = random.choice(list(csv.reader(csvfile, delimiter=',', quotechar='"'))[0])
     word_condensed = word.lower().replace(" ", "")
 
     if len(word_condensed) <= 6:
@@ -347,3 +355,21 @@ def findSimilarfromScript(msg, condensed_arr):
 
     else:
         return -1
+    
+def reddit_meme(message, reddit_client, meme_progress, config):
+    server = message.channel.guild
+
+    if server in meme_progress.keys():
+        index = meme_progress[server] + 1
+        meme_progress[server] = index
+    else:
+        meme_progress[server] = 0
+        index = 0
+
+    output = list(reddit_client.get_posts_from_subreddit("lotrmemes",index+1))[index]
+    return create_meme_embed(output, config)
+
+def create_meme_embed(submission, config):
+    author_info = ("Some dank memes from ya buddy Gandalf", config.MEME_ICON)
+    urls = ("https://reddit.com/"+submission.id,submission.url)
+    return create_embed(submission.title, urls=urls, author_info=author_info)
