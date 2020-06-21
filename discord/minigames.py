@@ -51,6 +51,8 @@ def create_embed(title, content = False, urls = False, footnote = False, color=F
     if author_info:
         author_name, avatar_url = author_info
         embed.set_author(name=author_name, icon_url=avatar_url)
+    
+    if footnote:
         embed.set_footer(text=footnote)
 
     if content:
@@ -366,10 +368,7 @@ def reddit_meme(message, reddit_client, meme_progress, config):
         meme_progress[server] = 0
         index = 0
 
-    output = list(reddit_client.get_posts_from_subreddit("lotrmemes",index+1))[index]
-    return create_meme_embed(output, config)
-
-def create_meme_embed(submission, config):
-    author_info = ("Some dank memes from ya buddy Gandalf", config.MEME_ICON)
+    submission = list(reddit_client.get_posts_from_subreddit("lotrmemes",index+1))[index]
     urls = ("https://reddit.com/"+submission.id,submission.url)
-    return create_embed(submission.title, urls=urls, author_info=author_info)
+    footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
+    return create_embed(submission.title, urls=urls, footnote=footnote)

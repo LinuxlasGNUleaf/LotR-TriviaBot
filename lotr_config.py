@@ -40,6 +40,3 @@ COMPLIMENTS = ["Well done, my dear {}!",
 
 # some lambda code stolen from Gareth on codegolf to create ordinals:
 ORDINAL = lambda n: "%d%s" % (n, "tsnrhtdd"[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
-
-# meme config
-MEME_ICON = "https://i.ytimg.com/vi/41GdLAZSiKo/maxresdefault.jpg"
