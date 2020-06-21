@@ -6,7 +6,7 @@ last = ""
 unknown = []
 import string
 with open("silmarillion.txt","r") as from_file:
-    with open("silmarillion2.txt","w") as to_file:
+    with open("silmarillion_edited.txt","w") as to_file:
         lines = from_file.readlines()
         for i, line in enumerate(lines):
             line = line.strip()
