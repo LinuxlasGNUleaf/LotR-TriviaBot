@@ -9,3 +9,6 @@ class RedditClient():
                                   password=password,
                                   user_agent="reddit post yoinker by /u/_LegolasGreenleaf",
                                   username=username)
+
+    def get_posts_from_subreddit(self, subreddit,limit):
+        return self.reddit.subreddit(subreddit).hot(limit=limit)

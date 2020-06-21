@@ -37,7 +37,7 @@ def random_line(afile):
 def matchSequences(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
-def create_embed(title, author_name, avatar_url, content, color, footnote):
+def create_embed(title, author_name, avatar_url, content, url, color, footnote):
     """
     creates an Discord Embed with title, content, footer, etc.
     """
@@ -48,7 +48,11 @@ def create_embed(title, author_name, avatar_url, content, color, footnote):
                           title=title)
     embed.set_author(name=author_name, icon_url=avatar_url)
     embed.set_footer(text=footnote)
-    embed.description = content
+    if content:
+        embed.description = content
+    if url:
+        embed.url = url
+        embed.set_image(url=url)
     return embed
 
 def create_trivia_profile(user, scoreboard, config):
@@ -63,7 +67,7 @@ def create_trivia_profile(user, scoreboard, config):
     title = "{}'s results".format(user.display_name)
     content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%"\
               .format(played, wins, round(wins/played*100, 2))
-    return create_embed(title, author_name, icon_url, content, color, config.FOOTER)
+    return create_embed(title, author_name, icon_url, content, "", color, config.FOOTER)
 
 def create_hangman_embed(user, game_info, game_status, config):
     """
@@ -98,7 +102,7 @@ def create_hangman_embed(user, game_info, game_status, config):
         lives = (7-state_ind)//steps
 
     return create_embed(hangman, user.display_name+"'s hangman game ({} lives left)"\
-    .format(lives), user.avatar_url, content, color, config.FOOTER)
+    .format(lives), user.avatar_url, content, "", color, config.FOOTER)
 
 def create_reply(user, insult, config):
     """
@@ -156,7 +160,7 @@ def create_trivia_question(user, scoreboard, config):
     embed_text += "```\nsource: {}".format(source)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
-    return (create_embed(title, author_name, icon_url, embed_text, color, config.FOOTER), correct_index, len(answers))
+    return (create_embed(title, author_name, icon_url, embed_text, "", color, config.FOOTER), correct_index, len(answers))
 
 def create_trivia_reply(user, msg, scoreboard, correct_index, len_answers, config):
     """

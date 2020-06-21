@@ -56,9 +56,11 @@ except IndexError:
     sys.exit(-1)
 
 
-# create the client objects
-DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD)
-# REDDIT_CLIENT = reddit_client(lotr_config, info)
+# create the reddit client
+REDDIT_CLIENT = reddit_client.RedditClient(lotr_config, info)
+
+# create the discord client and pass the reddit client 
+DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT)
 
 try:
     DC_CLIENT.run(TOKEN)

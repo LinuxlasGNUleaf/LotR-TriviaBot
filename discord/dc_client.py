@@ -8,13 +8,14 @@ class LotrBot(discord.Client):
     """
     Bot client, inheriting from discord.Client
     """
-    def __init__(self, config, scoreboard):
+    def __init__(self, config, scoreboard, reddit_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
         self.autoscript = True
         self.script = []
         self.script_condensed = []
+        self.reddit_client = reddit_client
         minigames.parseScript('lotr_fellowship.txt', self.script, self.script_condensed)
         super().__init__()
 
@@ -39,7 +40,7 @@ class LotrBot(discord.Client):
         content = message.content.lower()
         channel = message.channel
 
-        if content.startswith(self.config.KEY+" config "):
+        if content.startswith(self.config.KEY + " config "):
             content = content.split(" ")[2:]
             if content[0] == "autoscript":
                 if content[1] == "true":
@@ -54,7 +55,7 @@ class LotrBot(discord.Client):
                 await channel.send("option `{}` was not recognized!".format(content[0]))
 
 
-        elif content == self.config.KEY+" trivia":
+        elif content == self.config.KEY + " trivia":
             # send the question message
             embed, correct_ind, len_answers = minigames.create_trivia_question(user, self.scoreboard, self.config)
             await channel.send(embed=embed)
@@ -73,7 +74,7 @@ class LotrBot(discord.Client):
             await channel.send(reply)
 
 
-        elif content == self.config.KEY+" profile":
+        elif content == self.config.KEY + " profile":
             if user.id in self.scoreboard.keys():
                 await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard, self.config))
             else:
@@ -103,12 +104,17 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
                     await channel.send(message)
 
             self.blocked.remove(user.id)
+        
+        elif content == self.config.KEY + " meme":
+            output = self.reddit_client.get_posts_from_subreddit("lotrmemes",1)
+            for submission in output:
+                await channel.send(embed=minigames.create_embed(submission.title, user.display_name, user.avatar_url, "", submission.url, (0,0,0),"test"))
 
-        else:
+        elif self.autoscript:
             result = minigames.findSimilarfromScript(message.content, self.script_condensed)
             punctuations = [".", "?", "!"]
             if result != -1:
-                # message.add_reaction(discord.Emoji(self.guild,":white_check_mark:"))
+                await message.add_reaction("✅")
                 ind, line_ind = result
                 author, line = self.script[ind].split("|")
                 parts = []
