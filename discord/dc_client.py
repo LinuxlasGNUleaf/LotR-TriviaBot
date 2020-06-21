@@ -17,7 +17,7 @@ class LotrBot(discord.Client):
         self.script = []
         self.script_condensed = []
         self.reddit_client = reddit_client
-        minigames.parseScript('lotr_fellowship.txt', self.script, self.script_condensed)
+        minigames.parseScript(config.SCRIPT_LOC, self.script, self.script_condensed)
         super().__init__()
 
     async def on_ready(self):
@@ -108,6 +108,10 @@ profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KE
         
         elif content == self.config.KEY + " meme":
             embed = minigames.reddit_meme(message, self.reddit_client, self.meme_progress, self.config)
+            await channel.send(embed=embed)
+        
+        elif content == self.config.KEY + " squote":
+            embed = minigames.silmarillion_quote(self.config)
             await channel.send(embed=embed)
 
         elif self.autoscript:

@@ -6,7 +6,7 @@ import discord
 import csv
 from difflib import SequenceMatcher
 
-PUNCTUATION_CHARS = ["?", "!", ".", ":"]
+PUNCTUATION_CHARS = ["?", "!", ".", ":",";"]
 ELIMINATION_CHARS = ["'", ","]
 
 def constrain_val(val, in_min, in_max):
@@ -372,3 +372,26 @@ def reddit_meme(message, reddit_client, meme_progress, config):
     urls = ("https://reddit.com/"+submission.id,submission.url)
     footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
     return create_embed(submission.title, urls=urls, footnote=footnote)
+
+def silmarillion_quote(config):
+    out = ""
+    with open(config.SILMARILLION_LOC,"r") as silmarillion_file:
+        silmarillion = silmarillion_file.readlines()
+        max_ind = len(silmarillion)-1
+        index = random.randint(0,max_ind)
+
+        chars_found = 0
+        for line in silmarillion[index:]:
+            first_index = 10000
+            last_index = 0
+            for punc_char in PUNCTUATION_CHARS:
+                for _ in range(line.find(punc_char)):
+                    if punc_char in silmarillion[index]:
+                        index = line.indexof(punc_char)
+                        if index < first_index_in_line:
+                            first_index_in_line = index
+                        last_index = index
+                        chars_found += 1
+                        if chars_found >= config.SILMARILLION_SENTENCES_COUNT+1:
+                            out = line[first_index.las]
+
