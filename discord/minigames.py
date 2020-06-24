@@ -2,13 +2,15 @@
 The LotR-Bot discord integration. This is the main class for the bot.
 """
 import random
-import discord
 import csv
 import string
 from difflib import SequenceMatcher
 
-PUNCTUATION_CHARS = ["?", "!", ".", ":",";"]
+import discord
+
+PUNCTUATION_CHARS = ["?", "!", ".", ":", ";"]
 ELIMINATION_CHARS = ["'", ","]
+
 
 def constrain_val(val, in_min, in_max):
     """
@@ -16,12 +18,14 @@ def constrain_val(val, in_min, in_max):
     """
     return min(max(val, in_min), in_max)
 
+
 def map_vals(val, in_min, in_max, out_min, out_max):
     """
     maps a value in a range to another range
     """
     val = constrain_val(val, in_min, in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
 
 # algorithm R(3.4.2) (Waterman's "Reservoir Algorithm")
 def random_line(afile):
@@ -35,24 +39,36 @@ def random_line(afile):
         line = aline
     return line
 
-def matchSequences(a, b):
-    return SequenceMatcher(None, a, b).ratio()
 
-def create_embed(title, content = False, urls = False, footnote = False, color=False, author_info=False):
+def match_sequences(str_a, str_b):
+    """
+    returns the match-ratio of two strings (a and b)
+    """
+    return SequenceMatcher(None, str_a, str_b).ratio()
+
+
+def create_embed(title, content=False, urls=False,
+                 footnote=False, color=False, author_info=False):
     """
     creates an Discord Embed with title, content, footer, etc.
     """
 
     embed = discord.Embed(title=title)
     if color:
-        embed.color = discord.Color.from_rgb(int(color[0]),int(color[1]),int(color[2]))
+        embed.color = discord.Color.from_rgb(
+            int(color[0]),
+            int(color[1]),
+            int(color[2]))
     else:
-        embed.color = discord.Color.from_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+        embed.color = discord.Color.from_rgb(
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255))
 
     if author_info:
         author_name, avatar_url = author_info
         embed.set_author(name=author_name, icon_url=avatar_url)
-    
+
     if footnote:
         embed.set_footer(text=footnote)
 
@@ -65,20 +81,25 @@ def create_embed(title, content = False, urls = False, footnote = False, color=F
         embed.set_image(url=image_url)
     return embed
 
+
 def create_trivia_profile(user, scoreboard, config):
     """
     create trivia scoreboard embed for a certain user
     """
     played, wins = scoreboard[user.id]
-    color = (map_vals(wins/played, 0, 1, 255, 0), map_vals(wins/played, 0, 1, 0, 255), 0)
-    author_name = "{}'s results for their trials in the Art of Middle Earth trivia"\
-                  .format(user.display_name)
-    
+    color = (map_vals(wins/played, 0, 1, 255, 0),
+             map_vals(wins/played, 0, 1, 0, 255), 0)
+    author_name = "{}'s results for their trials in the Art\
+                  of Middle Earth trivia".format(user.display_name)
+
     title = "{}'s results".format(user.display_name)
-    content = "Trivia games played: {}\nTrivia games won: {}\nWin/Played ratio: {}%"\
+    content = "Trivia games played: {}\nTrivia games won: {}\n\
+               Win/Played ratio: {}%"\
               .format(played, wins, round(wins/played*100, 2))
     author_info = (author_name, user.avatar_url)
-    return create_embed(title, author_info=author_info, content=content, color=color, footnote=config.FOOTER)
+    return create_embed(title, author_info=author_info, content=content,
+                        color=color, footnote=config.FOOTER)
+
 
 def create_hangman_embed(user, game_info, game_status, config):
     """
@@ -101,22 +122,25 @@ def create_hangman_embed(user, game_info, game_status, config):
             used += ":regional_indicator_{}: ".format(char)
         used = used.strip()
 
-    if game_status == 0: # GAME ONGOING STATUS
+    if game_status == 0:  # GAME ONGOING STATUS
         content = config.STATES[state_ind]+used
         lives = (7-state_ind)//steps
-    elif game_status == -1: # GAME LOST STATUS
+    elif game_status == -1:  # GAME LOST STATUS
         content = config.STATES[-2]+used+"\nGame over! You lost."
         lives = 0
-    elif game_status == 1: # GAME WON STATUS
+    elif game_status == 1:  # GAME WON STATUS
         content = config.STATES[-1]+used+"\nGame over! You won!"
         lives = (7-state_ind)//steps
 
-    author_info = (user.display_name+"'s hangman game ({} lives left)"\
-    .format(lives), user.avatar_url)
+    author_info = (user.display_name+"'s hangman game ({} lives left)"
+                   .format(lives), user.avatar_url)
 
-    color = (map_vals(state_ind, 0, 8, 0, 255), map_vals(state_ind, 0, 7, 255, 0), 0)
-    
-    return create_embed(hangman, author_info=author_info, content=content, color=color, footnote=config.FOOTER)
+    color = (map_vals(state_ind, 0, 8, 0, 255),
+             map_vals(state_ind, 0, 7, 255, 0), 0)
+
+    return create_embed(hangman, author_info=author_info, content=content,
+                        color=color, footnote=config.FOOTER)
+
 
 def create_reply(user, insult, config):
     """
@@ -128,20 +152,21 @@ def create_reply(user, insult, config):
         msg = random.choice(config.COMPLIMENTS)
     return msg if "{}" not in msg else msg.format(user.display_name)
 
+
 def create_trivia_question(user, scoreboard, config):
     """
     returns an embed with a trivia question for a specific user AND the
     correct index
     """
 
-    #get info from scoreboard
+    # get info from scoreboard
     if user.id in scoreboard.keys():
         count = scoreboard[user.id][0] + 1
     else:
         count = 1
 
     author_name = "{}'s {} trial in the Arts of Middle Earth trivia"\
-                .format(user.display_name, config.ORDINAL(count))
+        .format(user.display_name, config.ORDINAL(count))
 
     # get random question
     with open("questions.csv", "r") as csvfile:
@@ -156,10 +181,10 @@ def create_trivia_question(user, scoreboard, config):
 
     answers = content.copy()
     correct_index = 0
-    for num in range(len(answers)):
-        if answers[num].startswith(config.MARKER):
-            answers[num] = answers[num][1:]
-            correct_index = num+1
+    for i, item in enumerate(answers):
+        if item.startswith(config.MARKER):
+            answers[i] = item[1:]
+            correct_index = i+1
             break
 
     title = question
@@ -170,15 +195,20 @@ def create_trivia_question(user, scoreboard, config):
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
     author_info = (author_name, user.avatar_url)
-    embed = create_embed(title, author_info=author_info, content=embed_text, footnote=config.FOOTER)
+    embed = create_embed(title, author_info=author_info,
+                         content=embed_text, footnote=config.FOOTER)
     return (embed, correct_index, len(answers))
 
-def create_trivia_reply(user, msg, scoreboard, correct_index, len_answers, config):
+
+def create_trivia_reply(user, msg, scoreboard, correct_index,
+                        len_answers, config):
     """
-    creates an appropiate reply to a trivia question. changes scoreboard according to outcome.
+    creates an appropiate reply to a trivia question.\
+    Changes scoreboard according to outcome.
     """
     if not msg:
-        return create_reply(user, True, config)+"\nYou took too long to answer!"
+        return create_reply(user, True, config) +\
+                            "\nYou took too long to answer!"
 
     if user.id in scoreboard.keys():
         count, wins = scoreboard[user.id]
@@ -231,9 +261,11 @@ def initiate_hangman_game(user, config):
     game_info = (word, word_condensed, steps, used_chars, state_ind)
     return (create_hangman_embed(user, game_info, 0, config), game_info)
 
+
 def update_hangman_game(user, msg, game_info, config):
     """
-    updates the hangman game and returns info about whether the game is finished
+    updates the hangman game and returns info about whether the\
+    game is finished
     """
     word, word_condensed, steps, used_chars, state_ind = game_info
 
@@ -277,7 +309,12 @@ def update_hangman_game(user, msg, game_info, config):
     ret_break = False
     return (ret_embed, ret_break, ret_str, game_info)
 
-def parseScript(file, arr, condensed_arr):
+
+def parse_script(file, arr, condensed_arr):
+    """
+    reads LOTR script to array.
+    Also outputs a condensed version for faster searching.
+    """
     with open(file, "r") as script:
         temp = ""
         last = ""
@@ -304,7 +341,7 @@ def parseScript(file, arr, condensed_arr):
         line = line.lower().split('|', 1)[1]
         punctuation_found = False
         temp_arr = []
-        
+
         for char in line:
             if char in ELIMINATION_CHARS:
                 continue
@@ -317,49 +354,82 @@ def parseScript(file, arr, condensed_arr):
             temp += char
         condensed_arr.append(temp_arr)
 
-def findSimilarfromScript(msg, condensed_arr):
+
+def find_similar_from_script(msg, condensed_arr, script):
+    """
+    attempts to find similar line from script and formats it, if found.
+    """
+    # format message string
     msg = msg.lower()
     for char in PUNCTUATION_CHARS:
         msg = msg.replace(char, ".")
-
     for char in ELIMINATION_CHARS:
         msg = msg.replace(char, "")
 
     msg = msg.split(".")
-    found_parts = {}
 
+    found_parts = {}
     for msg_part in msg:
-        for line in condensed_arr:
+        for line_ind, line in enumerate(condensed_arr):
+            # abort conditions
             if not line:
                 continue
             if isinstance(line, str):
                 if line == "STOP":
                     continue
-            for line_part in line:
-                ratio = matchSequences(line_part, msg_part)
-                if ratio > 0.85:
-                    arr_ind = condensed_arr.index(line)
-                    line_ind = line.index(line_part)
-                    if arr_ind in found_parts.keys():
-                        if found_parts[arr_ind][0] < line_ind:
-                            found_parts[arr_ind] = (line_ind, max(found_parts[arr_ind][1], ratio))
-                    else:
-                        found_parts[arr_ind] = (line_ind, ratio)
 
+            for part_ind, part in enumerate(line):
+                ratio = match_sequences(part, msg_part)
+                if ratio > 0.85:
+                    if line_ind in found_parts.keys():
+                        if found_parts[line_ind][0] < part_ind:
+                            found_parts[line_ind] = \
+                                (part_ind, max(found_parts[line_ind][1], ratio))
+                    else:
+                        found_parts[line_ind] = (part_ind, ratio)
 
     if found_parts.keys():
-        max_conf = 0
-        current_ind = -1
+        max_confidence = 0
+        ind = -1
         for key, entry in found_parts.items():
-            if entry[1] > max_conf:
-                max_conf = entry[1]
-                current_ind = key
-        return (current_ind, found_parts[current_ind][0])
+            if entry[1] > max_confidence:
+                max_confidence = entry[1]
+                ind = key
 
-    else:
-        return -1
-    
-def reddit_meme(message, reddit_client, meme_progress, config):
+        if ind < 0:
+            return []
+        return_texts = []
+        part_ind = found_parts[ind][0]
+        parts = []
+        punctuation_found = False
+        author, line = script[ind].split("|")
+        temp = ""
+        for char in line:
+            if char in PUNCTUATION_CHARS:
+                punctuation_found = True
+            elif punctuation_found:
+                punctuation_found = False
+                parts.append(temp.strip())
+                temp = ""
+            temp += char
+
+        if part_ind < len(parts)-1:
+            temp = ""
+            for part in parts[part_ind+1:]:
+                temp += part+" "
+            return_texts.append("**{}**: ... {}".format(author.title(), temp))
+
+        if ind < len(script)-1:
+            if script[ind+1] != "STOP":
+                author, text = script[ind+1].split("|")
+            return_texts.append("**{}:** {}".format(author.title(), text))
+
+        return return_texts
+
+def reddit_meme(message, reddit_client, meme_progress):
+    """
+    outputs a reddit meme from LOTR subreddit
+    """
     server = message.channel.guild
 
     if server in meme_progress.keys():
@@ -369,23 +439,26 @@ def reddit_meme(message, reddit_client, meme_progress, config):
         meme_progress[server] = 0
         index = 0
 
-    submission = list(reddit_client.get_posts_from_subreddit("lotrmemes",index+1))[index]
-    urls = ("https://reddit.com/"+submission.id,submission.url)
+    submission = list(reddit_client.get_posts_from_subreddit("lotrmemes", index+1))[index]
+    urls = ("https://reddit.com/"+submission.id, submission.url)
     footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
     return create_embed(submission.title, urls=urls, footnote=footnote)
 
 def silmarillion_quote(config):
+    """
+    outputs random quote from the Silmarillion with chapter and heading.
+    """
     out = ""
-    with open(config.SILMARILLION_LOC,"r") as silmarillion_file:
+    with open(config.SILMARILLION_LOC, "r") as silmarillion_file:
         silmarillion = silmarillion_file.readlines()
         max_ind = len(silmarillion)-1
-        index = random.randint(0,max_ind)
-        for i in range(index,min(max_ind,index+config.SILMARILLION_SENTENCES_COUNT+1)):
+        index = random.randint(0, max_ind)
+        for i in range(index, min(max_ind, index+config.SILMARILLION_SENTENCES_COUNT+1)):
             if is_headline(silmarillion[i]):
                 break
             out += silmarillion[i].strip()+" "
-        
-        for i in range(index-1,0,-1):
+
+        for i in range(index-1, 0, -1):
             text = silmarillion[i].strip()
             if is_headline(text):
                 chapter1 = text
@@ -395,10 +468,13 @@ def silmarillion_quote(config):
                         title = "**"+chapter2+"**:\n"+chapter1.lower()
                     else:
                         title = "**"+chapter1+"**"
-        
+
     return create_embed(title, content=out)
 
 def is_headline(line):
+    """
+    checks whether lien from Silmarillion is headline
+    """
     line_temp = line[:].strip()
     allowed_chars = string.ascii_uppercase + string.digits + " " + "-"
     for char in line_temp:
