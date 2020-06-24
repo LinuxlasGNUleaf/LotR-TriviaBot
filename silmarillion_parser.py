@@ -19,7 +19,7 @@ with open("silmarillion.txt","r") as from_file:
                         to_file.write("\n")
                 continue
             for j, char in enumerate(line):
-                if char.isupper() and last.islower():
+                if char.isupper() and last.islower() and j > 0:
                     temp += char.lower()
                 else:
                     temp += char

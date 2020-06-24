@@ -11,7 +11,7 @@ SCOREBOARD_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "scoreboard.pyobj"
 REDDIT_CREDENTIALS = os.path.join(os.getenv("HOME"), CONFIG_PATH, "reddit.tk")
 
 SCRIPT_LOC = "lotr_fellowship.txt"
-SILMARILLION_LOC = "silmarillion.txt"
+SILMARILLION_LOC = "silmarillion_edited.txt"
 SILMARILLION_SENTENCES_COUNT = 2
 # crappy ASCII art for hangman game
 STATES = [

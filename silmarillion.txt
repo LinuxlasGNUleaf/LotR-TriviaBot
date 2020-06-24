@@ -1,6 +1,6 @@
 VALAQUENTA
+ACCOUNT OF THE VALAR AND MAIAR ACCORDING TO THE LORE OF THE ELDAR
 
-Account of the Valar and Maiar according to the lore of the Eldar
 In the beginning Eru, the One, who in the Elvish tongue is named Iluvatar, made the Ainur of his
 thought; and they made a great Music before him. In this Music the World was begun; for Iluvatar
 made visible the song of the Ainur, and they beheld it as a light in the darkness. And many among them
@@ -195,9 +195,7 @@ the deceits of his cunning, Sauron had a part, and was only less evil than his m
 served another and not himself. But in after years he rose like a shadow of Morgoth and a ghost of his
 malice, and walked behind him on the same ruinous path down into the Void.
 
-QUENTA SILMARILLION
-
-CHAPTER 1
+QUENTA SILMARILLION - CHAPTER 1
 OF THE BEGINNING OF DAYS
 It is told among the wise that the First War began before Arda was full-shaped, and ere yet there was
 anything that grew or walked upon earth; and for long Melkor had the upper hand. But in the midst of
@@ -417,7 +415,7 @@ hope. Yet of old the Valar declared to the Elves in Valinor that Men shall join 
 the Ainur; whereas Iluvatar has not revealed what he purposes for the Elves after the World’s end,
 and Melkor has not discovered it.
 
-CHAPTER 2
+QUENTA SILMARILLION - CHAPTER 2
 OF Aule AND YAVANNA
 It is told that in their beginning the Dwarves were made by Aule in the darkness of Middle-earth; for
 so greatly did Aule desire the coming of the Children, to have learners to whom he could teach his
@@ -532,7 +530,7 @@ For there shall walk a power in the forests whose wrath they will arouse at thei
 ‘Nonetheless they will have need of wood,’ said Aule, and he went on with his smith-work.
 
 
-CHAPTER 3
+QUENTA SILMARILLION - CHAPTER 3
 OF THE COMING OF THE ELVES AND THE CAPTIVITY OF MELKOR
 Through long ages the Valar dwelt in bliss in the light of the Trees beyond the Mountains of Aman, but
 all Middle-earth lay in a twilight under the stars. While the Lamps had shone, growth began there
@@ -764,7 +762,7 @@ their lord. Thus after many years the Teleri also came at last over Ered Luin in
 of Beleriand. There they halted, and dwelt a while beyond the River Gelion.
 
 
-CHAPTER 4
+QUENTA SILMARILLION - CHAPTER 4
 OF THINGOL AND MELIAN
 Melian was a Maia, of the race of the Valar. She dwelt in the gardens of Lorien, and among all his
 people there were none more beautiful than Melian, nor more wise, nor more skilled in songs of
@@ -802,7 +800,7 @@ of their flowering, and king though he was of umanyar, he was not accounted amon
 but with the Elves of the Light, mighty upon Middle-earth. And of the love of Thingol and Melian
 there came into the world the fairest of all the Children of Iluvatar that was or shall ever be.
 
-CHAPTER 5
+QUENTA SILMARILLION - CHAPTER 5
 OF ELDAMAR AND THE PRINCES OF THE ELDALIE
 In time the hosts of the Vanyar and the Noldor came to the last western shores of the Hither Lands. In
 the north these shores, in the ancient days after the Battle of the Powers, bent ever westward, until in
@@ -958,7 +956,7 @@ creatures of Melkor, lived then in the land of Aman; and there also were many ot
 have not been seen upon Middle-earth, and perhaps never now shall be, since the fashion of the world
 was changed.
 
-CHAPTER 6
+QUENTA SILMARILLION - CHAPTER 6
 OF FEANOR AND THE UNCHAINING OF MELKOR
 Now the Three Kindreds of the Eldar were gathered at last in Valinor, and Melkor was chained. This
 was the Noontide of the Blessed Realm, the fullness of its glory and its bliss, long in tale of years, but
@@ -1058,7 +1056,7 @@ him and took no counsel from him. For Feanor was driven by the fire of his own h
 ever swiftly and alone; and he asked the aid and sought the counsel of none that dwelt in Aman, great
 or small, save only and for a little while of Nerdanel the wise, his wife.
 
-CHAPTER 7
+QUENTA SILMARILLION - CHAPTER 7
 OF THE SILMARILS AND THE UNREST OF THE NOLDOR
 In that time were made those things that afterwards were most renowned of all the works of the Elves.
 For Feanor, being come to his full might, was filled with a new thought, or it may be that some
@@ -1219,7 +1217,7 @@ the land was filled with light. But the Valar sought in vain for tidings of thei
 far off that looms ever higher, borne upon a slow cold wind, a doubt now marred the joy of all the
 dwellers in Aman, dreading they knew not what evil that yet might come.
 
-CHAPTER 8
+QUENTA SILMARILLION - CHAPTER 8
 OF THE DARKENING OF VALINOR
 When Manwe heard of the ways that Melkor had taken, it seemed plain to him that he purposed to
 escape to his old strongholds in the north of Middle-earth; and OromE and Tulkas went with all speed
@@ -1336,7 +1334,7 @@ failed. And Tulkas was as one caught in a black net at night, and he stood power
 in vain. But when the Darkness had passed, it was too late: Melkor had gone whither he would, and
 his vengeance was achieved.
 
-CHAPTER 9
+QUENTA SILMARILLION - CHAPTER 9
 OF THE FLIGHT OF THE NOLDOR
 After a time a great concourse gathered about the Ring of Doom; and the Valar sat in shadow, for it
 was night. But the stars of Varda now glimmered overhead, and the air was clear; for the winds of
@@ -1703,7 +1701,7 @@ was with a lessened host that Fingolfin set foot at last upon the Outer Lands. S
 his sons had those that marched at last behind him, and blew their trumpets in Middle-earth at the first
 rising of the Moon.
 
-CHAPTER 10
+QUENTA SILMARILLION - CHAPTER 10
 OF THE SINDAR
 Now as has been told the power of ElwE and Melian increased in Middle-earth, and all the Elves of
 Beleriand, from the mariners of Cirdan to the wandering hunters of the Blue Mountains beyond the
@@ -1885,7 +1883,7 @@ nor Melian in Menegroth; for no news came out of Aman, whether by messenger, or 
 vision in dream, after the death of the Trees. In this same time Feanor came over the Sea in the white
 ships of the Teleri, and landed in the Firth of Drengist, and there burned the ships at Losgar.
 
-CHAPTER 11
+QUENTA SILMARILLION - CHAPTER 11
 OF THE SUN AND MOON AND THE HIDING OF VALINOR
 It is told that after the flight of Melkor the Valar sat long unmoved upon their thrones in the Ring of
 Doom; but they were not idle, as Feanor declared in the folly of his heart. For the Valar may work
@@ -2024,7 +2022,7 @@ foretold to them in Araman the Blessed Realm was shut against the Noldor; and of
 messengers that in after days sailed into the West none came ever to Valinor - save one only: the
 mightiest mariner of song.
 
-CHAPTER 12
+QUENTA SILMARILLION - CHAPTER 12
 OF MEN
 The Valar sat now behind their mountains at peace; and having given light to Middle-earth they left it
 for long untended, and the lordship of Morgoth was uncontested save by the valour of the Noldor.
@@ -2092,7 +2090,7 @@ among Men that learned the wisdom of the Eldar, and became great and valiant amo
 the Noldor. And in the glory and beauty of the Elves, and in their fate, full share had the offspring of
 elf and mortal, Earendil, and Elwing, and Elrond their child.
 
-CHAPTER 13
+QUENTA SILMARILLION - CHAPTER 13
 OF THE RETURN OF THE NOLDOR
 It has been told that Feanor and his sons came first of the Exiles to Middle-earth, and landed in the
 waste of Lammoth, the Great Echo, upon the outer shores of the Firth of Drengist. And even as the
@@ -2418,7 +2416,7 @@ But the Sindar had the fairer voices and were more skilled in music, save only M
 and they loved the woods and the riversides; and some of the Grey-elves still wandered far and wide
 without settled abode, and they sang as they went.
 
-CHAPTER 14
+QUENTA SILMARILLION - CHAPTER 14
 OF BELERIAND AND ITS REALMS
 This is the fashion of the lands into which the Noldor came, in the north of the western regions of
 Middle-earth, in the ancient days; and here also is told of the manner in which the chieftains of the
@@ -2608,7 +2606,7 @@ into Ossiriand, and won the friendship of the Green-elves. But none of the Noldo
 Ered Lindon, while their realm lasted; and little news and late came into Beleriand of what passed in
 the regions of the East.
 
-CHAPTER 15
+QUENTA SILMARILLION - CHAPTER 15
 OF THE NOLDOR IN BELERIAND
 It has been told how by the guidance of Ulmo Turgon of Nevrast discovered the hidden vale of
 Tumladen; and that (as was after known) lay east of the upper waters of Sirion, in a ring of mountains
@@ -2758,7 +2756,7 @@ son should inherit.’
 But it is said that not until that hour had such cold thoughts ruled him; for indeed she whom he had
 loved was AmariE of the Vanyar, and she went not with him into exile.
 
-CHAPTER 16
+QUENTA SILMARILLION - CHAPTER 16
 OF MAEGLIN
 Aredhel Ar-Feiniel, the White Lady of the Noldor, daughter of Fingolfin, dwelt in Nevrast with
 Turgon her brother, and she went with him to the Hidden Kingdom. But she wearied of the guarded
@@ -3004,7 +3002,7 @@ burden, if he might thereby have power.
 Thus it was in Gondolin; and amid all the bliss of that realm, while its glory lasted, a dark seed of
 evil was sown.
 
-CHAPTER 17
+QUENTA SILMARILLION - CHAPTER 17
 OF THE COMING OF MEN INTO THE WEST
 When three hundred years and more were gone since the Noldor came to Beleriand, in the days of the
 Long Peace, Finrod Felagund lord of Nargothrond journeyed east of Sirion and went hunting with
@@ -3268,7 +3266,7 @@ receive, and their sons increased in wisdom and skill, until they far surpassed 
 who dwelt still east of the mountains and had not seen the Eldar, nor looked upon the faces that had
 beheld the Light of Valinor.
 
-CHAPTER 18
+QUENTA SILMARILLION - CHAPTER 18
 OF THE RUIN OF BELERIAND AND THE FALL OF FINGOLFIN
 Now Fingolfin, King of the North, and High King of the Noldor, seeing that his people were become
 numerous and strong, and that the Men allied to them were many and valiant, pondered once more an
@@ -3579,7 +3577,7 @@ daughter of Belegund and Emeldir the mother of Beren.
 In that time also the outlaws of Dorthonion were destroyed, as is told hereafter; and Beren son of
 Barahir alone escaping came hardly into Doriath.
 
-CHAPTER 19
+QUENTA SILMARILLION - CHAPTER 19
 OF BEREN AND LUTHIEN
 Among the tales of sorrow and of ruin that come down to us from the darkness of those days there are
 yet some in which amid weeping there is joy and under the shadow of death light that endures. And of
@@ -4338,7 +4336,7 @@ EldaliE she has died indeed, and left the world long ago. Yet in her choice the 
 been joined; and she is the forerunner of many in whom the Eldar see yet, though all the world is
 changed, the likeness of Luthien the beloved, whom they have lost.
 
-CHAPTER 20
+QUENTA SILMARILLION - CHAPTER 20
 OF THE FIFTH BATTLE: NIRNAETH ARNOEDIAD
 It is said that Beren and Luthien returned to the northern lands of Middle-earth, and dwelt together for
 a time as living man and woman; and they took up again their mortal form in Doriath. Those that saw
@@ -4612,7 +4610,7 @@ again long and green upon that hill, alone in all the desert that Morgoth made; 
 Morgoth trod thereafter upon the earth beneath which the swords of the Eldar and the Edain crumbled
 into rust.
 
-CHAPTER 21
+QUENTA SILMARILLION - CHAPTER 21
 OF TURIN TURAMBAR
 Rian, daughter of Belegund, was the wife of Huor, son of Galdor; and she was wedded to him two
 months before he went with Hurin his brother to the Nirnaeth Arnoediad. When no tidings came of her
@@ -5435,7 +5433,7 @@ and beneath they wrote also:
 NIENOR NiNIEL
 But she was not there, nor was it ever known whither the cold waters of Teiglin had taken her.
 
-CHAPTER 22
+QUENTA SILMARILLION - CHAPTER 22
 OF THE RUIN OF DORIATH
 So ended the tale of Turin Turambar; but Morgoth did not sleep nor rest from evil, and his dealings
 with the house of Hador were not yet ended. Against them his malice was unsated, though Hurin was
@@ -5721,7 +5719,7 @@ sought; for a remnant of the people fled before them, and with them was Elwing D
 they escaped, and bearing with them the Silmaril they came in time to the mouths of the River Sirion
 by the sea.
 
-CHAPTER 23
+QUENTA SILMARILLION - CHAPTER 23
 OF TUOR AND THE FALL OF GONDOLIN
 It has been told that Huor the brother of Hurin was slain in the Battle of Unnumbered Tears; and in the
 winter of that year Rian his wife bore a child in the wilds of Mithrim, and he was named Tuor, and
@@ -5928,8 +5926,8 @@ and with Idril Celebrindal he set sail into the sunset and the West, and came no
 song. But in after days it was sung that Tuor alone of mortal Men was numbered among the elder race,
 and was joined with the Noldor, whom he loved; and his fate is sundered from the fate of Men.
 
-CHAPTER 24
-OF THE VOYAGE OF Earendil AND THE WAR OF WRATH
+QUENTA SILMARILLION - CHAPTER 24
+OF THE VOYAGE OF EARENDIL AND THE WAR OF WRATH
 Bright Earendil was then lord of the people that dwelt nigh to Sirion’s mouths; and he took to wife
 Elwing the fair, and she bore to him Elrond and Elros, who are called the Half-elven. Yet Earendil
 could not rest, and his voyages about the shores of the Hither Lands eased not his unquiet. Two
@@ -6193,8 +6191,8 @@ ruin, that was of old the fate of Arda Marred; and if any change shall come and 
 amended, Manwe and Varda may know; but they have not revealed it, and it is not declared in
 the dooms of Mandos.
 
-Akallabeth
-The Downfall of Numenor
+AKALLABETH
+THE DOWNFALL OF NUMENOR
 It is said by the Eldar that Men came into the world in the time of the Shadow of Morgoth, and they
 fell swiftly under his dominion; for he sent his emissaries among them, and they listened to his evil
 and cunning words, and they worshipped the Darkness and yet feared it. But there were some that
@@ -6863,7 +6861,7 @@ last beaches on the margin of Aman, and there had looked upon the White Mountain
 and beautiful, before they died.
 
 OF THE RINGS OF POWER AND THE THIRD AGE
-in which these tales come to their end
+IN WHICH THESE TALES COME TO THEIR END
 Of old there was Sauron the Maia, whom the Sindar in Beleriand named Gorthaur. In the beginning of
 Arda Melkor seduced him to his allegiance, and he became the greatest and most trusted of the
 servants of the Enemy, and the most perilous, for he could assume many forms, and for long if he

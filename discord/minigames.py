@@ -4,6 +4,7 @@ The LotR-Bot discord integration. This is the main class for the bot.
 import random
 import discord
 import csv
+import string
 from difflib import SequenceMatcher
 
 PUNCTUATION_CHARS = ["?", "!", ".", ":",";"]
@@ -379,19 +380,28 @@ def silmarillion_quote(config):
         silmarillion = silmarillion_file.readlines()
         max_ind = len(silmarillion)-1
         index = random.randint(0,max_ind)
+        for i in range(index,min(max_ind,index+config.SILMARILLION_SENTENCES_COUNT+1)):
+            if is_headline(silmarillion[i]):
+                break
+            out += silmarillion[i].strip()+" "
+        
+        for i in range(index-1,0,-1):
+            text = silmarillion[i].strip()
+            if is_headline(text):
+                chapter1 = text
+                if i > 0:
+                    if is_headline(silmarillion[i-1]):
+                        chapter2 = silmarillion[i-1].strip()
+                        title = "**"+chapter2+"**:\n"+chapter1.lower()
+                    else:
+                        title = "**"+chapter1+"**"
+        
+    return create_embed(title, content=out)
 
-        chars_found = 0
-        for line in silmarillion[index:]:
-            first_index = 10000
-            last_index = 0
-            for punc_char in PUNCTUATION_CHARS:
-                for _ in range(line.find(punc_char)):
-                    if punc_char in silmarillion[index]:
-                        index = line.indexof(punc_char)
-                        if index < first_index_in_line:
-                            first_index_in_line = index
-                        last_index = index
-                        chars_found += 1
-                        if chars_found >= config.SILMARILLION_SENTENCES_COUNT+1:
-                            out = line[first_index.las]
-
+def is_headline(line):
+    line_temp = line[:].strip()
+    allowed_chars = string.ascii_uppercase + string.digits + " " + "-"
+    for char in line_temp:
+        if char not in allowed_chars:
+            return False
+    return True
