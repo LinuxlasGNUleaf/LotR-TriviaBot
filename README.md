@@ -14,14 +14,14 @@ Outputs a dank meme from r/lotrmemes
 Recognizes lines from the movie script and in the case of a 85% match, completes the sentence and prints the next dialog line
 
 ## TODO
-- [x]LotR trivia quiz
-- [x]LotR hangman with words from Middleearth
-- [x]Silmarillion quotes on demand
-- [x]Autoscript feature
+- [x] LotR trivia quiz
+- [x] LotR hangman with words from Middleearth
+- [x] Silmarillion quotes on demand
+- [x] Autoscript feature
 - Reddit memes from r/lotrmemes (not yet finished)
 - [x] Pylint refactoring
-- [] Using Facebook API for fetching memes from ShirePosting :/
-- [] Youtube API 
+- [ ] Using Facebook API for fetching memes from ShirePosting :/
+- [ ] Youtube API 
 
 ## Contributors
 Well, that would be me. If you want to contact me,
