@@ -18,19 +18,22 @@ class RedditClient():
         """
         finds unseen meme for the given server
         """
-        if server in self.meme_log.keys():
-            used_ids = self.meme_log[server]
+        if server.id in self.meme_log.keys():
+            used_ids = self.meme_log[server.id]
         else:
             used_ids = []
 
         meme = ""
-        for submission in self.reddit.subreddit(subreddit).hot():
-            if submission.id in used_ids:
-                continue
-            else:
+        step = 5
+        limit = step
+        while not meme:
+            for submission in list(self.reddit.subreddit(subreddit).hot(limit=limit))[limit-step:]:
+                if submission.id in used_ids:
+                    continue
                 meme = submission
                 used_ids.append(submission.id)
                 break
+            limit += step
 
         self.meme_log[server.id] = used_ids
         return meme

@@ -9,6 +9,7 @@ from difflib import SequenceMatcher
 import discord
 
 PUNCTUATION_CHARS = ["?", "!", ".", ":", ";"]
+IMAGE_EXT = ["jpg", "jpeg", "gif", "png"]
 ELIMINATION_CHARS = ["'", ","]
 
 
@@ -47,7 +48,7 @@ def match_sequences(str_a, str_b):
     return SequenceMatcher(None, str_a, str_b).ratio()
 
 
-def create_embed(title, content=False, urls=False,
+def create_embed(title, content=False, embed_url=False, link_url=False,
                  footnote=False, color=False, author_info=False):
     """
     creates an Discord Embed with title, content, footer, etc.
@@ -75,10 +76,11 @@ def create_embed(title, content=False, urls=False,
     if content:
         embed.description = content
 
-    if urls:
-        title_url, image_url = urls
-        embed.url = title_url
-        embed.set_image(url=image_url)
+    if embed_url:
+        embed.url = embed_url
+    if link_url:
+        if link_url.split(".").pop().strip() in IMAGE_EXT:
+            embed.set_image(url=link_url)
     return embed
 
 
@@ -426,15 +428,19 @@ def find_similar_from_script(msg, condensed_arr, script):
 
         return return_texts
 
+
 def reddit_meme(message, reddit_client):
     """
     outputs a reddit meme from LOTR subreddit
     """
     server = message.channel.guild
     submission = reddit_client.get_meme(server, "lotrmemes")
-    urls = ("https://reddit.com/"+submission.id, submission.url)
+    post_url = "https://reddit.com/"+submission.id
     footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
-    return create_embed(submission.title, urls=urls, footnote=footnote)
+    if submission.is_self:
+        return create_embed(submission.title, embed_url=post_url, content=submission.self(), footnote=footnote)
+    return create_embed(submission.title, embed_url=post_url, link_url=submission.url, footnote=footnote)
+
 
 def silmarillion_quote(config):
     """
@@ -462,6 +468,7 @@ def silmarillion_quote(config):
                 break
 
     return create_embed(title, content=out)
+
 
 def is_headline(line):
     """

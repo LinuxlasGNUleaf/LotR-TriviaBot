@@ -75,4 +75,4 @@ except (KeyboardInterrupt, RuntimeError):
 with open(lotr_config.SCOREBOARD_LOC, 'wb') as SC_FILE:
     pickle.dump(SCOREBOARD, SC_FILE)
 with open(lotr_config.MEME_LOG_LOC, 'wb') as MEME_FILE:
-    pickle.dump(SCOREBOARD, MEME_FILE)
+    pickle.dump(MEME_LOG, MEME_FILE)
