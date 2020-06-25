@@ -424,7 +424,7 @@ def find_similar_from_script(msg, condensed_arr, script):
         if ind < len(script)-1:
             if script[ind+1] != "STOP":
                 author, text = script[ind+1].split("|")
-            return_texts.append("**{}:** {}".format(author.title(), text))
+                return_texts.append("**{}:** {}".format(author.title(), text))
 
         return return_texts
 
@@ -479,3 +479,9 @@ def is_headline(line):
         if char not in allowed_chars:
             return False
     return True
+
+def search_youtube(google_client, channel_id, query):
+    res = google_client.get_video_from_channel(channel_id, query)['items'][0]
+    title = res['snippet']['title']
+    yt_link = "https://www.youtube.com/watch?v="+res['id']['videoid']
+    return create_embed(title, embed_url=yt_link)

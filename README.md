@@ -19,10 +19,11 @@ Recognizes lines from the movie script and in the case of a 85% match, completes
 - [x] LotR hangman with words from Middleearth
 - [x] Silmarillion quotes on demand
 - [x] Autoscript feature
-- [ ] Reddit memes from r/lotrmemes (not yet finished)
+- [X] Reddit memes from r/lotrmemes (not yet finished)
 - [x] Pylint refactoring
+- [X] Youtube API
 - [ ] Using Facebook API for fetching memes from ShirePosting :/
-- [ ] Youtube API 
+- [ ] enhance Silmarillion quote parser
 
 ## Contributors
 Well, that would be me. If you want to contact me,

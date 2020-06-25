@@ -9,7 +9,7 @@ class LotrBot(discord.Client):
     """
     Bot client, inheriting from discord.Client
     """
-    def __init__(self, config, scoreboard, reddit_client):
+    def __init__(self, config, scoreboard, reddit_client, google_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
@@ -17,6 +17,7 @@ class LotrBot(discord.Client):
         self.script = []
         self.script_condensed = []
         self.reddit_client = reddit_client
+        self.google_client = google_client
         minigames.parse_script(config.SCRIPT_LOC, self.script, self.script_condensed)
         super().__init__()
 
@@ -125,6 +126,13 @@ class LotrBot(discord.Client):
                 await channel.send("You have to play a game of trivia before a \
     profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KEY))
 
+#==============================================================================
+        elif content.startswith(self.config.KEY + " yt "):
+            print("YEET")
+            query = content.split(self.config.KEY + " yt ")[1]
+            if query:
+                embed = minigames.search_youtube(self.google_client, self.config.TEH_LURD_CHANNEL_ID, query)
+                await channel.send(embed=embed)
 #==============================================================================
         elif self.do_autoscript:
             result = minigames.find_similar_from_script\
