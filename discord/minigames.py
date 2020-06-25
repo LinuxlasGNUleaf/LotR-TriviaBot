@@ -426,20 +426,12 @@ def find_similar_from_script(msg, condensed_arr, script):
 
         return return_texts
 
-def reddit_meme(message, reddit_client, meme_progress):
+def reddit_meme(message, reddit_client):
     """
     outputs a reddit meme from LOTR subreddit
     """
     server = message.channel.guild
-
-    if server in meme_progress.keys():
-        index = meme_progress[server] + 1
-        meme_progress[server] = index
-    else:
-        meme_progress[server] = 0
-        index = 0
-
-    submission = list(reddit_client.get_posts_from_subreddit("lotrmemes", index+1))[index]
+    submission = reddit_client.get_meme(server, "lotrmemes")
     urls = ("https://reddit.com/"+submission.id, submission.url)
     footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
     return create_embed(submission.title, urls=urls, footnote=footnote)

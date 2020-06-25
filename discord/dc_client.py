@@ -14,7 +14,6 @@ class LotrBot(discord.Client):
         self.scoreboard = scoreboard
         self.blocked = []
         self.do_autoscript = True
-        self.meme_progress = {} #keeps track of sent memes in each server
         self.script = []
         self.script_condensed = []
         self.reddit_client = reddit_client
@@ -26,10 +25,11 @@ class LotrBot(discord.Client):
         """
         init function for discord bot
         """
-        print("PreInit...")
+        print("[INFO]: Setting rich presence...")
         await self.change_presence(activity=discord.Activity\
             (type=discord.ActivityType.watching, name="Boromir die"))
-        print("online. All systems operational.")
+        print("[SYSTEM]: online. All systems operational.")
+        print("||>----------- O N L I N E ------------>||")
 
 
     async def on_message(self, message):
@@ -44,120 +44,92 @@ class LotrBot(discord.Client):
         content = message.content.lower()
         channel = message.channel
 
+#==============================================================================
         if content.startswith(self.config.KEY + " config "):
-            self.change_config(content, channel)
+            content = content.split(" ")[2:]
+            if content[0] == "autoscript":
+                if content[1] == "true":
+                    self.do_autoscript = True
+                    await channel.send("option `autoscript` was enabled!")
+                elif content[1] == "false":
+                    self.do_autoscript = False
+                    await channel.send("option `autoscript` was disabled!")
+                else:
+                    await channel.send("state for option `autoscript` was not recognized!")
+            else:
+                await channel.send("option `{}` was not recognized!".format(content[0]))
 
+#==============================================================================
         elif content == self.config.KEY + " trivia":
-            self.trivia(user, channel)
-
-        elif content == self.config.KEY+" hangman":
-            self.hangman(message, user, channel)
-
-        elif content == self.config.KEY + " meme":
-            embed = minigames.reddit_meme(message, self.reddit_client, self.meme_progress)
+            # send the question message
+            embed, correct_ind, len_answers = minigames.\
+                create_trivia_question(user, self.scoreboard, self.config)
             await channel.send(embed=embed)
 
-        elif content == self.config.KEY + " squote":
-            embed = minigames.silmarillion_quote(self.config)
-            await channel.send(embed=embed)
+            def check(chk_msg):
+                return chk_msg.author == user and chk_msg.channel == channel
 
-        elif content == self.config.KEY + " profile":
-            self.profile(user, channel)
-
-        elif self.do_autoscript:
-            self.autoscript(message, channel)
-
-
-    def hangman(self, message, user, channel):
-        """
-        handles initiation of the hangman game
-        """
-        embed, game_info = minigames.initiate_hangman_game(user, self.config)
-        hangman_msg = await channel.send(embed=embed)
-
-        def check(chk_msg):
-            return chk_msg.author == user and chk_msg.channel == channel
-
-        self.blocked.append(user.id)
-
-        failed = False
-        while not failed:
+            self.blocked.append(user.id)
             try:
                 msg = await self.wait_for('message', check=check, timeout=15)
             except asyncio.TimeoutError:
                 msg = ""
+            self.blocked.remove(user.id)
 
-            embed, failed, message, game_info = minigames.\
-                update_hangman_game(user, msg, game_info, self.config)
-            await hangman_msg.edit(embed=embed)
-            if message:
-                await channel.send(message)
+            reply = minigames.create_trivia_reply(user, msg, self.scoreboard,
+                                                  correct_ind, len_answers,
+                                                  self.config)
+            await channel.send(reply)
 
-        self.blocked.remove(user.id)
+#==============================================================================
+        elif content == self.config.KEY+" hangman":
+            embed, game_info = minigames.initiate_hangman_game(user, self.config)
+            hangman_msg = await channel.send(embed=embed)
 
+            def check(chk_msg):
+                return chk_msg.author == user and chk_msg.channel == channel
 
-    def autoscript(self, message, channel):
-        """
-        handles initiation of the autoscript feature
-        """
-        result = minigames.find_similar_from_script\
-            (message.content, self.script_condensed, self.script)
-        if result:
-            await message.add_reaction("✅")
-            for line in result:
-                await channel.send(line)
+            self.blocked.append(user.id)
 
+            failed = False
+            while not failed:
+                try:
+                    msg = await self.wait_for('message', check=check, timeout=15)
+                except asyncio.TimeoutError:
+                    msg = ""
 
-    def trivia(self, user, channel):
-        """
-        handles the initiation of the trivia game
-        """
-        # send the question message
-        embed, correct_ind, len_answers = minigames.\
-            create_trivia_question(user, self.scoreboard, self.config)
-        await channel.send(embed=embed)
+                embed, failed, message, game_info = minigames.\
+                    update_hangman_game(user, msg, game_info, self.config)
+                await hangman_msg.edit(embed=embed)
+                if message:
+                    await channel.send(message)
 
-        def check(chk_msg):
-            return chk_msg.author == user and chk_msg.channel == channel
+            self.blocked.remove(user.id)
 
-        self.blocked.append(user.id)
-        try:
-            msg = await self.wait_for('message', check=check, timeout=15)
-        except asyncio.TimeoutError:
-            msg = ""
-        self.blocked.remove(user.id)
+#==============================================================================
+        elif content == self.config.KEY + " meme":
+            embed = minigames.reddit_meme(message, self.reddit_client)
+            await channel.send(embed=embed)
 
-        reply = minigames.create_trivia_reply(user, msg, self.scoreboard,
-                                              correct_ind, len_answers,
-                                              self.config)
-        await channel.send(reply)
+#==============================================================================
+        elif content == self.config.KEY + " squote":
+            embed = minigames.silmarillion_quote(self.config)
+            await channel.send(embed=embed)
 
-
-    def profile(self, user, channel):
-        """
-        handles the initiation of the profile feature
-        """
-        if user.id in self.scoreboard.keys():
-            await channel.send(embed=minigames.\
+#==============================================================================
+        elif content == self.config.KEY + " profile":
+            if user.id in self.scoreboard.keys():
+                await channel.send(embed=minigames.\
                 create_trivia_profile(user, self.scoreboard, self.config))
-        else:
-            await channel.send("You have to play a game of trivia before a \
-profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KEY))
-
-
-    def change_config(self, content, channel):
-        """
-        handles the configuration of the bot
-        """
-        content = content.split(" ")[2:]
-        if content[0] == "autoscript":
-            if content[1] == "true":
-                self.do_autoscript = True
-                await channel.send("option `autoscript` was enabled!")
-            elif content[1] == "false":
-                self.do_autoscript = False
-                await channel.send("option `autoscript` was disabled!")
             else:
-                await channel.send("state for option `autoscript` was not recognized!")
-        else:
-            await channel.send("option `{}` was not recognized!".format(content[0]))
+                await channel.send("You have to play a game of trivia before a \
+    profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KEY))
+
+#==============================================================================
+        elif self.do_autoscript:
+            result = minigames.find_similar_from_script\
+            (message.content, self.script_condensed, self.script)
+            if result:
+                await message.add_reaction("✅")
+                for line in result:
+                    await channel.send(line)

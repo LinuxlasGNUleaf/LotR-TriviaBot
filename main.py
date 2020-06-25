@@ -7,16 +7,17 @@ A LotR-bot written by JaWs
 import pickle
 import os
 import sys
+import lotr_config
 
 sys.path.append(os.path.abspath('./discord'))
 sys.path.append(os.path.abspath('./reddit'))
 
-import lotr_config
 import dc_client
 import reddit_client
 
 # ==========================> LISTS <==================================
 SCOREBOARD = {}
+MEME_LOG = {}
 BLOCKED = [] #temporarily blocked users (cannot issue commands)
 
 # ==========================> STARTUP <==================================
@@ -37,8 +38,11 @@ try:
     with open(lotr_config.SCOREBOARD_LOC, 'rb') as SC_FILE:
         SCOREBOARD = pickle.load(SC_FILE)
         print("[INFO]: unserialized trivia scoreboard")
+    with open(lotr_config.MEME_LOG_LOC, 'rb') as MEME_FILE:
+        MEME_LOG = pickle.load(MEME_FILE)
+        print("[INFO]: unserialized meme log")
 except (FileNotFoundError, EOFError):
-    print("[WARN]: scoreboard file not found, ignoring.")
+    print("[WARN]: meme log file not found, ignoring.")
 
 
 
@@ -57,7 +61,7 @@ except IndexError:
 
 
 # create the reddit client
-REDDIT_CLIENT = reddit_client.RedditClient(lotr_config, info)
+REDDIT_CLIENT = reddit_client.RedditClient(lotr_config, info, MEME_LOG)
 
 # create the discord client and pass the reddit client
 DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT)
@@ -65,10 +69,10 @@ DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT)
 try:
     DC_CLIENT.run(TOKEN)
     print("\n[INFO]: Shutting down...")
-    with open(lotr_config.SCOREBOARD_LOC, 'wb') as SC_FILE:
-        pickle.dump(SCOREBOARD, SC_FILE)
-
 except (KeyboardInterrupt, RuntimeError):
     print("\n[INFO]: Catched error... Shutting down...")
-    with open(lotr_config.SCOREBOARD_LOC, 'wb') as SC_FILE:
-        pickle.dump(SCOREBOARD, SC_FILE)
+
+with open(lotr_config.SCOREBOARD_LOC, 'wb') as SC_FILE:
+    pickle.dump(SCOREBOARD, SC_FILE)
+with open(lotr_config.MEME_LOG_LOC, 'wb') as MEME_FILE:
+    pickle.dump(SCOREBOARD, SC_FILE)

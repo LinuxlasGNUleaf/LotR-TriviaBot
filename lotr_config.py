@@ -8,6 +8,7 @@ CONFIG_PATH = ".config/discord/bots/lotr-bot/"
 
 TOKEN_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "token.tk")
 SCOREBOARD_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "scoreboard.pyobj")
+MEME_LOG_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "meme_log.pyobj")
 REDDIT_CREDENTIALS = os.path.join(os.getenv("HOME"), CONFIG_PATH, "reddit.tk")
 
 SCRIPT_LOC = "lotr_fellowship.txt"
