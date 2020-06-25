@@ -90,7 +90,7 @@ def create_trivia_profile(user, scoreboard, config):
     color = (map_vals(wins/played, 0, 1, 255, 0),
              map_vals(wins/played, 0, 1, 0, 255), 0)
     author_name = "{}'s results for their trials in the Art\
-                  of Middle Earth trivia".format(user.display_name)
+of Middle Earth trivia".format(user.display_name)
 
     title = "{}'s results".format(user.display_name)
     content = "Trivia games played: {}\nTrivia games won: {}\n\
@@ -450,26 +450,25 @@ def silmarillion_quote(config):
                 break
             out += silmarillion[i].strip()+" "
 
-        for i in range(index-1, 0, -1):
-            text = silmarillion[i].strip()
-            if is_headline(text):
-                chapter1 = text
-                if i > 0:
-                    if is_headline(silmarillion[i-1]):
-                        chapter2 = silmarillion[i-1].strip()
-                        title = "**"+chapter2+"**:\n"+chapter1.lower()
-                    else:
-                        title = "**"+chapter1+"**"
+        # attempt to find title
+        for i in range(index-1, -1, -1):
+            line = silmarillion[i].strip()
+            if is_headline(line) and i > 0:
+                previous_line = silmarillion[i-1].strip()
+                if line and is_headline(previous_line):
+                    title = "**"+previous_line+"**:\n"+line.lower()
+                else:
+                    title = "**"+line+"**"
+                break
 
     return create_embed(title, content=out)
 
 def is_headline(line):
     """
-    checks whether lien from Silmarillion is headline
+    checks whether line from Silmarillion is headline
     """
-    line_temp = line[:].strip()
     allowed_chars = string.ascii_uppercase + string.digits + " " + "-"
-    for char in line_temp:
+    for char in line:
         if char not in allowed_chars:
             return False
     return True
