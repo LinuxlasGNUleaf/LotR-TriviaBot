@@ -25,15 +25,15 @@ class RedditClient():
 
         meme = ""
         step = 5
-        limit = step
+        limit = 0
         while not meme:
+            limit += step
             for submission in list(self.reddit.subreddit(subreddit).hot(limit=limit))[limit-step:]:
                 if submission.id in used_ids:
                     continue
                 meme = submission
                 used_ids.append(submission.id)
                 break
-            limit += step
 
         self.meme_log[server.id] = used_ids
         return meme
