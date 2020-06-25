@@ -2,15 +2,15 @@
 This is a discord bot written in Python 3.
 It utilizes the Discord, Reddit (and Google in the near future) API.
 The bot features mutliple minigames, including:
-* LotR - Trivia Game
+* **LotR - Trivia Game**
 In this game you get asked trivia questions from LotR, the Hobbit, the Silmarillion and the Extended Lore. You have four possible answers. Your score is tracked.
-* LotR - Hangman
+* **LotR - Hangman**
 Features the classic hangman game with LotR terms
-* Random Silmarillion quote
+* **Random Silmarillion quote**
 Output a random Silmarillion quote on demand.
-* Reddit meme
+* **Reddit meme**
 Outputs a dank meme from r/lotrmemes
-* Autoscript feature
+* **Autoscript feature**
 Recognizes lines from the movie script and in the case of a 85% match, completes the sentence and prints the next dialog line
 
 ## TODO
@@ -18,7 +18,7 @@ Recognizes lines from the movie script and in the case of a 85% match, completes
 - [x] LotR hangman with words from Middleearth
 - [x] Silmarillion quotes on demand
 - [x] Autoscript feature
-- Reddit memes from r/lotrmemes (not yet finished)
+- [ ] Reddit memes from r/lotrmemes (not yet finished)
 - [x] Pylint refactoring
 - [ ] Using Facebook API for fetching memes from ShirePosting :/
 - [ ] Youtube API 
