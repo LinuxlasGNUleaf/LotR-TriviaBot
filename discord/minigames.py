@@ -112,7 +112,7 @@ def create_hangman_embed(user, game_info, game_status, config):
             if char.lower() in used_chars or game_status != 0:
                 hangman += "__{}__ ".format(char)
             else:
-                hangman += '\_ '
+                hangman += r'\_ '
         hangman += "  "
     hangman = hangman.strip()
 

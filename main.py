@@ -46,8 +46,8 @@ except (FileNotFoundError, EOFError):
 try:
     with open(lotr_config.REDDIT_CREDENTIALS, "r") as tokenfile:
         info = tokenfile.readlines()
-        for i in range(len(info)):
-            info[i] = info[i].strip()
+        for i, item in enumerate(info):
+            info[i] = item.strip()
 except (FileNotFoundError, EOFError):
     print("[ERROR]: reddit credentials not found! abort.")
     sys.exit(-1)
@@ -59,7 +59,7 @@ except IndexError:
 # create the reddit client
 REDDIT_CLIENT = reddit_client.RedditClient(lotr_config, info)
 
-# create the discord client and pass the reddit client 
+# create the discord client and pass the reddit client
 DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT)
 
 try:

@@ -1,7 +1,8 @@
+"""
+Main discord bot class, includes minigames.py for all the extra functionality
+"""
 import asyncio
-
 import discord
-
 import minigames
 
 class LotrBot(discord.Client):
@@ -43,29 +44,28 @@ class LotrBot(discord.Client):
         content = message.content.lower()
         channel = message.channel
 
-        
         if content.startswith(self.config.KEY + " config "):
-            self.config(message, user, channel)
+            self.change_config(content, channel)
 
         elif content == self.config.KEY + " trivia":
-            self.trivia(message, user, channel)
-        
+            self.trivia(user, channel)
+
         elif content == self.config.KEY+" hangman":
             self.hangman(message, user, channel)
 
         elif content == self.config.KEY + " meme":
             embed = minigames.reddit_meme(message, self.reddit_client, self.meme_progress)
             await channel.send(embed=embed)
-        
+
         elif content == self.config.KEY + " squote":
             embed = minigames.silmarillion_quote(self.config)
             await channel.send(embed=embed)
 
         elif content == self.config.KEY + " profile":
-            self.profile(message, user, channel)
+            self.profile(user, channel)
 
         elif self.do_autoscript:
-            self.autoscript(message, user, channel)
+            self.autoscript(message, channel)
 
 
     def hangman(self, message, user, channel):
@@ -87,7 +87,8 @@ class LotrBot(discord.Client):
             except asyncio.TimeoutError:
                 msg = ""
 
-            embed, failed, message, game_info = minigames.update_hangman_game(user, msg, game_info, self.config)
+            embed, failed, message, game_info = minigames.\
+                update_hangman_game(user, msg, game_info, self.config)
             await hangman_msg.edit(embed=embed)
             if message:
                 await channel.send(message)
@@ -95,7 +96,7 @@ class LotrBot(discord.Client):
         self.blocked.remove(user.id)
 
 
-    def autoscript(self, message, _, channel):
+    def autoscript(self, message, channel):
         """
         handles initiation of the autoscript feature
         """
@@ -107,7 +108,7 @@ class LotrBot(discord.Client):
                 await channel.send(line)
 
 
-    def trivia(self, _, user, channel):
+    def trivia(self, user, channel):
         """
         handles the initiation of the trivia game
         """
@@ -126,21 +127,28 @@ class LotrBot(discord.Client):
             msg = ""
         self.blocked.remove(user.id)
 
-        reply = minigames.create_trivia_reply(user, msg, self.scoreboard, 
-                                              correct_ind, len_answers, 
+        reply = minigames.create_trivia_reply(user, msg, self.scoreboard,
+                                              correct_ind, len_answers,
                                               self.config)
         await channel.send(reply)
 
 
-    def profile(self, message, user, channel):
+    def profile(self, user, channel):
+        """
+        handles the initiation of the profile feature
+        """
         if user.id in self.scoreboard.keys():
-                await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard, self.config))
-            else:
-                await channel.send("You have to play a game of trivia before a \
+            await channel.send(embed=minigames.\
+                create_trivia_profile(user, self.scoreboard, self.config))
+        else:
+            await channel.send("You have to play a game of trivia before a \
 profile can be generated! use `{} trivia` to take a quiz!".format(self.config.KEY))
 
 
-    def config(self, message, user, channel):
+    def change_config(self, content, channel):
+        """
+        handles the configuration of the bot
+        """
         content = content.split(" ")[2:]
         if content[0] == "autoscript":
             if content[1] == "true":
