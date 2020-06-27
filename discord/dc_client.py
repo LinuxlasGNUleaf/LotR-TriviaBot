@@ -128,7 +128,6 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content.startswith(self.config.KEY + " yt "):
-            print("YEET")
             query = content.split(self.config.KEY + " yt ")[1]
             if query:
                 embed = minigames.search_youtube(self.google_client, self.config.TEH_LURD_CHANNEL_ID, query)

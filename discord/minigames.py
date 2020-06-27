@@ -5,7 +5,7 @@ import random
 import csv
 import string
 from difflib import SequenceMatcher
-
+import html
 import discord
 
 PUNCTUATION_CHARS = ["?", "!", ".", ":", ";"]
@@ -480,8 +480,11 @@ def is_headline(line):
             return False
     return True
 
+
 def search_youtube(google_client, channel_id, query):
     res = google_client.get_video_from_channel(channel_id, query)['items'][0]
-    title = res['snippet']['title']
-    yt_link = "https://www.youtube.com/watch?v="+res['id']['videoid']
-    return create_embed(title, embed_url=yt_link)
+    author_info = ("▶  Found Youtube Video:", "https://www.uab.edu/studentmedia/images/Nov.12.2019/Magnifying-Glass-Clipart-Transparent-Background.png")
+    title = html.unescape(res['snippet']['title'])
+    yt_link = "https://www.youtube.com/watch?v="+res['id']['videoId']
+    thumbnail_link = res['snippet']['thumbnails']['medium']['url']
+    return create_embed(title, embed_url=yt_link, link_url=thumbnail_link, author_info=author_info)
