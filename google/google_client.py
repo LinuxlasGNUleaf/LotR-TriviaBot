@@ -11,5 +11,5 @@ class GoogleClient():
         return request.execute()
     
     def get_video_info(self, video_id):
-        request = self.youtube.videos().list(part="snippet", id=video_id)
+        request = self.youtube.videos().list(part="snippet,statistics", id=video_id)
         return request.execute()

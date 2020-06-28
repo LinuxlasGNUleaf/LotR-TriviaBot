@@ -503,7 +503,12 @@ def search_youtube(google_client, channel_id, query, num, config):
         # Video API call for every vid
         vid_info = google_client.get_video_info(item['id']['videoId'])['items'][0]
         description = unbloat_description(vid_info['snippet']['description'])
-        embeds.append(create_embed(title, embed_url=yt_link, link_url=thumbnail_link, footnote=publish_time, content=description))
+        views = "{:,}".format(int(vid_info['statistics']['viewCount']))
+        likes = int(vid_info['statistics']['likeCount'])
+        comments = "{:,}".format(int(vid_info['statistics']['commentCount']))
+        info_bar = ":play_pause: {views} | :thumbs_up: {likes} | :speech_balloon: {comm}"\
+            .format(views=views, likes="{:,}".format(likes), comm=comments)
+        embeds.append(create_embed(title, embed_url=yt_link, link_url=thumbnail_link, footnote=publish_time, content=description+"\n"+info_bar))
     return embeds
 
 def unbloat_description(desc):
