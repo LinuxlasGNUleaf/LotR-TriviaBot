@@ -23,4 +23,7 @@ except (FileNotFoundError, EOFError):
 
 channel_id = 'UCYXpatz5Z4ek0M_5VR-Qt1A'
 client = google_client.GoogleClient(lotr_config, google_credentials)
-res = client.get_video_from_channel(channel_id, "tennis")['items'][0]
+res = client.get_video_from_channel(channel_id, "tennis", 1)['items'][0]
+video_id = res['id']['videoId']
+res2 = client.get_video_info(video_id)
+print(res2)

@@ -7,6 +7,8 @@ KEY = "lotr"
 FOOTER = "A discord bot written in Python by JaWs"
 CONFIG_PATH = ".config/discord/bots/lotr-bot/"
 
+MAX_VIDEO_COUNT = 3
+
 SCOREBOARD_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "scoreboard.pyobj")
 MEME_LOG_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "meme_log.pyobj")
 REDDIT_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "reddit.tk")
@@ -86,8 +88,8 @@ Recognizes lines from the movie script and in the case of a 85% match, completes
 **- Youtube Video Search**
 Allows you to provide keywords to search the videos of a channel.
 The channel id is currently set in the config file.
-to search for a video:
-`{0} yt <keywords>`
+to search for videos:
+`{0} yt <max video count> <keywords>`
 
 """.format(KEY)
 

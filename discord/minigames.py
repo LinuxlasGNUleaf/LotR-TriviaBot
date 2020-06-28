@@ -12,6 +12,13 @@ PUNCTUATION_CHARS = ["?", "!", ".", ":", ";"]
 IMAGE_EXT = ["jpg", "jpeg", "gif", "png"]
 ELIMINATION_CHARS = ["'", ","]
 
+DESCRIPTION_BLACKLIST = [
+    "teh lurd of teh reings youtube channel", "media",
+    "shop", "facebook.com", "instagram.com", "music used", "♫",
+    "just a facebook page", "pardun us, for ur", "donation", "discord",
+    "we post", "like", "follow", "luminous", "outro", "sub", "sale", "bit.ly",
+    "playlist", "editor", "channel"
+    ]
 
 def constrain_val(val, in_min, in_max):
     """
@@ -481,10 +488,42 @@ def is_headline(line):
     return True
 
 
-def search_youtube(google_client, channel_id, query):
-    res = google_client.get_video_from_channel(channel_id, query)['items'][0]
-    author_info = ("▶  Found Youtube Video:", "https://www.uab.edu/studentmedia/images/Nov.12.2019/Magnifying-Glass-Clipart-Transparent-Background.png")
-    title = html.unescape(res['snippet']['title'])
-    yt_link = "https://www.youtube.com/watch?v="+res['id']['videoId']
-    thumbnail_link = res['snippet']['thumbnails']['medium']['url']
-    return create_embed(title, embed_url=yt_link, link_url=thumbnail_link, author_info=author_info)
+def search_youtube(google_client, channel_id, query, num, config):
+    """
+    returns a give number of Youtube Video embeds for a specific channel
+    """
+    res = google_client.get_video_from_channel(channel_id, query, min(config.MAX_VIDEO_COUNT, num))['items']
+
+    embeds = []
+    for i, item in enumerate(res):
+        title = ":mag: Search Result {}\n".format(i+1)+html.unescape(item['snippet']['title'])
+        yt_link = "https://www.youtube.com/watch?v="+item['id']['videoId']
+        thumbnail_link = item['snippet']['thumbnails']['medium']['url']
+        publish_time = "Published at: " + "/".join(item['snippet']['publishedAt'][:10].split("-")[::-1])
+        # Video API call for every vid
+        vid_info = google_client.get_video_info(item['id']['videoId'])['items'][0]
+        description = unbloat_description(vid_info['snippet']['description'])
+        embeds.append(create_embed(title, embed_url=yt_link, link_url=thumbnail_link, footnote=publish_time, content=description))
+    return embeds
+
+def unbloat_description(desc):
+    """
+    strips yt descriptions down to the bare minimum
+    """
+    desc = desc.split("\n")
+    new_desc = ""
+    for i, line in enumerate(desc):
+        blacklisted = False
+        line = line.strip().lower()
+        if not line:
+            continue
+
+        for item in DESCRIPTION_BLACKLIST:
+            if item in line:
+                blacklisted = True
+                break
+
+        if blacklisted:
+            continue
+        new_desc += desc[i].strip()+"\n"
+    return new_desc

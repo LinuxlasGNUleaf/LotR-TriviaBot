@@ -42,7 +42,8 @@ class LotrBot(discord.Client):
             return
 
         user = message.author
-        content = message.content.lower()
+        raw_content = message.content.strip()
+        content = raw_content.lower()
         channel = message.channel
 
 #==============================================================================
@@ -128,10 +129,33 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content.startswith(self.config.KEY + " yt "):
-            query = content.split(self.config.KEY + " yt ")[1]
-            if query:
-                embed = minigames.search_youtube(self.google_client, self.config.TEH_LURD_CHANNEL_ID, query)
+            raw_content = raw_content.split(" ")[2:]
+            if raw_content[0].isdigit():  # Video count was provided
+                num = int(raw_content[0])
+                query = " ".join(raw_content[1:])
+            else:
+                query = " ".join(raw_content)
+                num = 1
+
+            if not query:
+                await channel.send(minigames.create_reply(user, True, self.config) +
+                                   "\nTry providing a query next time!\nThe correct syntax is: \
+`{0} yt (<max video count>) <keywords>\n(count is optional)`".format(self.config.KEY))
+                return
+
+            result = minigames.search_youtube(
+                self.google_client,
+                self.config.TEH_LURD_CHANNEL_ID,
+                query,
+                num,
+                self.config)
+            if not result:
+                await channel.send("*\"I have no memory of this place\"*\n\
+~Gandalf\nYour query `{}` yielded no results!".format(query))
+                return
+            for embed in result:
                 await channel.send(embed=embed)
+
 #==============================================================================
         elif content == self.config.KEY + " help":
             embed = minigames.create_embed(
