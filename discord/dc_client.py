@@ -133,6 +133,13 @@ class LotrBot(discord.Client):
                 embed = minigames.search_youtube(self.google_client, self.config.TEH_LURD_CHANNEL_ID, query)
                 await channel.send(embed=embed)
 #==============================================================================
+        elif content == self.config.KEY + " help":
+            embed = minigames.create_embed(
+                title="LotR Trivia Bot help",
+                content=self.config.HELP_TEXT,
+                footnote=self. config.HELP_FOOTER)
+            await channel.send(embed=embed)
+#==============================================================================
         elif self.do_autoscript:
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
