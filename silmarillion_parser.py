@@ -1,12 +1,12 @@
 PUNCTUATION_CHARS = ["?", "!", ".", ":"]
-OTHER_CHARS = ["'",","," ","-"]
+OTHER_CHARS = ["'", ",", " ", "-"]
 CONTINUATION_CHARS = ["’"]
 temp = ""
 last = ""
 unknown = []
 import string
-with open("silmarillion.txt","r") as from_file:
-    with open("silmarillion_edited.txt","w") as to_file:
+with open("silmarillion.txt", "r") as from_file:
+    with open("silmarillion_edited.txt", "w") as to_file:
         lines = from_file.readlines()
         for i, line in enumerate(lines):
             line = line.strip()
@@ -15,7 +15,7 @@ with open("silmarillion.txt","r") as from_file:
                 continue
             if not line:
                 if i < len(lines) - 1:
-                    if lines[i+1].replace(" ","").isupper():
+                    if lines[i+1].replace(" ", "").isupper():
                         to_file.write("\n")
                 continue
             for j, char in enumerate(line):
@@ -23,8 +23,11 @@ with open("silmarillion.txt","r") as from_file:
                     temp += char.lower()
                 else:
                     temp += char
-                
-                if not(char in string.ascii_letters or char in string.digits or char in PUNCTUATION_CHARS or char in OTHER_CHARS):
+
+                if not(char in string.ascii_letters or
+                       char in string.digits or
+                       char in PUNCTUATION_CHARS or
+                       char in OTHER_CHARS):
                     if char not in unknown:
                         unknown.append(char)
                 if char in PUNCTUATION_CHARS:

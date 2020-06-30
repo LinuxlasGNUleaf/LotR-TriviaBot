@@ -55,13 +55,15 @@ def match_sequences(str_a, str_b):
     return SequenceMatcher(None, str_a, str_b).ratio()
 
 
-def create_embed(title, content=False, embed_url=False, link_url=False,
+def create_embed(title=False, content=False, embed_url=False, link_url=False,
                  footnote=False, color=False, author_info=False):
     """
     creates an Discord Embed with title, content, footer, etc.
     """
-
-    embed = discord.Embed(title=title)
+    if title:
+        embed = discord.Embed(title=title)
+    else:
+        embed = discord.Embed()
     if color:
         embed.color = discord.Color.from_rgb(
             int(color[0]),
@@ -377,8 +379,13 @@ def find_similar_from_script(msg, condensed_arr, script):
 
     msg = msg.split(".")
 
-    found_parts = {}
+    # searching condensed script for matching line
+    max_confidence = 0
+    best_ind = -1
+    best_part_ind = -1
     for msg_part in msg:
+        if len(msg_part.split(" ")) < 2:
+            continue
         for line_ind, line in enumerate(condensed_arr):
             # abort conditions
             if not line:
@@ -389,29 +396,19 @@ def find_similar_from_script(msg, condensed_arr, script):
 
             for part_ind, part in enumerate(line):
                 ratio = match_sequences(part, msg_part)
-                if ratio > 0.85:
-                    if line_ind in found_parts.keys():
-                        if found_parts[line_ind][0] < part_ind:
-                            found_parts[line_ind] = \
-                                (part_ind, max(found_parts[line_ind][1], ratio))
-                    else:
-                        found_parts[line_ind] = (part_ind, ratio)
+                if ratio > 0.87:
+                    if ratio > max_confidence:
+                        max_confidence = ratio
+                        best_ind = line_ind
+                        if part_ind > best_part_ind:
+                            best_part_ind = part_ind
 
-    if found_parts.keys():
-        max_confidence = 0
-        ind = -1
-        for key, entry in found_parts.items():
-            if entry[1] > max_confidence:
-                max_confidence = entry[1]
-                ind = key
-
-        if ind < 0:
-            return []
+    if best_ind >= 0:
+        # retrieve part with best match
         return_texts = []
-        part_ind = found_parts[ind][0]
         parts = []
         punctuation_found = False
-        author, line = script[ind].split("|")
+        author, line = script[best_ind].split("|")
         temp = ""
         for char in line:
             if char in PUNCTUATION_CHARS:
@@ -421,19 +418,23 @@ def find_similar_from_script(msg, condensed_arr, script):
                 parts.append(temp.strip())
                 temp = ""
             temp += char
+        if temp.strip():
+            parts[-1] = parts[-1]+temp
 
-        if part_ind < len(parts)-1:
+        if best_part_ind < len(parts)-1:
             temp = ""
-            for part in parts[part_ind+1:]:
+            for part in parts[best_part_ind+1:]:
                 temp += part+" "
             return_texts.append("**{}**: ... {}".format(author.title(), temp))
 
-        if ind < len(script)-1:
-            if script[ind+1] != "STOP":
-                author, text = script[ind+1].split("|")
+        if best_ind < len(script)-1:
+            if script[best_ind+1] != "STOP":
+                author, text = script[best_ind+1].split("|")
                 return_texts.append("**{}:** {}".format(author.title(), text))
 
         return return_texts
+    else:
+        return []
 
 
 def reddit_meme(message, reddit_client):
@@ -445,8 +446,16 @@ def reddit_meme(message, reddit_client):
     post_url = "https://reddit.com/"+submission.id
     footnote = "This meme is certified to be {}% dank".format(submission.upvote_ratio*100)
     if submission.is_self:
-        return create_embed(submission.title, embed_url=post_url, content=submission.self(), footnote=footnote)
-    return create_embed(submission.title, embed_url=post_url, link_url=submission.url, footnote=footnote)
+        return create_embed(
+            submission.title,
+            embed_url=post_url,
+            content=submission.self(),
+            footnote=footnote)
+    return create_embed(
+        submission.title,
+        embed_url=post_url,
+        link_url=submission.url,
+        footnote=footnote)
 
 
 def silmarillion_quote(config):
@@ -492,14 +501,19 @@ def search_youtube(google_client, channel_id, query, num, config):
     """
     returns a give number of Youtube Video embeds for a specific channel
     """
-    res = google_client.get_video_from_channel(channel_id, query, min(config.MAX_VIDEO_COUNT, num))['items']
+    res = google_client.get_video_from_channel(
+        channel_id,
+        query,
+        min(config.MAX_VIDEO_COUNT, num))['items']
 
     embeds = []
     for i, item in enumerate(res):
-        title = ":mag: Search Result {}\n".format(i+1)+html.unescape(item['snippet']['title'])
+        title = ":mag: Search Result {}\n".format(i+1)+\
+            html.unescape(item['snippet']['title'])
         yt_link = "https://www.youtube.com/watch?v="+item['id']['videoId']
         thumbnail_link = item['snippet']['thumbnails']['medium']['url']
-        publish_time = "Published at: " + "/".join(item['snippet']['publishedAt'][:10].split("-")[::-1])
+        publish_time = "Published at: " + "/".join(
+            item['snippet']['publishedAt'][:10].split("-")[::-1])
         # Video API call for every vid
         vid_info = google_client.get_video_info(item['id']['videoId'])['items'][0]
         description = unbloat_description(vid_info['snippet']['description'])
@@ -508,7 +522,11 @@ def search_youtube(google_client, channel_id, query, num, config):
         comments = "{:,}".format(int(vid_info['statistics']['commentCount']))
         info_bar = ":play_pause: {views} **|** :thumbsup: {likes} **|** :speech_balloon: {comm}"\
             .format(views=views, likes="{:,}".format(likes), comm=comments)
-        embeds.append(create_embed(title, embed_url=yt_link, link_url=thumbnail_link, footnote=publish_time, content=description+"\n"+info_bar))
+        embeds.append(create_embed(title,
+                                   embed_url=yt_link,
+                                   link_url=thumbnail_link,
+                                   footnote=publish_time,
+                                   content=description+"\n"+info_bar))
     return embeds
 
 def unbloat_description(desc):

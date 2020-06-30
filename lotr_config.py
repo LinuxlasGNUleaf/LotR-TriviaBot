@@ -15,7 +15,7 @@ REDDIT_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "reddit.tk")
 DISCORD_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "discord.tk")
 GOOGLE_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "google.tk")
 
-SCRIPT_LOC = "lotr_fellowship.txt"
+SCRIPT_LOC = "script.txt"
 SILMARILLION_LOC = "silmarillion_edited.txt"
 SILMARILLION_SENTENCES_COUNT = 2
 
