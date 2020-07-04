@@ -96,7 +96,7 @@ to search for videos:
 HELP_FOOTER = \
 """
 LICENSE:
-LotR Trivia Bot version {0}, Copyright (C) 2020 JaWs
+LotR Trivia Bot version {}, Copyright (C) 2020 JaWs
 LotR Trivia Bot comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the GPL License for details.
