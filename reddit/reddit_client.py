@@ -1,29 +1,28 @@
 import praw
 
 class RedditClient():
-    """
+    '''
     Reddit Client for fetching memes.
-    """
-    def __init__(self, config, info, meme_log):
-        self.config = config
+    '''
+    def __init__(self, info, meme_log):
         self.meme_log = meme_log
         client_id, client_secret, username, password = info
         self.reddit = praw.Reddit(client_id=client_id,
                                   client_secret=client_secret,
                                   password=password,
-                                  user_agent="reddit post yoinker by /u/_LegolasGreenleaf",
+                                  user_agent='reddit post yoinker by /u/_LegolasGreenleaf',
                                   username=username)
 
     def get_meme(self, server, subreddit):
-        """
+        '''
         finds unseen meme for the given server
-        """
+        '''
         if server.id in self.meme_log.keys():
             used_ids = self.meme_log[server.id]
         else:
             used_ids = []
 
-        meme = ""
+        meme = ''
         step = 5
         limit = 0
         while not meme:

@@ -1,58 +1,70 @@
 import os
 
+# UTILS
+ORDINAL = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
+
 # MAIN CONFIG FILE
-VERSION = "2.0"
-MARKER = '*'
-KEY = "lotr"
-FOOTER = "A discord bot written in Python by JaWs"
-CONFIG_PATH = ".config/discord/bots/lotr-bot/"
+GENERAL_CONFIG = {
+    'version': '2.1',
+    'marker': '*',
+    'key': 'lotr',
+    'footer': 'A discord bot written in Python by JaWs',
+    'config.path': '.config/discord/bots/lotr-bot/'
+}
 
-MAX_VIDEO_COUNT = 3
+REDDIT_CONFIG = {
+    'discord.memelog': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'meme_log.pyobj'),
+    'reddit.token': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'reddit.tk')
+}
 
-SCOREBOARD_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "scoreboard.pyobj")
-MEME_LOG_LOC = os.path.join(os.getenv("HOME"), CONFIG_PATH, "meme_log.pyobj")
-REDDIT_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "reddit.tk")
-DISCORD_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "discord.tk")
-GOOGLE_TOKEN = os.path.join(os.getenv("HOME"), CONFIG_PATH, "google.tk")
+YT_CONFIG = {
+    'yt.max_video_count': 3,
+    'yt.token': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'google.tk'),
+    'yt.channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
+}
+   
 
-SCRIPT_LOC = "script.txt"
-SILMARILLION_LOC = "silmarillion_edited.txt"
-SILMARILLION_SENTENCES_COUNT = 2
+DISCORD_CONFIG = {
+    'discord.scoreboard': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'scoreboard.pyobj'),
+    'discord.token': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'discord.tk'),
+    
+    # minigames config
+    'script.path': 'script.txt',
+    'silmarillion.path': 'silmarillion_edited.txt',
+    'silmarillion.sentence_count': 2,
 
-TEH_LURD_CHANNEL_ID = 'UCYXpatz5Z4ek0M_5VR-Qt1A'
-# crappy ASCII art for hangman game
-STATES = [
-    "``` \n \n \n \n \nililililillllililii```",
-    "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```",
-    "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```",
-    "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```",
-    "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nil\
-ilililillllililii```",
-    "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-||\n    ||\nililililillllililii```",
-    "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-||   /\n    ||\nililililillllililii```",
-    "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    \
-||   / \\\n    ||\nililililillllililii```",
-    "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n \
-   ||   / \\\nililililillllililii```"]
+    # crappy ASCII art for hangman game
+    'hangman.states': [
+        '``` \n \n \n \n \nililililillllililii```',
+        '```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```',
+        '```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```',
+        '```    //====\\\n    ||    |\n    ||   (\')\n    ||\n    ||\n    ||\nililililillllililii```',
+        '```    //====\\\n    ||    |\n    ||   (\')\n    ||   \\|\n    ||\n    ||\nil\
+    ilililillllililii```',
+        '```    //====\\\n    ||    |\n    ||   (\')\n    ||   \\|/\n    ||    X\n    \
+    ||\n    ||\nililililillllililii```',
+        '```    //====\\\n    ||    |\n    ||   (\')\n    ||   \\|/\n    ||    X\n    \
+    ||   /\n    ||\nililililillllililii```',
+        '```    //====\\\n    ||    |\n    ||   (\')\n    ||   \\|/\n    ||    X\n    \
+    ||   / \\\n    ||\nililililillllililii```',
+        '```    //====\\\n    ||\n    ||\n    ||   (\')\n    ||   \\|/\n    ||    X\n \
+    ||   / \\\nililililillllililii```'],
 
-INSULTS = ["Stupid fat {}!", "Fool of a {}!",
-           "I would cut off your head {}... if it stood but a little higher from the ground.",
-           "Dotard! What is the house of {} but a thatched barn where brigands \
-drink in the reek, and their brats roll on the floor among the dogs?",
-           "Hey, {}! Don't go getting too far behind. ~Sam", "Feanor gave up because of \
-your stupidity, {}!", "Feanor did nothing wrong, but the same can not be said about you, {}!"]
 
-COMPLIMENTS = ["Well done, my dear {}!",
-               "{}, you should be counted amongst the wise of middleearth.",
-               "Very good {}, I could not have done it better myself!"]
+    'discord.insults': \
+['Stupid fat {}!', 'Fool of a {}!', 'I would cut off your head {}... if it stood but a little higher from the ground.',
+'Dotard! What is the house of {} but a thatched barn where brigands drink in the reek, and their brats roll on the floor among the dogs?',
+'Hey, {}! Don\'t go getting too far behind. ~Sam', 'Feanor gave up because of your stupidity, {}!', 
+'Feanor did nothing wrong, but the same can not be said about you, {}!','Bombur does not approve.'],
 
-# some lambda code stolen from Gareth on codegolf to create ordinals:
-ORDINAL = lambda n: "%d%s" % (n, "tsnrhtdd"[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
-HELP_TEXT = \
-"""
+    'discord.compliments': \
+['Well done, my dear {}!', '{}, you should be counted amongst the wise of middleearth.', 
+'Very good {}, I could not have done it better myself!','Bombur approves. Well done, {}!'],
+
+
+    'discord.help_text': \
+'''
 Welcome to the LotR Trivia Bot!
 This is a discord bot written in Python 3.
 It utilizes the Discord, Reddit, and Youtube Data API.
@@ -91,13 +103,14 @@ The channel id is currently set in the config file.
 to search for videos:
 `{0} yt <max video count> <keywords>`
 
-""".format(KEY)
+'''.format(GENERAL_CONFIG['key']),
 
-HELP_FOOTER = \
-"""
-LICENSE:
+
+    'discord.help_footer':\
+'''LICENSE:
 LotR Trivia Bot version {}, Copyright (C) 2020 JaWs
 LotR Trivia Bot comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the GPL License for details.
-""".format(VERSION)
+'''.format(GENERAL_CONFIG['version'])
+}

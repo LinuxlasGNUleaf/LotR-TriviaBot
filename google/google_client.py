@@ -1,8 +1,7 @@
 from apiclient.discovery import build
 
 class GoogleClient():
-    def __init__(self, config, credentials):
-        self.config = config
+    def __init__(self, credentials):
         self.credentials = credentials
         self.youtube = build('youtube', 'v3', developerKey=credentials[0])
 
@@ -11,5 +10,5 @@ class GoogleClient():
         return request.execute()
     
     def get_video_info(self, video_id):
-        request = self.youtube.videos().list(part="snippet,statistics", id=video_id)
+        request = self.youtube.videos().list(part='snippet,statistics', id=video_id)
         return request.execute()
