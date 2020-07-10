@@ -64,7 +64,7 @@ except (FileNotFoundError, EOFError):
     sys.exit(-1)
 
 # create the reddit client
-REDDIT_CLIENT = reddit_client.RedditClient(lotr_config, reddit_credentials, MEME_LOG)
+REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
 
 # create the Google client
 GOOGLE_CLIENT = google_client.GoogleClient(google_credentials)
