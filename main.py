@@ -27,7 +27,7 @@ try:
     with open(lotr_config.DISCORD_CONFIG['discord.scoreboard'], 'rb') as SC_FILE:
         SCOREBOARD = pickle.load(SC_FILE)
         print('[INFO]: unserialized trivia scoreboard')
-    with open(lotr_config.REDDIT_CONFIG['discord.memelog'], 'rb') as MEME_FILE:
+    with open(lotr_config.REDDIT_CONFIG['reddit.memelog'], 'rb') as MEME_FILE:
         MEME_LOG = pickle.load(MEME_FILE)
         print('[INFO]: unserialized meme log')
 except (FileNotFoundError, EOFError):
@@ -80,5 +80,5 @@ except (KeyboardInterrupt, RuntimeError):
 
 with open(lotr_config.DISCORD_CONFIG['discord.scoreboard'], 'wb') as SC_FILE:
     pickle.dump(SCOREBOARD, SC_FILE)
-with open(lotr_config.DISCORD_CONFIG['discord.memelog'], 'wb') as MEME_FILE:
+with open(lotr_config.REDDIT_CONFIG['reddit.memelog'], 'wb') as MEME_FILE:
     pickle.dump(MEME_LOG, MEME_FILE)

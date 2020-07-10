@@ -13,7 +13,7 @@ GENERAL_CONFIG = {
 }
 
 REDDIT_CONFIG = {
-    'discord.memelog': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'meme_log.pyobj'),
+    'reddit.memelog': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'meme_log.pyobj'),
     'reddit.token': os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'], 'reddit.tk')
 }
 
