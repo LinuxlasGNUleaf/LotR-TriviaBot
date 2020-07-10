@@ -109,7 +109,7 @@ of Middle Earth trivia'.format(user.display_name)
               .format(played, wins, round(wins/played*100, 2))
     author_info = (author_name, user.avatar_url)
     return create_embed(title, author_info=author_info, content=content,
-                        color=color, footnote=config.GENERAL_CONFIG['footer'])
+                        color=color)
 
 
 def create_hangman_embed(user, game_info, game_status, config):
@@ -151,7 +151,7 @@ def create_hangman_embed(user, game_info, game_status, config):
              map_vals(state_ind, 0, 7, 255, 0), 0)
 
     return create_embed(hangman, author_info=author_info, content=content,
-                        color=color, footnote=config.GENERAL_CONFIG['footer'])
+                        color=color)
 
 
 def create_reply(user, insult, config):
@@ -182,7 +182,7 @@ def create_trivia_question(user, scoreboard, config):
 
     # get random question
     with open('questions.csv', 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',', quotechar='\'')
+        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         content = random.choice(list(csvreader))
 
     # pop the source and the question (first element)
@@ -208,7 +208,7 @@ def create_trivia_question(user, scoreboard, config):
     # so that the given answer can be validated later
     author_info = (author_name, user.avatar_url)
     embed = create_embed(title, author_info=author_info,
-                         content=embed_text, footnote=config.GENERAL_CONFIG['footer'])
+                         content=embed_text)
     return (embed, correct_index, len(answers))
 
 
@@ -262,7 +262,7 @@ def initiate_hangman_game(user, config):
     state_ind = 0
     # import words for hangman
     with open('words.csv', 'r') as csvfile:
-        word = random.choice(list(csv.reader(csvfile, delimiter=',', quotechar='\''))[0])
+        word = random.choice(list(csv.reader(csvfile, delimiter=',', quotechar='"'))[0])
     word_condensed = word.lower().replace(' ', '')
 
     if len(word_condensed) <= 6:
@@ -438,11 +438,11 @@ def find_similar_from_script(msg, condensed_arr, script):
         return []
 
 
-def reddit_meme(message, reddit_client):
+def reddit_meme(server, reddit_client):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
-    server = message.channel.guild
+    
     submission = reddit_client.get_meme(server, 'lotrmemes')
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
@@ -551,3 +551,25 @@ def unbloat_description(desc):
             continue
         new_desc += desc[i].strip()+'\n'
     return new_desc
+
+
+def create_scoreboard(scoreboard, server):
+    users = server.members
+    found_users = []
+    scoreboard_string = ''
+    for user in users:
+        if user.id in scoreboard.keys():
+            found_users.append([scoreboard[user.id][1], 
+                                user.name, 
+                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100,1)])
+    
+    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}', '👏 {}']
+    user_str = "**[{} pts]** {} ({}%)"
+    for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
+        temp = user_str.format(*user)
+
+        if i < len(medals):
+            scoreboard_string+=medals[i].format(temp)+'\n'
+        else:
+            scoreboard_string+=medals[-1].format(temp)+'\n'
+    return create_embed(title="Scoreboard for: "+str(server),content=scoreboard_string)

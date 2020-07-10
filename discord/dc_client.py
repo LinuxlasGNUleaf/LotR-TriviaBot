@@ -45,6 +45,7 @@ class LotrBot(discord.Client):
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
+        server = channel.guild
 
 #==============================================================================
         if content.startswith(self.config.GENERAL_CONFIG['key'] + ' config '):
@@ -110,7 +111,7 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' meme':
-            embed = minigames.reddit_meme(message, self.reddit_client)
+            embed = minigames.reddit_meme(server, self.reddit_client)
             await channel.send(embed=embed)
 
 #==============================================================================
@@ -163,6 +164,12 @@ class LotrBot(discord.Client):
                 content=self.config.HELP_TEXT,
                 footnote=self. config.HELP_FOOTER)
             await channel.send(embed=embed)
+
+#==============================================================================
+        elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard':
+            embed = minigames.create_scoreboard(self.scoreboard, server)
+            await channel.send(embed=embed)
+
 #==============================================================================
         elif self.do_autoscript:
             result = minigames.find_similar_from_script\
