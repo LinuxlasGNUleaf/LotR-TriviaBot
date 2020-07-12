@@ -1,5 +1,5 @@
 '''
-The LotR-Bot discord integration. This is the main class for the bot.
+Library for all the minigames for the LotR Trivia Bot. Accessed by the Discord Client
 '''
 import random
 import csv
@@ -93,7 +93,7 @@ def create_embed(title=False, content=False, embed_url=False, link_url=False,
     return embed
 
 
-def create_trivia_profile(user, scoreboard, config):
+def create_trivia_profile(user, scoreboard):
     '''
     create trivia scoreboard embed for a certain user
     '''
@@ -442,7 +442,7 @@ def reddit_meme(server, reddit_client):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
-    
+
     submission = reddit_client.get_meme(server, 'lotrmemes')
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
@@ -468,7 +468,8 @@ def silmarillion_quote(config):
         silmarillion = silmarillion_file.readlines()
         max_ind = len(silmarillion)-1
         index = random.randint(0, max_ind)
-        for i in range(index, min(max_ind, index+config.DISCORD_CONFIG['silmarillion.sentence_count']+1)):
+        ind_limit = min(max_ind, index+config.DISCORD_CONFIG['silmarillion.sentence_count']+1)
+        for i in range(index, ind_limit):
             if is_headline(silmarillion[i]):
                 break
             out += silmarillion[i].strip()+' '
@@ -530,6 +531,7 @@ def search_youtube(google_client, channel_id, query, num, config):
                                    content=description+'\n'+info_bar))
     return embeds
 
+
 def unbloat_description(desc):
     '''
     strips yt descriptions down to the bare minimum
@@ -554,22 +556,24 @@ def unbloat_description(desc):
 
 
 def create_scoreboard(scoreboard, server):
+    '''
+    creates scoreboard for a specific server
+    '''
     users = server.members
     found_users = []
     scoreboard_string = ''
     for user in users:
         if user.id in scoreboard.keys():
-            found_users.append([scoreboard[user.id][1], 
-                                user.name, 
-                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100,1)])
-    
+            found_users.append([scoreboard[user.id][1], user.name,
+                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
+
     medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}', '👏 {}']
     user_str = "**[{} pts]** {} ({}%)"
     for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
         temp = user_str.format(*user)
 
         if i < len(medals):
-            scoreboard_string+=medals[i].format(temp)+'\n'
+            scoreboard_string += medals[i].format(temp)+'\n'
         else:
-            scoreboard_string+=medals[-1].format(temp)+'\n'
-    return create_embed(title="Scoreboard for: "+str(server),content=scoreboard_string)
+            scoreboard_string += medals[-1].format(temp)+'\n'
+    return create_embed(title="Scoreboard for: *{}*".format(server), content=scoreboard_string)

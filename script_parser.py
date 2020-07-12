@@ -5,8 +5,8 @@ temp = ""
 last = ""
 cut_out = False
 
-with open("lotr_twotowers.txt", "r") as from_file:
-    with open("lotr_twotowers_edited.txt", "w") as to_file:
+with open("rotk.txt", "r") as from_file:
+    with open("rotk_edited.txt", "w") as to_file:
         lines = from_file.readlines()
         for i, line in enumerate(lines):
             line = line.strip()

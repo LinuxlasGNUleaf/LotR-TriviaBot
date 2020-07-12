@@ -18,7 +18,8 @@ class LotrBot(discord.Client):
         self.script_condensed = []
         self.reddit_client = reddit_client
         self.google_client = google_client
-        minigames.parse_script(config.DISCORD_CONFIG['script.path'], self.script, self.script_condensed)
+        minigames.parse_script(config.DISCORD_CONFIG['script.path'],
+                               self.script, self.script_condensed)
         super().__init__()
 
 
@@ -122,8 +123,7 @@ class LotrBot(discord.Client):
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' profile':
             if user.id in self.scoreboard.keys():
-                await channel.send(embed=minigames.\
-                create_trivia_profile(user, self.scoreboard, self.config))
+                await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard))
             else:
                 await channel.send('You have to play a game of trivia before a \
     profile can be generated! use `{} trivia` to take a quiz!'.format(self.config.GENERAL_CONFIG['key']))
