@@ -1367,7 +1367,7 @@ EOWYN
 And you should not doubt him.
 
 EOMER
-I do not doubt his heart... Only the reach
+I do not doubt his heart, only the reach
 of his arm.
 
 EOWYN
@@ -1378,7 +1378,7 @@ Why can he not fight for those he loves?
 STOP
 
 GANDALF
-Look to the Black Ships...
+Look to the Black Ships-
 
 ARWEN
 I choose a mortal life. I wish I could
@@ -1555,77 +1555,41 @@ What kind of an army would linger in such a
 place?
 
 LEGOLAS
-One that is cursed... Long ago the Men of
+One that is cursed. Long ago the Men of
 the Mountain swore an oath to the last King
-of Gondor - to come to his aid, to fight,
-but when the time came, when Gondor's need
-was dire, they fled... Vanishing into the
-darkness of the mountain... And so Isildur
+of Gondor, to come to his aid, to fight.
+But when the time came, when Gondor's need
+was dire, they fled, Vanishing into the
+darkness of the mountain. And so Isildur
 cursed them - never to rest until they had
 fulfilled their pledge.
 
-SILENCE surrounds them, there are no birds, no wind. Only the
-OMINOUSLY MUFFLED THUD of their horses hooves on the dank FIR-
-NEEDLES. '
-
-WALL of ROCK towers...
+STOP
 
 GIMLI
-
-The very warmth of my blood seems stolen
-away.
-
-Within the walls, a creepy DARK DOOR gapes like a mouth of
-night. SIGNS and FIGURES are carved above its WIDE ARCH.
+The very warmth of my blood seems stolen away.
 
 LEGOLAS
-
 The way is shut. It was made by those who
 are dead, and the Dead keep it. The way is
 shut.
 
-AT THAT MOMENT: A CHILL WIND seems to rush out of the DOORWAY
-... ARAGORN stares into the BLACKNESS, his HAIR BLOWING
-WILDLY. The HORSES REAR and'BUCK'in terror, turning and
-GALLOPING AWAY.
-
 ARAGORN
-Brego!
-
-The three HORSES DISAPPEAR... ARAGORN turns resolutely
-towards the DOORWAY...
-
-ARAGORN
-
-I do not fear death...
-
-LEGOLAS quickly follows... swallowed by the DARKNESS.
-
-FEAR.
+I do not fear death.
 
 GIMLI
-Well, this is a thing unheard of... An Elf
+Well, this is a thing unheard of! An Elf
 will go underground when a Dwarf dare not.
-
 Oh! I'd never hear the end of it!
 
-GIMLI plunges into the TUNNEL behind the OTHERS!
-
-MUCH ACTIVITY... HORNS SOUND... the ENTIRE CAMP is on the
-MOVE... fires are DOUSED, TENTS pulled down, HORSES saddled.
+STOP
 
 THEODEN
 We must ride light and swift. It's a long
-road ahead... and man and beast must reach
+road ahead, and man and beast must reach
 the end with the strength to fight.
 
-SUPPLIES. He is wearing an OVERSIZED HELMET and ROHIRRIM
-CLOTHING... he looks at once NERVOUS and EXCITED.
-
-KING THEODEN breaks away from a COLUMN and rides up to MERRY.
-
 THEODEN
-
 Little Hobbits do not belong in war, Master
 Meriadoc!
 
@@ -1638,206 +1602,88 @@ It is a three day gallop to Minas Tirith.
 None of my Riders can bear you as a burden.
 
 MERRY
-But... I want to fight!
+But I want to fight!
 
 THEODEN
 I will say no more.
 
-KING THEODEN wheels his HORSE away...
-
-MERRY is bitterly DISAPPOINTED. He stands, head down - a TINY
-DEJECTED FIGURE - as the MIGHTY ROHIRRIM on their LARGE
-HORSES ride by... a jangling sea of HELMETS, SHIELDS and
-BANNERS.
-
-SUDDENLY... MERRY is plucked off the ground! A SOLDIER has
-snatched him by the collar... and plonked him down on their
-SADDLE!
-
-Beneath a HELMET and MAIL HOOD is...
-
-... EOWYN, disguised as a MAN!
+STOP
 
 EOWYN
-
 Ride with me.
 
 MERRY
 My Lady!
 
-EXCITED!
-
 EOMER
-
 Move out - move out!
 
 THEODEN
 Ride! Ride now, for Gondor!
 
-HIGH WIDE: The VALLEY FLOOR as THOUSANDS of HORSEMEN ride out
-after their KING.
-
-the PELENNOR FIELDS... Thousands of FLAMING TORCHES light
-the snarling, slathering MORGUL ORCS... marching in RAGGED
-RANKS.
-
-beating the DRUMS OF WAR... MINAS TIRITH lies ahead - only
-TWO MILES AWAY!
-
-... he WAVES HIS TORCH through the DARKNESS: ILLUMINATING a
-HUGE, CAVERN...
-
-A ghastly CRACKING NOISE, like stone being sundered, cuts
-through the SILENCE.
-
-A GHOSTLY FIGURE step from the ROCK WALLS!
-
-MUMMIFIED SPECTRE looms before them: EYELESS SOCKETS...
-ROTTEN TEETH... a pale SICKLY GLOW... the KING OF THE DEAD!
-
-FOG SWIRLS around as the GHOST SNARLS at ARAGORN...
+STOP
 
 KING OF THE DEAD
 Who enters my domain?
-
-ARAGORN moves forward... unflinching...
 
 ARAGORN
 One who will have your allegiance.
 
 KING OF THE DEAD
-
-The dead do not suffer the living to pass...
+The dead do not suffer the living to pass.
 
 ARAGORN
 You will suffer me!
 
-The KING OF THE DEAD's'MALEVOLENT LAUGH echoes through the
-CVS...
-AE
-
-wall of GREY VAPOUR... slowly, RANK upon RANK of SPECTRAL
-WARRIORSare revealed! GHOULISH FACES... RUSTING WEAPONS...
-TATTERED BANNERS.
-
-WIDE ON: The FOG reveals a DEAD ARMY of MANY THOUSANDS...
-assembled around the CAVERN!
-
-... ARAGORN holds his GAZE...
-
-KING OF THE DEAD ,-
-'"
-
-The way is shut...
-
-THE KING of the DEAD moves relentlessly towards ARAGORN...
-
 KING OF THE DEAD
-It was made by those who are Dead and the
-Dead keep it...
-
-WIDE: ARAGORN, LEGOLAS and GIMLI are now surrounded by~an ".'
-ARMY of the DEAD...
+The way is shut.
+It was made by those who are Dead
+and the Dead keep it.
 
 KING OF THE DEAD
 The way is shut. Now, you must die.
 
-it PASSES STRAIGHT THROUGH!
-
-ARAGORN keeps moving forward, his eyes locked on the SPECTRE.
-
 ARAGORN
-
 I summon you to fulfil your oath!
 
-SWORD above ARAGORN' S HEAD!
-
 KING OF THE DEAD
-
 None but the King of Gondor may command me!
 
-QUICK BEAT: ARAGORN RAISES ANDURIL...
-
-With a TERRIFYING SHRIEK, THE KING of the DEAD SWEEPS his
-SWORD towards ARAGORN' S HEAD!
-
-SLOW MOTION: ARAGORN raises 'his SWORD in ANSWER... a LOW
-WHISTLE as it SWEEPS through the AIR...
-
-CLANG! The BLADE · OF ANDURIL clashes with the SPECTRAL SWORD
-... the SHARP RING of METAL reverberates through the CAVERNS!
-DISBELIEF.
-
 KING OF THE DEAD
-
-It cannot be - that line was broken!
-
-ARAGORN holds the SHARP BLADE against the GHOST'S THROAT!
+It cannot be - that blade was broken!
 
 ARAGORN
 It has been remade!
 
-SILENCE.
-
-ARAGORN releases the KING OF THE DEAD... he ADDRESSES the
-GHOST ARMY.
-
 ARAGORN
 Fight for us and regain your honour!
-
-GHOSTLY FACES stare hollow-eyed at ARAGORN...
-
-ARAGORN
-
-What say you?
-
-SILENCE.
 
 ARAGORN
 What say you?
 
 GIMLI
-Aghh! Your wasting your time, Aragprn. They
+Your wasting your time, Aragorn. They
 had no honour in life, they have none now
 in death.
 
 ARAGORN
-
 I am Isildur's heir. Fight for me and I
 will hold your oath fulfilled. What say
 you?
 
-forward... Towards the WALLS of MINAS TIRITH.
-
-WOODEN GATE...
+STOP
 
 GATE GUARD
-
 Open the gate! Quick!
-
-badly wounded HORSE... dragging FARAMIR behind! Both the
-HORSE and FARAMIR are impaled with ORC ARROWS!
-
-IORLAS
-
-Lord Faramir!
-
-As CATAPULTS are prepared GOTHMOG rides through the ranks of
-ORCS...
 
 DENETHOR
 Faramir!
-
-DENETHOR bends to the STRETCHER bearing his SON.
-
-DENETHOR
-
-Say not that he has fallen...
+Say not that he has fallen.
 
 IORLAS
 They were outnumbered, none survived.
 
-GOTHMOG turns to his LIEUTENANTS...
+STOP
 
 GOTHMOG
 Fear! The city is rank with it. Let us ease
@@ -1846,95 +1692,39 @@ their pain. Release the prisoners!
 LIEUTENANT
 Catapults!
 
-At his ORDERS, the GREAT CATAPULTS fire THWAT! THWAT! THWAT!
-
-The ORC CATAPULTS do not fire rocks...
-
-HORROR sweeps through the streets of MINAS TIRITH as the
-SEVERED HEADS of FARAMIR'S HORSEMEN land amongst the
-SOLDIERS!
-
-DENETHOR looks down at FARAMIR'S UNCONSCIOUS BODY...
+STOP
 
 DENETHOR
 My son is dead. My line is ended.
 
-PIPPIN has run to FARAMIR and bends towards him...
-
 PIPPIN
-
 He's alive!
 
 DENETHOR
-The House of Stewards has failed!...
+The House of Stewards has failed!
 
 PIPPIN
- ;
 He needs medicine, my Lord!
 
 DENETHOR
-My line has ended.
+My line has ended!
 
 PIPPIN
-
 My Lord!
 
-TRANCE...
-
-he STARES in SHOCKED DISBELIEF at the VISTA spread out BELOW:
-
-HIGH WIDE ANGLE: A FULL VIEW of the ORC ARMY... from the TOP
-of MINAS'TIRITH.
-
-75,000 ORCS are spread out across the PELENNOR FIELDS like a
-sea of black ANTS.
-
-BATTERING RAMS and SIEGE TOWERS are hauled on CHAINS.
-Thousands of flickering TORCHES give the army the look of a
-moving city in the MURKY MORDOR TWILIGHT.
-
-speech!
-
 DENETHOR
-
 Rohan has deserted us!
-
-TIRITH.
-
-WIDE ON: BOULDERS HURTLE from CATAPULTS across the fields
-towards MINAS TIRITH.
-
-DENETHOR
 Theoden's betrayed me!
 
-CONFUSION and PANIC spreads amongst the SOLDIERS.
-
 DENETHOR
-
 Abandon your posts!
-
-DENETHOR
-
 Flee! Flee for your lives!
 
-SUDDENLY: THWACK!
-
-GANDALF'S STAFF smashes into the back of DENETHOR'S HEAD!
-GANDALF grimly swings his staff again, CLUBBING DENETHOR to
-the GROUND!
-
 GANDALF
-
 Prepare for battle!!
-
-on SHADOWFAX... against the flow of FLEEING SOLDIERS.
-
-GANDALF
-
 Return to your posts!
 
-BATTLEMENTS... GANDALF looks at the approaching ORC ARMY,
-now less than 50 yards from the WALLS of the CITY!
+STOP
 
 GANDALF
 Send these foul beasts into the abyss!
@@ -1942,56 +1732,22 @@ Send these foul beasts into the abyss!
 GOTHMOG
 Stay where you are!
 
-GANDALF walks the BATTLEMENTS as the huge BOULDERS rain onto
-the ORC ARMY below...
-
-GOTHMOG glances up at a WHISTLING SOUND - a huge BOULDER
-hurtles towards him. He side-steps CALMLY out of the way...
-spitting on the BOULDER in CONTEMPT.
-
-SUDDENLY! 9 NAZGUL DIVE out of the DIM SKY, CLAD in BATTLE
-ARMOUR!
-
-overhead, emitting their PIERCING SHRIEKS! GONDORIAN SOLDIERS
-run for SHELTER in PANIC, covering their ears...
-
 GANDALF
-
 Stand to your posts! Do not give in to
 fear. Fight!
-
-walls of MINAS TIRITH are fired!
-
-The NAZGUL circle LOW over the CITY, like VULTURES seeking
-doomed men's flesh. SOLDIERS are plucked into the AIR by
-SHRIEKING NAZGUL and dropped to their DEATHS hundreds of FEET
-BELOW. TOWERS and BUILDINGS are DESTROYED. CHAOS as SOLDIERS,
-WOMEN and CHILDREN DODGE falling MASONRY.
-
-approaching TOWERS and TROLLS.
 
 GANDALF
 Not at the towers! Aim for the trolls! Kill
 the trolls! Bring them down!
 
-TOO LATE! The TOWERS reach the walls, their DOORS crashing
-down, releasing ORCS directly onto the LOWER LEVELS.
-
-As the ORC swarm from the TOWER, GANDALF realises PIPPIN has
-come down from the CITADEL...
-
 GANDALF
 Peregrin Took! Go back to the citadel!
 
 PIPPIN
-They called us out to fight...
+They called us out to fight-
 
 GANDALF
 This is no place for a Hobbit!
-
-GANDALF welds his STAFF, cutting through the attacking ORC
-with EASE... BEHIND him, an ORC prepares to cut down GANDALF
-... PIPPIN instinctively slashes his SWORD at him.
 
 GANDALF
 Guard of the Citadel, indeed! Now, back up
@@ -2010,8 +1766,6 @@ Master must go inside the tunnel.
 
 FRODO
 Now that I'm here, I don't think I want to.
-
-depends on FRODO going inside the TUNNEL
 
 SMEAGOL
 It's the only way.
@@ -2054,24 +1808,8 @@ I give you the light of Earendil - our most
 beloved star. May it be a light for you in
 dark places when all other lights go out.
 
-... he pulls out the GLASS PHIAL - his GIFT from GALADRIEL -
-he holds it aloft.
-
 FRODO
-
 Aiya Earendil Elenion Ancalima!
-
-The PHIAL flickers... kindles into a SILVER FLAME - a BRIGHT
-RADIANT STARLIGHT!
-
-SPIDER... towering over FRODO!
-
-clusters of many-windowed EYES protrude from her bulbous
-head. Her LEGS are bent, with a 12 FOOT SPAN and HAIRS that
-stick out like steel spines. Her HUGE, SWOLLEN BODY, a vast
-bloated bag, sways and sags between her legs. Her age-old
-BLACK HIDE is knobbly and pitted, blotchy with LIVID MARKS
-... but her belly underneath is PALE and LUMINOUS.
 
 STOP
 
@@ -2080,8 +1818,6 @@ Naughty little fly,
 Why does it cry?
 Caught in a web
 Soon you'll be- eaten!
-
-STOP
 
 GOLLUM
 Got away did it, Precious? Not this time,
@@ -2105,69 +1841,33 @@ destroy it for both our sakes.
 STOP
 
 FRODO
-I'm so sorry, Sam...
-
-FRODO falls t o his knees --
-
-FRODO
-... so sorry...
-
+I'm so sorry, Sam.
+So sorry-
 
 GALADRIEL
 This task was appointed to you, Frodo of
-the Shire. If you do not find a way... no-
+the Shire. If you do not find a way, no-
 one will.
 
-GALADRIEL leans down towards FRODO, OFFERING her hand... for
-a beat, FRODO stares at her... torn, not wanting to go on,
-wanting to lie down... But he knows what he must do.
-
-the PASS of CIRITH UNGOL... He goes on.
-
-A DEEP BOOM!
-
-GROND thuds against the MINAS TIRITH GATE... sending a -:
-VIBRATION running through the city! ;:
-
-GONDORIAN FOOT SOLDIERS down through the streets.
+STOP
 
 GANDALF
 To the Gates! Man the Gates!
 
-PIPPIN watches as FARAMIR'S UNCONSCIOUS BODY is carried on
-the STRETCHER by DENETHOR'S SERVANTS lead by DENETHOR... it
-has the atmosphere of a FUNERAL.
-
-enters a WIDE VAULTED CHAMBER.
-
-The LANTERN LIG HT throws great SHADOWS upon the SHROUDED
-WALLS of a wide VAULTED CHAMBER. ROW upon ROW of MARBLE TOMBS
-are visible in the DIM LIGHT. Upon each TOMB lies a SLEEPING
-FORM, carved in STONE, hands folded.
-
-DENETHOR speaks in a HUSHED VOICE...
+STOP
 
 DENETHOR
-
 No tomb for Denethor and Faramir. No long
-slow sleep of death embalmed... we shall
+slow sleep of death embalmed. We shall
 burn - like the heathen kings of old!
 
-The SERVANTS place FARAMIR'S UNCONSCIOUS BODY on a STONE
-TABLE in the centre of the CHAMBER. They stand, heads bowed
-... as MOURNERS beside a bed of death.
-
-DENETHOR turns to his SERVANTS.
-
 DENETHOR
-Bring wood and oil...
+Bring wood and oil!
 
 STOP
 
 GANDALF
 Steady! Steady!
-
-GANDALF
 You are soldiers of Gondor! No matter what
 comes through that gate you will stand your
 ground!
@@ -2188,39 +1888,19 @@ STOP
 
 SAM
 Mr Frodo!
-
-FACE is DEATHLY PALE.
-
-SAM
-
 Oh no! Frodo!
 
 SAM
 Mr Frodo! Wake up!
 
-FRODO'S head LOLLS LIFELESSLY in SAM'S ARMS.
-
 SAM
-
-Wake up... don't leave me here alone.
+Wake up! Don't leave me here alone.
 Don't go where I can't follow. Wake up!
 
 SAM
+Not asleep - dead.
 
-Not asleep... Dead.
-
-SAM lays his FACE on FRODO'S CHEST... WEEPING SOFTLY.
-
-SOUNDTRACK: TRAMPING FEET approach... CLINKING METAL...
-HARSH SHOUTS!
-
-which is glowing BLUE! ORCS approach - SAM must make a
-decision.
-
-STAIRS from the WATCH TOWER!... SHAGRAT leads the URUK-HAI,
-and GORBAG leads the ORCS.
-
-GORBAG spies FRODO'S BODY...
+STOP
 
 GORBAG
 What's this? Looks like Old Shelob's been
@@ -2229,31 +1909,21 @@ having a bit of fun!
 SHAGRAT
 Killed another one, has she?
 
-pokes at FRODO'S LIFELESS BODY.
-
 GORBAG
-No... this fellow ain't dead.
-
-across his FACE!
-,.
+No, this fellow ain't dead.
 
 SAM
-
 Not dead!
 
 GORBAG
-.
 She jabs them with her stinger and they go
 as limp as a boned fish. Then she has her
 way with them. That's how she likes to feed
 - fresh blood.
-
 Get him to the Tower!
 
 SAM
 Samwise, you fool!
-
-back towards the WATCH TOWER.
 
 ORC 2
 This fellow will be awake in a few hours.
@@ -2261,94 +1931,55 @@ This fellow will be awake in a few hours.
 GORBAG
 Then he'll wish he'd never been born.
 
-FROM the SHADOWS PIPPIN watches, aghast, as FARAMIR is lain
-on a FUNERAL PYRE...
+STOP
 
 DENETHOR
 The house of his spirit crumbles! He is
-burning... already burning. 7
-
-FARAMIR'S BODY.
-
-FIREWOOD AWAY!
+burning, already burning.
 
 PIPPIN
-
 He's not dead! He's not dead!
 
-DENETHOR grabs PIPPIN by the collar! He roughly carries him
-towards the door.
-
 PIPPIN
-No! No! No! He's not dead. No!
+No no no! He's not dead. No!
 
 DENETHOR
-
-Farewell Peregrin, son of Paladin... I
-release you from my service...
+Farewell Peregrin, son of Paladin.
+I release you from my service.
 
 DENETHOR throws PIPPIN outside!
 
 DENETHOR
-Go now and die in what way seems best to
-you.
-
-DENETHOR SLAMS the DOOR SHUT!
+Go now and die in what way seems best to you.
 
 DENETHOR
 Pour oil on the wood!
 
-SOLDIERS running back from the BURNING CITY. GREAT BALLS of
-FIRE are hurtling through the air... The city is in CHAOS.
+STOP
 
 PIPPIN
-
-Gandalf?... Gandalf?
-
-AMIDST the FLEEING SOLDIERS...
+Gandalf? Gandalf?
 
 GANDALF
 Pull back - to the second level! Hurry! Get
 the women and children out of here - get
 them out!
 
-PIPPIN desperately pushes against the TIDE of SOLDIERS
-retreating from the FIGHTING.
-
-GOTHMOG turns to his SECOND LIEUTENANT...
-
 GOTHMOG
-Move into the city... Kill all in your
+Move into the city. Kill all in your
 path.
-
-As ORC run through the STREETS, MEN, WOMEN, and CHILDREN flee
-... The PITCHED BATTLE continues...
 
 GANDALF
 Fight! Fight for your lives!
 
-SUDDENLY! in the midst of the BATTLE, GANDALF turns...
-SHRILL and CLEAR come the sounds of DISTANT HORNS! Off the
-SIDE of MOUNT MILLDOLLUIN, they dimly ECHO - WAR HORNS of the
-west... ROHAN HAS COME!
-
-GOTHMOG turns at the sound of the DISTANT HORNS... :
-WIDE ON: 6000 HORSEMEN, lead by THEODEN and EOMER, step up to
-the SKYLINE...
-
-gentle slope. Over 50,000 ORCS are swarming around the base
-of the city... thick BLACK SMOKE belches from within it.
-
-comforting hand on his shoulder.
+STOP
 
 EOWYN
-
-Courage, Merry... courage for our friends
-Ont he BATTLE FIELD GOTHMOG walks among his troops...
+Courage, Merry. Courage for our friends.
 
 GOTHMOG
-Form ranks you maggots! Form ranks! Pikes
-in front, lances behind.
+Form ranks you maggots! Form ranks!
+Pikes in front, lances behind.
 
 THEODEN
 Eomer, take your Eored down the left flank!
@@ -2384,225 +2015,84 @@ EOWYN
 Death!
 
 THEODEN
-
 Death! Forth Eorlingas!
-
-ALL the HORNS of the ROHIRRIM burst BLAST upon BLAST!
-
-and SPEAR POINTS, building up to a GALLOP like a rising tide,
-as they CHARGE TOWARDS THE 50,000 ORCS!
-
-his chest... as he YELLS at the top of his lungs!
 
 GOTHMOG
 Fire!
 
-The first VOLLEY of ARROWS hit the ROHAN SOLDIERS... The
-charge continues...
-
 THEODEN
 Charge!
 
-The second VOLLEY... GOTHMOG watches in HORRIFIED AWE as the
-ROHAN ADVANCE CONTINUES... SUDDEN FEAR runs through the ORC
-and URUK-HAI assembled on PELENNOR FIELD... The ROHAN charge
-like MEN POSSESSED!
-
-unstoppable! Entire ORC COMPANIES vanish under their hooves,
-like sand beneath a foaming breaker, as they RACE towards the
-MAIN BODY of the ORC ARMY!
-
-ORC SPEARS LOWER... then SUDDENLY the ROHIRRIM crash into
-the ORCS a nd the screen is FILLED with hacking, SLASHING
-SWORDS and CLASHING SHIELDS...
-
-... A JAW-DROPPING SIGHT!
-
-DEBRIS.
+STOP
 
 PIPPIN
-
-Gandalf!
-
-GANDALF wheels around on SHADOWFAX...
-
-PIPPIN
-
 Denethor has lost his mind! He's burning
 Faramir alive!
-
-GANDALF pulls PIPPIN onto SHADOWFAX.
 
 GANDALF
 Come! Quickly!
 
-The ROHAN charge is decimating the ENEMY!
+STOP
 
-LOW ANGLE POV: DENETHOR standing on the table astride
-FARAMIR, pouring OIL over his OWN HEAD... It runs through
-his hair and down his face, quickly soaking his ROBES.
-
-through his delirium, OIL splashes onto his CHEST and FACE.
-
-DENETHOR ,-
+DENETHOR
 Set a fire in our flesh!
 
-BUNDLES of OIL-SOAKED wood are STACKED all around them.
-
-SERVANTS are holding FLAMING TORCHES, awaiting their orders
-... DENETHOR nods to them:
-
-The SERVANTS approach the PYRE, TORCHES held firmly.
-
-AT THAT MOMENT: GANDALF and PIPPIN burst into the HALLOWS,
-astride SHADOWFAX!
-
 GANDALF
-
 Stay this madness!
-
-The fearful SERVANTS back away from the PYRE...
-
-and HURLS it at the PYRE!
-
-WHOOSH! The PYRE IGNITES!
-
-to his FEET... PIPPIN LEAPS from SHADOWFAX onto the BURNING
-PYRE!
-
-With a desperate strength, PIPPIN pushes FARAMIR off the
-BURNING PYRE... they tumble down the BUNDLES of WOOD, onto
-the FLOOR! PIPPIN douses FLAMES on FARAMIR'S clothing.
-
-DENETHOR SCREAMS with RAGE!
 
 DENETHOR
 No! Do not take my son from me!
 
-DENETHOR leaps ACROSS THE PYRE, RIPPING and TUGGING at
-PIPPIN! FIRE quickly spreads up DENETHOR'S OIL-SOAKED BACK as
-he hauls PIPPIN off FARAMIR!
-
-BRIEF MOMENT SANITY returns.
-
 DENETHOR
+Faramir-
 
-Faramir...
-
-HORROR as...
-
-SUDDENLY! DENETHOR lurches off the PYRE! Now a SCREAMING,
-unguided BALL OF FLAME, he runs across the CHAMBER,
-disappearing out of the door!
-
-CANDALF
-
+GANDALF
 So passes Denethor, Son of Ecthelion.
 
-DENETHOR runs across the WHITE COURT atop MINAS TIRITH...
-and PLUMMETS straight over the 700 FOOT SHEER DROP into the
-FLAMING CITY below!
-
-PAN OFF: DENETHOR'S DEATH PLUNGE to the ROHIRRIM gaining the
-upper hand - VAST NUMBERS of ORCS are SLAIN, or are FLEEING!
+STOP
 
 EOMER
 Drive them into the river!
 
-THEODEN STANDS PROUD in his saddle, YELLING to his ROHIRRIM!
-
 THEODEN
 Make safe the city!
 
-... 20 MUMAKIL! MASSIVE elephant-like CREATURES, each
-carrying a WAR-TOWER, packed with HARADRIM ARCHERS!
+STOP
 
 THEODEN
-Reform the line...Reform the line!
+Reform the line - reform the line!
 
 THEODEN
-
 Sound the charge!
 
-THEODEN
-
-... Charge!
-
-driven mercilessly by their brutal HARADRIM MASTERS. They
-LUMBER into the SEA of MEN, crushing RIDERS and HORSES beneath
-their MASSIVE FEET! Th eir SPIKED TUSKS swing wildly, sweeping
-and impaling RIDERS!
-
-HARADRIM ARCHERS are sending a RAIN of ARROWS into the
-PANICKING ROHIRRIM!
-
-EOWYN and MERRY are THROWN from their HORSE...
-
-HIGH WIDE: The SIXTH LEVEL of the CITY... Smoke rising
-around it, fires burning beneath it...
-
-WIDE ON: A rabble of ORCS are clustered outside the SIXTH
-GATE as TROLLS pound on its WOODEN DOORS with HUGE HAMMERS.
-
-point.
-
-covered in sweat and grime, bone-weary from fighting, spirits
-and hearts bruised...
-
-PIPPIN looks towards the WOODEN GATES at which a NUMBER of
-SOLDIERS continue to build a BARRICADE...
+STOP
 
 PIPPIN
-
-I didn't think it would end this way...
-
-GANDALF looks at the SMALL HOBBIT a beat.
+I didn't think it would end this way.
 
 GANDALF
-
 End? No, the journey doesn't end here.
-
-GANDALF
 Death is just another path, one that we all
-must take.
-
-with fear in his eyes...
-
-GANDALF
-
-The grey rain curtain of this world rolls
-back and all turns to silver glass...
-
-and then you see it...
+must take. The grey rain curtain of this world rolls
+back and all turns to silver glass.
+And then you see it-
 
 PIPPIN
 What, Gandalf? See what?
 
 GANDALF
-White shores... And beyond... A far green
+White shores. And beyond, a far green
 country under a swift sunrise.
 
-PIPPIN stares up at the OLD WIZARD'S FACE, softened, quiet
-and full of peace...
-
 PIPPIN
-
 Well, that isn't so bad.
 
 GANDALF
+No. No, it isn't.
 
-No... No, it isn't.
-
-BOOM!
-
-shudder under another BLOW.
-
-VALIANT ROHIRRIM...
-
-CRYING MEN and NEIGHING HORSES!
+STOP
 
 THEODEN
-
 Rally to me! To me!
 
 STOP
@@ -2612,8 +2102,8 @@ Feast on his flesh!
 
 EOWYN
 I will kill you if you touch him!
+STOP
 
-WITCH-KING
 Do not come between the Nazgul and his
 prey!
 
@@ -2639,56 +2129,34 @@ STOP
 GIMLI
 That still only counts as one!
 
-THEODEN
-
-I know your face... Eowyn...
-
-EOWYN smiles down at him as she GENTLY STROKES his FACE...
+STOP
 
 THEODEN
-My eyes darken...
+I know your face. Eowyn!
+
+THEODEN
+My eyes darken.
 
 EOWYN
-No... I am going to save you...
+Nom I am going to save you.
 
 THEODEN
+You already did.
+My body is broken. You have to let me go.
 
-You already did...
-
-My body is broken... you have to let me go
 EOWYN
-N...
-o
-
-THEODEN touches her tear-stained face...
+No!
 
 THEODEN
-I go to my fathers... in whose mighty
-company, I shall not now feel ashamed...
+I go to my fathers, in whose mighty
+company, I shall not now feel ashamed.
 
-THEODEN is DYING...
-
-THEODEN
-Eowyn?
-
-THEODEN DIES... EOWYN breaks down, SOBBING... ALL AROUND is
-a VISTA OF DEFEAT.
-
-WIDE ON: PELENNOR FIELDS... strangely SILENT... all ORCS
-have fled... BATTLE DEBRIS and BODIES stretch as far as the
-eye can see...
-
-ABOVE MINAS TIRITH... BLINDING SUN RAYS break through the
-LOW CLOUDS!
-
-ARAGORN walks slowly across the FIELD OF BATTLE towards the
-HIDEOUS GHOULS...
+STOP
 
 KING OF THE DEAD
 Release us.
 
 GIMLI
-
 Bad idea. Very handy in a tight spot, these
 lads - despite the fact, they're dead!
 
@@ -2696,49 +2164,21 @@ KING OF THE DEAD
 You gave us your word.
 
 ARAGORN
-I hold your oath fulfilled... Go. Be at
-peace.
+I hold your oath fulfilled. Go. Be at peace.
 
-are immediately swept away by the four winds.
-
-ARAGORN turns to GANDALF who bows his head in HOMAGE...
-
-PIPPIN, in his GONDORIAN armour, looks around at the
-devastation... his eyes full of SADNESS... they suddenly
-fix on something.
-
-towards a SMALL FIGURE slumped on the ground...
+STOP
 
 PIPPIN
-Merry...?
-
-MERRY stares unseeing at PIPPIN... HORROR and SHOCK erasing
-all other memories from MERRY'S mind... tears fall down
-PIPPIN'S FACE as he looks on his FRIEND...
-
-PIPPIN
-Merry... it's me, it's Pippin...
+Merry? Merry, it's me, it's Pippin!
 
 MERRY
-
 I knew you'd find me.
-
 Are you going to leave me?
 
 PIPPIN
 No Merry, I'm going to look after you.
 
-CAMERA RISES... towards the dark ORC TOWER of CIRITH UNGOL.
-A light glows from the TOPMOST WINDOW.
-
-CAMERA reaches the TOWER, dissolving through the wall into...
-
-... a small cold ROOM. FRODO BAGGINS is UNCONSCIOUS on the
-floor. His eyes suddenly flicker and he WAKES UP.
-
-TILT UP... to reveal the ORC and URUK-HAI, GORBAG and
-SHAGRAT, arguing over FRODO'S BELONGINGS and CLOTHES! GORBAG
-is snatching for the MITHRIL VEST.
+STOP
 
 SHAGRAT
 Hey! Hands off - that shiny shirt, that's
@@ -2748,155 +2188,66 @@ GORBAG
 It's going to the Great Eye, along with
 everything else...
 
-ANGLE ON... FRODO as he realizes that he has been STRIPPED
-down to his UNDERWEAR. He clutches at his throat.
-
-... The RING HAS GONE!
-
 SHAGRAT
 I don't take orders from stinking Morgul
 rats!
 
-GORBAG grabs for the MITHRIL VEST...
-
 GORBAG
-
 You touch it, and I'll stick this blade in
 your guts!
 
-BACKWARDS with his foot! GORBAG FALLS THROUGH a TRAP DOOR
-leading to the floor below!
-
-creating SUDDEN ALARM amongst the ORCS and URUK-HAI stationed
-there.
-
-SHAGRAT leans through the TRAP DOOR...
-
 SHAGRAT
-
 The scum tried to knife me! Kill him!
-1
 
-SEVERAL URUK-HAI converge on GORBAG - he LASHES OUT, slashing
-one across the throat with his SWORD!
-
-The DEAD URUK-HAI topples backwards over the PARAPET...
-
-... landing on top of URUK-HAI and ORCS in the courtyard
-below. Within moments, a brutal CIVIL WAR breaks out between
-the TWO COMPANIES stationed in CIRITH UNGOL!
-
-SAM is confronted with the sight of over 50 SLAUGHTERED ORC
-and URUK-HAI, strewn over the COURTYARD!
-
-SEVERAL URUK-HAI are running DOWN TOWARDS HIM! He grips STING
-and continues CHARGING UP - SCREAMING at the top of his
-lungs!
-
-on the wall in front of them! They turn around and flee in
-terror back to the top of the stairs!
-
-SAM appears - and before the URUK-HAI can fully regain their
-wits - he slays THREE... YELLING:
+STOP
 
 SAM
 That's for Frodo!
 And for the Shire!
 And that's for my old Gaffer!
 
-SAM runs into the TOWER...
-
-climbs back into the room... with VENGEANCE in his EVIL
-EYES.
-
 GORBAG
 Stop your squeaking you dunghill rat!
-
-exposing his neck. He pulls out his SWORD, ready to cut
-FRODO'S throat...
 
 GORBAG
 I'm gonna bleed you like a stuck pig!
 
-SUDDENLY! GORBAG GASPS as STING is rammed into his back by
-SAM!
-
 SAM
 Not if I stick you first!
 
-GORBAG falls dead!
-
 FRODO
-
-Sam!!!
-
-FRODO
-Oh, Sam... I'm so sorry... sorry for
-everything.
-
-SAM quickly cuts FRODO free.
+Sam! Oh, Sam.
+I'm so sorry - sorry for everything.
 
 SAM
 Come on.
 
 FRODO
-
-It's too late. It's over... they've taken
-it. Sam - they took the Ring!!
+It's too late. It's over. They've taken
+it, Sam. They took the Ring!
 
 SAM
-
 Begging your pardon, but they haven't.
-
-SAM pulls the RING from his pocket...
-
-SAM
-I thought I'd lost you... so I took it -
-only for safe-keeping.
-
-RN...
-IG
+I thought I'd lost you, so I took it.
+Only for safe-keeping.
 
 FRODO
 Give it to me.
-
-FRODO
 Give me the Ring, Sam.
-
-SAM seems strangely reluctant... ON THE SOUNDTRACK to HUM of
-the RING builds
 
 FRODO
 Sam! Give me the Ring.
 
 FRODO
-You must understand... The Ring is my
-burden... it will destroy you, Sam.
-
-FRODO looks at SAM, pain in his eyes...
-
-SAM looks down at FRODO... his plain HOBBIT face full of
-compassion. SAM'S resolve hardens, a new strength takes hold.
+You must understand. The Ring is my
+burden. It will destroy you, Sam.
 
 SAM
 Come on, Mr Frodo, we'd best find you some
-clothes... you can't go walking through
+clothes. You can't go walking through
 Mordor in naught but your skin.
 
-FRODO and SAM are now dressed in FOUL-LOOKING ORC gear...
-
-CIRITH UNGOL... into MORDOR.
-
-GORGOROTH PLATEAU - the mountain is erupting streams of ASH
-and LAVA high into the air, lighting the low cloud blanket of
-MORDOR with a flickering ORANGE WASH.
-
-With immense trepidation, FRODO and SAM head down the steep
-path into the dark kingdom...
-
-... TWO TINY FIGURES in a bleak, foreboding landscape. Before
-them lies the PLAIN of GORGOROTH... Their eyes are drawn to
-the OMINOUS SILHOUETTE of MOUNT DOOM...
+STOP
 
 SAM
 We did it, Mr Frodo. We made it to Mordor.
@@ -2908,25 +2259,16 @@ We'll never get through unseen.
 FRODO
 It's him - the Eye.
 
-The GREAT EYE OF SAURON!
-
-SAM cannot see what FRODO sees. GENTLY, he urges FRODO on.
-
 SAM
 We have to go in there, Mr Frodo. There's
 nothing for it. Come on. Let's just make it
 down the hill for starters.
 
-alone... he speaks quietly, doubt and fear edge his voice.
+STOP
 
 GANDALF
 Frodo has passed beyond my sight. The
 darkness is deepening.
-
-He turns and crosses the HALL to reveal the presence of
-GIMLI, LEGOLAS, EOMER and ARAGORN...
-
-ARAGORN, his back to GANDALF...
 
 ARAGORN
 If Sauron had the Ring, we would know it.
@@ -2936,29 +2278,19 @@ It's only a matter of time. He has suffered
 a defeat, yes, but behind the walls of
 Mordor our enemy is regrouping.
 
-GIMLI sits insolently on the SEAT of the STEWARD...
-
 GIMLI
 Let him stay there. Let him rot. Why should
 we care?
-
-GANDALF looks across at the DWARF... His face ashen.
 
 GANDALF
 Because ten thousand Orcs now stand between
 Frodo and Mount Doom.
 
 GANDALF
-
 I have sent him to his death.
 
 ARAGORN
-No.
-
-GANDALF looks up sharply at ARAGORN...
-
-ARAGORN
-There is still hope for Frodo. He needs
+No, there is still hope for Frodo. He needs
 time and safe passage across the Plains of
 Gorgoroth. We can give him that.
 
@@ -2997,8 +2329,6 @@ SAM
 Look, the Orcs! They're moving off. You
 see, Mr Frodo - some luck at last.
 
-STOP
-
 SAM
 Take mine. There's a few drops left.
 
@@ -3031,7 +2361,7 @@ MOUTH OF SAURON
 Aha! Old Greybeard!
 I have a token I was bidden to show thee.
 
-PIPPIN & MERRY
+MERRY & PIPPIN 
 Frodo, no!
 
 GANDALF
@@ -3086,6 +2416,9 @@ all that you hold dear on this good earth -
 I bid you stand!
 Men of the West!
 
+ARAGORN
+For Frodo.
+
 STOP
 
 GIMLI
@@ -3124,11 +2457,6 @@ for you - but I can carry you! Come on!
 
 STOP
 
-ARAGORN
-For Frodo.
-
-STOP
-
 SAM
 Look, Mr Frodo! We're almost there!
 
@@ -3138,10 +2466,7 @@ Clever Hobbits to climb so high!
 STOP
 
 PIPPIN
-Eagles-
-
-PIPPIN
-The Eagles are coming! The Eagles are coming!
+Eagles - The Eagles are coming! The Eagles are coming!
 
 STOP
 
@@ -3161,7 +2486,7 @@ FRODO
 The Ring is mine.
 
 SAM
-No! :
+No!
 
 STOP
 
@@ -3211,8 +2536,6 @@ ARAGORN
 This day does not belong to one man but to
 all. Let us together rebuild this world
 that we may share in the days of peace.
-
-STOP
 
 ARAGORN
 My friends. You bow to no-one.
