@@ -385,8 +385,6 @@ def find_similar_from_script(msg, condensed_arr, script):
     best_ind = -1
     best_part_ind = -1
     for msg_part in msg:
-        if len(msg_part.split(' ')) < 2:
-            continue
         for line_ind, line in enumerate(condensed_arr):
             # abort conditions
             if not line:
@@ -396,8 +394,8 @@ def find_similar_from_script(msg, condensed_arr, script):
                     continue
 
             for part_ind, part in enumerate(line):
-                ratio = match_sequences(part, msg_part)
-                if ratio > 0.87:
+                ratio = match_sequences(part, msg_part)                    
+                if ratio > 0.8:
                     if ratio > max_confidence:
                         max_confidence = ratio
                         best_ind = line_ind
@@ -406,7 +404,6 @@ def find_similar_from_script(msg, condensed_arr, script):
 
     if best_ind >= 0:
         # retrieve part with best match
-        return_texts = []
         parts = []
         punctuation_found = False
         author, line = script[best_ind].split('|')
@@ -422,20 +419,23 @@ def find_similar_from_script(msg, condensed_arr, script):
         if temp.strip():
             parts[-1] = parts[-1]+temp
 
-        if best_part_ind < len(parts)-1:
-            temp = ''
-            for part in parts[best_part_ind+1:]:
-                temp += part+' '
-            return_texts.append('**{}**: ... {}'.format(author.title(), temp))
+        if best_part_ind < len(parts)-1 or best_ind < len(script)-1:
+            return_texts = []
+            if best_part_ind < len(parts)-1:
+                temp = ''
+                for part in parts[best_part_ind+1:]:
+                    temp += part+' '
+                return_texts.append('**{}**: ... {}'.format(author.title(), temp))
 
-        if best_ind < len(script)-1:
-            if script[best_ind+1] != 'STOP':
-                author, text = script[best_ind+1].split('|')
-                return_texts.append('**{}:** {}'.format(author.title(), text))
-
-        return return_texts
+            if best_ind < len(script)-1:
+                if script[best_ind+1] != 'STOP':
+                    author, text = script[best_ind+1].split('|')
+                    return_texts.append('**{}:** {}'.format(author.title(), text))
+            return return_texts
+        else:
+            return []
     else:
-        return []
+        return -1
 
 
 def reddit_meme(server, reddit_client):

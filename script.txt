@@ -58,7 +58,7 @@ against the armies of Mordor.
 
 GALADRIEL
 On the slopes of Mount Doom they fought
-for the freedom of Middle- Earth.
+for the freedom of Middle-Earth.
 
 GALADRIEL
 Victory was near!
@@ -8460,8 +8460,15 @@ EOWYN
 I will kill you if you touch him!
 STOP
 
+WITCH-KING
 Do not come between the Nazgul and his
 prey!
+
+WITCH KING
+No man can kill me. Die!
+
+EOWYN
+I am no man!
 
 STOP
 
@@ -8471,14 +8478,6 @@ rats! There's knife work here needs doing.
 
 GIMLI
 Plenty for the both of us! May the best dwarf win!
-
-STOP
-
-WITCH KING
-No man can kill me. Die!
-
-EOWYN
-I am no man!
 
 STOP
 

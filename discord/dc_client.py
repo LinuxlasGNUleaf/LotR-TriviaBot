@@ -29,7 +29,7 @@ class LotrBot(discord.Client):
         '''
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
-            (type=discord.ActivityType.watching, name='Boromir die'))
+            (type=discord.ActivityType.watching, name='Böromir getting boromir\'d'))
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
@@ -174,7 +174,7 @@ class LotrBot(discord.Client):
         elif self.do_autoscript:
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
-            if result:
+            if isinstance(result, list):
                 await message.add_reaction('✅')
                 for line in result:
                     await channel.send(line)
