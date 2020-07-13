@@ -2226,8 +2226,6 @@ SARUMAN
 So, Gandalf, you try to lead them over
 Caradhras. And if that fails, where
 then will you go?
-
-SARUMAN
 If the mountain defeats you, will you
 risk a more dangerous road?
 
@@ -8458,11 +8456,12 @@ Feast on his flesh!
 
 EOWYN
 I will kill you if you touch him!
-STOP
 
 WITCH-KING
 Do not come between the Nazgul and his
 prey!
+
+STOP
 
 WITCH KING
 No man can kill me. Die!
