@@ -31,7 +31,10 @@ they old ones are all invalid by now, so don't even bother :)
 
 ## Contributors
 Well, that would be me. If you want to contact me,
-you can also send me a DM on discord: `The_Legolas#1169`
+you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
+## Trivia Questions Contributors
+* Eldarion
+* MC4dden
 
 ## Help wanted
 You want to help? Great! There are currently the following tasks (apart from coding) that you could help with:
