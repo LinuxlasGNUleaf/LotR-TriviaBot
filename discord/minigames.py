@@ -378,13 +378,13 @@ def find_similar_from_script(msg, condensed_arr, script):
     for char in ELIMINATION_CHARS:
         msg = msg.replace(char, '')
 
+    if (len(msg.split(' ')) < 2):
+        return -1
     msg = msg.split('.')
-
+    log = {}
     # searching condensed script for matching line
-    max_confidence = 0
-    best_ind = -1
-    best_part_ind = -1
     for msg_part in msg:
+        msg_part = msg_part.strip()
         for line_ind, line in enumerate(condensed_arr):
             # abort conditions
             if not line:
@@ -394,19 +394,23 @@ def find_similar_from_script(msg, condensed_arr, script):
                     continue
 
             for part_ind, part in enumerate(line):
-                ratio = match_sequences(part, msg_part)                    
+                ratio = match_sequences(part, msg_part)
                 if ratio > 0.8:
-                    if ratio > max_confidence:
-                        max_confidence = ratio
-                        best_ind = line_ind
-                        if part_ind > best_part_ind:
-                            best_part_ind = part_ind
+                    if line_ind in log.keys():
+                        num, found_conf, highest_part_ind = log[line_ind]
+                        log[line_ind] = (num+1, found_conf+ratio, max(highest_part_ind, part_ind))
+                    else:
+                        log[line_ind] = (1, ratio, part_ind)
 
-    if best_ind >= 0:
-        # retrieve part with best match
+    if log:
+        ranking = sorted(log, key=lambda x: log[x][0])[::-1]
+        for line_ind in ranking:
+            while line_ind+1 in ranking:
+                line_ind += 1
+            part_ind = log[line_ind][2]
         parts = []
         punctuation_found = False
-        author, line = script[best_ind].split('|')
+        author, line = script[line_ind].split('|')
         temp = ''
         for char in line:
             if char in PUNCTUATION_CHARS:
@@ -417,19 +421,19 @@ def find_similar_from_script(msg, condensed_arr, script):
                 temp = ''
             temp += char
         if temp.strip():
-            parts[-1] = parts[-1]+temp
+            parts[-1] += temp
 
-        if best_part_ind < len(parts)-1 or best_ind < len(script)-1:
+        if part_ind < len(parts)-1 or line_ind < len(script)-1:
             return_texts = []
-            if best_part_ind < len(parts)-1:
+            if part_ind < len(parts)-1:
                 temp = ''
-                for part in parts[best_part_ind+1:]:
+                for part in parts[part_ind+1:]:
                     temp += part+' '
-                return_texts.append('**{}**: ... {}'.format(author.title(), temp))
+                return_texts.append('**{}:** ... {}'.format(author.title(), temp))
 
-            if best_ind < len(script)-1:
-                if script[best_ind+1] != 'STOP':
-                    author, text = script[best_ind+1].split('|')
+            if line_ind < len(script)-1:
+                if script[line_ind+1] != 'STOP':
+                    author, text = script[line_ind+1].split('|')
                     return_texts.append('**{}:** {}'.format(author.title(), text))
             return return_texts
         else:
