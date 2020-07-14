@@ -378,7 +378,7 @@ def find_similar_from_script(msg, condensed_arr, script):
     for char in ELIMINATION_CHARS:
         msg = msg.replace(char, '')
 
-    if (len(msg.split(' ')) < 2):
+    if len(msg.split(' ')) < 2:
         return -1
     msg = msg.split('.')
     log = {}

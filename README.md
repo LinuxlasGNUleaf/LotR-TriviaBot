@@ -29,7 +29,7 @@ The Channel ID can be set in the config.
 they old ones are all invalid by now, so don't even bother :)
 - [ ] Using Facebook API for fetching memes from ShirePosting :/
 
-## Contributors
+## Code Contributors
 Well, that would be me. If you want to contact me,
 you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 ## Trivia Questions Contributors
