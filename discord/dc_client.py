@@ -68,14 +68,17 @@ class LotrBot(discord.Client):
             # send the question message
             embed, correct_ind, len_answers = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
-            await channel.send(embed=embed)
+            await channel.send(embed=embed,
+                               delete_after=self.config.DISCORD_CONFIG['trivia_timeout'])
 
             def check(chk_msg):
                 return chk_msg.author == user and chk_msg.channel == channel
 
             self.blocked.append(user.id)
             try:
-                msg = await self.wait_for('message', check=check, timeout=15)
+                msg = await self.wait_for('message',
+                                          check=check,
+                                          timeout=self.config.DISCORD_CONFIG['trivia_timeout'])
             except asyncio.TimeoutError:
                 msg = ''
             self.blocked.remove(user.id)
@@ -98,7 +101,9 @@ class LotrBot(discord.Client):
             failed = False
             while not failed:
                 try:
-                    msg = await self.wait_for('message', check=check, timeout=15)
+                    msg = await self.wait_for('message',
+                                              check=check,
+                                              timeout=self.config.DISCORD_CONFIG['hangman_timeout'])
                 except asyncio.TimeoutError:
                     msg = ''
 
@@ -126,11 +131,13 @@ class LotrBot(discord.Client):
                 await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard))
             else:
                 await channel.send('You have to play a game of trivia before a \
-    profile can be generated! use `{} trivia` to take a quiz!'.format(self.config.GENERAL_CONFIG['key']))
+profile can be generated! use `{} trivia` to take a quiz!'\
+                                   .format(self.config.GENERAL_CONFIG['key']))
 
 #==============================================================================
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt '):
             raw_content = raw_content.split(' ')[2:]
+
             if raw_content[0].isdigit():  # Video count was provided
                 num = int(raw_content[0])
                 query = ' '.join(raw_content[1:])
@@ -141,7 +148,8 @@ class LotrBot(discord.Client):
             if not query:
                 await channel.send(minigames.create_reply(user, True, self.config) +
                                    '\nTry providing a query next time!\nThe correct syntax is: \
-`{0} yt (<max video count>) <keywords>\n(count is optional)`'.format(self.config.GENERAL_CONFIG['key']))
+`{0} yt (<max video count>) <keywords>\n(count is optional)`'\
+                                   .format(self.config.GENERAL_CONFIG['key']))
                 return
 
             result = minigames.search_youtube(
@@ -150,10 +158,12 @@ class LotrBot(discord.Client):
                 query,
                 num,
                 self.config)
+
             if not result:
                 await channel.send('*\'I have no memory of this place\'*\n\
 ~Gandalf\nYour query `{}` yielded no results!'.format(query))
                 return
+
             for embed in result:
                 await channel.send(embed=embed)
 
