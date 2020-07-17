@@ -154,7 +154,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 
             result = minigames.search_youtube(
                 self.google_client,
-                self.config.YT_CONFIG['yt.channel_id'],
+                self.config.YT_CONFIG['channel_id'],
                 query,
                 num,
                 self.config)
@@ -171,8 +171,8 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content == self.config.GENERAL_CONFIG['key'] + ' help':
             embed = minigames.create_embed(
                 title='LotR Trivia Bot help',
-                content=self.config.HELP_TEXT,
-                footnote=self. config.HELP_FOOTER)
+                content=self.config.DISCORD_CONFIG['help.text']
+                footnote=self.config.DISCORD_CONFIG['help.footer'])
             await channel.send(embed=embed)
 
 #==============================================================================

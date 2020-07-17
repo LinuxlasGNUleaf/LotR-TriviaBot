@@ -24,10 +24,10 @@ BLOCKED = [] #temporarily blocked users (cannot issue commands)
 
 # ==========================> STARTUP <==================================
 try:
-    with open(lotr_config.DISCORD_CONFIG['discord.scoreboard'], 'rb') as SC_FILE:
+    with open(lotr_config.DISCORD_CONFIG['scoreboard'], 'rb') as SC_FILE:
         SCOREBOARD = pickle.load(SC_FILE)
         print('[INFO]: unserialized trivia scoreboard')
-    with open(lotr_config.REDDIT_CONFIG['reddit.memelog'], 'rb') as MEME_FILE:
+    with open(lotr_config.REDDIT_CONFIG['memelog'], 'rb') as MEME_FILE:
         MEME_LOG = pickle.load(MEME_FILE)
         print('[INFO]: unserialized meme log')
 except (FileNotFoundError, EOFError):
@@ -35,7 +35,7 @@ except (FileNotFoundError, EOFError):
 
 # aquire discord credentials from file
 try:
-    with open(lotr_config.DISCORD_CONFIG['discord.token'], 'r') as tokenfile:
+    with open(lotr_config.DISCORD_CONFIG['token'], 'r') as tokenfile:
         TOKEN = tokenfile.readline().strip()
         if not TOKEN:
             raise EOFError
@@ -45,7 +45,7 @@ except (FileNotFoundError, EOFError):
 
 # aquire reddit credentials from file
 try:
-    with open(lotr_config.REDDIT_CONFIG['reddit.token'], 'r') as tokenfile:
+    with open(lotr_config.REDDIT_CONFIG['token'], 'r') as tokenfile:
         reddit_credentials = tokenfile.readlines()
         for i, item in enumerate(reddit_credentials):
             reddit_credentials[i] = item.strip()
@@ -55,7 +55,7 @@ except (FileNotFoundError, EOFError):
 
 # aquire Google credentials from file
 try:
-    with open(lotr_config.YT_CONFIG['yt.token'], 'r') as tokenfile:
+    with open(lotr_config.YT_CONFIG['token'], 'r') as tokenfile:
         google_credentials = tokenfile.readlines()
         for i, item in enumerate(google_credentials):
             google_credentials[i] = item.strip()
@@ -78,7 +78,7 @@ try:
 except (KeyboardInterrupt, RuntimeError):
     print('\n[INFO]: Catched error... Shutting down...')
 
-with open(lotr_config.DISCORD_CONFIG['discord.scoreboard'], 'wb') as SC_FILE:
+with open(lotr_config.DISCORD_CONFIG['scoreboard'], 'wb') as SC_FILE:
     pickle.dump(SCOREBOARD, SC_FILE)
-with open(lotr_config.REDDIT_CONFIG['reddit.memelog'], 'wb') as MEME_FILE:
+with open(lotr_config.REDDIT_CONFIG['memelog'], 'wb') as MEME_FILE:
     pickle.dump(MEME_LOG, MEME_FILE)

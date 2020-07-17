@@ -155,9 +155,9 @@ def create_reply(user, insult, config):
     creates a reply to an user, insult or compliment
     '''
     if insult:
-        msg = random.choice(config.DISCORD_CONFIG['discord.insults'])
+        msg = random.choice(config.DISCORD_CONFIG['insults'])
     else:
-        msg = random.choice(config.DISCORD_CONFIG['discord.compliments'])
+        msg = random.choice(config.DISCORD_CONFIG['compliments'])
     return msg if '{}' not in msg else msg.format(user.display_name)
 
 
@@ -502,7 +502,7 @@ def search_youtube(google_client, channel_id, query, num, config):
     res = google_client.get_video_from_channel(
         channel_id,
         query,
-        min(config.YT_CONFIG['yt.max_video_count'], num))['items']
+        min(config.YT_CONFIG['max_video_count'], num))['items']
 
     embeds = []
     for i, item in enumerate(res):

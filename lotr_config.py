@@ -13,32 +13,32 @@ GENERAL_CONFIG = {
 }
 
 REDDIT_CONFIG = {
-    'reddit.memelog': os.path.join(os.getenv('HOME'),
-                                   GENERAL_CONFIG['config.path'],
-                                   'meme_log.pyobj'),
+    'memelog': os.path.join(os.getenv('HOME'),
+                            GENERAL_CONFIG['config.path'],
+                            'meme_log.pyobj'),
 
-    'reddit.token': os.path.join(os.getenv('HOME'),
-                                 GENERAL_CONFIG['config.path'],
-                                 'reddit.tk')
+    'token': os.path.join(os.getenv('HOME'),
+                          GENERAL_CONFIG['config.path'],
+                          'reddit.tk')
 }
 
 YT_CONFIG = {
-    'yt.max_video_count': 3,
-    'yt.token': os.path.join(os.getenv('HOME'),
-                             GENERAL_CONFIG['config.path'],
-                             'google.tk'),
-    'yt.channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
+    'max_video_count': 3,
+    'token': os.path.join(os.getenv('HOME'),
+                          GENERAL_CONFIG['config.path'],
+                          'google.tk'),
+    'channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
 }
 
 
 DISCORD_CONFIG = {
-    'discord.scoreboard': os.path.join(os.getenv('HOME'),
-                                       GENERAL_CONFIG['config.path'],
-                                       'scoreboard.pyobj'),
+    'scoreboard': os.path.join(os.getenv('HOME'),
+                               GENERAL_CONFIG['config.path'],
+                               'scoreboard.pyobj'),
 
-    'discord.token': os.path.join(os.getenv('HOME'),
-                                  GENERAL_CONFIG['config.path'],
-                                  'discord.tk'),
+    'token': os.path.join(os.getenv('HOME'),
+                          GENERAL_CONFIG['config.path'],
+                          'discord.tk'),
 
     # minigames config
     'script.path': 'script.txt',
@@ -71,7 +71,7 @@ ilillllililii```',
     X\n    ||   / \\\nililililillllililii```',
 
 
-    'discord.insults':\
+    'insults':\
 ['Stupid fat {}!',
  'Fool of a {}!',
  'I would cut off your head {}... if it stood but a little higher from the ground.',
@@ -83,14 +83,14 @@ and their brats roll on the floor among the dogs?',
  'Bombur does not approve.'
 ],
 
-    'discord.compliments': \
+    'compliments': \
 ['Well done, my dear {}!',
  '{}, you should be counted amongst the wise of middleearth.',
  'Very good {}, I could not have done it better myself!',
  'Bombur approves. Well done, {}!'],
 
 
-    'discord.help_text': \
+    'help.text': \
 '''
 Welcome to the LotR Trivia Bot!
 This is a discord bot written in Python 3.
@@ -135,7 +135,7 @@ to search for videos:
 '''.format(GENERAL_CONFIG['key']),
 
 
-    'discord.help_footer':\
+    'help.footer':\
 '''LICENSE:
 LotR Trivia Bot version {}, Copyright (C) 2020 JaWs
 LotR Trivia Bot comes with ABSOLUTELY NO WARRANTY.
