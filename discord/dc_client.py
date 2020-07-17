@@ -171,7 +171,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content == self.config.GENERAL_CONFIG['key'] + ' help':
             embed = minigames.create_embed(
                 title='LotR Trivia Bot help',
-                content=self.config.DISCORD_CONFIG['help.text']
+                content=self.config.DISCORD_CONFIG['help.text'],
                 footnote=self.config.DISCORD_CONFIG['help.footer'])
             await channel.send(embed=embed)
 
