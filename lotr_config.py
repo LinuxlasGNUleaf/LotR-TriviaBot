@@ -29,7 +29,7 @@ YT_CONFIG = {
                              'google.tk'),
     'yt.channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
 }
-   
+
 
 DISCORD_CONFIG = {
     'discord.scoreboard': os.path.join(os.getenv('HOME'),
@@ -44,8 +44,12 @@ DISCORD_CONFIG = {
     'script.path': 'script.txt',
     'silmarillion.path': 'silmarillion_edited.txt',
     'silmarillion.sentence_count': 2,
-    'trivia_timeout': 15,
-    'hangman_timeout': 15,
+    'trivia.timeout': 15,
+    'hangman.timeout': 15,
+
+    "hangman.allowed_chars":\
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 
     # crappy ASCII art for hangman game
     'hangman.ongoing_states':\

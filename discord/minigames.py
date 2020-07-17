@@ -1,6 +1,7 @@
 '''
 Library for all the minigames for the LotR Trivia Bot. Accessed by the Discord Client
 '''
+import math
 import random
 import csv
 import string
@@ -33,19 +34,6 @@ def map_vals(val, in_min, in_max, out_min, out_max):
     '''
     val = constrain_val(val, in_min, in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-
-
-# algorithm R(3.4.2) (Waterman's 'Reservoir Algorithm')
-def random_line(afile):
-    '''
-    returns a random element from an enumerator
-    '''
-    line = next(afile)
-    for num, aline in enumerate(afile, 2):
-        if random.randrange(num):
-            continue
-        line = aline
-    return line
 
 
 def match_sequences(str_a, str_b):
@@ -116,41 +104,49 @@ def create_hangman_embed(user, game_info, game_status, config):
     '''
     creates Hangman embed
     '''
-    word, _, steps, used_chars, lives = game_info
+    word, _, steps, used_chars, state_ind, max_ind = game_info
+    states = config.DISCORD_CONFIG['hangman.ongoing_states']
+
     hangman = ''
-    for split_word in word.split(' '):
-        for char in split_word:
-            if char.lower() in used_chars or game_status != 'ongoing':
-                hangman += '__{}__ '.format(char)
-            else:
-                hangman += r'\_ '
-        hangman += '  '
+    for char in word:
+        if char == ' ':
+            hangman += '  '
+            continue
+        if char.lower() in used_chars or game_status != 'ongoing':
+            hangman += '__{}__ '.format(char)
+        else:
+            hangman += r'\_ '
     hangman = hangman.strip()
 
-    used = 'Used letters:\n '
+
     if used_chars:
+        used = 'Used letters:\n '
         for char in used_chars:
             used += ':regional_indicator_{}: '.format(char)
         used = used.strip()
+    else:
+        used = ''
 
-    print(game_status)
-    if game_status == 'ongoing':
-        content = config.DISCORD_CONFIG['hangman.ongoing_states'][lives]+used
-        lives = (lives)//steps
-    elif game_status == 'lost':
-        content = config.DISCORD_CONFIG['hangman.hangman.lost_state']
+
+    if game_status == 'lost':
+        content = config.DISCORD_CONFIG['hangman.lost_state']
         lives = 0
-    elif game_status == 'won':
-        content = config.DISCORD_CONFIG['hangman.hangman.won_state']
-        lives = (lives)//steps
+    else:
+        lives = math.ceil((max_ind-state_ind)/steps) + 1
+        if game_status == 'ongoing':
+            content = states[state_ind] + used
+        elif game_status == 'won':
+            content = config.DISCORD_CONFIG['hangman.won_state']
 
-    author_info = (user.display_name+'\'s hangman game ({} lives left)'
-                   .format(lives), user.avatar_url)
+    author_info = ('{}\'s hangman game ({} lives left)'\
+        .format(user.display_name, lives), user.avatar_url)
 
-    color = (map_vals(lives, 0, 8, 0, 255),
-             map_vals(lives, 0, 7, 255, 0), 0)
+    color = (map_vals(state_ind, 0, 8, 0, 255),
+             map_vals(state_ind, 0, 7, 255, 0), 0)
 
-    return create_embed(hangman, author_info=author_info, content=content,
+    return create_embed(hangman,
+                        author_info=author_info,
+                        content=content,
                         color=color)
 
 
@@ -258,7 +254,6 @@ def initiate_hangman_game(user, config):
     returns the following tuple:
     (embed, word, word_condensed, steps)
     '''
-    lives = 7
     # import words for hangman
     with open('words.csv', 'r') as csvfile:
         word = random.choice(list(csv.reader(csvfile, delimiter=',', quotechar='"'))[0])
@@ -266,8 +261,15 @@ def initiate_hangman_game(user, config):
 
     steps = 2 if len(word_condensed) <= 6 else 1
 
-    game_info = (word, word_condensed, steps, [], lives)
-    return (create_hangman_embed(user, game_info, 'ongoing', config), game_info)
+    game_info = (word,  # Hangman word, case sensitive and with whitespaces
+                 word_condensed,  # Hangman word, but lowercase and without whitespaces
+                 steps,  # stepsize for asciiart
+                 [],  # used characters array
+                 0,  # actual index
+                 len(config.DISCORD_CONFIG['hangman.ongoing_states'])-1) # max index
+
+    return (create_hangman_embed(user, game_info, 'ongoing', config),
+            game_info)
 
 
 def update_hangman_game(user, msg, game_info, config):
@@ -275,7 +277,6 @@ def update_hangman_game(user, msg, game_info, config):
     updates the hangman game and returns info about whether the\
     game is finished
     '''
-    word, word_condensed, steps, used_chars, lives = game_info
 
     if not msg:
         ret_str = 'Game over! You took too long to answer!'
@@ -285,17 +286,16 @@ def update_hangman_game(user, msg, game_info, config):
 
     msg = msg.content.lower()
 
+    word, word_condensed, steps, used_chars, state_ind, max_ind = game_info
     for char in msg:
-        if char not in used_chars and char.isalpha():
+        if char not in used_chars and char in config.DISCORD_CONFIG['hangman.allowed_chars']:
             used_chars.append(char)
             if char not in word_condensed:
-                lives -= steps
-
+                state_ind += steps
     used_chars.sort()
+    game_info = (word, word_condensed, steps, used_chars, state_ind, max_ind)
 
-    game_info = (word, word_condensed, steps, used_chars, lives)
-
-    if lives >= 7:
+    if state_ind > max_ind:
         ret_embed = create_hangman_embed(user, game_info, 'lost', config)
         ret_str = 'Game over! You lost all your lives!'
         ret_break = True
@@ -303,16 +303,14 @@ def update_hangman_game(user, msg, game_info, config):
 
     for char in word_condensed:
         if char not in used_chars:
-            break
-    else:
-        ret_embed = create_hangman_embed(user, game_info, 'won', config)
-        ret_str = 'Congratulations! You won the game!'
-        ret_break = True
-        return (ret_embed, ret_break, ret_str, game_info)
+            ret_embed = create_hangman_embed(user, game_info, 'ongoing', config)
+            ret_str = ''
+            ret_break = False
+            return (ret_embed, ret_break, ret_str, game_info)
 
-    ret_embed = create_hangman_embed(user, game_info, 'ongoing', config)
-    ret_str = ''
-    ret_break = False
+    ret_embed = create_hangman_embed(user, game_info, 'won', config)
+    ret_str = 'Congratulations! You won the game!'
+    ret_break = True
     return (ret_embed, ret_break, ret_str, game_info)
 
 

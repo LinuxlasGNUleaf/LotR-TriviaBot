@@ -29,7 +29,7 @@ class LotrBot(discord.Client):
         '''
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
-            (type=discord.ActivityType.watching, name='Böromir getting boromir\'d'))
+            (type=discord.ActivityType.watching, name='Boromir getting boromir\'d'))
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
@@ -69,7 +69,7 @@ class LotrBot(discord.Client):
             embed, correct_ind, len_answers = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
             await channel.send(embed=embed,
-                               delete_after=self.config.DISCORD_CONFIG['trivia_timeout'])
+                               delete_after=self.config.DISCORD_CONFIG['trivia.timeout'])
 
             def check(chk_msg):
                 return chk_msg.author == user and chk_msg.channel == channel
@@ -78,7 +78,7 @@ class LotrBot(discord.Client):
             try:
                 msg = await self.wait_for('message',
                                           check=check,
-                                          timeout=self.config.DISCORD_CONFIG['trivia_timeout'])
+                                          timeout=self.config.DISCORD_CONFIG['trivia.timeout'])
             except asyncio.TimeoutError:
                 msg = ''
             self.blocked.remove(user.id)
@@ -103,7 +103,7 @@ class LotrBot(discord.Client):
                 try:
                     msg = await self.wait_for('message',
                                               check=check,
-                                              timeout=self.config.DISCORD_CONFIG['hangman_timeout'])
+                                              timeout=self.config.DISCORD_CONFIG['hangman.timeout'])
                 except asyncio.TimeoutError:
                     msg = ''
 
