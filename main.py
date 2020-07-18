@@ -17,10 +17,25 @@ import dc_client
 import reddit_client
 import google_client
 
+def getFile(loc, name, essential):
+    try:
+        with open(loc, 'r') as infofile:
+            temp = infofile.readlines()
+            if not temp and essential:
+                raise EOFError
+            for i, item in enumerate(temp):
+                temp[i] = item.strip()
+            return temp
+    except (FileNotFoundError, EOFError):
+        print('{}: {} not found!'.format('[ERROR]' if essential else '[WARN]', name))
+        if essential:
+            sys.exit(-1)
+
+
 # ==========================> LISTS <==================================
 SCOREBOARD = {}
 MEME_LOG = {}
-BLOCKED = [] #temporarily blocked users (cannot issue commands)
+BLOCKED = [] # temporarily blocked users (cannot issue commands)
 
 # ==========================> STARTUP <==================================
 try:
@@ -33,44 +48,23 @@ try:
 except (FileNotFoundError, EOFError):
     print('[WARN]: meme log file not found, ignoring.')
 
-# aquire discord credentials from file
-try:
-    with open(lotr_config.DISCORD_CONFIG['token'], 'r') as tokenfile:
-        TOKEN = tokenfile.readline().strip()
-        if not TOKEN:
-            raise EOFError
-except (FileNotFoundError, EOFError):
-    print('[ERROR]: discord token not found! abort.')
-    sys.exit(-1)
 
-# aquire reddit credentials from file
-try:
-    with open(lotr_config.REDDIT_CONFIG['token'], 'r') as tokenfile:
-        reddit_credentials = tokenfile.readlines()
-        for i, item in enumerate(reddit_credentials):
-            reddit_credentials[i] = item.strip()
-except (FileNotFoundError, EOFError):
-    print('[ERROR]: reddit credentials not found! abort.')
-    sys.exit(-1)
+TOKEN = getFile(lotr_config.DISCORD_CONFIG['token'], 'discord token', True)[0].strip()
+if not TOKEN:
+    raise EOFError('[ERROR]: discord token not found! abort.')
 
-# aquire Google credentials from file
-try:
-    with open(lotr_config.YT_CONFIG['token'], 'r') as tokenfile:
-        google_credentials = tokenfile.readlines()
-        for i, item in enumerate(google_credentials):
-            google_credentials[i] = item.strip()
-except (FileNotFoundError, EOFError):
-    print('[ERROR]: google credentials not found! abort.')
-    sys.exit(-1)
+# aquire credentials from the token files
+reddit_credentials = getFile(lotr_config.REDDIT_CONFIG['token'], 'reddit credentials', True)
 
-# create the reddit client
+google_credentials = getFile(lotr_config.YT_CONFIG['token'], 'yt api credentials', True)
+
+
+# create the client instances
 REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
 
-# create the Google client
-GOOGLE_CLIENT = google_client.GoogleClient(google_credentials)
+YT_API_CLIENT = google_client.GoogleClient(google_credentials)
 
-# create the discord client and pass the reddit client
-DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, GOOGLE_CLIENT)
+DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, YT_API_CLIENT)
 
 try:
     DC_CLIENT.run(TOKEN)

@@ -1,6 +1,6 @@
 from apiclient.discovery import build
 
-class GoogleClient():
+class YtAPIClient():
     def __init__(self, credentials):
         self.credentials = credentials
         self.youtube = build('youtube', 'v3', developerKey=credentials[0])

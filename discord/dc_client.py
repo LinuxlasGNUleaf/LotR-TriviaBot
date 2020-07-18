@@ -9,7 +9,7 @@ class LotrBot(discord.Client):
     '''
     Bot client, inheriting from discord.Client
     '''
-    def __init__(self, config, scoreboard, reddit_client, google_client):
+    def __init__(self, config, scoreboard, reddit_client, yt_api_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
@@ -17,7 +17,7 @@ class LotrBot(discord.Client):
         self.script = []
         self.script_condensed = []
         self.reddit_client = reddit_client
-        self.google_client = google_client
+        self.yt_api_client = yt_api_client
         minigames.parse_script(config.DISCORD_CONFIG['script.path'],
                                self.script, self.script_condensed)
         super().__init__()
@@ -153,7 +153,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                 return
 
             result = minigames.search_youtube(
-                self.google_client,
+                self.yt_api_client,
                 self.config.YT_CONFIG['channel_id'],
                 query,
                 num,

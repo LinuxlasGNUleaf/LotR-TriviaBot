@@ -5,7 +5,7 @@ ORDINAL = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
 # MAIN CONFIG FILE
 GENERAL_CONFIG = {
-    'version': '2.1',
+    'version': '2.2-build1',
     'marker': '*',
     'key': 'lotr',
     'footer': 'A discord bot written in Python by JaWs',
@@ -130,7 +130,7 @@ send any __whole sentence from the LotR movies__, the bot will respond.
 Allows you to provide keywords to search the videos of a channel.
 The channel id is currently set in the config file.
 to search for videos:
-`{0} yt <max video count> <keywords>`
+`{0} yt (<max video count>) <keywords>`
 
 '''.format(GENERAL_CONFIG['key']),
 
