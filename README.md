@@ -19,7 +19,6 @@ The Channel ID is set in the config.
 ** LotR Wiki Search**
 Searches the wiki for a specific topic.
 The wiki URL is set in the config file.
-`{0} search <keywords>`
 
 ## TODO
 - [x] LotR trivia quiz
