@@ -16,7 +16,7 @@ Recognizes lines from the movie script and in the case of a 85% match, completes
 * **Youtube videos**
 Searches for videos from a specific Youtube Channel.
 The Channel ID is set in the config.
-** LotR Wiki Search**
+* **LotR Wiki Search**
 Searches the wiki for a specific topic.
 The wiki URL is set in the config file.
 

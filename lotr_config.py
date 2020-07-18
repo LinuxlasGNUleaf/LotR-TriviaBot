@@ -76,14 +76,16 @@ ilillllililii```',
 
     'insults':\
 ['Stupid fat {}!',
- 'Fool of a {}!',
+ 'Fool of a {}! Stay quiet next time and rid us of your stupidity!',
  'I would cut off your head {}... if it stood but a little higher from the ground.',
  'Dotard! What is the house of {} but a thatched barn where brigands drink in the reek,\
 and their brats roll on the floor among the dogs?',
  'Hey, {}! Don\'t go getting too far behind. ~Sam',
  'Feanor gave up because of your stupidity, {}!',
  'Feanor did nothing wrong, but the same can not be said about you, {}!',
- 'Bombur does not approve.'
+ 'Bombur does not approve.',
+ 'Stop your squeaking you dunghill rat, {}!',
+ 'You stinking two-faced sneak!'
 ],
 
     'compliments': \
