@@ -9,7 +9,7 @@ class LotrBot(discord.Client):
     '''
     Bot client, inheriting from discord.Client
     '''
-    def __init__(self, config, scoreboard, reddit_client, yt_api_client):
+    def __init__(self, config, scoreboard, reddit_client, yt_api_client, google_search_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
@@ -18,6 +18,7 @@ class LotrBot(discord.Client):
         self.script_condensed = []
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
+        self.google_search_client = google_search_client
         minigames.parse_script(config.DISCORD_CONFIG['script.path'],
                                self.script, self.script_condensed)
         super().__init__()
@@ -38,7 +39,6 @@ class LotrBot(discord.Client):
         '''
         main function to recognize a bot command
         '''
-
         if message.author == self.user or message.author.id in self.blocked:
             return
 
@@ -179,6 +179,16 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard':
             embed = minigames.create_scoreboard(self.scoreboard, server)
             await channel.send(embed=embed)
+
+#==============================================================================
+        elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' search '):
+            raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
+            result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
+            if isinstance(result, str):
+                await channel.send(result)
+            else:
+                await channel.send(embed=result[0])
+                await channel.send(result[1])
 
 #==============================================================================
         elif self.do_autoscript:

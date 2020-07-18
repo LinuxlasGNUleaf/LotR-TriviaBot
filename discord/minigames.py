@@ -564,7 +564,7 @@ def create_scoreboard(scoreboard, server):
                                 round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
 
     medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}', '👏 {}']
-    user_str = "**[{} pts]** {} ({}%)"
+    user_str = '**[{} pts]** {} ({}%)'
     for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
         temp = user_str.format(*user)
 
@@ -572,4 +572,14 @@ def create_scoreboard(scoreboard, server):
             scoreboard_string += medals[i].format(temp)+'\n'
         else:
             scoreboard_string += medals[-1].format(temp)+'\n'
-    return create_embed(title="Scoreboard for: *{}*".format(server), content=scoreboard_string)
+    return create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string)
+
+
+def lotr_search(google_client, query, config):
+    site = config.GOOGLE_CONFIG['site']
+    content = list(google_client.google_search(query, site))
+    if not content:
+        return ':x: No results for `{}` on  *{}*.'.format(query, site)
+    content = content[0]
+    title = ':mag: 1st result for `{}` on  *{}* :'.format(query, site)
+    return (create_embed(title=title), content)

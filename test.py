@@ -1,7 +1,12 @@
-import lotr_config
-list_ = lotr_config.DISCORD_CONFIG['hangman.ongoing_states']
-list_.append(lotr_config.DISCORD_CONFIG['hangman.won_state'])
-list_.append(lotr_config.DISCORD_CONFIG['hangman.lost_state'])
-for i,item in enumerate(list_):
-    print(i, "\n", item.replace("```", ""))
-    print("\n\n")
+import os, sys
+
+sys.path.append(os.path.abspath('./google'))
+
+import google_search_client
+
+
+client = google_search_client.GoogleSearchClient()
+result = client.google_search(input(), 'lotr.fandom.com')
+
+for i in result:
+    print(i)

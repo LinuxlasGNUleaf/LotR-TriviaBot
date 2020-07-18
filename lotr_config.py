@@ -30,6 +30,9 @@ YT_CONFIG = {
     'channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
 }
 
+GOOGLE_CONFIG = {
+    'site':'lotr.fandom.com'
+}
 
 DISCORD_CONFIG = {
     'scoreboard': os.path.join(os.getenv('HOME'),
@@ -105,6 +108,8 @@ You have four possible answers, your score is tracked.
 `{0} trivia`
 *to see your score:*
 `{0} profile`
+*to create a scoreboard for the whole server:*
+`{0} scoreboard`
 
 **- LotR - Hangman**
 Features the classic hangman game with LotR terms.
@@ -128,10 +133,15 @@ send any __whole sentence from the LotR movies__, the bot will respond.
 
 **- Youtube Video Search**
 Allows you to provide keywords to search the videos of a channel.
-The channel id is currently set in the config file.
-to search for videos:
+The channel id is set in the config file.
+*to search for videos:*
 `{0} yt (<max video count>) <keywords>`
 
+**- LotR Wiki Search**
+Allows you to search the wiki for a specific topic.
+The wiki URL is set in the config file.
+*to search the wiki:*
+`{0} search <keywords>`
 '''.format(GENERAL_CONFIG['key']),
 
 

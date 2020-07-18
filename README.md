@@ -4,6 +4,7 @@ It utilizes the Discord, Reddit and Youtube Data API.
 The bot features mutliple minigames, including:
 * **LotR - Trivia Game**
 In this game you get asked trivia questions from LotR, the Hobbit, the Silmarillion and the Extended Lore. You have four possible answers, your score is tracked.
+Additional features include profile and server-wide scoreboard creation.
 * **LotR - Hangman**
 Features the classic hangman game with LotR terms.
 * **Random Silmarillion quote**
@@ -14,7 +15,11 @@ Outputs a dank meme from r/lotrmemes.
 Recognizes lines from the movie script and in the case of a 85% match, completes the sentence and prints the next dialog line
 * **Youtube videos**
 Searches for videos from a specific Youtube Channel.
-The Channel ID can be set in the config.
+The Channel ID is set in the config.
+** LotR Wiki Search**
+Searches the wiki for a specific topic.
+The wiki URL is set in the config file.
+`{0} search <keywords>`
 
 ## TODO
 - [x] LotR trivia quiz
@@ -25,9 +30,8 @@ The Channel ID can be set in the config.
 - [x] Pylint refactoring
 - [X] Youtube API
 - [X] parsing all three movies for autoscript feature... took ages
-- [x] **Succeeding in keeping the god damn API credentials out of the repository**
+- [x] *Keeping the API credentials out of the repository*
 they old ones are all invalid by now, so don't even bother :)
-- [ ] Using Facebook API for fetching memes from ShirePosting :/
 
 ## Code Contributors
 Well, that would be me. If you want to contact me,

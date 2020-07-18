@@ -12,10 +12,12 @@ import lotr_config
 sys.path.append(os.path.abspath('./discord'))
 sys.path.append(os.path.abspath('./reddit'))
 sys.path.append(os.path.abspath('./yt_data_api'))
+sys.path.append(os.path.abspath('./google'))
 
 import dc_client
 import reddit_client
 import yt_api_client
+import google_search_client
 
 def get_token(loc, name, essential):
     '''
@@ -69,7 +71,9 @@ REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
 
 YT_API_CLIENT = yt_api_client.YtAPIClient(yt_api_credentials)
 
-DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, YT_API_CLIENT)
+GOOGLE_SEARCH_CLIENT = google_search_client.GoogleSearchClient()
+
+DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, YT_API_CLIENT, GOOGLE_SEARCH_CLIENT)
 
 try:
     DC_CLIENT.run(TOKEN)
