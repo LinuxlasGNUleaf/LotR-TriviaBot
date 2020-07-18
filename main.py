@@ -11,13 +11,17 @@ import lotr_config
 
 sys.path.append(os.path.abspath('./discord'))
 sys.path.append(os.path.abspath('./reddit'))
-sys.path.append(os.path.abspath('./google'))
+sys.path.append(os.path.abspath('./yt_data_api'))
 
 import dc_client
 import reddit_client
-import google_client
+import yt_api_client
 
-def getFile(loc, name, essential):
+def get_token(loc, name, essential):
+    '''
+    returns token from a given tokenfile location, \
+and raises an Error if file is essential and not valid.
+    '''
     try:
         with open(loc, 'r') as infofile:
             temp = infofile.readlines()
@@ -27,9 +31,11 @@ def getFile(loc, name, essential):
                 temp[i] = item.strip()
             return temp
     except (FileNotFoundError, EOFError):
-        print('{}: {} not found!'.format('[ERROR]' if essential else '[WARN]', name))
+        msg = '{}: {} not found!'.format('[ERROR]' if essential else '[WARN]', name)
         if essential:
-            sys.exit(-1)
+            raise EOFError(msg)
+        else:
+            print(msg)
 
 
 # ==========================> LISTS <==================================
@@ -49,20 +55,19 @@ except (FileNotFoundError, EOFError):
     print('[WARN]: meme log file not found, ignoring.')
 
 
-TOKEN = getFile(lotr_config.DISCORD_CONFIG['token'], 'discord token', True)[0].strip()
+TOKEN = get_token(lotr_config.DISCORD_CONFIG['token'], 'discord token', True)[0].strip()
 if not TOKEN:
     raise EOFError('[ERROR]: discord token not found! abort.')
 
 # aquire credentials from the token files
-reddit_credentials = getFile(lotr_config.REDDIT_CONFIG['token'], 'reddit credentials', True)
+reddit_credentials = get_token(lotr_config.REDDIT_CONFIG['token'], 'reddit credentials', True)
 
-google_credentials = getFile(lotr_config.YT_CONFIG['token'], 'yt api credentials', True)
-
+yt_api_credentials = get_token(lotr_config.YT_CONFIG['token'], 'yt api credentials', True)
 
 # create the client instances
 REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
 
-YT_API_CLIENT = google_client.GoogleClient(google_credentials)
+YT_API_CLIENT = yt_api_client.YtAPIClient(yt_api_credentials)
 
 DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, YT_API_CLIENT)
 
