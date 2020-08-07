@@ -166,7 +166,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard':
             if isDM:
-                channel.send("Well that's not going to work, mate.\nYou are in a DM... join a server where this amazing bot is present to create a scoreboard.")
+                await channel.send("Well that's not going to work, mate.\nYou are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.")
                 return
             embed = minigames.create_scoreboard(self.scoreboard, server)
             await channel.send(embed=embed)
