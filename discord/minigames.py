@@ -434,12 +434,12 @@ def find_similar_from_script(msg, condensed_arr, script):
         return -1
 
 
-def reddit_meme(server, reddit_client):
+def reddit_meme(ch_id, reddit_client):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
 
-    submission = reddit_client.get_meme(server, 'lotrmemes')
+    submission = reddit_client.get_meme(ch_id, 'lotrmemes')
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
     if submission.is_self:

@@ -46,22 +46,9 @@ class LotrBot(discord.Client):
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
-        server = channel.guild
-
-#==============================================================================
-        if content.startswith(self.config.GENERAL_CONFIG['key'] + ' config '):
-            content = content.split(' ')[2:]
-            if content[0] == 'autoscript':
-                if content[1] == 'true':
-                    self.do_autoscript = True
-                    await channel.send('option `autoscript` was enabled!')
-                elif content[1] == 'false':
-                    self.do_autoscript = False
-                    await channel.send('option `autoscript` was disabled!')
-                else:
-                    await channel.send('state for option `autoscript` was not recognized!')
-            else:
-                await channel.send('option `{}` was not recognized!'.format(content[0]))
+        isDM = isinstance(channel, discord.channel.DMChannel)
+        if not isDM:
+            server = channel.guild
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' trivia':
@@ -117,7 +104,8 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' meme':
-            embed = minigames.reddit_meme(server, self.reddit_client)
+            ch_id = channel.id if isDM else server.id 
+            embed = minigames.reddit_meme(ch_id, self.reddit_client)
             await channel.send(embed=embed)
 
 #==============================================================================
@@ -177,6 +165,9 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard':
+            if isDM:
+                channel.send("Well that's not going to work, mate.\nYou are in a DM... join a server where this amazing bot is present to create a scoreboard.")
+                return
             embed = minigames.create_scoreboard(self.scoreboard, server)
             await channel.send(embed=embed)
 
@@ -191,7 +182,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                 await channel.send(result[1])
 
 #==============================================================================
-        elif self.do_autoscript:
+        elif self.do_autoscript and not isDM:
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
             if isinstance(result, list):

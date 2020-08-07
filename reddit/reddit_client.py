@@ -13,12 +13,12 @@ class RedditClient():
                                   user_agent='reddit post yoinker by /u/_LegolasGreenleaf',
                                   username=username)
 
-    def get_meme(self, server, subreddit):
+    def get_meme(self, ch_id, subreddit):
         '''
         finds unseen meme for the given server
         '''
-        if server.id in self.meme_log.keys():
-            used_ids = self.meme_log[server.id]
+        if ch_id in self.meme_log.keys():
+            used_ids = self.meme_log[ch_id]
         else:
             used_ids = []
 
@@ -34,5 +34,5 @@ class RedditClient():
                 used_ids.append(submission.id)
                 break
 
-        self.meme_log[server.id] = used_ids
+        self.meme_log[ch_id] = used_ids
         return meme
