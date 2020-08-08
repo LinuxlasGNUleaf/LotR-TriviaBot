@@ -8343,17 +8343,15 @@ Forth and fear no darkness!
 
 THEODEN
 Arise, arise, Riders of Theoden!
-Spears shall be shaken, shields shall be splintered!
+Spears shall be shaken! Shields shall be splintered!
 A sword day, a red day, ere the sun rises!
 
 EOWYN
 Whatever happens, stay with me. I'll look after you.
 
 THEODEN
-Ride now, ride now, ride, ride for ruin and
-the world's ending!
-
-THEODEN
+Ride now, ride now! 
+Ride, ride for ruin and the world's ending!
 Death!
 
 6000 ROHIRRIM
@@ -8395,7 +8393,7 @@ GANDALF
 Stay this madness!
 
 DENETHOR
-No! Do not take my son from me!
+No, do not take my son from me!
 
 DENETHOR
 Faramir-

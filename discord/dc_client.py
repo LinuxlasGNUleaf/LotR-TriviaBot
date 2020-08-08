@@ -40,7 +40,9 @@ class LotrBot(discord.Client):
         '''
         main function to recognize a bot command
         '''
-        if message.author == self.user or message.author.id in self.blocked:
+        if message.author == self.user or \
+           message.author.id in self.blocked or \
+           message.author.bot:
             return
 
         user = message.author
@@ -50,6 +52,9 @@ class LotrBot(discord.Client):
         isDM = isinstance(channel, discord.channel.DMChannel)
         if not isDM:
             server = channel.guild
+            if not channel.permissions_for(server.me).send_messages:
+                return
+            
 
 #==============================================================================
         if content == self.config.GENERAL_CONFIG['key'] + ' trivia':
@@ -105,9 +110,10 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' meme':
-            ch_id = channel.id if isDM else server.id 
-            embed = minigames.reddit_meme(ch_id, self.reddit_client, self.config.REDDIT_CONFIG['subreddit'])
-            await channel.send(embed=embed)
+            async with channel.typing():
+                ch_id = channel.id if isDM else server.id 
+                embed = minigames.reddit_meme(ch_id, self.reddit_client, self.config.REDDIT_CONFIG['subreddit'])
+                await channel.send(embed=embed)
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' squote':
@@ -125,36 +131,37 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 
 #==============================================================================
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt '):
-            raw_content = raw_content.split(' ')[2:]
+            async with channel.typing():
+                raw_content = raw_content.split(' ')[2:]
 
-            if raw_content[0].isdigit():  # Video count was provided
-                num = int(raw_content[0])
-                query = ' '.join(raw_content[1:])
-            else:
-                query = ' '.join(raw_content)
-                num = 1
+                if raw_content[0].isdigit():  # Video count was provided
+                    num = int(raw_content[0])
+                    query = ' '.join(raw_content[1:])
+                else:
+                    query = ' '.join(raw_content)
+                    num = 1
 
-            if not query:
-                await channel.send(minigames.create_reply(user, True, self.config) +
-                                   '\nTry providing a query next time!\nThe correct syntax is: \
+                if not query:
+                    await channel.send(minigames.create_reply(user, True, self.config) +
+                                    '\nTry providing a query next time!\nThe correct syntax is: \
 `{0} yt (<max video count>) <keywords>\n(count is optional)`'\
                                    .format(self.config.GENERAL_CONFIG['key']))
-                return
+                    return
 
-            result = minigames.search_youtube(
-                self.yt_api_client,
-                self.config.YT_CONFIG['channel_id'],
-                query,
-                num,
-                self.config)
+                result = minigames.search_youtube(
+                    self.yt_api_client,
+                    self.config.YT_CONFIG['channel_id'],
+                    query,
+                    num,
+                    self.config)
 
-            if not result:
-                await channel.send('*\'I have no memory of this place\'*\n\
-~Gandalf\nYour query `{}` yielded no results!'.format(query))
-                return
+                if not result:
+                    await channel.send('*\'I have no memory of this place\'*\n\
+    ~Gandalf\nYour query `{}` yielded no results!'.format(query))
+                    return
 
-            for embed in result:
-                await channel.send(embed=embed)
+                for embed in result:
+                    await channel.send(embed=embed)
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' help':
@@ -174,19 +181,21 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 
 #==============================================================================
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' search '):
-            raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
-            result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
-            if isinstance(result, str):
-                await channel.send(result)
-            else:
-                await channel.send(embed=result[0])
-                await channel.send(result[1])
+            async with channel.typing():
+                raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
+                result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
+                if isinstance(result, str):
+                    await channel.send(result)
+                else:
+                    await channel.send(embed=result[0])
+                    await channel.send(result[1])
 
 #==============================================================================
         elif self.do_autoscript and not isDM:
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
             if isinstance(result, list):
-                await message.add_reaction('✅')
+                if channel.permissions_for(server.me).add_reactions:
+                    await message.add_reaction('✅')
                 for line in result:
                     await channel.send(line)
