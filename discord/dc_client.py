@@ -4,6 +4,7 @@ Main discord bot class, includes minigames.py for all the extra functionality
 import asyncio
 import discord
 import minigames
+from random import choice
 
 class LotrBot(discord.Client):
     '''
@@ -30,7 +31,7 @@ class LotrBot(discord.Client):
         '''
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
-            (type=discord.ActivityType.watching, name='Boromir getting boromir\'d'))
+            (type=discord.ActivityType.watching, name=choice(self.config.DISCORD_CONFIG['custom_status'])))
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
@@ -51,7 +52,7 @@ class LotrBot(discord.Client):
             server = channel.guild
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' trivia':
+        if content == self.config.GENERAL_CONFIG['key'] + ' trivia':
             # send the question message
             embed, correct_ind, len_answers = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
@@ -105,7 +106,7 @@ class LotrBot(discord.Client):
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' meme':
             ch_id = channel.id if isDM else server.id 
-            embed = minigames.reddit_meme(ch_id, self.reddit_client)
+            embed = minigames.reddit_meme(ch_id, self.reddit_client, self.config.REDDIT_CONFIG['subreddit'])
             await channel.send(embed=embed)
 
 #==============================================================================

@@ -13,6 +13,7 @@ GENERAL_CONFIG = {
 }
 
 REDDIT_CONFIG = {
+    'subreddit': 'lotrmemes',
     'memelog': os.path.join(os.getenv('HOME'),
                             GENERAL_CONFIG['config.path'],
                             'meme_log.pyobj'),
@@ -49,6 +50,19 @@ DISCORD_CONFIG = {
     'silmarillion.sentence_count': 2,
     'trivia.timeout': 15,
     'hangman.timeout': 15,
+
+    'custom_status': \
+['Boromir not simply walk into Mordor',
+'Viggo Mortensen break his toe',
+'Gimli lose his shoe',
+'Legolas no-scoping Orcs',
+'Merry and Pippin smoking pipe-weed',
+'Eowyn brewing a stew',
+'Gandalf bumping his head in Bag End',
+'Feanor doing nothing wrong',
+'Frodo getting stabbed by Shelob',
+'Sam smacc Smeagol on the head'
+],
 
     "hangman.allowed_chars":\
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',

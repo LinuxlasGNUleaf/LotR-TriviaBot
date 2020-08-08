@@ -434,22 +434,32 @@ def find_similar_from_script(msg, condensed_arr, script):
         return -1
 
 
-def reddit_meme(ch_id, reddit_client):
+def reddit_meme(ch_id, reddit_client, subreddit):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
-
-    submission = reddit_client.get_meme(ch_id, 'lotrmemes')
+    submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
-    if submission.is_self:
+
+    parent = reddit_client.get_crosspost_parent(submission)
+    if parent:
+        submission = parent
+        
+    if submission.is_self: # is text-only
+        text = submission.selftext
+        if len(text) > 2000:
+            text = text[:2000]
+            text += "..."
         return create_embed(
             submission.title,
             embed_url=post_url,
-            content=submission.self(),
+            content=text,
             footnote=footnote)
+    
+    # has embedded media
     return create_embed(
-        submission.title,
+        title=":repeat: Crosspost: "+submission.title if parent else submission.title,
         embed_url=post_url,
         link_url=submission.url,
         footnote=footnote)
