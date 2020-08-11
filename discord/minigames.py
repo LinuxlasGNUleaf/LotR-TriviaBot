@@ -445,7 +445,7 @@ def reddit_meme(ch_id, reddit_client, subreddit):
     parent = reddit_client.get_crosspost_parent(submission)
     if parent:
         submission = parent
-        
+
     if submission.is_self: # is text-only
         text = submission.selftext
         if len(text) > 2000:
@@ -456,7 +456,7 @@ def reddit_meme(ch_id, reddit_client, subreddit):
             embed_url=post_url,
             content=text,
             footnote=footnote)
-    
+
     # has embedded media
     return create_embed(
         title=":repeat: Crosspost: "+submission.title if parent else submission.title,
@@ -584,7 +584,6 @@ def create_scoreboard(scoreboard, server):
             scoreboard_string += medals[-1].format(temp)+'\n'
     return create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string)
 
-
 def lotr_search(google_client, query, config):
     site = config.GOOGLE_CONFIG['site']
     content = list(google_client.google_search(query, site))
@@ -593,3 +592,57 @@ def lotr_search(google_client, query, config):
     content = content[0]
     title = ':mag: 1st result for `{}` on  *{}* :'.format(query, site)
     return (create_embed(title=title), content)
+
+def feature_allowed(feature, channel, settings, config):
+    if isinstance(channel, discord.channel.DMChannel):
+        return 1
+    server = channel.guild
+    if channel.id in settings.keys():
+        if feature in settings[channel.id]:
+            return settings[channel.id][feature]
+    if server.id in settings.keys():
+        if feature in settings[server.id]:
+            return settings[server.id][feature]
+    if feature in config.DISCORD_CONFIG['settings.defaults'].keys():
+        return config.DISCORD_CONFIG['settings.defaults'][feature]
+    else:
+        return 1
+
+def edit_settings(cmd, settings, channel):
+    if cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
+        channel = channel.id
+        if not channel in settings.keys():
+            settings[channel] = {}
+
+        if cmd[1] == 'on':
+            settings[channel][cmd[0]] = 1
+            return 'feature `{}` for this channel was turned **on**'.format(cmd[0])
+        elif cmd[1] == 'off':
+            settings[channel][cmd[0]] = 0
+            return 'feature `{}` for this channel was turned **off**'.format(cmd[0])
+        elif cmd[1] == 'unset':
+            if cmd[0] in settings[channel].keys():
+                del settings[channel][cmd[0]]
+                return 'feature `{}` for this channel was **unset**'.format(cmd[0])
+            return 'feature `{}` for this channel was not yet set'.format(cmd[0])
+
+
+    elif cmd[1] == 'all-on' or cmd[1] == 'all-off' or cmd[1] == 'all-unset':
+        server = channel.guild.id
+        if not server in settings.keys():
+            settings[server] = {}
+
+        if cmd[1] == 'all-on':
+            settings[server][cmd[0]] = 1
+            return 'feature `{}` for this server was turned **on**'.format(cmd[0])
+        elif cmd[1] == 'all-off':
+            settings[server][cmd[0]] = 0
+            return 'feature `{}` for this server was turned **off**'.format(cmd[0])
+        elif cmd[1] == 'all-unset':
+            if cmd[0] in settings[server].keys():
+                del settings[server][cmd[0]]
+                return 'feature `{}` for this server was **unset**'.format(cmd[0])
+            return 'feature `{}` for this server was not yet set'.format(cmd[0])
+
+    else:
+        return 'state `{}` not recognized'.format(cmd[1])

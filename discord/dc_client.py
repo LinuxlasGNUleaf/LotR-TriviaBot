@@ -1,21 +1,24 @@
 '''
 Main discord bot class, includes minigames.py for all the extra functionality
 '''
+
+from random import choice
 import asyncio
 import discord
 import minigames
-from random import choice
 
 class LotrBot(discord.Client):
     '''
     Bot client, inheriting from discord.Client
     '''
-    def __init__(self, config, scoreboard, reddit_client, yt_api_client, google_search_client):
+    def __init__(self, config, scoreboard, settings,
+                 reddit_client, yt_api_client, google_search_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
         self.do_autoscript = True
         self.script = []
+        self.settings = settings
         self.script_condensed = []
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
@@ -31,7 +34,8 @@ class LotrBot(discord.Client):
         '''
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
-            (type=discord.ActivityType.watching, name=choice(self.config.DISCORD_CONFIG['custom_status'])))
+            (type=discord.ActivityType.watching,
+             name=choice(self.config.DISCORD_CONFIG['custom_status'])))
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
@@ -49,15 +53,31 @@ class LotrBot(discord.Client):
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
-        isDM = isinstance(channel, discord.channel.DMChannel)
-        if not isDM:
+        is_dm = isinstance(channel, discord.channel.DMChannel)
+        if not is_dm:
             server = channel.guild
             if not channel.permissions_for(server.me).send_messages:
                 return
-            
 
 #==============================================================================
-        if content == self.config.GENERAL_CONFIG['key'] + ' trivia':
+        if content.startswith(self.config.GENERAL_CONFIG['key'] + ' config') and not is_dm:
+            content = content.split(' ')[2:]
+            for i, item in enumerate(content):
+                content[i] = item.strip()
+            if content[0] in self.config.DISCORD_CONFIG['settings.features']:
+                ret = minigames.edit_settings(content, self.settings, channel)
+                await channel.send(ret)
+            elif content[0] == 'help':
+                await channel.send(self.config.DISCORD_CONFIG['settings.help'])
+            else:
+                await channel.send("Unknown Feature! Try one of the following:\n`"+ \
+'`,`'.join(self.config.DISCORD_CONFIG['settings.features'])+'`')
+
+
+#==============================================================================
+        elif content == self.config.GENERAL_CONFIG['key'] + ' trivia' and \
+             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
+
             # send the question message
             embed, correct_ind, len_answers = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
@@ -109,10 +129,13 @@ class LotrBot(discord.Client):
             self.blocked.remove(user.id)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' meme':
+        elif content == self.config.GENERAL_CONFIG['key'] + ' meme' and \
+             minigames.feature_allowed('memes', channel, self.settings, self.config):
             async with channel.typing():
-                ch_id = channel.id if isDM else server.id 
-                embed = minigames.reddit_meme(ch_id, self.reddit_client, self.config.REDDIT_CONFIG['subreddit'])
+                ch_id = channel.id if is_dm else server.id
+                embed = minigames.reddit_meme(ch_id,
+                                              self.reddit_client,
+                                              self.config.REDDIT_CONFIG['subreddit'])
                 await channel.send(embed=embed)
 
 #==============================================================================
@@ -121,7 +144,8 @@ class LotrBot(discord.Client):
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' profile':
+        elif content == self.config.GENERAL_CONFIG['key'] + ' profile' and \
+             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
             if user.id in self.scoreboard.keys():
                 await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard))
             else:
@@ -130,7 +154,8 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                                    .format(self.config.GENERAL_CONFIG['key']))
 
 #==============================================================================
-        elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt '):
+        elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt ') and \
+             minigames.feature_allowed('yt-search', channel, self.settings, self.config):
             async with channel.typing():
                 raw_content = raw_content.split(' ')[2:]
 
@@ -143,7 +168,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 
                 if not query:
                     await channel.send(minigames.create_reply(user, True, self.config) +
-                                    '\nTry providing a query next time!\nThe correct syntax is: \
+                                       '\nTry providing a query next time!\nThe correct syntax is: \
 `{0} yt (<max video count>) <keywords>\n(count is optional)`'\
                                    .format(self.config.GENERAL_CONFIG['key']))
                     return
@@ -172,9 +197,11 @@ profile can be generated! use `{} trivia` to take a quiz!'\
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard':
-            if isDM:
-                await channel.send("Well that's not going to work, mate.\nYou are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.")
+        elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard' and \
+             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
+            if is_dm:
+                await channel.send("Well that's not going to work, mate.\n\
+You are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.")
                 return
             embed = minigames.create_scoreboard(self.scoreboard, server)
             await channel.send(embed=embed)
@@ -191,7 +218,8 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                     await channel.send(result[1])
 
 #==============================================================================
-        elif self.do_autoscript and not isDM:
+        elif self.do_autoscript and not is_dm and \
+             minigames.feature_allowed('autoscript', channel, self.settings, self.config):
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
             if isinstance(result, list):

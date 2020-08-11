@@ -16,11 +16,13 @@ Recognizes lines from the movie script and in the case of a 85% match, completes
 * **Youtube videos**
 Searches for videos from a specific Youtube Channel.
 The Channel ID is set in the config.
-** LotR Wiki Search**
+* **LotR Wiki Search**
 Searches the wiki for a specific topic.
 The wiki URL is set in the config file.
 
-## TODO
+# Checklist
+
+## Done
 - [x] LotR trivia quiz
 - [x] LotR hangman with words from Middleearth
 - [x] Silmarillion quotes on demand
@@ -32,7 +34,12 @@ The wiki URL is set in the config file.
 - [x] *Keeping the API credentials out of the repository*
 they old ones are all invalid by now, so don't even bother :)
 
-## Code Contributors
+## QOL Improvements
+- [x] Fixing DM issues
+- [x] Respecting Discord Permissions
+- [x] support for Reddit crossposts, text-only and image-embed submissions
+
+# Code Contributors
 Well, that would be me. If you want to contact me,
 you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 ## Trivia Questions Contributors

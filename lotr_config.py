@@ -5,7 +5,7 @@ ORDINAL = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
 # MAIN CONFIG FILE
 GENERAL_CONFIG = {
-    'version': '2.2-build1',
+    'version': '2.3',
     'marker': '*',
     'key': 'lotr',
     'footer': 'A discord bot written in Python by JaWs',
@@ -14,20 +14,20 @@ GENERAL_CONFIG = {
 
 REDDIT_CONFIG = {
     'subreddit': 'lotrmemes',
-    'memelog': os.path.join(os.getenv('HOME'),
-                            GENERAL_CONFIG['config.path'],
-                            'meme_log.pyobj'),
+    'memelog.loc': os.path.join(os.getenv('HOME'),
+                                GENERAL_CONFIG['config.path'],
+                                'meme_log.pyobj'),
 
-    'token': os.path.join(os.getenv('HOME'),
-                          GENERAL_CONFIG['config.path'],
-                          'reddit.tk')
+    'token.loc': os.path.join(os.getenv('HOME'),
+                              GENERAL_CONFIG['config.path'],
+                              'reddit.tk')
 }
 
 YT_CONFIG = {
     'max_video_count': 3,
-    'token': os.path.join(os.getenv('HOME'),
-                          GENERAL_CONFIG['config.path'],
-                          'google.tk'),
+    'token.loc': os.path.join(os.getenv('HOME'),
+                              GENERAL_CONFIG['config.path'],
+                              'google.tk'),
     'channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
 }
 
@@ -36,13 +36,41 @@ GOOGLE_CONFIG = {
 }
 
 DISCORD_CONFIG = {
-    'scoreboard': os.path.join(os.getenv('HOME'),
-                               GENERAL_CONFIG['config.path'],
-                               'scoreboard.pyobj'),
+    'scoreboard.loc': os.path.join(os.getenv('HOME'),
+                                   GENERAL_CONFIG['config.path'],
+                                   'scoreboard.pyobj'),
 
-    'token': os.path.join(os.getenv('HOME'),
-                          GENERAL_CONFIG['config.path'],
-                          'discord.tk'),
+    'settings.loc': os.path.join(os.getenv('HOME'),
+                                 GENERAL_CONFIG['config.path'],
+                                 'dc_settings.pyobj'),
+
+    'settings.help': \
+'''
+**How the config works:**
+You can set preferences for a server or a channel (DMs excluded),\
+which means you set the feature to on / off.
+If set, the channel preference for a feature will __always__ be relevant.
+If the channel preference for this feature is not set, the server-preference will be used.
+If the server-preference is not set, the defaults will be used, which is "allowed".\n
+**How to use the config command:**
+`{0} config <feature> on` to turn <feature> on for channel
+`{0} config <feature> off` to turn <feature> off for channel
+`{0} config <feature> unset` to unset <feature> setting for channel
+(the server preferences are used, or if these are not set either, the defaults.)
+\n
+`{0} config <feature> all-on` to turn <feature> on **for all channels on this server** \
+(all channels where the bot has send_messages permission)
+`{0} config <feature> all-off` to turn <feature> off **for all channels on this server**
+`{0} config <feature> all-unset` to unset <feature> for server
+(the channel preferences are used, or if these are not set, directly the defaults.)
+'''.format(GENERAL_CONFIG['key']),
+
+    'settings.features': ['autoscript', 'memes', 'trivia-quiz', 'yt-search'],
+    'settings.defaults': {'autoscript':1, 'memes':1, 'trivia-quiz':1, 'yt-search':1},
+
+    'token.loc': os.path.join(os.getenv('HOME'),
+                              GENERAL_CONFIG['config.path'],
+                              'discord.tk'),
 
     # minigames config
     'script.path': 'script.txt',
@@ -53,16 +81,16 @@ DISCORD_CONFIG = {
 
     'custom_status': \
 ['Boromir not simply walk into Mordor',
-'Viggo Mortensen break his toe',
-'Gimli lose his shoe',
-'Legolas no-scoping Orcs',
-'Merry and Pippin smoking pipe-weed',
-'Eowyn brewing a stew',
-'Gandalf bumping his head in Bag End',
-'Feanor doing nothing wrong',
-'Frodo getting stabbed by Shelob',
-'Sam smacc Smeagol on the head'
-],
+ 'Viggo Mortensen break his toe',
+ 'Gimli lose his shoe',
+ 'Legolas no-scoping Orcs',
+ 'Merry and Pippin smoking pipe-weed',
+ 'Eowyn brewing a stew',
+ 'Gandalf bumping his head in Bag End',
+ 'Feanor doing nothing wrong',
+ 'Frodo getting stabbed by Shelob',
+ 'Smeagol smacc Sam with a stone',
+ 'Aragorn charging for Frodo'],
 
     "hangman.allowed_chars":\
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
