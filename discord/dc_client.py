@@ -135,12 +135,11 @@ class LotrBot(discord.Client):
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' meme' and \
              minigames.feature_allowed('memes', channel, self.settings, self.config):
-            async with channel.typing():
-                ch_id = channel.id if is_dm else server.id
-                embed = minigames.reddit_meme(ch_id,
-                                              self.reddit_client,
-                                              self.config.REDDIT_CONFIG['subreddit'])
-                await channel.send(embed=embed)
+            ch_id = channel.id if is_dm else server.id
+            embed = minigames.reddit_meme(ch_id,
+                                            self.reddit_client,
+                                            self.config.REDDIT_CONFIG['subreddit'])
+            await channel.send(embed=embed)
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' squote':
@@ -160,44 +159,16 @@ profile can be generated! use `{} trivia` to take a quiz!'\
 #==============================================================================
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt ') and \
              minigames.feature_allowed('yt-search', channel, self.settings, self.config):
-            async with channel.typing():
-                raw_content = raw_content.split(self.config.GENERAL_CONFIG['key'] + ' yt ')[1]
-                start, end = (-1, -1)
-                query = ''
-
-                start = raw_content.find('\"')
-                if start != -1:
-                    end = raw_content.find('\"', start + 1)
-                    if end != -1:
-                        query = raw_content[start+1:end]
-                        if raw_content[:start].strip().isdigit():
-                            num = max(1, int(raw_content[:start].strip()))
-                        elif raw_content[end+1:].strip().isdigit():
-                            num = max(1, int(raw_content[end+1:].strip()))
-                        else:
-                            num = 1
-
-                if not query:
-                    await channel.send(minigames.create_reply(user, True, self.config) +
-                                       '\nTry providing a query next time!\nThe correct syntax is: \
-`{0} yt "<keywords>" \n(you can also provide a video count, before or after the query)`\n'\
-                                   .format(self.config.GENERAL_CONFIG['key']))
-                    return
-
-                result = minigames.search_youtube(
-                    self.yt_api_client,
-                    self.config.YT_CONFIG['channel_id'],
-                    query,
-                    num,
-                    self.config)
-
-                if not result:
-                    await channel.send('*\'I have no memory of this place\'*\n\
-    ~Gandalf\nYour query `{}` yielded no results!'.format(query))
-                    return
-
-                for embed in result:
-                    await channel.send(embed=embed)
+            result = minigames.search_youtube(user,
+                                                raw_content,
+                                                self.yt_api_client,
+                                                self.config)
+            
+            if isinstance(result, list):
+                for item in result:
+                    await channel.send(embed=item)
+            else:
+                await channel.send(result)
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' help':
@@ -219,14 +190,13 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
 
 #==============================================================================
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' search '):
-            async with channel.typing():
-                raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
-                result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
-                if isinstance(result, str):
-                    await channel.send(result)
-                else:
-                    await channel.send(embed=result[0])
-                    await channel.send(result[1])
+            raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
+            result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
+            if isinstance(result, str):
+                await channel.send(result)
+            else:
+                await channel.send(embed=result[0])
+                await channel.send(result[1])
 
 #==============================================================================
         elif self.do_autoscript and not is_dm and \

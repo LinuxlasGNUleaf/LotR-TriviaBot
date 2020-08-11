@@ -505,14 +505,39 @@ def is_headline(line):
     return True
 
 
-def search_youtube(google_client, channel_id, query, num, config):
+def search_youtube(user, raw_content, google_client, config):
     '''
     returns a give number of Youtube Video embeds for a specific channel
     '''
+    raw_content = raw_content.split(config.GENERAL_CONFIG['key'] + ' yt ')[1]
+    start, end = (-1, -1)
+    query = ''
+
+    start = raw_content.find('\"')
+    if start != -1:
+        end = raw_content.find('\"', start + 1)
+        if end != -1:
+            query = raw_content[start+1:end]
+            if raw_content[:start].strip().isdigit():
+                num = max(1, int(raw_content[:start].strip()))
+            elif raw_content[end+1:].strip().isdigit():
+                num = max(1, int(raw_content[end+1:].strip()))
+            else:
+                num = 1
+
+    if not query:
+        return create_reply(user, True, config) + '\nTry providing a query next time!\n\
+The correct syntax is: `{0} yt "<keywords>" \n(you can also provide a video count, \
+before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
+
     res = google_client.get_video_from_channel(
-        channel_id,
+        config.YT_CONFIG['channel_id'],
         query,
         min(config.YT_CONFIG['max_video_count'], num))['items']
+
+    if not res:
+        return '*\'I have no memory of this place\'*\n~Gandalf\
+\nYour query `{}` yielded no results!'.format(query)
 
     embeds = []
     for i, item in enumerate(res):
