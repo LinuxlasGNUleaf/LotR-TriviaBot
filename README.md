@@ -19,6 +19,8 @@ The Channel ID is set in the config.
 * **LotR Wiki Search**
 Searches the wiki for a specific topic.
 The wiki URL is set in the config file.
+* **Configuration**
+Adding easy-to-use config to control use of features channel- and server-wide
 
 # Checklist
 
@@ -33,11 +35,13 @@ The wiki URL is set in the config file.
 - [X] parsing all three movies for autoscript feature... took ages
 - [x] *Keeping the API credentials out of the repository*
 they old ones are all invalid by now, so don't even bother :)
+- [x] Adding config to control use of features channel- and server-wide
 
 ## QOL Improvements
 - [x] Fixing DM issues
 - [x] Respecting Discord Permissions
 - [x] support for Reddit crossposts, text-only and image-embed submissions
+- [x] Graphical Config Visualization
 
 # Code Contributors
 Well, that would be me. If you want to contact me,
