@@ -69,9 +69,13 @@ class LotrBot(discord.Client):
                 await channel.send(ret)
             elif content[0] == 'help':
                 await channel.send(self.config.DISCORD_CONFIG['settings.help'])
+            elif content[0] == 'show':
+                await channel.send(embed=minigames.create_config_embed(channel,
+                                                                       self.settings,
+                                                                       self.config))
             else:
                 await channel.send("Unknown Feature! Try one of the following:\n`"+ \
-'`,`'.join(self.config.DISCORD_CONFIG['settings.features'])+'`')
+'`, `'.join(self.config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
 
 
 #==============================================================================
@@ -157,19 +161,26 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt ') and \
              minigames.feature_allowed('yt-search', channel, self.settings, self.config):
             async with channel.typing():
-                raw_content = raw_content.split(' ')[2:]
+                raw_content = raw_content.split(self.config.GENERAL_CONFIG['key'] + ' yt ')[1]
+                start, end = (-1, -1)
+                query = ''
 
-                if raw_content[0].isdigit():  # Video count was provided
-                    num = int(raw_content[0])
-                    query = ' '.join(raw_content[1:])
-                else:
-                    query = ' '.join(raw_content)
-                    num = 1
+                start = raw_content.find('\"')
+                if start != -1:
+                    end = raw_content.find('\"', start + 1)
+                    if end != -1:
+                        query = raw_content[start+1:end]
+                        if raw_content[:start].strip().isdigit():
+                            num = max(1, int(raw_content[:start].strip()))
+                        elif raw_content[end+1:].strip().isdigit():
+                            num = max(1, int(raw_content[end+1:].strip()))
+                        else:
+                            num = 1
 
                 if not query:
                     await channel.send(minigames.create_reply(user, True, self.config) +
                                        '\nTry providing a query next time!\nThe correct syntax is: \
-`{0} yt (<max video count>) <keywords>\n(count is optional)`'\
+`{0} yt "<keywords>" \n(you can also provide a video count, before or after the query)`\n'\
                                    .format(self.config.GENERAL_CONFIG['key']))
                     return
 

@@ -53,15 +53,15 @@ If set, the channel preference for a feature will __always__ be relevant.
 If the channel preference for this feature is not set, the server-preference will be used.
 If the server-preference is not set, the defaults will be used, which is "allowed".\n
 **How to use the config command:**
-`{0} config <feature> on` to turn <feature> on for channel
-`{0} config <feature> off` to turn <feature> off for channel
-`{0} config <feature> unset` to unset <feature> setting for channel
+`{0} config <feature> on` to turn <feature> on for this channel
+`{0} config <feature> off` to turn <feature> off for this channel
+`{0} config <feature> unset` to unset <feature> setting for this channel
 (the server preferences are used, or if these are not set either, the defaults.)
 \n
-`{0} config <feature> all-on` to turn <feature> on **for all channels on this server** \
+`{0} config <feature> server-on` to turn <feature> on for this server** \
 (all channels where the bot has send_messages permission)
-`{0} config <feature> all-off` to turn <feature> off **for all channels on this server**
-`{0} config <feature> all-unset` to unset <feature> for server
+`{0} config <feature> server-off` to turn <feature> off for this server**
+`{0} config <feature> server-unset` to unset <feature> for this server
 (the channel preferences are used, or if these are not set, directly the defaults.)
 '''.format(GENERAL_CONFIG['key']),
 
@@ -177,7 +177,8 @@ send any __whole sentence from the LotR movies__, the bot will respond.
 Allows you to provide keywords to search the videos of a channel.
 The channel id is set in the config file.
 *to search for videos:*
-`{0} yt (<max video count>) <keywords>`
+`{0} yt "query"`
+(note the "quotes". you can also provide a video count before or after the query)
 
 **- LotR Wiki Search**
 Allows you to search the wiki for a specific topic.

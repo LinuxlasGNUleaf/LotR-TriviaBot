@@ -450,7 +450,7 @@ def reddit_meme(ch_id, reddit_client, subreddit):
         text = submission.selftext
         if len(text) > 2000:
             text = text[:2000]
-            text += "..."
+            text += '...'
         return create_embed(
             submission.title,
             embed_url=post_url,
@@ -459,7 +459,7 @@ def reddit_meme(ch_id, reddit_client, subreddit):
 
     # has embedded media
     return create_embed(
-        title=":repeat: Crosspost: "+submission.title if parent else submission.title,
+        title=':repeat: Crosspost: '+submission.title if parent else submission.title,
         embed_url=post_url,
         link_url=submission.url,
         footnote=footnote)
@@ -627,18 +627,18 @@ def edit_settings(cmd, settings, channel):
             return 'feature `{}` for this channel was not yet set'.format(cmd[0])
 
 
-    elif cmd[1] == 'all-on' or cmd[1] == 'all-off' or cmd[1] == 'all-unset':
+    elif cmd[1] == 'server-on' or cmd[1] == 'server-off' or cmd[1] == 'server-unset':
         server = channel.guild.id
         if not server in settings.keys():
             settings[server] = {}
 
-        if cmd[1] == 'all-on':
+        if cmd[1] == 'server-on':
             settings[server][cmd[0]] = 1
             return 'feature `{}` for this server was turned **on**'.format(cmd[0])
-        elif cmd[1] == 'all-off':
+        elif cmd[1] == 'server-off':
             settings[server][cmd[0]] = 0
             return 'feature `{}` for this server was turned **off**'.format(cmd[0])
-        elif cmd[1] == 'all-unset':
+        elif cmd[1] == 'server-unset':
             if cmd[0] in settings[server].keys():
                 del settings[server][cmd[0]]
                 return 'feature `{}` for this server was **unset**'.format(cmd[0])
@@ -646,3 +646,29 @@ def edit_settings(cmd, settings, channel):
 
     else:
         return 'state `{}` not recognized'.format(cmd[1])
+
+def create_config_embed(channel, settings, config):
+    server = channel.guild
+    title = 'Config for #{}, Server: {}'.format(channel, server)
+    content = ''
+    for feature in config.DISCORD_CONFIG['settings.features']:
+        content += '**Feature `{}`:**\n'.format(feature)
+        server_setting = ':grey_question:'
+        if server.id in settings.keys():
+            if feature in settings[server.id]:
+                server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
+        channel_setting = ':grey_question:'
+        if channel.id in settings.keys():
+            if feature in settings[channel.id]:
+                channel_setting = ':white_check_mark:' if settings[channel.id][feature] else ':x:'
+
+        effective = ':white_check_mark:' if feature_allowed(feature,
+                                                            channel,
+                                                            settings,
+                                                            config) else ':x:'
+        content += 'Server: {} Channel: {} Effective: {}\n\n'\
+                   .format(server_setting, channel_setting, effective)
+
+    return create_embed(title=title,
+                        content=content,
+                        footnote=config.GENERAL_CONFIG['footer'])
