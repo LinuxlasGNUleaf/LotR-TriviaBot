@@ -65,6 +65,9 @@ class LotrBot(discord.Client):
             for i, item in enumerate(content):
                 content[i] = item.strip()
             if content[0] in self.config.DISCORD_CONFIG['settings.features']:
+                if not channel.permissions_for(user).manage_channels:
+                    await channel.send(':x: You do not have permission to change these settings!')
+                    return
                 ret = minigames.edit_settings(content, self.settings, channel)
                 await channel.send(ret)
             elif content[0] == 'help':
@@ -137,8 +140,8 @@ class LotrBot(discord.Client):
              minigames.feature_allowed('memes', channel, self.settings, self.config):
             ch_id = channel.id if is_dm else server.id
             embed = minigames.reddit_meme(ch_id,
-                                            self.reddit_client,
-                                            self.config.REDDIT_CONFIG['subreddit'])
+                                          self.reddit_client,
+                                          self.config.REDDIT_CONFIG['subreddit'])
             await channel.send(embed=embed)
 
 #==============================================================================
@@ -160,10 +163,10 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt ') and \
              minigames.feature_allowed('yt-search', channel, self.settings, self.config):
             result = minigames.search_youtube(user,
-                                                raw_content,
-                                                self.yt_api_client,
-                                                self.config)
-            
+                                              raw_content,
+                                              self.yt_api_client,
+                                              self.config)
+
             if isinstance(result, list):
                 for item in result:
                     await channel.send(embed=item)
