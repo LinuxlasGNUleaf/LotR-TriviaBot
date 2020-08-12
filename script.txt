@@ -245,7 +245,7 @@ FRODO
 Gandalf, I'm glad you're back.
 
 GANDALF
-So am I, dear boy. So am I
+So am I, dear boy. So am I.
 
 STOP
 
@@ -296,7 +296,7 @@ BILBO
 You've caught me a bit unprepared, I'm
 afraid. We've only got cold chicken, bit
 of pickle, some cheese here, ooh, no,
-that might be a little risky
+that might be a little risky.
 
 BILBO
 Er, we've got raspberry jam and apple
@@ -4357,7 +4357,7 @@ child.
 GANDALF
 He was strong in life. His spirit will
 find its way to the halls of your fathers.
-Westu hál. Ferðu, Théodred, Ferðu. 
+Westu hál. Ferðu, Théodred, Ferðu.
 (Be-thou well. Go-thou, Théodred, go-thou.)
 
 STOP
@@ -5439,7 +5439,7 @@ THEODEN
 A great host, you say?
 
 ARAGORN
-All Isengard is emptied
+All Isengard is emptied.
 
 THEODEN
 How many?
@@ -5521,7 +5521,7 @@ caves.
 
 GAMLING
 We need more time to lay provisions
-for a siege, lord –
+for a siege, lord-
 
 THEODEN
 There is no time. War is upon us!
@@ -6251,22 +6251,16 @@ FRODO
 What?
 
 SAM
-I wonder if people will ever say, ‘let’s
-hear about Frodo and the Ring.’ And
-they’ll say ‘yes, that’s one of my favorite
-stories. Frodo was really courageous,
-wasn’t he, dad.’ ‘Yes, my boy, the most
-famousest of hobbits. And that’s saying
-alot.’
+I wonder if people will ever say,
+"Let’s hear about Frodo and the Ring." And they’ll say:
+"Yes, that’s one of my favorite stories.
+Frodo was really courageous, wasn’t he, dad."
+"Yes, my boy, the most famousest of hobbits. And that’s saying alot."
 
 FRODO
-Huh, you left out one of the chief characters
-– Samwise the Brave. I want to hear
-more about Sam.
-
-FRODO
-Frodo wouldn’t have got far without
-Sam.
+Huh, you left out one of the chief characters:
+Samwise the Brave. I want to hear more about Sam.
+Frodo wouldn’t have got far without Sam.
 
 SAM
 Now Mr Frodo, you shouldn’t make fun.
@@ -7056,7 +7050,7 @@ Get up!
 GANDALF
 My Lord, there will be a time to grieve for
 Boromir, but it is not now. War is coming.
-The Enemy is on your doorstep. As Steward, 
+The Enemy is on your doorstep. As Steward,
 you are charged with the defence of this city.
 Where are Gondor's armies?
 
@@ -8349,7 +8343,7 @@ EOWYN
 Whatever happens, stay with me. I'll look after you.
 
 THEODEN
-Ride now, ride now! 
+Ride now, ride now!
 Ride, ride for ruin and the world's ending!
 Death!
 
@@ -8712,7 +8706,7 @@ MOUTH OF SAURON
 Aha! Old Greybeard!
 I have a token I was bidden to show thee.
 
-MERRY & PIPPIN 
+MERRY & PIPPIN
 Frodo, no!
 
 GANDALF
