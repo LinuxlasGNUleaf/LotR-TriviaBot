@@ -50,6 +50,7 @@ class LotrBot(discord.Client):
             return
 
         user = message.author
+        print(user.id)
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
@@ -65,12 +66,12 @@ class LotrBot(discord.Client):
             for i, item in enumerate(content):
                 content[i] = item.strip()
             if content[0] in self.config.DISCORD_CONFIG['settings.features']:
-                if not channel.permissions_for(user).manage_channels and \
-                    not user.id in self.config.GENERAL_CONFIG['superusers']:
+                if channel.permissions_for(user).manage_channels or \
+                   user.id in self.config.GENERAL_CONFIG['superusers']:
+                    ret = minigames.edit_settings(content, self.settings, channel)
+                    await channel.send(ret)
+                else:
                     await channel.send(':x: You do not have permission to change these settings!')
-                    return
-                ret = minigames.edit_settings(content, self.settings, channel)
-                await channel.send(ret)
             elif content[0] == 'help':
                 await channel.send(self.config.DISCORD_CONFIG['settings.help'])
             elif content[0] == 'show':
