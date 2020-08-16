@@ -9,7 +9,8 @@ GENERAL_CONFIG = {
     'marker': '*',
     'key': 'lotr',
     'footer': 'A discord bot written in Python by JaWs',
-    'config.path': '.config/discord/bots/lotr-bot/'
+    'config.path': '.config/discord/bots/lotr-bot/',
+    'superusers': ['277083306087022592']
 }
 
 REDDIT_CONFIG = {
@@ -65,8 +66,8 @@ If the server-preference is not set, the defaults will be used, which is "allowe
 (the channel preferences are used, or if these are not set, directly the defaults.)
 '''.format(GENERAL_CONFIG['key']),
 
-    'settings.features': ['autoscript', 'memes', 'trivia-quiz', 'yt-search'],
-    'settings.defaults': {'autoscript':1, 'memes':1, 'trivia-quiz':1, 'yt-search':1},
+    'settings.features': ['autoscript', 'memes', 'trivia-quiz', 'yt-search', 'hangman', 'squote'],
+    'settings.defaults': {'autoscript':1, 'memes':1, 'trivia-quiz':1, 'yt-search':1, 'hangman':1, 'squote':1},
 
     'token.loc': os.path.join(os.getenv('HOME'),
                               GENERAL_CONFIG['config.path'],

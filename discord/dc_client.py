@@ -65,7 +65,8 @@ class LotrBot(discord.Client):
             for i, item in enumerate(content):
                 content[i] = item.strip()
             if content[0] in self.config.DISCORD_CONFIG['settings.features']:
-                if not channel.permissions_for(user).manage_channels:
+                if not channel.permissions_for(user).manage_channels and \
+                    not user.id in self.config.GENERAL_CONFIG['superusers']:
                     await channel.send(':x: You do not have permission to change these settings!')
                     return
                 ret = minigames.edit_settings(content, self.settings, channel)
@@ -109,7 +110,8 @@ class LotrBot(discord.Client):
             await channel.send(reply)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key']+' hangman':
+        elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \
+             minigames.feature_allowed('hangman', channel, self.settings, self.config):
             embed, game_info = minigames.initiate_hangman_game(user, self.config)
             hangman_msg = await channel.send(embed=embed)
 
@@ -145,7 +147,8 @@ class LotrBot(discord.Client):
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' squote':
+        elif content == self.config.GENERAL_CONFIG['key'] + ' squote' and \
+             minigames.feature_allowed('squote', channel, self.settings, self.config)::
             embed = minigames.silmarillion_quote(self.config)
             await channel.send(embed=embed)
 
