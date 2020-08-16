@@ -148,7 +148,7 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key'] + ' squote' and \
-             minigames.feature_allowed('squote', channel, self.settings, self.config)::
+             minigames.feature_allowed('squote', channel, self.settings, self.config):
             embed = minigames.silmarillion_quote(self.config)
             await channel.send(embed=embed)
 
