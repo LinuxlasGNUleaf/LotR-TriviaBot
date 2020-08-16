@@ -39,7 +39,6 @@ class RedditClient():
 
     def get_crosspost_parent(self, submission):
         if hasattr(submission, 'crosspost_parent'):
-            print(submission.crosspost_parent,submission.crosspost_parent.split('_')[1])
             return praw.models.Submission(self.reddit, submission.crosspost_parent.split('_')[1])
         else:
             return False

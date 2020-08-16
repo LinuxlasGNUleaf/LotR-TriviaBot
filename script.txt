@@ -196,7 +196,7 @@ the old rascal? I hear it's going to be
 a Party of Special Magnificence.
 
 FRODO
-You know Bilbo. He's got he whole place
+You know Bilbo. He's got the whole place
 in an uproar.
 
 GANDALF
@@ -269,10 +269,7 @@ My dear Gandalf!
 GANDALF
 It's good to see you. One hundred and
 eleven years old, who would believe it!
-
-GANDALF
-You haven't aged a day! Gandalf and Bilbo
-laugh together and enter Bag End.
+You haven't aged a day!
 
 BILBO
 Come on, come in! Welcome, welcome!!
@@ -571,8 +568,7 @@ conjurer of cheap tricks!
 
 GANDALF
 I am not trying to rob you. I am trying
-to help you. Sobbing, Bilbo runs to
-Gandalf and hugs him.
+to help you.
 
 GANDALF
 All you long years we've been
@@ -648,9 +644,8 @@ He's gone to stay with the Elves. He's
 left you Bag End, along with all his possessions.
 
 GANDALF
-The ring is yours now. But it somewhere
-out of sight. Gandalf rises hurriedly and
-starts to gather his things.
+The ring is yours now. Put it somewhere
+out of sight.
 
 FRODO
 Where are you going?
@@ -1257,7 +1252,7 @@ SAM
 What do we do now?
 
 FRODO
-Sam, he'll be here.He'll come.
+Sam, he'll be here. He'll come.
 
 PIPPIN
 What's that?
@@ -1528,7 +1523,7 @@ STRIDER
 Kingsfoil.
 
 SAM
-Kingsfoil. Aye.It's a weed.
+Kingsfoil. Aye. It's a weed.
 
 STRIDER
 It may help to slow the poison. Hurry!
@@ -1822,7 +1817,7 @@ GANDALF
 It is in Men that we must place our hope.
 
 ELROND
-Men? Men are weak.The race of Men is
+Men? Men are weak. The race of Men is
 failing. The blood of Numenor is all but
 spent, its pride anddignity forgotten.
 It is because of menthe Ring survives.
@@ -2197,7 +2192,7 @@ BOROMIR
 Merry, Pippin, Sam! Take cover!
 
 GANDALF
-Spies of Saruman.The passage South is
+Spies of Saruman. The passage South is
 being watched.
 
 GANDALF
@@ -2345,13 +2340,13 @@ BOROMIR
 This is no mine. It's a tomb!
 
 GIMLI
-Oh no. No.No!
+Oh no. No. No!
 
 LEGOLAS
 Goblins!
 
 BOROMIR
-We make for the Gap of Rohan.We should
+We make for the Gap of Rohan. We should
 never have come here.
 
 GANDALF
@@ -2973,7 +2968,7 @@ FRODO
 Stay away!
 
 ARAGORN
-Frodo...I swore to protect you.
+Frodo- I swore to protect you.
 
 FRODO
 Can you protect me from yourself?
@@ -2982,18 +2977,16 @@ FRODO
 Would you destroy it?
 
 ARAGORN
-I would have gone with you to the end...
-into the very fires of Mordor.
+I would have gone with you to the end.
+Into the very fires of Mordor.
 
 FRODO
-I know...Look after the others,
-especially Sam...he will not understand.
+I know. Look after the others,
+especially Sam, he will not understand.
 
 ARAGORN
 Go, Frodo!
-
-ARAGORN
-Run! Run!!
+Run, Run!
 
 STOP
 
@@ -3004,7 +2997,7 @@ MERRY
 Hide here, quick!
 
 PIPPIN
-Come on...
+Come on.
 
 PIPPIN
 What's he doing?
@@ -3035,10 +3028,10 @@ Boromir! Boromir!
 STOP
 
 BOROMIR
-They took the little ones...
+They took the little ones.
 
 BOROMIR
-Frodo...where is Frodo?
+Frodo- where is Frodo?
 
 ARAGORN
 I let Frodo go.
@@ -3051,7 +3044,7 @@ ARAGORN
 The ring is beyond our reach now.
 
 BOROMIR
-Forgive me, I did not see..I have failed
+Forgive me, I did not see. I have failed
 you all.
 
 ARAGORN
@@ -3059,29 +3052,29 @@ No, Boromir. You fought bravely. You
 have kept your honor.
 
 BOROMIR
-Leave it! It is over...the world of Men
+Leave it! It is over, the world of Men
 will fall and all will come to darkness
-and my city to ruin..Aragorn..
+and my city to ruin. Aragorn-
 
 ARAGORN
 I do not know what strength is in my
 blood, but I swear to you: I will not
 let the White City fall, nor your people
-fail...
+fail.
 
 BOROMIR
-Our people...our people...
+Our people. Our people.
 
 BOROMIR
 I would have followed you, my
-brother...my captain, my King.
+brother, my captain, my King.
 
 ARAGORN
 Be at peace, son of Gondor.
 
 ARAGORN
 They will look for his coming from the
-white tower...but he will not return.
+white tower, but he will not return.
 
 STOP
 
@@ -3098,7 +3091,7 @@ FRODO
 Go back, Sam. I'm going to Mordor alone.
 
 SAM
-Of course you are...and I'm coming with
+Of course you are! And I'm coming with
 you!
 
 FRODO
@@ -3108,9 +3101,9 @@ FRODO
 Sam!
 
 SAM
-I made a promise, Mister Frodo...a promise.
+I made a promise, Mister Frodo, a promise.
 "Don't you leave him, Samwise Gamgee."
-And I don't mean to...I don't mean to.
+And I don't mean to. I don't mean to.
 
 FRODO
 Oh, Sam!
@@ -3125,14 +3118,14 @@ If we are quick, we will catch Frodo and
 Sam before nightfall.
 
 LEGOLAS
-You mean not to follow them...
+You mean not to follow them.
 
 ARAGORN
 Frodo's fate is no longer in our hands.
 
 GIMLI
-Then it has all been in vain...the
-fellowship has failed.
+Then it has all been in vain.
+The fellowship has failed.
 
 ARAGORN
 Not if we hold true to each other. We
@@ -3141,9 +3134,7 @@ torment and death, not while we have
 strength left.
 
 ARAGORN
-Leave all that can be spared behind...
-
-ARAGORN
+Leave all that can be spared behind.
 We travel light. Let's hunt some Orc.
 
 GIMLI
@@ -8531,7 +8522,7 @@ mine.
 
 GORBAG
 It's going to the Great Eye, along with
-everything else...
+everything else!
 
 SHAGRAT
 I don't take orders from stinking Morgul
@@ -8658,7 +8649,7 @@ upon us. Keep him blind to all else that
 moves.
 
 LEGOLAS
-A diversion...
+A diversion-
 
 GANDALF
 Sauron will suspect a trap. He will not
