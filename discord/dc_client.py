@@ -50,7 +50,6 @@ class LotrBot(discord.Client):
             return
 
         user = message.author
-        print(user.id)
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
@@ -68,6 +67,7 @@ class LotrBot(discord.Client):
             if content[0] in self.config.DISCORD_CONFIG['settings.features']:
                 if channel.permissions_for(user).manage_channels or \
                    user.id in self.config.GENERAL_CONFIG['superusers']:
+                   print(user.id in self.config.GENERAL_CONFIG['superusers'])
                     if user.id in self.config.GENERAL_CONFIG['superusers']:
                        await channel.send(":desktop: Superuser detected, overriding permissions...")
                     ret = minigames.edit_settings(content, self.settings, channel)
