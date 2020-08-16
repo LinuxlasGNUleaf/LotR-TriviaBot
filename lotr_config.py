@@ -10,7 +10,7 @@ GENERAL_CONFIG = {
     'key': 'lotr',
     'footer': 'A discord bot written in Python by JaWs',
     'config.path': '.config/discord/bots/lotr-bot/',
-    'superusers': ['277083306087022592']
+    'superusers': [277083306087022592]
 }
 
 REDDIT_CONFIG = {
