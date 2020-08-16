@@ -434,22 +434,32 @@ def find_similar_from_script(msg, condensed_arr, script):
         return -1
 
 
-def reddit_meme(server, reddit_client):
+def reddit_meme(ch_id, reddit_client, subreddit):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
-
-    submission = reddit_client.get_meme(server, 'lotrmemes')
+    submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
-    if submission.is_self:
+
+    parent = reddit_client.get_crosspost_parent(submission)
+    if parent:
+        submission = parent
+
+    if submission.is_self: # is text-only
+        text = submission.selftext
+        if len(text) > 2000:
+            text = text[:2000]
+            text += '...'
         return create_embed(
             submission.title,
             embed_url=post_url,
-            content=submission.self(),
+            content=text,
             footnote=footnote)
+
+    # has embedded media
     return create_embed(
-        submission.title,
+        title=':repeat: Crosspost: '+submission.title if parent else submission.title,
         embed_url=post_url,
         link_url=submission.url,
         footnote=footnote)
@@ -495,14 +505,39 @@ def is_headline(line):
     return True
 
 
-def search_youtube(google_client, channel_id, query, num, config):
+def search_youtube(user, raw_content, google_client, config):
     '''
     returns a give number of Youtube Video embeds for a specific channel
     '''
+    raw_content = raw_content.split(config.GENERAL_CONFIG['key'] + ' yt ')[1]
+    start, end = (-1, -1)
+    query = ''
+
+    start = raw_content.find('\"')
+    if start != -1:
+        end = raw_content.find('\"', start + 1)
+        if end != -1:
+            query = raw_content[start+1:end]
+            if raw_content[:start].strip().isdigit():
+                num = max(1, int(raw_content[:start].strip()))
+            elif raw_content[end+1:].strip().isdigit():
+                num = max(1, int(raw_content[end+1:].strip()))
+            else:
+                num = 1
+
+    if not query:
+        return create_reply(user, True, config) + '\nTry providing a query next time!\n\
+The correct syntax is: `{0} yt "<keywords>" \n(you can also provide a video count, \
+before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
+
     res = google_client.get_video_from_channel(
-        channel_id,
+        config.YT_CONFIG['channel_id'],
         query,
         min(config.YT_CONFIG['max_video_count'], num))['items']
+
+    if not res:
+        return '*\'I have no memory of this place\'*\n~Gandalf\
+\nYour query `{}` yielded no results!'.format(query)
 
     embeds = []
     for i, item in enumerate(res):
@@ -574,7 +609,6 @@ def create_scoreboard(scoreboard, server):
             scoreboard_string += medals[-1].format(temp)+'\n'
     return create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string)
 
-
 def lotr_search(google_client, query, config):
     site = config.GOOGLE_CONFIG['site']
     content = list(google_client.google_search(query, site))
@@ -583,3 +617,83 @@ def lotr_search(google_client, query, config):
     content = content[0]
     title = ':mag: 1st result for `{}` on  *{}* :'.format(query, site)
     return (create_embed(title=title), content)
+
+def feature_allowed(feature, channel, settings, config):
+    if isinstance(channel, discord.channel.DMChannel):
+        return 1
+    server = channel.guild
+    if channel.id in settings.keys():
+        if feature in settings[channel.id]:
+            return settings[channel.id][feature]
+    if server.id in settings.keys():
+        if feature in settings[server.id]:
+            return settings[server.id][feature]
+    if feature in config.DISCORD_CONFIG['settings.defaults'].keys():
+        return config.DISCORD_CONFIG['settings.defaults'][feature]
+    else:
+        return 1
+
+def edit_settings(cmd, settings, channel):
+    if cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
+        channel = channel.id
+        if not channel in settings.keys():
+            settings[channel] = {}
+
+        if cmd[1] == 'on':
+            settings[channel][cmd[0]] = 1
+            return 'feature `{}` for this channel was turned **on**'.format(cmd[0])
+        elif cmd[1] == 'off':
+            settings[channel][cmd[0]] = 0
+            return 'feature `{}` for this channel was turned **off**'.format(cmd[0])
+        elif cmd[1] == 'unset':
+            if cmd[0] in settings[channel].keys():
+                del settings[channel][cmd[0]]
+                return 'feature `{}` for this channel was **unset**'.format(cmd[0])
+            return 'feature `{}` for this channel was not yet set'.format(cmd[0])
+
+
+    elif cmd[1] == 'server-on' or cmd[1] == 'server-off' or cmd[1] == 'server-unset':
+        server = channel.guild.id
+        if not server in settings.keys():
+            settings[server] = {}
+
+        if cmd[1] == 'server-on':
+            settings[server][cmd[0]] = 1
+            return 'feature `{}` for this server was turned **on**'.format(cmd[0])
+        elif cmd[1] == 'server-off':
+            settings[server][cmd[0]] = 0
+            return 'feature `{}` for this server was turned **off**'.format(cmd[0])
+        elif cmd[1] == 'server-unset':
+            if cmd[0] in settings[server].keys():
+                del settings[server][cmd[0]]
+                return 'feature `{}` for this server was **unset**'.format(cmd[0])
+            return 'feature `{}` for this server was not yet set'.format(cmd[0])
+
+    else:
+        return 'state `{}` not recognized'.format(cmd[1])
+
+def create_config_embed(channel, settings, config):
+    server = channel.guild
+    title = 'Config for #{}, Server: {}'.format(channel, server)
+    content = ''
+    for feature in config.DISCORD_CONFIG['settings.features']:
+        content += '**Feature `{}`:**\n'.format(feature)
+        server_setting = ':grey_question:'
+        if server.id in settings.keys():
+            if feature in settings[server.id]:
+                server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
+        channel_setting = ':grey_question:'
+        if channel.id in settings.keys():
+            if feature in settings[channel.id]:
+                channel_setting = ':white_check_mark:' if settings[channel.id][feature] else ':x:'
+
+        effective = ':white_check_mark:' if feature_allowed(feature,
+                                                            channel,
+                                                            settings,
+                                                            config) else ':x:'
+        content += 'Server: {} Channel: {} Effective: {}\n\n'\
+                   .format(server_setting, channel_setting, effective)
+
+    return create_embed(title=title,
+                        content=content,
+                        footnote=config.GENERAL_CONFIG['footer'])

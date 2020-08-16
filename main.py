@@ -42,29 +42,44 @@ and raises an Error if file is essential and not valid.
 
 # ==========================> LISTS <==================================
 SCOREBOARD = {}
+SETTINGS = {}
 MEME_LOG = {}
 BLOCKED = [] # temporarily blocked users (cannot issue commands)
 
 # ==========================> STARTUP <==================================
 try:
-    with open(lotr_config.DISCORD_CONFIG['scoreboard'], 'rb') as SC_FILE:
+    with open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'rb') as SC_FILE:
         SCOREBOARD = pickle.load(SC_FILE)
         print('[INFO]: unserialized trivia scoreboard')
-    with open(lotr_config.REDDIT_CONFIG['memelog'], 'rb') as MEME_FILE:
+except (FileNotFoundError, EOFError):
+    print('[WARN]: could not unserialize trivia scoreboard! Creating empty one instead.')
+    open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'w').close()
+
+try:
+    with open(lotr_config.DISCORD_CONFIG['settings.loc'], 'rb') as SET_FILE:
+        SETTINGS = pickle.load(SET_FILE)
+        print('[INFO]: unserialized settings')
+except (FileNotFoundError, EOFError):
+    print('[WARN]: could not unserialize settings! Creating empty one instead.')
+    open(lotr_config.DISCORD_CONFIG['settings.loc'], 'w').close()
+
+try:
+    with open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'rb') as MEME_FILE:
         MEME_LOG = pickle.load(MEME_FILE)
         print('[INFO]: unserialized meme log')
 except (FileNotFoundError, EOFError):
-    print('[WARN]: meme log file not found, ignoring.')
+    print('[WARN]: could not unserialize meme log! Creating empty one instead.')
+    open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'w').close()
 
 
-TOKEN = get_token(lotr_config.DISCORD_CONFIG['token'], 'discord token', True)[0].strip()
+TOKEN = get_token(lotr_config.DISCORD_CONFIG['token.loc'], 'discord token', True)[0].strip()
 if not TOKEN:
     raise EOFError('[ERROR]: discord token not found! abort.')
 
 # aquire credentials from the token files
-reddit_credentials = get_token(lotr_config.REDDIT_CONFIG['token'], 'reddit credentials', True)
+reddit_credentials = get_token(lotr_config.REDDIT_CONFIG['token.loc'], 'reddit credentials', True)
 
-yt_api_credentials = get_token(lotr_config.YT_CONFIG['token'], 'yt api credentials', True)
+yt_api_credentials = get_token(lotr_config.YT_CONFIG['token.loc'], 'yt api credentials', True)
 
 # create the client instances
 REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
@@ -73,7 +88,12 @@ YT_API_CLIENT = yt_api_client.YtAPIClient(yt_api_credentials)
 
 GOOGLE_SEARCH_CLIENT = google_search_client.GoogleSearchClient()
 
-DC_CLIENT = dc_client.LotrBot(lotr_config, SCOREBOARD, REDDIT_CLIENT, YT_API_CLIENT, GOOGLE_SEARCH_CLIENT)
+DC_CLIENT = dc_client.LotrBot(lotr_config,
+                              SCOREBOARD,
+                              SETTINGS,
+                              REDDIT_CLIENT,
+                              YT_API_CLIENT,
+                              GOOGLE_SEARCH_CLIENT)
 
 try:
     DC_CLIENT.run(TOKEN)
@@ -81,7 +101,9 @@ try:
 except (KeyboardInterrupt, RuntimeError):
     print('\n[INFO]: Catched error... Shutting down...')
 
-with open(lotr_config.DISCORD_CONFIG['scoreboard'], 'wb') as SC_FILE:
+with open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'wb') as SC_FILE:
     pickle.dump(SCOREBOARD, SC_FILE)
-with open(lotr_config.REDDIT_CONFIG['memelog'], 'wb') as MEME_FILE:
+with open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'wb') as MEME_FILE:
     pickle.dump(MEME_LOG, MEME_FILE)
+with open(lotr_config.DISCORD_CONFIG['settings.loc'], 'wb') as SET_FILE:
+    pickle.dump(SETTINGS, SET_FILE)

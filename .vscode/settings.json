@@ -1,8 +1,8 @@
 {
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintPath": "/home/jakob/.pyenv/versions/3.8.3/bin/pylint",
+    "python.linting.pylintPath": "/home/jakob/.pyenv/versions/3.8.5/bin/pylint",
     //"python.linting.pylintArgs": ["--enable=E,W"],
-    "python.pythonPath": "/home/jakob/.pyenv/versions/3.8.3/bin/python",
+    "python.pythonPath": "/home/jakob/.pyenv/versions/3.8.5/bin/python"
     //"python.pythonPath": "/home/jakob/.pyenv/shims/python"
 }
