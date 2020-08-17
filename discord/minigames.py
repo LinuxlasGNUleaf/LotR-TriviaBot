@@ -610,6 +610,9 @@ def create_scoreboard(scoreboard, server):
     return create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string)
 
 def lotr_search(google_client, query, config):
+    '''
+    searches on a given site for a given entry
+    '''
     site = config.GOOGLE_CONFIG['site']
     content = list(google_client.google_search(query, site))
     if not content:
@@ -619,6 +622,9 @@ def lotr_search(google_client, query, config):
     return (create_embed(title=title), content)
 
 def feature_allowed(feature, channel, settings, config):
+    '''
+    checks the settings whether the feature is allowed in this channel
+    '''
     if isinstance(channel, discord.channel.DMChannel):
         return 1
     server = channel.guild
@@ -634,6 +640,9 @@ def feature_allowed(feature, channel, settings, config):
         return 1
 
 def edit_settings(cmd, settings, channel):
+    '''
+    edits the settings for the server or channel based on the given command
+    '''
     if cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
         channel = channel.id
         if not channel in settings.keys():
@@ -673,6 +682,9 @@ def edit_settings(cmd, settings, channel):
         return 'state `{}` not recognized'.format(cmd[1])
 
 def create_config_embed(channel, settings, config):
+    '''
+    creates an embed to visualize the permissions for the given channel
+    '''
     server = channel.guild
     title = 'Config for #{}, Server: {}'.format(channel, server)
     content = ''
