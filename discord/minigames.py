@@ -256,7 +256,7 @@ def initiate_hangman_game(user, config):
     '''
     # import words for hangman
     with open('words.csv', 'r') as csvfile:
-        word = random.choice(list(csv.reader(csvfile, delimiter=',', quotechar='"'))[0])
+        word = random.choice(csvfile.readlines()).strip()
     word_condensed = word.lower().replace(' ', '')
 
     steps = 2 if len(word_condensed) <= 6 else 1
@@ -598,7 +598,7 @@ def create_scoreboard(scoreboard, server):
             found_users.append([scoreboard[user.id][1], user.name,
                                 round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
 
-    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}', '👏 {}']
+    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
     user_str = '**[{} pts]** {} ({}%)'
     for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
         temp = user_str.format(*user)
