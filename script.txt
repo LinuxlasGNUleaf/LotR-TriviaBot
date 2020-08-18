@@ -150,7 +150,7 @@ BILBO
 A Ring!
 
 GOLLUM
-Lost! Lost! My Precious is lost!!
+Lost! Lost! My Precious is lost!
 
 GALADRIEL
 For the time will soon come when Hobbits
@@ -272,7 +272,7 @@ eleven years old, who would believe it!
 You haven't aged a day!
 
 BILBO
-Come on, come in! Welcome, welcome!!
+Come on, come in! Welcome, welcome!
 
 STOP
 
@@ -437,7 +437,7 @@ It was your idea.
 STOP
 
 FRODO
-Bilbo! Watch out for the dragon!!
+Bilbo! Watch out for the dragon!
 
 BILBO
 Dragon? Nonsense! Hasn't been a dragon
@@ -1174,7 +1174,7 @@ MERRY
 Right. Buckleberry Ferry. Follow me !
 
 MERRY
-There's another one!! Frodo, this way!
+There's another one! Frodo, this way!
 
 MERRY
 Frodo, follow me!
@@ -1669,7 +1669,7 @@ GANDALF
 Nothing, Frodo.
 
 SAM
-Frodo! Frodo! Bless you, you're awake!!
+Frodo! Frodo! Bless you, you're awake!
 
 GANDALF
 Sam has hardly left your side.
@@ -1848,7 +1848,7 @@ ISILDUR
 No.
 
 ELROND
-Isildur!!
+Isildur!
 
 STOP
 
@@ -2475,7 +2475,7 @@ Well, there's an eye opener and no
 mistake!
 
 GANDALF
-Gimli!!
+Gimli!
 
 GIMLI
 No. No - oh, no!
@@ -3109,7 +3109,7 @@ FRODO
 Oh, Sam!
 
 FRODO
-Come on then..
+Come on then.
 
 STOP
 
@@ -8059,7 +8059,7 @@ Abandon your posts!
 Flee! Flee for your lives!
 
 GANDALF
-Prepare for battle!!
+Prepare for battle!
 Return to your posts!
 
 STOP
