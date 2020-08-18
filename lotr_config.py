@@ -33,7 +33,7 @@ YT_CONFIG = {
 }
 
 GOOGLE_CONFIG = {
-    'site':'lotr.fandom.com'
+    'site':'tolkiengateway.net'
 }
 
 DISCORD_CONFIG = {
