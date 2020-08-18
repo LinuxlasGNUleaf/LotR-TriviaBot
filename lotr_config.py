@@ -77,8 +77,8 @@ If the server-preference is not set, the defaults will be used, which is "allowe
     'script.path': 'script.txt',
     'silmarillion.path': 'silmarillion_edited.txt',
     'silmarillion.sentence_count': 2,
-    'trivia.timeout': 15,
-    'hangman.timeout': 15,
+    'trivia.timeout': 17,
+    'hangman.timeout': 20,
 
     'custom_status': \
 ['Boromir not simply walk into Mordor',
@@ -128,14 +128,15 @@ and their brats roll on the floor among the dogs?',
  'Feanor did nothing wrong, but the same can not be said about you, {}!',
  'Bombur does not approve.',
  'Stop your squeaking you dunghill rat, {}!',
- 'You stinking two-faced sneak!'
-],
+ 'You stinking two-faced sneak!',
+ 'What are you doing, you useless scum?'],
 
     'compliments': \
 ['Well done, my dear {}!',
  '{}, you should be counted amongst the wise of middleearth.',
  'Very good {}, I could not have done it better myself!',
- 'Bombur approves. Well done, {}!'],
+ 'Bombur approves. Well done, {}!',
+ 'May the wind under your wings bear you where the sun sails and the moon walks.'],
 
 
     'help.text': \

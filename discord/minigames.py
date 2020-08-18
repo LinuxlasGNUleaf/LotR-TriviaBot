@@ -118,7 +118,6 @@ def create_hangman_embed(user, game_info, game_status, config):
             hangman += r'\_ '
     hangman = hangman.strip()
 
-
     if used_chars:
         used = 'Used letters:\n '
         for char in used_chars:
@@ -126,7 +125,6 @@ def create_hangman_embed(user, game_info, game_status, config):
         used = used.strip()
     else:
         used = ''
-
 
     if game_status == 'lost':
         content = config.DISCORD_CONFIG['hangman.lost_state']
@@ -594,7 +592,7 @@ def create_scoreboard(scoreboard, server):
     found_users = []
     scoreboard_string = ''
     for user in users:
-        if user.id in scoreboard.keys():
+        if user.id in scoreboard.keys() and [scoreboard[user.id][1] > 0:
             found_users.append([scoreboard[user.id][1], user.name,
                                 round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
 
