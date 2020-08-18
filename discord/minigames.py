@@ -592,7 +592,7 @@ def create_scoreboard(scoreboard, server):
     found_users = []
     scoreboard_string = ''
     for user in users:
-        if user.id in scoreboard.keys() and [scoreboard[user.id][1] > 0:
+        if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
             found_users.append([scoreboard[user.id][1], user.name,
                                 round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
 
