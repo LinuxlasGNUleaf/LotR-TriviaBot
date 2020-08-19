@@ -617,7 +617,7 @@ def lotr_search(google_client, query, config):
         return ':x: No results for `{}` on  *{}*.'.format(query, site)
     content = content[0]
     title = ':mag: 1st result for `{}` on  *{}* :'.format(query, site)
-    return (create_embed(title=title), content)
+    return create_embed(title=title, content=content)
 
 def feature_allowed(feature, channel, settings, config):
     '''

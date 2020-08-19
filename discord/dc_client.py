@@ -203,8 +203,7 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
             if isinstance(result, str):
                 await channel.send(result)
             else:
-                await channel.send(embed=result[0])
-                await channel.send(result[1])
+                await channel.send(embed=result)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm and \
