@@ -211,7 +211,11 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script)
             if isinstance(result, list):
-                if channel.permissions_for(server.me).add_reactions:
-                    await message.add_reaction('✅')
-                for line in result:
-                    await channel.send(line)
+                try:
+                    if channel.permissions_for(server.me).add_reactions:
+                        await message.add_reaction('✅')
+                    for line in result:
+                        await channel.send(line)
+                except discord.errors.Forbidden:
+                    print("Encountered Forbidden error when adding Reaction!\nServer:{}\nChannel:{}\
+\nMessage:{}\nUser:{}".format(server, channel, content, user))
