@@ -424,10 +424,12 @@ def find_similar_from_script(msg, condensed_arr, script, config):
                 return_texts.append('**{}:** ... {}'.format(author.title(), temp))
 
             if line_ind < len(script)-1:
-                if script[line_ind+1] != 'STOP' or not config.DISCORD_CONFIG['autoscript.scene_end_interrupt']:
-                    if not not config.DISCORD_CONFIG['autoscript.scene_end_interrupt']:
-                        return_texts.append('*NEXT SCENE*')
+                if script[line_ind+1] != 'STOP':
                     author, text = script[line_ind+1].split('|')
+                    return_texts.append('**{}:** {}'.format(author.title(), text))
+                elif not config.DISCORD_CONFIG['autoscript.scene_end_interrupt'] and line_ind < len(script)-2:
+                    return_texts.append('*NEXT SCENE*')
+                    author, text = script[line_ind+2].split('|')
                     return_texts.append('**{}:** {}'.format(author.title(), text))
             return return_texts
         else:
