@@ -357,7 +357,7 @@ def parse_script(file, arr, condensed_arr):
         condensed_arr.append(temp_arr)
 
 
-def find_similar_from_script(msg, condensed_arr, script):
+def find_similar_from_script(msg, condensed_arr, script, config):
     '''
     attempts to find similar line from script and formats it, if found.
     '''
@@ -424,7 +424,9 @@ def find_similar_from_script(msg, condensed_arr, script):
                 return_texts.append('**{}:** ... {}'.format(author.title(), temp))
 
             if line_ind < len(script)-1:
-                if script[line_ind+1] != 'STOP':
+                if script[line_ind+1] != 'STOP' or not config.DISCORD_CONFIG['autoscript.scene_end_interrupt']:
+                    if not not config.DISCORD_CONFIG['autoscript.scene_end_interrupt']:
+                        return_texts.append('*NEXT SCENE*')
                     author, text = script[line_ind+1].split('|')
                     return_texts.append('**{}:** {}'.format(author.title(), text))
             return return_texts

@@ -209,7 +209,7 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
         elif self.do_autoscript and not is_dm and \
              minigames.feature_allowed('autoscript', channel, self.settings, self.config):
             result = minigames.find_similar_from_script\
-            (message.content, self.script_condensed, self.script)
+            (message.content, self.script_condensed, self.script, self.config)
             if isinstance(result, list):
                 try:
                     if channel.permissions_for(server.me).add_reactions:
