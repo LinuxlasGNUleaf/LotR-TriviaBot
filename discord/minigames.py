@@ -212,8 +212,9 @@ def create_trivia_reply(user, msg, scoreboard, correct_index,
     creates an appropiate reply to a trivia question.\
     Changes scoreboard according to outcome.
     '''
+    ret_string = ':x: '
     if not msg:
-        return create_reply(user, True, config) +\
+        return ret_string + create_reply(user, True, config) +\
                             '\nYou took too long to answer!'
 
     if user.id in scoreboard.keys():
@@ -221,7 +222,6 @@ def create_trivia_reply(user, msg, scoreboard, correct_index,
     else:
         count, wins = (0, 0)
     msg = msg.content
-    ret_string = ''
     if msg.isdigit():
         # if msg is a digit
         msg = int(msg)
@@ -229,17 +229,17 @@ def create_trivia_reply(user, msg, scoreboard, correct_index,
             if msg == correct_index:
                 # right answer
                 wins += 1
-                ret_string = create_reply(user, False, config)
+                ret_string += create_reply(user, False, config)
             else:
                 # invalid digit
-                ret_string = create_reply(user, True, config)
+                ret_string = ':white_check_mark:' + create_reply(user, True, config)
         else:
             # invalid digit
-            ret_string = create_reply(user, True, config) + \
+            ret_string += create_reply(user, True, config) + \
                 '\nHmm... maybe try picking a valid digit next time ?'
     else:
         # not a digit
-        ret_string = create_reply(user, True, config) + \
+        ret_string += create_reply(user, True, config) + \
             '\nWhat is that supposed to be? Clearly not a digit...'
 
     scoreboard[user.id] = (count+1, wins)
