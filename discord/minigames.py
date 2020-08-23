@@ -372,6 +372,7 @@ def find_similar_from_script(msg, condensed_arr, script, config):
         return -1
     msg = msg.split('.')
     log = {}
+    print(msg)
     # searching condensed script for matching line
     for msg_part in msg:
         msg_part = msg_part.strip()
