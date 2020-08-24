@@ -79,6 +79,7 @@ If the server-preference is not set, the defaults will be used, which is "allowe
     'silmarillion.sentence_count': 2,
     'trivia.timeout': 17,
     'hangman.timeout': 20,
+    'autoscript.scene_end_interrupt': False,
 
     'custom_status': \
 ['Boromir not simply walk into Mordor',

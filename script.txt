@@ -1482,8 +1482,7 @@ Do something.
 
 STRIDER
 This is beyond my skill to heal.
-He needs Elvish medicine. Strider lifts
-Frodo onto his shoulders.
+He needs Elvish medicine.
 
 STRIDER
 Hurry!
@@ -1596,8 +1595,7 @@ still out there!
 STOP
 
 WITCH KING
-Give up the Halfling, she-elf! She draws
-her sword and yells at the Witch King.
+Give up the Halfling, she-elf!
 
 ARWEN
 If you want him, come and claim him.
@@ -1662,8 +1660,7 @@ So you have chosen death.
 STOP
 
 FRODO
-Gandalf! What is it? Gandalf returns his
-attention to Frodo.
+Gandalf! What is it?
 
 GANDALF
 Nothing, Frodo.
@@ -3627,8 +3624,7 @@ Rohan and of Theoden, your king.
 
 EOMER
 Theoden no longer recognizes friend
-from foe. Not even
-his own kin.
+from foe. Not even his own kin.
 
 EOMER
 Saruman has poisoned the mind of the
@@ -4215,9 +4211,8 @@ HAMA
 Your staff.
 
 GANDALF
-Hmm? Oh. You
-would not part an old man from his walking
-stick?
+Hmm? Oh. You would not part an
+old man from his walking stick?
 
 GRIMA
 My lord, Gandalf the Grey is coming.
@@ -4246,8 +4241,7 @@ fire and death to bandy crooked words
 with a witless worm!
 
 GRIMA
-His staff! I told
-you to take the wizard’s staff!
+His staff! I told you to take the wizard’s staff!
 
 GANDALF
 Theoden, son of Thengel, too long have
@@ -6311,8 +6305,7 @@ FRODO
 Smeagol?
 
 GOLLUM
-We could let
-HER do it.
+We could let HER do it.
 
 SMEAGOL
 Yes. She could do it.
@@ -6350,8 +6343,6 @@ STOP
 
 SMEAGOL
 Give us that, Deagol, my love!
-
-DEAGOL turns to look at him, a smirk on his face.
 
 DEAGOL
 Why?
