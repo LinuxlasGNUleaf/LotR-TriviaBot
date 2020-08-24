@@ -229,10 +229,10 @@ def create_trivia_reply(user, msg, scoreboard, correct_index,
             if msg == correct_index:
                 # right answer
                 wins += 1
-                ret_string += create_reply(user, False, config)
+                ret_string += ':white_check_mark:' + create_reply(user, False, config)
             else:
                 # invalid digit
-                ret_string = ':white_check_mark:' + create_reply(user, True, config)
+                ret_string = create_reply(user, True, config)
         else:
             # invalid digit
             ret_string += create_reply(user, True, config) + \
