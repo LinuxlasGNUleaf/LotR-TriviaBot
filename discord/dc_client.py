@@ -68,7 +68,8 @@ class LotrBot(discord.Client):
                 if channel.permissions_for(user).manage_channels or \
                     user.id in self.config.GENERAL_CONFIG['superusers']:
                     if user.id in self.config.GENERAL_CONFIG['superusers']:
-                        await channel.send(":desktop: Superuser detected, overriding permissions...")
+                        await channel.send(":desktop: Superuser detected, \
+overriding permissions...")
                     ret = minigames.edit_settings(content, self.settings, channel)
                     await channel.send(ret)
                 else:
@@ -89,19 +90,21 @@ class LotrBot(discord.Client):
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
 
             # send the question message
-            embed, correct_ind, len_answers = minigames.\
+            embed, correct_ind, len_answers, char_count = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
-            await channel.send(embed=embed,
-                               delete_after=self.config.DISCORD_CONFIG['trivia.timeout'])
+            trivia_embed = await channel.send(embed=embed)
 
             def check(chk_msg):
                 return chk_msg.author == user and chk_msg.channel == channel
+
+            timeout = round(char_count / self.config.DISCORD_CONFIG['trivia.multiplier'] + \
+                      self.config.DISCORD_CONFIG['trivia.extra_time'], 1)
 
             self.blocked.append(user.id)
             try:
                 msg = await self.wait_for('message',
                                           check=check,
-                                          timeout=self.config.DISCORD_CONFIG['trivia.timeout'])
+                                          timeout=timeout)
             except asyncio.TimeoutError:
                 msg = ''
             self.blocked.remove(user.id)
@@ -110,6 +113,7 @@ class LotrBot(discord.Client):
                                                   correct_ind, len_answers,
                                                   self.config)
             await channel.send(reply)
+            await trivia_embed.delete()
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \

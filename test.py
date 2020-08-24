@@ -1,12 +1,19 @@
-import os, sys
+import lotr_config
+import csv
+import random
+from time import sleep 
 
-sys.path.append(os.path.abspath('./google'))
+with open('questions.csv', 'r') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    content = random.choice(list(csvreader))
 
-import google_search_client
+char_count = 0
+for item in content[1:]:
+    char_count += len(item.strip())
+    print(item)
 
-
-client = google_search_client.GoogleSearchClient()
-result = client.google_search(input(), 'lotr.fandom.com')
-
-for i in result:
-    print(i)
+timeout = char_count / lotr_config.DISCORD_CONFIG['trivia.multiplier'] + \
+                      lotr_config.DISCORD_CONFIG['trivia.extra_time']
+print(timeout)
+sleep(timeout)
+print("Time's up!")

@@ -195,15 +195,17 @@ def create_trivia_question(user, scoreboard, config):
 
     title = question
     embed_text = '```markdown\n'
+    char_count = len(question)
     for num, cont in enumerate(answers):
         embed_text += '{}. {}\n'.format(num+1, cont)
+        char_count += len(cont)
     embed_text += '```\nsource: {}'.format(source)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
     author_info = (author_name, user.avatar_url)
     embed = create_embed(title, author_info=author_info,
                          content=embed_text)
-    return (embed, correct_index, len(answers))
+    return (embed, correct_index, len(answers), char_count)
 
 
 def create_trivia_reply(user, msg, scoreboard, correct_index,
@@ -427,7 +429,8 @@ def find_similar_from_script(msg, condensed_arr, script, config):
                 if script[line_ind+1] != 'STOP':
                     author, text = script[line_ind+1].split('|')
                     return_texts.append('**{}:** {}'.format(author.title(), text))
-                elif not config.DISCORD_CONFIG['autoscript.scene_end_interrupt'] and line_ind < len(script)-2:
+                elif not config.DISCORD_CONFIG['autoscript.scene_end_interrupt'] \
+                     and line_ind < len(script)-2:
                     return_texts.append('*NEXT SCENE*')
                     author, text = script[line_ind+2].split('|')
                     return_texts.append('**{}:** {}'.format(author.title(), text))

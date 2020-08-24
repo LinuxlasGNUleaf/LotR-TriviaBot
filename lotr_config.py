@@ -1,3 +1,8 @@
+'''
+this is the config file for the LotR-Triva Bot and applies to all servers,
+DMs, etc. It also handles the location of tokenfiles, serialized objects
+as well as settings for minigames.
+'''
 import os
 
 # UTILS
@@ -66,8 +71,19 @@ If the server-preference is not set, the defaults will be used, which is "allowe
 (the channel preferences are used, or if these are not set, directly the defaults.)
 '''.format(GENERAL_CONFIG['key']),
 
-    'settings.features': ['autoscript', 'memes', 'trivia-quiz', 'yt-search', 'hangman', 'squote'],
-    'settings.defaults': {'autoscript':1, 'memes':1, 'trivia-quiz':1, 'yt-search':1, 'hangman':1, 'squote':1},
+    'settings.features': ['autoscript',
+                          'memes',
+                          'trivia-quiz',
+                          'yt-search',
+                          'hangman',
+                          'squote'],
+
+    'settings.defaults': {'autoscript':1,
+                          'memes':1,
+                          'trivia-quiz':1,
+                          'yt-search':1,
+                          'hangman':1,
+                          'squote':1},
 
     'token.loc': os.path.join(os.getenv('HOME'),
                               GENERAL_CONFIG['config.path'],
@@ -77,7 +93,13 @@ If the server-preference is not set, the defaults will be used, which is "allowe
     'script.path': 'script.txt',
     'silmarillion.path': 'silmarillion_edited.txt',
     'silmarillion.sentence_count': 2,
-    'trivia.timeout': 17,
+
+    # this is the char per second multiplier. According to the web,
+    # the average reading speed is 15.7 chars/second
+    'trivia.multiplier': 15.7,
+    # this is thinking time that is added to the calculated reading time
+    'trivia.extra_time': 5.0,
+    # =============================
     'hangman.timeout': 20,
     'autoscript.scene_end_interrupt': False,
 
