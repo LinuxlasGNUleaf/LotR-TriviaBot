@@ -200,12 +200,16 @@ def create_trivia_question(user, scoreboard, config):
         embed_text += '{}. {}\n'.format(num+1, cont)
         char_count += len(cont)
     embed_text += '```\nsource: {}'.format(source)
+
+    timeout = round(char_count / config.DISCORD_CONFIG['trivia.multiplier'] + \
+                      config.DISCORD_CONFIG['trivia.extra_time'], 1)
     # returning the embed and the answers WITH THE CORRECT ANSWER,
     # so that the given answer can be validated later
+    embed_text += '\n:stopwatch: {} seconds'.format(round(timeout))
     author_info = (author_name, user.avatar_url)
     embed = create_embed(title, author_info=author_info,
                          content=embed_text)
-    return (embed, correct_index, len(answers), char_count)
+    return (embed, correct_index, len(answers), timeout)
 
 
 def create_trivia_reply(user, msg, scoreboard, correct_index,

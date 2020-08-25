@@ -90,15 +90,12 @@ overriding permissions...")
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
 
             # send the question message
-            embed, correct_ind, len_answers, char_count = minigames.\
+            embed, correct_ind, len_answers, timeout = minigames.\
                 create_trivia_question(user, self.scoreboard, self.config)
             trivia_embed = await channel.send(embed=embed)
 
             def check(chk_msg):
                 return chk_msg.author == user and chk_msg.channel == channel
-
-            timeout = round(char_count / self.config.DISCORD_CONFIG['trivia.multiplier'] + \
-                      self.config.DISCORD_CONFIG['trivia.extra_time'], 1)
 
             self.blocked.append(user.id)
             try:
