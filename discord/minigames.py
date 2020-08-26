@@ -381,8 +381,6 @@ def find_similar_from_script(msg, condensed_arr, script, config):
     # searching condensed script for matching line
     for msg_part in msg:
         msg_part = msg_part.strip()
-        if len(msg_part.split(' ')) < 2:
-            continue
         for line_ind, line in enumerate(condensed_arr):
             # abort conditions
             if not line:
