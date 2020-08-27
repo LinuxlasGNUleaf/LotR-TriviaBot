@@ -395,7 +395,7 @@ def find_similar_from_script(msg, condensed_arr, script, config):
                     if line_ind in log.keys():
                         num, found_conf, highest_part_ind = log[line_ind]
                         log[line_ind] = (num+1, found_conf+ratio, max(highest_part_ind, part_ind))
-                    elif len(msg_part.split(' ')) < 2:
+                    elif len(msg_part.split(' ')) > 1:
                         log[line_ind] = (1, ratio, part_ind)
 
     if log:
