@@ -367,21 +367,29 @@ def find_similar_from_script(msg, condensed_arr, script, config):
     '''
     attempts to find similar line from script and formats it, if found.
     '''
+
+    # stop if the message is shorter than 2 words
+    if len(msg.split(' ')) < 2:
+        return
+
     # format message string
     msg = msg.lower()
     for char in PUNCTUATION_CHARS:
         msg = msg.replace(char, '.')
     for char in ELIMINATION_CHARS:
         msg = msg.replace(char, '')
-
-    if len(msg.split(' ')) < 2:
-        return -1
     msg = msg.split('.')
-    log = {}
+
     # searching condensed script for matching line
+    log = {}
+
+    # search the script for each sentence in the message individually
     for msg_part in msg:
         msg_part = msg_part.strip()
+
+        # iterate through lines
         for line_ind, line in enumerate(condensed_arr):
+
             # abort conditions
             if not line:
                 continue
@@ -389,25 +397,47 @@ def find_similar_from_script(msg, condensed_arr, script, config):
                 if line == 'STOP':
                     continue
 
+            # iterate through sentences in the line
             for part_ind, part in enumerate(line):
+                # get the matching ratio
                 ratio = match_sequences(part, msg_part)
                 if ratio > 0.8:
+                    # if line has already been found
                     if line_ind in log.keys():
                         num, found_conf, highest_part_ind = log[line_ind]
-                        log[line_ind] = (num+1, found_conf+ratio, max(highest_part_ind, part_ind))
+                        log[line_ind] = (num+1, # found-parts
+                                         round((found_conf*num+ratio)/num+1, 2), # conf
+                                         max(highest_part_ind, part_ind)) # part-ind
+
+                    # if line was not yet found, only add it if the sentence is longer than
+                    # one word. This prevents the bot from reacting to very short sentences.
                     elif len(msg_part.split(' ')) > 1:
-                        log[line_ind] = (1, ratio, part_ind)
+                        log[line_ind] = (1, round(ratio, 2), part_ind)
 
     if log:
+        # sort results by found parts
         ranking = sorted(log, key=lambda x: log[x][0])[::-1]
-        for line_ind in ranking:
-            while line_ind+1 in ranking:
-                line_ind += 1
-            part_ind = log[line_ind][2]
+
+        # filter the results that have the same amount of found parts as the top one
+        filtered_dict = dict(filter(lambda item: item[1][0] == log[ranking[0]][0], log.items()))
+
+        # sort these by the confidence
+        filtered_ranking = sorted(filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
+
+        # pick the top one
+        line_ind = filtered_ranking[0]
+        part_ind = log[line_ind][2]
+
         parts = []
         punctuation_found = False
+
+        # get the "real" line from the script by taking
+        # the index of the line in the condensed array
         author, line = script[line_ind].split('|')
         temp = ''
+
+        # try to split the uncondensed sentence by punctuations
+        # to find the starting point for autoscript
         for char in line:
             if char in PUNCTUATION_CHARS:
                 punctuation_found = True
@@ -419,28 +449,30 @@ def find_similar_from_script(msg, condensed_arr, script, config):
         if temp.strip():
             parts[-1] += temp
 
+        # if there is something after this line, print it
         if part_ind < len(parts)-1 or line_ind < len(script)-1:
-            return_texts = []
+            return_text = ''
+            # if there is a part of the line that is missing, complete it
             if part_ind < len(parts)-1:
                 temp = ''
                 for part in parts[part_ind+1:]:
                     temp += part+' '
-                return_texts.append('**{}:** ... {}'.format(author.title(), temp))
+                return_text += '**{}:** ... {}\n'.format(author.title(), temp)
 
+            # if the line is not the last one of the script, add the next one
             if line_ind < len(script)-1:
                 if script[line_ind+1] != 'STOP':
                     author, text = script[line_ind+1].split('|')
-                    return_texts.append('**{}:** {}'.format(author.title(), text))
+                    return_text += '**{}:** {}\n'.format(author.title(), text)
+
+                # if a scene STOP is before the next line,
+                # continue only if configured to do so.
                 elif not config.DISCORD_CONFIG['autoscript.scene_end_interrupt'] \
                      and line_ind < len(script)-2:
-                    return_texts.append('*NEXT SCENE*')
+                    return_text += '**`[NEXT SCENE]`**\n'
                     author, text = script[line_ind+2].split('|')
-                    return_texts.append('**{}:** {}'.format(author.title(), text))
-            return return_texts
-        else:
-            return []
-    else:
-        return -1
+                    return_text += '**{}:** {}'.format(author.title(), text)
+            return return_text.strip()
 
 
 def reddit_meme(ch_id, reddit_client, subreddit):
