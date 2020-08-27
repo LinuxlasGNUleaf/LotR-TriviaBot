@@ -175,7 +175,7 @@ and their brats roll on the floor among the dogs?',
 ['Mac', 'Apple', 'IPhone', 'iOS'],
 
     'apple.responses': \
-['Question: How can you tell which one of your friends has the new gold iPhone?\nAnswer: Don’t worry, he will let you know',
+['Question: How can you tell which one of your friends has the new gold iPhone?\nAnswer: ||Don’t worry, he will let you know||',
  'y Apple tho',
  'I run on Linux Arch btw'],
 
