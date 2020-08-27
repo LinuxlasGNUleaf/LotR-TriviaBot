@@ -212,11 +212,11 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
             result = minigames.find_similar_from_script\
             (message.content, self.script_condensed, self.script, self.config)
             for trigger in self.config.DISCORD_CONFIG['windows.triggers']:
-                if trigger.lower() in message.split(' '):
+                if trigger.lower() in message.content.lower.split(' '):
                     await channel.send(choice(self.config.DISCORD_CONFIG['windows.responses']))
                     return
             for trigger in self.config.DISCORD_CONFIG['apple.triggers']:
-                if trigger.lower() in message.split(' '):
+                if trigger.lower() in message.content.lower.split(' '):
                     await channel.send(choice(self.config.DISCORD_CONFIG['apple.responses']))
                     return
             if result:
