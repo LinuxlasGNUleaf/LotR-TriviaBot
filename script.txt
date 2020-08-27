@@ -1536,8 +1536,7 @@ STOP
 ARWEN
 Frodo, Im Arwen. Telin let thaed. I am
 Arwen, I have come here to help you.
-Hear my voice, come back to the light. Frodo's
-eyes close.
+Hear my voice, come back to the light.
 
 PIPPIN
 Who is she?
