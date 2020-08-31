@@ -161,24 +161,6 @@ and their brats roll on the floor among the dogs?',
  'Bombur approves. Well done, {}!',
  'May the wind under your wings bear you where the sun sails and the moon walks.'],
 
-    'windows.triggers': \
-['Windows', 'Adobe', 'MS Paint', 'Microsoft', 'Bill', 'Gates'],
-
-    'windows.responses': \
-['Imagine using Windows... cringe',
- 'MICROSOFT SHILL 100',
- 'y Windows tho',
- 'In a world without walls and fences, who needs Windows and Gates? :thinking:',
- 'I run on Linux Arch btw'],
-
-    'apple.triggers': \
-['Mac', 'Apple', 'IPhone', 'iOS'],
-
-    'apple.responses': \
-['Question: How can you tell which one of your friends has the new gold iPhone?\nAnswer: ||Don’t worry, he will let you know||',
- 'y Apple tho',
- 'I run on Linux Arch btw'],
-
     'help.text': \
 '''
 Welcome to the LotR Trivia Bot!
