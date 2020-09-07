@@ -195,7 +195,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard' and \
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
             if is_dm:
-                await channel.send('Well that's not going to work, mate.\n\
+                await channel.send('Well that\'s not going to work, mate.\n\
 You are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.')
                 return
             embed = minigames.create_scoreboard(self.scoreboard, server)
