@@ -18,22 +18,18 @@ GENERAL_CONFIG = {
     'superusers': [277083306087022592]
 }
 
+config_path = os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'])
+
 REDDIT_CONFIG = {
     'subreddit': 'lotrmemes',
-    'memelog.loc': os.path.join(os.getenv('HOME'),
-                                GENERAL_CONFIG['config.path'],
-                                'meme_log.pyobj'),
+    'memelog.loc': os.path.join(config_path, 'meme_log.pyobj'),
 
-    'token.loc': os.path.join(os.getenv('HOME'),
-                              GENERAL_CONFIG['config.path'],
-                              'reddit.tk')
+    'token.loc': os.path.join(config_path, 'reddit.tk')
 }
 
 YT_CONFIG = {
     'max_video_count': 3,
-    'token.loc': os.path.join(os.getenv('HOME'),
-                              GENERAL_CONFIG['config.path'],
-                              'google.tk'),
+    'token.loc': os.path.join(config_path, 'google.tk'),
     'channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
 }
 
@@ -42,13 +38,9 @@ GOOGLE_CONFIG = {
 }
 
 DISCORD_CONFIG = {
-    'scoreboard.loc': os.path.join(os.getenv('HOME'),
-                                   GENERAL_CONFIG['config.path'],
-                                   'scoreboard.pyobj'),
+    'scoreboard.loc': os.path.join(config_path, 'scoreboard.pyobj'),
 
-    'settings.loc': os.path.join(os.getenv('HOME'),
-                                 GENERAL_CONFIG['config.path'],
-                                 'dc_settings.pyobj'),
+    'settings.loc': os.path.join(config_path, 'dc_settings.pyobj'),
 
     'settings.help': \
 '''
@@ -85,9 +77,7 @@ If the server-preference is not set, the defaults will be used, which is "allowe
                           'hangman':1,
                           'squote':1},
 
-    'token.loc': os.path.join(os.getenv('HOME'),
-                              GENERAL_CONFIG['config.path'],
-                              'discord.tk'),
+    'token.loc': os.path.join(config_path, 'discord.tk'),
 
     # minigames config
     'script.path': 'script.txt',

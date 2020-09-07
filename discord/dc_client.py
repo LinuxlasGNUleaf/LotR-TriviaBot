@@ -11,8 +11,8 @@ class LotrBot(discord.Client):
     '''
     Bot client, inheriting from discord.Client
     '''
-    def __init__(self, config, scoreboard, settings,
-                 reddit_client, yt_api_client, google_search_client):
+    def __init__(self, config, scoreboard, settings, reddit_client,
+                 yt_api_client, google_search_client):
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
