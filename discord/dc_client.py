@@ -68,8 +68,8 @@ class LotrBot(discord.Client):
                 if channel.permissions_for(user).manage_channels or \
                     user.id in self.config.GENERAL_CONFIG['superusers']:
                     if user.id in self.config.GENERAL_CONFIG['superusers']:
-                        await channel.send(":desktop: Superuser detected, \
-overriding permissions...")
+                        await channel.send(':desktop: Superuser detected, \
+overriding permissions...')
                     ret = minigames.edit_settings(content, self.settings, channel)
                     await channel.send(ret)
                 else:
@@ -81,7 +81,7 @@ overriding permissions...")
                                                                        self.settings,
                                                                        self.config))
             else:
-                await channel.send("Unknown Feature! Try one of the following:\n`"+ \
+                await channel.send('Unknown Feature! Try one of the following:\n`'+ \
 '`, `'.join(self.config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
 
 
@@ -113,7 +113,8 @@ overriding permissions...")
             await trivia_embed.delete()
             if random.random() <= self.config.DISCORD_CONFIG['trivia.tip_probability']:
                 tip = random.choice(self.config.DISCORD_CONFIG['trivia.tips'])
-                await channel.send(tip.format(self.config.DISCORD_CONFIG['trivia.link']))
+                await channel.send('**SELF-PROMOTION INCOMING**\n' + \
+                                   tip.format(self.config.DISCORD_CONFIG['trivia.link']))
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \
@@ -194,8 +195,8 @@ profile can be generated! use `{} trivia` to take a quiz!'\
         elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard' and \
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
             if is_dm:
-                await channel.send("Well that's not going to work, mate.\n\
-You are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.")
+                await channel.send('Well that's not going to work, mate.\n\
+You are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.')
                 return
             embed = minigames.create_scoreboard(self.scoreboard, server)
             await channel.send(embed=embed)
@@ -220,5 +221,5 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
                         await message.add_reaction('✅')
                     await channel.send(result)
                 except discord.errors.Forbidden:
-                    print("Encountered Forbidden error when adding Reaction!\nServer:{}\nChannel:{}\
-\nMessage:{}\nUser:{}".format(server, channel, content, user))
+                    print('Encountered Forbidden error when adding Reaction!\nServer:{}\nChannel:{}\
+\nMessage:{}\nUser:{}'.format(server, channel, content, user))

@@ -112,7 +112,7 @@ would you mind sharing it? Submit new questions here: {}'],
  'Smeagol smacc Sam with a stone',
  'Aragorn charging for Frodo'],
 
-    "hangman.allowed_chars":\
+    'hangman.allowed_chars':\
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 

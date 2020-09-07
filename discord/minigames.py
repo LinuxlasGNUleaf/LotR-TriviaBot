@@ -431,7 +431,7 @@ def find_similar_from_script(msg, condensed_arr, script, config):
         parts = []
         punctuation_found = False
 
-        # get the "real" line from the script by taking
+        # get the 'real' line from the script by taking
         # the index of the line in the condensed array
         author, line = script[line_ind].split('|')
         temp = ''
