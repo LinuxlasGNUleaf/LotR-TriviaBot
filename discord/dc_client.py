@@ -2,7 +2,7 @@
 Main discord bot class, includes minigames.py for all the extra functionality
 '''
 
-from random import choice
+import random
 import asyncio
 import discord
 import minigames
@@ -34,8 +34,8 @@ class LotrBot(discord.Client):
         '''
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
-            (type=discord.ActivityType.watching,
-             name=choice(self.config.DISCORD_CONFIG['custom_status'])))
+            (type = discord.ActivityType.watching,
+             name = random.choice(self.config.DISCORD_CONFIG['custom_status'])))
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
@@ -111,6 +111,9 @@ overriding permissions...")
                                                   self.config)
             await channel.send(reply)
             await trivia_embed.delete()
+            if random.random() <= self.config.DISCORD_CONFIG['trivia.tip_probability']:
+                tip = random.choice(self.config.DISCORD_CONFIG['trivia.tips'])
+                await channel.send(tip.format(self.config.DISCORD_CONFIG['trivia.link']))
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \

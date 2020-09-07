@@ -89,6 +89,12 @@ If the server-preference is not set, the defaults will be used, which is "allowe
     'trivia.multiplier': 15.7,
     # this is thinking time that is added to the calculated reading time
     'trivia.extra_time': 5.0,
+    'trivia.link': 'https://forms.gle/k4oMTiyUEJgntMyb9',
+    'trivia.tips': ['Thought of a cool new trivia question? Great! Submit it here: {}',
+                    'Are these questions 2 ez 4 u? Submit new ones here: {}',
+                    'Are you versed in the ways of Middle Earth trivia? And if that is the case,\
+would you mind sharing it? Submit new questions here: {}'],
+    'trivia.tip_probability': 0.05,
     # =============================
     'hangman.timeout': 20,
     'autoscript.scene_end_interrupt': False,
