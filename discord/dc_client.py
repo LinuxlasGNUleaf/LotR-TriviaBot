@@ -114,7 +114,8 @@ overriding permissions...')
             if random.random() <= self.config.DISCORD_CONFIG['trivia.tip_probability']:
                 tip = random.choice(self.config.DISCORD_CONFIG['trivia.tips'])
                 await channel.send('**SELF-PROMOTION INCOMING**\n' + \
-                                   tip.format(self.config.DISCORD_CONFIG['trivia.link']))
+                                   tip.format(self.config.DISCORD_CONFIG['trivia.link']),
+                                   delete_after=30)
 
 #==============================================================================
         elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \
