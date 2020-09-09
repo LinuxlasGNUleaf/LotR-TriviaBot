@@ -27,6 +27,8 @@ class LotrBot(discord.Client):
                                self.script, self.script_condensed)
         super().__init__()
 
+    def is_command(msg, cmdlet):
+        return msg.startswith(self.config.GENERAL_CONFIG['key'] + ' ' + cmdlet)
 
     async def on_ready(self):
         '''
@@ -60,7 +62,7 @@ class LotrBot(discord.Client):
                 return
 
 #==============================================================================
-        if content.startswith(self.config.GENERAL_CONFIG['key'] + ' config') and not is_dm:
+        if is_command(content, 'config') and not is_dm:
             content = content.split(' ')[2:]
             for i, item in enumerate(content):
                 content[i] = item.strip()
@@ -86,7 +88,7 @@ overriding permissions...')
 
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' trivia' and \
+        elif is_command(content, 'trivia') and \
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
 
             # send the question message
@@ -118,7 +120,7 @@ overriding permissions...')
                                    delete_after=30)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key']+' hangman' and \
+        elif is_command(content, 'hangman') and \
              minigames.feature_allowed('hangman', channel, self.settings, self.config):
             embed, game_info = minigames.initiate_hangman_game(user, self.config)
             hangman_msg = await channel.send(embed=embed)
@@ -146,7 +148,7 @@ overriding permissions...')
             self.blocked.remove(user.id)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' meme' and \
+        elif is_command(content, 'meme') and \
              minigames.feature_allowed('memes', channel, self.settings, self.config):
             ch_id = channel.id if is_dm else server.id
             embed = minigames.reddit_meme(ch_id,
@@ -155,13 +157,13 @@ overriding permissions...')
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' squote' and \
+        elif is_command(content, 'squote') and \
              minigames.feature_allowed('squote', channel, self.settings, self.config):
             embed = minigames.silmarillion_quote(self.config)
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' profile' and \
+        elif is_command(content, 'profile') and \
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
             if user.id in self.scoreboard.keys():
                 await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard))
@@ -171,7 +173,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                                    .format(self.config.GENERAL_CONFIG['key']))
 
 #==============================================================================
-        elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' yt ') and \
+        elif is_command(content, 'yt ') and \
              minigames.feature_allowed('yt-search', channel, self.settings, self.config):
             result = minigames.search_youtube(user,
                                               raw_content,
@@ -185,7 +187,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                 await channel.send(result)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' help':
+        elif is_command(content, 'help'):
             embed = minigames.create_embed(
                 title='LotR Trivia Bot help',
                 content=self.config.DISCORD_CONFIG['help.text'],
@@ -193,7 +195,7 @@ profile can be generated! use `{} trivia` to take a quiz!'\
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content == self.config.GENERAL_CONFIG['key'] + ' scoreboard' and \
+        elif is_command(content, 'scoreboard') and \
              minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
             if is_dm:
                 await channel.send('Well that\'s not going to work, mate.\n\
@@ -203,14 +205,14 @@ You are in a DM Channel... join a server where this amazing bot is present to cr
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif content.startswith(self.config.GENERAL_CONFIG['key'] + ' search '):
+        elif is_command(content, 'search '):
             raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
             result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
             if isinstance(result, str):
                 await channel.send(result)
             else:
                 await channel.send(embed=result)
-
+        
 #==============================================================================
         elif self.do_autoscript and not is_dm and \
              minigames.feature_allowed('autoscript', channel, self.settings, self.config):
