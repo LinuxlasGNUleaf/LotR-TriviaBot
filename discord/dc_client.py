@@ -49,12 +49,10 @@ class LotrBot(discord.Client):
         '''
         main function to recognize a bot command
         '''
-        if message.author == self.user or \
-           message.author.id in self.blocked or \
-           message.author.bot:
-            return
-
         user = message.author
+
+        if user == self.user or user.id in self.blocked or user.bot:
+            return
         raw_content = message.content.strip()
         content = raw_content.lower()
         channel = message.channel
@@ -66,61 +64,16 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         if self.is_command(content, 'config') and not is_dm:
-            content = content.split(' ')[2:]
-            for i, item in enumerate(content):
-                content[i] = item.strip()
-            if content[0] in self.config.DISCORD_CONFIG['settings.features']:
-                if channel.permissions_for(user).manage_channels or \
-                    user.id in self.config.GENERAL_CONFIG['superusers']:
-                    if user.id in self.config.GENERAL_CONFIG['superusers']:
-                        await channel.send(':desktop: Superuser detected, \
-overriding permissions...')
-                    ret = minigames.edit_settings(content, self.settings, channel)
-                    await channel.send(ret)
-                else:
-                    await channel.send(':x: You do not have permission to change these settings!')
-            elif content[0] == 'help':
-                await channel.send(self.config.DISCORD_CONFIG['settings.help'])
-            elif content[0] == 'show':
-                await channel.send(embed=minigames.create_config_embed(channel,
-                                                                       self.settings,
-                                                                       self.config))
-            else:
-                await channel.send('Unknown Feature! Try one of the following:\n`'+ \
-'`, `'.join(self.config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
-
+            await minigames.manage_config(channel,
+                                          user,
+                                          content,
+                                          self.config,
+                                          self.settings)
 
 #==============================================================================
-        elif self.is_command(content, 'trivia') and \
-             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
+        elif self.is_command(content, 'trivia'):
+            await minigames.trivia_question(channel)
 
-            # send the question message
-            embed, correct_ind, len_answers, timeout = minigames.\
-                create_trivia_question(user, self.scoreboard, self.config)
-            trivia_embed = await channel.send(embed=embed)
-
-            def check(chk_msg):
-                return chk_msg.author == user and chk_msg.channel == channel
-
-            self.blocked.append(user.id)
-            try:
-                msg = await self.wait_for('message',
-                                          check=check,
-                                          timeout=timeout)
-            except asyncio.TimeoutError:
-                msg = ''
-            self.blocked.remove(user.id)
-
-            reply = minigames.create_trivia_reply(user, msg, self.scoreboard,
-                                                  correct_ind, len_answers,
-                                                  self.config)
-            await channel.send(reply)
-            await trivia_embed.delete()
-            if random.random() <= self.config.DISCORD_CONFIG['trivia.tip_probability']:
-                tip = random.choice(self.config.DISCORD_CONFIG['trivia.tips'])
-                await channel.send('**SELF-PROMOTION INCOMING**\n' + \
-                                   tip.format(self.config.DISCORD_CONFIG['trivia.link']),
-                                   delete_after=30)
 
 #==============================================================================
         elif self.is_command(content, 'hangman') and \
@@ -176,45 +129,40 @@ profile can be generated! use `{} trivia` to take a quiz!'\
                                    .format(self.config.GENERAL_CONFIG['key']))
 
 #==============================================================================
-        elif self.is_command(content, 'yt ') and \
-             minigames.feature_allowed('yt-search', channel, self.settings, self.config):
-            result = minigames.search_youtube(user,
-                                              raw_content,
-                                              self.yt_api_client,
-                                              self.config)
-
-            if isinstance(result, list):
-                for item in result:
-                    await channel.send(embed=item)
-            else:
-                await channel.send(result)
+        elif self.is_command(content, 'yt '):
+            await minigames.search_youtube(channel,
+                                           user,
+                                           raw_content,
+                                           self.yt_api_client,
+                                           self.config,
+                                           self.settings)
 
 #==============================================================================
         elif self.is_command(content, 'help'):
-            embed = minigames.create_embed(
-                title='LotR Trivia Bot help',
-                content=self.config.DISCORD_CONFIG['help.text'],
-                footnote=self.config.DISCORD_CONFIG['help.footer'])
-            await channel.send(embed=embed)
+            await minigames.display_help(channel,
+                                         self.config)
 
 #==============================================================================
-        elif self.is_command(content, 'scoreboard') and \
-             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
-            if is_dm:
-                await channel.send('Well that\'s not going to work, mate.\n\
-You are in a DM Channel... join a server where this amazing bot is present to create a scoreboard.')
-                return
-            embed = minigames.create_scoreboard(self.scoreboard, server)
-            await channel.send(embed=embed)
+        elif self.is_command(content, 'scoreboard') and not is_dm:
+            await minigames.display_scoreboard(channel,
+                                               server,
+                                               self.settings,
+                                               self.config,
+                                               self.scoreboard)
 
 #==============================================================================
         elif self.is_command(content, 'search '):
-            raw_content = ' '.join(raw_content.split(' ')[2:]).strip()
-            result = minigames.lotr_search(self.google_search_client, raw_content, self.config)
-            if isinstance(result, str):
-                await channel.send(result)
-            else:
-                await channel.send(embed=result)
+            await minigames.lotr_search(channel,
+                                        self.google_search_client,
+                                        raw_content,
+                                        self.config)
+
+#==============================================================================
+        elif self.is_command(content, 'fight'):
+            await minigames.lotr_battle(self,
+                                        channel,
+                                        user,
+                                        content)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm and \

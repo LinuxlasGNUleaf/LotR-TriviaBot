@@ -47,7 +47,7 @@ DISCORD_CONFIG = {
 **How the config works:**
 You can set preferences for a server or a channel (DMs excluded),\
 which means you set the feature to on / off.
-If set, the channel preference for a feature will __always__ be relevant.
+If set, the channel preference for a feature will __always__ be preferred.
 If the channel preference for this feature is not set, the server-preference will be used.
 If the server-preference is not set, the defaults will be used, which is "allowed".\n
 **How to use the config command:**
@@ -83,6 +83,8 @@ If the server-preference is not set, the defaults will be used, which is "allowe
     'script.path': 'script.txt',
     'silmarillion.path': 'silmarillion_edited.txt',
     'silmarillion.sentence_count': 2,
+
+    'battle.timeout': 45,
 
     # this is the char per second multiplier. According to the web,
     # the average reading speed is 15.7 chars/second

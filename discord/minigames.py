@@ -7,6 +7,8 @@ import csv
 import string
 from difflib import SequenceMatcher
 import html
+import asyncio
+
 import discord
 
 PUNCTUATION_CHARS = ['?', '!', '.', ':', ';']
@@ -21,27 +23,229 @@ DESCRIPTION_BLACKLIST = [
     'playlist', 'editor', 'channel'
     ]
 
-def constrain_val(val, in_min, in_max):
-    '''
-    constrains a value in a range
-    '''
-    return min(max(val, in_min), in_max)
+async def trivia_question(channel, bot, user, settings, config, blocked, scoreboard):
+    if not feature_allowed('trivia-quiz', channel, settings, config):
+        return
 
+    if user.id in scoreboard.keys():
+        count = scoreboard[user.id][0] + 1
+    else:
+        count = 1
+
+    # get random question
+    with open('questions.csv', 'r') as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        content = random.choice(list(csvreader))
+
+    # pop the source and the question (first element)
+    source = content.pop(0)
+    question = content.pop(0)
+    # shuffle answers
+    random.shuffle(content)
+
+    answers = content.copy()
+    correct_index = 0
+    for i, item in enumerate(answers):
+        if item.startswith(config.GENERAL_CONFIG['marker']):
+            answers[i] = item[1:]
+            correct_index = i+1
+            break
+    
+    # create the embed text
+    embed_text = '```markdown\n'
+    char_count = len(question)
+    for num, cont in enumerate(answers):
+        embed_text += '{}. {}\n'.format(num+1, cont)
+        char_count += len(cont)
+    
+    # calculate the timeout
+    timeout = round(char_count / config.DISCORD_CONFIG['trivia.multiplier'] + \
+                    config.DISCORD_CONFIG['trivia.extra_time'], 1)
+    
+    embed_text += '```\nsource: {}'.format(source)
+    embed_text += '\n:stopwatch: {} seconds'.format(round(timeout))
+
+    author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
+        .format(user.display_name, config.ORDINAL(count))
+    author_info = (author_name, user.avatar_url)
+    embed = create_embed(question, author_info=author_info,
+                         content=embed_text)
+
+    trivia_embed = await channel.send(embed=embed)
+
+    def check(chk_msg):
+        return chk_msg.author == user and chk_msg.channel == channel
+
+    blocked.append(user.id)
+    try:
+        msg = await bot.wait_for('message', check=check, timeout=timeout)
+    except asyncio.TimeoutError:
+        msg = ''
+    blocked.remove(user.id)
+
+    ret_string = ':x: '
+    if not msg:
+        return ret_string + create_reply(user, True, config) +\
+                            '\nYou took too long to answer!'
+
+    if user.id in scoreboard.keys():
+        count, wins = scoreboard[user.id]
+    else:
+        count, wins = (0, 0)
+    msg = msg.content
+    if msg.isdigit():
+        # if msg is a digit
+        msg = int(msg)
+        if msg > 0 and msg <= len(answers):
+            if msg == correct_index:
+                # right answer
+                wins += 1
+                ret_string = ':white_check_mark:' + create_reply(user, False, config)
+            else:
+                # invalid digit
+                ret_string += create_reply(user, True, config)
+        else:
+            # invalid digit
+            ret_string += create_reply(user, True, config) + \
+                '\nHmm... maybe try picking a valid digit next time ?'
+    else:
+        # not a digit
+        ret_string += create_reply(user, True, config) + \
+            '\nWhat is that supposed to be? Clearly not a digit...'
+
+    scoreboard[user.id] = (count+1, wins)
+    await channel.send(ret_string)
+
+    await trivia_embed.delete()
+    if random.random() <= config.DISCORD_CONFIG['trivia.tip_probability']:
+        tip = random.choice(config.DISCORD_CONFIG['trivia.tips'])
+        await channel.send('**SELF-PROMOTION INCOMING**\n' + \
+                            tip.format(config.DISCORD_CONFIG['trivia.link']),
+                            delete_after=30)
+
+async def manage_config(channel, user, content, config, settings):
+    content = content.split(' ')[2:]
+    server = channel.guild
+
+    for i, item in enumerate(content):
+        content[i] = item.strip()
+
+    # user wants to change the settings
+    if content[0] in config.DISCORD_CONFIG['settings.features']:
+        if channel.permissions_for(user).manage_channels or \
+            user.id in config.GENERAL_CONFIG['superusers']:
+            if user.id in config.GENERAL_CONFIG['superusers']:
+                await channel.send(':desktop: Superuser detected, overriding permissions...')
+            ret = edit_settings(content, settings, channel)
+            await channel.send(ret)
+        else:
+            await channel.send(':x: You do not have permission to change these settings!')
+
+    # user wants to see the help message
+    elif content[0] == 'help':
+        await channel.send(config.DISCORD_CONFIG['settings.help'])
+
+    # user wants to see the config embed
+    elif content[0] == 'show':
+        title = 'Config for #{}, Server: {}'.format(channel, server)
+        content = ''
+        for feature in config.DISCORD_CONFIG['settings.features']:
+            content += '**Feature `{}`:**\n'.format(feature)
+
+            server_setting = ':grey_question:'
+            if server.id in settings.keys():
+                if feature in settings[server.id]:
+                    server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
+            
+            channel_setting = ':grey_question:'
+            if channel.id in settings.keys():
+                if feature in settings[channel.id]:
+                    channel_setting = ':white_check_mark:' if settings[channel.id][feature] else ':x:'
+
+            effective = ':white_check_mark:' if feature_allowed(feature,
+                                                                channel,
+                                                                settings,
+                                                                config) else ':x:'
+            content += 'Server: {} Channel: {} Effective: {}\n\n'\
+                    .format(server_setting, channel_setting, effective)
+
+        embed = create_embed(title=title, content=content, footnote=config.GENERAL_CONFIG['footer'])
+        channel.send(embed=embed)
+    else:
+        await channel.send('Unknown Feature! Try one of the following:\n`'+'`, `'
+                           .join(config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
+
+async def display_scoreboard(channel, server, settings, config, scoreboard):
+    if not feature_allowed('trivia-quiz', channel, settings, config):
+        return
+
+    users = server.members
+    found_users = []
+    scoreboard_string = ''
+    for user in users:
+        if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
+            found_users.append([scoreboard[user.id][1], user.name,
+                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
+
+    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
+    user_str = '**[{} pts]** {} ({}%)'
+    for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
+        temp = user_str.format(*user)
+
+        if i < len(medals):
+            scoreboard_string += medals[i].format(temp)+'\n'
+        else:
+            scoreboard_string += medals[-1].format(temp)+'\n'
+    await channel.send(embed=create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string))
+
+async def lotr_battle(channel, bot, user, content):
+    content = content.split(' ')[2:]
+    try:
+        opponent = await bot.fetch_user(content[0][3:-1])
+        if opponent.bot:
+            await channel.send('Nope, you cannot fight a bot.')
+            return
+        elif opponent == user:
+            await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself! Tag someone else!')
+            return
+    except (discord.errors.HTTPException, IndexError):
+        await channel.send('Please tag a valid user here you want to battle.')
+        return
+
+    await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'.format(opponent.mention, user.mention))
+
+    def check(chk_msg):
+        return (chk_msg.author == opponent and
+                chk_msg.channel == channel)
+
+    bot.blocked.append(opponent.id)
+    try:
+        msg = await bot.wait_for('message',
+                                 check=check,
+                                 timeout=bot.config.DISCORD_CONFIG['battle.timeout'])
+        if msg.content.lower().strip() == 'yes':
+            await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
+        else:
+            await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
+            return
+    except asyncio.TimeoutError:
+        await channel.send('{}, your opponent did not respond.'.format(user.mention))
+        return
+
+    bot.blocked.remove(opponent.id)
+
+async def display_help(channel, config):
+    embed = create_embed(title='LotR Trivia Bot help',
+                         content=config.DISCORD_CONFIG['help.text'],
+                         footnote=config.DISCORD_CONFIG['help.footer'])
+    await channel.send(embed=embed)
 
 def map_vals(val, in_min, in_max, out_min, out_max):
     '''
     maps a value in a range to another range
     '''
-    val = constrain_val(val, in_min, in_max)
+    val = min(max(val, in_min), in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-
-
-def match_sequences(str_a, str_b):
-    '''
-    returns the match-ratio of two strings (a and b)
-    '''
-    return SequenceMatcher(None, str_a, str_b).ratio()
-
 
 def create_embed(title=False, content=False, embed_url=False, link_url=False,
                  footnote=False, color=False, author_info=False):
@@ -157,99 +361,6 @@ def create_reply(user, insult, config):
     else:
         msg = random.choice(config.DISCORD_CONFIG['compliments'])
     return msg if '{}' not in msg else msg.format(user.display_name)
-
-
-def create_trivia_question(user, scoreboard, config):
-    '''
-    returns an embed with a trivia question for a specific user AND the
-    correct index
-    '''
-
-    # get info from scoreboard
-    if user.id in scoreboard.keys():
-        count = scoreboard[user.id][0] + 1
-    else:
-        count = 1
-
-    author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
-        .format(user.display_name, config.ORDINAL(count))
-
-    # get random question
-    with open('questions.csv', 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        content = random.choice(list(csvreader))
-
-    # pop the source and the question (first element)
-    source = content.pop(0)
-    question = content.pop(0)
-    # shuffle answers
-    random.shuffle(content)
-
-    answers = content.copy()
-    correct_index = 0
-    for i, item in enumerate(answers):
-        if item.startswith(config.GENERAL_CONFIG['marker']):
-            answers[i] = item[1:]
-            correct_index = i+1
-            break
-
-    title = question
-    embed_text = '```markdown\n'
-    char_count = len(question)
-    for num, cont in enumerate(answers):
-        embed_text += '{}. {}\n'.format(num+1, cont)
-        char_count += len(cont)
-    embed_text += '```\nsource: {}'.format(source)
-
-    timeout = round(char_count / config.DISCORD_CONFIG['trivia.multiplier'] + \
-                      config.DISCORD_CONFIG['trivia.extra_time'], 1)
-    # returning the embed and the answers WITH THE CORRECT ANSWER,
-    # so that the given answer can be validated later
-    embed_text += '\n:stopwatch: {} seconds'.format(round(timeout))
-    author_info = (author_name, user.avatar_url)
-    embed = create_embed(title, author_info=author_info,
-                         content=embed_text)
-    return (embed, correct_index, len(answers), timeout)
-
-
-def create_trivia_reply(user, msg, scoreboard, correct_index,
-                        len_answers, config):
-    '''
-    creates an appropiate reply to a trivia question.\
-    Changes scoreboard according to outcome.
-    '''
-    ret_string = ':x: '
-    if not msg:
-        return ret_string + create_reply(user, True, config) +\
-                            '\nYou took too long to answer!'
-
-    if user.id in scoreboard.keys():
-        count, wins = scoreboard[user.id]
-    else:
-        count, wins = (0, 0)
-    msg = msg.content
-    if msg.isdigit():
-        # if msg is a digit
-        msg = int(msg)
-        if msg > 0 and msg <= len_answers:
-            if msg == correct_index:
-                # right answer
-                wins += 1
-                ret_string = ':white_check_mark:' + create_reply(user, False, config)
-            else:
-                # invalid digit
-                ret_string += create_reply(user, True, config)
-        else:
-            # invalid digit
-            ret_string += create_reply(user, True, config) + \
-                '\nHmm... maybe try picking a valid digit next time ?'
-    else:
-        # not a digit
-        ret_string += create_reply(user, True, config) + \
-            '\nWhat is that supposed to be? Clearly not a digit...'
-
-    scoreboard[user.id] = (count+1, wins)
-    return ret_string
 
 
 def initiate_hangman_game(user, config):
@@ -400,7 +511,7 @@ def find_similar_from_script(msg, condensed_arr, script, config):
             # iterate through sentences in the line
             for part_ind, part in enumerate(line):
                 # get the matching ratio
-                ratio = match_sequences(part, msg_part)
+                ratio = SequenceMatcher(None, part, msg_part).ratio()
                 if ratio > 0.8:
                     # if line has already been found
                     if line_ind in log.keys():
@@ -546,10 +657,13 @@ def is_headline(line):
     return True
 
 
-def search_youtube(user, raw_content, google_client, config):
+def search_youtube(user, channel, raw_content, google_client, config, settings):
     '''
     returns a give number of Youtube Video embeds for a specific channel
     '''
+    if not feature_allowed('yt-search', channel, settings, config):
+        return
+
     raw_content = raw_content.split(config.GENERAL_CONFIG['key'] + ' yt ')[1]
     start, end = (-1, -1)
     query = ''
@@ -577,10 +691,9 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
         min(config.YT_CONFIG['max_video_count'], num))['items']
 
     if not res:
-        return '*\'I have no memory of this place\'*\n~Gandalf\
+        await '*\'I have no memory of this place\'*\n~Gandalf\
 \nYour query `{}` yielded no results!'.format(query)
 
-    embeds = []
     for i, item in enumerate(res):
         title = ':mag: Search Result {}\n'.format(i+1)+\
             html.unescape(item['snippet']['title'])
@@ -596,12 +709,11 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
         comments = '{:,}'.format(int(vid_info['statistics']['commentCount']))
         info_bar = ':play_pause: {views} **|** :thumbsup: {likes} **|** :speech_balloon: {comm}'\
             .format(views=views, likes='{:,}'.format(likes), comm=comments)
-        embeds.append(create_embed(title,
-                                   embed_url=yt_link,
-                                   link_url=thumbnail_link,
-                                   footnote=publish_time,
-                                   content=description+'\n'+info_bar))
-    return embeds
+        await channel.send(embed=create_embed(title,
+                                              embed_url=yt_link,
+                                              link_url=thumbnail_link,
+                                              footnote=publish_time,
+                                              content=description+'\n'+info_bar))
 
 
 def unbloat_description(desc):
@@ -627,40 +739,20 @@ def unbloat_description(desc):
     return new_desc
 
 
-def create_scoreboard(scoreboard, server):
-    '''
-    creates scoreboard for a specific server
-    '''
-    users = server.members
-    found_users = []
-    scoreboard_string = ''
-    for user in users:
-        if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
-            found_users.append([scoreboard[user.id][1], user.name,
-                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
-
-    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
-    user_str = '**[{} pts]** {} ({}%)'
-    for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
-        temp = user_str.format(*user)
-
-        if i < len(medals):
-            scoreboard_string += medals[i].format(temp)+'\n'
-        else:
-            scoreboard_string += medals[-1].format(temp)+'\n'
-    return create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string)
-
-def lotr_search(google_client, query, config):
+def lotr_search(channel, google_client, raw_content, config):
     '''
     searches on a given site for a given entry
     '''
+    query = ' '.join(raw_content.split(' ')[2:]).strip()
     site = config.GOOGLE_CONFIG['site']
     content = list(google_client.google_search(query, site))
     if not content:
-        return ':x: No results for `{}` on  *{}*.'.format(query, site)
+        await channel.send(':x: No results for `{}` on  *{}*.'.format(query, site))
+        return
     content = content[0]
     title = ':mag: 1st result for `{}` on  *{}* :'.format(query, site)
-    return create_embed(title=title, content=content)
+    await channel.send(embed=create_embed(title=title, content=content))
+
 
 def feature_allowed(feature, channel, settings, config):
     '''
@@ -679,6 +771,7 @@ def feature_allowed(feature, channel, settings, config):
         return config.DISCORD_CONFIG['settings.defaults'][feature]
     else:
         return 1
+
 
 def edit_settings(cmd, settings, channel):
     '''
@@ -721,32 +814,3 @@ def edit_settings(cmd, settings, channel):
 
     else:
         return 'state `{}` not recognized'.format(cmd[1])
-
-def create_config_embed(channel, settings, config):
-    '''
-    creates an embed to visualize the permissions for the given channel
-    '''
-    server = channel.guild
-    title = 'Config for #{}, Server: {}'.format(channel, server)
-    content = ''
-    for feature in config.DISCORD_CONFIG['settings.features']:
-        content += '**Feature `{}`:**\n'.format(feature)
-        server_setting = ':grey_question:'
-        if server.id in settings.keys():
-            if feature in settings[server.id]:
-                server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
-        channel_setting = ':grey_question:'
-        if channel.id in settings.keys():
-            if feature in settings[channel.id]:
-                channel_setting = ':white_check_mark:' if settings[channel.id][feature] else ':x:'
-
-        effective = ':white_check_mark:' if feature_allowed(feature,
-                                                            channel,
-                                                            settings,
-                                                            config) else ':x:'
-        content += 'Server: {} Channel: {} Effective: {}\n\n'\
-                   .format(server_setting, channel_setting, effective)
-
-    return create_embed(title=title,
-                        content=content,
-                        footnote=config.GENERAL_CONFIG['footer'])
