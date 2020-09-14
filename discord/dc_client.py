@@ -72,36 +72,22 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif self.is_command(content, 'trivia'):
-            await minigames.trivia_question(channel)
-
+            await minigames.trivia_question(channel,
+                                            self,
+                                            user,
+                                            self.settings,
+                                            self.config,
+                                            self.blocked,
+                                            self.scoreboard)
 
 #==============================================================================
-        elif self.is_command(content, 'hangman') and \
-             minigames.feature_allowed('hangman', channel, self.settings, self.config):
-            embed, game_info = minigames.initiate_hangman_game(user, self.config)
-            hangman_msg = await channel.send(embed=embed)
-
-            def check(chk_msg):
-                return chk_msg.author == user and chk_msg.channel == channel
-
-            self.blocked.append(user.id)
-
-            failed = False
-            while not failed:
-                try:
-                    msg = await self.wait_for('message',
-                                              check=check,
-                                              timeout=self.config.DISCORD_CONFIG['hangman.timeout'])
-                except asyncio.TimeoutError:
-                    msg = ''
-
-                embed, failed, message, game_info = minigames.\
-                    update_hangman_game(user, msg, game_info, self.config)
-                await hangman_msg.edit(embed=embed)
-                if message:
-                    await channel.send(message)
-
-            self.blocked.remove(user.id)
+        elif self.is_command(content, 'hangman'):
+            await minigames.create_hangman_game(channel,
+                                                self,
+                                                user,
+                                                self.settings,
+                                                self.config,
+                                                self.blocked)
 
 #==============================================================================
         elif self.is_command(content, 'meme') and \
@@ -119,14 +105,12 @@ class LotrBot(discord.Client):
             await channel.send(embed=embed)
 
 #==============================================================================
-        elif self.is_command(content, 'profile') and \
-             minigames.feature_allowed('trivia-quiz', channel, self.settings, self.config):
-            if user.id in self.scoreboard.keys():
-                await channel.send(embed=minigames.create_trivia_profile(user, self.scoreboard))
-            else:
-                await channel.send('You have to play a game of trivia before a \
-profile can be generated! use `{} trivia` to take a quiz!'\
-                                   .format(self.config.GENERAL_CONFIG['key']))
+        elif self.is_command(content, 'profile'):
+            await minigames.display_profile(channel,
+                                            user,
+                                            self.settings,
+                                            self.config,
+                                            self.scoreboard)
 
 #==============================================================================
         elif self.is_command(content, 'yt '):

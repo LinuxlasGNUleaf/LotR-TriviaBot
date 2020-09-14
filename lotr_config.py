@@ -131,11 +131,11 @@ ilillllililii```',
  '```    //====\\\n    ||    |\n    ||   (")\n    ||   \\|/\n    ||    X\n    \
 ||   /\n    ||\nililililillllililii```'],
 
-    'hangman.lost_state': '```    //====\\\n    ||    |\n    ||   (")\n    ||   \\|/\n    ||\
-    X\n    ||   / \\\n    ||\nililililillllililii```',
-
-    'hangman.won_state': '```    //====\\\n    ||\n    ||\n    ||   (")\n    ||   \\|/\n    ||\
-    X\n    ||   / \\\nililililillllililii```',
+    'hangman.end_states': [\
+'```    //====\\\n    ||    |\n    ||   (")\n    ||   \\|/\n    ||    X\n    ||\
+   / \\\n    ||\nililililillllililii```',
+'```    //====\\\n    ||\n    ||\n    ||   (")\n    ||   \\|/\n    ||    X\n   \
+ ||   / \\\nililililillllililii```'],
 
 
     'insults':\

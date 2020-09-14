@@ -1,7 +1,6 @@
 '''
 Library for all the minigames for the LotR Trivia Bot. Accessed by the Discord Client
 '''
-import math
 import random
 import csv
 import string
@@ -23,15 +22,90 @@ DESCRIPTION_BLACKLIST = [
     'playlist', 'editor', 'channel'
     ]
 
-async def trivia_question(channel, bot, user, settings, config, blocked, scoreboard):
-    if not feature_allowed('trivia-quiz', channel, settings, config):
+async def create_hangman_game(channel, bot, user, settings, config, blocked):
+    if not feature_allowed('hangman', channel, settings, config):
         return
 
-    if user.id in scoreboard.keys():
-        count = scoreboard[user.id][0] + 1
-    else:
-        count = 1
+    with open('words.csv', 'r') as csvfile:
+        word = random.choice(csvfile.readlines()).strip()
+    word_condensed = word.lower().replace(' ', '')
 
+    steps = 2 if len(word_condensed) <= 6 else 1
+
+    game_states = config.DISCORD_CONFIG['hangman.ongoing_states']
+    end_states = config.DISCORD_CONFIG['hangman.end_states']
+
+    used_chars = []  # used characters array
+    max_ind = len(game_states)-1 # max index
+    ind = 0
+
+    h_embed = create_hangman_embed(user, word, game_states[0], 0, [], True)
+    hangman = await channel.send(embed=h_embed)
+
+    def check(chk_msg):
+        return chk_msg.author == user and chk_msg.channel == channel
+
+    blocked.append(user.id)
+
+    while True:
+        try:
+            msg = await bot.wait_for('message',
+                                     check=check,
+                                     timeout=config.DISCORD_CONFIG['hangman.timeout'])
+            msg = msg.content.lower()
+
+        except asyncio.TimeoutError:
+            h_embed = create_hangman_embed(user, word, end_states[0], 8, used_chars, False)
+            await hangman.edit(embed=h_embed)
+            await channel.send('Game over! You took too long to answer!')
+            break
+
+        for char in msg:
+            if char not in used_chars and char in config.DISCORD_CONFIG['hangman.allowed_chars']:
+                used_chars.append(char)
+                if char not in word_condensed:
+                    ind += steps
+        used_chars.sort()
+
+        if ind > max_ind:
+            h_embed = create_hangman_embed(user, word, end_states[0], 8, used_chars, False)
+            await hangman.edit(embed=h_embed)
+            await channel.send('Game over! You lost all your lives!')
+            break
+
+        for char in word_condensed:
+            if char not in used_chars:
+                break
+        else:
+            h_embed = create_hangman_embed(user, word, end_states[1], 0, used_chars, False)
+            await hangman.edit(embed=h_embed)
+            await channel.send('Congratulations! You won the game!')
+            return
+
+        print(ind)
+        h_embed = create_hangman_embed(user, word, game_states[ind], ind, used_chars, True)
+        await hangman.edit(embed=h_embed)
+
+    blocked.remove(user.id)
+
+async def display_profile(channel, user, settings, config, scoreboard):
+    if not feature_allowed('trivia-quiz', channel, settings, config):
+        return
+    if not user.id in scoreboard.keys():
+        await channel.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(config.GENERAL_CONFIG['key']))
+        return
+
+    played, wins = scoreboard[user.id]
+    color = (map_vals(wins/played, 0, 1, 255, 0), map_vals(wins/played, 0, 1, 0, 255), 0)
+
+    title = '{}\'s results'.format(user.display_name)
+    content = 'Trivia games played: {}\nTrivia games won: {}\n\
+               Win/Played ratio: {}%'\
+              .format(played, wins, round(wins/played*100, 2))
+    await channel.send(embed=create_embed(title, content=content, color=color))
+
+
+def prepare_trivia_question(user, count, config):
     # get random question
     with open('questions.csv', 'r') as csvfile:
         csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -44,84 +118,89 @@ async def trivia_question(channel, bot, user, settings, config, blocked, scorebo
     random.shuffle(content)
 
     answers = content.copy()
-    correct_index = 0
     for i, item in enumerate(answers):
         if item.startswith(config.GENERAL_CONFIG['marker']):
             answers[i] = item[1:]
             correct_index = i+1
             break
-    
+
+    # create author info
+    author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
+        .format(user.display_name, config.ORDINAL(count) if count else '')
+    author_info = (author_name, user.avatar_url)
+
     # create the embed text
     embed_text = '```markdown\n'
     char_count = len(question)
     for num, cont in enumerate(answers):
         embed_text += '{}. {}\n'.format(num+1, cont)
         char_count += len(cont)
-    
+
     # calculate the timeout
     timeout = round(char_count / config.DISCORD_CONFIG['trivia.multiplier'] + \
                     config.DISCORD_CONFIG['trivia.extra_time'], 1)
-    
+
+    # add source and timeout to embed text
     embed_text += '```\nsource: {}'.format(source)
     embed_text += '\n:stopwatch: {} seconds'.format(round(timeout))
 
-    author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
-        .format(user.display_name, config.ORDINAL(count))
-    author_info = (author_name, user.avatar_url)
-    embed = create_embed(question, author_info=author_info,
-                         content=embed_text)
+    # send the trivia question
+    return (create_embed(question, author_info=author_info, content=embed_text),
+            correct_index,
+            timeout)
 
-    trivia_embed = await channel.send(embed=embed)
 
-    def check(chk_msg):
-        return chk_msg.author == user and chk_msg.channel == channel
-
-    blocked.append(user.id)
-    try:
-        msg = await bot.wait_for('message', check=check, timeout=timeout)
-    except asyncio.TimeoutError:
-        msg = ''
-    blocked.remove(user.id)
-
-    ret_string = ':x: '
-    if not msg:
-        return ret_string + create_reply(user, True, config) +\
-                            '\nYou took too long to answer!'
+async def trivia_question(channel, bot, user, settings, config, blocked, scoreboard):
+    if not feature_allowed('trivia-quiz', channel, settings, config):
+        return
 
     if user.id in scoreboard.keys():
         count, wins = scoreboard[user.id]
+        count += 1
     else:
-        count, wins = (0, 0)
-    msg = msg.content
-    if msg.isdigit():
-        # if msg is a digit
-        msg = int(msg)
-        if msg > 0 and msg <= len(answers):
+        count, wins = (1, 0)
+
+    # function to check whether the user's reply is valid
+    def check(chk_msg):
+        return chk_msg.author == user and chk_msg.channel == channel
+
+    embed, correct_index, timeout = prepare_trivia_question(user, count, config)
+    trivia_embed = await channel.send(embed=embed)
+
+    # block user from sending any commands
+    blocked.append(user.id)
+    try:
+        msg = await bot.wait_for('message', check=check, timeout=timeout).content
+
+        if msg.isdigit():
+            msg = int(msg)
             if msg == correct_index:
                 # right answer
                 wins += 1
-                ret_string = ':white_check_mark:' + create_reply(user, False, config)
+                ret_string = create_reply(user, False, config)
             else:
                 # invalid digit
-                ret_string += create_reply(user, True, config)
+                ret_string = create_reply(user, True, config)
         else:
-            # invalid digit
+            # not a digit
             ret_string += create_reply(user, True, config) + \
-                '\nHmm... maybe try picking a valid digit next time ?'
-    else:
-        # not a digit
-        ret_string += create_reply(user, True, config) + \
-            '\nWhat is that supposed to be? Clearly not a digit...'
+                '\nWhat is that supposed to be? Clearly not a digit...'
+    except asyncio.TimeoutError:
+        ret_string = create_reply(user, True, config) + '\nYou took too long to answer!'
 
-    scoreboard[user.id] = (count+1, wins)
+    # unblock user afterwards
+    blocked.remove(user.id)
+
+    # update scoreboard, send reply and delete the question
+    scoreboard[user.id] = (count, wins)
     await channel.send(ret_string)
-
     await trivia_embed.delete()
+
+    # certain chance to send a small tip
     if random.random() <= config.DISCORD_CONFIG['trivia.tip_probability']:
         tip = random.choice(config.DISCORD_CONFIG['trivia.tips'])
-        await channel.send('**SELF-PROMOTION INCOMING**\n' + \
-                            tip.format(config.DISCORD_CONFIG['trivia.link']),
-                            delete_after=30)
+        await channel.send(tip.format(config.DISCORD_CONFIG['trivia.link']), delete_after=30)
+
 
 async def manage_config(channel, user, content, config, settings):
     content = content.split(' ')[2:]
@@ -175,6 +254,7 @@ async def manage_config(channel, user, content, config, settings):
         await channel.send('Unknown Feature! Try one of the following:\n`'+'`, `'
                            .join(config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
 
+
 async def display_scoreboard(channel, server, settings, config, scoreboard):
     if not feature_allowed('trivia-quiz', channel, settings, config):
         return
@@ -197,6 +277,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
         else:
             scoreboard_string += medals[-1].format(temp)+'\n'
     await channel.send(embed=create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string))
+
 
 async def lotr_battle(channel, bot, user, content):
     content = content.split(' ')[2:]
@@ -234,11 +315,13 @@ async def lotr_battle(channel, bot, user, content):
 
     bot.blocked.remove(opponent.id)
 
+
 async def display_help(channel, config):
     embed = create_embed(title='LotR Trivia Bot help',
                          content=config.DISCORD_CONFIG['help.text'],
                          footnote=config.DISCORD_CONFIG['help.footer'])
     await channel.send(embed=embed)
+
 
 def map_vals(val, in_min, in_max, out_min, out_max):
     '''
@@ -246,6 +329,7 @@ def map_vals(val, in_min, in_max, out_min, out_max):
     '''
     val = min(max(val, in_min), in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
 
 def create_embed(title=False, content=False, embed_url=False, link_url=False,
                  footnote=False, color=False, author_info=False):
@@ -285,38 +369,17 @@ def create_embed(title=False, content=False, embed_url=False, link_url=False,
     return embed
 
 
-def create_trivia_profile(user, scoreboard):
-    '''
-    create trivia scoreboard embed for a certain user
-    '''
-    played, wins = scoreboard[user.id]
-    color = (map_vals(wins/played, 0, 1, 255, 0),
-             map_vals(wins/played, 0, 1, 0, 255), 0)
-    author_name = '{}\'s results for their trials in the Art\
-of Middle Earth trivia'.format(user.display_name)
-
-    title = '{}\'s results'.format(user.display_name)
-    content = 'Trivia games played: {}\nTrivia games won: {}\n\
-               Win/Played ratio: {}%'\
-              .format(played, wins, round(wins/played*100, 2))
-    author_info = (author_name, user.avatar_url)
-    return create_embed(title, author_info=author_info, content=content,
-                        color=color)
-
-
-def create_hangman_embed(user, game_info, game_status, config):
+def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
     '''
     creates Hangman embed
     '''
-    word, _, steps, used_chars, state_ind, max_ind = game_info
-    states = config.DISCORD_CONFIG['hangman.ongoing_states']
 
     hangman = ''
     for char in word:
         if char == ' ':
             hangman += '  '
             continue
-        if char.lower() in used_chars or game_status != 'ongoing':
+        if char.lower() in used_chars or not ongoing:
             hangman += '__{}__ '.format(char)
         else:
             hangman += r'\_ '
@@ -330,25 +393,14 @@ def create_hangman_embed(user, game_info, game_status, config):
     else:
         used = ''
 
-    if game_status == 'lost':
-        content = config.DISCORD_CONFIG['hangman.lost_state']
-        lives = 0
-    else:
-        lives = math.ceil((max_ind-state_ind)/steps) + 1
-        if game_status == 'ongoing':
-            content = states[state_ind] + used
-        elif game_status == 'won':
-            content = config.DISCORD_CONFIG['hangman.won_state']
+    author_info = ('{}\'s hangman game'.format(user.display_name), user.avatar_url)
 
-    author_info = ('{}\'s hangman game ({} lives left)'\
-        .format(user.display_name, lives), user.avatar_url)
-
-    color = (map_vals(state_ind, 0, 8, 0, 255),
-             map_vals(state_ind, 0, 7, 255, 0), 0)
+    color = (map_vals(ind, 0, 8, 0, 255),
+             map_vals(ind, 0, 8, 255, 0), 0)
 
     return create_embed(hangman,
                         author_info=author_info,
-                        content=content,
+                        content=used + state,
                         color=color)
 
 
@@ -357,76 +409,10 @@ def create_reply(user, insult, config):
     creates a reply to an user, insult or compliment
     '''
     if insult:
-        msg = random.choice(config.DISCORD_CONFIG['insults'])
+        msg = ':x: ' + random.choice(config.DISCORD_CONFIG['insults'])
     else:
-        msg = random.choice(config.DISCORD_CONFIG['compliments'])
+        msg = ':white_check_mark: ' + random.choice(config.DISCORD_CONFIG['compliments'])
     return msg if '{}' not in msg else msg.format(user.display_name)
-
-
-def initiate_hangman_game(user, config):
-    '''
-    creates a hangman game
-    returns the following tuple:
-    (embed, word, word_condensed, steps)
-    '''
-    # import words for hangman
-    with open('words.csv', 'r') as csvfile:
-        word = random.choice(csvfile.readlines()).strip()
-    word_condensed = word.lower().replace(' ', '')
-
-    steps = 2 if len(word_condensed) <= 6 else 1
-
-    game_info = (word,  # Hangman word, case sensitive and with whitespaces
-                 word_condensed,  # Hangman word, but lowercase and without whitespaces
-                 steps,  # stepsize for asciiart
-                 [],  # used characters array
-                 0,  # actual index
-                 len(config.DISCORD_CONFIG['hangman.ongoing_states'])-1) # max index
-
-    return (create_hangman_embed(user, game_info, 'ongoing', config),
-            game_info)
-
-
-def update_hangman_game(user, msg, game_info, config):
-    '''
-    updates the hangman game and returns info about whether the\
-    game is finished
-    '''
-
-    if not msg:
-        ret_str = 'Game over! You took too long to answer!'
-        ret_break = True
-        ret_embed = create_hangman_embed(user, game_info, 'lost', config)
-        return (ret_embed, ret_break, ret_str, game_info)
-
-    msg = msg.content.lower()
-
-    word, word_condensed, steps, used_chars, state_ind, max_ind = game_info
-    for char in msg:
-        if char not in used_chars and char in config.DISCORD_CONFIG['hangman.allowed_chars']:
-            used_chars.append(char)
-            if char not in word_condensed:
-                state_ind += steps
-    used_chars.sort()
-    game_info = (word, word_condensed, steps, used_chars, state_ind, max_ind)
-
-    if state_ind > max_ind:
-        ret_embed = create_hangman_embed(user, game_info, 'lost', config)
-        ret_str = 'Game over! You lost all your lives!'
-        ret_break = True
-        return (ret_embed, ret_break, ret_str, game_info)
-
-    for char in word_condensed:
-        if char not in used_chars:
-            ret_embed = create_hangman_embed(user, game_info, 'ongoing', config)
-            ret_str = ''
-            ret_break = False
-            return (ret_embed, ret_break, ret_str, game_info)
-
-    ret_embed = create_hangman_embed(user, game_info, 'won', config)
-    ret_str = 'Congratulations! You won the game!'
-    ret_break = True
-    return (ret_embed, ret_break, ret_str, game_info)
 
 
 def parse_script(file, arr, condensed_arr):
@@ -657,7 +643,7 @@ def is_headline(line):
     return True
 
 
-def search_youtube(user, channel, raw_content, google_client, config, settings):
+async def search_youtube(user, channel, raw_content, google_client, config, settings):
     '''
     returns a give number of Youtube Video embeds for a specific channel
     '''
@@ -691,8 +677,7 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
         min(config.YT_CONFIG['max_video_count'], num))['items']
 
     if not res:
-        await '*\'I have no memory of this place\'*\n~Gandalf\
-\nYour query `{}` yielded no results!'.format(query)
+        await channel.send('*\'I have no memory of this place\'* ~Gandalf\nYour query `{}` yielded no results!'.format(query))
 
     for i, item in enumerate(res):
         title = ':mag: Search Result {}\n'.format(i+1)+\
@@ -739,7 +724,7 @@ def unbloat_description(desc):
     return new_desc
 
 
-def lotr_search(channel, google_client, raw_content, config):
+async def lotr_search(channel, google_client, raw_content, config):
     '''
     searches on a given site for a given entry
     '''
