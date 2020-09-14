@@ -3,7 +3,6 @@ Main discord bot class, includes minigames.py for all the extra functionality
 '''
 
 import random
-import asyncio
 import discord
 import minigames
 
@@ -27,11 +26,13 @@ class LotrBot(discord.Client):
                                self.script, self.script_condensed)
         super().__init__()
 
+
     def is_command(self, msg, cmdlet):
         '''
         checks whether a given message is a command
         '''
         return msg.startswith(self.config.GENERAL_CONFIG['key'] + ' ' + cmdlet)
+
 
     async def on_ready(self):
         '''
@@ -72,7 +73,7 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif self.is_command(content, 'trivia'):
-            await minigames.trivia_question(channel,
+            await minigames.create_trivia_quiz(channel,
                                             self,
                                             user,
                                             self.settings,
@@ -90,13 +91,12 @@ class LotrBot(discord.Client):
                                                 self.blocked)
 
 #==============================================================================
-        elif self.is_command(content, 'meme') and \
-             minigames.feature_allowed('memes', channel, self.settings, self.config):
-            ch_id = channel.id if is_dm else server.id
-            embed = minigames.reddit_meme(ch_id,
-                                          self.reddit_client,
-                                          self.config.REDDIT_CONFIG['subreddit'])
-            await channel.send(embed=embed)
+        elif self.is_command(content, 'meme'):
+            await minigames.reddit_meme(channel,
+                                        self.reddit_client,
+                                        self.config.REDDIT_CONFIG['subreddit'],
+                                        self.config,
+                                        self.settings)
 
 #==============================================================================
         elif self.is_command(content, 'squote') and \
@@ -149,15 +149,10 @@ class LotrBot(discord.Client):
                                         content)
 
 #==============================================================================
-        elif self.do_autoscript and not is_dm and \
-             minigames.feature_allowed('autoscript', channel, self.settings, self.config):
-            result = minigames.find_similar_from_script\
-            (message.content, self.script_condensed, self.script, self.config)
-            if result:
-                try:
-                    if channel.permissions_for(server.me).add_reactions:
-                        await message.add_reaction('✅')
-                    await channel.send(result)
-                except discord.errors.Forbidden:
-                    print('Encountered Forbidden error when adding Reaction!\nServer:{}\nChannel:{}\
-\nMessage:{}\nUser:{}'.format(server, channel, content, user))
+        elif self.do_autoscript and not is_dm:
+            await minigames.find_similar_from_script(channel,
+                                                     message,
+                                                     self.script_condensed,
+                                                     self.script,
+                                                     self.settings,
+                                                     self.config)

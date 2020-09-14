@@ -23,6 +23,9 @@ DESCRIPTION_BLACKLIST = [
     ]
 
 async def create_hangman_game(channel, bot, user, settings, config, blocked):
+    '''
+    creates and manages the hangman minigame
+    '''
     if not feature_allowed('hangman', channel, settings, config):
         return
 
@@ -89,6 +92,9 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
     blocked.remove(user.id)
 
 async def display_profile(channel, user, settings, config, scoreboard):
+    '''
+    creates a profile for the user and displays it.
+    '''
     if not feature_allowed('trivia-quiz', channel, settings, config):
         return
     if not user.id in scoreboard.keys():
@@ -106,6 +112,9 @@ async def display_profile(channel, user, settings, config, scoreboard):
 
 
 def prepare_trivia_question(user, count, config):
+    '''
+    picks a trivia question and prepares the embed
+    '''
     # get random question
     with open('questions.csv', 'r') as csvfile:
         csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -150,7 +159,10 @@ def prepare_trivia_question(user, count, config):
             timeout)
 
 
-async def trivia_question(channel, bot, user, settings, config, blocked, scoreboard):
+async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scoreboard):
+    '''
+    creates and manages a trivia quiz for a user
+    '''
     if not feature_allowed('trivia-quiz', channel, settings, config):
         return
 
@@ -203,6 +215,9 @@ async def trivia_question(channel, bot, user, settings, config, blocked, scorebo
 
 
 async def manage_config(channel, user, content, config, settings):
+    '''
+    manages the settings for this channel/server
+    '''
     content = content.split(' ')[2:]
     server = channel.guild
 
@@ -215,8 +230,7 @@ async def manage_config(channel, user, content, config, settings):
             user.id in config.GENERAL_CONFIG['superusers']:
             if user.id in config.GENERAL_CONFIG['superusers']:
                 await channel.send(':desktop: Superuser detected, overriding permissions...')
-            ret = edit_settings(content, settings, channel)
-            await channel.send(ret)
+            await edit_settings(content, settings, channel)
         else:
             await channel.send(':x: You do not have permission to change these settings!')
 
@@ -235,7 +249,7 @@ async def manage_config(channel, user, content, config, settings):
             if server.id in settings.keys():
                 if feature in settings[server.id]:
                     server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
-            
+
             channel_setting = ':grey_question:'
             if channel.id in settings.keys():
                 if feature in settings[channel.id]:
@@ -256,6 +270,9 @@ async def manage_config(channel, user, content, config, settings):
 
 
 async def display_scoreboard(channel, server, settings, config, scoreboard):
+    '''
+    display a trivia scoreboard for the server
+    '''
     if not feature_allowed('trivia-quiz', channel, settings, config):
         return
 
@@ -280,13 +297,16 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
 
 
 async def lotr_battle(channel, bot, user, content):
+    '''
+    initiates and manages a trivia battle between two users
+    '''
     content = content.split(' ')[2:]
     try:
         opponent = await bot.fetch_user(content[0][3:-1])
         if opponent.bot:
             await channel.send('Nope, you cannot fight a bot.')
             return
-        elif opponent == user:
+        if opponent == user:
             await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself! Tag someone else!')
             return
     except (discord.errors.HTTPException, IndexError):
@@ -317,6 +337,9 @@ async def lotr_battle(channel, bot, user, content):
 
 
 async def display_help(channel, config):
+    '''
+    displays the help message for the usage of the LotR-Trivia-Bot spcififed in the config
+    '''
     embed = create_embed(title='LotR Trivia Bot help',
                          content=config.DISCORD_CONFIG['help.text'],
                          footnote=config.DISCORD_CONFIG['help.footer'])
@@ -460,28 +483,31 @@ def parse_script(file, arr, condensed_arr):
         condensed_arr.append(temp_arr)
 
 
-def find_similar_from_script(msg, condensed_arr, script, config):
+async def find_similar_from_script(channel, message, condensed_arr, script, settings, config):
     '''
     attempts to find similar line from script and formats it, if found.
     '''
-
-    # stop if the message is shorter than 2 words
-    if len(msg.split(' ')) < 2:
+    if not feature_allowed('autoscript', channel, settings, config):
         return
 
     # format message string
-    msg = msg.lower()
+    content = message.content.lower().strip()
+
+    # stop if the message is shorter than 2 words
+    if len(content.split(' ')) < 2:
+        return
+
     for char in PUNCTUATION_CHARS:
-        msg = msg.replace(char, '.')
+        content = content.replace(char, '.')
     for char in ELIMINATION_CHARS:
-        msg = msg.replace(char, '')
-    msg = msg.split('.')
+        content = content.replace(char, '')
+    content = content.split('.')
 
     # searching condensed script for matching line
     log = {}
 
     # search the script for each sentence in the message individually
-    for msg_part in msg:
+    for msg_part in content:
         msg_part = msg_part.strip()
 
         # iterate through lines
@@ -569,13 +595,22 @@ def find_similar_from_script(msg, condensed_arr, script, config):
                     return_text += '**`[NEXT SCENE]`**\n'
                     author, text = script[line_ind+2].split('|')
                     return_text += '**{}:** {}'.format(author.title(), text)
-            return return_text.strip()
+
+            if channel.permissions_for(channel.guild.me).add_reactions:
+                await message.add_reaction('✅')
+            await channel.send(return_text.strip())
 
 
-def reddit_meme(ch_id, reddit_client, subreddit):
+async def reddit_meme(channel, reddit_client, subreddit, config, settings):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
+
+    if not feature_allowed('memes', channel, settings, config):
+        return
+
+    ch_id = channel.id if isinstance(channel, discord.channel.DMChannel) else channel.guild.id
+
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
@@ -596,11 +631,11 @@ def reddit_meme(ch_id, reddit_client, subreddit):
             footnote=footnote)
 
     # has embedded media
-    return create_embed(
-        title=':repeat: Crosspost: '+submission.title if parent else submission.title,
-        embed_url=post_url,
-        link_url=submission.url,
-        footnote=footnote)
+    embed = create_embed(title=(':repeat: Crosspost: ' if parent else '') + submission.title,
+                         embed_url=post_url,
+                         link_url=submission.url,
+                         footnote=footnote)
+    await channel.send(embed=embed)
 
 
 def silmarillion_quote(config):
@@ -754,11 +789,10 @@ def feature_allowed(feature, channel, settings, config):
             return settings[server.id][feature]
     if feature in config.DISCORD_CONFIG['settings.defaults'].keys():
         return config.DISCORD_CONFIG['settings.defaults'][feature]
-    else:
-        return 1
+    return 1
 
 
-def edit_settings(cmd, settings, channel):
+async def edit_settings(cmd, settings, channel):
     '''
     edits the settings for the server or channel based on the given command
     '''
@@ -769,15 +803,15 @@ def edit_settings(cmd, settings, channel):
 
         if cmd[1] == 'on':
             settings[channel][cmd[0]] = 1
-            return 'feature `{}` for this channel was turned **on**'.format(cmd[0])
+            await channel.send('feature `{}` for this channel was turned **on**'.format(cmd[0]))
         elif cmd[1] == 'off':
             settings[channel][cmd[0]] = 0
-            return 'feature `{}` for this channel was turned **off**'.format(cmd[0])
+            await channel.send('feature `{}` for this channel was turned **off**'.format(cmd[0]))
         elif cmd[1] == 'unset':
             if cmd[0] in settings[channel].keys():
                 del settings[channel][cmd[0]]
-                return 'feature `{}` for this channel was **unset**'.format(cmd[0])
-            return 'feature `{}` for this channel was not yet set'.format(cmd[0])
+                await channel.send('feature `{}` for this channel was **unset**'.format(cmd[0]))
+            await channel.send('feature `{}` for this channel was not yet set'.format(cmd[0]))
 
 
     elif cmd[1] == 'server-on' or cmd[1] == 'server-off' or cmd[1] == 'server-unset':
@@ -787,15 +821,14 @@ def edit_settings(cmd, settings, channel):
 
         if cmd[1] == 'server-on':
             settings[server][cmd[0]] = 1
-            return 'feature `{}` for this server was turned **on**'.format(cmd[0])
+            await channel.send('feature `{}` for this server was turned **on**'.format(cmd[0]))
         elif cmd[1] == 'server-off':
             settings[server][cmd[0]] = 0
-            return 'feature `{}` for this server was turned **off**'.format(cmd[0])
+            await channel.send('feature `{}` for this server was turned **off**'.format(cmd[0]))
         elif cmd[1] == 'server-unset':
             if cmd[0] in settings[server].keys():
                 del settings[server][cmd[0]]
-                return 'feature `{}` for this server was **unset**'.format(cmd[0])
-            return 'feature `{}` for this server was not yet set'.format(cmd[0])
-
+                await channel.send('feature `{}` for this server was **unset**'.format(cmd[0]))
+            await channel.send('feature `{}` for this server was not yet set'.format(cmd[0]))
     else:
-        return 'state `{}` not recognized'.format(cmd[1])
+        await channel.send('state `{}` not recognized'.format(cmd[1]))
