@@ -74,12 +74,12 @@ class LotrBot(discord.Client):
 #==============================================================================
         elif self.is_command(content, 'trivia'):
             await minigames.create_trivia_quiz(channel,
-                                            self,
-                                            user,
-                                            self.settings,
-                                            self.config,
-                                            self.blocked,
-                                            self.scoreboard)
+                                               self,
+                                               user,
+                                               self.settings,
+                                               self.config,
+                                               self.blocked,
+                                               self.scoreboard)
 
 #==============================================================================
         elif self.is_command(content, 'hangman'):
@@ -142,11 +142,12 @@ class LotrBot(discord.Client):
                                         self.config)
 
 #==============================================================================
-        elif self.is_command(content, 'fight'):
-            await minigames.lotr_battle(self,
-                                        channel,
+        elif self.is_command(content, 'fight') and not is_dm:
+            await minigames.lotr_battle(channel,
+                                        self,
                                         user,
-                                        content)
+                                        content,
+                                        self.config)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm:

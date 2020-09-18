@@ -81,7 +81,7 @@ If the server-preference is not set, the defaults will be used, which is "allowe
 
     # minigames config
     'script.path': 'script.txt',
-    'silmarillion.path': 'silmarillion_edited.txt',
+    'silmarillion.path': 'silmarillion.txt',
     'silmarillion.sentence_count': 2,
 
     'battle.timeout': 45,

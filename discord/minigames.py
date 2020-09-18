@@ -91,6 +91,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
 
     blocked.remove(user.id)
 
+
 async def display_profile(channel, user, settings, config, scoreboard):
     '''
     creates a profile for the user and displays it.
@@ -296,7 +297,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     await channel.send(embed=create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string))
 
 
-async def lotr_battle(channel, bot, user, content):
+async def lotr_battle(channel, bot, user, content, config):
     '''
     initiates and manages a trivia battle between two users
     '''
@@ -313,13 +314,16 @@ async def lotr_battle(channel, bot, user, content):
         await channel.send('Please tag a valid user here you want to battle.')
         return
 
-    await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'.format(opponent.mention, user.mention))
+    players = [user, opponent]
+
+    await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
+                       .format(players[1].mention, players[0].display_name))
 
     def check(chk_msg):
         return (chk_msg.author == opponent and
                 chk_msg.channel == channel)
 
-    bot.blocked.append(opponent.id)
+    bot.blocked.append(players[1].id)
     try:
         msg = await bot.wait_for('message',
                                  check=check,
@@ -332,8 +336,40 @@ async def lotr_battle(channel, bot, user, content):
     except asyncio.TimeoutError:
         await channel.send('{}, your opponent did not respond.'.format(user.mention))
         return
+    bot.blocked.remove(players[1].id)
 
-    bot.blocked.remove(opponent.id)
+    score = (0, 0)
+
+    for player in players:
+        if not player.dm_channel:
+            await player.create_dm()
+
+    dms = (players[0].dm_channel, players[1].dm_channel)
+
+    def check_(chk_msg):
+        if chk_msg.author in pending and chk_msg.channel in dms:
+            print(chk_msg.author.display_name)
+            pending.remove(chk_msg.author)
+            print(players.index(chk_msg.author))
+            answers[players.index(chk_msg.author)] = chk_msg.content
+            if not pending:
+                return True
+        return False
+    check = check_
+
+    while True:
+        question = prepare_trivia_question(player, 0, config)
+        for player in players:
+            await player.dm_channel.send(embed=question[0])
+        await channel.send('{} and {}, I sent you both a trivia question. Answer it in time and then return to this chat to see who won.'.format(user.mention, opponent.mention))
+
+        pending = players.copy()
+        answers = [None]*len(players)
+        try:
+            await bot.wait_for('message', check=check, timeout=question[2]+4)
+            await channel.send('{} {} You both submitted an answer! Let\'s check your results...'.format(players[0].mention, players[1].mention))
+        except asyncio.TimeoutError:
+            await channel.send('{} {} Time\'s up! Let\'s check your results...'.format(players[0].mention, players[1].mention))
 
 
 async def display_help(channel, config):
