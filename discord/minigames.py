@@ -361,7 +361,7 @@ async def lotr_battle(channel, bot, user, content, config):
         question = prepare_trivia_question(player, 0, config)
         for player in players:
             await player.dm_channel.send(embed=question[0])
-        await channel.send('{} and {}, I sent you both a trivia question. Answer it in time and then return to this chat to see who won.'.format(user.mention, opponent.mention))
+        await channel.send('I sent you both a trivia question. Answer it in time and then return to this chat to see who won.')
 
         pending = players.copy()
         answers = [None]*len(players)
@@ -370,6 +370,13 @@ async def lotr_battle(channel, bot, user, content, config):
             await channel.send('{} {} You both submitted an answer! Let\'s check your results...'.format(players[0].mention, players[1].mention))
         except asyncio.TimeoutError:
             await channel.send('{} {} Time\'s up! Let\'s check your results...'.format(players[0].mention, players[1].mention))
+
+        if (answers[0] == question[1]) == (answers[1] == question[1]):
+            if answers[0] == question[1]:
+                txt = "Well done! Both of you answered correctly."
+            else:
+                txt = "You fools! Both of you answered incorrectly."
+            txt += 
 
 
 async def display_help(channel, config):
