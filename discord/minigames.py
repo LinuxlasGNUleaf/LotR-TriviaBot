@@ -349,44 +349,68 @@ async def lotr_battle(channel, bot, user, content, config):
         return False
     check = check_
 
+    await channel.send('I sent you both a trivia question. Answer it in time and continue to do so until the game is over.\
+Then return to this chat to see who won.')
+
+    max_char = max(len(players[0].display_name), len(players[1].display_name))
+    content = '```\n{0}: {2}\n{1}: {3}```'\
+              .format(players[0].display_name.ljust(max_char+1),
+                      players[1].display_name.ljust(max_char+1),
+                      score[0], score[1])
+
+    score = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
+    round_ind = 0
     while True:
+        round_ind += 1
+        winner = None
+
         question = list(prepare_trivia_question(player, 0, config))
         for player in players:
             await player.dm_channel.send(embed=question[0])
-        await channel.send('I sent you both a trivia question. Answer it in time and then return to this chat to see who won.')
 
         pending = players.copy()
         answers = [None]*len(players)
+
         try:
             await bot.wait_for('message', check=check, timeout=question[2]+4)
-            await channel.send('{} {} You both submitted an answer! Let\'s check your results...'.format(players[0].mention, players[1].mention))
         except asyncio.TimeoutError:
-            await channel.send('{} {} Time\'s up! Let\'s check your results...'.format(players[0].mention, players[1].mention))
+            pass
 
         if (answers[0] == question[1]) == (answers[1] == question[1]):
             if answers[0] == question[1]:
-                txt = 'Well done! Both of you answered correctly.'
+                for dm_channel in dms:
+                    await dm_channel.send('Well done! You both answered correctly.')
             else:
-                txt = 'You fools! Both of you answered incorrectly.'
-            txt += '\nSince you drawed, the score has not changed. It remains at:'
+                for dm_channel in dms:
+                    await dm_channel.send('You fools! Both of you answered incorrectly.')
+            footnote = 'Players drawed the {} round.'.format(config.ORDINAL(round_ind))
+
+        elif answers[0] == question[1]:
+            await dms[0].send(create_reply(user, True, config))
+            await dms[1].send(create_reply(user, False, config))
+            footnote = '{} won the {} round!'.format(players[0].display_name, config.ORDINAL(round_ind))
+            score[0] += 1
         else:
-            winner = (players[0] if answers[0] == question[1] else players[1])
-            txt = 'Well done {}! You answered correctly, and your score increased. The score is now:'\
-                .format(winner.mention)
-            score[players.index(winner)] += 1
+            await dms[1].send(create_reply(user, True, config))
+            await dms[0].send(create_reply(user, False, config))
+            footnote = '{} won the {} round!'.format(players[1].display_name, config.ORDINAL(round_ind))
+            score[1] += 1
 
-        score_embed = create_embed(title='SCORE', color=(255, 0, 0), content='**{}**: {}\n**{}**: {}'\
-                                   .format(players[0].display_name, players[1].display_name, score[0], score[1]))
+        content = '```\n{0}: {2}\n{1}: {3}```'\
+              .format(players[0].display_name.ljust(max_char+1),
+                      players[1].display_name.ljust(max_char+1),
+                      score[0], score[1])
 
-        await channel.send(txt)
-        await channel.send(embed=score_embed)
+        new_score = create_embed(title='LotR Battle Score',
+                                 color=(255, 0, 0),
+                                 content=content,
+                                 footnote=footnote)
+        await score.edit(embed=new_score)
 
-        if score[0] + score[1] > 2:
-            if score[0] != score[1]:
-                await channel.send('Congratulations, {} You won the game!\n')
-                return
-        else:
-            await channel.send('Onto the next round...')
+        if abs(score[0]-score[1]) > 1 and score[0]+score[1] > 2:
+            winner = (players[0] if score[0] > score[1] else players[1])
+            await channel.send('Congratulations, {} You won the game!\n'.format(winner.mention))
+            return
 
 
 async def display_help(channel, config):
