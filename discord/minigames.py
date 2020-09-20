@@ -156,7 +156,7 @@ def prepare_trivia_question(user, count, config):
 
     # send the trivia question
     return (create_embed(question, author_info=author_info, content=embed_text),
-            str(correct_index),
+            correct_index,
             timeout)
 
 
@@ -184,13 +184,19 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     blocked.append(user.id)
     try:
         msg = await bot.wait_for('message', check=check, timeout=timeout).content
-        if msg == correct_index:
-            # right answer
-            wins += 1
-            ret_string = create_reply(user, False, config)
+        if msg.isdigit():
+            msg = int(msg)
+            if msg == correct_index:
+                # right answer
+                wins += 1
+                ret_string = create_reply(user, False, config)
+            else:
+                # invalid digit
+                ret_string = create_reply(user, True, config)
         else:
-            # invalid digit
-            ret_string = create_reply(user, True, config)
+            # not a digit
+            ret_string = create_reply(user, True, config) + \
+                '\nWhat is that supposed to be? Clearly not a digit...'
 
     except asyncio.TimeoutError:
         ret_string = create_reply(user, True, config) + '\nYou took too long to answer!'
@@ -343,7 +349,8 @@ async def lotr_battle(channel, bot, user, content, config):
     def check_(chk_msg):
         if chk_msg.author in pending and chk_msg.channel in dms:
             pending.remove(chk_msg.author)
-            answers[players.index(chk_msg.author)] = chk_msg.content.strip()
+            if chk_msg.content.strip().isdigit():
+                answers[players.index(chk_msg.author)] = int(chk_msg.content.strip())
             if not pending:
                 return True
         return False
@@ -358,43 +365,47 @@ Then return to this chat to see who won.')
                       players[1].display_name.ljust(max_char+1),
                       score[0], score[1])
 
-    score = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
+    score_msg = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
     round_ind = 0
+
     while True:
         round_ind += 1
         winner = None
 
-        question = list(prepare_trivia_question(player, 0, config))
+        question = prepare_trivia_question(player, 0, config)
         for player in players:
             await player.dm_channel.send(embed=question[0])
 
         pending = players.copy()
-        answers = [None]*len(players)
+        answers = [0]*len(players)
+        print("Correct: "+str(question[1]))
 
         try:
             await bot.wait_for('message', check=check, timeout=question[2]+4)
         except asyncio.TimeoutError:
             pass
 
-        if (answers[0] == question[1]) == (answers[1] == question[1]):
-            if answers[0] == question[1]:
-                for dm_channel in dms:
+        print(answers)
+        for ind, answer in enumerate(answers):
+            answers[ind] = (answer == question[1])
+        print(answers)
+
+        if answers[0] == answers[1]:
+            for dm_channel in dms:
+                if answers[0]:
                     await dm_channel.send('Well done! You both answered correctly.')
-            else:
-                for dm_channel in dms:
+                else:
                     await dm_channel.send('You fools! Both of you answered incorrectly.')
+
             footnote = 'Players drawed the {} round.'.format(config.ORDINAL(round_ind))
 
-        elif answers[0] == question[1]:
-            await dms[0].send(create_reply(user, True, config))
-            await dms[1].send(create_reply(user, False, config))
-            footnote = '{} won the {} round!'.format(players[0].display_name, config.ORDINAL(round_ind))
-            score[0] += 1
         else:
-            await dms[1].send(create_reply(user, True, config))
-            await dms[0].send(create_reply(user, False, config))
-            footnote = '{} won the {} round!'.format(players[1].display_name, config.ORDINAL(round_ind))
-            score[1] += 1
+            winner = answers[1]
+            print(players[winner].display_name)
+            await dms[winner].send(create_reply(user, False, config))
+            await dms[not winner].send(create_reply(user, True, config))
+            footnote = '{} won the {} round!'.format(players[winner].display_name, config.ORDINAL(round_ind))
+            score[winner] += 1
 
         content = '```\n{0}: {2}\n{1}: {3}```'\
               .format(players[0].display_name.ljust(max_char+1),
@@ -405,7 +416,7 @@ Then return to this chat to see who won.')
                                  color=(255, 0, 0),
                                  content=content,
                                  footnote=footnote)
-        await score.edit(embed=new_score)
+        await score_msg.edit(embed=new_score)
 
         if abs(score[0]-score[1]) > 1 and score[0]+score[1] > 2:
             winner = (players[0] if score[0] > score[1] else players[1])
