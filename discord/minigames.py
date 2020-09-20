@@ -156,7 +156,7 @@ def prepare_trivia_question(user, count, config):
 
     # send the trivia question
     return (create_embed(question, author_info=author_info, content=embed_text),
-            correct_index,
+            str(correct_index),
             timeout)
 
 
@@ -184,20 +184,14 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     blocked.append(user.id)
     try:
         msg = await bot.wait_for('message', check=check, timeout=timeout).content
-
-        if msg.isdigit():
-            msg = int(msg)
-            if msg == correct_index:
-                # right answer
-                wins += 1
-                ret_string = create_reply(user, False, config)
-            else:
-                # invalid digit
-                ret_string = create_reply(user, True, config)
+        if msg == correct_index:
+            # right answer
+            wins += 1
+            ret_string = create_reply(user, False, config)
         else:
-            # not a digit
-            ret_string += create_reply(user, True, config) + \
-                '\nWhat is that supposed to be? Clearly not a digit...'
+            # invalid digit
+            ret_string = create_reply(user, True, config)
+
     except asyncio.TimeoutError:
         ret_string = create_reply(user, True, config) + '\nYou took too long to answer!'
 
@@ -338,7 +332,7 @@ async def lotr_battle(channel, bot, user, content, config):
         return
     bot.blocked.remove(players[1].id)
 
-    score = (0, 0)
+    score = [0, 0]
 
     for player in players:
         if not player.dm_channel:
@@ -348,17 +342,15 @@ async def lotr_battle(channel, bot, user, content, config):
 
     def check_(chk_msg):
         if chk_msg.author in pending and chk_msg.channel in dms:
-            print(chk_msg.author.display_name)
             pending.remove(chk_msg.author)
-            print(players.index(chk_msg.author))
-            answers[players.index(chk_msg.author)] = chk_msg.content
+            answers[players.index(chk_msg.author)] = chk_msg.content.strip()
             if not pending:
                 return True
         return False
     check = check_
 
     while True:
-        question = prepare_trivia_question(player, 0, config)
+        question = list(prepare_trivia_question(player, 0, config))
         for player in players:
             await player.dm_channel.send(embed=question[0])
         await channel.send('I sent you both a trivia question. Answer it in time and then return to this chat to see who won.')
@@ -373,10 +365,28 @@ async def lotr_battle(channel, bot, user, content, config):
 
         if (answers[0] == question[1]) == (answers[1] == question[1]):
             if answers[0] == question[1]:
-                txt = "Well done! Both of you answered correctly."
+                txt = 'Well done! Both of you answered correctly.'
             else:
-                txt = "You fools! Both of you answered incorrectly."
-            txt += 
+                txt = 'You fools! Both of you answered incorrectly.'
+            txt += '\nSince you drawed, the score has not changed. It remains at:'
+        else:
+            winner = (players[0] if answers[0] == question[1] else players[1])
+            txt = 'Well done {}! You answered correctly, and your score increased. The score is now:'\
+                .format(winner.mention)
+            score[players.index(winner)] += 1
+
+        score_embed = create_embed(title='SCORE', color=(255, 0, 0), content='**{}**: {}\n**{}**: {}'\
+                                   .format(players[0].display_name, players[1].display_name, score[0], score[1]))
+
+        await channel.send(txt)
+        await channel.send(embed=score_embed)
+
+        if score[0] + score[1] > 2:
+            if score[0] != score[1]:
+                await channel.send('Congratulations, {} You won the game!\n')
+                return
+        else:
+            await channel.send('Onto the next round...')
 
 
 async def display_help(channel, config):
@@ -732,9 +742,9 @@ async def search_youtube(user, channel, raw_content, google_client, config, sett
     start, end = (-1, -1)
     query = ''
 
-    start = raw_content.find('\"')
+    start = raw_content.find('"')
     if start != -1:
-        end = raw_content.find('\"', start + 1)
+        end = raw_content.find('"', start + 1)
         if end != -1:
             query = raw_content[start+1:end]
             if raw_content[:start].strip().isdigit():
