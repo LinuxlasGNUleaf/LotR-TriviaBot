@@ -183,9 +183,9 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     # block user from sending any commands
     blocked.append(user.id)
     try:
-        msg = await bot.wait_for('message', check=check, timeout=timeout).content
-        if msg.isdigit():
-            msg = int(msg)
+        msg = await bot.wait_for('message', check=check, timeout=timeout)
+        if msg.content.isdigit():
+            msg = int(msg.content)
             if msg == correct_index:
                 # right answer
                 wins += 1
@@ -323,11 +323,10 @@ async def lotr_battle(channel, bot, user, content, config):
     bot.blocked.append(players[1].id)
     try:
         msg = await bot.wait_for('message', check=ready_check, timeout=bot.config.DISCORD_CONFIG['battle.timeout'])
-        msg = msg.content.lower().strip()
 
-        if msg == 'yes':
+        if msg.content.lower() == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
-        elif msg == 'no':
+        elif msg.content.lower() == 'no':
             await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
         else:
             await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
