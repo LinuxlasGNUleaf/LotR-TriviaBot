@@ -301,64 +301,63 @@ async def lotr_battle(channel, bot, user, content, config):
     '''
     initiates and manages a trivia battle between two users
     '''
-    content = content.split(' ')[2:]
+
+    # fetch the tagged user, exit conditions for bots / same user
     try:
-        opponent = await bot.fetch_user(content[0][3:-1])
-        if opponent.bot:
-            await channel.send('Nope, you cannot fight a bot.')
-            return
-        if opponent == user:
-            await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself! Tag someone else!')
+        players = [user, await bot.fetch_user(content.split('<@')[-1][:-1])]
+        if players[1].bot or players[1] == user:
+            await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
     except (discord.errors.HTTPException, IndexError):
         await channel.send('Please tag a valid user here you want to battle.')
         return
 
-    players = [user, opponent]
-
     await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
-                       .format(players[1].mention, players[0].display_name))
+                       .format(players[1].display_name, players[0].display_name))
 
-    def check(chk_msg):
-        return (chk_msg.author == opponent and
+    # waiting for a response by the opponent
+    def ready_check(chk_msg):
+        return (chk_msg.author == players[1] and
                 chk_msg.channel == channel)
 
     bot.blocked.append(players[1].id)
     try:
-        msg = await bot.wait_for('message',
-                                 check=check,
-                                 timeout=bot.config.DISCORD_CONFIG['battle.timeout'])
-        if msg.content.lower().strip() == 'yes':
+        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config.DISCORD_CONFIG['battle.timeout'])
+        msg = msg.content.lower().strip()
+
+        if msg == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
-        else:
+        elif msg == 'no':
             await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
+        else:
+            await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
             return
     except asyncio.TimeoutError:
         await channel.send('{}, your opponent did not respond.'.format(user.mention))
         return
     bot.blocked.remove(players[1].id)
 
-    score = [0, 0]
-
+    # create user DMs, in case they did not yet exist
     for player in players:
         if not player.dm_channel:
             await player.create_dm()
 
-    dms = (players[0].dm_channel, players[1].dm_channel)
-
-    def check_(chk_msg):
-        if chk_msg.author in pending and chk_msg.channel in dms:
+    def answer_check(chk_msg):
+        # check whether author is opponent and channel is the corresponding DM
+        if chk_msg.author in pending and chk_msg.channel == chk_msg.author.dm_channel:
             pending.remove(chk_msg.author)
             if chk_msg.content.strip().isdigit():
-                answers[players.index(chk_msg.author)] = int(chk_msg.content.strip())
-            if not pending:
-                return True
-        return False
-    check = check_
+                answers[players.index(chk_msg.author)] = (int(chk_msg.content.strip()) == question[1])
 
-    await channel.send('I sent you both a trivia question. Answer it in time and continue to do so until the game is over.\
-Then return to this chat to see who won.')
+        # return true if pending is empty
+        return not pending
 
+    await channel.send('I will send you both a trivia question in a few seconds.\
+Answer it in time and continue to do so until the game is over. Then return to this chat to see who won.')
+
+
+    # preparing score embed
+    score = [0, 0]
     max_char = max(len(players[0].display_name), len(players[1].display_name))
     content = '```\n{0}: {2}\n{1}: {3}```'\
               .format(players[0].display_name.ljust(max_char+1),
@@ -367,46 +366,50 @@ Then return to this chat to see who won.')
 
     score_msg = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
     round_ind = 0
+    timeout = 3
 
     while True:
+        # reset / manage round variables
         round_ind += 1
-        winner = None
+        pending = players.copy()
+        answers = [-1]*len(players)
 
+        # get new trivia question and distribute it
         question = prepare_trivia_question(player, 0, config)
         for player in players:
             await player.dm_channel.send(embed=question[0])
 
-        pending = players.copy()
-        answers = [0]*len(players)
-        print("Correct: "+str(question[1]))
-
+        # try to get an answer from all pending players
         try:
-            await bot.wait_for('message', check=check, timeout=question[2]+4)
+            await bot.wait_for('message', check=answer_check, timeout=question[2])
         except asyncio.TimeoutError:
             pass
 
-        print(answers)
-        for ind, answer in enumerate(answers):
-            answers[ind] = (answer == question[1])
-        print(answers)
-
+        # if both players failed or won
         if answers[0] == answers[1]:
-            for dm_channel in dms:
-                if answers[0]:
-                    await dm_channel.send('Well done! You both answered correctly.')
+            for player in players:
+                if answers[0] == 1: # both got it right
+                    await player.dm_channel.send('Well done! You both answered correctly.')
+                elif answers[0] == 0:
+                    await player.dm_channel.send('You fools! Both of you answered incorrectly.')
                 else:
-                    await dm_channel.send('You fools! Both of you answered incorrectly.')
+                    timeout -= 1
+                    await player.dm_channel.send('You both did not answer in time! Timeout in {} rounds.'.format(timeout))
+                    if timeout < 1:
+                        await channel.send('You both did not answer multiple times... timing out.')
+                        return
 
             footnote = 'Players drawed the {} round.'.format(config.ORDINAL(round_ind))
 
+        # if there is a clear winner
         else:
             winner = answers[1]
-            print(players[winner].display_name)
-            await dms[winner].send(create_reply(user, False, config))
-            await dms[not winner].send(create_reply(user, True, config))
+            await players[winner].dm_channel.send(create_reply(user, False, config))
+            await players[not winner].dm_channel.send(create_reply(user, True, config))
             footnote = '{} won the {} round!'.format(players[winner].display_name, config.ORDINAL(round_ind))
             score[winner] += 1
 
+        # update score embed
         content = '```\n{0}: {2}\n{1}: {3}```'\
               .format(players[0].display_name.ljust(max_char+1),
                       players[1].display_name.ljust(max_char+1),
@@ -418,6 +421,7 @@ Then return to this chat to see who won.')
                                  footnote=footnote)
         await score_msg.edit(embed=new_score)
 
+        # exit condition
         if abs(score[0]-score[1]) > 1 and score[0]+score[1] > 2:
             winner = (players[0] if score[0] > score[1] else players[1])
             await channel.send('Congratulations, {} You won the game!\n'.format(winner.mention))
