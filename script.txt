@@ -3679,7 +3679,7 @@ It’s one of their wee belts.
 
 LEGOLAS
 Hiro îth, ab 'wanath.
-(May they find peace in death)
+(May they find peace in death.)
 
 ARAGORN
 AAARRGGHH! *breaks his toe*
@@ -4812,8 +4812,7 @@ her people!
 ARAGORN
 Idhren emmen menna gui ethwel. Hae o
 auth a nîr a naeth. (You have a chance
-for another life. Away from war - grief -
-despair.)
+for another life. Away from war, grief, despair.)
 
 ARWEN
 Why are you saying this?
@@ -5112,7 +5111,7 @@ A im, ú-'erin veleth lîn?
 
 ARWEN
 Gerich meleth nîn, ada.
-(You have my love, father)
+(You have my love, father.)
 
 STOP
 
@@ -5398,7 +5397,7 @@ STOP
 
 ARAGORN
 Mae carnen, Brego, mellon nîn.
-(Well done, Brego, my friend)
+(Well done, Brego, my friend.)
 
 REFUGEES
 He’s alive!
@@ -5652,7 +5651,7 @@ together. We come to honor that allegiance.
 
 ARAGORN
 Mae govannen, Haldir.
-(Welcome, Haldir)
+(Welcome, Haldir.)
 
 ARAGORN
 You are most welcome!

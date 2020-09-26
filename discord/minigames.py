@@ -600,6 +600,9 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
     for msg_part in content:
         msg_part = msg_part.strip()
 
+        if not msg_part:
+            continue
+
         # iterate through lines
         for line_ind, line in enumerate(condensed_arr):
 
