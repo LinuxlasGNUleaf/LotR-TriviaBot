@@ -83,7 +83,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
             h_embed = create_hangman_embed(user, word, end_states[1], 0, used_chars, False)
             await hangman.edit(embed=h_embed)
             await channel.send('Congratulations! You won the game!')
-            return
+            break
 
         h_embed = create_hangman_embed(user, word, game_states[ind], ind, used_chars, True)
         await hangman.edit(embed=h_embed)
