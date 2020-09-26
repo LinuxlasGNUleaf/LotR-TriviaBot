@@ -112,7 +112,8 @@ would you mind sharing it? Submit new questions here: {}'],
  'Feanor doing nothing wrong',
  'Frodo getting stabbed by Shelob',
  'Smeagol smacc Sam with a stone',
- 'Aragorn charging for Frodo'],
+ 'Aragorn charging for Frodo',
+ 'Tom Bombadil singing'],
 
     'hangman.allowed_chars':\
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',

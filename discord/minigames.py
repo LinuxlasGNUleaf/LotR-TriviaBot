@@ -77,7 +77,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
             break
 
         for char in word_condensed:
-            if char not in used_chars:
+            if char not in used_chars and char.isalpha():
                 break
         else:
             h_embed = create_hangman_embed(user, word, end_states[1], 0, used_chars, False)
@@ -492,7 +492,9 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
         if char == ' ':
             hangman += '  '
             continue
-        if char.lower() in used_chars or not ongoing:
+        if not char.isalpha():
+            hangman += char + ' '
+        elif char.lower() in used_chars or not ongoing:
             hangman += '__{}__ '.format(char)
         else:
             hangman += r'\_ '
