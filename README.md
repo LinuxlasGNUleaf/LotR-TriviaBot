@@ -21,6 +21,8 @@ Searches the wiki for a specific topic.
 The wiki URL is set in the config file.
 * **Configuration**
 Adding easy-to-use config to control use of features channel- and server-wide
+* **LotR Battle**
+A new experimental feature, where you battle people in LotR trivia.
 
 # Checklist
 
@@ -55,3 +57,5 @@ you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 You want to help? Great! There are currently the following tasks (apart from coding) that you could help with:
 * **Adding new questions to `questions.csv`** If the format of the file confuses you, contact me and I will explain how it gets parsed.
 * **Adding new words to `words.csv`** This is the source for the hangman game. The format is pretty simple, but you can ask me ofc.
+
+**TO SUBMIT NEW QUESTIONS, FILL OUT THIS [FORM](https://forms.gle/k4oMTiyUEJgntMyb9)**
