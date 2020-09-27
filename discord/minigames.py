@@ -296,10 +296,12 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     await channel.send(embed=create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string))
 
 
-async def lotr_battle(channel, bot, user, content, config):
+async def lotr_battle(channel, bot, user, content, config, settings):
     '''
     initiates and manages a trivia battle between two users
     '''
+    if not feature_allowed('trivia-quiz', channel, settings, config):
+        return
 
     # fetch the tagged user, exit conditions for bots / same user
     try:

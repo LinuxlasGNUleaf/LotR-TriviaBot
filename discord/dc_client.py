@@ -147,7 +147,8 @@ class LotrBot(discord.Client):
                                         self,
                                         user,
                                         content,
-                                        self.config)
+                                        self.config,
+                                        self.settings)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm:
