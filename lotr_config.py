@@ -112,7 +112,8 @@ would you mind sharing it? Submit new questions here: {}'],
  'Feanor doing nothing wrong',
  'Frodo getting stabbed by Shelob',
  'Smeagol smacc Sam with a stone',
- 'Aragorn charging for Frodo'],
+ 'Aragorn charging for Frodo',
+ 'Tom Bombadil singing'],
 
     'hangman.allowed_chars':\
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -161,14 +162,14 @@ and their brats roll on the floor among the dogs?',
 
     'help.text': \
 '''
-Welcome to the LotR Trivia Bot!
+Welcome to the *LotR Trivia Bot*!
 This is a discord bot written in Python 3.
 It utilizes the Discord, Reddit, and Youtube Data API.
 The bot features mutliple minigames, including:
 
 **- LotR - Trivia Game**
 In this game you get asked trivia questions from LotR, the Hobbit,
-the Silmarillion and the Extended Lore.
+the Silmarillion and many more.
 You have four possible answers, your score is tracked.
 *to play a game:*
 `{0} trivia`
@@ -193,22 +194,26 @@ Outputs a dank meme from r/lotrmemes.
 `{0} meme`
 
 **- Autoscript feature**
-Recognizes lines from the movie script and in the case of a 85% match,
-completes the sentence and prints the next dialog line to use this feature,
-send any __whole sentence from the LotR movies__, the bot will respond.
+Recognizes lines from the movie script and completes the dialog line.
+Send any __whole sentence from the LotR movies__, the bot will respond.
 
 **- Youtube Video Search**
-Allows you to provide keywords to search the videos of a channel.
-The channel id is set in the config file.
+Search the videos of a specific channel.
 *to search for videos:*
 `{0} yt "query"`
 (note the "quotes". you can also provide a video count before or after the query)
 
 **- LotR Wiki Search**
 Allows you to search the wiki for a specific topic.
-The wiki URL is set in the config file.
 *to search the wiki:*
 `{0} search <keywords>`
+
+**- LotR Fight
+* **LotR Battle**
+A new experimental feature, where you battle people in LotR trivia.
+You both respond to trivia questions the bot send you via DM.
+*to fight someone:*
+`{0} fight @User`
 '''.format(GENERAL_CONFIG['key']),
 
 
