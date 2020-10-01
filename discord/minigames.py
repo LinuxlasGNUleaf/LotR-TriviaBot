@@ -800,7 +800,7 @@ def is_headline(line):
     return True
 
 
-async def search_youtube(user, channel, raw_content, google_client, config, settings):
+async def search_youtube(channel, user, raw_content, google_client, config, settings):
     '''
     returns a give number of Youtube Video embeds for a specific channel
     '''
