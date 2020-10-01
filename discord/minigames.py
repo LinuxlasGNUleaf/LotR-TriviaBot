@@ -13,6 +13,8 @@ import pickle
 
 import discord
 
+ORDINAL = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
+
 async def auto_save(config, scoreboard, memelog, settings):
     '''
     autosave feature
