@@ -24,8 +24,7 @@ class LotrBot(discord.Client):
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
         self.google_search_client = google_search_client
-        minigames.parse_script(config.DISCORD_CONFIG['script.path'],
-                               self.script, self.script_condensed)
+        minigames.parse_script(config, self.script, self.script_condensed)
         super().__init__()
 
 

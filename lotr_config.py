@@ -32,6 +32,12 @@ YT_CONFIG = {
     'max_video_count': 3,
     'token.loc': os.path.join(config_path, 'google.tk'),
     'channel_id': 'UCYXpatz5Z4ek0M_5VR-Qt1A',
+    'description.blacklist':\
+['teh lurd of teh reings youtube channel', 'media',
+ 'shop', 'facebook.com', 'instagram.com', 'music used', '♫',
+ 'just a facebook page', 'pardun us, for ur', 'donation', 'discord',
+ 'we post', 'like', 'follow', 'luminous', 'outro', 'sub', 'sale', 'bit.ly',
+ 'playlist', 'editor', 'channel']
 }
 
 GOOGLE_CONFIG = {
@@ -101,6 +107,8 @@ would you mind sharing it? Submit new questions here: {}'],
     # =============================
     'hangman.timeout': 20,
     'autoscript.scene_end_interrupt': False,
+    'autoscript.punctuation_chars': ['?', '!', '.', ':', ';'],
+    'autoscript.elimination_chars': ['\'', ','],
 
     'custom_status': \
 ['Boromir not simply walk into Mordor',

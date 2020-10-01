@@ -13,20 +13,10 @@ import pickle
 
 import discord
 
-PUNCTUATION_CHARS = ['?', '!', '.', ':', ';']
-IMAGE_EXT = ['jpg', 'jpeg', 'gif', 'png']
-ELIMINATION_CHARS = ['\'', ',']
-
-DESCRIPTION_BLACKLIST = [
-    'teh lurd of teh reings youtube channel', 'media',
-    'shop', 'facebook.com', 'instagram.com', 'music used', '♫',
-    'just a facebook page', 'pardun us, for ur', 'donation', 'discord',
-    'we post', 'like', 'follow', 'luminous', 'outro', 'sub', 'sale', 'bit.ly',
-    'playlist', 'editor', 'channel'
-    ]
-
-
 async def auto_save(config, scoreboard, memelog, settings):
+    '''
+    autosave feature
+    '''
     sys.stdout.write('\nAutosave initialized.')
     msg_len = 0
     while True:
@@ -500,7 +490,7 @@ def create_embed(title=False, content=False, embed_url=False, link_url=False,
     if embed_url:
         embed.url = embed_url
     if link_url:
-        if link_url.split('.').pop().strip() in IMAGE_EXT:
+        if link_url.split('.').pop().strip() in ['jpg', 'jpeg', 'gif', 'png']:
             embed.set_image(url=link_url)
     return embed
 
@@ -553,12 +543,12 @@ def create_reply(user, insult, config):
     return msg if '{}' not in msg else msg.format(user.display_name)
 
 
-def parse_script(file, arr, condensed_arr):
+def parse_script(config, arr, condensed_arr):
     '''
     reads LOTR script to array.
     Also outputs a condensed version for faster searching.
     '''
-    with open(file, 'r') as script:
+    with open(config.DISCORD_CONFIG['script.path'], 'r') as script:
         temp = ''
         last = ''
         for line in script:
@@ -586,9 +576,9 @@ def parse_script(file, arr, condensed_arr):
         temp_arr = []
 
         for char in line:
-            if char in ELIMINATION_CHARS:
+            if char in config.DISCORD_CONFIG['autoscript.elimination_chars']:
                 continue
-            if char in PUNCTUATION_CHARS:
+            if char in config.DISCORD_CONFIG['autoscript.punctuation_chars']:
                 punctuation_found = True
             elif punctuation_found:
                 punctuation_found = False
@@ -761,7 +751,7 @@ async def silmarillion_quote(channel, settings, config):
     outputs random quote from the Silmarillion with chapter and heading.
     '''
 
-    if not(feature_allowed('squote', channel, settings, config)):
+    if not feature_allowed('squote', channel, settings, config):
         return
 
     out = ''
