@@ -45,7 +45,10 @@ class LotrBot(discord.Client):
             (type=discord.ActivityType.watching,
              name=random.choice(self.config.DISCORD_CONFIG['custom_status'])))
 
-        asyncio.get_event_loop().create_task(minigames.auto_save(self.config, self.scoreboard, self.memelog, self.settings))
+        asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
+                                                                 self.scoreboard,
+                                                                 self.memelog,
+                                                                 self.settings))
 
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
@@ -104,10 +107,10 @@ class LotrBot(discord.Client):
                                         self.settings)
 
 #==============================================================================
-        elif self.is_command(content, 'squote') and \
-             minigames.feature_allowed('squote', channel, self.settings, self.config):
-            embed = minigames.silmarillion_quote(self.config)
-            await channel.send(embed=embed)
+        elif self.is_command(content, 'squote'):
+            await minigames.silmarillion_quote(channel,
+                                               self.settings,
+                                               self.config)
 
 #==============================================================================
         elif self.is_command(content, 'profile'):

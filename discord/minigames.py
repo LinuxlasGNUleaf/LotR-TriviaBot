@@ -756,10 +756,14 @@ async def reddit_meme(channel, reddit_client, subreddit, config, settings):
     await channel.send(embed=embed)
 
 
-def silmarillion_quote(config):
+async def silmarillion_quote(channel, settings, config):
     '''
     outputs random quote from the Silmarillion with chapter and heading.
     '''
+
+    if not(feature_allowed('squote', channel, settings, config)):
+        return
+
     out = ''
     with open(config.DISCORD_CONFIG['silmarillion.path'], 'r') as silmarillion_file:
         silmarillion = silmarillion_file.readlines()
@@ -782,7 +786,7 @@ def silmarillion_quote(config):
                     title = '**'+line+'**'
                 break
 
-    return create_embed(title, content=out)
+    await channel.create_embed(title, content=out)
 
 
 def is_headline(line):
