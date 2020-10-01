@@ -91,6 +91,7 @@ GOOGLE_SEARCH_CLIENT = google_search_client.GoogleSearchClient()
 DC_CLIENT = dc_client.LotrBot(lotr_config,
                               SCOREBOARD,
                               SETTINGS,
+                              MEME_LOG,
                               REDDIT_CLIENT,
                               YT_API_CLIENT,
                               GOOGLE_SEARCH_CLIENT)

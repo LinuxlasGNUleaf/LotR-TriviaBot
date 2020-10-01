@@ -4,9 +4,12 @@ Library for all the minigames for the LotR Trivia Bot. Accessed by the Discord C
 import random
 import csv
 import string
+import sys
 from difflib import SequenceMatcher
-import html
+from html import unescape
+from time import strftime
 import asyncio
+import pickle
 
 import discord
 
@@ -21,6 +24,24 @@ DESCRIPTION_BLACKLIST = [
     'we post', 'like', 'follow', 'luminous', 'outro', 'sub', 'sale', 'bit.ly',
     'playlist', 'editor', 'channel'
     ]
+
+
+async def auto_save(config, scoreboard, memelog, settings):
+    sys.stdout.write('\nAutosave initialized.')
+    msg_len = 0
+    while True:
+        await asyncio.sleep(config.GENERAL_CONFIG['autosave.interval'])
+        with open(config.DISCORD_CONFIG['scoreboard.loc'], 'wb') as sc_file:
+            pickle.dump(scoreboard, sc_file)
+        with open(config.REDDIT_CONFIG['memelog.loc'], 'wb') as meme_file:
+            pickle.dump(memelog, meme_file)
+        with open(config.DISCORD_CONFIG['settings.loc'], 'wb') as set_file:
+            pickle.dump(settings, set_file)
+
+        msg = strftime('Last Autosave: %X on %a %d/%m/%y')
+        msg_len = max(msg_len, len(msg))
+        sys.stdout.write('\r{}{}'.format(msg, ((msg_len-len(msg))*' ')))
+
 
 async def create_hangman_game(channel, bot, user, settings, config, blocked):
     '''
@@ -812,8 +833,7 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
         await channel.send('*\'I have no memory of this place\'* ~Gandalf\nYour query `{}` yielded no results!'.format(query))
 
     for i, item in enumerate(res):
-        title = ':mag: Search Result {}\n'.format(i+1)+\
-            html.unescape(item['snippet']['title'])
+        title = ':mag: Search Result {}\n'.format(i+1)+unescape(item['snippet']['title'])
         yt_link = 'https://www.youtube.com/watch?v='+item['id']['videoId']
         thumbnail_link = item['snippet']['thumbnails']['medium']['url']
         publish_time = 'Published at: ' + '/'.join(

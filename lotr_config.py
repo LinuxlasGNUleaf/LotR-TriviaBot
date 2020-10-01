@@ -15,7 +15,8 @@ GENERAL_CONFIG = {
     'key': 'lotr',
     'footer': 'A discord bot written in Python by JaWs',
     'config.path': '.config/discord/bots/lotr-bot/',
-    'superusers': [277083306087022592]
+    'superusers': [277083306087022592],
+    'autosave.interval':10
 }
 
 config_path = os.path.join(os.getenv('HOME'), GENERAL_CONFIG['config.path'])

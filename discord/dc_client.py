@@ -3,6 +3,7 @@ Main discord bot class, includes minigames.py for all the extra functionality
 '''
 
 import random
+import asyncio
 import discord
 import minigames
 
@@ -10,7 +11,7 @@ class LotrBot(discord.Client):
     '''
     Bot client, inheriting from discord.Client
     '''
-    def __init__(self, config, scoreboard, settings, reddit_client,
+    def __init__(self, config, scoreboard, settings, memelog, reddit_client,
                  yt_api_client, google_search_client):
         self.config = config
         self.scoreboard = scoreboard
@@ -18,6 +19,7 @@ class LotrBot(discord.Client):
         self.do_autoscript = True
         self.script = []
         self.settings = settings
+        self.memelog = memelog
         self.script_condensed = []
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
@@ -42,6 +44,9 @@ class LotrBot(discord.Client):
         await self.change_presence(activity=discord.Activity\
             (type=discord.ActivityType.watching,
              name=random.choice(self.config.DISCORD_CONFIG['custom_status'])))
+
+        asyncio.get_event_loop().create_task(minigames.auto_save(self.config, self.scoreboard, self.memelog, self.settings))
+
         print('[SYSTEM]: online. All systems operational.')
         print('||>----------- O N L I N E ------------>||')
 
