@@ -7,7 +7,7 @@ A LotR-bot written by JaWs
 import pickle
 import os
 import sys
-import lotr_config
+import yaml
 
 sys.path.append(os.path.abspath('./discord'))
 sys.path.append(os.path.abspath('./reddit'))
@@ -19,92 +19,95 @@ import reddit_client
 import yt_api_client
 import google_search_client
 
-def get_token(loc, name, essential):
+def get_token(token_name, name):
     '''
-    returns token from a given tokenfile location, \
-and raises an Error if file is essential and not valid.
+    returns token from a given tokenfile location, and raises an error if file is essential and not valid.
     '''
+    path = os.path.join(config['discord']['path'], token_name)
     try:
-        with open(loc, 'r') as infofile:
+        with open(path, 'r') as infofile:
             temp = infofile.readlines()
-            if not temp and essential:
+            if not temp:
                 raise EOFError
             for i, item in enumerate(temp):
                 temp[i] = item.strip()
             return temp
     except (FileNotFoundError, EOFError):
-        msg = '{}: {} not found!'.format('[ERROR]' if essential else '[WARN]', name)
-        if essential:
-            raise EOFError(msg)
-        else:
-            print(msg)
+        msg = '[ERROR]: {} not found!'.format(name)
+        raise EOFError(msg)
 
+def get_cache(cache_name, name):
+    path = os.path.join(config['discord']['path'], cache_name)
+    try:
+        with open(path, 'rb') as cache_file:
+            obj = pickle.load(cache_file)
+            print('[INFO]: unserialized {} cache.'.format(name))
+            return obj
+    except (FileNotFoundError, EOFError):
+        print('[WARN]: could not unserialize {}! Creating empty one instead.'.format(name))
+        open(path, 'w').close()
 
+def update_cache_path(path):
+    return os.path.join(config['discord']['path'], path)
 # ==========================> LISTS <==================================
-SCOREBOARD = {}
-SETTINGS = {}
-MEME_LOG = {}
+scoreboard = {}
+settings = {}
+memelog = {}
 BLOCKED = [] # temporarily blocked users (cannot issue commands)
-
 # ==========================> STARTUP <==================================
-try:
-    with open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'rb') as SC_FILE:
-        SCOREBOARD = pickle.load(SC_FILE)
-        print('[INFO]: unserialized trivia scoreboard')
-except (FileNotFoundError, EOFError):
-    print('[WARN]: could not unserialize trivia scoreboard! Creating empty one instead.')
-    open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'w').close()
-
-try:
-    with open(lotr_config.DISCORD_CONFIG['settings.loc'], 'rb') as SET_FILE:
-        SETTINGS = pickle.load(SET_FILE)
-        print('[INFO]: unserialized settings')
-except (FileNotFoundError, EOFError):
-    print('[WARN]: could not unserialize settings! Creating empty one instead.')
-    open(lotr_config.DISCORD_CONFIG['settings.loc'], 'w').close()
-
-try:
-    with open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'rb') as MEME_FILE:
-        MEME_LOG = pickle.load(MEME_FILE)
-        print('[INFO]: unserialized meme log')
-except (FileNotFoundError, EOFError):
-    print('[WARN]: could not unserialize meme log! Creating empty one instead.')
-    open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'w').close()
 
 
-TOKEN = get_token(lotr_config.DISCORD_CONFIG['token.loc'], 'discord token', True)[0].strip()
-if not TOKEN:
-    raise EOFError('[ERROR]: discord token not found! abort.')
+with open("config.yaml", 'r') as cfg_stream:
+    try:
+        sys.stdout.write('parsing config file...')
+        config = yaml.safe_load(cfg_stream)
+        config['general']['path'] = eval(config['general']['path'])
+        print('done.')
+    except yaml.YAMLError as exc:
+        print("While parsing the config file, the following error occured: "+exc)
+        exit(-1)
+
+# unserialize caches from the cache files
+config['discord']['trivia']['cache'] = update_cache_path(config['discord']['trivia']['cache'])
+config['discord']['settings']['cache'] = update_cache_path(config['discord']['settings']['cache'])
+config['reddit']['cache'] = update_cache_path(config['reddit']['cache'])
+
+scoreboard = get_cache(config['discord']['trivia']['cache'], 'Scoreboard Cache')
+settings = get_cache(config['discord']['settings']['cache'], 'Settings Cache')
+memelog = get_cache(config['reddit']['cache'], 'Reddit Cache')
+
 
 # aquire credentials from the token files
-reddit_credentials = get_token(lotr_config.REDDIT_CONFIG['token.loc'], 'reddit credentials', True)
+config['discord']['token'] = update_cache_path(config['discord']['token'])
+config['reddit']['token'] = update_cache_path(config['reddit']['token'])
+config['youtube']['token'] = update_cache_path(config['youtube']['token'])
 
-yt_api_credentials = get_token(lotr_config.YT_CONFIG['token.loc'], 'yt api credentials', True)
+discord_token = get_token(config['discord']['token'], 'Discord Token')[0].strip()
+reddit_credentials = get_token(config['reddit']['token'], 'Reddit Credentials')
+yt_api_credentials = get_token(config['youtube']['token'], 'Youtube API Credentials')
 
 # create the client instances
-REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, MEME_LOG)
-
+REDDIT_CLIENT = reddit_client.RedditClient(reddit_credentials, memelog)
 YT_API_CLIENT = yt_api_client.YtAPIClient(yt_api_credentials)
-
 GOOGLE_SEARCH_CLIENT = google_search_client.GoogleSearchClient()
 
-DC_CLIENT = dc_client.LotrBot(lotr_config,
-                              SCOREBOARD,
-                              SETTINGS,
-                              MEME_LOG,
+DC_CLIENT = dc_client.LotrBot(config,
+                              scoreboard,
+                              settings,
+                              memelog,
                               REDDIT_CLIENT,
                               YT_API_CLIENT,
                               GOOGLE_SEARCH_CLIENT)
 
 try:
-    DC_CLIENT.run(TOKEN)
+    DC_CLIENT.run(discord_token)
     print('\n[INFO]: Shutting down...')
 except (KeyboardInterrupt, RuntimeError):
     print('\n[INFO]: Catched error... Shutting down...')
 
-with open(lotr_config.DISCORD_CONFIG['scoreboard.loc'], 'wb') as SC_FILE:
-    pickle.dump(SCOREBOARD, SC_FILE)
-with open(lotr_config.REDDIT_CONFIG['memelog.loc'], 'wb') as MEME_FILE:
-    pickle.dump(MEME_LOG, MEME_FILE)
-with open(lotr_config.DISCORD_CONFIG['settings.loc'], 'wb') as SET_FILE:
-    pickle.dump(SETTINGS, SET_FILE)
+with open(config['discord']['trivia']['cache'], 'wb') as SC_FILE:
+    pickle.dump(scoreboard, SC_FILE)
+with open(config['discord']['settings']['cache'], 'wb') as SET_FILE:
+    pickle.dump(settings, SET_FILE)
+with open(config['reddit']['cache'], 'wb') as MEME_FILE:
+    pickle.dump(memelog, MEME_FILE)

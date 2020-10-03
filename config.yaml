@@ -3,19 +3,19 @@ general:
     marker: '*'
     key: lotr
     footer: A discord bot written in Python by JaWs
-    config.path: ~/.config/discord/bots/lotr-bot/
+    path: os.path.join(os.getenv('HOME'), '/.config/discord/bots/lotr-bot/')
     superusers:
         - 277083306087022592
     autosave: 60
 
 reddit:
     subreddit: lotrmemes
-    memelog_cache: meme_log.pyobj
+    cache: meme_log.pyobj
     token: reddit.tk
 
 youtube:
     max_video_count: 3
-    token.loc: os.path.join(config_path, 'google.tk')
+    token: google.tk
     channel_id: UCYXpatz5Z4ek0M_5VR-Qt1A
     desc_blacklist: [teh lurd of teh reings youtube channel, media, shop, facebook.com,
                      instagram.com, music used, ♫, just a facebook page, pardun us,
@@ -29,7 +29,7 @@ discord:
     token: discord.tk
 
     settings:
-        settings_cache: os.path.join(config_path, 'dc_settings.pyobj')
+        cache: dc_settings.pyobj
         help: |
             **How the config works:**
             You can set preferences for a server or a channel (DMs excluded),
@@ -70,7 +70,7 @@ discord:
     trivia:
         multiplier: 12
         extra_time: 5.0
-        scoreboard_cache: scoreboard.pyobj
+        cache: scoreboard.pyobj
         link: https://forms.gle/k4oMTiyUEJgntMyb9
         tips:
             - "Thought of a cool new trivia question? Great! Submit it here: {}"
