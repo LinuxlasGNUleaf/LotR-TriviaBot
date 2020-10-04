@@ -1,43 +1,31 @@
-[first lines; flashback to Bree – on the borders of the Shire, it’s pouring rain, Thorin enters The Prancing Pony, he passes a man at the bar calling out to the bartender]
 Man at Bar: I’m dying of thirst over here! Come on! Come on!
-[the bartender places the man’s drink on the bar]
 Bartender: Here you are.
-[a man goes past the barmaid nearly knocking the drink from her hand]
 Barmaid: Watch it!
 Bar Patron: Sorry, darling.
-[the waitress takes the drink to Thorin, who’s sat at a table by himself]
 Barmaid: Here you are.
 Thorin: Ah, thank you.
-[Thorin starts to eat his meal when he notices a man in the corner watching him, he looks around and notices another man on the opposite site also watching him, they start to walk over to him, Thorin gets ready to draw his sword when suddenly Gandalf sits before him]
 Gandalf: Mind if I join you?
-[Gandalf stops the barmaid as she walks past their table]
 Gandalf: I’ll have the same.
-[the two men stop in their tracks and go back to their seats]
 Gandalf: I should introduce myself. My name is Gandalf. Gandalf the Grey.
 Thorin: I know who you are.
 Gandalf: Well, now, this is a fine chance. What brings Thorin Oakenshield to Bree?
 Thorin: I received word that my Father had been seen wandering the wilds near *Dunland. I went looking, found no sign of him.
 Gandalf: Thorin, it’s been a long time since anything but rumor was heard of Thrain.
 Thorin: He still lives, I am sure of it.
-[the waitress interrupts them by bringing Gandalf’s food and drink and placing it on the table]
 Thorin: My father came to see you before he went missing. What did you say to him?
 Gandalf: I urged him to march upon Erebor, to rally the seven armies of the dwarves. To destroy the dragon and take back the Lonely Mountain, and I would say the same to you. Take back your homeland.
 Thorin: This is no chance meeting is it, Gandalf?
 Gandalf: No, it is not. The Lonely Mountain troubles me, Thorin. That dragon has sat there long enough, sooner or later darker minds will turn towards Erebor. I ran into some unsavory characters whilst traveling along the Greenway. They mistook me for a vagabond.
 Thorin: I imagine they regretted that.
 Gandalf: One of them was carrying a message.
-[he unrolls the message and slides it across the table to Thorin]
 Gandalf: It is Black Speech.
-[Thorin looks at Gandalf with unease]
 Gandalf: A promise of payment.
 Thorin: For what?
 Gandalf: Your head. Someone wants you dead. Thorin, you can wait no longer. You are the heir to the throne of Durin. Unite the armies of the dwarves, together you have the might and power to retake Erebor. Summon a meeting of the seven dwarf families, demand they stand by their oath.
 Thorin: The seven armies swore that oath to the one who wields the King’s jewel, the Arkenstone. It is the only thing that will unite them, and in case you have forgotten, that jewel was stolen by Smaug.
-[Gandalf notices the two men that had been watching Thorin earlier get up and leave the bar]
 Gandalf: What if I were to help you reclaim it?
 Thorin: How? The Arkenstone lies half a world away, buried beneath the feet of a fire breathing dragon.
 Gandalf: Yes, it does. Which is why we’re going to need a burglar.
-[12 months later – Bilbo is keeping an eye out on the Orcs, led by Azog, he sees them ride on their wolves to search for himself and the Company of Dwarves, as Bilbo goes to leave he spots a much larger creature from a distance, he runs back to Gandalf and the dwarves]
 Thorin: How close is the pack?
 Bilbo: Too close, couple of leagues, no more. But that’s not the worst of it.
 Dwalin: Have the Orcs picked up our scent?
@@ -45,68 +33,43 @@ Bilbo: Not yet, but they will do. We have another problem.
 Gandalf: Did they see you? They saw you.
 Bilbo: No, that’s not it.
 Gandalf: Good, what did I tell you? Quite as a mouse. Excellent burglar material.
-[the dwarves start talking amongst themselves, agreeing with Gandalf]
 Bilbo: Will you listen! I’m trying to tell you there is something else out there.
 Gandalf: What form did it take? Like a bear?
 Bilbo: Ye…Yes, but bigger. Much bigger.
-[everyone looks at Gandalf]
 Bofur: You knew about this beast?
-[Gandalf doesn’t reply but turns away to think for a moment]
 Bofur: I say we double back.
 Thorin: We’ll be run down by a pack of Orcs.
 Gandalf: There is a house, it’s not far from here, where we might take refuge.
 Thorin: Whose house? Are they friend or foe?
 Gandalf: Neither. He will help us or he will kill us.
 Thorin: What choice do we have?
-[suddenly they hear the creature roaring nearby]
 Gandalf: None.
-[the dwarves and Bilbo make a run for it away from the Carrock led by Gandalf with the Orcs hot on their heels chasing them, they stop when they hear the creature roaring close by]
 Gandalf: This way! Quickly!
-[they all make a run for it, Gandalf spots the house ahead]
 Gandalf: Into the house! Run!
-[as they reach the house]
 Gandalf: Come on! Get inside!
-[as the dwarves and Bilbo all rush towards the house, Gandalf sees the creature coming through the woods after them, the dwarves try to open the door of the house, but it’s locked]
 Gandalf: Open the door!
 Thorin: Quickly!
-[Thorin rushes ahead and manages to open the door, they all rush inside and just as they are about to close the door the creature lunges its head through it, the dwarves all push to close the door]
 Dwalin: Come on, lads!
-[they finally manage to shut the door and lock it]
-[Ori turns to Gandalf]
 Ori: What is that?
 Gandalf: That is our host.
-[they all turn to look at Gandalf in confusion]
 Gandalf: His name is Beorn, he’s a skin-changer. Sometimes he’s a huge black bear, sometimes he’s a great strong man. The bear is unpredictable, but the man can be reasoned with. However, he is not over fond of dwarves.
-[they hear Beorn outside]
 Ori: He’s leaving.
-[Dori pulls Ori away from the door]
 Dori: Come away from there! It’s not natural, none of it. It’s obvious, he’s under some dark spell.
 Gandalf: Don’t be a fool. He’s under no enchantment but his own.
-[he takes off his hat]
 Gandalf: Alright now, get some sleep all of you. You’ll be safe here tonight.
-[he stops and looks out]
 Gandalf: I hope.
-[later that night, Beorn in his bear form roams outside the house, further away Azog and his Orcs watch the house]
-Narzug: [subtitled] Attack them now. Kill the Dwarf filth while they sleep.
-Azog: [subtitled] No. The Beast stands guard.
-[they walk towards the other Orcs]
-Azog: [subtitled] We will kill them on the road.
-[suddenly another Orc arrives riding on his wolf]
-Bolg: [subtitled] They are gathering in Dol Guldur. The Master has summoned you.
-[back in the house, while the dwarves are asleep, Bilbo takes out the One Ring from his pocket and looks at it]
-[Azog and his Orcs arrive at Dol Guldur and Azog goes to speak with the Necromancer, a mysterious dark entity]
-The Necromancer: [subtitled] We grow in number. We grow in strength. You will lead my armies.
-Azog: [subtitled] What of Oakenshield?
-The Necromancer: [subtitled] War is coming.
-Azog: [subtitled] You promised me his head.
-The Necromancer: [subtitled] Death will come to all.
-[the Necromancer disappears]
-Narzug: [subtitled] Do we call off the hunt?
-Azog: [subtitled] Bolg!
-[Bolg appears and walks towards Azog]
-Azog: [subtitled] I have a task for you. Do you still thirst for Dwarf blood?
-[that same night, Beorn changes to his strong male form, he enters his house and Bilbo watches him]
-[in the morning, Bilbo wakes to find giant bees flying around his head, he looks around and sees everyone is sat at a table being served breakfast by Beorn]
+Narzug: Attack them now. Kill the Dwarf filth while they sleep.
+Azog: No. The Beast stands guard.
+Azog: We will kill them on the road.
+Bolg: They are gathering in Dol Guldur. The Master has summoned you.
+The Necromancer: We grow in number. We grow in strength. You will lead my armies.
+Azog: What of Oakenshield?
+The Necromancer: War is coming.
+Azog: You promised me his head.
+The Necromancer: Death will come to all.
+Narzug: Do we call off the hunt?
+Azog: Bolg!
+Azog: I have a task for you. Do you still thirst for Dwarf blood?
 Beorn: So you are the one they call Oakenshield. Tell me, why is Azog the Defiler hunting you?
 Thorin: You know of Azog? How?
 Beorn: My people were the first to live in the mountains, before the Orcs came down from the north. The Defiler killed most of my family, but some he enslaved. Not for work, you understand, but for sport. Caging skin-changers and torturing them seemed to amuse him.
@@ -122,359 +85,215 @@ Gandalf: We will take the Elven Road, their path is still safe.
 Beorn: Safe? The Wood Elves of Mirkwood are not like their kin. They’re less wise and more dangerous. But it matters not.
 Thorin: What do you mean?
 Beorn: These lands are crawling with Orcs, their numbers are growing and you are on foot. You will never reach the forest alive. I don’t like dwarves, they’re greedy and blind, blind to the lives of those they deem lesser than their own.
-[he picks up the mice Dwalin pushes away from his arm and looks at it]
 Beorn: But Orcs I hate more.
-[to Thorin]
 Beorn: What do you need?
-[Beorn loans the company his horses]
 Beorn: Go now, while you have the light. Your hunters are not far behind.
-[the company arrive at the entrance to Mirkwood forest, Gandalf steps through the entrance]
 Gandalf: The Elven Gate.
-[turning to the rest of the company]
 Gandalf: Here lies our path through Mirkwood.
 Dwalin: No sign of the Orcs. We have luck on our side.
-[Gandalf notices Beorn in the distance in his bear form]
 Gandalf: Set the ponies loose. Let them return to their master.
 Bilbo: This forest feels sick, as if a disease lies upon it. Is there no way around?
 Gandalf: Not unless we go two hundred miles north, or twice that distance…south.
-[Gandalf notices something in the forest and walks further inside, at the same time Bilbo takes the One Ring from his pocket and touches it, feeling its power]
-[as Gandalf walks through the entrance of the forest he hears Galadriel’s voice]
 Galadriel: Something moves in the shadows, unseen, hidden from our sight. Every day it grows in strength. Beware of The Necromancer, he is not what he seems.
-[Gandalf finds a tree with a red eye painted on it]
 Galadriel: If our enemy has returned, we must know. Go to the tombs in the mountains.
 Gandalf: The High Fells. So be it.
-[Gandalf rejoins the company at the edge of the forest where they are freeing the horses]
 Gandalf: Not my horse, I need it!
-[the company looks at Gandalf in confusion]
 Bilbo: You’re not leaving us?
 Gandalf: I would not do this unless I had to.
-[he stops and looks at Bilbo]
 Gandalf: You’ve changed, Bilbo Baggins. You’re not the same hobbit as the one who left the Shire.
 Bilbo: I was going to tell you.
-[Bilbo pauses before making his confession]
 Bilbo: I…I found something in the Goblin tunnels.
 Gandalf: Found what?
-[Bilbo hesitates again, he continues to hold the ring in his pocket, Gandalf looks at Bilbo with suspicion]
 Gandalf: What did you find?
-[Bilbo pauses before finally replying]
 Bilbo: My courage.
-[Bilbo quickly removes his hand away from the ring]
 Gandalf: Good. Well, that’s good. You’ll need it.
-[as Gandalf walks towards his horse]
 Gandalf: I’ll be waiting for you at the overlook, before the slopes of Erebor.
-[to Thorin]
 Gandalf: Keep the map and key safe. Do not enter that mountain without me.
-[as he starts to get on his horse]
 Gandalf: This is not the Greenwood of old, the very air of the forest is heavy with illusion that will seek to enter your mind and lead you astray.
 Bilbo: Lead us astray? What does that mean?
 Gandalf: You must stay on the path, do not leave it. If you do, you’ll never find it again.
-[Gandalf turns his horse and starts to ride off]
 Gandalf: No matter what may come, stay on the path!
-[Thorin turns and starts to walks towards the entrance of the forest]
 Thorin: Come on, we must reach the mountain before the sun sets on Durin’s Day. Let’s go, we’ve but one chance to find the hidden door.
-[as the company walk through Mirkwood forest following the path]
 Thorin: The path turns this way.
-[they walk through the forest following the path until they reach a corner, Dwalin uses the end of his ax to feel the ground for the path]
 Dwalin: This way.
-[the company follows Dwalin and they carry on following the path until they reach nightfall]
 Bofur: Air…I need air.
 Oin: My head, it’s spinning! What’s happening?
 Thorin: Keep moving.
-[suddenly, Nori, who’s leading them stops]
 Thorin: Nori, why have you stopped?
 Nori: The path, it’s disappeared!
 Ori: What’s going on?
 Bofur: We’ve lost the path!
 Thorin: Find it. All of you, look.
 Dwalin: Look for the path!
-[as they all start to look for the path they start to feel dizzy]
 Balin: I don’t remember this place, none of it’s familiar.
 Dori: It’s got to be here.
 Thorin: What hour is it?
 Dwalin: I don’t know, I don’t even know what day it is.
 Thorin: Is there no end to this accursed forest!
-[Bilbo notices a massive spider web next to him, he touches it which causes a vibration to run through it, he does it again and he feels the vibration again]
-[we see Bilbo and the dwarves walking through the forest again, but Bilbo starts to feel funny, he looks down and sees that his feet are walking backwards, then he looks behind him and sees himself walking behind him, they stop when Ori picks up a pouch from the found, Dori takes it from him]
 Dori: Look, a tobacco pouch. There’s Dwarves in these woods.
-[Bifur take the pouch from Dori]
 Bofur: Dwarves from the Blue Mountains, no less. This is exactly the same as mine.
 Bilbo: Because it is yours, do you understand? We’re going around in circles, we are lost!
 Thorin: We are not lost. We keep heading east.
 Dwalin: But which way is the east? We’ve lost the sun!
-[as the dwarves argue amongst themselves about being lost, Bilbo looks up]
 Bilbo: The sun. We have to find.. the sun.
-[he looks down and taps his head]
 Bilbo: Up there.
-[to the others]
 Bilbo: We need to…
-[he sees the dwarves are now pushing each other as they fight amongst themselves]
 Thorin: Enough! Quiet! All of you! We are being watched.
-[Bilbo climbs the nearby tree, when he gets to the top, he breathes and starts to feel like himself again, he sees butterflies fly around him and then spots the sun shining over a lake]
 Bilbo: I can…see a lake! And a…river. And the Lonely Mountain!
-[he chuckles to himself]
 Bilbo: We’re almost there!
-[he calls down to the dwarves]
 Bilbo: Can you hear me? I know which way to go!
-[there’s no response]
 Bilbo: Hello?!
-[he still gets no response, so he looks over to the sun and lake when he suddenly feels himself being pulled down]
 Bilbo: Hello.
-[he looks down and notices his feet are bound in a spider’s web]
 Bilbo: Look…come on!
-[as he goes to move he falls off the branch of the tree, he manages to catch himself on another branch but as he does so suddenly a giant spider emerges and lunges at Bilbo, who falls down onto the spider’s web and the spider starts to wrap him up in the web]
-[Bilbo is carried off to the nest of spiders, where the rest of the dwarves are also being held, as the spider that captured Bilbo crawls over him, suddenly Bilbo takes out his sword and stabs the spider with it and kills it, then he frees himself from the web and uses the ring to become invisible, he starts to hear the spiders communicating amongst themselves]
 Spider #1: Kill them. Kill them! Eat them now while all their blood is running.
 Spider #2: Their hide is tough. This could be juicy inside.
 Spider #1: Stick it again. Stick it again. Finish it off.
 Spider #2: The meat’s alive and kicking.
 Spider #1: Kill them, kill them now. Let us feast, feast, feast. Feast, feast!
-[one of them seems to lunge towards Bilbo but it passes through as Bilbo is invisible]
 Spider #2: Kill them now!
 Spider #1: Feast! Feast!
-[the spiders start to attack the dwarves wrapped in their webs when Bilbo throws a rock to divert their attention]
 Spider #1: What is it? What is it? What is it?!
-[the spiders go off to find out where the noise is coming from, one of them remains to eat his trapped dwarf]
 Spider #2: Fat and juicy! Just a little taste.
-[as the spider goes to eat the trapped dwarf, suddenly Bilbo hits it with his sword, the spider turns and goes to lunge at Bilbo but can’t see him, Bilbo then continues to hit it with his sword]
 Spider #2: Curse it! Where is it? Where is it?
-[Bilbo takes his ring off and reveals himself to the spider]
 Bilbo: Here!
-[Bilbo then lunges his sword and stabs the spider]
 Spider #2: It stings! It stings!
-[the spider then falls down to his death and Bilbo then looks at his sword]
 Bilbo: Sting. That’s a good name. Sting.
-[Bilbo uses his sword to free the dwarves from the web, they all fall to the ground]
 Bofur: Where’s Bilbo?
 Bilbo: I’m up here!
-[suddenly one of the other spiders lunges at Bilbo and they both fall from the tree onto another branch, Bilbo lose his ring, as Bilbo goes to search for the ring the dwarves fight off the rest of the attacking spiders]
 Bilbo: Where is it? Where is it? Come on! Where is it?
-[suddenly Bilbo notices the ring lying on the ground not far from him, as he goes to get it a spider comes out of the ground and unknowingly steps on the ring, this enrages Bilbo and he starts hitting the spider with his sword]
 Bilbo: No! No! No!
-[at the same time the dwarves continue to fight off the pack of spiders]
 Thorin: Dwalin! Kill it! Kill it!
-[Dwalin attacks the spider grabbing hold of Thorin, then Kili gets trapped by another spider]
 Kili: Fili!
-[Fili manages to stab the spider]
-[then back to Bilbo who is still stabbing the spider that had crawled on the ring in anger and finally managed to kill it, then he picks up the ring and holds it up]
 Bilbo: Mine!
-[he then looks at the ring and it suddenly dawns on him how much the ring has a hold over him, he looks distressed as he realizes what he had done to regain it, then he hears the dwarves as they call out to each other]
 Dwalin: Come on, keep up!
 Thorin: Clear!
-[suddenly one of the spiders lands in front of the dwarves, as more spiders start to descend suddenly Legolas appears along with the others, that’s when the Wood Elves use their arrows to kill the spiders, after which they point their arrows at the dwarves]
 Legolas: Do not think I won’t kill you, Dwarf. It would be my pleasure.
-[suddenly they hear someone screaming for help, Fili turns]
 Fili: Kili!
-[as Kili is being attacked by a pack of spiders a female elf, Tauriel, swings in and starts killing the spiders, Kili yells to her]
 Kili: Throw me a dagger! Quick!
 Tauriel: If you think I’m giving you a weapon, Dwarf, you are mistaken!
-[as she kills the spider she was fighting with she quickly turns and throws her dagger at the spider that was about to kill Kili which kills it]
-[as the elves surround the dwarves]
 Legolas: Search them!
-[Legolas takes a locket from Gloin, showing a picture of his wife and son]
 Gloin: Hey, give it back! That’s private!
-[looking at one of the pictures]
 Legolas: Who is this? Your brother?
 Gloin: That is my wife!
-[looking at the other picture]
 Legolas: And what is this horrid creature? A Goblin Mutant?
 Gloin: That’s my wee lad, Gimli!
-[another elf takes Fili’s weapons and he reluctantly hands over his sword]
-[Legolas turns to Tauriel as she joins them]
-Legolas: [subtitled] Are the spiders dead?
-Tauriel: [subtitled] Yes, but more will come. They’re growing bolder.
-[one of the elves hands Legolas Thorin’s sword]
-Legolas: [subtitled] This is an ancient Elvish blade. Forged by my kin.
-[to Thorin]
+Legolas: Are the spiders dead?
+Tauriel: Yes, but more will come. They’re growing bolder.
+Legolas: This is an ancient Elvish blade. Forged by my kin.
 Legolas: Where did you get this?
 Thorin: It was given to me.
-[Legolas points the edge of the sword at Thorin]
 Legolas: Not just a thief, but a liar as well.
-[Legolas calls to his elves to lead the dwarves away]
 Bofur: Thorin, where’s Bilbo?
-[Thorin turns to look behind him]
-[the dwarves are taken to the Wood Elves’ kingdom]
-Legolas: [subtitled] Close the gates.
-[we see Bilbo following behind them, invisible as he wears the ring again, as Legolas goes to enter through the gate he senses something behind him, he turns but he sees no one, he enters through the gate which is then closed behind him; the dwarves are then imprisoned in cells]
+Legolas: Close the gates.
 Dwalin: This is not the end of it! Do you hear me?!
 Bifur: Let us out of here!
-[to Tauriel as she takes him to his cell]
 Kili: Aren’t you going to search me? I could have anything down my trousers?
 Tauriel: Or nothing.
-[she closes the cell on his face and walks away]
-[Kili stares at her and smiles to himself]
-Legolas: [subtitled] Why does that Dwarf stare at you, Tauriel?
-Tauriel: [subtitled] Who can say? He’s quite tall for a Dwarf. Do you not think?
-Legolas: [subtitled] Taller than some…
-[Tauriel starts to walk away]
-Legolas: [subtitled] …but no less ugly.
-[Legolas looks at Kili as he sits in his cell]
-[in their cells the dwarves start throwing themselves at the bars to try and break free]
+Legolas: Why does that Dwarf stare at you, Tauriel?
+Tauriel: Who can say? He’s quite tall for a Dwarf. Do you not think?
+Legolas: Taller than some…
+Legolas: …but no less ugly.
 Gloin: Arhhg…again!
 Balin: Leave it! There is no way out! This is no Orc dungeon. These are the Halls of the Woodland realm. No one leaves here, but, by the King’s consent.
-[Thorin is taken to the Elvenking Thranduil]
 Thranduil: Some may imagine that a Noble quest is at hand. A Quest to reclaim a homeland and slay a dragon. I myself, suspect a more prosaic motive. Attempted burglary, or something of that ilk.
-[he leans down to look at Thorin closely]
 Thranduil: You have found a way in. You seek that which would bestow upon you the right to rule. A King’s jewel. The Arkenstone. It is precious to you beyond measure, I understand that. There are gems in the mountain that I too desire. White gems of pure starlight. I offer you my help.
-[Thorin smiles]
 Thorin: I am listening.
 Thranduil: I will let you go, if you but return what is mine.
 Thorin: A favor for a favor.
 Thranduil: You have my word. One King to another.
 Thorin: I would not trust, Thranduil, the great King, to only his word. Till the end of all days be upon us!
-[Thranduil looks visibly shocked at Thorin’s words]
 Thorin: You, lack all honor! I have seen how you treat your friends! We came to you once, starving, homeless; seeking your help. But you turned your back! You, turned away from the suffering of my people and the inferno that destroyed us!
-[in his own language]
 Thorin: May you die in dragon fire!
 Thranduil: Do not talk to me of dragon fire! I know its wrath and ruin. I have faced the great serpents of the North.
-[suddenly one side of Thranduil’s face becomes distorted, showing signs of being once burnt, then as he steps back his face returns to its normal state]
 Thranduil: I warned your grandfather of what his greed would summon, but he would not listen.
-[Thranduil walks up the steps to his throne]
 Thranduil: You are just like him.
-[he motions for his guards to grab hold of Thorin who struggles as they hold him and take him away]
 Thranduil: Stay here if you will, and rot. A hundred years is a mere blink in a life of an Elf. I’m patient. I can wait.
-[Thorin is thrown into a cell]
-[after being thrown into a prison cell; referring to Thorin’s meeting with Thranduil]
 Balin: Did he offer you a deal?
 Thorin: He did. I told him he could go ishkh khakfe andu null. Him and all his kin!
 Balin: Well, that’s that then. The deal was our only hope.
 Thorin: It’s not our only hope.
-[Thorin looks up; we see Bilbo in his invisible state has entered the Elf kingdom, he takes a step forward when he sees Thranduil]
 Thranduil: I know you’re there.
-[Bilbo thinks he’s been found out as Thranduil turns to stare in his direction]
 Thranduil: Why do you linger in the shadows?
-[suddenly Bilbo hears Tauriel from behind him and he breathes a sigh of relief]
 Tauriel: I was coming to report to you.
 Thranduil: I thought I ordered that nest to be destroyed not two moons past.
 Tauriel: We cleared the forest as ordered, my Lord. But more spiders keep coming up from the south. They are spawning in the ruins of Dol Guldur, if we could kill them at their source…
 Thranduil: That fortress lies beyond our borders. Keep our lands clear of those foul creatures, that is your task.
 Tauriel: And when we drive them off, what then? Will they not spread to other lands?
 Thranduil: Other lands are not my concern. The fortunes of the world will rise and fall, but here in this kingdom, we will endure.
-[as Thranduil speaks Bilbo sneaks past him and goes down some steps, Thranduil senses something and looks in the direction Bilbo took but sees nothing]
-[as Tauriel turns to leave]
 Thranduil: Legolas said you fought well today.
-[Tauriel stops and turns to look at Thranduil]
 Thranduil: He’s grown very fond of you.
 Tauriel: I assure, my Lord, Legolas thinks of me as not more than a Captain of the Guard.
 Thranduil: Perhaps he did once. Now I’m not so sure.
 Tauriel: I do not think that you would allow your son to pledge himself to a lowly Silvan Elf.
 Thranduil: No, you are right, l would not. Still, he cares about you. Do not give him hope where there is none.
-[near the Elf kingdom the Orcs led by Bolg watch the gates]
-Narzug: [subtitled] The gates are guarded.
-Bolg: [subtitled] Not all of them…follow me.
-[Bolg turns and starts walking away and the Orcs follow him]
-[in his cell, Kili holds a stone in his hand that has dwarf writing on it, he starts tossing it up and catching it, Tauriel who is doing a watch around the prison cells walks up to Kili’s cell]
+Narzug: The gates are guarded.
+Bolg: Not all of them…follow me.
 Tauriel: The stone in your hand, what is it?
 Kili: It is a Talisman.
-[Tauriel looks at him for more clarification]
 Kili: A powerful spell lies upon it, if any but a dwarf reads the runes on this stone…
-[he shakes his head]
 Kili: …they will be forever cursed!
-[he hold up the stone making Tauriel take a step back, she looks at him for a moment and then goes to leave]
 Kili: Or not. Depending on whether you believe in that kind of thing. It’s just a token.
-[he laughs and Tauriel smiles]
 Kili: A Rune Stone. My mother gave me it to me so I’d remember my promise.
 Tauriel: What promise?
 Kili: That I would come back to her. She worries. She thinks I’m reckless.
 Tauriel: Are you?
 Kili: Nah.
-[he tosses the stone up but it falls out through the bars, Tauriel uses her foot to stop it from rolling away, she picks it up to look at the stone]
-[Kili hears the elves having a feast up above them in the kingdom]
 Kili: Sounds like quite a party you’re having up there.
 Tauriel: It is Mereth Nuin Giliath; The Feast of Starlight. All light is sacred to the Eldar, but the Wood Elves love best the light of the stars.
 Kili: I always thought it is a cold light, remote and far away.
 Tauriel: It is memory, precious and pure.
-[they look at each other for a moment]
 Tauriel: Like your promise.
-[she holds his stone in her hand and he takes it back]
-[she turns and looks up]
 Tauriel: I have walked there sometimes, beyond the forest and up into the night. I have seen the world fall away and the white light forever fill the air.
 Kili: I saw a fire moon once. It rose over the pass near Dunland. Huge! Red and gold it was, it filled the sky. We were an escort for some merchants from Ered Luin, they were trading in silverwork for furs. We took the Greenway south, keeping the mountain to our left, and then it appeared. This huge fire moon lighting our path. I wish I could show you…
-[as Tauriel sits next to his cell to listen to his story we see Legolas standing above where the cells are located, not looking happy as he listens to them]
-[still in his invisible state Bilbo goes to the wine cellar]
 Lethuin: Galion, you old rogue! We’re running out of drink.
 Elros: These empty barrels should have been sent to Esgaroth hours ago. The party have been waiting for them.
 Lethuin: Say what you like about our ill tempered King he has excellent taste in wine. Come, Elros, try it.
-[Bilbo spots the prison cell keys in Elros’ hand]
 Elros: I have the dwarves in my charge.
 Lethuin: They’re locked up, where can they go?
-[he takes the keys to the cells from Elros and hangs them on the wall nearby]
-[as they sit in their prison cells]
 Bofur: I’ll wager the sun in on the rise. Must be nearly dawn.
 Ori: We’re never gonna reach the mountain, are we?
-[suddenly Bilbo appears from around the corner]
 Bilbo: Not stuck in here you’re not.
-[he puts the ring in his pocket then holds up the massive key chain holding the keys to the cells]
 Balin: Bilbo!
-[the dwarves start cheering among themselves as Bilbo starts unlocking each cell]
 Bilbo: Ssh! There are guards, nearby!
-[he frees Thorin first, then Balin then goes down the step to free the other dwarves and they start walking up the stairs]
 Kili: What’s that?
 Dwalin: You first.
 Dori: Ori!
 Bilbo: Not that way. Down here, follow me!
 Bombur: Which way?
 Bilbo: Come on!
-[they follow Bilbo down to the wine cellar]
-[when the company reaches the wine cellar, they find Elros and Lethuin passed out drunk and snoring; whispering to the dwarves]
 Bilbo: This way.
-[the dwarves hesitate]
 Bilbo: Come on!
 Kili: I don’t believe it, we’re in the cellars!
 Bofur: You’re supposed to be leading us out not further in!
 Bilbo: I know what I’m doing!
 Bofur: Ssh!
 Bilbo: Okay, this way. This way.
-[he points the direction the dwarves need to take, meanwhile the Elf guards find the dwarves missing from their cells and raise the alarm]
 Bilbo: Everyone, climb into the barrels, quickly!
 Dwalin: Are you mad? They’ll find us!
 Bilbo: No, no. They won’t! I promise you. Please, please, you must trust me!
-[the dwarves start mumbling amongst each other, Bilbo looks at Thorin in frustration]
 Thorin: Do as he says!
-[the dwarves climb into the empty wine barrels, Bofur sticks his head out]
 Bofur: What do we do now?
-[the other dwarves stick their heads out of their barrels looking at Bilbo]
 Bilbo: Hold your breath.
 Bofur: Hold my breath? What do you mean?
-[Bilbo then pulls a lever which opens the floorboards dropping the barrels containing the dwarves down into the river, as the floorboard closes the noise wakes the two drunk elves and Bilbo stands there alone wondering how he’d forgotten to include himself in the escape plan]
-[after the elves discover that the dwarves have escaped]
 Tauriel: Where is the keeper of the keys?
-[meanwhile Bilbo frantically tries to get the floorboard to rise by stomping on it with his foot and just before he gets caught the floorboard slides down making Bilbo slide down and fall into the river, before the floorboard closes Tauriel and the other elves arrive; down below in the river, Bilbo is caught by the dwarves, still in their barrels]
 Thorin: Well done, Master Baggins.
-[Bilbo raises his hand to dismiss it]
 Thorin: Go, come on let’s go!
-[the company float across the water in their barrels until they reach the waterfall]
 Balin: Hold on!
-[the company fall down the waterfall and are sent downstream with the elves chasing after them]
-[to one of the guards]
-Legolas: [subtitled] Shut the gate!
-[the guard sounds the alarm for the gates to be shut and the elf guards on the other side of the river close the gates before Thorin and the rest of the company can pass through]
+Legolas: Shut the gate!
 Thorin: No!
-[as the elves get ready to capture the company suddenly an arrow is fired and it hits one of the elf guards, and an Orc jumps up from behind him and the elf falls into the river]
 Bofur: Watch out!
-[the Orcs, led by Bolg start attacking the elves]
-Bolg: [subtitled] Slay them all!
-[shouting to the other dwarves as the elves and Orcs are fighting]
+Bolg: Slay them all!
 Thorin: Get over the bridge!
-[suddenly the Orcs start attacking them, Bilbo uses his sword to stab one of them]
 Dwalin: Die!
-[as the Orcs and the company fight it out, Kili tries to run up the bridge and open the gate but he’s shot in the leg by an arrow]
 Fili: Kili!
-[Kili falls down before he can open the gate and another Orc comes upon him]
 Thorin: Kili!
-[before the Orc can attack Kili an arrow hits the Orc killing him, Kili looks over and sees that Tauriel had shot the arrow, she then starts to battle it out with the other Orcs]
-Bolg: [subtitled] Kill her! Kill the She-Elf!
-[as the Orcs go to attack Tauriel the other elves arrive led by Legolas and they start killing the Orcs; at the same time in his weakened state Kili manages to open the gate allowing the rest of the company to escape down the river, Bolg notices this and commands his Orcs]
-Bolg: [subtitled] After them!
-[in great pain Kili manages to jump down into one of the empty barrels]
+Bolg: Kill her! Kill the She-Elf!
+Bolg: After them!
 Fili: Kili!
-[Tauriel notices this before she’s attacked by another Orc, as Legolas and Tauriel fight it out with the remaining Orcs, the rest of the Orcs chase after the company down the river, the dwarves manage to kill a few along the way before Legolas catches up and kills them all with Thorin managing to save him from being hit by one of Orcs]
-[after killing the Orcs Legolas watches the dwarves being taken down the river by the current, one Orc, Narzug, quietly comes up behind him and shoots his arrow but Tauriel arrives in time to deflect the arrow, she manages to subdue him and just as she’s about to kill him Legolas stops her]
-Legolas: [subtitled] Tauriel, wait! This one we keep alive.
-[at the same time Bolg and the rest of his Orcs have caught up with the company]
+Legolas: Tauriel, wait! This one we keep alive.
 
-Bolg: [subtitled] After them! Cut them off! [Legolas and Tauriel watch them from the distance as they go after the company]
+Bolg: After them! Cut them off! [Legolas and Tauriel watch them from the distance as they go after the company]
 
-[meanwhile, Gandalf finds the tombs of the Nazgûl and finds them empty, at that moment a bird flies out of the tomb, Gandalf turns in shock and finds Radagast standing behind him]
 Gandalf: Oh, it’s you.
 Radagast: Why am I here, Gandalf?
 Gandalf: Trust me, Radagast, I would not have called you here without good reason.
@@ -482,20 +301,16 @@ Radagast: This is not a nice place to meet.
 Gandalf: No, it is not.
 Radagast: These are dark spells, Gandalf. Old and full of hate. Who’s buried here?
 Gandalf: If he had a name, it’s long since been lost. He would’ve been known only as a servant of evil. One of a number. One of nine.
-[walking outside the cave]
 Radagast: Why now, Gandalf? I don’t understand.
 Gandalf: The Ringwraiths have been summoned to Dol Guldur.
 Radagast: But it cannot be the Necromancer. A human sorcerer could not summon such evil.
 Gandalf: Who said it was human? The nine only answer to one master. We’ve been blind, Radagast. And in our blindness, the enemy has returned. He is summoning his servants. Azog the Defiler is no ordinary hunter. He is a commander, a commander of legions. The enemy is preparing for war. It will begin in the east. His mind is set upon that mountain.
-[Gandalf starts walking off]
 Radagast: Where are you going?
 Gandalf: To rejoin the others.
 Radagast: Gandalf!
-[Gandalf turns to Radagast]
 Gandalf: I started this, I cannot forsake them. They are in grave danger.
 Radagast: If what you say is true, the world is in grave danger. The power in that fortress will only grow stronger.
 Gandalf: You want me to cast my friends aside.
-[as the company continue to float down the river in their barrels]
 Thorin: Anything behind us?
 Balin: Not that I can see.
 Bofur: I think we’ve outrun the Orcs.
@@ -504,8 +319,6 @@ Dwalin: We almost half drowned!
 Thorin: Make for the shore!
 Dwalin: Aye.
 Thorin: Come on, let’s go!
-[they reach the shore and get out the barrels]
-[Kili falls to his knees from the wound in his leg, Bofur watches him]
 Kili: I’m fine, it’s nothing.
 Thorin: On your feet.
 Fili: Kili’s wounded, his leg needs binding.
@@ -515,22 +328,15 @@ Bilbo: To the mountain, we’re so close.
 Balin: A lake lies between us and that mountain, we have no way to cross it.
 Bilbo: So then we go around.
 Dwalin: The Orcs will run us down as sure as daylight. We’ve no weapons to defend ourselves.
-[to Fili]
 Thorin: Bind his leg, quickly. You have two minutes.
-[as Ori is getting rid of the water in his boots a bowman named Bard comes up behind ready to shoot his arrow, as he does so Dwalin intervenes and the arrow hits the piece of wood in his hand, Kili goes to throw a stone at him and Bard shoots it out of his hand with an arrow]
 Bard: Do it again and you’re dead.
-[he points his arrow at them]
 Balin: Excuse me, but um…you’re from Lake-town, if I’m not mistaken? That barge over there, it wouldn’t be available for hire by any chance?
-[Bard goes down to his barge followed by the company]
 Bard: What makes you think I would help you?
 Balin: Those boots have seen better days, as has that coat.
-[Bard starts putting the barrels the dwarves were carried in onto his barge]
 Balin: No doubt you have some hungry mouths to feed? How many bairns?
 Bard: A boy and two girls.
 Balin: And your wife, I imagine, she’s a beauty?
-[Bard hesitates a moment]
 Bard: Aye, she was.
-[Balin’s face drops as he realizes what’s he’s just said]
 Balin: I’m sorry, I didn’t mean to…
 Dwalin: Oh, come on, come on. Enough with the niceties.
 Bard: What’s your hurry?
@@ -542,27 +348,18 @@ Thorin: We need food, supplies, weapons. Can you help us?
 Bard: I know where these barrels came from.
 Thorin: What of it?
 Bard: I don’t know what business you had with the elves, but I don’t think it ended well. No one enters Lake-town but by lead of the master. All his wealth comes from trade with the Woodland realm. He would see you in irons before risking the wrath of king Thranduil.
-[Bard gets into his barge and throws the rope to Balin, Thorin indicates for Balin to persuade him to help]
 Balin: I’ll wager there are ways to enter that town unseen.
 Bard: Aye. But for that you would need a smuggler.
 Balin: For which we would pay double.
-[this perks up Bard’s interest]
-[as the Orcs led by Bolg continue to search for the dwarves, Legolas and Tauriel bring the surviving Orc, Narzug, before Thranduil]
 Thranduil: Such is the nature of evil. Out there in the vast ignorance of the world it festers and spreads. A shadow that grows in the dark. A sleepless malice as black as the oncoming wall of night. So it ever was. So will it always be. In time all foul things come forth.
-[as he holds his sword by the Orc’s neck]
 Legolas: You were tracking a company of thirteen dwarves. Why?
 Narzug: Not thirteen, not anymore.
-[looking at Tauriel]
 Narzug: The young one, the blackhead archer, we stuck him with a Morgul shaft. The poison’s in his blood, he’ll be choking on it soon.
-[Tauriel looks visibly struck by this new revelation about Kili]
 Tauriel: Answer the question, filth.
-Narzug: [subtitled] I do not answer to dogs, She-Elf!
-[Tauriel gets out her sword]
+Narzug: I do not answer to dogs, She-Elf!
 Legolas: I would not antagonize her.
 Tauriel: You like killing things, Orc? You like death? Then let me give it to you!
-[suddenly Tauriel goes to strike Narzug with her sword but Thranduil stops her]
-Thranduil: [subtitled] Enough! Tauriel, leave! Go now.
-[reluctantly Tauriel walks off]
+Thranduil: Enough! Tauriel, leave! Go now.
 Thranduil: I do not care about one dead dwarf. Answer the question, you have nothing to fear. Tell us what you know and I will set you free.
 Legolas: You had orders to kill them, why? What is Thorin Oakenshield to you?
 Narzug: The Dwarf runt will never be King!
@@ -570,32 +367,22 @@ Legolas: King? There is no King under the mountain, nor will there ever be. None
 Narzug: You know nothing. You’re world will burn.
 Legolas: What are you talking about? Speak!
 Narzug: Your time has come again. My master serves the one. Do you understand now, *Elfling? Death is upon you. The flames of war are upon you.
-[as Narzug starts to laugh suddenly Thranduil extracts his sword and quickly decapitates his head]
 Legolas: Why did you do that? You promised to set him free.
 Thranduil: And I did. I freed his wretched head from his miserable shoulders.
-[as Narzug’s body is twitching Thranduil uses his foot to stop it moving]
 Legolas: There was more the Orc could tell us.
 Thranduil: There was nothing more he could tell me.
-[Thranduil turns to walk off]
 Legolas: What did he mean by the flames of war?
 Thranduil: It means they intend to unleash a weapon so great it will destroy all before it.
-[as he walks off]
 Thranduil: I want the watch doubled at our borders, all roads, all rivers. Nothing moves but I hear of No one enters this kingdom and no one leaves it.
-[he stops to look at Legolas for a moment before turning to walk off; as Legolas walks towards the guards by the gates]
-Legolas: [subtitled] Close the gate! Keep it sealed by order of the King.
-Elros: [subtitled] What about Tauriel?
-Legolas: [subtitled] What about her?
-Elros: [subtitled] She went into the forest armed with her bow and blade. She has not returned.
-[the Orcs find the trail of the company by finding remnants of Kili’s blood left on the stony shore]
-Hunter Orc: [subtitled] Dwarf blood! They were here!
-Bolg: [subtitled] There is another scent…
-[he takes a sniff]
-Bolg: [subtitled] Man flesh!
-[Bolg looks across the lake]
-Bolg: [subtitled] They have found a way to cross the lake.
-[as they cross the lake on Bard’s barge they go through a mist after which they nearly hit the large stone coming out from the water]
+Legolas: Close the gate! Keep it sealed by order of the King.
+Elros: What about Tauriel?
+Legolas: What about her?
+Elros: She went into the forest armed with her bow and blade. She has not returned.
+Hunter Orc: Dwarf blood! They were here!
+Bolg: There is another scent…
+Bolg: Man flesh!
+Bolg: They have found a way to cross the lake.
 Bofur: Watch out!
-[Bard goes smoothly past the stones]
 Thorin: What are you trying to do? Drown us?
 Bard: I was born and bred on these waters, Master Dwarf. If I wanted to drown you, I would not do it here.
 Dwalin: Oh, I’ve had enough of this lippy lake-man. I say we throw him over the side and be done with him.
@@ -604,524 +391,327 @@ Dwalin: How do you know?
 Bilbo: Uh…I asked him.
 Dwalin: I don’t care what he calls himself, I don’t like him.
 Balin: We do not have to like him, we simply have to pay him.
-[Balin counts their coins]
 Balin: Come on, now, lads. Turn out your pockets.
-[the dwarves reluctantly look for coins in their pockets]
 Dwalin: How do we know he won’t betray us?
 Thorin: We don’t.
-[as Balin finishes counting their coins]
 Balin: There’s um…just a wee problem. We’re ten coins short.
 Thorin: Gloin, come on. Give us what you have.
 Gloin: Don’t look to me. I have been bled dry by this venture! What have I seen for my investment? Naught but misery and grief and…
-[as he talks Gloin notices the other dwarves’ attention is caught by something and then we see that through the mist they can see a closer view of the Lonely Mountain]
 Gloin: Bless my beard.
-[immediately Gloin takes out his sack of coins]
 Gloin: Take it. Take all of it.
-[as Gloin hands the coins to Balin Bilbo clears his throat in warning to let them know Bard is walking over to them]
 Bard: The money, quick. Give it to me.
 Thorin: We will pay you when we get our provisions, but not before.
 Bard: If you value your freedom, you’ll do as I say. There are guards ahead.
-[the company all look ahead of them towards the port ahead]
-[when they reach the port we see the company has hidden in the barrels now piled in Bard’s barge]
 Dwalin: Ssh. What’s he doing?
-[looking through the hole in his barrel]
 Bilbo: He’s talking to someone. He’s pointing right at us. Now they’re shaking hands.
 Thorin: What?
 Dwalin: He’s selling us out.
-[as they hear footsteps approaching suddenly a pile of fish starts landing on top of the dwarves in each barrel, later as Bard continues their journey to Lake-town we see each barrel is filled with fish, Bard hears dwarves moaning in the barrels]
 Bard: Quiet! We’re approaching the toll gate.
-[as they approach the town gate]
 Percy: Halt! Goods inspection. Papers please!
-[as he steps out of his lodging]
 Percy: Oh, it’s you, Bard!
 Bard: Morning, Percy.
 Percy: Anything to declare?
 Bard: Nothing. But I am cold and tired, and ready for home.
 Percy: You and me both.
-[he hands Percy his paper which Percy then stamps and offers it back to Bard]
 Percy: There we are, all in order.
 Alfrid: Not so fast.
-[he takes the paper from Percy and starts reading from it]
 Alfrid: Consignment of empty barrels from the Woodland realm.
-[pointing to the barrels]
 Alfrid: Only they’re not empty. Are they Bard? If I recall correctly, you’re licensed as a bargeman. Not…
-[he takes a fish from one of the barrels and under it we see one of the dwarves’ eye revealed]
 Alfrid: …a fisherman.
 Bard: That’s none of your business.
 Alfrid: Wrong. It’s the Master’s business, which makes it my business.
 Bard: Oh, come on, Alfrid. Have a heart, people need to eat.
 Alfrid: These fish are illegal.
-[he throws the fish in his hand into the water]
-[to his thug]
 Alfrid: Empty the barrels over the side.
-[to the guards]
 Braga: You heard him, in the canal.
-[one by one the guards get on board the barge]
 Braga: Come on. Get a move on.
-[as the guards start picking up the barrels Bard watches with worry]
 Bard: Folk in this town are struggling. Times are hard. Food is scarce.
 Alfrid: That’s not my problem.
 Bard: And when the people hear the Master is dumping fish back in the lake? When the rioting starts? Will it be your problem then?
-[as the guards are just starting to empty the barrels over the side Alfrid holds up his hand]
 Alfrid: Stop!
-[the guards put the barrels back and walk off the barge]
 Alfrid: Ever the people’s champion, hey, Bard? Protector of the common folk. You might have their favor now, bargeman, but it won’t last.
-[he turns and walks off the barge]
 Percy: Raise the gate!
-[the guards start to raise the town gate and Bard starts to steer the barge through it]
 Alfrid: The Master has his eye on you. You’ll do well to remember, we know where you live.
 Bard: It’s a small town, Alfrid. Everyone knows where everyone lives.
-[Bard enters the town with his barge and the barrels of fish intact]
-[as the Master of Lake-town rises from bed]
 Alfrid: All this talk of civil unrest, someone’s been stirring the pot, Sire.
-[the Master limps out of bed, he moans with pain as his leg gives him pain and sits down]
 Alfrid: Gout playing out, Sire?
 Master of Lake-town: It’s the damp! It’s the only possible explanation. Now, get me a brandy.
 Alfrid: The mood of the people, Sire, it’s turning ugly.
 Master of Lake-town: They’re commoners, Alfrid. They’ve always been ugly. It’s not my fault they live in a place that stinks of fish-oil and tar. Jobs, shelter, food. It’s all they ever bleat about.
-[as Alfrid finishes pouring the brandy into a glass, he takes a quick swig of it before handing it to the Master]
 Alfrid: It’s my belief, Sire. They’re being led on by troublemakers.
-[the Master takes the glass of brandy and starts drinking it as if it’s a glass of water]
 Master of Lake-town: Then we must find these troublemakers and arrest them.
-[the Master and Alfrid walk downstairs and into the study]
 Alfrid: My thoughts exactly, Sire.
-[the Master continues to drink from his glass of brandy]
 Master of Lake-town: And all this talk of a change must be suppressed. We can’t afford to let the rabble band together, start making noises. The next you know, they’ll start asking questions, forming committees.
-[in his study he pours himself more brandy into his glass]
 Master of Lake-town: Launching inquiries.
 Alfrid: Out with the old, in with the new.
 Master of Lake-town: What?
 Alfrid: That’s what they’ve been saying, Sire. There is even talk of an election.
 Master of Lake-town: An election? That’s absurd! I won’t stand for it.
-[the Master turns and starts walking off]
 Alfrid: I don’t think they’d ask you to stand, Sire.
-[the Master opens the door to the balcony and walks onto it, looking out at the town]
 Master of Lake-town: Shirkers, ingrates, rabble rousers! Who would have the nerve to question my authority? Who would dare? Who…?
-[he pauses as he realizes who it could be]
 Master of Lake-town: Bard. You mark my words, that trouble making bargeman is behind all this.
-[after smuggling the company inside the barrels of fish into the town Bard starts tipping the barrels over so that the dwarves can get out, Dwalin stops him as he goes to tip his barrel]
 Dwalin: Get your hands off me.
-[the rest of the company start getting out of the barrels, one of the towns people watches them in confusion, Bard offers him a coin]
 Bard: You didn’t see them, they were never here. The fish you can have for nothing.
-[to the company]
 Bard: Follow me.
-[Bard leads them through the town center when they are met by Bard’s son]
 Bain: Da, our house! It’s being watched.
-[we see the Master’s Lake-town spies making their round to pass news of Bard arriving home; then we see Bard walk towards his home with Bain with the company nowhere in sight, before they enter inside Bard throws a piece of bread to the two fishermen in the boat pretending to fish outside Bard’s house]
 Bard: You can tell the Master I’m done for the day.
-[Bard enters his home and closes the door]
 Tilda: Da! Where have you been?
-[Tilda rushes into Bard’s arms]
 Sigrid: Father, there you are. I was worried.
-[Sigrid also rushes into Bard’s arms to embrace him]
 Bard: Here, Sigrid.
-[he hands her the bag he was carrying]
 Bard: Bain, get them in.
-[Bain rushes down to the bottom of their home to where the toilets are, he bangs his foot on the floor boards and we see Dwalin’s head pop out of the toilet]
 Dwalin: If you speak of this to anyone, I’ll rip your arms off.
-[Bain goes to offer his hand to get out of the toilet but Dwalin smacks it aside]
 Dwalin: Get off.
-[he drags himself out of the toilet]
 Bain: Up there.
-[as Dwalin makes his way up to the house next to come up out of the toilet is Bilbo, Sigrid watches from the staircase as the dwarves come out of the toilet and up into the house]
 Sigrid: Da, why are there dwarves coming out of our toilet?
 Tilda: Will they bring us luck?
-[later the company sits by the fire to dry themselves off as Bard gives them dry clothes]
 Bard: They may not be the best fit, but they’ll keep you warm.
-[Tilda offers some clothes to Bilbo]
 Bilbo: Oh, thank you.
 
-[Thorin looks out the window and notices a large ballista on top of the town’s tower]
 
 Thorin: The Dwarvish Wind-Lance!
 Bilbo: You look like you’ve seen a ghost.
-[Balin comes up behind them]
 Balin: He has. The last time we saw such a weapon the city was on fire. It was a day the dragon came. The day that Smaug destroyed Dale.
-[we see flashback to when Smaug was destroying Dale]
 Balin: Girion, the lord of the city, rallied his bowmen to fire upon the beast. But a dragon’s hide is tough, tougher than the strongest armor. Only a Black Arrow fired from a wind-lance could have pierced the dragon’s hide. And few of those arrows were ever made.
-[we see flashback to Girion shooting a Black Arrow from the wind-lance, but it misses hitting Smaug]
 Balin: The store was running low when Girion made his last stand.
 Thorin: If the aim of men had been true that day, much would’ve been different.
 Bard: You speak as if you were there.
 Thorin: All Dwarves know the tale.
 Bain: Then you would know that Girion hit the dragon. He loosened his scale under the left wing, one more shot and he would’ve killed the beast.
-[Dwalin chuckles]
 Dwalin: That’s a fairy story, lad. Nothing more.
-[Thorin walks up to Bard]
 Thorin: You took our money. Where are the weapons?
 Bard: Wait here.
-[Bard goes down to his boat beneath the house and drags the weapons up from under his boat]
 Thorin: Tomorrow begins the last days of Autumn.
 Balin: Durin’s Day falls the morning after next. We must reach the mountain before then.
 Kili: And if we do not? If we fail to find the hidden door before that time?
 Fili: Then this quest has been for nothing.
-[at that moment Bard enters and dumps the weapons, on the table in front of the dwarves, Thorin picks one of the items up]
 Thorin: What is this?
 Bard: Pike hook. Made from an old harpoon.
 Kili: And this?
 Bard: A crow bill, we call it. Fashioned from a smithy’s hammer. It’s heavy in a hand, I grant. But in defense of your life, these will serve you better than none.
 Gloin: We paid for weapons. Iron forged, swords and axes!
 Bofur: It’s a joke!
-[the dwarves dump the weapons back on the table]
 Bard: You won’t find better outside the city armory. All iron forged weapons are held there under lock and key.
 Balin: Thorin, why not take what’s on offer and go. I’ve made do with less, so have you.
-[to the company]
 Balin: I say we leave now.
 Bard: You’re not going anywhere.
 Dwalin: What did you say?
 Bard: There are spies watching this house and probably every dock and wharf in the town. We must wait till nightfall.
-[the dwarves reluctantly sit back down, as Kili sits he tries to hide the pain from his wound]
-[after hearing Thorin’s name for the first time Bard paces outside his house]
 Bard: Thorin.
-[suddenly realizing who Thorin is he looks over to the Lonely Mountain in the distance, Bain opens the front door and looks at his father]
 Bain: Da?
 Bard: Don’t let them leave.
-[Bard rushes off into the town]
-[on the trail of the company, Tauriel hears something behind her, she quickly raises her bow and arrow and turns to shoot only to find Legolas behind her pointing his arrow at her]
-Tauriel: [subtitled] I thought you were an Orc.
-Legolas: [subtitled] If I were an Orc you would be dead.
-[he lowers his bow and arrow and takes a step closer to Tauriel]
+Tauriel: I thought you were an Orc.
+Legolas: If I were an Orc you would be dead.
 Legolas: Tauriel, you cannot hunt thirty Orcs on your own.
 Tauriel: But I’m not on my own.
 Legolas: You knew I would come.
-[Tauriel smiles]
 Legolas: The King is angry, Tauriel. For six hundred years my father has protected you, favored you. You defied his orders, you betrayed his trust.
-[in Elvish]
-Legolas: [subtitled] Come back with me, he will forgive you.
-Tauriel: [subtitled] But I will not. If I go back, I will not forgive myself.
-[she turns and walks over to stand at the edge of the cliff]
+Legolas: Come back with me, he will forgive you.
+Tauriel: But I will not. If I go back, I will not forgive myself.
 Tauriel: The King has never let Orc filth roam our lands. Yet he would let this Orc pack cross our borders and kill our prisoners.
 Legolas: It is not our fight.
 Tauriel: It is our fight. It will not end here. With every victory this evil will grow. If your father has his way, we will do nothing. We will hide within our walls, live our lives away from the light and let darkness descend. Are we are not part of this world? Tell me, mellon, when did we let evil become stronger than us?
-[Bard rushes into a shop in town full of trinkets and antiques]
 Stallkeeper: Hello, Bard. What are you after?
 Bard: There was a tapestry. An old one. Where’s it gone?
 Stallkeeper: What tapestry are you talking about?
-[Bard looks around and finds the tapestry]
 Bard: This one.
-[he opens the tapestry which shows the Oakenshield lineage, as Bard is looking at the tapestry he hears the towns people start gossiping about the dwarves]
 Lake-town Female #1: They were dwarves I tell you. Appeared out of nowhere. Full beards, fierce eyes. I’ve never seen the like.
 Lake-town Male #1: What are dwarves doing in these parts?
 Lake-town Male #2: It’s the prophecy.
 Lake-town Male #1: Prophecy?
 Lake-town Male #2: Prophecy of Durin’s folk.
-[in the shop Bard finds Thorin’s name on the tapestry]
 Bard: A prophecy?
-[he starts to realize what Thorin and the other dwarves are planning to do]
 Bard: Prophecy.
-[back in the town the towns people carry on gossiping about the dwarves]
 Lake-town Male #3: The old tales have come true.
 Lake-town Female #2: Vast halls of treasure!
 Lake-town Female #3: Can it really be true? Has the Lord of Silver Fountains returned?
-[to himself]
 Bard: The Lord of Silver Fountains. The King of Carven Stone. The King Beneath the Mountain, shall come into his own.
-[as he thinks the rest of the tale to himself]
-Bard: [voice over] And the bells shall ring in gladness at the Mountain King’s return. But all shall fade in sadness. And the lake will shine and burn.
-[Bard rushes back to his house and enters only to find the company has left]
+Bard: And the bells shall ring in gladness at the Mountain King’s return. But all shall fade in sadness. And the lake will shine and burn.
 Bain: Da! I tried to stop them.
 Bard: How long have they been gone?
-[later that night the dwarves attempt to break into the city armory to steal their weapons]
 Dwalin: Shh. Keep it down.
 Thorin: As soon as we have the weapons, we’ll make straight for the mountain.
-[to Nori]
 Thorin: Go, go, go.
-[Nori makes run for it towards the armory building, the rest of the dwarves are kneeling in front of the window to allow Nori to step onto their backs and climb into the window]
 Thorin: Next.
-[Bilbo makes a run for it and does the same as Nori, he climbs onto the backs of the kneeling dwarves and jumps in through the window]
-[inside the building the dwarves start collecting the weapons, Thorin gives Kili another weapon to carry on top of the ones he’s already carrying]
 Thorin: You alright?
 Kili: I can manage. Let’s just get out of here.
-[as Kili goes to walk down the stairs he drops the weapons in his hand and falls down the stairs, the noise wakes the people of Lake-town]
 Dori: Run!
-[as the dwarves turn to run they are stopped by two guards, inside the armory the guards enter and capture the dwarves]
-[after being captured stealing the weapons the dwarves are brought before the Master]
 Master of Lake-town: What is the meaning of this?
 Braga: We caught ’em stealing weapons, Sire.
 Master of Lake-town: Ah! Enemies of the state, huh?
 Alfrid: A desperate bunch of mercenaries, if ever there was, Sire.
 Dwalin: Hold your tongue!
-[Dwalin takes a step closer]
 Dwalin: You do not know to whom you speak. This is no common criminal. This is Thorin. Son of Thrain, son of Thror!
-[Thorin steps out to stand beside Dwalin]
 Thorin: We are the dwarves of Erebor. We have come to reclaim our homeland.
-[upon this revelation the towns people murmur amongst themselves]
 Thorin: I remember this town in the great days of old. Fleets of boats lay at harbor, filled with silks and fine gems. This was no forsaken town on a lake. This was the center of all trade in the north!
-[he turns to face the people gathered around them]
 Thorin: I would see those days return. I would relight the great forges of the dwarves and send wealth and riches flowing once more from the halls of Erebor!
-[the crowd cheers]
 Bard: Death! That is what you’ll bring upon us.
-[Bard pushes through the crowd and walks towards Thorin]
 Bard: Dragonfire and ruin. If you awaken that beast, it will destroy us all.
 Thorin: You can listen to this naysayer, but I promise you this; if we succeed all will share in the wealth of the mountain.
-[the crowd looks pleased to hear this]
 Thorin: You will have enough gold to rebuild Esgaroth ten times over!
-[the crowd cheers and Bard turns to face them]
 Bard: All of you! Listen to me, you must listen! Have you forgotten what happened to Dale? Have you forgotten those who died in the firestorm? And for what purpose?
-[he turns to look at Thorin]
 Bard: The blind ambition of a Mountain King, so riven by greed, he could not see beyond his own desire!
 Master of Lake-town: Now. Now. We must not, any of us, be too quick to lay blame. Let us not forget, that it was Girion, Lord of Dale, your ancestor, who failed to kill the beast. Hm!
 Alfrid: It’s true, Sire. We all know the story. Arrow after arrow, he shot. Each one missing its mark.
-[Bard takes a step closer to Thorin]
 Bard: You have no right. No right to enter that mountain.
 Thorin: I have the only right.
-[Thorin turns to face the Master]
 Thorin: I speak to the Master of the men of the lake. Will you see the prophecy fulfilled? Will you share in the great wealth of our people?
-[the Master hesitates]
 Thorin: What say you?
 Master of Lake-town: I say unto you…welcome!
-[the crowd cheers]
 Master of Lake-town: Welcome and rise! Welcome, King Under the Mountain!
-[the next morning the company get ready to leave for the Lonely Mountain on the barge and with the weapons provided by the town]
 Bilbo: You do know we’re one short? Where’s Bofur?
 Thorin: If he’s not here, we leave him behind.
 Balin: We’ll have to, if we’re to find the door before nightfall. We can risk no more delays.
-[they start boarding the barge when Thorin stops Kili]
 Thorin: Not you. We must travel at speed, you will slow us down.
 Kili: What are you talking about? I’m coming with you.
 Thorin: No, no.
 Kili: I’m going to be there when that door’s opened. When we first look upon the halls of our fathers, Thorin…
 Thorin: Kili, stay here. Rest. Join us when you’re healed.
-[Kili looks devastated as Thorin turns to board the barge]
 Oin: I’ll stay with the lad. My duty lies with the wounded.
-[Oin walks off the barge and goes to join Kili]
 Fili: Uncle, we grew up on tales of the mountain. Tales you told us. You cannot take that away from him!
 Kili: Fili.
 Fili: I will carry him if I must!
 Thorin: One day you will be King and you will understand. I cannot risk the fate of this quest for the sake of one dwarf. Not even my own kin.
-[Fili looks over to Kili then gets off the barge, Thorin grabs his arm to stop him]
 Thorin: Fili, don’t be a fool. You belong with the company.
 Fili: I belong with my brother.
-[Fili turns and walks over to join Kili and Oin]
-[the trumpets announce the Master as he steps onto a platform and the crowd cheers, back in the Masters house Bofur is passed out drunk under a table when he hears the trumpets and wakes]
 Bofur: By my beard, is that the time!
-[as he rises he bangs his head on the table, he gets up, grabs a half filled glass and drinks from it and then rushes out to join the dwarves on the dock]
 Master of Lake-town: Go now with our good will.
 Bofur: Wait!
 Master of Lake-town: And may your return bring fortune to all!
-[the crowd cheers as the company sets off on the barge down the lake, at the same time Bofur pushes through the crowd but when he reaches the dock he sees the rest of the company has left and is too far down the lake for him to reach]
 Bofur: No!
-[he turns and notices Kili, Fili and Oin]
 Bofur: Did you miss the boat as well?
-[suddenly Kili looks close to passing out]
 Fili: Kili? Kili!
-[Fili, Oin and Bofur take Kili to Bard’s house, as Bard opens the door]
 Bard: No. I’m done with dwarves, go away!
-[as he goes to shut the door Bofur stops him]
 Bofur: No! No! No one will help us. Kili’s sick.
-[he turns to look at Kili who looks pale and close to passing out]
 Bofur: He’s very sick.
-[as they reach the overlook at the Lonely Mountain they come upon an abandoned city]
 Bilbo: What is this place?
 Balin: It was once the city of Dale. Now it is a ruin. The Desolation of Smaug.
 Thorin: The sun will soon reach midday. We must find the hidden door into the mountain before it sets. This way.
-[he turns to lead them off]
 Bilbo: Wait. Is this the overlook? Gandalf said to meet him here, on no account were we to…
 Thorin: Do you see him? We have no time to wait upon the wizard. We’re on our own. Come.
-[he turns and starts leading the dwarves]
-[meanwhile, Gandalf has reached Dol Guldur with Radagast]
 Gandalf: Dol Guldur. The hill of sorcery.
 Radagast: It looks completely abandoned.
 Gandalf: As it is meant to. A spell of concealment lies over this place. Which means our enemy is not yet ready to reveal himself. He has not regained his full strength. *Radagast, I need you to carry a message to the Lady Galadriel. Tell her, we must force his hand.
 Radagast: What do you mean?
 Gandalf: I’m going in alone. On no account come after me.
-[Radagast hesitates before starting to walk away]
 Gandalf: Do I have your word?
 Radagast: Yes, yes, yes, yes!
-[as Radagast leaves Gandalf starts walking further into the abandoned ruins of Dol Guldur]
 Radagast: Wait, Gandalf! What if it’s a trap?
 Gandalf: Turn around and do not come back.
-[to himself as Radagast turns and carries on walking away]
 Gandalf: It’s undoubtedly a trap.
-[he draws his sword and carries on walking into the ruins]
-[Gandalf wanders around the ruins]
-Gandalf: [subtitled] The evil that is hidden here, I command it to come forth! I command it to reveal itself!
-[Gandalf slams his spear down to remove the spell but nothing happens, he carries on walking around trying to reveal the Necromancer, beneath the ruins is Azog and his Orcs]
-Azog: [subtitled] The Wizard has come.
-Orc: [subtitled] He is lifting the spell. He will find us!
-Azog: [subtitled] Yes…he will!
-[at the Lonely Mountain the company search for the hidden door]
+Gandalf: The evil that is hidden here, I command it to come forth! I command it to reveal itself!
+Azog: The Wizard has come.
+Orc: He is lifting the spell. He will find us!
+Azog: Yes…he will!
 Thorin: Anything?
 Dwalin: Nothing!
-[looking at the map]
 Thorin: If the map is true, the hidden door lies directly above us.
-[Bilbo finds a large carving of the previous king on the side of the mountain]
 
 Up here!
 
 Thorin: You have keen eyes, Master Baggins.
-[the company climbs up the massive carving until they reach the top where they see the wall of mountain]
 Thorin: This must be it. The hidden door.
-[facing the company]
 Thorin: Let all those who doubted us, rue this day!
-[he holds up the key and they all cheer]
 Dwalin: Hey, we have a key.
-[he starts touching the wall]
 Dwalin: Which means there’s somewhere there is a keyhole.
-[looking at the sun which is about to set]
 Thorin: The last light of Durin’s Day…will shine upon the keyhole.
-[he looks over to the sun light shining on the mountain’s wall but the dwarves fail to find the keyhole]
 Thorin: Nori.
-[Nori goes over to the wall places a glass against and uses a spoon to tap against the wall in order to see if he can hear where the hidden door is]
 Thorin: We’re losing the light. Come on!
-[Dwalin starts thumping his leg onto the wall trying to locate the hidden door]
 Nori: Be quiet. I can’t hear when you’re thumping!
 Dwalin: I can’t find it. It’s not here! It’s not here!
-[as they begin to lose the sun light]
 Thorin: Break it down!
-[the dwarves start using their weapons to hit against the mountain wall frantically trying to break it before they lose the sun light completely]
 Thorin: Come on!
-[the company continue to hit the wall with their weapons to no avail]
 Thorin: We lost the light.
 Balin: It’s no good! The door’s sealed! Can’t be open by force. Powerful magic on it.
-[the sun finally sets and they lose the light]
 Thorin: No!
-[he goes over to the wall and looks at the map again]
 Thorin: The last light of Durin’s Day…will shine upon the keyhole.
-[looking at the company]
 Thorin: That’s what it says. What did we miss?
-[he looks at Balin who shakes his head]
 Thorin: What did we miss? Balin.
 Balin: We’ve lost the light. There’s no more to be done. We had but one chance. Come away, lads. It’s over.
-[dejected they all start to leave]
 Bilbo: Wait a minute, what?
-[to Thorin]
 Bilbo: Where are they going?
-[to the dwarves as they walk away]
 Bilbo: You can’t give up now!
-[completely crestfallen Thorin turns and lets go of the key which falls to the ground]
 Bilbo: Thorin.
-[Thorin starts walking away and gives the map to Bilbo]
 Bilbo: You can’t give up now.
-[Thorin joins the rest of the dwarves as they start making their way down]
-[as the others leave Bilbo stands by the mountain wall reciting to himself]
 Bilbo: Stand by the grey stone. When the thrush knocks, and the setting sun. And the last light of Durin’s Day will shine.
-[turning from the wall he paces trying to figure it out]
 Bilbo: The last light. The last light.
-[he looks up and suddenly sees the moon appear from behind the clouds in the sky, he looks back at the wall and sees a thrush trying to crack open a snail, rapping it against the wall, then the moonlight hits the wall]
 Bilbo: The last light!
-[the moonlight shines on the keyhole of the hidden door]
 Bilbo: The keyhole!
-[he goes over to the edge and shouts down to the dwarves]
 Bilbo: Come back! Come back! It’s the light of the moon! The last moon of Autumn!
-[he laughs to himself]
 Bilbo: Where’s the key? Where’s the key?! Where’s the…?
-[he starts looking on the ground for the key Thorin had dropped]
 Bilbo: It was here. Come on. It was here It was just…
-[as he looks around he accidentally kicks it, nearly dropping it over the edge of the mountain until Thorin steps on the string, Thorin picks up the key looking at it as the other dwarves join him, they all then look at the wall where the keyhole is now showing]
-[Thorin inserts they key into the keyhole within the mountain wall, unlocks it and pushes it open, the company stares at it in awe for a moment]
 Thorin: Erebor
 Balin: Thorin.
-[Balin is near to tears and Thorin places his hand on his shoulder, then he takes a step inside]
 Thorin: I know these walls. These halls. This stone.
-[he touches the stone wall as he walks further inside]
 Thorin: You remember it, Balin. Chambers filled with golden light.
 Balin: I remember.
-[Balin and the rest of the company step inside, Gloin spots an engraving on the wall]
 Gloin: Herein lies the seventh kingdom of Durin’s folk. May the heart of the mountain unite all dwarves in defense of this home.
 Balin: The throne of the king.
-[referring to the engraving of a stone on the throne with light shining around it]
 Bilbo: And what’s that above it?
 Balin: The Arkenstone.
 Bilbo: The Arkenstone. And what’s that?
 Thorin: That, Master Burglar, is why you are here.
-[Bilbo looks around at the dwarves suddenly realizing the task ahead of him]
-[back in the Lake-town at Bard’s house Kili continues to be agonized by the poison in his leg]
 Bofur: Can you not do something?
 Oin: I need herbs, something to bring down his fever.
 Bard: We have nightshade, feverfew…
 Oin: They’re no use to me. Do you have any Kingsfoil?
 Bard: No, it’s a weed. We feed it to the pigs.
 Bofur: Pigs?
-[to himself as he gets an idea]
 Bofur: Weed? Right.
-[turning to the pain riddled Kili lying in bed]
 Bofur: Don’t move.
-[he turns and leaves the house]
-[as they walk further in through the mountain]
 Bilbo: You want me to find a jewel?
 Balin: A large white jewel, yes.
 Bilbo: That-that’s it? Only I imagine there’s quite a few down there.
 Balin: There is only one Arkenstone. And you’ll know it when you see it.
 Bilbo: Right.
-[Balin walks on ahead and stops]
 Balin: In truth, lad. I do not know what you will find down there. You needn’t go if you don’t want to. There’s no dishonor in turning back.
 Bilbo: No. Balin, I promised I would do this. And I think I must try.
-[Balin chuckles]
 Balin: It never ceases to amaze me.
 Bilbo: What’s that?
 Balin: The courage of hobbits. Go now, with as much luck as you can muster.
-[Bilbo nods and starts making his way down the steps]
 Balin: Oh, and, Bilbo.
 Bilbo: Mm?
 Balin: If there is in fact a um…a live dragon down there…don’t waken it.
-[Bilbo nods, turns to make his way down again but stops goes to ask Balin something but sees that Balin has already walked off leaving him on his own]
-[back in Dol Guldur Gandalf continues to try and draw the Necromancer out when suddenly Azog and his Orcs arrive to attack, Azog knocks down Gandalf]
-Azog: [subtitled] You have come too late, Wizard! It is done.
-[as Azog goes to hit Gandalf again Gandalf uses his magic to ward him off]
+Azog: You have come too late, Wizard! It is done.
 Gandalf: Where is your master? Where is he?
-Azog: [subtitled] He is everywhere. We are legion!
-[Gandalf looks down the edge of a cliff and sees all the masses of Orcs beneath]
-Azog: [subtitled] It is over.
-[as Azog goes to attack Gandalf suddenly uses his magic to disappears with blinding white light; to his Orcs]
-Azog: [subtitled] Run him down!
-[as the Orcs chase Gandalf hears the Necromancer’s voice]
-The Necromancer: [subtitled] There is no light, Wizard…that can defeat darkness.
-[as the Necromancer attacks Gandalf uses his power to form a shield around himself and a duel begins as Gandalf tries to ward off the Necromancer’s attacks but the Necromancer overpowers Gandalf, destroying his staff and pinning him to the wall, he then reveals himself taking the shape of a man while a fire forms around him]
+Azog: He is everywhere. We are legion!
+Azog: It is over.
+Azog: Run him down!
+The Necromancer: There is no light, Wizard…that can defeat darkness.
 Gandalf: Sauron.
-[back inside the mountain, Bilbo enters the area where all the treasure has been kept]
 Bilbo: Hello.
-[he goes to knock on the wall but stops and looks around for a moment before continuing to walk further inside]
 Bilbo: He’s not at home. Not at home. Good. Good, good, good.
-[he looks down and sees a sea of gold, he walks down quietly through it and starts looking through a pile of gold for the Arkenstone, he picks up a large gem]
 Bilbo: What’s that?
-[he shakes it, looks at it then throws it aside, but as it hits the gold coins it makes a loud noise]
 Bilbo: Shush. Shush.
-[to himself as he looks around him]
 Bilbo: Arkenstone. Arkenstone. A large, white jewel.
-[he looks at the piles and piles of gold]
 
 Bilbo: Very helpful.
 
-[he walks through the mountain of treasure and as he picks up a gold cup it releases a pile of gold to slide down which reveals the eye of Smaug as he sleeps under the gold]
-[Bilbo tries to quietly sneak past the sleeping Smaug but the dragon awakens, Bilbo uses the ring to turn himself invisible and watches Smaug as he sniffs and turns to his direction]
 Smaug: Well, thief…
-[Smaug takes another sniff]
 Smaug: I smell you. I hear your breath. I feel your air. Where are you? Where are you?!
-[Bilbo makes a run for it through the gold with Smaug following his movements until Bilbo hides behind a pillar]
 Smaug: Come, now. Don’t be shy. Step into the light.
-[Smaug looks around him]
 Smaug: Mm. There is something about you. Something you carry. Something made of gold. But far more…precious.
-[the word ‘precious’ echoes in Bilbo’s head and for a moment he sees Sauron’s eye and he quickly takes off the ring and then realizes he’s revealed himself to Smaug]
 Smaug: There you are, thief in the shadows.
 Bilbo: I did not come to steal from you, oh Smaug, the unaccessibly wealthy. I merely wanted to gaze upon your magnificence. To see if you really were as great as the old tales say. I did not believe them.
-[Smaug steps around Bilbo to stand in front of him to reveal his full stature]
 Smaug: And do you now?
 Bilbo: Truly. The tales and songs fall utterly short of your enormity, oh Smaug, the stupendous.
 Smaug: Do you think flattery will keep you alive?
 Bilbo: No. No.
 Smaug: No indeed. You seem familiar with my name. But I don’t remember smelling your kind before. Who are you and where do you come from, may I ask?
-[as Bilbo goes to answer suddenly from the corner of his eye he spots the Arkenstone]
 Bilbo: I…I come from under the hill.
 Smaug: Underhill?
-[Bilbo nods his head and takes another peek at the Arkenstone from the corner of his eye]
 Bilbo: And under hills and over hills my path has led. And…and through the air, I am he who walks unseen.
 Smaug: Impressive, what else do you claim to be?
-[Smaug brings in his face close to Bilbo]
 Bilbo: I am…luck…luck wearer, riddle…riddle maker.
 Smaug: Lovely titles. Go on.
 Bilbo: Barrel rider.
 Smaug: Barrels? Now that is interesting. And what about your little dwarf friends? Where are they hiding?
-[Bilbo pretends he doesn’t understand what Smaug is referring to]
 Bilbo: Dw…dwarves? No. No, no. No dwarves here. You’ve got that all wrong.
 Smaug: Oh, I don’t think so, barrel rider. They sent you in here to do their dirty work while they skulk about outside.
 Bilbo: Truly, you are mistaken, oh Smaug, chiefest and greatest of calamities.
 Smaug: You have nice manners for a thief and a liar. I know the smell and taste of Dwarf. No one better. It is the gold, they are drawn to treasure like flies to dead flesh.
-[Bilbo tries to stealthily walk towards the Arkenstone without drawing attention from Smaug, but Smaug moves and the Arkenstone falls further down the pile of gold coins, Bilbo runs after it]
 Smaug: Did you think I did not know this day would come? That a pack of canting dwarves would come crawling back to the mountain.
-[Smaug moves around causing Bilbo to fall down the heap of gold coins, outside the dwarves hear and feel the rumblings from inside the mountain]
 Ori: Was that an earthquake?
 Balin: That, my lad, was a dragon.
-[back in Lake-town at Bard’s house as Kili is yelling from his pain they all suddenly feel the earth shake making the house rumble]
 Sigrid: Da?
 Bain: It’s coming from the mountain.
 Fili: You should leave us. Take your children and get out of here.
@@ -1129,39 +719,26 @@ Bard: And go where? There is nowhere to go.
 Tilda: Are we going to die, Da?
 Bard: No, darling.
 Tilda: The dragon, it’s going to kill us.
-[Bard takes the last arrow of Girion]
 Bard: Not if I kill it first.
-[back inside the mountain]
 Smaug: The King Under the Mountain is dead. I took his throne, I ate his people like a wolf among sheep.
-[as Smaug continues to move around the Arkenstone keeps falling around the pile of gold and *Bilbo frantically tries to go after it to grab hold of it]
 Smaug: I kill where I wish, when I wish. My armor is iron. No blade can pierce me!
-[in Lake-town Bard sneaks out holding the black arrow planning to get to the wind-lance, Bain follows him]
 Bard: Alright.
 Bain: A Black Arrow. Why did you never tell me?
 Bard: Because you did not need to know.
-[they hide as they notice some guards walking nearby]
 Bard: Listen to me carefully, I need you to distract the guards. Once I’m at the top of the tower, I’ll slip the arrow to the bow.
-[suddenly the guards notice them]
 Lake-town Guard: There he is! Guards, after him!
-[to Bain]
 Bard: Quickly! Down there! Go!
 Lake-town Guard: Stop him!
-[Bard and Bain make a run for it as the guards chase after them]
 Bard: Bain…Bain.
-[they stop and Bard hands him the Black Arrow]
 Bard: Keep it safe. Don’t let anyone find it.
 Bain: No.
-[they hear the guards getting closer]
 Bard: I’ll deal with them!
 Bain: I’m not leaving!
 Bard: Go!
-[Bain turns and runs off with the arrow, Bard steps out just as the guards reach them]
 Bard: Braga.
 Braga: You’re under arrest.
 Bard: On what charge?
 Braga: Any charge the Master chooses.
-[suddenly Bard punches Braga in the face he attacks the other guards and makes a run for it, at the same time Bain hides the arrow inside their boat, then as Bard tries to get away from the guards he’s tripped by Alfrid and then knocked out with a piece of wood by the Master]
-[outside the mountain as they hear Smaug moving around]
 Ori: What about Bilbo?
 Thorin: Give him more time.
 Balin: Time to do what? To be killed?
@@ -1171,187 +748,108 @@ Thorin: I am not my grandfather.
 Balin: You’re not yourself. The Thorin I know would not hesitate to go in there.
 Thorin: I will not risk this quest for the life of one burglar.
 Balin: Bilbo. His name is Bilbo.
-[inside the mountain Smaug continues threatening Bilbo]
 Smaug: It’s Oakenshield. That filthy dwarvish usurper. He sent you in here for the Arkenstone, didn’t he?
-[he moves to stand right beside where the Arkenstone is now lying]
 Bilbo: No! No, no, no. I don’t know what you’re talking about.
 Smaug: Don’t bother denying it. I guessed his foul purpose some time ago. But it matters not. Oakenshield’s quest will fail. A darkness is coming. It will spread to every corner of the land.
-[in Dol Guldur Gandalf has been kept inside a hanging cage, he looks down to see the army of Orcs preparing to leave; in Lake-town we see Bolg and his pack of Orcs sneak in]
 Smaug: You are being used, thief in the shadows. You were only ever a means to an end. The coward Oakenshield has weighed the value of your life and found it worth nothing.
 Bilbo: No. No, you’re lying.
 Smaug: What did he promise you? A share of the treasure? As if it was his to give. I will not part with a single coin. Not one piece of it!
-[at that moment Bilbo makes a run for it to grab the Arkenstone, but Smaug moves his body again which causes Bilbo and the Arkenstone to go flying in the air and landing back onto the pile of gold]
 Smaug: My teeth are swords, my claws are spears. My wings are a hurricane!
-[as Smaug stomps in front of Bilbo he notices the spot in Smaug’s chest where Girion had managed to pierce him with his arrow]
 Bilbo: So it is true. The Black Arrow found its mark.
 Smaug: What did you say?
 Bilbo: I-I was just saying, your reputation precedes you, oh Smaug, the tyrannical. Truly, you have no equal on this earth.
-[Bilbo takes a few steps back to stand next to where the Arkenstone now lies, he looks at it]
 Smaug: I am almost tempted to let you take it, if only to see Oakenshield suffer. Watch it destroy him, watch it corrupt his heart and drive him mad. But I think not, I think our little game ends here. So tell me, thief. How do you choose to die?
-[as Smaug brings his head towards Bilbo and opens his mouth suddenly Bilbo uses his ring to disappear and run out of there, this angers Smaug and he unleashes his fire]
-[in Lake-town Bard wakes up in a prison cell, outside as Bofur finds the Kingsfoil the Orcs follow him as he makes his way back to Bard’s house]
 Sigrid: Da? Is that you, Da?
-[suddenly the Orcs attack, Sigrid, Tilda and Bain try to ward them off with Fili joining in to fight them off, outside Bofur is attacked by an Orc and just as he’s about to be killed an arrow is shot from the back into the Orc, suddenly Tauriel and Legolas arrive and start killing the Orcs inside Bard’s house, one of them manages to escape and meets Bolg]
-Orc: [subtitled] Oakenshield has gone!
-Bolg: [subtitled] Fall back! Regroup at the bridge!
-[as Legolas and Tauriel kill the Orcs inside the house Legolas notices the rest of the Orc pack running off]
+Orc: Oakenshield has gone!
+Bolg: Fall back! Regroup at the bridge!
 Bain: You killed them all.
 Legolas: There are others. Tauriel, come.
-[Tauriel hesitates, Kili lies on the floor moaning in pain, Oin looks to Tauriel]
 Oin: We’re losing him!
-[Tauriel looks at Legolas]
 Legolas: Tauriel.
-[Legolas leaves to chase after the Orcs, Tauriel takes a step towards the door to follow him but hesitates as she’s torn about leaving Kili in so much pain, at the same time Bofur arrives with the Kingsfoil]
 Tauriel: Athelas.
-[she takes it from Bofur]
 Tauriel: Athelas.
 Bofur: What are you doing?
 Tauriel: I’m going to save him.
-[Thorin enters the mountain to go and save Bilbo but finds no one there when Bilbo suddenly runs up behind him]
 Thorin: You’re alive.
 Bilbo: Not for much longer.
 Thorin: Did you find the Arkenstone?
 Bilbo: The dragon’s coming!
 Thorin: The Arkenstone? Did you find it?
-[Bilbo hesitates a moment]
 Bilbo: No, we have to get out.
-[Bilbo takes a step to leave but Thorin stops him by placing his sword in front of him]
 Bilbo: Thorin.
-[Thorin use his sword to push Bilbo back]
 Bilbo: Thorin!
-[Thorin keeps his sword pointed at Bilbo looking at him threateningly, at that moment Bilbo sees Smaug behind Thorin who then turns to face Smaug, then the other dwarves arrive and Smaug stomps towards them]
 Smaug: You will burn!
 Thorin: Come on!
-[the dwarves start running off]
 Balin: Come on, Bilbo!
-[the dragon unleashes his fire again catching Thorin as he leaves, but the dwarves help him to put out the fire caught by his clothes]
 Thorin: Come on.
-[Thorin leads them off]
-[at Bard’s house Tauriel prepares the Kingsfoil, Fili, Bofur and Oin help carry Kili to the table as he continues to be agonized by the poison in his leg]
 Tauriel: Hold him down.
-[Tauriel looks at Kili’s wound then holding the Kingsfoil in her hands she recites an elf incantation and applies it to Kili’s wound, Kili screams in pain and Sigrid goes to help hold him down]
 Sigrid: Tilda!
-[Tilda helps keep Kili down, as Tauriel continues her incantation Kili begins to calm down and as he looks at Tauriel he sees a light shining around her]
-[back inside the mountain as the dwarves try to get away from Smaug, Thorin comes to a halt]
 Thorin: Ssh. Ssh-ssh.
-[he looks around but doesn’t see or hear Smaug]
 Dori: We’ve given him the slip.
 Dwalin: No, he’s too cunning for that.
 Bilbo: So where to now?
 Thorin: The western guard room. There may be a way out.
 Balin: It’s too high. There’s no chance that way.
 Thorin: It’s our only chance. We’ll have to try.
-[Thorin slowly leads them]
 Thorin: Come on.
-[suddenly a coin drops the sound echoing, Thorin looks back at Bilbo who then looks up to see Smaug moving above them and the coins stuck to his body are falling down, Thorin indicates for them to move as Smaug is not aware of their presence]
-[at Bard’s house Tauriel finishes dressing Kili’s wound; to Fili as they watch Tauriel]
 Oin: I’ve heard tale of the wonders of elvish medicine. That was a privilege to witness.
-[Kili looks deliriously at Tauriel]
 Kili: Tauriel.
 Tauriel: Lie still.
 Kili: You cannot be her. She is far away. She…she is far, far away from me. She walks in starlight in another world. It was just a dream.
-[he touches her hand]
 Kili: Do you think she could’ve loved me?
-[Tauriel looks at him not knowing how to answer]
-[as they run towards the western guard room inside the mountain]
 Thorin: Stay close.
-[as they enter the room they stop when they notice the decaying corpses of their kin]
 Dwalin: That’s it then. There’s no way out.
 Balin: The last of our kin. They must’ve come here, hoping beyond hope.
-[there’s a pause as they all stare at the corpses in shock]
 Balin: We could try to reach the mines. We might last a few days.
 Thorin: No. I will not die like this. Cowering, clawing for breath.
-[he turns to face the company]
 Thorin: We make for the forges.
 Dwalin: He’ll see us, sure as death.
 Thorin: Not if we split up.
 Balin: Thorin, we’ll never make it.
 Thorin: Some of us might. Lead him to the forges. We kill the dragon. If this is to end in fire, then we will all burn together.
-[as he leads Bilbo and Balin to the forges]
 Thorin: This way!
-[suddenly Smaug comes upon them]
 Smaug: Flee! Flee! Run for your lives! There is nowhere to hide.
-[suddenly Ori, Dori and Bombur come up behind Smaug]
 Ori: Behind you!
 Dori: Come on!
-[Smaug turns to attack them]
 Dori: Run!
-[as Smaug is distracted by them suddenly Dwalin and Nori come up behind him from another direction]
 Dwalin: Hey, you! Here!
-[Smaug now turns to attack them but Dwalin and Nori make a run for it, then Smaug notices Bifur and Gloin running in another direction and he goes after them, unleashing his fire]
-[meanwhile in Lake-town the Orcs prepare to leave]
-Bolg: [subtitled] Send word to Dol Guldur, Oakenshield has reached the Mountain!
-[they hear Legolas killing his way through the Orcs towards them; turning back to the Orcs]
-Bolg: [subtitled] Go!
-[to the remaining Orcs]
-Bolg: [subtitled] You! Come with me.
-[as they make their way through the town Bolg and Legolas suddenly come face to face, as Legolas goes to attack him two Orcs come up from their hiding place, Legolas kills them quickly, then Bolg and Legolas fight each other both beating each other badly and it ends with Bolg setting two of his Orcs onto Legolas as he walks off, Legolas kills them and then stumbles as he touches the blood running from his nose, he then sets off on his horse after Bolg]
-[back in the mountain Thorin, Balin and Bilbo make a run for it to the forge as Smaug is distracted]
+Bolg: Send word to Dol Guldur, Oakenshield has reached the Mountain!
+Bolg: Go!
+Bolg: You! Come with me.
 Balin: This way! It’s this way! Come on!
 Bilbo: Thorin!
-[suddenly Smaug finds them]
 Thorin: Follow Balin!
 Bilbo: Thorin.
 Balin: Come on!
-[Bilbo goes off with Balin just as Smaug unleashes his fire, Thorin jumps down into a hole and catches a nearby rope, Smaug then follows him]
 Dwalin: Thorin! Hold on!
-[Dwalin manages to get the rope to bring Thorin back up from the hole, but Smaug catches him with his mouth, as Smaug opens his mouth to unleash fire Thorin jumps off and the dwarves help him back up as Smaug unleashes his fire; to Nori]
 Thorin: Go! Go!
-[as they all reach the forge]
 Dwalin: The plan’s not gonna work. These furnaces are stone cold.
 Balin: He’s right. We’ve no fire hot enough to set them ablaze.
-[Thorin turns and smiles as they hear Smaug approaching]
 Thorin: Have we not?
-[taunting Smaug]
 Thorin: I did not look to see you so easily outwitted!
-[Smaug starts climbing out of the hole]
 Thorin: You have grown slow and fat in your dotage. Slug!
-[Smaug turns to him in anger and Thorin faces the dwarves]
 Thorin: Take cover. Go!
-[the dwarves hide behind the stone pillars as Smaug unleashes his fire into the forge which is so hot it ignites forge’s fire]
 Thorin: Bombur! Get those billows working! Go!
-[Bombur goes off as Smaug is trying to break through the iron gate of the forge]
 Thorin: Bilbo! Up there. On my mark, pull that lever.
-[Smaug continues to breaks through the iron gate]
 Thorin: Balin, can you still mix a flash flame?
 Balin: Aye, it will only take a jiffy!
-[to Ori]
 Balin: Come on!
-[as they watch Smaug breaking through the iron gate]
 Dwalin: We don’t have a jiffy.
-[Smaug finally breaks through and enters the forge]
-[as they try to make a flash fire]
 Dori: Where’s the sulfur? Are you sure you know what you’re doing?
-[Bilbo runs up to his position to stand by the lever as the rest of the dwarves help Balin]
 Dori: Come on!
-[Smaug takes a step further into the forge then turns to look at Thorin who shouts to Bilbo]
 Thorin: Now!
-[Bilbo pulls the lever which releases the water and douses Smaug, then as Smaug paces towards Thorin, Balin and Ori throw flash fire at him, at the same time Thorin pulls a lever which pours molten gold down a path]
 Thorin: Lead him to the Gallery of the Kings.
-[Thorin rushes and rides down the molten gold, Smaug starts destroying the forge which makes Bilbo fall from his position]
 Thorin: Keep going, Bilbo! Run!
-[Bilbo follows the rest of the dwarves with Smaug following them to the Gallery of the Kings]
-[as Smaug runs Bilbo down when they enter the Gallery of the Kings]
 Smaug: You think you can deceive me, barrel rider? You have come from Lake-town. This is some sordid scheme hatched between these filthy dwarves and those miserable trading lakemen. Those sniveling cowards with their long bows and black arrows. Perhaps it is time I paid them a visit.
 Bilbo: Oh no!
-[Smaug turns to leave]
 Bilbo: This isn’t their fault! Wait! You cannot go to Lake-town!
-[Smaug stops and turns to Bilbo]
 Smaug: You care about them, do you? Good. Then you can watch them die!
-[Smaug turns and starts to make his way out]
 Thorin: Here! You witless worm!
-[Smaug stops and turns to face Thorin who is standing on top of a large column]
 Smaug: You.
 Thorin: I am taking back what you stole.
-[Smaug starts stomping towards Thorin]
 Smaug: You will take nothing from me, Dwarf. I laid low your warriors of old. I instill terror in the hearts of men. I am King Under the Mountain.
 Thorin: This is not your kingdom. These are Dwarf lands. This is Dwarf gold. And we will have our revenge.
-[Thorin and the dwarves pull apart the large column of stones to reveal a giant gold statue of Thorin’s ancestor, Smaug is enchanted by the gold when suddenly the gold liquid falls apart taking Smaug down and covering him beneath all the gold]
-[last lines; Thorin believing they have destroyed Smaug watches as suddenly Smaug rises from beneath the sea of gold and fuming with anger]
 Smaug: Ah, revenge! Revenge! I will show you revenge!
-[Smaug bursts out of the mountain and flies towards Lake-town where the people sense the rumbling of his arrival, Bard shouts to the oblivious guards through his prison cell]
 Bard: Listen to me! Do you not know what is coming?
-[as Smaug approaches Lake-town]
 Smaug: I am fire. I am…death!
-[Bilbo watches in horror as Smaug flies toward Lake-town]
 Bilbo: What have we done?
