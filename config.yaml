@@ -1,8 +1,8 @@
 general:
-    version: 2.3
+    version: 2.5
     key: lotr
     footer: A discord bot written in Python by JaWs
-    path: os.path.join(os.getenv('HOME'), '/.config/discord/bots/lotr-bot/')
+    path: os.path.join(os.getenv('HOME'), '.config/discord/bots/lotr-bot/')
     superusers:
         - 277083306087022592
     autosave: 60
@@ -35,18 +35,18 @@ discord:
             which means you set the feature to on / off.
             If set, the channel preference for a feature will __always__ be preferred.
             If the channel preference for this feature is not set, the server-preference will be used.
-            If the server-preference is not set, the defaults will be used, which is "allowed".
+            If the server-preference is not set either, the the feature is allowed by default.
 
             **How to use the config command:**
-            `{0} config <feature> on` to turn <feature> on for this channel
-            `{0} config <feature> off` to turn <feature> off for this channel
-            `{0} config <feature> unset` to unset <feature> setting for this channel
+            `{0} config <feature> on` to turn <feature> **ON** for this channel
+            `{0} config <feature> off` to turn <feature> **OFF** for this channel
+            `{0} config <feature> unset` to **UNSET** <feature> setting for this channel
             (the server preferences are used, or if these are not set either, the defaults.)
 
-            `{0} config <feature> server-on` to turn <feature> on for this server** \
+            `{0} config <feature> server-on` to set the server default for <feature> to **ON**
             (all channels where the bot has send_messages permission)
-            `{0} config <feature> server-off` to turn <feature> off for this server**
-            `{0} config <feature> server-unset` to unset <feature> for this server
+            `{0} config <feature> server-off` to set the server default for <feature> to **OFF**
+            `{0} config <feature> server-unset` to **UNSET** the server default for <feature>
             (the channel preferences are used, or if these are not set, directly the defaults.)
 
         features:
@@ -76,7 +76,8 @@ discord:
             - "Thought of a cool new trivia question? Great! Submit it here: {}"
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
-        tip_probability': 0.05
+        tip_probability: 0.05
+        scoreboard_max: 15
     
     hangman:
         timeout: 20
@@ -141,7 +142,7 @@ discord:
 
             **- LotR - Trivia Game**
             In this game you get asked trivia questions from LotR, the Hobbit,
-            the Silmarillion and many more.
+            the Silmarillion, Extended Lore or the Life of Tolkien.
             You have four possible answers, your score is tracked.
             *to play a game:*
             `{0} trivia`
@@ -172,8 +173,8 @@ discord:
             **- Youtube Video Search**
             Search the videos of a specific channel.
             *to search for videos:*
-            `{0} yt \"query\"`
-            (note the \"quotes\". you can also provide a video count before or after the query)
+            `{0} yt "query"`
+            (note the "quotes". you can also provide a video count before or after the query)
 
             **- LotR Wiki Search**
             Allows you to search the wiki for a specific topic.

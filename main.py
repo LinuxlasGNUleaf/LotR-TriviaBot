@@ -19,11 +19,10 @@ import reddit_client
 import yt_api_client
 import google_search_client
 
-def get_token(token_name, name):
+def get_token(path, name):
     '''
-    returns token from a given tokenfile location, and raises an error if file is essential and not valid.
+    returns token from a given tokenfile location, and raises an error if not valid.
     '''
-    path = os.path.join(config['discord']['path'], token_name)
     try:
         with open(path, 'r') as infofile:
             temp = infofile.readlines()
@@ -36,8 +35,7 @@ def get_token(token_name, name):
         msg = '[ERROR]: {} not found!'.format(name)
         raise EOFError(msg)
 
-def get_cache(cache_name, name):
-    path = os.path.join(config['discord']['path'], cache_name)
+def get_cache(path, name):
     try:
         with open(path, 'rb') as cache_file:
             obj = pickle.load(cache_file)
@@ -48,7 +46,7 @@ def get_cache(cache_name, name):
         open(path, 'w').close()
 
 def update_cache_path(path):
-    return os.path.join(config['discord']['path'], path)
+    return os.path.join(config['general']['path'], path)
 # ==========================> LISTS <==================================
 scoreboard = {}
 settings = {}

@@ -77,7 +77,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
             break
 
         for char in msg:
-            if char not in used_chars and char in config['discord']['hangman']['allowed_chars']:
+            if char not in used_chars and char in string.ascii_lowercase:
                 used_chars.append(char)
                 if char not in word_condensed:
                     ind += steps
@@ -249,7 +249,7 @@ async def manage_config(channel, user, content, config, settings):
 
     # user wants to see the help message
     elif content[0] == 'help':
-        await channel.send(config['discord']['settings']['help'])
+        await channel.send(config['discord']['settings']['help'].format(config['general']['key']))
 
     # user wants to see the config embed
     elif content[0] == 'show':
@@ -275,10 +275,10 @@ async def manage_config(channel, user, content, config, settings):
             content += 'Server: {} Channel: {} Effective: {}\n\n'\
                     .format(server_setting, channel_setting, effective)
 
-        embed = create_embed(title=title, content=content, footnote=config['general']['footer'])
-        channel.send(embed=embed)
+        embed = create_embed(title=title, content=content, footnote=config['general']['footer'].format(config['general']['key']))
+        await channel.send(embed=embed)
     else:
-        await channel.send('Unknown Feature! Try one of the following:\n`'+'`, `'
+        await channel.send('Unknown Feature `{}`! Try one of the following:\n`'.format(content[0])+'`, `'
                            .join(config['discord']['settings']['features']+['help', 'show'])+'`')
 
 
@@ -299,14 +299,24 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
 
     medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
     user_str = '**[{} pts]** {} ({}%)'
+    count = 0
     for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
+        count += 1
         temp = user_str.format(*user)
 
         if i < len(medals):
             scoreboard_string += medals[i].format(temp)+'\n'
         else:
             scoreboard_string += medals[-1].format(temp)+'\n'
-    await channel.send(embed=create_embed(title='Scoreboard for: *{}*'.format(server), content=scoreboard_string))
+
+        if count >= config['discord']['trivia']['scoreboard_max']:
+            break
+
+    if count > 1:
+        title = 'Top {} Trivia Players in *{}*'.format(count, server)
+    else:
+        title = 'The Best Trivia Player in *{}*'.format(server)
+    await channel.send(embed=create_embed(title=title, content=scoreboard_string))
 
 
 async def lotr_battle(channel, bot, user, content, config, settings):
@@ -672,7 +682,7 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
         # try to split the uncondensed sentence by punctuations
         # to find the starting point for autoscript
         for char in line:
-            if char in PUNCTUATION_CHARS:
+            if char in config['discord']['autoscript']['punctuation_chars']:
                 punctuation_found = True
             elif punctuation_found:
                 punctuation_found = False
@@ -778,7 +788,7 @@ async def silmarillion_quote(channel, settings, config):
                     title = '**'+line+'**'
                 break
 
-    await channel.create_embed(title, content=out)
+    await channel.send(embed=create_embed(title, content=out))
 
 
 def is_headline(line):
@@ -909,23 +919,29 @@ async def edit_settings(cmd, settings, channel):
     '''
     edits the settings for the server or channel based on the given command
     '''
-    if cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
-        channel = channel.id
-        if not channel in settings.keys():
-            settings[channel] = {}
+    if len(cmd) == 1:
+        await channel.send('You have to provide a state! Valid states are:\n `on`, `off`, `unset`, `server-on`, `server-off`, `server-unset`')
+
+    elif len(cmd) != 2:
+        await channel.send('You provided too much arguments! You can only provide one of the following states:\n`on`, `off`, `unset`, `server-on`, `server-off`, `server-unset`')
+
+    elif cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
+        channel_id = channel.id
+        if not channel_id in settings.keys():
+            settings[channel_id] = {}
 
         if cmd[1] == 'on':
-            settings[channel][cmd[0]] = 1
+            settings[channel_id][cmd[0]] = 1
             await channel.send('feature `{}` for this channel was turned **on**'.format(cmd[0]))
         elif cmd[1] == 'off':
-            settings[channel][cmd[0]] = 0
+            settings[channel_id][cmd[0]] = 0
             await channel.send('feature `{}` for this channel was turned **off**'.format(cmd[0]))
         elif cmd[1] == 'unset':
-            if cmd[0] in settings[channel].keys():
-                del settings[channel][cmd[0]]
+            if cmd[0] in settings[channel_id].keys():
+                del settings[channel_id][cmd[0]]
                 await channel.send('feature `{}` for this channel was **unset**'.format(cmd[0]))
-            await channel.send('feature `{}` for this channel was not yet set'.format(cmd[0]))
-
+            else:
+                await channel.send('feature `{}` for this channel was not yet set'.format(cmd[0]))
 
     elif cmd[1] == 'server-on' or cmd[1] == 'server-off' or cmd[1] == 'server-unset':
         server = channel.guild.id
@@ -943,5 +959,6 @@ async def edit_settings(cmd, settings, channel):
                 del settings[server][cmd[0]]
                 await channel.send('feature `{}` for this server was **unset**'.format(cmd[0]))
             await channel.send('feature `{}` for this server was not yet set'.format(cmd[0]))
+
     else:
         await channel.send('state `{}` not recognized'.format(cmd[1]))
