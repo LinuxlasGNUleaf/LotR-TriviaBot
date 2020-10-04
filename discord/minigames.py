@@ -657,18 +657,22 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
                     elif len(msg_part.split(' ')) > 1:
                         log[line_ind] = (1, round(ratio, 2), part_ind)
 
+    # log entries have the following scheme: [line index]: number-of-found-parts, confidence, part index
+
     if log:
+        # I swear I'm not insane, but this next part might look like I am :)
+
         # sort results by found parts
         ranking = sorted(log, key=lambda x: log[x][0])[::-1]
-
         # filter the results that have the same amount of found parts as the top one
         filtered_dict = dict(filter(lambda item: item[1][0] == log[ranking[0]][0], log.items()))
-
         # sort these by the confidence
         filtered_ranking = sorted(filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
+        # aaand select all those entries that have the same conf level as the highest ranked one.
+        super_filtered_ranking = dict(filter(lambda item: filtered_dict[item[0]][1] == filtered_dict[filtered_ranking[0]][1], filtered_dict.items()))
 
-        # pick the top one
-        line_ind = filtered_ranking[0]
+        # pick a random one
+        line_ind = random.choice(list(super_filtered_ranking.keys()))
         part_ind = log[line_ind][2]
 
         parts = []
