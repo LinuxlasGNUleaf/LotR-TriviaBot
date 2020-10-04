@@ -703,11 +703,10 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
                 return_text += '**{}:** ... {}\n'.format(author.title(), temp)
 
             # if the line is not the last one of the script, add the next one
-            skip = False
-            for i in range(1, config['discord']['autoscript']['dialog_count']+1):
-                if skip:
-                    skip = False
-                    continue
+            skipped_lines = 0
+            i = 0
+            while i < config['discord']['autoscript']['dialog_count']+skipped_lines:
+                i += 1
                 if line_ind+i <= len(script)-1:
                     if script[line_ind+i] != 'HARDSTOP':
                         # if a scene STOP is before the next line,
@@ -716,7 +715,7 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
                             if config['discord']['autoscript']['scene_end_interrupt'] and line_ind+i >= len(script)-1:
                                 break
                             i += 1
-                            skip = True
+                            skipped_lines += 1
                             return_text += '**`[NEXT SCENE]`**\n'
                             author, text = script[line_ind+i].split('|')
                             return_text += '**{}:** {}\n'.format(author.title(), text)
