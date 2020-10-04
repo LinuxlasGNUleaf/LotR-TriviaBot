@@ -15,19 +15,20 @@ with open('dos.txt', 'r') as from_file:
                     continue
                 temp = line[start:end+1]
                 line = line.replace(temp, '').replace('  ', ' ').replace('  ', ' ')
+
+            line = line.replace('’', '\'')
             to_file.write(line+'\n')
 
-exit(0)
 with open('dos.txt', 'r') as from_file:
     with open('dos_edited.txt', 'w') as to_file:
         lines = from_file.readlines()
         for ind, line in enumerate(lines):
-            if line.strip():
-                if empty:
-                    line = line.upper()
-                    if line.strip().title() not in actors:
-                        actors.append(line.strip().title())
-                    empty = False
+            temp = line.split(': ')
+            if len(temp) > 2:
+                author = temp[0]
+                line = ':'.join(temp[1:])
             else:
-                empty = True
-            to_file.write(line.strip()+'\n')
+                if len(temp) != 2:
+                    raise Exception("Error in line: {} No \" indicator. Please check.".format(ind+1))
+                author, line = temp
+            to_file.write('{}\n{}\n'.format(author.upper(), line))
