@@ -3168,22 +3168,22 @@ Nothing. Just a dream.
 
 SAM
 Mordor. The one place in Middle-earth
-we don’t want to see any closer, and
-the one place we’re trying to get to.
-It’s just where we can’t get. Let’s
-face it, Mr Frodo, we’re lost. I don’t
+we don't want to see any closer, and
+the one place we're trying to get to.
+It's just where we can't get. Let's
+face it, Mr Frodo, we're lost. I don't
 think Gandalf meant for us to come this
 way.
 
 FRODO
-He didn’t mean for a lot of things to
+He didn't mean for a lot of things to
 happen, Sam, but they did.
 
 SAM
-Mr Frodo? It’s the Ring, isn’t it?
+Mr Frodo? It's the Ring, isn't it?
 
 FRODO
-It’s getting heavier.
+It's getting heavier.
 
 FRODO
 What food have we got left?
@@ -3194,7 +3194,7 @@ And look! More lembas bread.
 
 SAM
 I don't usually hold with foreign food,
-but this Elvish stuff, it’s not bad.
+but this Elvish stuff, it's not bad.
 
 FRODO
 Nothing ever dampens your spirits, does it Sam?
@@ -3206,8 +3206,8 @@ SAM
 This looks strangely familiar.
 
 FRODO
-It’s because we’ve been here before!
-We’re going in circles.
+It's because we've been here before!
+We're going in circles.
 
 SAM
 Ah! What's that 'orrid stink? I'll warrant
@@ -3215,7 +3215,7 @@ there's a nasty bog nearby. Can you
 smell it?
 
 FRODO
-Yes. I can smell it. We’re not alone.
+Yes. I can smell it. We're not alone.
 
 STOP
 
@@ -3224,11 +3224,11 @@ The thieves! The thieves! The filthy
 little thieves! Where is it? Where isss
 it? They stole it from us. My preciousss.
 Curse them! We hates them!
-It’s ours, it is! And we wantssss it!
+It's ours, it is! And we wantssss it!
 
 FRODO
-This is Sting. You’ve seen it before, haven’t you, Gollum!
-Release him or I’ll cut your throat!
+This is Sting. You've seen it before, haven't you, Gollum!
+Release him or I'll cut your throat!
 
 STOP
 
@@ -3240,15 +3240,15 @@ SAM
 Quiet you!
 
 SAM
-It’s hopeless! Every Orc in Mordor’s
-going to hear this racket! Let’s just
+It's hopeless! Every Orc in Mordor's
+going to hear this racket! Let's just
 tie him up and leave him.
 
 GOLLUM
 No! That would kill us! Kill us!
 
 SAM
-It’s no more than you deserve!
+It's no more than you deserve!
 
 FRODO
 Maybe he does deserve to die, but now
@@ -3260,7 +3260,7 @@ be nice to us. Take it off us. We swears
 to do what you wants. We swears.
 
 FRODO
-There’s no promise you can make that
+There's no promise you can make that
 I can trust.
 
 GOLLUM
@@ -3276,15 +3276,15 @@ GOLLUM
 Yes, on the preciousss. On the preciousss.
 
 SAM
-I don’t believe you!
+I don't believe you!
 Get down! I said, down!
 
 FRODO
 Sam!
 
 SAM
-He’s trying to trick us! We let him
-go he’ll throttle us in our sleep!
+He's trying to trick us! We let him
+go he'll throttle us in our sleep!
 
 FRODO
 You know the way to Mordor?
@@ -3293,7 +3293,7 @@ GOLLUM
 Yes.
 
 FRODO
-You’ve been there before?
+You've been there before?
 
 GOLLUM
 Yes.
@@ -3326,7 +3326,7 @@ LEGOLAS
 Come on, Gimli!
 
 GIMLI
-Three days’ and nights’ pursuit. No food.
+Three days' and nights' pursuit. No food.
 No rest. And no sign of our quarry but
 what bare rock can tell.
 
@@ -3357,7 +3357,7 @@ ARAGORN
 Legolas, what do your Elf eyes see?
 
 LEGOLAS
-The Uruks turn northeast. They’re taking
+The Uruks turn northeast. They're taking
 the hobbits to Isengard!
 
 ARAGORN
@@ -3411,7 +3411,7 @@ STOP
 
 MORWEN
 Éothain! Éothain! You take your sister.
-You’ll go faster with just two.
+You'll go faster with just two.
 
 FREDA
 Papa says Éothain must not ride Garulf,
@@ -3426,7 +3426,7 @@ me?
 Yes, Ma!
 
 FREDA
-I don’t wanna leave!
+I don't wanna leave!
 I don't wanna go, Mama!
 
 MORWEN
@@ -3450,7 +3450,7 @@ EOWYN
 Your son is badly wounded, my lord.
 
 EOMER
-He was ambushed by Orcs. If we don’t
+He was ambushed by Orcs. If we don't
 defend our country, Saruman will take
 it by force.
 
@@ -3499,17 +3499,17 @@ Argh!
 STOP
 
 GIMLI
-Keep breathing! That’s the key! Breathe!
+Keep breathing! That's the key! Breathe!
 Ho!
 
 LEGOLAS
-They’ve run as if the very whips of
+They've run as if the very whips of
 their masters were behind them.
 
 STOP
 
 MORDOR ORC
-We’re not going no further till we’ve
+We're not going no further till we've
 had a breather!
 
 UGLÚK
@@ -3523,10 +3523,10 @@ I think we might have made a mistake
 leaving the Shire, Pippin.
 
 PIPPIN
-What’s making that noise?
+What's making that noise?
 
 MERRY
-It’s the trees.
+It's the trees.
 
 PIPPIN
 What?
@@ -3550,8 +3550,8 @@ I'm starving. We ain't 'ad nothin' but
 maggoty bread for three stinkin' days!
 
 SNAGA
-Yeah. Why can’t we have some meat?
-What about them? They’re fresh.
+Yeah. Why can't we have some meat?
+What about them? They're fresh.
 
 UGLÚK
 They are not for eating!
@@ -3573,15 +3573,15 @@ UGLÚK
 No!
 
 UGLÚK
-Looks like meat’s back on the menu,
+Looks like meat's back on the menu,
 boys!
 
 MERRY
-Pippin, let’s go.
+Pippin, let's go.
 
 GRISHNÁKH
 Go on, call for help. Squeal!
-No one’s gonna save you now!
+No one's gonna save you now!
 
 MERRY
 Pippin!
@@ -3638,7 +3638,7 @@ his spies slip past our nets.
 ARAGORN
 We are not spies. We track a party of
 Uruk-hai westward across the plain.
-They’ve taken two of our friends captive.
+They've taken two of our friends captive.
 
 EOMER
 The Uruks are destroyed. We slaughtered
@@ -3675,7 +3675,7 @@ We ride north!
 STOP
 
 GIMLI
-It’s one of their wee belts.
+It's one of their wee belts.
 
 LEGOLAS
 Hiro îth, ab 'wanath.
@@ -3713,7 +3713,7 @@ Did we lose him? I think
 we lost him.
 
 GRISHNÁKH
-I’m gonna rip out your filthy little
+I'm gonna rip out your filthy little
 innards! Come here!
 
 MERRY
@@ -3732,7 +3732,7 @@ PIPPIN
 Argh!
 
 GRISHNÁKH
-Let’s put a maggot-hole in your belly.
+Let's put a maggot-hole in your belly.
 
 PIPPIN
 Run, Merry!
@@ -3741,7 +3741,7 @@ TREEBEARD
 Little Orcs! Burárum!
 
 PIPPIN
-It’s talking, Merry. The tree is talking!
+It's talking, Merry. The tree is talking!
 
 TREEBEARD
 Tree?! I am no tree. I am an Ent.
@@ -3750,7 +3750,7 @@ MERRY
 A treeherder! A shepherd of the forest.
 
 PIPPIN
-Don’t talk to it, Merry. Don’t encourage
+Don't talk to it, Merry. Don't encourage
 it.
 
 TREEBEARD
@@ -3760,12 +3760,12 @@ PIPPIN
 And whose side are you on?
 
 TREEBEARD
-Side? I am on nobody’s side because
-nobody’s on my side, little Orc. Nobody
+Side? I am on nobody's side because
+nobody's on my side, little Orc. Nobody
 cares for the woods anymore.
 
 MERRY
-We’re not Orcs. We’re Hobbits!
+We're not Orcs. We're Hobbits!
 
 TREEBEARD
 Hobbits? Never heard of a hobbit before.
@@ -3776,11 +3776,11 @@ burning! Destroyers and usurpers, curse
 them!
 
 MERRY
-No, you don’t understand. We’re Hobbits!
+No, you don't understand. We're Hobbits!
 Halflings! Shirefolk!
 
 TREEBEARD
-Maybe you are and maybe you aren’t.
+Maybe you are and maybe you aren't.
 The White Wizard will know.
 
 PIPPIN
@@ -3797,7 +3797,7 @@ hobbitses hurry. Very lucky we find
 you.
 
 SAM
-Whoa, it’s a bog! He’s led us into a
+Whoa, it's a bog! He's led us into a
 swamp!
 
 GOLLUM
@@ -3821,7 +3821,7 @@ GOLLUM
 All dead. All rotten. Elves and men
 and orcses. A great battle long ago.
 The Dead Marshes. Yes, yes that is their name.
-This way. Don’t follow the lights.
+This way. Don't follow the lights.
 
 SAM
 Ohh!
@@ -3840,7 +3840,7 @@ FRODO
 Gollum-
 
 GOLLUM
-Don’t follow the lights!
+Don't follow the lights!
 
 SAM
 Mr Frodo! Are you alright?
@@ -3861,7 +3861,7 @@ FRODO
 Who are you?
 
 GOLLUM
-Mustn’t ask us. Not its business. *Gollum,
+Mustn't ask us. Not its business. *Gollum,
 Gollum*
 
 FRODO
@@ -3887,7 +3887,7 @@ GOLLUM
 What did you call me?
 
 FRODO
-That was your name once, wasn’t it?
+That was your name once, wasn't it?
 A long time ago.
 
 GOLLUM
@@ -3906,7 +3906,7 @@ FRODO
 Argh!
 
 SAM
-C’mon Frodo! C'mon!
+C'mon Frodo! C'mon!
 
 GOLLUM
 Quick! They will see us! They will see
@@ -3924,7 +3924,7 @@ They are calling for it. They are calling
 for the preciousss.
 
 SAM
-Mr Frodo! It’s alright. I’m here.
+Mr Frodo! It's alright. I'm here.
 
 GOLLUM
 Hurry, hobbits. The Black Gate is very
@@ -4048,7 +4048,7 @@ TREEBEARD
 My home lies deep in the forest near
 the roots of the mountain. I told Gandalf
 I would keep you safe and safe is where
-I’ll keep you. The trees have grown
+I'll keep you. The trees have grown
 wild and dangerous. Anger festers in
 their hearts. They will harm you if
 they can. There are too few of us now.
@@ -4072,7 +4072,7 @@ FRODO
 I did.
 
 SAM
-That’s it then. We cannot get past that.
+That's it then. We cannot get past that.
 
 SAM
 Look! The gate, it's opening! I can
@@ -4101,27 +4101,27 @@ Now!
 
 GOLLUM
 No! No, no master! They catch you! They
-catch you! Don’t take it to him! He
-wants the preciousss. Always he’s looking
+catch you! Don't take it to him! He
+wants the preciousss. Always he's looking
 for it! And the preciousss is wanting
-to go back to him. But we mustn’t let
+to go back to him. But we mustn't let
 him have it.
 
 GOLLUM
-No! There’s
+No! There's
 another way. More secret. A dark way.
 
 SAM
-Why haven’t you spoken of this before?!
+Why haven't you spoken of this before?!
 
 GOLLUM
 Because Master did not ask!
 
 SAM
-He’s up to something.
+He's up to something.
 
 FRODO
-Are you saying there’s another way into
+Are you saying there's another way into
 Mordor?
 
 GOLLUM
@@ -4129,13 +4129,13 @@ Yes. There is a path, and some stairs,
 and then, a tunnel.
 
 FRODO
-He’s led us this far, Sam.
+He's led us this far, Sam.
 
 SAM
 Mr Frodo, no.
 
 FRODO
-He’s been true to his word.
+He's been true to his word.
 
 SAM
 No!
@@ -4151,7 +4151,7 @@ STOP
 GANDALF
 Edoras and the Golden Hall of Meduseld.
 There dwells Theoden, King of Rohan,
-whose mind is overthrown. Saruman’s
+whose mind is overthrown. Saruman's
 hold over King Theoden is now very strong.
 
 EOWYN
@@ -4199,7 +4199,7 @@ Your words are poison!
 STOP
 
 GIMLI
-You’ll find more cheer in a graveyard.
+You'll find more cheer in a graveyard.
 
 HAMA
 I cannot allow you before Theoden-King
@@ -4215,14 +4215,14 @@ old man from his walking stick?
 
 GRIMA
 My lord, Gandalf the Grey is coming.
-He’s a herald of woe.
+He's a herald of woe.
 
 GANDALF
 The courtesy of your hall is somewhat
 lessened of late. Theoden King.
 
 GRIMA
-He’s not welcome.
+He's not welcome.
 
 THEODEN
 Why should I welcome you - Gandalf Stormcrow?
@@ -4240,7 +4240,7 @@ fire and death to bandy crooked words
 with a witless worm!
 
 GRIMA
-His staff! I told you to take the wizard’s staff!
+His staff! I told you to take the wizard's staff!
 
 GANDALF
 Theoden, son of Thengel, too long have
@@ -4332,7 +4332,7 @@ That I should live to see the last days
 of my house.
 
 GANDALF
-Théodred’s death was not of your making.
+Théodred's death was not of your making.
 
 THEODEN
 No parent should have to bury their
@@ -4353,7 +4353,7 @@ Westfold, burning as they go. Rick,
 cot and tree.
 
 FREDA
-Where’s mama?
+Where's mama?
 
 EOWYN
 Shh.
@@ -4388,31 +4388,31 @@ When last I looked, Theoden, not Aragorn,
 was king of Rohan.
 
 GANDALF
-Then what is the king’s decision?
+Then what is the king's decision?
 
 STOP
 
 HAMA
 By order of the king, the city must
-empty. We make for the refuge of Helm’s
+empty. We make for the refuge of Helm's
 Deep. Do not burden yourselves with
 treasures. Take only what provisions
 you need.
 
 GIMLI
-Helm’s Deep! They flee to the mountains
+Helm's Deep! They flee to the mountains
 when they should stand and fight. Who
 will defend them if not their king?
 
 ARAGORN
-He’s only doing what he thinks is best
-for his people. Helm’s Deep has saved
+He's only doing what he thinks is best
+for his people. Helm's Deep has saved
 them in the past.
 
 GANDALF
 There is no way out of that ravine.
 Theoden is walking into a trap. He thinks
-he’s leading them to safety. What they
+he's leading them to safety. What they
 will get is a massacre. Theoden has
 a strong will but I fear for him. I
 fear for the survival of Rohan. He will
@@ -4424,9 +4424,9 @@ ARAGORN
 They will hold.
 
 GANDALF
-The Grey Pilgrim, that’s what they
+The Grey Pilgrim, that's what they
 used to call me. Three hundred lives
-of men I’ve walked this earth and now
+of men I've walked this earth and now
 I have no time. With luck, my search
 will not be in vain. Look to my coming
 at first light on the fifth day. At
@@ -4461,10 +4461,10 @@ do not think that would be your fate.
 STOP
 
 GRIMA
-Theoden will not stay at Edoras. It’s
+Theoden will not stay at Edoras. It's
 vulnerable, he knows this. He will expect
 an attack on the city. They will flee
-to Helm’s Deep, the great fortress of
+to Helm's Deep, the great fortress of
 Rohan. It is a dangerous road to take
 through the mountains. They will be
 slow. They will have women and children
@@ -4476,7 +4476,7 @@ Send out your warg riders.
 STOP
 
 SAM
-Hey Stinker! Don’t go getting too far
+Hey Stinker! Don't go getting too far
 ahead!
 
 FRODO
@@ -4497,7 +4497,7 @@ wants. It's all he cares about.
 
 FRODO
 You have no idea what
-it did to him. What it’s still doing
+it did to him. What it's still doing
 to him.
 I want to help him, Sam.
 
@@ -4509,7 +4509,7 @@ Because I have to believe he can come
 back.
 
 SAM
-You can’t save him, Mr Frodo.
+You can't save him, Mr Frodo.
 
 FRODO
 What do you know about
@@ -4532,7 +4532,7 @@ to do Sam. The Ring was entrusted to
 me! It's my task! Mine! My own!
 
 SAM
-Can’t you hear yourself? Don’t you know
+Can't you hear yourself? Don't you know
 who you sound like?
 
 STOP
@@ -4551,18 +4551,18 @@ Yes, precious. False. They will cheat
 you, hurt you, lie.
 
 SMEAGOL
-Master’s my friend.
+Master's my friend.
 
 GOLLUM
-You don’t have any friends.
+You don't have any friends.
 Nobody likes YOU!
 
 SMEAGOL
-Not listening. I’m
+Not listening. I'm
 not listening.
 
 GOLLUM
-You’re a liar and a thief.
+You're a liar and a thief.
 
 SMEAGOL
 Nope.
@@ -4592,7 +4592,7 @@ GOLLUM
 What did you say?
 
 SMEAGOL
-Master looks after us now. We don’t
+Master looks after us now. We don't
 need you.
 
 GOLLUM
@@ -4630,26 +4630,26 @@ are nice. Yes they are! Eat them! Eat
 them!
 
 SAM
-You’ll make him sick, you will, behaving
+You'll make him sick, you will, behaving
 like that!
-There’s only one way to eat a brace
+There's only one way to eat a brace
 of coneys.
 
 STOP
 
 SMEAGOL
-Argh! What’s it doing!
+Argh! What's it doing!
 Stupid fat hobbit! It ruins it!
 
 SAM
-What’s to ruin? There’s hardly any meat
+What's to ruin? There's hardly any meat
 on ‘em.
 
 SAM
 What we need is a few good taters.
 
 GOLLUM
-What’s taters, preciousss? What’s taters
+What's taters, preciousss? What's taters
 uh?
 
 SAM
@@ -4661,7 +4661,7 @@ SMEAGOL
 Pbbbttt!
 
 SAM
-Even you couldn’t say no to that.
+Even you couldn't say no to that.
 
 SMEAGOL
 Oh yes we could! Spoil nice fish!
@@ -4669,7 +4669,7 @@ Give it to usss rrraw - and wrrriggling!
 You keep nasty chips.
 
 SAM
-You’re hopeless.
+You're hopeless.
 
 STOP
 
@@ -4679,7 +4679,7 @@ Who are they?
 GOLLUM
 Wicked men. Servants of Sauron. They
 are called to Mordor. The Dark One is
-gathering all armies to him. It won’t
+gathering all armies to him. It won't
 be long now. He will soon be ready.
 
 SAM
@@ -4690,11 +4690,11 @@ To make his war. The last war that will
 cover all the world in shadow.
 
 FRODO
-We’ve got to get moving. Come on, Sam.
+We've got to get moving. Come on, Sam.
 
 SAM
 Mr Frodo!
-Look! It’s an Oliphaunt!
+Look! It's an Oliphaunt!
 
 SAM
 No one at home will believe this.
@@ -4703,7 +4703,7 @@ FRODO
 Smeagol?
 
 FRODO
-We’ve lingered here too long. Come on,
+We've lingered here too long. Come on,
 Sam!
 
 SAM
@@ -4715,13 +4715,13 @@ Bind their hands.
 STOP
 
 GIMLI
-It’s true you don’t see many Dwarf women.
+It's true you don't see many Dwarf women.
 And in fact, they are so alike in voice
-and appearance, *laughs* that they’re often
+and appearance, *laughs* that they're often
 mistaken for Dwarf men!
 
 ARAGORN
-It’s the beards!
+It's the beards!
 
 GIMLI
 And this, in turn, has given rise to
@@ -4740,7 +4740,7 @@ EOWYN
 Ooh!
 
 GIMLI
-It’s alright, it’s alright.
+It's alright, it's alright.
 Nobody panic. That was deliberate.
 It was deliberate.
 
@@ -4789,7 +4789,7 @@ trust this. Trust us.)
 STOP
 
 ELROND
-Our time here is ending. Arwen’s time
+Our time here is ending. Arwen's time
 is ending. Let her go. Let her take
 the ship into the west. Let her bear
 away her love for you to the Undying
@@ -4844,7 +4844,7 @@ GAMLING
 What is it? Hama?
 
 HAMA
-I’m not sure.
+I'm not sure.
 
 GAMLING
 Wargs!
@@ -4867,11 +4867,11 @@ All riders to the head of the column!
 
 GIMLI
 Come on, get
-me up here, I’m a rider!
+me up here, I'm a rider!
 
 THEODEN
 You must lead the people
-to Helm’s Deep. And make haste!
+to Helm's Deep. And make haste!
 
 EOWYN
 I can fight!
@@ -4885,7 +4885,7 @@ Follow me! Yah!
 GIMLI
 Forward.
 I mean, charge forward! March forward!
-That’s it! Go on!
+That's it! Go on!
 
 EOWYN
 Make for the lower
@@ -4913,7 +4913,7 @@ Tell me
 what happened and I will ease your passing.
 
 SHARKU
-He’s dead. Took
+He's dead. Took
 a little tumble off the cliff.
 
 LEGOLAS
@@ -4930,10 +4930,10 @@ Come.
 STOP
 
 REFUGEES
-Helm’s Deep! At last! There it is!
+Helm's Deep! At last! There it is!
 
 OLD WOMAN
-We’re safe, my lady! Thank
+We're safe, my lady! Thank
 you!
 
 FREDA
@@ -4982,7 +4982,7 @@ he thinks he can reach us here.
 STOP
 
 GRIMA
-Helm’s Deep has one weakness. Its outer
+Helm's Deep has one weakness. Its outer
 wall is solid rock but for a small culvert
 at its base which is little more than
 a drain.
@@ -5024,7 +5024,7 @@ There will be no dawn for Men.
 STOP
 
 PIPPIN
-Look! There’s smoke to the south!
+Look! There's smoke to the south!
 
 TREEBEARD
 There is always smoke rising from Isengard
@@ -5043,7 +5043,7 @@ PIPPIN
 What is it?
 
 MERRY
-It’s Saruman’s army! The war has started.
+It's Saruman's army! The war has started.
 
 STOP
 
@@ -5168,8 +5168,8 @@ What news?
 
 MADRIL
 Our scouts report Saruman has attacked
-Rohan. Theoden’s people have fled to
-Helm’s Deep. But
+Rohan. Theoden's people have fled to
+Helm's Deep. But
 we must look to our own borders. Faramir,
 Orcs are on the move. Sauron is marshalling
 an army. Easterlings and Southrons are
@@ -5182,11 +5182,11 @@ MADRIL
 Some thousands. More come every day.
 
 FARAMIR
-Who’s covering the river to the north?
+Who's covering the river to the north?
 
 MADRIL
 We pulled 500 men at Osgiliath, but
-if the city is attacked, we won’t hold
+if the city is attacked, we won't hold
 it.
 
 FARAMIR
@@ -5205,7 +5205,7 @@ SAM
 Spies?! Now wait just a minute!
 
 FARAMIR
-Well if you’re not spies, then who are
+Well if you're not spies, then who are
 you?
 
 FARAMIR
@@ -5237,7 +5237,7 @@ and an Elf. And two men, Aragorn, son
 of Arathorn, and Boromir of Gondor.
 
 FARAMIR
-You’re a friend of Boromir?
+You're a friend of Boromir?
 
 FRODO
 Yes - for my part.
@@ -5250,7 +5250,7 @@ FRODO
 Dead? How? When?
 
 FARAMIR
-As one of his companions, I’d hoped
+As one of his companions, I'd hoped
 you would tell me. He was my
 brother.
 
@@ -5297,10 +5297,10 @@ We must go now?
 FRODO
 Smeagol, you must trust master. Follow
 me, come on. Come. Come, Smeagol. Nice
-Smeagol. That’s it. Come on.
+Smeagol. That's it. Come on.
 
 FRODO
-Don’t hurt him! Smeagol don’t struggle!
+Don't hurt him! Smeagol don't struggle!
 Smeagol listen to me!
 
 GOLLUM
@@ -5354,10 +5354,10 @@ Mr Frodo. Just this once. Put it on.
 Disappear.
 
 FRODO
-I can’t. You were right, Sam. You tried
-to tell me, but - I’m sorry. The Ring’s
-taking me Sam. If I put it on, he’ll
-find me. He’ll see.
+I can't. You were right, Sam. You tried
+to tell me, but - I'm sorry. The Ring's
+taking me Sam. If I put it on, he'll
+find me. He'll see.
 
 FARAMIR
 So this is the answer to all the riddles.
@@ -5373,9 +5373,9 @@ FRODO
 No!
 
 SAM
-Stop it! Leave him alone! Don’t you
-understand? He’s got to destroy it.
-That’s where we’re going. Into Mordor.
+Stop it! Leave him alone! Don't you
+understand? He's got to destroy it.
+That's where we're going. Into Mordor.
 To the mountain of fire.
 
 DAMROD
@@ -5383,7 +5383,7 @@ Osgiliath is under attack. They call
 for reinforcements.
 
 SAM
-Please. It’s such a burden. Will you
+Please. It's such a burden. Will you
 not help him?
 
 DAMROD
@@ -5400,11 +5400,11 @@ Mae carnen, Brego, mellon nîn.
 (Well done, Brego, my friend.)
 
 REFUGEES
-He’s alive!
+He's alive!
 
 GIMLI
 Where is he? Where is he? Get out of
-the way. I’m gonna kill him! You are the luckiest, the
+the way. I'm gonna kill him! You are the luckiest, the
 canniest and the most reckless man I
 ever knew! Bless
 you, laddie!
@@ -5413,7 +5413,7 @@ ARAGORN
 Gimli, where is the king?
 
 LEGOLAS
-Le ab-dollen. (You’re late.) You look terrible.
+Le ab-dollen. (You're late.) You look terrible.
 
 ARAGORN
 Hannon le. (Thank you.)
@@ -5463,14 +5463,14 @@ I know how to defend my own keep.
 
 THEODEN
 They will break upon this fortress like
-water on rock. Saruman’s hordes will
-pillage and burn, we’ve seen it before.
+water on rock. Saruman's hordes will
+pillage and burn, we've seen it before.
 Crops can be resown; homes rebuilt.
 Within these walls, we will outlast
 them.
 
 ARAGORN
-They do not come to destroy Rohan’s
+They do not come to destroy Rohan's
 crops or villages. They come to destroy
 its people. Down to the last child.
 
@@ -5522,7 +5522,7 @@ happen that has not happened for an
 age: Ent Moot.
 
 MERRY
-What’s that?
+What's that?
 
 TREEBEARD
 'Tis a gathering.
@@ -5545,7 +5545,7 @@ GIMLI
 Most have seen too many winters.
 
 LEGOLAS
-Or too few. Look at them. They’re frightened.
+Or too few. Look at them. They're frightened.
 I can see it in their eyes. Boe a hûn: neled herain
 dan caer menig! (And they should be.
 Three hundred against ten thousand!)
@@ -5625,8 +5625,8 @@ ARAGORN
 to forgive, Legolas.)
 
 GIMLI
-If we had more time I’d get this adjusted.
-It’s a little tight across the chest.
+If we had more time I'd get this adjusted.
+It's a little tight across the chest.
 
 LEGOLAS
 That is no Orc horn.
@@ -5668,13 +5668,13 @@ spot.
 
 GIMLI
 Well lad, whatever luck you live by,
-let’s hope it lasts the night.
+let's hope it lasts the night.
 
 LEGOLAS
 Your friends are with you, Aragorn.
 
 GIMLI
-Let’s hope they last the night.
+Let's hope they last the night.
 
 ARAGORN
 A Eruchîn, ú-dano i faelas a hyn an
@@ -5682,7 +5682,7 @@ uben tanatha le faelas! (Show them no
 mercy! For you shall receive none!)
 
 GIMLI
-What’s
+What's
 happening out there?
 
 LEGOLAS
@@ -5724,10 +5724,10 @@ GIMLI
 Legolas, two already!
 
 LEGOLAS
-I’m on seventeen!
+I'm on seventeen!
 
 GIMLI
-Argh! I’ll have no pointy-ear
+Argh! I'll have no pointy-ear
 outscoring me!
 
 LEGOLAS
@@ -5749,14 +5749,14 @@ I have told your names to the Ent moot
 and we have agreed – you are not Orcs.
 
 PIPPIN
-Well, that’s good news.
+Well, that's good news.
 
 MERRY
 And what about Saruman?
 Have you come to a decision about HIM?
 
 TREEBEARD
-Now don’t be hasty,
+Now don't be hasty,
 Master Meriadoc.
 
 MERRY
@@ -5816,7 +5816,7 @@ TREEBEARD
 This is not our war.
 
 MERRY
-But you're part of this world! Aren’t
+But you're part of this world! Aren't
 you?! You must help, please! You
 must do something!
 
@@ -5826,7 +5826,7 @@ But your part in this tale is over.
 Go back to your home.
 
 PIPPIN
-Maybe Treebeard’s right. We don’t belong
+Maybe Treebeard's right. We don't belong
 here, Merry. It's too big for us. What
 can we do in the end? We've got the
 Shire. Maybe we should go home.
@@ -5880,7 +5880,7 @@ GIMLI
 Come on! We can take ‘em!
 
 ARAGORN
-It’s a long way.
+It's a long way.
 
 GIMLI
 Toss me.
@@ -5889,11 +5889,11 @@ ARAGORN
 What?
 
 GIMLI
-I cannot jump the distance! You’ll have
+I cannot jump the distance! You'll have
 to toss me!
 
 GIMLI
-Oh! Don’t tell the Elf.
+Oh! Don't tell the Elf.
 
 ARAGORN
 Not a word.
@@ -5904,7 +5904,7 @@ THEODEN
 Pull everybody back! Pull them back!
 
 THEODEN
-They’ve broken through! The castle is
+They've broken through! The castle is
 breached. Retreat!
 
 GAMLING
@@ -5937,22 +5937,22 @@ PIPPIN
 Yes. Exactly. If we go south we can
 slip past Saruman unnoticed. The closer
 we are to danger, the farther we are
-from harm. It’s the last thing he’ll
+from harm. It's the last thing he'll
 expect.
 
 TREEBEARD
-Mmmm. That doesn’t make sense to me.
+Mmmm. That doesn't make sense to me.
 But then, you are very small. Perhaps
-you’re right. South it is then. Hold
+you're right. South it is then. Hold
 on, little Shirelings. I always like
 going south. Somehow it feels like going
 down hill.
 
 MERRY
-Are you mad? We’ll be caught!
+Are you mad? We'll be caught!
 
 PIPPIN
-No we won’t. Not this time.
+No we won't. Not this time.
 
 STOP
 
@@ -5978,7 +5978,7 @@ STOP
 TREEBEARD
 And a little family of field mice that
 climb up sometimes and they tickle me
-awfully. They’re always trying to get
+awfully. They're always trying to get
 somewhere where they – Oh!
 
 TREEBEARD
@@ -5986,7 +5986,7 @@ Many of these trees were my friends.
 Creatures I had known from nut and acorn.
 
 PIPPIN
-I’m sorry, Treebeard.
+I'm sorry, Treebeard.
 
 TREEBEARD
 They had voices
@@ -6013,13 +6013,13 @@ STOP
 MADRIL
 Faramir, Orcs have taken the eastern
 shore. Their numbers are too great.
-By nightfall we’ll be overrun.
+By nightfall we'll be overrun.
 
 SAM
 Mr Frodo!
 
 FRODO
-It’s calling to him, Sam. His eye is
+It's calling to him, Sam. His eye is
 almost on me.
 
 SAM
@@ -6045,7 +6045,7 @@ SAM
 Mr Frodo?
 
 FRODO
-They’re here. They’ve
+They're here. They've
 come.
 
 FARAMIR
@@ -6163,26 +6163,26 @@ FRODO
 Aaarrgghh!
 
 SAM
-It’s me. It’s your Sam.
-Don’t you know your Sam?
+It's me. It's your Sam.
+Don't you know your Sam?
 
 FRODO
-I can’t do
+I can't do
 this, Sam.
 
 SAM
-I know. It’s all wrong. By rights we
-shouldn’t even be here. But we are.
-It’s like in the great stories, Mr Frodo.
+I know. It's all wrong. By rights we
+shouldn't even be here. But we are.
+It's like in the great stories, Mr Frodo.
 The ones that really mattered.
 Full of darkness and danger they were.
-And sometimes you didn’t want to know the end.
+And sometimes you didn't want to know the end.
 Because how could the end be happy?
 How could the world go back to the way it
 was when so much bad had happened?
 
 SAM
-But in the end, it’s only a passing
+But in the end, it's only a passing
 thing, this shadow. Even darkness
 must pass. A new day will come. And when the sun shines
 it will shine out the clearer. Those
@@ -6191,7 +6191,7 @@ That meant something, even if you were
 too small to understand why. But I think,
 Mr Frodo, I do understand. I know now.
 Folk in those stories had lots of chances
-of turning back only they didn’t. They
+of turning back only they didn't. They
 kept going because they were holding
 on to something.
 
@@ -6199,8 +6199,8 @@ FRODO
 What are we holding on to, Sam?
 
 SAM
-There’s some good in this world, Mr
-Frodo. And it’s worth fighting for.
+There's some good in this world, Mr
+Frodo. And it's worth fighting for.
 
 FARAMIR
 I think at last we understand one another,
@@ -6217,8 +6217,8 @@ Then it is forfeit. Release them.
 STOP
 
 GANDALF
-Sauron’s wrath will be terrible, his
-retribution swift. The battle for Helm’s
+Sauron's wrath will be terrible, his
+retribution swift. The battle for Helm's
 Deep is over. The battle for Middle-earth
 is about to begin. All our hopes now
 lie with two little hobbits. Somewhere
@@ -6227,7 +6227,7 @@ in the wilderness.
 STOP
 
 SAM
-I wonder if we’ll ever be put into songs
+I wonder if we'll ever be put into songs
 or tales.
 
 FRODO
@@ -6235,18 +6235,18 @@ What?
 
 SAM
 I wonder if people will ever say,
-"Let’s hear about Frodo and the Ring." And they’ll say:
-"Yes, that’s one of my favorite stories.
-Frodo was really courageous, wasn’t he, dad."
-"Yes, my boy, the most famousest of hobbits. And that’s saying alot."
+"Let's hear about Frodo and the Ring." And they'll say:
+"Yes, that's one of my favorite stories.
+Frodo was really courageous, wasn't he, dad."
+"Yes, my boy, the most famousest of hobbits. And that's saying alot."
 
 FRODO
 Huh, you left out one of the chief characters:
 Samwise the Brave. I want to hear more about Sam.
-Frodo wouldn’t have got far without Sam.
+Frodo wouldn't have got far without Sam.
 
 SAM
-Now Mr Frodo, you shouldn’t make fun.
+Now Mr Frodo, you shouldn't make fun.
 I was being serious.
 
 FRODO
@@ -6259,17 +6259,17 @@ FRODO
 Smeagol!
 
 SAM
-We’re not gonna wait for you. Come on!
+We're not gonna wait for you. Come on!
 
 SMEAGOL
 Master - Master looks after us. Master
-wouldn’t hurt us.
+wouldn't hurt us.
 
 GOLLUM
 Master broke his promise.
 
 SMEAGOL
-Don’t ask Smeagol. Poor, poor Smeagol.
+Don't ask Smeagol. Poor, poor Smeagol.
 
 GOLLUM
 Master betrayed us! Wicked, tricksy,
@@ -6293,10 +6293,10 @@ Kill them both.
 
 SMEAGOL
 Yes! No no!
-It’s too risky, it’s too risky.
+It's too risky, it's too risky.
 
 SAM
-Where’s he gone? Hey Gollum, where are
+Where's he gone? Hey Gollum, where are
 you?
 
 FRODO
@@ -6310,10 +6310,10 @@ Yes. She could do it.
 
 GOLLUM
 Yes, precious she could. And then we
-takes it once they’re dead.
+takes it once they're dead.
 
 SMEAGOL
-Once they’re dead-
+Once they're dead-
 
 GOLLUM
 Shh!
