@@ -1,14 +1,37 @@
 Old Bilbo
-My dear Frodo, you asked me once if I had told you everything there was to know about my adventures. And while I can honestly say I have told you the truth, I may not have told you all of it. I am old now Frodo. I’m not the same hobbit I once was. I think it is time for you to know what really happened.
+My dear Frodo, you asked me once if I had told you everything there was to know about my adventures.
+And while I can honestly say I have told you the truth, I may not have told you all of it.
+I am old now Frodo. I’m not the same hobbit I once was. I think it is time for you to know what really happened.
 
 Old Bilbo
 It began long ago in a land far away to the East. The like of which you will not find in the world today.
 
 Old Bilbo
-There was the city of Dale. Its markets known far and wide, full of the bounties of vine and vale, peaceful and prosperous. For this city lay before the doors of the greatest kingdom in Middle-Earth, Erebor. Stronghold of Thror, king under the mountain. The mightiest of the dwarf lords. Thror ruled with utter surety, never doubting his house would endure, for his line lay secure in the lives of his son and grandson. Ah, Frodo. Erebor. Built deep within the mountain itself, the beauty of this fortress city was legend. Its wealth lay in the earth, in precious gems hewn from rock, and in great seams of gold running like rivers through stone. The skill of the dwarves was unequaled. Fashioning objects of great beauty, out of diamond, emerald, ruby and sapphire. Ever they delved deeper down into the dark, and that is where they found it. The heart of the mountain, the Arkenstone. Thror named it the king’s jewel. He took it as a sign, a sign that his right to rule was divine. All would pay homage to him. Even the great Elven king, Thranduil. But the years of peace and plenty were not to last. Slowly the days turned sour, and the watchful nights closed in.
+There was the city of Dale. Its markets known far and wide, full of the bounties of vine and vale,
+peaceful and prosperous. For this city lay before the doors of the greatest kingdom in Middle-Earth, Erebor.
+Stronghold of Thror, king under the mountain. The mightiest of the dwarf lords. Thror ruled with utter surety,
+never doubting his house would endure, for his line lay secure in the lives of his son and grandson.
 
 Old Bilbo
-Thror’s love of gold had grown too fierce. A sickness had begun to grow within him. It was a sickness of the mind. And where sickness thrives bad things will follow. The first they heard was a noise like a hurricane, coming down from the North. The pines on the mountain creaked and cracked in the hot dry wind.
+Ah, Frodo. Erebor. Built deep within the mountain itself, the beauty of this fortress city was legend.
+Its wealth lay in the earth, in precious gems hewn from rock, and in great seams of gold running like rivers through stone.
+The skill of the dwarves was unequaled. Fashioning objects of great beauty, out of diamond, emerald, ruby and sapphire.
+
+Old Bilbo
+Ever they delved deeper down into the dark, and that is where they found it. The heart of the mountain, the Arkenstone.
+Thror named it the king’s jewel. He took it as a sign, a sign that his right to rule was divine.
+
+Old Bilbo
+All would pay homage to him. Even the great Elven king, Thranduil. But the years of peace and plenty were not to last.
+Slowly the days turned sour, and the watchful nights closed in.
+
+Old Bilbo
+Thror’s love of gold had grown too fierce. A sickness had begun to grow within him.
+It was a sickness of the mind. And where sickness thrives bad things will follow.
+
+Old Bilbo
+The first they heard was a noise like a hurricane, coming down from the North.
+The pines on the mountain creaked and cracked in the hot dry wind.
 
 Thorin
 Balin, sound the alarm. Call out the guards, do it now!
@@ -17,10 +40,7 @@ Balin
 What is it?
 
 Thorin
-Dragon.
-
-Thorin
-Dragon!
+Dragon. Dragon!
 
 Old Bilbo
 He was a Firedrake from the North.
@@ -29,7 +49,8 @@ Old Bilbo
 Smaug had come!
 
 Old Bilbo
-Such wanton death was dealt that day, for this city of men was nothing to Smaug. His eye was set on another prize. For dragons covet gold with a dark and fierce desire.
+Such wanton death was dealt that day, for this city of men was nothing to Smaug.
+His eye was set on another prize. For dragons covet gold with a dark and fierce desire.
 
 Thror
 No!
@@ -44,13 +65,27 @@ Thorin
 Help us!
 
 Old Bilbo
-Thranduil would not risk the lives of his kin against the wrath of the dragon. No help came from the Elves that day. Nor any day since.
+Thranduil would not risk the lives of his kin against the wrath of the dragon.
+No help came from the Elves that day. Nor any day since.
 
 Old Bilbo
-Robbed of their homeland, the dwarves of Erebor wandered the wilderness. The once mighty people brought low. The young dwarf prince took work where he could find it, laboring in the villages of men. But always, he remembered the mountain smoke beneath the moon, the trees like torches blazing bright, where he had seen dragon fire in the sky, and a city turn to ash. And he never forgave, and he never forgot.
+Robbed of their homeland, the dwarves of Erebor wandered the wilderness.
+The once mighty people brought low. The young dwarf prince took work where he could find it,
+laboring in the villages of men. But always, he remembered the mountain smoke beneath the moon,
+the trees like torches blazing bright, where he had seen dragon fire in the sky, and a city turn to ash.
+And he never forgave, and he never forgot.
+
+STOP
 
 Old Bilbo
-That, my dear Frodo, is where I come in. For quite by chance, and the will of a wizard, fate decided I would become part of this tale. It began- well, it began as you might expect. In a hole in the ground, there lived a hobbit. Not a nasty, dirty wet hole full of worms and oozy smells. This was a hobbit hole. And that means good food, a warm hearth, and all the comforts of home.
+That, my dear Frodo, is where I come in. For quite by chance, and the will of a wizard,
+fate decided I would become part of this tale. It began as you might expect.
+
+Old Bilbo
+In a hole in the ground, there lived a hobbit. Not a nasty, dirty wet hole full of worms and oozy smells.
+This was a hobbit hole. And that means good food, a warm hearth, and all the comforts of home.
+
+STOP
 
 Old Bilbo
 Thank you.
@@ -101,7 +136,8 @@ Frodo
 Who?
 
 Old Bilbo
-Lobelia Sackville-Baggins. She had all my spoons stuffed in her pockets. Dreadful woman. Make sure you keep an eye on her after I’m- When I’m- when-
+Lobelia Sackville-Baggins. She had all my spoons stuffed in her pockets. Dreadful woman.
+Make sure you keep an eye on her after I’m-
 
 Frodo
 When you’re what?
@@ -111,11 +147,6 @@ It’s nothing. Nothing.
 
 Frodo
 You know, some people are beginning to wonder about you, uncle.
-
-Old Bilbo
-Hmm?
-
-Frodo
 They think you’re becoming odd.
 
 Old Bilbo
@@ -152,13 +183,19 @@ Old Bilbo
 Well, go on then. You don’t want to be late.
 
 Old Bilbo
-He doesn’t approve being late. Not that I ever was. In those days, I was always on time. I was entirely respectable, and nothing unexpected…ever happened.
+He doesn’t approve being late. Not that I ever was. In those days, I was always on time.
+I was entirely respectable, and nothing unexpected- ever happened.
+
+STOP
 
 Bilbo
 Good morning.
 
 Gandalf
-What do you mean? Do you mean to wish me a good morning, or do you mean that it is a good morning whether I want it or not? Or perhaps you mean to say that you feel good on this particular morning? Or are you simply stating that this is a morning to be good on?
+What do you mean? Do you mean to wish me a good morning,
+or do you mean that it is a good morning whether I want it or not?
+Or perhaps you mean to say that you feel good on this particular morning?
+Or are you simply stating that this is a morning to be good on?
 
 Bilbo
 All of them at once, I suppose.
@@ -170,13 +207,15 @@ Gandalf
 It remains to be seen. I’m looking for someone to share in an adventure.
 
 Bilbo
-An adventure? No, I don’t imagine anyone west of Bree, would have much interest in adventures. Nasty, disturbing, uncomfortable things. Make you late for dinner!
+An adventure? No, I don’t imagine anyone west of Bree, would have much interest in adventures.
+Nasty, disturbing, uncomfortable things. Make you late for dinner!
 
 Bilbo
 Good morning!
 
 Gandalf
-To think that I should have lived to be good- morninged by Belladonna Took’s son, as if I was selling buttons at the door!
+To think that I should have lived to be good- morninged by Belladonna Took’s son,
+as if I was selling buttons at the door!
 
 Bilbo
 Beg your pardon?
@@ -188,10 +227,12 @@ Bilbo
 I’m sorry, do I know you?
 
 Gandalf
-Well you know my name, although you don’t remember I belong to it. I’m Gandalf, and Gandalf means me!
+Well you know my name, although you don’t remember I belong to it.
+I’m Gandalf, and Gandalf means me!
 
 Bilbo
-Gandalf? Not Gandalf, the wandering wizard who made such excellent fireworks? Old Took used to have them on Midsummer’s Eve! Well! I had no idea you were still in business.
+Gandalf? Not Gandalf, the wandering wizard who made such excellent fireworks?
+Old Took used to have them on Midsummer’s Eve! Well! I had no idea you were still in business.
 
 Gandalf
 And where else should I be?
@@ -209,7 +250,10 @@ Bilbo
 Inform the who? What? No! No! No, wait.
 
 Bilbo
-We do not want any adventures here, thank you. Not today, not- I suggest you try over the hill or across the water. Good morning.
+We do not want any adventures here, thank you!
+I suggest you try over the hill or across the water. Good morning.
+
+STOP
 
 Dwalin
 Dwalin.
@@ -242,13 +286,13 @@ Dwalin
 Very good this. Any more?
 
 Bilbo
-What? Uh…oh…uh yes, yes.
+What? Oh- yes, yes.
 
 Bilbo
 Help yourself.
 
 Bilbo
-Hmm. It’s just that, um…I wasn’t expecting company.
+Hmm. It’s just that, I wasn’t expecting company.
 
 Dwalin
 That’ll be the door.
@@ -266,7 +310,7 @@ Balin
 Am I late?
 
 Bilbo
-Late…for what?
+Late for what?
 
 Balin
 Ooh! Ah-hah! Evening, brother!
@@ -278,13 +322,13 @@ Balin
 Wider, not shorter. Sharp enough for both of us.
 
 Bilbo
-Uh…excuse me. Sorry. I hate to interrupt. Uh…but the thing is I’m not entirely sure you’re in the right house.
+Excuse me. Sorry. I hate to interrupt. But the thing is I’m not entirely sure you’re in the right house.
 
 Balin
 Have you eaten?
 
 Bilbo
-It’s not that I don’t like visitors. I…I like visitors as much as the next *hobbit. But I do like to know them before they come visiting.
+It’s not that I don’t like visitors. I like visitors as much as the next Hobbit. But I do like to know them before they come visiting.
 
 Dwalin
 What is this?
@@ -293,19 +337,19 @@ Balin
 I don’t know. I think it’s supposed to be cheese, it’s gone blue.
 
 Bilbo
-The thing is, um…
+The thing is, um-
 
 Dwalin
 It’s riddled with mold.
 
 Bilbo
-The thing is, I don’t…I don’t know either of you, not in the slightest. I don’t mean to be blunt, but I uh…but I had to speak my mind. I’m sorry.
+The thing is, I don’t know either of you, not in the slightest. I don’t mean to be blunt, but I had to speak my mind. I'm sorry.
 
 Balin
 Apology accepted.
 
 Bilbo
-Well…
+Well-
 
 Balin
 Oh, no. Fill it up now, brother, don’t stint.
@@ -322,7 +366,7 @@ Fili.
 Kili
 And Kili.
 
-Fili and Kili
+Fili & Kili
 At your service.
 
 Kili
@@ -332,13 +376,13 @@ Bilbo
 No! You can’t come in, you’ve come to the wrong house.
 
 Kili
-What?! Has it been canceled?
+What? Has it been canceled?
 
 Fili
 No one told us.
 
 Bilbo
-Can…! No, nothing’s been canceled.
+Can-? No, nothing’s been canceled.
 
 Kili
 That’s a relief.
@@ -350,7 +394,7 @@ Kili
 It’s nice, this place. Did you do it yourself?
 
 Bilbo
-Uh…no, it’s been in the family for years.
+No, it’s been in the family for years.
 
 Bilbo
 That’s my mother’s glory box, can you please not do that?
@@ -359,34 +403,36 @@ Dwalin
 Fili, Ki­li, come on, give us a hand.
 
 Kili
-Mr. Dwalin.
+Mister Dwalin.
 
 Balin
 Let’s shove this in the hole, or otherwise we’ll never get everyone in.
 
 Bilbo
-Ev…everyone?! How many more are there?
+Ev- everyone? How many more are there?
 
 Bilbo
-Oh, no! No, no. There’s nobody home! Go away, and bother somebody else! There’s far too many dwarves in my dining room as it is. If…if this is some blockhead’s idea of a joke, I can only say, it is in very poor taste!
+Oh, no! No, no. There’s nobody home! Go away, and bother somebody else!
+There’s far too many dwarves in my dining room as it is. If this is some blockhead’s idea of a joke,
+I can only say, it is in very poor taste!
 
 Bilbo
 Gandalf.
 
 Bilbo
-Those are my… Excuse me, not my wine! Put that back. Put that back! Not the jam, please. Excuse me.
+Those are my-! Excuse me, not my wine! Put that back. Put that back! Not the jam, please. Excuse me.
 
 Bilbo
-Ex…Excuse me. A tad excessive, isn’t it? Have you got a cheese knife?
+Ex- Excuse me. A tad excessive, isn’t it? Have you got a cheese knife?
 
 Bofur
 A cheese knife? He eats it by the block.
 
 Bilbo
-No no, that’s Grandpa Mungo’s chair, no…uh, so is that. Take it back, please. Take it back, this is antique, not for sitting on. Thank you. That is a book, not a coaster. Uh…put that map down.
+No no, that’s Grandpa Mungo’s chair, no-, so is that. Take it back, please. Take it back, this is antique, not for sitting on. Thank you. That is a book, not a coaster. Uh- put that map down.
 
 Dori
-Excuse me, Mr. Gandalf.
+Excuse me, Mister Gandalf.
 
 Gandalf
 Yes?
@@ -398,7 +444,7 @@ Gandalf
 Ooh, no thank you, Dori. A little red wine, for me I think.
 
 Gandalf
-Uh..Fili, Kili. Uh…Oin, Gloin. Dwalin, Balin. Bifur, Bofur, Bombur. Dori, Nori.
+Fili, Kili. Oin, Gloin. Dwalin, Balin. Bifur, Bofur, Bombur. Dori, Nori.
 
 Bilbo
 No, no. Not my prize winners, thank you.
@@ -413,7 +459,7 @@ Dwalin
 He is late, is all. He traveled north to a meeting of our kin, he will come.
 
 Dori
-Mr. Gandalf?
+Mister Gandalf?
 
 Gandalf
 Hmm?
@@ -437,7 +483,7 @@ Bofur
 Hey, on the count of three! One! Two! Come!
 
 Bilbo
-Ex…excuse me, that is a doily, not a dish cloth.
+Ex- excuse me, that is a doily, not a dish cloth.
 
 Bofur
 But it’s full of holes!
@@ -461,7 +507,7 @@ Gandalf
 Oh, they’re quite a merry gathering, once you get used to them.
 
 Bilbo
-I don’t want to get used to them. Look at the state of my kitchen! There’s mud trod in the carpet, they…they’ve pillaged the pantry! I’m not even gonna tell you what they’ve done in the bathroom, they’ve all but destroyed the plumbing! I don’t understand what they’re doing in my house!
+I don’t want to get used to them. Look at the state of my kitchen! There’s mud trod in the carpet, they’ve pillaged the pantry! I’m not even gonna tell you what they’ve done in the bathroom, they’ve all but destroyed the plumbing! I don’t understand what they’re doing in my house!
 
 Ori
 Excuse me, I’m sorry to interrupt. But what should do with my plate?
@@ -473,7 +519,7 @@ Bilbo
 Excuse me! That’s my mother’s Westfarthing pottery, it’s over a hundred years old!
 
 Bilbo
-And…and, ca…can you not do that, you’ll blunt them!
+And, can you not do that, you’ll blunt them!
 
 Bofur
 Ooh, d’you hear that, lads? He says we’ll blunt the knives!
@@ -535,10 +581,10 @@ Oin
 Ravens have been seen flying back to the mountain as it was foretold. When the birds of the old return to Erebor, the reign of the beast will end.
 
 Bilbo
-Uh…what beast?
+What beast?
 
 Bofur
-Well that would be a reference to Smaug the terrible, chiefest and greatest calamity of our age. Airborne fire breather, teeth like razors, claws like meat hooks, extremely fond of precious metals.
+Well that would be a reference to Smaug the Terrible, chiefest and greatest calamity of our age. Airborne fire breather, teeth like razors, claws like meat hooks, extremely fond of precious metals.
 
 Bilbo
 Yes, I know what a dragon is.
@@ -562,7 +608,7 @@ Kili
 And you forget we have a wizard in our company, Gandalf will have killed hundreds of dragons in his time.
 
 Gandalf
-Oh, well. No, uh, I…I wouldn’t say…
+Oh, well. No, uh, I wouldn’t say-
 
 Dori
 How many then?
@@ -574,7 +620,7 @@ Dori
 Well, how many dragons have you killed? Go on, give us a number!
 
 Bilbo
-Uh…Please. Please.
+Please. Please.
 
 Thorin
 Enough!
@@ -622,16 +668,21 @@ Oin
 He said he’s an expert!
 
 Bilbo
-Me? No! No, No, No! I…I’m not a burglar. I’ve never stolen a thing in my life.
+Me? No! No, No, No! I’m not a burglar. I’ve never stolen a thing in my life.
 
 Balin
-And I’m afraid I have to agree with Mr. Baggins. He’s hardly burglar material.
+And I’m afraid I have to agree with Mister Baggins. He’s hardly burglar material.
 
 Dwalin
 Aye, the wild is no place for gentle folk who can neither fight nor fend for themselves.
 
 Gandalf
-Enough! If I say Bilbo Baggins is a burglar, then a burglar he is! Hobbits are remarkably light on their feet. In fact, they can pass unseen by most if they choose, and while the dragon is accustomed to the smell of a dwarf, the scent of a hobbit is all but unknown to him, which gives us a distinct advantage. You asked me to find the fourteenth member of this company, and I have chosen Mr. Baggins. There’s a lot more to him than appearances suggest. And he’s got a great deal more to offer than any of you know, including himself.
+Enough! If I say Bilbo Baggins is a burglar, then a burglar he is! Hobbits are remarkably light on their feet.
+In fact, they can pass unseen by most if they choose, and while the dragon is accustomed to the smell of a dwarf,
+the scent of a hobbit is all but unknown to him, which gives us a distinct advantage.
+You asked me to find the fourteenth member of this company, and I have chosen Mister Baggins.
+There’s a lot more to him than appearances suggest.
+And he’s got a great deal more to offer than any of you know, including himself.
 
 Gandalf
 You must trust me on this.
@@ -640,7 +691,7 @@ Thorin
 Very well. We’ll do it your way.
 
 Bilbo
-No. No…
+No. No-
 
 Thorin
 Give him the contract.
@@ -655,10 +706,7 @@ Balin
 It’s just the usual summary of out-of-pocket expenses, time required, remuneration, funeral arrangements, so forth.
 
 Bilbo
-Funeral arrangements?
-
-Bilbo
-Ooh.
+Funeral arrangements? Ooh.
 
 Thorin
 I cannot guarantee his safety.
@@ -674,12 +722,10 @@ Agreed.
 
 Bilbo
 ‘Total’s cash on delivery, up to but not exceeding, one fourteenth of total profit if any.’
-
-Bilbo
 Seems fair.
 
 Bilbo
-Uh…’The present company shall not be liable for injuries inflicted by or sustained as a consequence thereof, including, but not limited to…lacerations. Evisceration.
+Uh- ’The present company shall not be liable for injuries inflicted by or sustained as a consequence thereof, including, but not limited to- lacerations. Evisceration.
 
 Bilbo
 Incineration?
@@ -691,16 +737,13 @@ Balin
 You alright, laddie?
 
 Bilbo
-Huh? Yeah, I fe…
-
-Bilbo
-I feel a bit faint.
+Huh? Yeah, I feel a bit faint.
 
 Bofur
 Think furnace, with wings.
 
 Bilbo
-I…I…I need air.
+I- I need air.
 
 Bofur
 Flash of light, searing pain, then poof! You’re nothing more than a pile of ash!
@@ -715,16 +758,23 @@ Bilbo
 I’ll be alright. Just let me sit quietly for a moment.
 
 Gandalf
-You’ve been sitting quietly for far too long. Tell me, when did doilies and your mother’s dishes become so important to you? I remember a young hobbit who was always running off in search of Elves, in the woods. He’d stay out late, come home, after dark, trailing mud and twigs and fireflies. A young hobbit who would’ve liked nothing better than to find out what was beyond the borders of the Shire. The world is not in your books and maps. It’s out there.
+You’ve been sitting quietly for far too long. Tell me, when did doilies and your mother’s dishes become so important to you?
+I remember a young hobbit who was always running off in search of Elves, in the woods.
+He’d stay out late, come home, after dark, trailing mud and twigs and fireflies.
+A young hobbit who would’ve liked nothing better than to find out what was beyond the borders of the Shire.
+The world is not in your books and maps. It’s out there.
 
 Bilbo
 I can’t just go running off into the blue! I am a Baggins, of Bag End!
 
 Gandalf
-You are also a Took. Did you know that your great, great, great, great uncle Bullroarer Took, was so large he could ride a real horse?
+You are also a Took. Did you know that your great, great, great,
+great uncle Bullroarer Took, was so large he could ride a real horse?
 
 Gandalf
-Yes, well he could! In the battle of Greenfields, he charged the goblin ranks he swung his club so hard, it knocked the goblin king’s head clean off, and it sailed a hundred yards through the air, and went down a rabbit hole. And thus the battle as won, and the game of golf invented at the same time.
+Yes, well he could! In the battle of Greenfields, he charged the goblin ranks he swung his club so hard,
+it knocked the goblin king’s head clean off, and it sailed a hundred yards through the air, and went down a rabbit hole.
+And thus the battle as won, and the game of golf invented at the same time.
 
 Bilbo
 I do believe you made that up.
@@ -745,7 +795,8 @@ Bilbo
 Sorry, Gandalf, I can’t sign this. You’ve got the wrong hobbit.
 
 Balin
-It appears we have lost our burglar. Probably for the best. The odds were always against us. After all, what are we? Merchants, miners, tinkers, toy makers. Hardly the stuff of legend.
+It appears we have lost our burglar. Probably for the best. The odds were always against us.
+After all, what are we? Merchants, miners, tinkers, toy makers. Hardly the stuff of legend.
 
 Thorin
 There are a few warriors amongst us.
@@ -754,21 +805,27 @@ Balin
 Old warriors.
 
 Thorin
-I would take each and every one of these dwarves over an army from the Iron Hills, for when I called upon them, they answered. Loyalty, honor, a willing heart. I can ask no more than that.
+I would take each and every one of these dwarves over an army from the Iron Hills,
+for when I called upon them, they answered. Loyalty, honor, a willing heart. I can ask no more than that.
 
 Balin
-You don’t have to do this. You have a choice. You’ve done honorably by our people. You have built a new life for us in the Blue Mountains. A life of peace and plenty. A life that is worth more than all the gold in Erebor.
+You don’t have to do this. You have a choice. You’ve done honorably by our people.
+You have built a new life for us in the Blue Mountains. A life of peace and plenty.
+A life that is worth more than all the gold in Erebor.
 
 Thorin
-From my grandfather to my father, this has come to me. They dreamt of the day when the dwarves of Erebor would reclaim their homeland. There is no choice, Balin. Not for me.
+From my grandfather to my father, this has come to me.
+They dreamt of the day when the dwarves of Erebor would reclaim their homeland. There is no choice, Balin. Not for me.
 
 Balin
 Then we are with you, laddie. We will see it done.
 
-Thorin [singing] Far over the Misty Mountains cold. To dungeons deep and caverns old. We must away ere break of day. To find our long forgotten gold.
+Thorin
+Far over the Misty Mountains cold. To dungeons deep and caverns old. We must away ere break of day. To find our long forgotten gold.
 
 Dwarves
-[singing] The pines were roaring on the height, the winds were moaning in the night. The fire was red, it flaming spread. The trees like torches blazed with light.
+The pines were roaring on the height, the winds were moaning in the night.
+The fire was red, it flaming spread. The trees like torches blazed with light.
 
 Bilbo
 Hello!
@@ -798,7 +855,8 @@ Thorin
 Give him a pony.
 
 Bilbo
-No, no, no, no. That…that won’t be necessary. Thank you. I’m sure I can keep up on foot. Yeah, I…I’ve done my fair share of walking holidays, you know? Even got as far as Frog Morton once.
+No, no, no, no. That won’t be necessary. Thank you. I’m sure I can keep up on foot.
+Yeah, I’ve done my fair share of walking holidays, you know? Even got as far as Frog Morton once.
 
 Oin
 Come on, Nori! Pay up!
@@ -813,7 +871,7 @@ Bilbo
 And what did you think?
 
 Gandalf
-Well…
+Well-
 
 Gandalf
 My dear fellow, I never doubted you for a second.
@@ -822,7 +880,7 @@ Bilbo
 Oh, it’s horse hair. Having a reaction.
 
 Bilbo
-Uh…wait, wait. Stop! Stop! We have to turn around.
+Wait, wait. Stop! Stop! We have to turn around.
 
 Gandalf
 What on earth is the matter?
@@ -837,10 +895,12 @@ Thorin
 Move on!
 
 Gandalf
-You’ll have to manage without pocket handkerchiefs, and a good many other things, Bilbo Baggins, before we reach our journey’s end. You were born to the rolling hills and little rivers of the Shire. But home is now behind you. The world is ahead.
+You’ll have to manage without pocket handkerchiefs, and a good many other things,
+Bilbo Baggins, before we reach our journey’s end. You were born to the rolling hills and little rivers of the Shire.
+But home is now behind you. The world is ahead.
 
 Bilbo
-Good girl! Here’s a good girl. It’s our little secret, Myrtle. Just tell no one. Shh-shh…
+Good girl! Here’s a good girl. It’s our little secret, Myrtle. Just tell no one. Shh-shh.
 
 Bilbo
 What was that?
@@ -900,7 +960,7 @@ Thorin
 He slunk back into the hole whence he came. That filth died of his wounds long ago.
 
 Hunter Orc
-[subtitled] Send word to the Master, we have found the Dwarf-scum.
+Send word to the Master, we have found the Dwarf-scum.
 
 Dori
 Here, Mr. Gandalf? Can’t you do something about this deluge?
@@ -927,7 +987,7 @@ Gandalf
 Well, that would be Radagast, The Brown.
 
 Bilbo
-Is he a great wizard or is he…more like you?
+Is he a great wizard or is he- more like you?
 
 Gandalf
 I think he’s a very great wizard, in his own way. He’s a gentle soul who prefers the company of animals to others. He keeps a watchful eye over the vast forestlands to the East, and a good thing too, for always evil will look to find a foothold in this world.
@@ -954,7 +1014,7 @@ Radagast
 The old fortress? Show me.
 
 Thorin
-We’ll camp here for the night. FÃ­li, KÃ­li, look after the ponies. Make sure you stay with them.
+We’ll camp here for the night. Fili, Kili, look after the ponies. Make sure you stay with them.
 
 Gandalf
 A farmer and his family used to live here.
@@ -1050,10 +1110,10 @@ Bilbo
 What? Well, that’s not good. And that is not good at all. Shouldn’t we tell Thorin?
 
 Fili
-Uh…no. Let’s not worry him. As our official burglar, we thought you might like to look into it.
+Uh- no. Let’s not worry him. As our official burglar, we thought you might like to look into it.
 
 Bilbo
-Well, uh…it looks as if something big uprooted these trees.
+Well, it looks as if something big uprooted these trees.
 
 Kili
 That was our thinking.
@@ -1092,7 +1152,7 @@ Fili
 We’ll be right behind you. If you run into trouble hoot twice like a barn owl, once like a brown owl.
 
 Bilbo
-Twice like a barn owl, hoot twice like a brown…hoots like a…like a… Uh, are you sure this is a good idea?
+Twice like a barn owl, hoot twice like a brown- hoots like a-? Uh, are you sure this is a good idea?
 
 William Troll
 Mutton yesterday, mutton today. And blimey, if it don’t look like mutton again tomorrow.
@@ -1125,7 +1185,7 @@ Bert Troll
 Sit down!
 
 Tom Troll
-Well…I hope you’re gonna gut these nags? I don’t like the stinky parts.
+Well I hope you’re gonna gut these nags? I don’t like the stinky parts.
 
 Tom Troll
 Oww!
@@ -1185,13 +1245,13 @@ Bert Troll
 What are you then? An oversized squirrel?
 
 Bilbo
-I’m a burglar…uh, hobbit!
+I’m a burglar- a hobbit!
 
 Tom Troll
 A ‘burglar-hobbit’?
 
 William Troll
-Can we cook him??
+Can we cook him?
 
 Tom Troll
 We can try!
@@ -1213,7 +1273,7 @@ Tom Troll
 He’s too quick!
 
 William Troll
-Oah, come here! you little…
+Oah, come here! you little-
 
 William Troll
 Gotcha! Are there any more of you little fellas hiding where you shouldn’t?
@@ -1270,7 +1330,7 @@ Bofur
 Half-wits? What does that make us?
 
 Bilbo
-I meant with the…uh, with the…with the seasoning.
+I meant with the, with the- with the seasoning.
 
 Bert Troll
 What about the seasoning?
@@ -1282,22 +1342,22 @@ William Troll
 What do you know about cooking dwarf?
 
 Bert Troll
-Shut up, and let the…uh, flurgerburbur-hobbit talk.
+Shut up, and let the- flurgerburbur-hobbit talk.
 
 Bilbo
-Uh…the-the secret to cooking dwarf, is um…
+Uh the - the secret to cooking dwarf, is-
 
 Bert Troll
 Yes? Come on.
 
 Bilbo
-It’s, uh…
+It’s, uh-
 
 Bert Troll
 Tell us the secret!
 
 Bilbo
-Ye-yes, I’m telling you. The secret is…to…skin them first!
+Ye-yes, I’m telling you. The secret is- to skin them first!
 
 Bert Troll
 Tom, get me filleting knife.
@@ -1312,13 +1372,13 @@ Tom Troll
 Nice and crunchy.
 
 Bilbo
-Uh…not…not that one, he…he’s infected!
+Not- not that one, he’s infected!
 
 William Troll
 You what?
 
 Bilbo
-Yeah he’s got worms in his…tubes.
+Yeah he’s got worms in his tubes.
 
 Tom Troll
 Ooh!
@@ -1354,7 +1414,7 @@ William Troll
 What would you have us do then? Let ’em all go?
 
 Bilbo
-Well…
+Well-
 
 William Troll
 You think I don’t know what you’re up to. This little ferret is taking us for fools!
@@ -1414,7 +1474,7 @@ Thorin
 There must be a cave nearby.
 
 Bofur
-Oh, what’s that stench?!
+Oh, what’s that stench?
 
 Gandalf
 It’s a troll hoard. Be careful what you touch.
@@ -1456,7 +1516,7 @@ Gandalf
 The blade is of Elvish make, which means it will glow blue when orcs or goblins are nearby.
 
 Bilbo
-I have…I have never used a sword in my life.
+I have never used a sword in my life.
 
 Gandalf
 And I hope you never have to. But if you do, remember this
@@ -1487,7 +1547,7 @@ Gandalf
 Yes?
 
 Radagast
-Just give me a minute. Um…Oh! I had a thought and now I’ve lost it. It was…it was was right there, on the tip of my tongue! Oh! It’s not a thought at all! It’s a silly old… stick insect.
+Just give me a minute - oh! I had a thought and now I’ve lost it. It was right there, on the tip of my tongue! Oh! It’s not a thought at all! It’s a silly old stick insect.
 
 Radagast
 The Greenwood is sick, Gandalf. A darkness has fallen over it, nothing grows anymore. At least nothing good. The air is foul decay, but worse are the webs.
@@ -1541,7 +1601,7 @@ Radagast
 That is not from the world of the living.
 
 Bilbo
-Was that a wolf? Are there…are there wolves out there?
+Was that a wolf? Are there wolves out there?
 
 Bofur
 Wolves? No, that is not a wolf.
@@ -1559,7 +1619,7 @@ Thorin
 No one.
 
 Gandalf
-Who did you tell?!
+Who did you tell?
 
 Thorin
 No one, I swear! What in Durin’s name is going on?
@@ -1604,7 +1664,7 @@ Thorin
 Where are you leading us?
 
 Hunter Orc
-[subtitled] The Dwarf-scum are over there! After them!
+The Dwarf-scum are over there! After them!
 
 Gandalf
 Move! Run!
@@ -1619,7 +1679,7 @@ Kili
 There’s more coming!
 
 Thorin
-KÃ­li! Shoot them!
+Ki­li! Shoot them!
 
 Fili
 We’re surrounded!
@@ -1643,10 +1703,10 @@ Thorin
 Go, go, go!
 
 Gandalf
-…nine, ten…
+nine, ten-
 
 Thorin
-KÃ­li! Run!
+Kili! Run!
 
 Thorin
 Elves.
@@ -1691,7 +1751,7 @@ Thorin
 Stay sharp.
 
 Lindir
-[subtitled] We heard you had crossed into the Valley.
+We heard you had crossed into the Valley.
 
 Gandalf
 I must speak with Lord Elrond.
@@ -1712,10 +1772,10 @@ Gandalf
 Lord Elrond.
 
 Gandalf
-[subtitled] My friend! Where have you been?
+My friend! Where have you been?
 
 Elrond
-[subtitled] We’ve been hunting a pack of Orcs that came up from the South. We slew a number near the Hidden Pass.
+We’ve been hunting a pack of Orcs that came up from the South. We slew a number near the Hidden Pass.
 
 Elrond
 Strange for orcs to come so close to our borders. Something or someone has drawn them near.
@@ -1769,7 +1829,7 @@ Elrond
 May it serve you well.
 
 Elrond
-And this is Glamdring. The Foe-hammer, sword of the King of Gondolin. These swords were made for the Goblin wars of the First…
+And this is Glamdring. The Foe-hammer, sword of the King of Gondolin. These swords were made for the Goblin wars of the First Age.
 
 Balin
 I wouldn’t bother, laddie. Swords are named for their great deeds they do in war.
@@ -1865,22 +1925,22 @@ Elrond
 You are not the only guardian to stand watch over Middle-earth.
 
 Hunter Orc
-[subtitled] The Dwarves, Master…we lost them. Ambushed by Elvish filth, we were…
+The Dwarves, Master…we lost them. Ambushed by Elvish filth, we were…
 
 Azog
-[subtitled] I don’t want excuses. I want the head of the Dwarf King!
+I don’t want excuses. I want the head of the Dwarf King!
 
 Hunter Orc
-[subtitled] We were outnumbered, there was nothing we could do. I barely escaped with my life.
+We were outnumbered, there was nothing we could do. I barely escaped with my life.
 
 Azog
-[subtitled] Far better you had paid with it.
+Far better you had paid with it.
 
 Azog
-[subtitled] The Dwarf-scum will show themselves soon enough.
+The Dwarf-scum will show themselves soon enough.
 
 Azog
-[subtitled] Send out word, there is a price on their heads!
+Send out word, there is a price on their heads!
 
 Bofur
 Bombur!
@@ -1898,10 +1958,10 @@ Galadriel
 Mithrandir.
 
 Gandalf
-[subtitled] It has been a long time.
+It has been a long time.
 
 Galadriel
-[subtitled] Age may have changed me, but not so the lady of Lorien.
+Age may have changed me, but not so the lady of Lorien.
 
 Galadriel
 I had no idea Lord Elrond had sent for you.
@@ -2051,7 +2111,7 @@ Galadriel
 Do not be afraid, Mithrandir. You are not alone.
 
 Galadriel
-[subtitled] If you should ever need my help, I will come.
+If you should ever need my help, I will come.
 
 Thorin
 Alright, hold on!
@@ -2123,7 +2183,7 @@ Thorin
 Plans change. Bofur, take the first watch.
 
 Azog
-[subtitled] The scent is fresh! They have taken the mountain pass.
+The scent is fresh! They have taken the mountain pass.
 
 Bofur
 Where do you think you’re going?
@@ -2270,7 +2330,7 @@ Bilbo
 Look, I…I don’t know what your game is, but I…
 
 Gollum
-Games?! Oh, we love games, doesn’t we, precious? Does it like games? Does it, does it, does it like to play?
+Games? Oh, we love games, doesn’t we, precious? Does it like games? Does it, does it, does it like to play?
 
 Bilbo
 Maybe.
@@ -2456,7 +2516,7 @@ Gollum
 Lost. Lost? Lost?
 
 Gollum
-Where is it? Where is it?!
+Where is it? Where is it?
 
 Gollum
 No! Aaah! Where is it? Nooo! Lost, lost! Curse us and splash us, my precious is lost!
@@ -2537,7 +2597,7 @@ Gollum
 Baggins! Thief! Curse it and crush it, we hates it forever!
 
 Gandalf
-Five, six, seven, eight. Bifur, Bofur, that’s ten. Fili, Ki­li, that’s twelve. And Bombur, that makes thirteen. Where’s Bilbo? Where is our hobbit? Where is our hobbit?!
+Five, six, seven, eight. Bifur, Bofur, that’s ten. Fili, Ki­li, that’s twelve. And Bombur, that makes thirteen. Where’s Bilbo? Where is our hobbit? Where is our hobbit?
 
 Gloin
 Curse that Halfling! Now he’s lost! I thought he was with Dori!
@@ -2582,7 +2642,7 @@ Bilbo
 Look, I know you doubt me. I know…I know you always have. And you’re right, I often think of Bag End. I miss my books, and my arm chair, and my garden. See, that’s where I belong. That’s home. And that’s why I came back, cause…you don’t have one. A home. It was taken from you, but I will help you take it back if I can.
 
 Azog
-[subtitled] Run them down! Tear them to pieces!
+Run them down! Tear them to pieces!
 
 Thorin
 Out of the frying pan.
@@ -2600,16 +2660,16 @@ Thorin
 Azog!
 
 Azog
-[subtitled] Do you smell it? The scent of fear? I remember your father reeked of it, Thorin son of Thrain.
+Do you smell it? The scent of fear? I remember your father reeked of it, Thorin son of Thrain.
 
 Thorin
 It cannot be.
 
 Azog
-[subtitled] That one is mine. Kill the others!
+That one is mine. Kill the others!
 
 Azog
-[subtitled] Drink their blood!
+Drink their blood!
 
 Gandalf
 Fili!
@@ -2618,10 +2678,10 @@ Dori
 Mister Gandalf! Aah!
 
 Azog
-[subtitled] Bring me the Dwarf’s head.
+Bring me the Dwarf’s head.
 
 Azog
-[subtitled] Kill him.
+Kill him.
 
 Gandalf
 Thorin! Thorin.
@@ -2668,5 +2728,3 @@ Well we’ll take it as a sign, a good omen.
 
 Bilbo
 You’re right. I do believe the worst is behind us.
-
-[Bilbo smiles; we then see the thrush flying towards Lonely Mountain, it picks up a snail and starts bashing it against the rock of the mountain, the tapping carries through into the deserted halls of Erebor and awakens Smaug, who’s sleeping under a massive pile of gold]
