@@ -1,6 +1,5 @@
 general:
     version: 2.3
-    marker: '*'
     key: lotr
     footer: A discord bot written in Python by JaWs
     path: os.path.join(os.getenv('HOME'), '/.config/discord/bots/lotr-bot/')
@@ -70,6 +69,7 @@ discord:
     trivia:
         multiplier: 12
         extra_time: 5.0
+        marker: '*'
         cache: scoreboard.pyobj
         link: https://forms.gle/k4oMTiyUEJgntMyb9
         tips:
@@ -98,7 +98,7 @@ discord:
         punctuation_chars: ['?','!','.',':',';']
         elimination_chars: ["'",","]
 
-    custom_status:
+    status:
         - Boromir not simply walk into Mordor
         - Viggo Mortensen break his toe
         - Gimli lose his shoe

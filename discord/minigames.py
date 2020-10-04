@@ -13,7 +13,7 @@ import pickle
 
 import discord
 
-ORDINAL = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
+ordinal = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
 async def auto_save(config, scoreboard, memelog, settings):
     '''
@@ -22,12 +22,12 @@ async def auto_save(config, scoreboard, memelog, settings):
     sys.stdout.write('\nAutosave initialized.')
     msg_len = 0
     while True:
-        await asyncio.sleep(config.GENERAL_CONFIG['autosave.interval'])
-        with open(config.DISCORD_CONFIG['scoreboard.loc'], 'wb') as sc_file:
+        await asyncio.sleep(config['general']['autosave'])
+        with open(config['discord']['trivia']['cache'], 'wb') as sc_file:
             pickle.dump(scoreboard, sc_file)
-        with open(config.REDDIT_CONFIG['memelog.loc'], 'wb') as meme_file:
+        with open(config['reddit']['cache'], 'wb') as meme_file:
             pickle.dump(memelog, meme_file)
-        with open(config.DISCORD_CONFIG['settings.loc'], 'wb') as set_file:
+        with open(config['discord']['settings']['cache'], 'wb') as set_file:
             pickle.dump(settings, set_file)
 
         msg = strftime('Last Autosave: %X on %a %d/%m/%y')
@@ -48,8 +48,8 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
 
     steps = 2 if len(word_condensed) <= 6 else 1
 
-    game_states = config.DISCORD_CONFIG['hangman.ongoing_states']
-    end_states = config.DISCORD_CONFIG['hangman.end_states']
+    game_states = config['discord']['hangman']['ongoing_states']
+    end_states = config['discord']['hangman']['end_states']
 
     used_chars = []  # used characters array
     max_ind = len(game_states)-1 # max index
@@ -67,7 +67,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
         try:
             msg = await bot.wait_for('message',
                                      check=check,
-                                     timeout=config.DISCORD_CONFIG['hangman.timeout'])
+                                     timeout=config['discord']['hangman']['timeout'])
             msg = msg.content.lower()
 
         except asyncio.TimeoutError:
@@ -77,7 +77,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
             break
 
         for char in msg:
-            if char not in used_chars and char in config.DISCORD_CONFIG['hangman.allowed_chars']:
+            if char not in used_chars and char in config['discord']['hangman']['allowed_chars']:
                 used_chars.append(char)
                 if char not in word_condensed:
                     ind += steps
@@ -111,7 +111,7 @@ async def display_profile(channel, user, settings, config, scoreboard):
     if not feature_allowed('trivia-quiz', channel, settings, config):
         return
     if not user.id in scoreboard.keys():
-        await channel.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(config.GENERAL_CONFIG['key']))
+        await channel.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(config['general']['key']))
         return
 
     played, wins = scoreboard[user.id]
@@ -141,14 +141,14 @@ def prepare_trivia_question(user, count, config):
 
     answers = content.copy()
     for i, item in enumerate(answers):
-        if item.startswith(config.GENERAL_CONFIG['marker']):
+        if item.startswith(config['discord']['trivia']['marker']):
             answers[i] = item[1:]
             correct_index = i+1
             break
 
     # create author info
     author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
-        .format(user.display_name, config.ORDINAL(count) if count else '')
+        .format(user.display_name, ordinal(count) if count else '')
     author_info = (author_name, user.avatar_url)
 
     # create the embed text
@@ -159,8 +159,8 @@ def prepare_trivia_question(user, count, config):
         char_count += len(cont)
 
     # calculate the timeout
-    timeout = round(char_count / config.DISCORD_CONFIG['trivia.multiplier'] + \
-                    config.DISCORD_CONFIG['trivia.extra_time'], 1)
+    timeout = round(char_count / config['discord']['trivia']['multiplier'] + \
+                    config['discord']['trivia']['extra_time'], 1)
 
     # add source and timeout to embed text
     embed_text += '```\nsource: {}'.format(source)
@@ -222,9 +222,9 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     await trivia_embed.delete()
 
     # certain chance to send a small tip
-    if random.random() <= config.DISCORD_CONFIG['trivia.tip_probability']:
-        tip = random.choice(config.DISCORD_CONFIG['trivia.tips'])
-        await channel.send(tip.format(config.DISCORD_CONFIG['trivia.link']), delete_after=30)
+    if random.random() <= config['discord']['trivia']['tip_probability']:
+        tip = random.choice(config['discord']['trivia']['tips'])
+        await channel.send(tip.format(config['discord']['trivia']['link']), delete_after=30)
 
 
 async def manage_config(channel, user, content, config, settings):
@@ -238,10 +238,10 @@ async def manage_config(channel, user, content, config, settings):
         content[i] = item.strip()
 
     # user wants to change the settings
-    if content[0] in config.DISCORD_CONFIG['settings.features']:
+    if content[0] in config['discord']['settings']['features']:
         if channel.permissions_for(user).manage_channels or \
-            user.id in config.GENERAL_CONFIG['superusers']:
-            if user.id in config.GENERAL_CONFIG['superusers']:
+            user.id in config['general']['superusers']:
+            if user.id in config['general']['superusers']:
                 await channel.send(':desktop: Superuser detected, overriding permissions...')
             await edit_settings(content, settings, channel)
         else:
@@ -249,13 +249,13 @@ async def manage_config(channel, user, content, config, settings):
 
     # user wants to see the help message
     elif content[0] == 'help':
-        await channel.send(config.DISCORD_CONFIG['settings.help'])
+        await channel.send(config['discord']['settings']['help'])
 
     # user wants to see the config embed
     elif content[0] == 'show':
         title = 'Config for #{}, Server: {}'.format(channel, server)
         content = ''
-        for feature in config.DISCORD_CONFIG['settings.features']:
+        for feature in config['discord']['settings']['features']:
             content += '**Feature `{}`:**\n'.format(feature)
 
             server_setting = ':grey_question:'
@@ -275,11 +275,11 @@ async def manage_config(channel, user, content, config, settings):
             content += 'Server: {} Channel: {} Effective: {}\n\n'\
                     .format(server_setting, channel_setting, effective)
 
-        embed = create_embed(title=title, content=content, footnote=config.GENERAL_CONFIG['footer'])
+        embed = create_embed(title=title, content=content, footnote=config['general']['footer'])
         channel.send(embed=embed)
     else:
         await channel.send('Unknown Feature! Try one of the following:\n`'+'`, `'
-                           .join(config.DISCORD_CONFIG['settings.features']+['help', 'show'])+'`')
+                           .join(config['discord']['settings']['features']+['help', 'show'])+'`')
 
 
 async def display_scoreboard(channel, server, settings, config, scoreboard):
@@ -336,7 +336,7 @@ async def lotr_battle(channel, bot, user, content, config, settings):
 
     bot.blocked.append(players[1].id)
     try:
-        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config.DISCORD_CONFIG['battle.timeout'])
+        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
 
         if msg.content.lower() == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
@@ -412,14 +412,14 @@ Answer it in time and continue to do so until the game is over. Then return to t
                         await channel.send('You both did not answer multiple times... timing out.')
                         return
 
-            footnote = 'Players drawed the {} round.'.format(config.ORDINAL(round_ind))
+            footnote = 'Players drawed the {} round.'.format(ordinal(round_ind))
 
         # if there is a clear winner
         else:
             winner = answers[1]
             await players[winner].dm_channel.send(create_reply(user, False, config))
             await players[not winner].dm_channel.send(create_reply(user, True, config))
-            footnote = '{} won the {} round!'.format(players[winner].display_name, config.ORDINAL(round_ind))
+            footnote = '{} won the {} round!'.format(players[winner].display_name, ordinal(round_ind))
             score[winner] += 1
 
         # update score embed
@@ -446,8 +446,8 @@ async def display_help(channel, config):
     displays the help message for the usage of the LotR-Trivia-Bot spcififed in the config
     '''
     embed = create_embed(title='LotR Trivia Bot help',
-                         content=config.DISCORD_CONFIG['help.text'],
-                         footnote=config.DISCORD_CONFIG['help.footer'])
+                         content=config['discord']['help']['text'],
+                         footnote=config['discord']['help']['footer'])
     await channel.send(embed=embed)
 
 
@@ -539,9 +539,9 @@ def create_reply(user, insult, config):
     creates a reply to an user, insult or compliment
     '''
     if insult:
-        msg = ':x: ' + random.choice(config.DISCORD_CONFIG['insults'])
+        msg = ':x: ' + random.choice(config['discord']['insults'])
     else:
-        msg = ':white_check_mark: ' + random.choice(config.DISCORD_CONFIG['compliments'])
+        msg = ':white_check_mark: ' + random.choice(config['discord']['compliments'])
     return msg if '{}' not in msg else msg.format(user.display_name)
 
 
@@ -550,7 +550,7 @@ def parse_script(config, arr, condensed_arr):
     reads LOTR script to array.
     Also outputs a condensed version for faster searching.
     '''
-    with open(config.DISCORD_CONFIG['script.path'], 'r') as script:
+    with open(config['discord']['autoscript']['file'], 'r') as script:
         temp = ''
         last = ''
         for line in script:
@@ -578,9 +578,9 @@ def parse_script(config, arr, condensed_arr):
         temp_arr = []
 
         for char in line:
-            if char in config.DISCORD_CONFIG['autoscript.elimination_chars']:
+            if char in config['discord']['autoscript']['elimination_chars']:
                 continue
-            if char in config.DISCORD_CONFIG['autoscript.punctuation_chars']:
+            if char in config['discord']['autoscript']['punctuation_chars']:
                 punctuation_found = True
             elif punctuation_found:
                 punctuation_found = False
@@ -604,9 +604,9 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
     if len(content.split(' ')) < 2:
         return
 
-    for char in PUNCTUATION_CHARS:
+    for char in config['discord']['autoscript']['punctuation_chars']:
         content = content.replace(char, '.')
-    for char in ELIMINATION_CHARS:
+    for char in config['discord']['autoscript']['elimination_chars']:
         content = content.replace(char, '')
     content = content.split('.')
 
@@ -700,7 +700,7 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
 
                 # if a scene STOP is before the next line,
                 # continue only if configured to do so.
-                elif not config.DISCORD_CONFIG['autoscript.scene_end_interrupt'] \
+                elif not config['discord']['autoscript']['scene_end_interrupt'] \
                      and line_ind < len(script)-2:
                     return_text += '**`[NEXT SCENE]`**\n'
                     author, text = script[line_ind+2].split('|')
@@ -757,11 +757,11 @@ async def silmarillion_quote(channel, settings, config):
         return
 
     out = ''
-    with open(config.DISCORD_CONFIG['silmarillion.path'], 'r') as silmarillion_file:
+    with open(config['discord']['silmarillion']['file'], 'r') as silmarillion_file:
         silmarillion = silmarillion_file.readlines()
         max_ind = len(silmarillion)-1
         index = random.randint(0, max_ind)
-        ind_limit = min(max_ind, index+config.DISCORD_CONFIG['silmarillion.sentence_count']+1)
+        ind_limit = min(max_ind, index+config['discord']['silmarillion']['sentence_count']+1)
         for i in range(index, ind_limit):
             if is_headline(silmarillion[i]):
                 break
@@ -799,7 +799,7 @@ async def search_youtube(channel, user, raw_content, google_client, config, sett
     if not feature_allowed('yt-search', channel, settings, config):
         return
 
-    raw_content = raw_content.split(config.GENERAL_CONFIG['key'] + ' yt ')[1]
+    raw_content = raw_content.split(config['general']['key'] + ' yt ')[1]
     start, end = (-1, -1)
     query = ''
 
@@ -818,12 +818,12 @@ async def search_youtube(channel, user, raw_content, google_client, config, sett
     if not query:
         return create_reply(user, True, config) + '\nTry providing a query next time!\n\
 The correct syntax is: `{0} yt "<keywords>" \n(you can also provide a video count, \
-before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
+before or after the query)`\n'.format(config['general']['key'])
 
     res = google_client.get_video_from_channel(
-        config.YT_CONFIG['channel_id'],
+        config['youtube']['channel_id'],
         query,
-        min(config.YT_CONFIG['max_video_count'], num))['items']
+        min(config['youtube']['max_video_count'], num))['items']
 
     if not res:
         await channel.send('*\'I have no memory of this place\'* ~Gandalf\nYour query `{}` yielded no results!'.format(query))
@@ -836,7 +836,7 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
             item['snippet']['publishedAt'][:10].split('-')[::-1])
         # Video API call for every vid
         vid_info = google_client.get_video_info(item['id']['videoId'])['items'][0]
-        description = unbloat_description(vid_info['snippet']['description'])
+        description = unbloat_description(vid_info['snippet']['description'], config['youtube']['desc_blacklist'])
         views = '{:,}'.format(int(vid_info['statistics']['viewCount']))
         likes = int(vid_info['statistics']['likeCount'])
         comments = '{:,}'.format(int(vid_info['statistics']['commentCount']))
@@ -849,7 +849,7 @@ before or after the query)`\n'.format(config.GENERAL_CONFIG['key'])
                                               content=description+'\n'+info_bar))
 
 
-def unbloat_description(desc):
+def unbloat_description(desc, blacklist):
     '''
     strips yt descriptions down to the bare minimum
     '''
@@ -861,7 +861,7 @@ def unbloat_description(desc):
         if not line:
             continue
 
-        for item in DESCRIPTION_BLACKLIST:
+        for item in blacklist:
             if item in line:
                 blacklisted = True
                 break
@@ -877,7 +877,7 @@ async def lotr_search(channel, google_client, raw_content, config):
     searches on a given site for a given entry
     '''
     query = ' '.join(raw_content.split(' ')[2:]).strip()
-    site = config.GOOGLE_CONFIG['site']
+    site = config['google']['site']
     content = list(google_client.google_search(query, site))
     if not content:
         await channel.send(':x: No results for `{}` on  *{}*.'.format(query, site))
@@ -900,8 +900,8 @@ def feature_allowed(feature, channel, settings, config):
     if server.id in settings.keys():
         if feature in settings[server.id]:
             return settings[server.id][feature]
-    if feature in config.DISCORD_CONFIG['settings.defaults'].keys():
-        return config.DISCORD_CONFIG['settings.defaults'][feature]
+    if feature in config['discord']['settings']['defaults'].keys():
+        return config['discord']['settings']['defaults'][feature]
     return 1
 
 

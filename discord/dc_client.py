@@ -32,7 +32,7 @@ class LotrBot(discord.Client):
         '''
         checks whether a given message is a command
         '''
-        return msg.startswith(self.config.GENERAL_CONFIG['key'] + ' ' + cmdlet)
+        return msg.startswith(self.config['general']['key'] + ' ' + cmdlet)
 
 
     async def on_ready(self):
@@ -42,7 +42,7 @@ class LotrBot(discord.Client):
         print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
             (type=discord.ActivityType.watching,
-             name=random.choice(self.config.DISCORD_CONFIG['custom_status'])))
+             name=random.choice(self.config['discord']['status'])))
 
         asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
                                                                  self.scoreboard,
@@ -101,7 +101,7 @@ class LotrBot(discord.Client):
         elif self.is_command(content, 'meme'):
             await minigames.reddit_meme(channel,
                                         self.reddit_client,
-                                        self.config.REDDIT_CONFIG['subreddit'],
+                                        self.config['reddit']['subreddit'],
                                         self.config,
                                         self.settings)
 
