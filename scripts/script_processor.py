@@ -1,4 +1,4 @@
-empty = False
+empty = True
 actors = []
 with open('auj.txt', 'r') as from_file:
     with open('auj_edited.txt', 'w') as to_file:

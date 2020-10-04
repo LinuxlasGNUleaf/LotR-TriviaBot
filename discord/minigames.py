@@ -573,14 +573,14 @@ def parse_script(config, arr, condensed_arr):
                 temp += line
                 if last:
                     temp += ' '
-                if not last and line != 'STOP':
+                if not last and 'STOP' not in line:
                     temp += '|'
 
             last = line
 
     for line in arr:
-        if line.startswith('STOP'):
-            condensed_arr.append('STOP')
+        if 'STOP' in line:
+            condensed_arr.append(line.strip())
             continue
 
         line = line.lower().split('|', 1)[1]
@@ -600,7 +600,7 @@ def parse_script(config, arr, condensed_arr):
         condensed_arr.append(temp_arr)
 
 
-async def find_similar_from_script(channel, message, condensed_arr, script, settings, config):
+async def run_autoscript(channel, message, condensed_arr, script, settings, config):
     '''
     attempts to find similar line from script and formats it, if found.
     '''
@@ -637,7 +637,7 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
             if not line:
                 continue
             if isinstance(line, str):
-                if line == 'STOP':
+                if line == 'STOP' or line == 'HARDSTOP':
                     continue
 
             # iterate through sentences in the line
@@ -704,17 +704,16 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
 
             # if the line is not the last one of the script, add the next one
             if line_ind < len(script)-1:
-                if script[line_ind+1] != 'STOP':
-                    author, text = script[line_ind+1].split('|')
-                    return_text += '**{}:** {}\n'.format(author.title(), text)
+                if script[line_ind+1] != 'HARDSTOP':
+                    # if a scene STOP is before the next line,
+                    # continue only if configured to do so.
+                    if script[line_ind+1] == 'STOP' and config['discord']['autoscript']['scene_end_interrupt'] and line_ind < len(script)-2:
+                        return_text += '**`[NEXT SCENE]`**\n'
+                        author, text = script[line_ind+2].split('|')
+                    else:
+                        author, text = script[line_ind+1].split('|')
 
-                # if a scene STOP is before the next line,
-                # continue only if configured to do so.
-                elif not config['discord']['autoscript']['scene_end_interrupt'] \
-                     and line_ind < len(script)-2:
-                    return_text += '**`[NEXT SCENE]`**\n'
-                    author, text = script[line_ind+2].split('|')
-                    return_text += '**{}:** {}'.format(author.title(), text)
+                    return_text += '**{}:** {}\n'.format(author.title(), text)
 
             if channel.permissions_for(channel.guild.me).add_reactions:
                 await message.add_reaction('✅')
