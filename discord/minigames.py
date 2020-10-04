@@ -707,9 +707,10 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
                 if script[line_ind+1] != 'HARDSTOP':
                     # if a scene STOP is before the next line,
                     # continue only if configured to do so.
-                    if script[line_ind+1] == 'STOP' and config['discord']['autoscript']['scene_end_interrupt'] and line_ind < len(script)-2:
-                        return_text += '**`[NEXT SCENE]`**\n'
-                        author, text = script[line_ind+2].split('|')
+                    if script[line_ind+1] == 'STOP':
+                        if config['discord']['autoscript']['scene_end_interrupt'] and line_ind < len(script)-2:
+                            return_text += '**`[NEXT SCENE]`**\n'
+                            author, text = script[line_ind+2].split('|')
                     else:
                         author, text = script[line_ind+1].split('|')
 
