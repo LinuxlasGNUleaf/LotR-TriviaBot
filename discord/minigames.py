@@ -703,21 +703,36 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
                 return_text += '**{}:** ... {}\n'.format(author.title(), temp)
 
             # if the line is not the last one of the script, add the next one
-            if line_ind < len(script)-1:
-                if script[line_ind+1] != 'HARDSTOP':
-                    # if a scene STOP is before the next line,
-                    # continue only if configured to do so.
-                    if script[line_ind+1] == 'STOP':
-                        if config['discord']['autoscript']['scene_end_interrupt'] and line_ind < len(script)-2:
+            skip = False
+            for i in range(1, config['discord']['autoscript']['dialog_count']+1):
+                if skip:
+                    skip = False
+                    continue
+                if line_ind+i <= len(script)-1:
+                    if script[line_ind+i] != 'HARDSTOP':
+                        # if a scene STOP is before the next line,
+                        # continue only if configured to do so.
+                        if script[line_ind+i] == 'STOP':
+                            if config['discord']['autoscript']['scene_end_interrupt'] and line_ind+i >= len(script)-1:
+                                break
+                            i += 1
+                            skip = True
                             return_text += '**`[NEXT SCENE]`**\n'
-                            author, text = script[line_ind+2].split('|')
+                            author, text = script[line_ind+i].split('|')
+                            return_text += '**{}:** {}\n'.format(author.title(), text)
+                        else:
+                            author, text = script[line_ind+i].split('|')
+                            return_text += '**{}:** {}\n'.format(author.title(), text)
                     else:
-                        author, text = script[line_ind+1].split('|')
-
-                    return_text += '**{}:** {}\n'.format(author.title(), text)
+                        break
 
             if channel.permissions_for(channel.guild.me).add_reactions:
                 await message.add_reaction('✅')
+
+            # to prevent discord from complaining about too long messages.
+            while len(return_text) >= 2000:
+                return_text = '\n'.join(return_text.split('\n')[:-1])
+
             await channel.send(return_text.strip())
 
 

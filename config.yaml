@@ -98,6 +98,7 @@ discord:
         scene_end_interrupt: False
         punctuation_chars: ['?','!','.',':',';']
         elimination_chars: ["'",","]
+        dialog_count: 2
 
     status:
         - Boromir not simply walk into Mordor
