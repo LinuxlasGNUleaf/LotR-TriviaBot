@@ -128,23 +128,28 @@ def prepare_trivia_question(user, count, config):
     '''
     picks a trivia question and prepares the embed
     '''
-    # get random question
-    with open('questions.csv', 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        content = random.choice(list(csvreader))
+    correct_index = -1
+    while correct_index < 0:
+        # get random question
+        with open('questions.csv', 'r') as csvfile:
+            csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+            content = random.choice(list(csvreader))
+            ind = list(csvreader).index(content)
 
-    # pop the source and the question (first element)
-    source = content.pop(0)
-    question = content.pop(0)
-    # shuffle answers
-    random.shuffle(content)
+        # pop the source and the question (first element)
+        source = content.pop(0)
+        question = content.pop(0)
+        # shuffle answers
+        random.shuffle(content)
 
-    answers = content.copy()
-    for i, item in enumerate(answers):
-        if item.startswith(config['discord']['trivia']['marker']):
-            answers[i] = item[1:]
-            correct_index = i+1
-            break
+        answers = content.copy()
+        for i, item in enumerate(answers):
+            if item.startswith(config['discord']['trivia']['marker']):
+                answers[i] = item[1:]
+                correct_index = i+1
+                break
+        if correct_index < 0:
+            print('Invalid question found: {}'.format(ind))
 
     # create author info
     author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
