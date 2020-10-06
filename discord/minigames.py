@@ -133,8 +133,7 @@ def prepare_trivia_question(user, count, config):
         # get random question
         with open('questions.csv', 'r') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            ind = random.randint(0, len(list(csvreader)))
-            content = list(csvreader)[ind]
+            content = random.choice(list(csvreader))
 
         # pop the source and the question (first element)
         source = content.pop(0)
@@ -149,7 +148,7 @@ def prepare_trivia_question(user, count, config):
                 correct_index = i+1
                 break
         if correct_index < 0:
-            print('Invalid question found: {}'.format(ind))
+            print('Invalid question found: {}'.format(question))
 
     # create author info
     author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
