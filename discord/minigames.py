@@ -133,7 +133,7 @@ def prepare_trivia_question(user, count, config):
         # get random question
         with open('questions.csv', 'r') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            ind = random.randint(0, list(len(csvreader)))
+            ind = random.randint(0, len(list(csvreader)))
             content = random.choice(list(csvreader)[ind])
 
         # pop the source and the question (first element)
