@@ -134,7 +134,7 @@ def prepare_trivia_question(user, count, config):
         with open('questions.csv', 'r') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             ind = random.randint(0, len(list(csvreader)))
-            content = random.choice(list(csvreader)[ind])
+            content = list(csvreader)[ind]
 
         # pop the source and the question (first element)
         source = content.pop(0)
