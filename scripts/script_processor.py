@@ -1,7 +1,8 @@
 empty = True
 actors = []
-with open('dos.txt', 'r') as from_file:
-    with open('dos_edited.txt', 'w') as to_file:
+txt = 'bofa{}.txt'
+with open(txt.format(''), 'r') as from_file:
+    with open(txt.format('_edited'), 'w') as to_file:
         lines = from_file.readlines()
         for ind, line in enumerate(lines):
             line = line.strip()
@@ -19,8 +20,8 @@ with open('dos.txt', 'r') as from_file:
             line = line.replace('’', '\'')
             to_file.write(line+'\n')
 
-with open('dos.txt', 'r') as from_file:
-    with open('dos_edited.txt', 'w') as to_file:
+with open(txt.format(''), 'r') as from_file:
+    with open(txt.format('_edited'), 'w') as to_file:
         lines = from_file.readlines()
         for ind, line in enumerate(lines):
             temp = line.split(': ')
@@ -29,6 +30,6 @@ with open('dos.txt', 'r') as from_file:
                 line = ':'.join(temp[1:])
             else:
                 if len(temp) != 2:
-                    raise Exception("Error in line: {} No \" indicator. Please check.".format(ind+1))
+                    raise Exception("Error in line: {} No `: ` indicator. Please check.".format(ind+1))
                 author, line = temp
             to_file.write('{}\n{}\n'.format(author.upper(), line))
