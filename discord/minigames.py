@@ -460,8 +460,8 @@ async def display_help(channel, config):
     displays the help message for the usage of the LotR-Trivia-Bot spcififed in the config
     '''
     embed = create_embed(title='LotR Trivia Bot help',
-                         content=config['discord']['help']['text'],
-                         footnote=config['discord']['help']['footer'])
+                         content=config['discord']['help']['text'].format(config['general']['key']),
+                         footnote=config['discord']['help']['footer'].format(config['general']['version']))
     await channel.send(embed=embed)
 
 
