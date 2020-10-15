@@ -12,3 +12,4 @@ with open('questions.csv', 'r') as csvfile:
                 break
         else:
             print("Question without correct answer: "+question[1])
+    print("done.")
