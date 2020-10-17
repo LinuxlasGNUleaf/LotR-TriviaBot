@@ -4022,9 +4022,8 @@ GIMLI
 Gandalf!
 
 GANDALF
-I am Gandalf
-the White. And I come
-back to you now at the turn of the tide.
+I am Gandalf the White.
+And I come back to you now at the turn of the tide.
 
 STOP
 
