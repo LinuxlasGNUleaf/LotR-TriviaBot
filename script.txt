@@ -3168,22 +3168,22 @@ Nothing. Just a dream.
 
 SAM
 Mordor. The one place in Middle-earth
-we don’t want to see any closer, and
-the one place we’re trying to get to.
-It’s just where we can’t get. Let’s
-face it, Mr Frodo, we’re lost. I don’t
+we don't want to see any closer, and
+the one place we're trying to get to.
+It's just where we can't get. Let's
+face it, Mr Frodo, we're lost. I don't
 think Gandalf meant for us to come this
 way.
 
 FRODO
-He didn’t mean for a lot of things to
+He didn't mean for a lot of things to
 happen, Sam, but they did.
 
 SAM
-Mr Frodo? It’s the Ring, isn’t it?
+Mr Frodo? It's the Ring, isn't it?
 
 FRODO
-It’s getting heavier.
+It's getting heavier.
 
 FRODO
 What food have we got left?
@@ -3194,7 +3194,7 @@ And look! More lembas bread.
 
 SAM
 I don't usually hold with foreign food,
-but this Elvish stuff, it’s not bad.
+but this Elvish stuff, it's not bad.
 
 FRODO
 Nothing ever dampens your spirits, does it Sam?
@@ -3206,8 +3206,8 @@ SAM
 This looks strangely familiar.
 
 FRODO
-It’s because we’ve been here before!
-We’re going in circles.
+It's because we've been here before!
+We're going in circles.
 
 SAM
 Ah! What's that 'orrid stink? I'll warrant
@@ -3215,7 +3215,7 @@ there's a nasty bog nearby. Can you
 smell it?
 
 FRODO
-Yes. I can smell it. We’re not alone.
+Yes. I can smell it. We're not alone.
 
 STOP
 
@@ -3224,11 +3224,11 @@ The thieves! The thieves! The filthy
 little thieves! Where is it? Where isss
 it? They stole it from us. My preciousss.
 Curse them! We hates them!
-It’s ours, it is! And we wantssss it!
+It's ours, it is! And we wantssss it!
 
 FRODO
-This is Sting. You’ve seen it before, haven’t you, Gollum!
-Release him or I’ll cut your throat!
+This is Sting. You've seen it before, haven't you, Gollum!
+Release him or I'll cut your throat!
 
 STOP
 
@@ -3240,15 +3240,15 @@ SAM
 Quiet you!
 
 SAM
-It’s hopeless! Every Orc in Mordor’s
-going to hear this racket! Let’s just
+It's hopeless! Every Orc in Mordor's
+going to hear this racket! Let's just
 tie him up and leave him.
 
 GOLLUM
 No! That would kill us! Kill us!
 
 SAM
-It’s no more than you deserve!
+It's no more than you deserve!
 
 FRODO
 Maybe he does deserve to die, but now
@@ -3260,7 +3260,7 @@ be nice to us. Take it off us. We swears
 to do what you wants. We swears.
 
 FRODO
-There’s no promise you can make that
+There's no promise you can make that
 I can trust.
 
 GOLLUM
@@ -3276,15 +3276,15 @@ GOLLUM
 Yes, on the preciousss. On the preciousss.
 
 SAM
-I don’t believe you!
+I don't believe you!
 Get down! I said, down!
 
 FRODO
 Sam!
 
 SAM
-He’s trying to trick us! We let him
-go he’ll throttle us in our sleep!
+He's trying to trick us! We let him
+go he'll throttle us in our sleep!
 
 FRODO
 You know the way to Mordor?
@@ -3293,7 +3293,7 @@ GOLLUM
 Yes.
 
 FRODO
-You’ve been there before?
+You've been there before?
 
 GOLLUM
 Yes.
@@ -3326,7 +3326,7 @@ LEGOLAS
 Come on, Gimli!
 
 GIMLI
-Three days’ and nights’ pursuit. No food.
+Three days' and nights' pursuit. No food.
 No rest. And no sign of our quarry but
 what bare rock can tell.
 
@@ -3357,7 +3357,7 @@ ARAGORN
 Legolas, what do your Elf eyes see?
 
 LEGOLAS
-The Uruks turn northeast. They’re taking
+The Uruks turn northeast. They're taking
 the hobbits to Isengard!
 
 ARAGORN
@@ -3411,7 +3411,7 @@ STOP
 
 MORWEN
 Éothain! Éothain! You take your sister.
-You’ll go faster with just two.
+You'll go faster with just two.
 
 FREDA
 Papa says Éothain must not ride Garulf,
@@ -3426,7 +3426,7 @@ me?
 Yes, Ma!
 
 FREDA
-I don’t wanna leave!
+I don't wanna leave!
 I don't wanna go, Mama!
 
 MORWEN
@@ -3450,7 +3450,7 @@ EOWYN
 Your son is badly wounded, my lord.
 
 EOMER
-He was ambushed by Orcs. If we don’t
+He was ambushed by Orcs. If we don't
 defend our country, Saruman will take
 it by force.
 
@@ -3499,17 +3499,17 @@ Argh!
 STOP
 
 GIMLI
-Keep breathing! That’s the key! Breathe!
+Keep breathing! That's the key! Breathe!
 Ho!
 
 LEGOLAS
-They’ve run as if the very whips of
+They've run as if the very whips of
 their masters were behind them.
 
 STOP
 
 MORDOR ORC
-We’re not going no further till we’ve
+We're not going no further till we've
 had a breather!
 
 UGLÚK
@@ -3523,10 +3523,10 @@ I think we might have made a mistake
 leaving the Shire, Pippin.
 
 PIPPIN
-What’s making that noise?
+What's making that noise?
 
 MERRY
-It’s the trees.
+It's the trees.
 
 PIPPIN
 What?
@@ -3550,8 +3550,8 @@ I'm starving. We ain't 'ad nothin' but
 maggoty bread for three stinkin' days!
 
 SNAGA
-Yeah. Why can’t we have some meat?
-What about them? They’re fresh.
+Yeah. Why can't we have some meat?
+What about them? They're fresh.
 
 UGLÚK
 They are not for eating!
@@ -3573,15 +3573,15 @@ UGLÚK
 No!
 
 UGLÚK
-Looks like meat’s back on the menu,
+Looks like meat's back on the menu,
 boys!
 
 MERRY
-Pippin, let’s go.
+Pippin, let's go.
 
 GRISHNÁKH
 Go on, call for help. Squeal!
-No one’s gonna save you now!
+No one's gonna save you now!
 
 MERRY
 Pippin!
@@ -3638,7 +3638,7 @@ his spies slip past our nets.
 ARAGORN
 We are not spies. We track a party of
 Uruk-hai westward across the plain.
-They’ve taken two of our friends captive.
+They've taken two of our friends captive.
 
 EOMER
 The Uruks are destroyed. We slaughtered
@@ -3675,7 +3675,7 @@ We ride north!
 STOP
 
 GIMLI
-It’s one of their wee belts.
+It's one of their wee belts.
 
 LEGOLAS
 Hiro îth, ab 'wanath.
@@ -3713,7 +3713,7 @@ Did we lose him? I think
 we lost him.
 
 GRISHNÁKH
-I’m gonna rip out your filthy little
+I'm gonna rip out your filthy little
 innards! Come here!
 
 MERRY
@@ -3732,7 +3732,7 @@ PIPPIN
 Argh!
 
 GRISHNÁKH
-Let’s put a maggot-hole in your belly.
+Let's put a maggot-hole in your belly.
 
 PIPPIN
 Run, Merry!
@@ -3741,7 +3741,7 @@ TREEBEARD
 Little Orcs! Burárum!
 
 PIPPIN
-It’s talking, Merry. The tree is talking!
+It's talking, Merry. The tree is talking!
 
 TREEBEARD
 Tree?! I am no tree. I am an Ent.
@@ -3750,7 +3750,7 @@ MERRY
 A treeherder! A shepherd of the forest.
 
 PIPPIN
-Don’t talk to it, Merry. Don’t encourage
+Don't talk to it, Merry. Don't encourage
 it.
 
 TREEBEARD
@@ -3760,12 +3760,12 @@ PIPPIN
 And whose side are you on?
 
 TREEBEARD
-Side? I am on nobody’s side because
-nobody’s on my side, little Orc. Nobody
+Side? I am on nobody's side because
+nobody's on my side, little Orc. Nobody
 cares for the woods anymore.
 
 MERRY
-We’re not Orcs. We’re Hobbits!
+We're not Orcs. We're Hobbits!
 
 TREEBEARD
 Hobbits? Never heard of a hobbit before.
@@ -3776,11 +3776,11 @@ burning! Destroyers and usurpers, curse
 them!
 
 MERRY
-No, you don’t understand. We’re Hobbits!
+No, you don't understand. We're Hobbits!
 Halflings! Shirefolk!
 
 TREEBEARD
-Maybe you are and maybe you aren’t.
+Maybe you are and maybe you aren't.
 The White Wizard will know.
 
 PIPPIN
@@ -3797,7 +3797,7 @@ hobbitses hurry. Very lucky we find
 you.
 
 SAM
-Whoa, it’s a bog! He’s led us into a
+Whoa, it's a bog! He's led us into a
 swamp!
 
 GOLLUM
@@ -3821,7 +3821,7 @@ GOLLUM
 All dead. All rotten. Elves and men
 and orcses. A great battle long ago.
 The Dead Marshes. Yes, yes that is their name.
-This way. Don’t follow the lights.
+This way. Don't follow the lights.
 
 SAM
 Ohh!
@@ -3840,7 +3840,7 @@ FRODO
 Gollum-
 
 GOLLUM
-Don’t follow the lights!
+Don't follow the lights!
 
 SAM
 Mr Frodo! Are you alright?
@@ -3861,7 +3861,7 @@ FRODO
 Who are you?
 
 GOLLUM
-Mustn’t ask us. Not its business. *Gollum,
+Mustn't ask us. Not its business. *Gollum,
 Gollum*
 
 FRODO
@@ -3887,7 +3887,7 @@ GOLLUM
 What did you call me?
 
 FRODO
-That was your name once, wasn’t it?
+That was your name once, wasn't it?
 A long time ago.
 
 GOLLUM
@@ -3906,7 +3906,7 @@ FRODO
 Argh!
 
 SAM
-C’mon Frodo! C'mon!
+C'mon Frodo! C'mon!
 
 GOLLUM
 Quick! They will see us! They will see
@@ -3924,7 +3924,7 @@ They are calling for it. They are calling
 for the preciousss.
 
 SAM
-Mr Frodo! It’s alright. I’m here.
+Mr Frodo! It's alright. I'm here.
 
 GOLLUM
 Hurry, hobbits. The Black Gate is very
@@ -4048,7 +4048,7 @@ TREEBEARD
 My home lies deep in the forest near
 the roots of the mountain. I told Gandalf
 I would keep you safe and safe is where
-I’ll keep you. The trees have grown
+I'll keep you. The trees have grown
 wild and dangerous. Anger festers in
 their hearts. They will harm you if
 they can. There are too few of us now.
@@ -4072,7 +4072,7 @@ FRODO
 I did.
 
 SAM
-That’s it then. We cannot get past that.
+That's it then. We cannot get past that.
 
 SAM
 Look! The gate, it's opening! I can
@@ -4101,27 +4101,27 @@ Now!
 
 GOLLUM
 No! No, no master! They catch you! They
-catch you! Don’t take it to him! He
-wants the preciousss. Always he’s looking
+catch you! Don't take it to him! He
+wants the preciousss. Always he's looking
 for it! And the preciousss is wanting
-to go back to him. But we mustn’t let
+to go back to him. But we mustn't let
 him have it.
 
 GOLLUM
-No! There’s
+No! There's
 another way. More secret. A dark way.
 
 SAM
-Why haven’t you spoken of this before?!
+Why haven't you spoken of this before?!
 
 GOLLUM
 Because Master did not ask!
 
 SAM
-He’s up to something.
+He's up to something.
 
 FRODO
-Are you saying there’s another way into
+Are you saying there's another way into
 Mordor?
 
 GOLLUM
@@ -4129,13 +4129,13 @@ Yes. There is a path, and some stairs,
 and then, a tunnel.
 
 FRODO
-He’s led us this far, Sam.
+He's led us this far, Sam.
 
 SAM
 Mr Frodo, no.
 
 FRODO
-He’s been true to his word.
+He's been true to his word.
 
 SAM
 No!
@@ -4151,7 +4151,7 @@ STOP
 GANDALF
 Edoras and the Golden Hall of Meduseld.
 There dwells Theoden, King of Rohan,
-whose mind is overthrown. Saruman’s
+whose mind is overthrown. Saruman's
 hold over King Theoden is now very strong.
 
 EOWYN
@@ -4199,7 +4199,7 @@ Your words are poison!
 STOP
 
 GIMLI
-You’ll find more cheer in a graveyard.
+You'll find more cheer in a graveyard.
 
 HAMA
 I cannot allow you before Theoden-King
@@ -4215,14 +4215,14 @@ old man from his walking stick?
 
 GRIMA
 My lord, Gandalf the Grey is coming.
-He’s a herald of woe.
+He's a herald of woe.
 
 GANDALF
 The courtesy of your hall is somewhat
 lessened of late. Theoden King.
 
 GRIMA
-He’s not welcome.
+He's not welcome.
 
 THEODEN
 Why should I welcome you - Gandalf Stormcrow?
@@ -4240,7 +4240,7 @@ fire and death to bandy crooked words
 with a witless worm!
 
 GRIMA
-His staff! I told you to take the wizard’s staff!
+His staff! I told you to take the wizard's staff!
 
 GANDALF
 Theoden, son of Thengel, too long have
@@ -4332,7 +4332,7 @@ That I should live to see the last days
 of my house.
 
 GANDALF
-Théodred’s death was not of your making.
+Théodred's death was not of your making.
 
 THEODEN
 No parent should have to bury their
@@ -4353,7 +4353,7 @@ Westfold, burning as they go. Rick,
 cot and tree.
 
 FREDA
-Where’s mama?
+Where's mama?
 
 EOWYN
 Shh.
@@ -4388,31 +4388,31 @@ When last I looked, Theoden, not Aragorn,
 was king of Rohan.
 
 GANDALF
-Then what is the king’s decision?
+Then what is the king's decision?
 
 STOP
 
 HAMA
 By order of the king, the city must
-empty. We make for the refuge of Helm’s
+empty. We make for the refuge of Helm's
 Deep. Do not burden yourselves with
 treasures. Take only what provisions
 you need.
 
 GIMLI
-Helm’s Deep! They flee to the mountains
+Helm's Deep! They flee to the mountains
 when they should stand and fight. Who
 will defend them if not their king?
 
 ARAGORN
-He’s only doing what he thinks is best
-for his people. Helm’s Deep has saved
+He's only doing what he thinks is best
+for his people. Helm's Deep has saved
 them in the past.
 
 GANDALF
 There is no way out of that ravine.
 Theoden is walking into a trap. He thinks
-he’s leading them to safety. What they
+he's leading them to safety. What they
 will get is a massacre. Theoden has
 a strong will but I fear for him. I
 fear for the survival of Rohan. He will
@@ -4424,9 +4424,9 @@ ARAGORN
 They will hold.
 
 GANDALF
-The Grey Pilgrim, that’s what they
+The Grey Pilgrim, that's what they
 used to call me. Three hundred lives
-of men I’ve walked this earth and now
+of men I've walked this earth and now
 I have no time. With luck, my search
 will not be in vain. Look to my coming
 at first light on the fifth day. At
@@ -4461,10 +4461,10 @@ do not think that would be your fate.
 STOP
 
 GRIMA
-Theoden will not stay at Edoras. It’s
+Theoden will not stay at Edoras. It's
 vulnerable, he knows this. He will expect
 an attack on the city. They will flee
-to Helm’s Deep, the great fortress of
+to Helm's Deep, the great fortress of
 Rohan. It is a dangerous road to take
 through the mountains. They will be
 slow. They will have women and children
@@ -4476,7 +4476,7 @@ Send out your warg riders.
 STOP
 
 SAM
-Hey Stinker! Don’t go getting too far
+Hey Stinker! Don't go getting too far
 ahead!
 
 FRODO
@@ -4497,7 +4497,7 @@ wants. It's all he cares about.
 
 FRODO
 You have no idea what
-it did to him. What it’s still doing
+it did to him. What it's still doing
 to him.
 I want to help him, Sam.
 
@@ -4509,7 +4509,7 @@ Because I have to believe he can come
 back.
 
 SAM
-You can’t save him, Mr Frodo.
+You can't save him, Mr Frodo.
 
 FRODO
 What do you know about
@@ -4532,7 +4532,7 @@ to do Sam. The Ring was entrusted to
 me! It's my task! Mine! My own!
 
 SAM
-Can’t you hear yourself? Don’t you know
+Can't you hear yourself? Don't you know
 who you sound like?
 
 STOP
@@ -4551,18 +4551,18 @@ Yes, precious. False. They will cheat
 you, hurt you, lie.
 
 SMEAGOL
-Master’s my friend.
+Master's my friend.
 
 GOLLUM
-You don’t have any friends.
+You don't have any friends.
 Nobody likes YOU!
 
 SMEAGOL
-Not listening. I’m
+Not listening. I'm
 not listening.
 
 GOLLUM
-You’re a liar and a thief.
+You're a liar and a thief.
 
 SMEAGOL
 Nope.
@@ -4592,7 +4592,7 @@ GOLLUM
 What did you say?
 
 SMEAGOL
-Master looks after us now. We don’t
+Master looks after us now. We don't
 need you.
 
 GOLLUM
@@ -4630,26 +4630,26 @@ are nice. Yes they are! Eat them! Eat
 them!
 
 SAM
-You’ll make him sick, you will, behaving
+You'll make him sick, you will, behaving
 like that!
-There’s only one way to eat a brace
+There's only one way to eat a brace
 of coneys.
 
 STOP
 
 SMEAGOL
-Argh! What’s it doing!
+Argh! What's it doing!
 Stupid fat hobbit! It ruins it!
 
 SAM
-What’s to ruin? There’s hardly any meat
+What's to ruin? There's hardly any meat
 on ‘em.
 
 SAM
 What we need is a few good taters.
 
 GOLLUM
-What’s taters, preciousss? What’s taters
+What's taters, preciousss? What's taters
 uh?
 
 SAM
@@ -4661,7 +4661,7 @@ SMEAGOL
 Pbbbttt!
 
 SAM
-Even you couldn’t say no to that.
+Even you couldn't say no to that.
 
 SMEAGOL
 Oh yes we could! Spoil nice fish!
@@ -4669,7 +4669,7 @@ Give it to usss rrraw - and wrrriggling!
 You keep nasty chips.
 
 SAM
-You’re hopeless.
+You're hopeless.
 
 STOP
 
@@ -4679,7 +4679,7 @@ Who are they?
 GOLLUM
 Wicked men. Servants of Sauron. They
 are called to Mordor. The Dark One is
-gathering all armies to him. It won’t
+gathering all armies to him. It won't
 be long now. He will soon be ready.
 
 SAM
@@ -4690,11 +4690,11 @@ To make his war. The last war that will
 cover all the world in shadow.
 
 FRODO
-We’ve got to get moving. Come on, Sam.
+We've got to get moving. Come on, Sam.
 
 SAM
 Mr Frodo!
-Look! It’s an Oliphaunt!
+Look! It's an Oliphaunt!
 
 SAM
 No one at home will believe this.
@@ -4703,7 +4703,7 @@ FRODO
 Smeagol?
 
 FRODO
-We’ve lingered here too long. Come on,
+We've lingered here too long. Come on,
 Sam!
 
 SAM
@@ -4715,13 +4715,13 @@ Bind their hands.
 STOP
 
 GIMLI
-It’s true you don’t see many Dwarf women.
+It's true you don't see many Dwarf women.
 And in fact, they are so alike in voice
-and appearance, *laughs* that they’re often
+and appearance, *laughs* that they're often
 mistaken for Dwarf men!
 
 ARAGORN
-It’s the beards!
+It's the beards!
 
 GIMLI
 And this, in turn, has given rise to
@@ -4740,7 +4740,7 @@ EOWYN
 Ooh!
 
 GIMLI
-It’s alright, it’s alright.
+It's alright, it's alright.
 Nobody panic. That was deliberate.
 It was deliberate.
 
@@ -4789,7 +4789,7 @@ trust this. Trust us.)
 STOP
 
 ELROND
-Our time here is ending. Arwen’s time
+Our time here is ending. Arwen's time
 is ending. Let her go. Let her take
 the ship into the west. Let her bear
 away her love for you to the Undying
@@ -4844,7 +4844,7 @@ GAMLING
 What is it? Hama?
 
 HAMA
-I’m not sure.
+I'm not sure.
 
 GAMLING
 Wargs!
@@ -4867,11 +4867,11 @@ All riders to the head of the column!
 
 GIMLI
 Come on, get
-me up here, I’m a rider!
+me up here, I'm a rider!
 
 THEODEN
 You must lead the people
-to Helm’s Deep. And make haste!
+to Helm's Deep. And make haste!
 
 EOWYN
 I can fight!
@@ -4885,7 +4885,7 @@ Follow me! Yah!
 GIMLI
 Forward.
 I mean, charge forward! March forward!
-That’s it! Go on!
+That's it! Go on!
 
 EOWYN
 Make for the lower
@@ -4913,7 +4913,7 @@ Tell me
 what happened and I will ease your passing.
 
 SHARKU
-He’s dead. Took
+He's dead. Took
 a little tumble off the cliff.
 
 LEGOLAS
@@ -4930,10 +4930,10 @@ Come.
 STOP
 
 REFUGEES
-Helm’s Deep! At last! There it is!
+Helm's Deep! At last! There it is!
 
 OLD WOMAN
-We’re safe, my lady! Thank
+We're safe, my lady! Thank
 you!
 
 FREDA
@@ -4982,7 +4982,7 @@ he thinks he can reach us here.
 STOP
 
 GRIMA
-Helm’s Deep has one weakness. Its outer
+Helm's Deep has one weakness. Its outer
 wall is solid rock but for a small culvert
 at its base which is little more than
 a drain.
@@ -5024,7 +5024,7 @@ There will be no dawn for Men.
 STOP
 
 PIPPIN
-Look! There’s smoke to the south!
+Look! There's smoke to the south!
 
 TREEBEARD
 There is always smoke rising from Isengard
@@ -5043,7 +5043,7 @@ PIPPIN
 What is it?
 
 MERRY
-It’s Saruman’s army! The war has started.
+It's Saruman's army! The war has started.
 
 STOP
 
@@ -5168,8 +5168,8 @@ What news?
 
 MADRIL
 Our scouts report Saruman has attacked
-Rohan. Theoden’s people have fled to
-Helm’s Deep. But
+Rohan. Theoden's people have fled to
+Helm's Deep. But
 we must look to our own borders. Faramir,
 Orcs are on the move. Sauron is marshalling
 an army. Easterlings and Southrons are
@@ -5182,11 +5182,11 @@ MADRIL
 Some thousands. More come every day.
 
 FARAMIR
-Who’s covering the river to the north?
+Who's covering the river to the north?
 
 MADRIL
 We pulled 500 men at Osgiliath, but
-if the city is attacked, we won’t hold
+if the city is attacked, we won't hold
 it.
 
 FARAMIR
@@ -5205,7 +5205,7 @@ SAM
 Spies?! Now wait just a minute!
 
 FARAMIR
-Well if you’re not spies, then who are
+Well if you're not spies, then who are
 you?
 
 FARAMIR
@@ -5237,7 +5237,7 @@ and an Elf. And two men, Aragorn, son
 of Arathorn, and Boromir of Gondor.
 
 FARAMIR
-You’re a friend of Boromir?
+You're a friend of Boromir?
 
 FRODO
 Yes - for my part.
@@ -5250,7 +5250,7 @@ FRODO
 Dead? How? When?
 
 FARAMIR
-As one of his companions, I’d hoped
+As one of his companions, I'd hoped
 you would tell me. He was my
 brother.
 
@@ -5297,10 +5297,10 @@ We must go now?
 FRODO
 Smeagol, you must trust master. Follow
 me, come on. Come. Come, Smeagol. Nice
-Smeagol. That’s it. Come on.
+Smeagol. That's it. Come on.
 
 FRODO
-Don’t hurt him! Smeagol don’t struggle!
+Don't hurt him! Smeagol don't struggle!
 Smeagol listen to me!
 
 GOLLUM
@@ -5354,10 +5354,10 @@ Mr Frodo. Just this once. Put it on.
 Disappear.
 
 FRODO
-I can’t. You were right, Sam. You tried
-to tell me, but - I’m sorry. The Ring’s
-taking me Sam. If I put it on, he’ll
-find me. He’ll see.
+I can't. You were right, Sam. You tried
+to tell me, but - I'm sorry. The Ring's
+taking me Sam. If I put it on, he'll
+find me. He'll see.
 
 FARAMIR
 So this is the answer to all the riddles.
@@ -5373,9 +5373,9 @@ FRODO
 No!
 
 SAM
-Stop it! Leave him alone! Don’t you
-understand? He’s got to destroy it.
-That’s where we’re going. Into Mordor.
+Stop it! Leave him alone! Don't you
+understand? He's got to destroy it.
+That's where we're going. Into Mordor.
 To the mountain of fire.
 
 DAMROD
@@ -5383,7 +5383,7 @@ Osgiliath is under attack. They call
 for reinforcements.
 
 SAM
-Please. It’s such a burden. Will you
+Please. It's such a burden. Will you
 not help him?
 
 DAMROD
@@ -5400,11 +5400,11 @@ Mae carnen, Brego, mellon nîn.
 (Well done, Brego, my friend.)
 
 REFUGEES
-He’s alive!
+He's alive!
 
 GIMLI
 Where is he? Where is he? Get out of
-the way. I’m gonna kill him! You are the luckiest, the
+the way. I'm gonna kill him! You are the luckiest, the
 canniest and the most reckless man I
 ever knew! Bless
 you, laddie!
@@ -5413,7 +5413,7 @@ ARAGORN
 Gimli, where is the king?
 
 LEGOLAS
-Le ab-dollen. (You’re late.) You look terrible.
+Le ab-dollen. (You're late.) You look terrible.
 
 ARAGORN
 Hannon le. (Thank you.)
@@ -5463,14 +5463,14 @@ I know how to defend my own keep.
 
 THEODEN
 They will break upon this fortress like
-water on rock. Saruman’s hordes will
-pillage and burn, we’ve seen it before.
+water on rock. Saruman's hordes will
+pillage and burn, we've seen it before.
 Crops can be resown; homes rebuilt.
 Within these walls, we will outlast
 them.
 
 ARAGORN
-They do not come to destroy Rohan’s
+They do not come to destroy Rohan's
 crops or villages. They come to destroy
 its people. Down to the last child.
 
@@ -5522,7 +5522,7 @@ happen that has not happened for an
 age: Ent Moot.
 
 MERRY
-What’s that?
+What's that?
 
 TREEBEARD
 'Tis a gathering.
@@ -5545,7 +5545,7 @@ GIMLI
 Most have seen too many winters.
 
 LEGOLAS
-Or too few. Look at them. They’re frightened.
+Or too few. Look at them. They're frightened.
 I can see it in their eyes. Boe a hûn: neled herain
 dan caer menig! (And they should be.
 Three hundred against ten thousand!)
@@ -5625,8 +5625,8 @@ ARAGORN
 to forgive, Legolas.)
 
 GIMLI
-If we had more time I’d get this adjusted.
-It’s a little tight across the chest.
+If we had more time I'd get this adjusted.
+It's a little tight across the chest.
 
 LEGOLAS
 That is no Orc horn.
@@ -5668,13 +5668,13 @@ spot.
 
 GIMLI
 Well lad, whatever luck you live by,
-let’s hope it lasts the night.
+let's hope it lasts the night.
 
 LEGOLAS
 Your friends are with you, Aragorn.
 
 GIMLI
-Let’s hope they last the night.
+Let's hope they last the night.
 
 ARAGORN
 A Eruchîn, ú-dano i faelas a hyn an
@@ -5682,7 +5682,7 @@ uben tanatha le faelas! (Show them no
 mercy! For you shall receive none!)
 
 GIMLI
-What’s
+What's
 happening out there?
 
 LEGOLAS
@@ -5724,10 +5724,10 @@ GIMLI
 Legolas, two already!
 
 LEGOLAS
-I’m on seventeen!
+I'm on seventeen!
 
 GIMLI
-Argh! I’ll have no pointy-ear
+Argh! I'll have no pointy-ear
 outscoring me!
 
 LEGOLAS
@@ -5749,14 +5749,14 @@ I have told your names to the Ent moot
 and we have agreed – you are not Orcs.
 
 PIPPIN
-Well, that’s good news.
+Well, that's good news.
 
 MERRY
 And what about Saruman?
 Have you come to a decision about HIM?
 
 TREEBEARD
-Now don’t be hasty,
+Now don't be hasty,
 Master Meriadoc.
 
 MERRY
@@ -5816,7 +5816,7 @@ TREEBEARD
 This is not our war.
 
 MERRY
-But you're part of this world! Aren’t
+But you're part of this world! Aren't
 you?! You must help, please! You
 must do something!
 
@@ -5826,7 +5826,7 @@ But your part in this tale is over.
 Go back to your home.
 
 PIPPIN
-Maybe Treebeard’s right. We don’t belong
+Maybe Treebeard's right. We don't belong
 here, Merry. It's too big for us. What
 can we do in the end? We've got the
 Shire. Maybe we should go home.
@@ -5880,7 +5880,7 @@ GIMLI
 Come on! We can take ‘em!
 
 ARAGORN
-It’s a long way.
+It's a long way.
 
 GIMLI
 Toss me.
@@ -5889,11 +5889,11 @@ ARAGORN
 What?
 
 GIMLI
-I cannot jump the distance! You’ll have
+I cannot jump the distance! You'll have
 to toss me!
 
 GIMLI
-Oh! Don’t tell the Elf.
+Oh! Don't tell the Elf.
 
 ARAGORN
 Not a word.
@@ -5904,7 +5904,7 @@ THEODEN
 Pull everybody back! Pull them back!
 
 THEODEN
-They’ve broken through! The castle is
+They've broken through! The castle is
 breached. Retreat!
 
 GAMLING
@@ -5937,22 +5937,22 @@ PIPPIN
 Yes. Exactly. If we go south we can
 slip past Saruman unnoticed. The closer
 we are to danger, the farther we are
-from harm. It’s the last thing he’ll
+from harm. It's the last thing he'll
 expect.
 
 TREEBEARD
-Mmmm. That doesn’t make sense to me.
+Mmmm. That doesn't make sense to me.
 But then, you are very small. Perhaps
-you’re right. South it is then. Hold
+you're right. South it is then. Hold
 on, little Shirelings. I always like
 going south. Somehow it feels like going
 down hill.
 
 MERRY
-Are you mad? We’ll be caught!
+Are you mad? We'll be caught!
 
 PIPPIN
-No we won’t. Not this time.
+No we won't. Not this time.
 
 STOP
 
@@ -5978,7 +5978,7 @@ STOP
 TREEBEARD
 And a little family of field mice that
 climb up sometimes and they tickle me
-awfully. They’re always trying to get
+awfully. They're always trying to get
 somewhere where they – Oh!
 
 TREEBEARD
@@ -5986,7 +5986,7 @@ Many of these trees were my friends.
 Creatures I had known from nut and acorn.
 
 PIPPIN
-I’m sorry, Treebeard.
+I'm sorry, Treebeard.
 
 TREEBEARD
 They had voices
@@ -6013,13 +6013,13 @@ STOP
 MADRIL
 Faramir, Orcs have taken the eastern
 shore. Their numbers are too great.
-By nightfall we’ll be overrun.
+By nightfall we'll be overrun.
 
 SAM
 Mr Frodo!
 
 FRODO
-It’s calling to him, Sam. His eye is
+It's calling to him, Sam. His eye is
 almost on me.
 
 SAM
@@ -6045,7 +6045,7 @@ SAM
 Mr Frodo?
 
 FRODO
-They’re here. They’ve
+They're here. They've
 come.
 
 FARAMIR
@@ -6163,26 +6163,26 @@ FRODO
 Aaarrgghh!
 
 SAM
-It’s me. It’s your Sam.
-Don’t you know your Sam?
+It's me. It's your Sam.
+Don't you know your Sam?
 
 FRODO
-I can’t do
+I can't do
 this, Sam.
 
 SAM
-I know. It’s all wrong. By rights we
-shouldn’t even be here. But we are.
-It’s like in the great stories, Mr Frodo.
+I know. It's all wrong. By rights we
+shouldn't even be here. But we are.
+It's like in the great stories, Mr Frodo.
 The ones that really mattered.
 Full of darkness and danger they were.
-And sometimes you didn’t want to know the end.
+And sometimes you didn't want to know the end.
 Because how could the end be happy?
 How could the world go back to the way it
 was when so much bad had happened?
 
 SAM
-But in the end, it’s only a passing
+But in the end, it's only a passing
 thing, this shadow. Even darkness
 must pass. A new day will come. And when the sun shines
 it will shine out the clearer. Those
@@ -6191,7 +6191,7 @@ That meant something, even if you were
 too small to understand why. But I think,
 Mr Frodo, I do understand. I know now.
 Folk in those stories had lots of chances
-of turning back only they didn’t. They
+of turning back only they didn't. They
 kept going because they were holding
 on to something.
 
@@ -6199,8 +6199,8 @@ FRODO
 What are we holding on to, Sam?
 
 SAM
-There’s some good in this world, Mr
-Frodo. And it’s worth fighting for.
+There's some good in this world, Mr
+Frodo. And it's worth fighting for.
 
 FARAMIR
 I think at last we understand one another,
@@ -6217,8 +6217,8 @@ Then it is forfeit. Release them.
 STOP
 
 GANDALF
-Sauron’s wrath will be terrible, his
-retribution swift. The battle for Helm’s
+Sauron's wrath will be terrible, his
+retribution swift. The battle for Helm's
 Deep is over. The battle for Middle-earth
 is about to begin. All our hopes now
 lie with two little hobbits. Somewhere
@@ -6227,7 +6227,7 @@ in the wilderness.
 STOP
 
 SAM
-I wonder if we’ll ever be put into songs
+I wonder if we'll ever be put into songs
 or tales.
 
 FRODO
@@ -6235,18 +6235,18 @@ What?
 
 SAM
 I wonder if people will ever say,
-"Let’s hear about Frodo and the Ring." And they’ll say:
-"Yes, that’s one of my favorite stories.
-Frodo was really courageous, wasn’t he, dad."
-"Yes, my boy, the most famousest of hobbits. And that’s saying alot."
+"Let's hear about Frodo and the Ring." And they'll say:
+"Yes, that's one of my favorite stories.
+Frodo was really courageous, wasn't he, dad."
+"Yes, my boy, the most famousest of hobbits. And that's saying alot."
 
 FRODO
 Huh, you left out one of the chief characters:
 Samwise the Brave. I want to hear more about Sam.
-Frodo wouldn’t have got far without Sam.
+Frodo wouldn't have got far without Sam.
 
 SAM
-Now Mr Frodo, you shouldn’t make fun.
+Now Mr Frodo, you shouldn't make fun.
 I was being serious.
 
 FRODO
@@ -6259,17 +6259,17 @@ FRODO
 Smeagol!
 
 SAM
-We’re not gonna wait for you. Come on!
+We're not gonna wait for you. Come on!
 
 SMEAGOL
 Master - Master looks after us. Master
-wouldn’t hurt us.
+wouldn't hurt us.
 
 GOLLUM
 Master broke his promise.
 
 SMEAGOL
-Don’t ask Smeagol. Poor, poor Smeagol.
+Don't ask Smeagol. Poor, poor Smeagol.
 
 GOLLUM
 Master betrayed us! Wicked, tricksy,
@@ -6293,10 +6293,10 @@ Kill them both.
 
 SMEAGOL
 Yes! No no!
-It’s too risky, it’s too risky.
+It's too risky, it's too risky.
 
 SAM
-Where’s he gone? Hey Gollum, where are
+Where's he gone? Hey Gollum, where are
 you?
 
 FRODO
@@ -6310,10 +6310,10 @@ Yes. She could do it.
 
 GOLLUM
 Yes, precious she could. And then we
-takes it once they’re dead.
+takes it once they're dead.
 
 SMEAGOL
-Once they’re dead-
+Once they're dead-
 
 GOLLUM
 Shh!
@@ -8991,3 +8991,7253 @@ Hello, little Frodo!
 
 SAM
 Well, I'm back.
+
+HARDSTOP
+
+OLD BILBO
+My dear Frodo, you asked me once if I had told you everything there was to know about my adventures.
+And while I can honestly say I have told you the truth, I may not have told you all of it.
+I am old now Frodo. I'm not the same hobbit I once was. I think it is time for you to know what really happened.
+
+OLD BILBO
+It began long ago in a land far away to the East. The like of which you will not find in the world today.
+
+OLD BILBO
+There was the city of Dale. Its markets known far and wide, full of the bounties of vine and vale,
+peaceful and prosperous. For this city lay before the doors of the greatest kingdom in Middle-Earth, Erebor.
+Stronghold of Thror, king under the mountain. The mightiest of the dwarf lords. Thror ruled with utter surety,
+never doubting his house would endure, for his line lay secure in the lives of his son and grandson.
+
+OLD BILBO
+Ah, Frodo. Erebor. Built deep within the mountain itself, the beauty of this fortress city was legend.
+Its wealth lay in the earth, in precious gems hewn from rock, and in great seams of gold running like rivers through stone.
+The skill of the dwarves was unequaled. Fashioning objects of great beauty, out of diamond, emerald, ruby and sapphire.
+
+OLD BILBO
+Ever they delved deeper down into the dark, and that is where they found it. The heart of the mountain, the Arkenstone.
+Thror named it the king's jewel. He took it as a sign, a sign that his right to rule was divine.
+
+OLD BILBO
+All would pay homage to him. Even the great Elven king, Thranduil. But the years of peace and plenty were not to last.
+Slowly the days turned sour, and the watchful nights closed in.
+
+OLD BILBO
+Thror's love of gold had grown too fierce. A sickness had begun to grow within him.
+It was a sickness of the mind. And where sickness thrives bad things will follow.
+
+OLD BILBO
+The first they heard was a noise like a hurricane, coming down from the North.
+The pines on the mountain creaked and cracked in the hot dry wind.
+
+THORIN
+Balin, sound the alarm. Call out the guards, do it now!
+
+BALIN
+What is it?
+
+THORIN
+Dragon. Dragon!
+
+OLD BILBO
+He was a Firedrake from the North.
+
+OLD BILBO
+Smaug had come!
+
+OLD BILBO
+Such wanton death was dealt that day, for this city of men was nothing to Smaug.
+His eye was set on another prize. For dragons covet gold with a dark and fierce desire.
+
+THROR
+No!
+
+OLD BILBO
+Erebor was lost. For a dragon will guard his plunder as long as he lives.
+
+THORIN
+Run for your lives!
+
+THORIN
+Help us!
+
+OLD BILBO
+Thranduil would not risk the lives of his kin against the wrath of the dragon.
+No help came from the Elves that day. Nor any day since.
+
+OLD BILBO
+Robbed of their homeland, the dwarves of Erebor wandered the wilderness.
+The once mighty people brought low. The young dwarf prince took work where he could find it,
+laboring in the villages of men. But always, he remembered the mountain smoke beneath the moon,
+the trees like torches blazing bright, where he had seen dragon fire in the sky, and a city turn to ash.
+And he never forgave, and he never forgot.
+
+STOP
+
+OLD BILBO
+That, my dear Frodo, is where I come in. For quite by chance, and the will of a wizard,
+fate decided I would become part of this tale. It began as you might expect.
+
+OLD BILBO
+In a hole in the ground, there lived a hobbit. Not a nasty, dirty wet hole full of worms and oozy smells.
+This was a hobbit hole. And that means good food, a warm hearth, and all the comforts of home.
+
+STOP
+
+OLD BILBO
+Thank you.
+
+FRODO
+What's this?
+
+OLD BILBO
+That is private. Keep your sticky paws off!
+
+OLD BILBO
+It's not ready yet.
+
+FRODO
+Not ready for what?
+
+OLD BILBO
+Reading.
+
+OLD BILBO
+What on earth are these?
+
+FRODO
+Replies to the party invitations.
+
+OLD BILBO
+Ah! Good gracious! Is it today?
+
+FRODO
+They all say they're coming, except for the Sackville-Bagginses, who are demanding you ask them in person.
+
+OLD BILBO
+Are they, indeed. Over my dead body.
+
+FRODO
+They'd probably find that quite agreeable. They seem to think you have tunnels overflowing with gold.
+
+OLD BILBO
+It was one small chest, hardly overflowing. And it still smells of troll.
+
+FRODO
+What on earth are you doing?
+
+OLD BILBO
+Taking precautions. You know I caught her making off with the silverware once.
+
+FRODO
+Who?
+
+OLD BILBO
+Lobelia Sackville-Baggins. She had all my spoons stuffed in her pockets. Dreadful woman.
+Make sure you keep an eye on her after I'm-
+
+FRODO
+When you're what?
+
+OLD BILBO
+It's nothing. Nothing.
+
+FRODO
+You know, some people are beginning to wonder about you, uncle.
+They think you're becoming odd.
+
+OLD BILBO
+Odd?
+
+FRODO
+Well, unsociable.
+
+OLD BILBO
+Unsociable, me? Nonsense. Be a good lad and put that on the gate.
+
+FRODO
+Do you think he'll come?
+
+OLD BILBO
+Who?
+
+FRODO
+Gandalf.
+
+OLD BILBO
+Oh, he wouldn't miss a chance to let off his whiz poppers. He'll give us quite a show, you'll see.
+
+FRODO
+Right then. I am off.
+
+OLD BILBO
+Off to where?
+
+FRODO
+Eastfarthing woods. I'm going to surprise him.
+
+OLD BILBO
+Well, go on then. You don't want to be late.
+
+OLD BILBO
+He doesn't approve being late. Not that I ever was. In those days, I was always on time.
+I was entirely respectable, and nothing unexpected- ever happened.
+
+STOP
+
+BILBO
+Good morning.
+
+GANDALF
+What do you mean? Do you mean to wish me a good morning,
+or do you mean that it is a good morning whether I want it or not?
+Or perhaps you mean to say that you feel good on this particular morning?
+Or are you simply stating that this is a morning to be good on?
+
+BILBO
+All of them at once, I suppose.
+
+BILBO
+Can I help you?
+
+GANDALF
+It remains to be seen. I'm looking for someone to share in an adventure.
+
+BILBO
+An adventure? No, I don't imagine anyone west of Bree, would have much interest in adventures.
+Nasty, disturbing, uncomfortable things. Make you late for dinner!
+
+BILBO
+Good morning!
+
+GANDALF
+To think that I should have lived to be good-morninged by Belladonna Took's son,
+as if I was selling buttons at the door!
+
+BILBO
+Beg your pardon?
+
+GANDALF
+You've changed, and not entirely for the better, Bilbo Baggins.
+
+BILBO
+I'm sorry, do I know you?
+
+GANDALF
+Well you know my name, although you don't remember I belong to it.
+I'm Gandalf, and Gandalf means me!
+
+BILBO
+Gandalf? Not Gandalf, the wandering wizard who made such excellent fireworks?
+Old Took used to have them on Midsummer's Eve! Well! I had no idea you were still in business.
+
+GANDALF
+And where else should I be?
+
+BILBO
+Well-
+
+GANDALF
+Well, I'm pleased to find you remember something about me, even if it's only my fireworks.
+
+GANDALF
+Well that's decided. It'll be very good for you, and most amusing for me. I shall inform the others.
+
+BILBO
+Inform the who? What? No! No! No, wait.
+
+BILBO
+We do not want any adventures here, thank you!
+I suggest you try over the hill or across the water. Good morning.
+
+STOP
+
+DWALIN
+Dwalin.
+
+DWALIN
+At your service.
+
+BILBO
+Hm. Bilbo Baggins at yours.
+
+BILBO
+Do we know each other?
+
+DWALIN
+No. Which way, laddie? Is it down here?
+
+BILBO
+Is- is what down where?
+
+DWALIN
+Supper.
+
+DWALIN
+He said there'd be food, and lots of it.
+
+BILBO
+He- he said? Who said?
+
+DWALIN
+Very good this. Any more?
+
+BILBO
+What? Oh- yes, yes.
+
+BILBO
+Help yourself.
+
+BILBO
+Hmm. It's just that, I wasn't expecting company.
+
+DWALIN
+That'll be the door.
+
+BALIN
+Balin. At your service.
+
+BILBO
+Good evening.
+
+BALIN
+Yes. Yes, it is. Although I think it might rain later.
+
+BALIN
+Am I late?
+
+BILBO
+Late for what?
+
+BALIN
+Ooh! Ah-hah! Evening, brother!
+
+DWALIN
+By my beard! You are shorter and wider than last we met.
+
+BALIN
+Wider, not shorter. Sharp enough for both of us.
+
+BILBO
+Excuse me. Sorry. I hate to interrupt. But the thing is I'm not entirely sure you're in the right house.
+
+BALIN
+Have you eaten?
+
+BILBO
+It's not that I don't like visitors. I like visitors as much as the next Hobbit. But I do like to know them before they come visiting.
+
+DWALIN
+What is this?
+
+BALIN
+I don't know. I think it's supposed to be cheese, it's gone blue.
+
+BILBO
+The thing is, um-
+
+DWALIN
+It's riddled with mold.
+
+BILBO
+The thing is, I don't know either of you, not in the slightest. I don't mean to be blunt, but I had to speak my mind. I'm sorry.
+
+BALIN
+Apology accepted.
+
+BILBO
+Well-
+
+BALIN
+Oh, no. Fill it up now, brother, don't stint.
+
+DWALIN
+You want to get stuck in?
+
+BALIN
+I could eat again if you insist, brother.
+
+FILI
+Fili.
+
+KILI
+And Kili.
+
+FILI & KILI
+At your service.
+
+KILI
+You must be Mister Baggins.
+
+BILBO
+No! You can't come in, you've come to the wrong house.
+
+KILI
+What? Has it been canceled?
+
+FILI
+No one told us.
+
+BILBO
+Can-? No, nothing's been canceled.
+
+KILI
+That's a relief.
+
+FILI
+Careful with these, I just had them sharpened.
+
+KILI
+It's nice, this place. Did you do it yourself?
+
+BILBO
+No, it's been in the family for years.
+
+BILBO
+That's my mother's glory box, can you please not do that?
+
+DWALIN
+Fili, Ki­li, come on, give us a hand.
+
+KILI
+Mister Dwalin.
+
+BALIN
+Let's shove this in the hole, or otherwise we'll never get everyone in.
+
+BILBO
+Ev- everyone? How many more are there?
+
+BILBO
+Oh, no! No, no. There's nobody home! Go away, and bother somebody else!
+There's far too many dwarves in my dining room as it is. If this is some blockhead's idea of a joke,
+I can only say, it is in very poor taste!
+
+BILBO
+Gandalf.
+
+STOP
+
+BILBO
+Those are my-! Excuse me, not my wine! Put that back. Put that back! Not the jam, please. Excuse me.
+
+BILBO
+Ex- Excuse me. A tad excessive, isn't it? Have you got a cheese knife?
+
+BOFUR
+A cheese knife? He eats it by the block.
+
+BILBO
+No no, that's Grandpa Mungo's chair, no-, so is that. Take it back, please.
+Take it back, this is antique, not for sitting on. Thank you. That is a book, not a coaster. Uh- put that map down.
+
+DORI
+Excuse me, Mister Gandalf.
+
+GANDALF
+Yes?
+
+DORI
+May I tempt you with a cup of chamomile?
+
+GANDALF
+Ooh, no thank you, Dori. A little red wine, for me I think.
+
+GANDALF
+Fili, Kili. Oin, Gloin. Dwalin, Balin. Bifur, Bofur, Bombur. Dori, Nori.
+
+BILBO
+No, no. Not my prize winners, thank you.
+
+GANDALF
+Ori!
+
+GANDALF
+Yes, you are quite right, Bifur. We appear to be one dwarf short.
+
+DWALIN
+He is late, is all. He traveled north to a meeting of our kin, he will come.
+
+DORI
+Mister Gandalf?
+
+GANDALF
+Hmm?
+
+DORI
+A little glass of red wine as requested, it's got a fruity bouquet.
+
+GANDALF
+Oh, cheers.
+
+FILI
+Who wants an ale? There you go.
+
+OIN
+Let me have another drink.
+
+BALIN
+Here you go.
+
+BOFUR
+Hey, on the count of three! One! Two! Come!
+
+BILBO
+Ex- excuse me, that is a doily, not a dish cloth.
+
+BOFUR
+But it's full of holes!
+
+BILBO
+It's supposed to look like that, it's crochet.
+
+BOFUR
+Oh, and a wonderful game it is too, if you got the balls for it.
+
+BILBO
+Bebother and confusticate these dwarves!
+
+GANDALF
+My dear Bilbo, what on earth is the matter?
+
+BILBO
+What's the matter? I am surrounded by dwarves. What they're doing here?
+
+GANDALF
+Oh, they're quite a merry gathering, once you get used to them.
+
+BILBO
+I don't want to get used to them. Look at the state of my kitchen!
+There's mud trod in the carpet, they've pillaged the pantry!
+I'm not even gonna tell you what they've done in the bathroom, they've all but destroyed the plumbing!
+I don't understand what they're doing in my house!
+
+ORI
+Excuse me, I'm sorry to interrupt. But what should do with my plate?
+
+FILI
+Here you go, Ori, give it to me.
+
+BILBO
+Excuse me! That's my mother's Westfarthing pottery, it's over a hundred years old!
+
+BILBO
+And, can you not do that, you'll blunt them!
+
+BOFUR
+Ooh, d'you hear that, lads? He says we'll blunt the knives!
+
+KILI
+Blunt the knives, bend the forks.
+
+FILI
+Smash the bottles and burn the corks.
+
+DWARVES
+Chip the glasses and crack the plates. That's what Bilbo Baggins hates!
+Cut the cloth and tread on the fat. Leave the bones on the bedroom-mat,
+pour the milk on the pantry-floor, splash the wine on every door, dump the crocks in a boiling bowl,
+pound them up with a thumping pole. When you've finished, if any are whole, send them down the hall to roll!
+
+DWARVES
+That's what Bilbo Baggins hates!
+
+GANDALF
+He's here.
+
+THORIN
+Gandalf. I thought you said this place would be easy to find. I lost my way, twice.
+
+BALIN
+What news from the meeting in Ered Luin? Did they all come?
+
+THORIN
+Aye, envoys from all seven kingdoms.
+
+DWALIN
+And what did the dwarves of the Iron Hill say? Is Dain with us?
+
+THORIN
+They will not come.
+
+THORIN
+They say this quest is ours, and ours alone.
+
+BILBO
+You're doing a quest?
+
+GANDALF
+Bilbo, my dear fellow, let us have a little more light.
+
+GANDALF
+Far to the East, over ranges and rivers, beyond woodlands and wastelands, lies a single solitary peak.
+
+BILBO
+The Lonely Mountain.
+
+GLOIN
+Aye, Oin has read the portents, and the portents say
+it is time.
+
+OIN
+Ravens have been seen flying back to the mountain as it was foretold.
+When the birds of the old return to Erebor, the reign of the beast will end.
+
+BILBO
+What beast?
+
+BOFUR
+Well that would be a reference to Smaug the Terrible, chiefest and greatest calamity of our age.
+Airborne fire breather, teeth like razors, claws like meat hooks, extremely fond of precious metals.
+
+BILBO
+Yes, I know what a dragon is.
+
+ORI
+I'm not afraid, I'm up for it. I'll give him a taste of the dwarfish iron right up his jacksy!
+
+DORI
+Sit down!
+
+BALIN
+The task would be difficult enough with an army behind us, but we number just thirteen, and not thirteen of the best, nor brightest.
+
+ORI
+Hey! Who are you calling dim?
+
+FILI
+We may be few in number. But we're fighters, all of us! To the last dwarf!
+
+KILI
+And you forget we have a wizard in our company, Gandalf will have killed hundreds of dragons in his time.
+
+GANDALF
+Oh, well. No, uh, I wouldn't say-
+
+DORI
+How many then?
+
+GANDALF
+What?
+
+DORI
+Well, how many dragons have you killed? Go on, give us a number!
+
+BILBO
+Please. Please.
+
+THORIN
+Enough!
+
+THORIN
+If we have read these signs, do you not think others will have read them too? Rumors have begun to spread.
+The dragon Smaug has not been seen for sixty years. Eyes look East to the mountain, assessing, wondering,
+weighing the risk. Perhaps the vast wealth of our people now lies unprotected.
+Do we sit back while others claim what is rightfully ours? Or do we seize this chance to take back Erebor?
+
+BALIN
+You forget the front gate is sealed. There is no way into the mountain.
+
+GANDALF
+That, my dear Balin, is not entirely true.
+
+THORIN
+How came you by this?
+
+GANDALF
+It was given to me by your father by Thrain, for safekeeping. It is yours now.
+
+FILI
+If there is a key, there must be a door!
+
+GANDALF
+These runes speak of a hidden passage to the lower halls.
+
+KILI
+There's another way in.
+
+GANDALF
+Well, if we can find it, but dwarf doors are invisible when closed. The answer lies hidden somewhere in this map,
+and I do not have the skill to find it, but there are others in Middle-Earth who can.
+The task I have in mind will require a great deal of stealth, and no small amount of courage.
+But if we're careful and clever, I believe that it can be done.
+
+ORI
+That's why we need a burglar.
+
+BILBO
+Hmm. And a good one too. An expert, I'd imagine.
+
+GLOIN
+And are you?
+
+BILBO
+Am I what?
+
+OIN
+He said he's an expert!
+
+BILBO
+Me? No! No, No, No! I'm not a burglar. I've never stolen a thing in my life.
+
+BALIN
+And I'm afraid I have to agree with Mister Baggins. He's hardly burglar material.
+
+DWALIN
+Aye, the wild is no place for gentle folk who can neither fight nor fend for themselves.
+
+GANDALF
+Enough! If I say Bilbo Baggins is a burglar, then a burglar he is! Hobbits are remarkably light on their feet.
+In fact, they can pass unseen by most if they choose, and while the dragon is accustomed to the smell of a dwarf,
+the scent of a hobbit is all but unknown to him, which gives us a distinct advantage.
+You asked me to find the fourteenth member of this company, and I have chosen Mister Baggins.
+There's a lot more to him than appearances suggest.
+And he's got a great deal more to offer than any of you know, including himself.
+
+GANDALF
+You must trust me on this.
+
+THORIN
+Very well. We'll do it your way.
+
+BILBO
+No. No-
+
+THORIN
+Give him the contract.
+
+BOFUR
+Orin. We're off!
+
+BILBO
+Please.
+
+BALIN
+It's just the usual summary of out-of-pocket expenses, time required, remuneration, funeral arrangements, so forth.
+
+BILBO
+Funeral arrangements? Ooh.
+
+THORIN
+I cannot guarantee his safety.
+
+GANDALF
+Understood.
+
+THORIN
+Nor will I be responsible for his fate.
+
+GANDALF
+Agreed.
+
+BILBO
+'Total's cash on delivery, up to but not exceeding, one fourteenth of total profit if any.'
+Seems fair.
+
+BILBO
+'The present company shall not be liable for injuries inflicted by or sustained as a consequence thereof,
+including, but not limited to- lacerations. Evisceration.'
+
+BILBO
+'Incineration'?
+
+BOFUR
+Oh, aye, he'll melt the flesh off your bones in the blink of an eye.
+
+BALIN
+You alright, laddie?
+
+BILBO
+Huh? Yeah, I feel a bit faint.
+
+BOFUR
+Think furnace, with wings.
+
+BILBO
+I- I need air.
+
+BOFUR
+Flash of light, searing pain, then poof! You're nothing more than a pile of ash!
+
+BILBO
+No.
+
+GANDALF
+Oh, very helpful, Bofur.
+
+BILBO
+I'll be alright. Just let me sit quietly for a moment.
+
+GANDALF
+You've been sitting quietly for far too long. Tell me, when did doilies and your mother's dishes become so important to you?
+I remember a young hobbit who was always running off in search of Elves, in the woods.
+He'd stay out late, come home, after dark, trailing mud and twigs and fireflies.
+A young hobbit who would've liked nothing better than to find out what was beyond the borders of the Shire.
+The world is not in your books and maps. It's out there.
+
+BILBO
+I can't just go running off into the blue! I am a Baggins, of Bag End!
+
+GANDALF
+You are also a Took. Did you know that your great, great, great,
+great uncle Bullroarer Took, was so large he could ride a real horse?
+
+GANDALF
+Yes, well he could! In the battle of Greenfields, he charged the goblin ranks he swung his club so hard,
+it knocked the goblin king's head clean off, and it sailed a hundred yards through the air, and went down a rabbit hole.
+And thus the battle as won, and the game of golf invented at the same time.
+
+BILBO
+I do believe you made that up.
+
+GANDALF
+Well, all good stories deserve embellishment. You'll have a tale or two to tell of your own when you come back.
+
+BILBO
+Can you promise that I will come back?
+
+GANDALF
+No. And if you do, you'll not be the same.
+
+BILBO
+That's what I thought.
+
+BILBO
+Sorry, Gandalf, I can't sign this. You've got the wrong hobbit.
+
+STOP
+
+BALIN
+It appears we have lost our burglar. Probably for the best. The odds were always against us.
+After all, what are we? Merchants, miners, tinkers, toy makers. Hardly the stuff of legend.
+
+THORIN
+There are a few warriors amongst us.
+
+BALIN
+Old warriors.
+
+THORIN
+I would take each and every one of these dwarves over an army from the Iron Hills,
+for when I called upon them, they answered. Loyalty, honor, a willing heart. I can ask no more than that.
+
+BALIN
+You don't have to do this. You have a choice. You've done honorably by our people.
+You have built a new life for us in the Blue Mountains. A life of peace and plenty.
+A life that is worth more than all the gold in Erebor.
+
+THORIN
+From my grandfather to my father, this has come to me.
+They dreamt of the day when the dwarves of Erebor would reclaim their homeland. There is no choice, Balin. Not for me.
+
+BALIN
+Then we are with you, laddie. We will see it done.
+
+THORIN
+Far over the Misty Mountains cold. To dungeons deep and caverns old. We must away ere break of day. To find our long forgotten gold.
+
+DWARVES
+The pines were roaring on the height, the winds were moaning in the night.
+The fire was red, it flaming spread. The trees like torches blazed with light.
+
+STOP
+
+BILBO
+Hello!
+
+HOBBIT
+Here, Mister Bilbo! Where are you off too?
+
+BILBO
+I can't stop, I'm already late!
+
+HOBBIT
+Late for what?
+
+BILBO
+I'm going on an adventure!
+
+STOP
+
+BILBO
+Wait! Wait!
+
+BILBO
+I signed it.
+
+BALIN
+Everything appears to be in order. Welcome, master Baggins, to the company of Thorin Oakenshield.
+
+THORIN
+Give him a pony.
+
+BILBO
+No, no, no, no. That won't be necessary. Thank you. I'm sure I can keep up on foot.
+Yeah, I've done my fair share of walking holidays, you know? Even got as far as Frog Morton once.
+
+OIN
+Come on, Nori! Pay up!
+
+BILBO
+What's that about?
+
+GANDALF
+Oh, they took wagers on whether or not you'd turn up. Most of them bet that you wouldn't.
+
+BILBO
+And what did you think?
+
+GANDALF
+Well my dear fellow, I never doubted you for a second.
+
+BILBO
+Oh, it's horse hair. Having a reaction.
+
+BILBO
+Wait, wait. Stop! Stop! We have to turn around.
+
+GANDALF
+What on earth is the matter?
+
+BILBO
+I forgot my handkerchief.
+
+BOFUR
+Here! Use this.
+
+THORIN
+Move on!
+
+GANDALF
+You'll have to manage without pocket handkerchiefs, and a good many other things,
+Bilbo Baggins, before we reach our journey's end. You were born to the rolling hills and little rivers of the Shire.
+But home is now behind you. The world is ahead.
+
+STOP
+
+BILBO
+Good girl! Here's a good girl. It's our little secret, Myrtle. Just tell no one. Shh-shh.
+
+BILBO
+What was that?
+
+KILI
+Orcs.
+
+BILBO
+Orcs?
+
+FILI
+Throat cutters. There'd be dozens of them out there. The low lands are crawling with them.
+
+KILI
+They strike, in the wee small hours, when everyone's asleep. Quick and quiet, no screams. Just lots of blood.
+
+THORIN
+You think that's funny? You think a night raid by orcs is a joke?
+
+KILI
+We didn't mean anything by it.
+
+THORIN
+No you didn't. You know nothing of the world.
+
+BALIN
+Don't mind him, laddie. Thorin has more cause than most to hate orcs.
+
+STOP
+
+BALIN
+After the dragon took the Lonely Mountain, King Thror tried to reclaim the ancient dwarf kingdom of Moria.
+
+BALIN
+But our enemy had got' there first.
+
+BALIN
+Moria had been taken by legions of orcs, led by the most vile of all their race, Azog the Defiler.
+The giant Gundabad orc had sworn to wipe out the line of Durin. He began by beheading the king.
+
+BALIN
+Thrain, Thorin's father, was driven mad by grief, he went missing, taken prisoner or killed, we did not know.
+We were leaderless. Defeat and death were upon us. That is when I saw him. A young dwarf prince facing down the Pale Orc.
+
+BALIN
+He stood alone against this terrible foe. His armor rent, wielding nothing but an oaken branch as a shield.
+
+BALIN
+Azog the Defiler learned that day, that the line of Durin would not be so easily broken.
+
+BALIN
+Our forces rallied, and drove the orcs back. Our enemy had been defeated, but there was no feast,
+nor song that night for our dead were beyond the count of grief. We few, had survived.
+
+BALIN
+And I thought to myself then, there is one who I could follow, there is one I could call king.
+
+BILBO
+And the Pale Orc? What happened to him?
+
+THORIN
+He slunk back into the hole whence he came. That filth died of his wounds long ago.
+
+HUNTER ORC
+Send word to the Master, we have found the Dwarf-scum.
+
+STOP
+
+DORI
+Here, Mister Gandalf? Can't you do something about this deluge?
+
+GANDALF
+It is raining, master dwarf. And it will continue to rain until the rain is done!
+If you wish to change the weather of the world, you should find yourself another wizard.
+
+BILBO
+Are there any?
+
+GANDALF
+What?
+
+BILBO
+Other wizards?
+
+GANDALF
+There are five us. The greatest of our order is Saruman, The White.
+Then there are the two blue wizards. Do you know, I've quite forgotten their names.
+
+BILBO
+And who is the fifth?
+
+GANDALF
+Well, that would be Radagast, The Brown.
+
+BILBO
+Is he a great wizard or is he- more like you?
+
+GANDALF
+I think he's a very great wizard, in his own way. He's a gentle soul who prefers the company of animals to others.
+He keeps a watchful eye over the vast forestlands to the East, and a good thing too,
+for always evil will look to find a foothold in this world.
+
+STOP
+
+RADAGAST
+Not good. Not good at all!
+
+RADAGAST
+Oh. Oh, no! Oh, Sebastian! Good gracious.
+
+RADAGAST
+Move back! Give him some air, for goodness sake!
+
+RADAGAST
+I don't understand why it's not working, it's not as if it's witchcraft!
+
+RADAGAST
+Witchcraft. Oh, but it is! A dark and powerful magic.
+
+RADAGAST
+Where on this good earth do those foul creatures come from?
+
+RADAGAST
+The old fortress? Show me.
+
+STOP
+
+THORIN
+We'll camp here for the night. Fili, Kili, look after the ponies. Make sure you stay with them.
+
+GANDALF
+A farmer and his family used to live here.
+
+THORIN
+Oin, Gloin.
+
+OIN
+Aye?
+
+THORIN
+Get the fire going.
+
+OIN
+Right you are.
+
+GANDALF
+I think it would be wiser to move on. We could make for the hidden valley.
+
+THORIN
+But I've told you already. I will not go near that place.
+
+GANDALF
+Why not? The Elves could help us, we could get food, rest, advice.
+
+THORIN
+I do not need their advice.
+
+GANDALF
+We have a map that we cannot read. Lord Elrond could help us.
+
+THORIN
+Help? A dragon attacks Erebor. What help came from the Elves? Orcs plunder Moria,
+desecrate our sacred halls, the Elves looked on and did nothing!
+You ask me to seek out the very people who betrayed my grandfather, who betrayed my father.
+
+GANDALF
+You are neither of them. I did not give you that map and key for you to hold on to the past.
+
+THORIN
+I did not know they were yours to keep.
+
+BILBO
+Everything alright? Gandalf, where are you going?
+
+GANDALF
+To seek the company of the only one around here who's got any sense.
+
+BILBO
+And who's that?
+
+GANDALF
+Myself, Mister Baggins! I've had enough of dwarves for one day.
+
+THORIN
+Come on Bombur, we're hungry.
+
+BILBO
+Is he coming back?
+
+BILBO
+He's been a long time.
+
+BOFUR
+Who?
+
+BILBO
+Gandalf.
+
+BOFUR
+He's a wizard! He does as he chooses. Here. Do us a favor, take this to the lads.
+
+BOFUR
+Stop it, you've had plenty.
+
+BILBO
+What's the matter?
+
+KILI
+We're supposed to be looking after the ponies.
+
+FILI
+Only we've encountered a slight problem.
+
+KILI
+We had sixteen.
+
+FILI
+Now there's fourteen.
+
+KILI
+Daisy and Bungle are missing.
+
+BILBO
+What? Well, that's not good. And that is not good at all. Shouldn't we tell Thorin?
+
+FILI
+Uh- no. Let's not worry him. As our official burglar, we thought you might like to look into it.
+
+BILBO
+Well, it looks as if something big uprooted these trees.
+
+KILI
+That was our thinking.
+
+BILBO
+It's something very big, and possibly quite dangerous.
+
+FILI
+Hey! There's a light.
+
+FILI
+Over here!
+
+FILI
+Stay down.
+
+BILBO
+What is it?
+
+KILI
+Trolls.
+
+BILBO
+He's got Myrtle and Minty! I think they're gonna eat them, we have to do something.
+
+KILI
+Yes, you should. Mountain trolls are slow and stupid, and you're so small. They'll never see you.
+
+BILBO
+Me? Me? No. No. No.
+
+KILI
+It's perfectly safe!
+
+FILI
+We'll be right behind you. If you run into trouble hoot twice like a barn owl, once like a brown owl.
+
+BILBO
+Twice like a barn owl, hoot twice like a brown- hoots like a-? Are you sure this is a good idea?
+
+STOP
+
+WILLIAM TROLL
+Mutton yesterday, mutton today. And blimey, if it don't look like mutton again tomorrow.
+
+BERT TROLL
+Quit your griping. These ain't sheep! These is West nags!
+
+TOM TROLL
+Oh! I don't like horse. I never have. Not enough fat on them.
+
+WILLIAM TROLL
+Well, it's better than a leathery ol' farmer. All skin and bone he was. I'm still pickin' bits of him out o' me teeth.
+
+BERT TROLL
+Well, that's lovely, that is. A floater.
+
+WILLIAM TROLL
+Oh! Might improve the flavor!
+
+TOM TROLL
+Ah! There's more where that came from.
+
+BERT TROLL
+Oh, no you don't!
+
+TOM TROLL
+Oww! Oww!
+
+BERT TROLL
+Sit down!
+
+TOM TROLL
+Well I hope you're gonna gut these nags? I don't like the stinky parts.
+
+TOM TROLL
+Oww!
+
+BERT TROLL
+I said sit down!
+
+WILLIAM TROLL
+I'm starving, are we having horse tonight or what?
+
+BERT TROLL
+Shut your cake hole! You'll eat what I'll give ya!
+
+WILLIAM TROLL
+How come he's the cook? Everything tastes the same, everything tastes like chicken.
+
+TOM TROLL
+Except the chicken.
+
+WILLIAM TROLL
+What tastes like fish!
+
+BERT TROLL
+I'm just saying, a little appreciation would be nice. ‘Thank you very much, Bert. Lovely stew, Bert.' How hard is that?
+
+BERT TROLL
+Mmm. Just needs a sprinkle of squirrel dung.
+
+BERT TROLL
+Here, that's my grog!
+
+TOM TROLL
+Sorry.
+
+TOM TROLL
+Oww!
+
+BERT TROLL
+Ooh. That is beautifully balanced, that is. Wrap your loganbie around that, mate.
+
+BERT TROLL
+Huh? Good ain't it? That's why I'm the cook.
+
+WILLIAM TROLL
+Me guts are grumbling, I've got to snaffle something. Flesh. I need flesh!
+
+TOM TROLL
+Aah! Blimey! Bert! Bert, look what's come out of me hooter! It's got arms and legs and everything!
+
+BERT TROLL
+What is it?
+
+TOM TROLL
+I don't know, but I don't like the way it wriggles around!
+
+BERT TROLL
+What are you then? An oversized squirrel?
+
+BILBO
+I'm a burglar- a hobbit!
+
+TOM TROLL
+A ‘burglar-hobbit'?
+
+WILLIAM TROLL
+Can we cook him?
+
+TOM TROLL
+We can try!
+
+BERT TROLL
+He wouldn't make more than a mouthful. Not when he's skinned and boned!
+
+WILLIAM TROLL
+Perhaps there's more burglar-hobbits 'round these parts, might be enough for a pie!
+
+WILLIAM TROLL
+Grab him!
+
+TOM TROLL
+He's too quick!
+
+WILLIAM TROLL
+Oah, come here! you little-
+
+WILLIAM TROLL
+Gotcha! Are there any more of you little fellas hiding where you shouldn't?
+
+BILBO
+No.
+
+TOM TROLL
+He's lying!
+
+BILBO
+I'm not!
+
+TOM TROLL
+Hold his toes over the fire. Make him squeal!
+
+KILI
+Drop him!
+
+WILLIAM TROLL
+You what?
+
+KILI
+I said, drop him.
+
+KILI
+Bilbo!
+
+THORIN
+No!
+
+WILLIAM TROLL
+Lay down your arms! Or we'll rip his off!
+
+TOM TROLL
+Don't bother cooking 'em! Let's just sit on 'em and squash 'em into jelly!
+
+BERT TROLL
+They should be sauteed and grilled with a sprinkle of sage.
+
+TOM TROLL
+Oh, that does sound quite nice.
+
+WILLIAM TROLL
+Never mind the seasoning, we ain't got all night! Dawn ain't far away, let's get a move on! I don't fancy been turned to stone.
+
+BILBO
+Wait! You are making a terrible mistake.
+
+DORI
+You can't reason with them, they're half-wits!
+
+BOFUR
+Half-wits? What does that make us?
+
+BILBO
+I meant with the, with the- with the seasoning.
+
+BERT TROLL
+What about the seasoning?
+
+BILBO
+Well, have you smelt them? You're gonna need something stronger than sage before you plate this lot up!
+
+WILLIAM TROLL
+What do you know about cooking dwarf?
+
+BERT TROLL
+Shut up, and let the- flurgerburbur-hobbit talk.
+
+BILBO
+Uh, the secret to cooking dwarf, is-
+
+BERT TROLL
+Yes? Come on.
+
+BILBO
+It's, uh-
+
+BERT TROLL
+Tell us the secret!
+
+BILBO
+Ye-yes, I'm telling you. The secret is- to skin them first!
+
+BERT TROLL
+Tom, get me filleting knife.
+
+WILLIAM TROLL
+What a load of rubbish! I've eaten plenty with their skins on. Scoff 'em I say, boots and all!
+
+TOM TROLL
+He's right! Nothing wrong with a bit o' raw dwarf.
+
+TOM TROLL
+Nice and crunchy.
+
+BILBO
+Not- not that one, he's infected!
+
+WILLIAM TROLL
+You what?
+
+BILBO
+Yeah he's got worms in his tubes.
+
+TOM TROLL
+Ooh!
+
+BILBO
+In-in fact, they all have. They're infested with parasites, it's a terrible business, I wouldn't risk it, I really wouldn't.
+
+OIN
+Parasites? Did he say parasites?
+
+KILI
+Yeah, we don't have parasites!
+
+KILI
+You have parasites!
+
+OIN
+I've got parasites as big as my arm!
+
+KILI
+Mine are the biggest parasites, I've got huge parasites!
+
+NORI
+We're riddled!
+
+ORI
+Yes, I'm riddled!
+
+DORI
+Yes, we are, badly!
+
+WILLIAM TROLL
+What would you have us do then? Let 'em all go?
+
+BILBO
+Well-
+
+WILLIAM TROLL
+You think I don't know what you're up to. This little ferret is taking us for fools!
+
+BILBO
+Ferret?
+
+BERT TROLL
+Fools?
+
+GANDALF
+The dawn will take you all!
+
+WILLIAM TROLL
+Who's that?
+
+BERT TROLL
+No idea.
+
+TOM TROLL
+Can we eat him too?
+
+DWALIN
+Ooh, get your foot out of my back!
+
+THORIN
+Where did you go to, if I may ask?
+
+GANDALF
+To look ahead.
+
+THORIN
+What brought you back?
+
+GANDALF
+Looking behind. Nasty business. Still they all are in one piece.
+
+THORIN
+No thanks to your burglar.
+
+GANDALF
+He had the nous to play for time. None of the rest of you thought of that.
+
+GANDALF
+They must have come down from the Ettenmoors.
+
+THORIN
+Since when the mountain trolls venture this far south?
+
+GANDALF
+Oh, not for an age. Not since a darker power ruled these lands.
+
+GANDALF
+They could not have moved in daylight.
+
+THORIN
+There must be a cave nearby.
+
+STOP
+
+BOFUR
+Oh, what's that stench?
+
+GANDALF
+It's a troll hoard. Be careful what you touch.
+
+BOFUR
+Seems a shame just to leave it lying around. Anyone could take it.
+
+GLOIN
+Agreed. Nori, get a shovel.
+
+THORIN
+These swords were not made by any troll.
+
+GANDALF
+Nor were they made by any smith among men.
+
+GANDALF
+These were forged in Gondolin, by the High Elves, of the First Age. You could not wish for a finer blade.
+
+GLOIN
+We're making a long-term deposit.
+
+THORIN
+Let's get out of this foul place. Come on, let's go. Bofur, Gloin, Nori.
+
+GANDALF
+Bilbo.
+
+BILBO
+Hm?
+
+GANDALF
+Here. This is about your size.
+
+BILBO
+I can't take this.
+
+GANDALF
+The blade is of Elvish make, which means it will glow blue when orcs or goblins are nearby.
+
+BILBO
+I have never used a sword in my life.
+
+GANDALF
+And I hope you never have to. But if you do, remember this
+true courage is about knowing not when to take a life, but when to spare one.
+
+STOP
+
+THORIN
+Something's coming!
+
+BILBO
+Gandalf.
+
+GANDALF
+Stay together! Hurry, now! Arm yourselves!
+
+RADAGAST
+Thieves! Fire! Murder!
+
+GANDALF
+Radagast. It's Radagast the Brown!
+
+GANDALF
+What on earth are you doing here?
+
+RADAGAST
+I was looking for you, Gandalf. Something's wrong. Something's terribly wrong.
+
+GANDALF
+Yes?
+
+RADAGAST
+Just give me a minute - oh! I had a thought and now I've lost it.
+It was right there, on the tip of my tongue! Oh! It's not a thought at all! It's a silly old stick insect.
+
+RADAGAST
+The Greenwood is sick, Gandalf. A darkness has fallen over it, nothing grows anymore.
+At least nothing good. The air is foul decay, but worse are the webs.
+
+GANDALF
+Webs? What do you mean?
+
+RADAGAST
+Spiders, Gandalf. Giant ones. Some kind of spawn of Ungoliant,
+or I'm not a wizard. I followed their trail. They came from Dol Guldur.
+
+GANDALF
+Dol Guldur? But the old fortress is abandoned.
+
+RADAGAST
+No, Gandalf. It is not.
+
+RADAGAST
+A dark power dwells in there, such as I have never felt before.
+It is the shadow of an ancient horror. One that can summon the spirits of the dead.
+
+RADAGAST
+I saw him, Gandalf. From out of the darkness, the Necromancer has come!
+
+RADAGAST
+Sorry.
+
+GANDALF
+Try a little old Toby. It'll help setting your nerves.
+
+GANDALF
+And out.
+
+GANDALF
+Now, the Necromancer. Are you sure?
+
+RADAGAST
+That is not from the world of the living.
+
+BILBO
+Was that a wolf? Are there wolves out there?
+
+BOFUR
+Wolves? No, that is not a wolf.
+
+THORIN
+Warg scouts! Which means an orc pack is not far behind!
+
+BILBO
+Orc pack?
+
+GANDALF
+Who did you tell about your quest, beyond your kin?
+
+THORIN
+No one.
+
+GANDALF
+Who did you tell?
+
+THORIN
+No one, I swear! What in Durin's name is going on?
+
+GANDALF
+You are being hunted.
+
+DWALIN
+We have to get out of here.
+
+ORI
+We can't! We have no ponies. They bolted.
+
+RADAGAST
+I'll draw them off.
+
+GANDALF
+These are Gundabad wargs. They will outrun you!
+
+RADAGAST
+These are Rhosgobel rabbits. I'd like to see them try.
+
+RADAGAST
+Come and get me!
+
+GANDALF
+Come on!
+
+GANDALF
+Stay together.
+
+THORIN
+Move!
+
+THORIN
+Ori, no! Come back.
+
+GANDALF
+All of you, come on, come on! Quick!
+
+THORIN
+Where are you leading us?
+
+HUNTER ORC
+The Dwarf-scum are over there! After them!
+
+GANDALF
+Move! Run!
+
+GLOIN
+There they are!
+
+GANDALF
+This way! Quickly!
+
+KILI
+There's more coming!
+
+THORIN
+Ki­li! Shoot them!
+
+FILI
+We're surrounded!
+
+FILI
+Where's Gandalf?
+
+DWALIN
+He's abandoned us!
+
+THORIN
+Hold your ground!
+
+GANDALF
+This way, you fools!
+
+THORIN
+Come on, move! Quickly! All of you!
+
+THORIN
+Go, go, go!
+
+GANDALF
+nine, ten-
+
+THORIN
+Kili! Run!
+
+THORIN
+Elves.
+
+DWALIN
+I cannot see where the pathway leads. Do we follow it or not?
+
+BOFUR
+We follow it, of course!
+
+GANDALF
+I think that would be wise.
+
+STOP
+
+GANDALF
+The Valley of Imladris. In the common tongue, it's known by another name.
+
+BILBO
+Rivendell.
+
+GANDALF
+Here lies the last homely house, east of the sea.
+
+THORIN
+This was your plan all along, to seek refuge with our enemy.
+
+GANDALF
+You have no enemies here, Thorin Oakenshield. The only ill-will to be found in this valley is that which you bring yourself.
+
+THORIN
+You think the Elves will give our quest their blessing? They will try to stop us.
+
+GANDALF
+Of course, they will. But we have questions that need to be answered.
+If we are to be successful this will need to be handled with tact, and respect,
+and no small degree of charm, which is why you will leave the talking to me.
+
+LINDIR
+Mithrandir.
+
+GANDALF
+Ah, Lindir.
+
+THORIN
+Stay sharp.
+
+LINDIR
+We heard you had crossed into the Valley.
+
+GANDALF
+I must speak with Lord Elrond.
+
+LINDIR
+My Lord Elrond is not here.
+
+GANDALF
+Not here? Where is he?
+
+THORIN
+Close ranks!
+
+ELROND
+Gandalf!
+
+GANDALF
+Lord Elrond.
+
+GANDALF
+My friend! Where have you been?
+
+ELROND
+We've been hunting a pack of Orcs that came up from the South. We slew a number near the Hidden Pass.
+
+ELROND
+Strange for orcs to come so close to our borders. Something or someone has drawn them near.
+
+GANDALF
+Ah, that may have been us.
+
+ELROND
+Welcome Thorin, son of Thrain.
+
+THORIN
+I do not believe we have met.
+
+ELROND
+You have your Grandfather's bearing. I knew Thror when he ruled under the mountain.
+
+THORIN
+Indeed? He made no mention of you.
+
+GLOIN
+What is he saying? Does he offer us insult?
+
+GANDALF
+No, Master Gloin, he's offering you food.
+
+GLOIN
+Ah, Well. In that case, lead on.
+
+STOP
+
+DORI
+Try it. Just a mouthful.
+
+ORI
+I don't like green food.
+
+DWALIN
+Where's the meat?
+
+ORI
+Have they got any chips?
+
+GANDALF
+Kind of you to invite us. I'm not really dressed for dinner.
+
+ELROND
+Well, you never are.
+
+STOP
+
+ELROND
+This is Orcrist, the Goblin-cleaver. A famous blade, forged by the High Elves of the West. My kin.
+
+ELROND
+May it serve you well.
+
+ELROND
+And this is Glamdring. The Foe-hammer, sword of the King of Gondolin. These swords were made for the Goblin wars of the First Age.
+
+BALIN
+I wouldn't bother, laddie. Swords are named for their great deeds they do in war.
+
+BILBO
+What are you saying, my sword hasn't seen battles?
+
+BALIN
+I'm not actually sure it is a sword. More of a letter opener, really.
+
+ELROND
+How did you come by these?
+
+GANDALF
+We found them in a troll hoard on the Great East road, shortly before we were ambushed by orcs.
+
+ELROND
+And what were you doing on the Great East road?
+
+THORIN
+Our business is no concern of Elves.
+
+GANDALF
+For goodness sake. Thorin, show him the map!
+
+THORIN
+It is the legacy of my people. It's mine to protect! As are its secrets.
+
+GANDALF
+Save me from the stubbornness of dwarves. Your pride will be your downfall.
+You stand here in the presence of one of the few in Middle-earth who can read that map. Show it to Lord Elrond!
+
+BALIN
+Thorin, no!
+
+ELROND
+Erebor. What is your interest in this map?
+
+GANDALF
+It's mainly academic. As you know, this sort of artifacts sometimes contains hidden text.
+
+GANDALF
+You still read ancient dwarvish, do you not?
+
+ELROND
+‘Cirth ithil'.
+
+GANDALF
+Moon runes. Of course. An easy thing to miss.
+
+ELROND
+Well in this case, that is true.
+Moon runes can only be read by the light of the moon of the same shape and season as the day on which they were written.
+
+THORIN
+Can you read them?
+
+ELROND
+These runes were written on a mid-summer's eve by the light of a crescent moon nearly two hundred years ago.
+It would seem you were meant to come to Rivendell.
+Fate is with you, Thorin Oakenshield. The same moon shines upon us tonight.
+
+ELROND
+‘Stand by the grey stone when the thrush knocks, and the setting sun with the last light of Durin's Day will shine upon the keyhole.'
+
+BILBO
+Durin's Day?
+
+GANDALF
+It is the start of the dwarves new year, when the last moon of Autumn and the first sun of Winter appear in the sky together.
+
+THORIN
+This is ill news. Summer is passing, Durin's Day will soon be upon us.
+
+BALIN
+We still have time.
+
+BILBO
+Time, for what?
+
+BALIN
+To find the entrance. We have to be standing at exactly the right spot, at exactly the right time.
+Then, and only then, can the door be opened.
+
+ELROND
+So this is your purpose, to enter the mountain.
+
+THORIN
+What of it?
+
+ELROND
+There are some who would not deem it wise.
+
+GANDALF
+Who do you mean?
+
+ELROND
+You are not the only guardian to stand watch over Middle-earth.
+
+STOP
+
+HUNTER ORC
+The Dwarves, Master, we lost them. Ambushed by Elvish filth, we were-
+
+AZOG
+I don't want excuses. I want the head of the Dwarf King!
+
+HUNTER ORC
+We were outnumbered, there was nothing we could do. I barely escaped with my life.
+
+AZOG
+Far better you had paid with it.
+
+AZOG
+The Dwarf-scum will show themselves soon enough.
+
+AZOG
+Send out word, there is a price on their heads!
+
+STOP
+
+GANDALF
+With or without our help, these dwarves will march on the mountain. They're determined to reclaim their homeland. I do not believe Thorin Oakenshield feels that he's answerable to anyone. Nor for that matter am I.
+
+ELROND
+But it's not me you must answer to.
+
+GANDALF
+Lady Galadriel.
+
+GALADRIEL
+Mithrandir.
+
+GANDALF
+It has been a long time.
+
+GALADRIEL
+Age may have changed me, but not so the lady of Lorien.
+
+GALADRIEL
+I had no idea Lord Elrond had sent for you.
+
+SARUMAN
+He didn't. I did.
+
+GALADRIEL
+Saruman.
+
+SARUMAN
+You've been busy of late, my friend.
+
+SARUMAN
+Tell me, Gandalf, did you think these plans and schemes of yours would go unnoticed?
+
+GANDALF
+Unnoticed? No, I'm simply doing what I feel to be right.
+
+GALADRIEL
+The dragon has long been on your mind.
+
+GANDALF
+It is true, my Lady. Smaug owes allegiance to no one. But if he should side with the enemy, the dragon could be used to terrible effect.
+
+SARUMAN
+What enemy? Gandalf, the enemy is defeated. Sauron is vanquished. He can never regain his full strength.
+
+ELROND
+Gandalf, for four hundred years we have lived in peace. A hard won watchful peace.
+
+GANDALF
+Are we? Are we at peace? Trolls have come down from the mountains, they are raiding villages, destroying farms. Orcs have attacked us on the road.
+
+ELROND
+Hardly a prelude to war.
+
+SARUMAN
+Always you must meddle. Looking for trouble where none exists!
+
+GALADRIEL
+Let him speak.
+
+GANDALF
+There is something at work beyond the evil of Smaug, something far more powerful.
+We can remain blind to it, but it will not be ignoring us, that I can promise you.
+A sickness hides over the Greenwood. The woodsmen who live there now call it Mirkwood, and they say-
+
+SARUMAN
+Well, don't stop now, tell us what the woodsmen say?
+
+GANDALF
+They speak of a Necromancer, living in Dol Guldur, a sorcerer who can summon the dead.
+
+SARUMAN
+That's absurd. No such power exists in this world.
+This Necromancer is nothing more than a mortal man. A conjurer dabbling in black magic.
+
+GANDALF
+And so I though too. But Radagast has seen-
+
+SARUMAN
+Radagast? Do not speak to me of Radagast the Brown. He's a foolish fellow.
+
+GANDALF
+Well, he's odd, I grant you. He lives a solitary life.
+
+SARUMAN
+It's not that. It's his excessive consumption of mushrooms. They've addled his brain,
+and yellowed his teeth. I warned him. It is unbefitting one of the Istari wandering the wood.
+
+GALADRIEL
+You carry something. It came to you from Radagast, he found it in Dol Guldur.
+
+GANDALF
+Yes.
+
+GALADRIEL
+Show me.
+
+ELROND
+What is that?
+
+GALADRIEL
+A relic of Mordor.
+
+ELROND
+A Morgul blade.
+
+GALADRIEL
+Made for the witch-king of Angmar, and buried with him. When Angmar fell, the men of the North took his body,
+and all that he possessed and sealed it within the high fells of Rhudaur. Deep within the rock they buried him,
+in a tomb so dark it would never come to light.
+
+ELROND
+This is not possible. A powerful spell lies upon those tombs, they cannot be opened.
+
+SARUMAN
+What proof do we have this weapon came from Angmar's grave?
+
+GANDALF
+I have none.
+
+SARUMAN
+Because there is none. Let us examine what we know. A single orc pack has dared to cross the Bruinen.
+A dagger from a by-gone age has been found. And a human sorcerer who calls himself the Necromancer,
+has taken up residence in a ruined fortress. It's not so very much, after all.
+The question of this dwarvish company however, troubles me deeply. I'm not convinced, Gandalf.
+I do not feel I can condone such a quest. If they'd come to me, I might have spare them this disappointment.
+I will not pretend to understand your reasons for raising their hopes.
+
+GALADRIEL
+They are leaving.
+
+GANDALF
+Yes.
+
+GALADRIEL
+You knew.
+
+SARUMAN
+- I'm afraid there's nothing else for it.
+
+LINDIR
+My Lord Elrond. The dwarves, they've gone.
+
+STOP
+
+THORIN
+Be on your guard, we're about to step over the Edge of the Wild. Balin, you know these paths, lead on.
+
+BALIN
+Aye.
+
+THORIN
+Master Baggins, I suggest you keep up.
+
+STOP
+
+GALADRIEL
+You will follow them.
+
+GANDALF
+Yes.
+
+GALADRIEL
+You are right to help Thorin Oakenshield. But I fear this quest has set in motion forces we do not yet understand.
+The riddle of the Morgul blade must be answered. Something moves in the shadows, unseen, hidden from our side,
+it will not show itself, not yet. But every day it grows in strength. You must be careful.
+
+GANDALF
+Yes.
+
+GALADRIEL
+Mithrandir.
+
+GALADRIEL
+Why the Halfling?
+
+GANDALF
+I do not know. Saruman believes that it is only a great power that can hold evil in check,
+but that is not what I have found. I've found it is the small things, everyday deeds of ordinary folk,
+that keep the darkness at bay. Simple acts of kindness and love. Why Bilbo Baggins?
+Perhaps it is because I'm afraid and he gives me courage.
+
+GALADRIEL
+Do not be afraid, Mithrandir. You are not alone.
+
+GALADRIEL
+If you should ever need my help, I will come.
+
+STOP
+
+THORIN
+Alright, hold on!
+
+THORIN
+We must find shelter!
+
+DWALIN
+Look out!
+
+BIFUR
+Hold on!
+
+BALIN
+This is no thunderstorms! It's a thunder-battle! Look!
+
+BOFUR
+Well bless me. The legends are true! Giants! Stone giants!
+
+THORIN
+Take cover, you fool!
+
+NORI
+Hold on!
+
+FILI
+Ki­li, grab my hand!
+
+BALIN
+We're alright! We're alive!
+
+BOFUR
+Where's Bilbo? Where's the hobbit?
+
+THORIN
+Get him!
+
+BOFUR
+Grab my hand! Bilbo! Come on and take it!
+
+DWALIN
+I thought we'd lost our burglar.
+
+THORIN
+He's been lost ever since he left home. He should never have come. He has no place amongst us.
+
+THORIN
+Dwalin!
+
+DWALIN
+It looks safe enough.
+
+THORIN
+Search to the back, caves in the mountains are seldom unoccupied.
+
+DWALIN
+There's nothing here.
+
+GLOIN
+Right then, let's get a fire started.
+
+THORIN
+No. No fires. Not in this place. Get some sleep, we start at first light.
+
+BALIN
+We were to wait in the mountains until Gandalf joined us. That was the plan.
+
+THORIN
+Plans change. Bofur, take the first watch.
+
+AZOG
+The scent is fresh! They have taken the mountain pass.
+
+STOP
+
+BOFUR
+Where do you think you're going?
+
+BILBO
+Back to Rivendell.
+
+BOFUR
+No. No. No. You can't turn back, now. You're part of the company. You're one of us.
+
+BILBO
+I'm not though, am I? Thorin said I should never have come, and he was right.
+I'm not a Took, I'm a Baggins, I don't know what I was thinking. I should've never run out the door.
+
+BOFUR
+You're homesick, I understand.
+
+BILBO
+No, you don't! You don't understand, none of you do, you're dwarves! You're used to this life,
+to living on the road, never settling in one place, not belonging anywhere!
+
+BILBO
+I'm sorry. I didn't-
+
+BOFUR
+No, you're right. We don't belong anywhere.
+
+BOFUR
+I wish you all the luck in the world. I really do.
+
+BOFUR
+What's that?
+
+THORIN
+Wake up. Wake up!
+
+STOP
+
+GREAT GOBLIN
+Who would be so bold as to come armed into my kingdom? Spies? Thieves? Assassins?
+
+GOBLIN
+Dwarves, your Malevolence.
+
+GREAT GOBLIN
+Dwarves?
+
+GOBLIN
+We found them on the front porch.
+
+GREAT GOBLIN
+Well don't just stand there, search them! Every crack, every crevice!
+
+GREAT GOBLIN
+What are you doing in these parts? Speak!
+
+GREAT GOBLIN
+Very well, if they will not talk, we'll make them squawk!
+Bring up the mangler, bring up the bone breaker! Start with the youngest.
+
+THORIN
+Wait!
+
+GREAT GOBLIN
+Well, well, well! Look who it is! Thorin, son of Thrain, son of Thror, king under the mountain.
+
+GREAT GOBLIN
+Oh! But I'm forgetting you don't have mountain, and you're not a king. Which makes you nobody really.
+I know someone who would pay a pretty price for your head. Just the head, nothing attached.
+Perhaps you know of whom I speak, an old enemy of yours. A pale orc astride a white warg.
+
+THORIN
+Azog the Defiler was destroyed. He was slain in battle long ago
+
+GREAT GOBLIN
+So you think his defiling days are done, do you?
+
+GREAT GOBLIN
+Send word to the pale orc, tell him I have found his prize.
+
+STOP
+
+GOLLUM
+Yesss. Yes! Yes. Gollum. Yes! Gollum! Gollum!
+
+GOLLUM
+Nasty goblinses are better than old bones, precious. Better than nothing.
+
+GOLLUM
+Aah, too many boneses, precious! Not enough flesh. Shut up! Cut its skin off! Start with its head.
+
+GOLLUM
+The cold hard lands, they bites our hands, they gnaws our feet,
+for rocks and stones are like old bones all bare of meat, cold as death, without no breath it's good to eat.
+
+GOLLUM
+Bless us and splash us, precious. That's a meaty mouthful.
+
+GOLLUM
+Gollum, Gollum!
+
+BILBO
+Back. Stay back. I'm warning you, don't come any closer.
+
+GOLLUM
+It's got an Elfish blade, but it's not an Elfes. Not an Elfes, no. What is it, precious? What is it?
+
+BILBO
+My name is Bilbo Baggins.
+
+GOLLUM
+Bagginses. What is a Bagginses, precious?
+
+BILBO
+I'm a- hobbit from the Shire.
+
+GOLLUM
+Oh! We like goblinses, batses and fishes, but we hasn't tried Hobbitses before! Is it soft? Is it juicy?
+
+BILBO
+Now! Now, k-keep your distance!
+
+BILBO
+I'll use this, if I have too.
+
+BILBO
+I don't - want any trouble, you understand? Just show me the way to get out of here, and I'll be on my way.
+
+GOLLUM
+Why? Is it lost?
+
+BILBO
+Yes. Yes, and I want to get unlost, as soon as possible.
+
+GOLLUM
+Oh, we knows! We knows safe path for hobbitses. Safe path in the dark. Shut up!
+
+BILBO
+I didn't say anything.
+
+GOLLUM
+I wasn't talking to you!
+
+GOLLUM
+Oh yes, we was, precious, we was.
+
+BILBO
+Look, I don't know what your game is, but I-
+
+GOLLUM
+Games? Oh, we love games, doesn't we, precious? Does it like games? Does it, does it, does it like to play?
+
+BILBO
+Maybe.
+
+GOLLUM
+What has roots as nobody sees, is taller than trees, up, up, up it goes, and yet never grows?
+
+BILBO
+The mountain.
+
+GOLLUM
+Yes! Yes! Ooh, let's have another one, huh? Yes. Go, do it again. Do it, do it again, ask us.
+
+GOLLUM
+No! No more riddles. Finish him off, finish him now! Gollum, Gollum!
+
+BILBO
+No! No, no, no. I want to play. I do. I want to play. I can see you are very good at this.
+So why don't we have a game of riddles? Yes, just- just you and me.
+
+GOLLUM
+Yes. Just us.
+
+BILBO
+Yes, yes! And if I win, you will show me the way out. Yes?
+
+GOLLUM
+Yes. Yes!
+
+GOLLUM
+And if it loses, what then? Well, if it loses, precious, then we eats it!
+
+GOLLUM
+If Baggins loses, we eats it whole.
+
+BILBO
+Fair enough.
+
+GOLLUM
+The Baggins first.
+
+BILBO
+Thirty white horses on a red hill. First they champ, then they stamp, then they stand still.
+
+GOLLUM
+Teeth?
+
+GOLLUM
+Teeth!
+
+GOLLUM
+Yes, my precious! But we only have nine.
+
+GOLLUM
+Our turn. Voiceless it cries, wingless flutters, toothless bites, mouthless mutters.
+
+BILBO
+Just a minute.
+
+GOLLUM
+Ooh! We knows, we knows!
+
+GOLLUM
+Shut up!
+
+BILBO
+Wind.
+
+BILBO
+It's wind! Of course it is.
+
+GOLLUM
+Very clever, hobbitses. Very clever!
+
+BILBO
+A box without hinges, key or lid, yet golden treasure inside is hid.
+
+BILBO
+Well?
+
+GOLLUM
+It's nasty.
+
+BILBO
+Give up?
+
+GOLLUM
+Give us a chance, precious! Give us a chance!
+
+GOLLUM
+Eggses! Eggses! Wet, crunchy little eggses, yes. Grandmother taught us to suck them, yes!
+
+GOLLUM
+We have one for you. All things it devours; birds, beasts, trees, flowers.
+Gnaws iron, bites steel, Grinds hard stones to meal. Answer us.
+
+BILBO
+Give me a moment, please. I gave you a good long while.
+
+BILBO
+I don't know this one.
+
+GOLLUM
+Is it tasty? Is it scrumptious? Is it crunchable!
+
+BILBO
+Let me think! Let me think.
+
+GOLLUM
+It's stuck. Bagginses is stuck. Time's up.
+
+BILBO
+Time? Ti- The answer is Time.
+
+BILBO
+Actually, it wasn't that hard.
+
+GOLLUM
+Last question. Last chance.
+
+BILBO
+Okay. Uh-
+
+GOLLUM
+Ask us. Ask us!
+
+BILBO
+Yes. Yes, alright.
+
+BILBO
+What have I got in my pocket?
+
+GOLLUM
+Well, that's no fair. It's no fair! It's against the rules!
+
+GOLLUM
+You ask us another one.
+
+BILBO
+No. No, no, no. You said, ask me a question. Well that is my question. What have I got in my pocket?
+
+GOLLUM
+Three guesses, precious. He must give us three!
+
+BILBO
+Three guesses, very well, guess away.
+
+GOLLUM
+Handses!
+
+BILBO
+Wrong. Guess again.
+
+GOLLUM
+Uuh! Fish bones, goblin's teeth, wet shells, bat's wings! Oooh! Aaah!
+
+GOLLUM
+Knife!
+
+GOLLUM
+No, shut up!
+
+BILBO
+Wrong, again. Last guess.
+
+GOLLUM
+String! Or nothing.
+
+BILBO
+Two guesses at once. Wrong both times.
+
+BILBO
+So. Come then. I won the game, you promised to show me the way out.
+
+GOLLUM
+Did we say so, precious? Did we say so?
+
+GOLLUM
+What has it got in its pocketses?
+
+BILBO
+That's no concern of yours. You lost.
+
+GOLLUM
+Lost. Lost? Lost?
+
+GOLLUM
+Where is it? Where is it?
+
+GOLLUM
+No! Aaah! Where is it? Nooo! Lost, lost! Curse us and splash us, my precious is lost!
+
+BILBO
+What have you lost?
+
+GOLLUM
+Mustn't ask us! Not its business! Nooo! Gollum! Gollum!
+
+GOLLUM
+What has it got in its nasty little pocketses?
+
+GOLLUM
+He stole it. He stole it! Aaah! He stole it!
+
+STOP
+
+GREAT GOBLIN
+Bones will be shattered, necks will be wrung, and you'll be beaten and battered, from racks you'll be hung.
+You will die down here and never be found, down in the deep of Goblin town.
+
+GREAT GOBLIN
+I know that sword! It is the Goblin-cleaver! The Biter! The blade that sliced a thousand necks!
+
+GREAT GOBLIN
+Slash them, beat them, peel them, kill them all!
+
+GREAT GOBLIN
+Cut off his head!
+
+GANDALF
+Take up arms. Fight. Fight!
+
+GREAT GOBLIN
+He wields the Foe-hammer, the beater, bright as daylight!
+
+GANDALF
+Follow me. Quick! Run!
+
+STOP
+
+GOLLUM
+Give it to us!
+
+GOLLUM
+It's ours. It's ours!
+
+GOLLUM
+Thief! Baggins!
+
+STOP
+
+GREAT GOBLIN
+You thought you could escape me!
+
+GREAT GOBLIN
+What are you going to do now, wizard?
+
+GREAT GOBLIN
+*stertorous* That'll do it.
+
+STOP
+
+BOFUR
+Well, that could have been worse.
+
+DWALIN
+You've got to be joking!
+
+KILI
+Gandalf!
+
+DWALIN
+There's too many, we can't fight them.
+
+GANDALF
+Only one thing will save us. Daylight! Come on!
+
+GANDALF
+Here, on your feet.
+
+STOP
+
+GOLLUM
+Wait, my precious. Wait! Gollum! Gollum!
+
+GOLLUM
+Baggins! Thief! Curse it and crush it, we hates it forever!
+
+STOP
+
+GANDALF
+Five, six, seven, eight. Bifur, Bofur, that's ten. Fili, Ki­li, that's twelve.
+And Bombur, that makes thirteen. Where's Bilbo? Where is our hobbit? Where is our hobbit?
+
+GLOIN
+Curse that Halfling! Now he's lost! I thought he was with Dori!
+
+DORI
+Don't blame me!
+
+GANDALF
+And where did you last see him?
+
+BIFUR
+I think I saw him slip away when they first collared us.
+
+GANDALF
+What happened exactly? Tell me!
+
+THORIN
+I'll tell you what happened. Master Baggins saw his chance and he took it!
+He's thought of nothing but his soft bed and his warm hearth since first he stepped out of his door.
+We will not be seeing our hobbit again, he is long gone.
+
+BILBO
+No, he isn't.
+
+GANDALF
+Bilbo Baggins. I've never been so glad to see anyone in my life.
+
+KILI
+Bilbo, we'd given you up!
+
+FILI
+How on earth did you get past the goblins?
+
+DWALIN
+How indeed?
+
+GANDALF
+Oh, what does it matter? He's back.
+
+THORIN
+It matters. I want to know. Why did you come back?
+
+BILBO
+Look, I know you doubt me. I know you always have. And you're right, I often think of Bag End.
+I miss my books, and my arm chair, and my garden. See, that's where I belong. That's home.
+And that's why I came back, cause- you don't have one. A home. It was taken from you, but I will help you take it back if I can.
+
+STOP
+
+AZOG
+Run them down! Tear them to pieces!
+
+THORIN
+Out of the frying pan.
+
+GANDALF
+And into the fire. Run. Run!
+
+GANDALF
+Up into the trees. All of you! Come on, climb! Bilbo, climb!
+
+THORIN
+They're coming!
+
+THORIN
+Azog!
+
+AZOG
+Do you smell it? The scent of fear? I remember your father reeked of it, Thorin son of Thrain.
+
+THORIN
+It cannot be.
+
+AZOG
+That one is mine. Kill the others!
+
+AZOG
+Drink their blood!
+
+GANDALF
+Fili!
+
+DORI
+Mister Gandalf! Aah!
+
+AZOG
+Bring me the Dwarf's head.
+
+AZOG
+Kill him.
+
+GANDALF
+Thorin! Thorin.
+
+STOP
+
+THORIN
+The Halfling?
+
+GANDALF
+It's alright. Bilbo is here, he's quite safe.
+
+THORIN
+You! What were you doing? You nearly got yourself killed! Did I not say that you would be a burden?
+That you would not survive in the wild, and you had no place amongst us?
+
+THORIN
+I have never been so wrong, in all my life.
+
+THORIN
+But, I'm sorry I doubted you.
+
+BILBO
+No, I would have doubted me too. I'm not a hero, nor a warrior. Not even a burglar.
+
+BILBO
+Is that what I think it is?
+
+GANDALF
+Erebor! The Lonely Mountain. The last of the Great Dwarf Kingdoms of Middle-earth.
+
+THORIN
+Our home.
+
+OIN
+A raven! The birds are returning to the mountain.
+
+GANDALF
+That, my dear Oin, is a thrush.
+
+THORIN
+Well we'll take it as a sign, a good omen.
+
+BILBO
+You're right. I do believe the worst is behind us.
+
+STOP
+
+MAN AT BAR
+I'm dying of thirst over here! Come on! Come on!
+
+BARTENDER
+Here you are.
+
+BARMAID
+Watch it!
+
+BAR PATRON
+Sorry, darling.
+
+BARMAID
+Here you are.
+
+THORIN
+Ah, thank you.
+
+GANDALF
+Mind if I join you?
+
+GANDALF
+I'll have the same.
+
+GANDALF
+I should introduce myself. My name is Gandalf. Gandalf the Grey.
+
+THORIN
+I know who you are.
+
+GANDALF
+Well, now, this is a fine chance. What brings Thorin Oakenshield to Bree?
+
+THORIN
+I received word that my Father had been seen wandering the wilds near Dunland. I went looking, found no sign of him.
+
+GANDALF
+Thorin, it's been a long time since anything but rumor was heard of Thrain.
+
+THORIN
+He still lives, I am sure of it.
+
+THORIN
+My father came to see you before he went missing. What did you say to him?
+
+GANDALF
+I urged him to march upon Erebor, to rally the seven armies of the dwarves.
+To destroy the dragon and take back the Lonely Mountain,
+and I would say the same to you. Take back your homeland.
+
+THORIN
+This is no chance meeting is it, Gandalf?
+
+GANDALF
+No, it is not. The Lonely Mountain troubles me, Thorin. That dragon has sat there long enough,
+sooner or later darker minds will turn towards Erebor.
+I ran into some unsavory characters whilst traveling along the Greenway. They mistook me for a vagabond.
+
+THORIN
+I imagine they regretted that.
+
+GANDALF
+One of them was carrying a message.
+
+GANDALF
+It is Black Speech.
+
+GANDALF
+A promise of payment.
+
+THORIN
+For what?
+
+GANDALF
+Your head. Someone wants you dead. Thorin, you can wait no longer. You are the heir to the throne of Durin.
+Unite the armies of the dwarves, together you have the might and power to retake Erebor.
+Summon a meeting of the seven dwarf families, demand they stand by their oath.
+
+THORIN
+The seven armies swore that oath to the one who wields the King's jewel, the Arkenstone.
+It is the only thing that will unite them, and in case you have forgotten, that jewel was stolen by Smaug.
+
+GANDALF
+What if I were to help you reclaim it?
+
+THORIN
+How? The Arkenstone lies half a world away, buried beneath the feet of a fire breathing dragon.
+
+GANDALF
+Yes, it does. Which is why we're going to need a burglar.
+
+STOP
+
+THORIN
+How close is the pack?
+
+BILBO
+Too close, couple of leagues, no more. But that's not the worst of it.
+
+DWALIN
+Have the Orcs picked up our scent?
+
+BILBO
+Not yet, but they will do. We have another problem.
+
+GANDALF
+Did they see you? They saw you.
+
+BILBO
+No, that's not it.
+
+GANDALF
+Good, what did I tell you? Quite as a mouse. Excellent burglar material.
+
+BILBO
+Will you listen! I'm trying to tell you there is something else out there.
+
+GANDALF
+What form did it take? Like a bear?
+
+BILBO
+Yes, but bigger. Much bigger.
+
+BOFUR
+You knew about this beast?
+
+BOFUR
+I say we double back.
+
+THORIN
+We'll be run down by a pack of Orcs.
+
+GANDALF
+There is a house, it's not far from here, where we might take refuge.
+
+THORIN
+Whose house? Are they friend or foe?
+
+GANDALF
+Neither. He will help us or he will kill us.
+
+THORIN
+What choice do we have?
+
+GANDALF
+None.
+
+STOP
+
+GANDALF
+This way! Quickly!
+
+GANDALF
+Into the house! Run!
+
+GANDALF
+Come on! Get inside!
+
+GANDALF
+Open the door!
+
+THORIN
+Quickly!
+
+DWALIN
+Come on, lads!
+
+ORI
+What is that?
+
+GANDALF
+That is our host.
+His name is Beorn, he's a skin-changer. Sometimes he's a huge black bear, sometimes he's a great strong man.
+The bear is unpredictable, but the man can be reasoned with. However, he is not over fond of dwarves.
+
+ORI
+He's leaving.
+
+DORI
+Come away from there! It's not natural, none of it. It's obvious, he's under some dark spell.
+
+GANDALF
+Don't be a fool. He's under no enchantment but his own.
+
+GANDALF
+Alright now, get some sleep all of you. You'll be safe here tonight.
+
+GANDALF
+I hope.
+
+STOP
+
+NARZUG
+Attack them now. Kill the Dwarf filth while they sleep.
+
+AZOG
+No. The Beast stands guard.
+
+AZOG
+We will kill them on the road.
+
+BOLG
+They are gathering in Dol Guldur. The Master has summoned you.
+
+STOP
+
+THE NECROMANCER
+We grow in number. We grow in strength. You will lead my armies.
+
+AZOG
+What of Oakenshield?
+
+THE NECROMANCER
+War is coming.
+
+AZOG
+You promised me his head.
+
+THE NECROMANCER
+Death will come to all.
+
+STOP
+
+NARZUG
+Do we call off the hunt?
+
+AZOG
+Bolg! I have a task for you. Do you still thirst for Dwarf blood?
+
+STOP
+
+BEORN
+So you are the one they call Oakenshield. Tell me, why is Azog the Defiler hunting you?
+
+THORIN
+You know of Azog? How?
+
+BEORN
+My people were the first to live in the mountains, before the Orcs came down from the north.
+The Defiler killed most of my family, but some he enslaved. Not for work, you understand, but for sport.
+Caging skin-changers and torturing them seemed to amuse him.
+
+BILBO
+There are others like you?
+
+BEORN
+Once there were many.
+
+BILBO
+And now?
+
+BEORN
+Now there's only one. You need to reach the mountain before the last days of autumn.
+
+GANDALF
+Before Durin's Day falls, yes.
+
+BEORN
+You are running out of time.
+
+GANDALF
+Which is why we must go through Mirkwood.
+
+BEORN
+A darkness lies upon that forest, fell things creep beneath those trees.
+There is an alliance between the Orcs of Moria and The Necromancer in Dol Guldur.
+I would not venture there, except in great need.
+
+GANDALF
+We will take the Elven Road, their path is still safe.
+
+BEORN
+Safe? The Wood Elves of Mirkwood are not like their kin. They're less wise and more dangerous. But it matters not.
+
+THORIN
+What do you mean?
+
+BEORN
+These lands are crawling with Orcs, their numbers are growing and you are on foot.
+You will never reach the forest alive. I don't like dwarves, they're greedy and blind,
+blind to the lives of those they deem lesser than their own.
+But Orcs I hate more.
+
+BEORN
+What do you need?
+
+BEORN
+Go now, while you have the light. Your hunters are not far behind.
+
+STOP
+
+GANDALF
+The Elven Gate.
+
+GANDALF
+Here lies our path through Mirkwood.
+
+DWALIN
+No sign of the Orcs. We have luck on our side.
+
+GANDALF
+Set the ponies loose. Let them return to their master.
+
+BILBO
+This forest feels sick, as if a disease lies upon it. Is there no way around?
+
+GANDALF
+Not unless we go two hundred miles north, or twice that distance south.
+
+GALADRIEL
+Something moves in the shadows, unseen, hidden from our sight. Every day it grows in strength. Beware of The Necromancer, he is not what he seems.
+
+GALADRIEL
+If our enemy has returned, we must know. Go to the tombs in the mountains.
+
+GANDALF
+The High Fells. So be it.
+
+GANDALF
+Not my horse, I need it!
+
+BILBO
+You're not leaving us?
+
+GANDALF
+I would not do this unless I had to.
+
+GANDALF
+You've changed, Bilbo Baggins. You're not the same hobbit as the one who left the Shire.
+
+BILBO
+I was going to tell you.
+
+BILBO
+I found something in the Goblin tunnels.
+
+GANDALF
+Found what?
+
+GANDALF
+What did you find?
+
+BILBO
+My courage.
+
+GANDALF
+Good. Well, that's good. You'll need it.
+
+GANDALF
+I'll be waiting for you at the overlook, before the slopes of Erebor.
+
+GANDALF
+Keep the map and key safe. Do not enter that mountain without me.
+
+GANDALF
+This is not the Greenwood of old, the very air of the forest is heavy with illusion that will seek to enter your mind and lead you astray.
+
+BILBO
+Lead us astray? What does that mean?
+
+GANDALF
+You must stay on the path, do not leave it. If you do, you'll never find it again.
+
+GANDALF
+No matter what may come, stay on the path!
+
+THORIN
+Come on, we must reach the mountain before the sun sets on Durin's Day. Let's go, we've but one chance to find the hidden door.
+
+STOP
+
+THORIN
+The path turns this way.
+
+DWALIN
+This way.
+
+BOFUR
+Air, I need air.
+
+OIN
+My head, it's spinning! What's happening?
+
+THORIN
+Keep moving.
+
+THORIN
+Nori, why have you stopped?
+
+NORI
+The path, it's disappeared!
+
+ORI
+What's going on?
+
+BOFUR
+We've lost the path!
+
+THORIN
+Find it. All of you, look.
+
+DWALIN
+Look for the path!
+
+BALIN
+I don't remember this place, none of it's familiar.
+
+DORI
+It's got to be here.
+
+THORIN
+What hour is it?
+
+DWALIN
+I don't know, I don't even know what day it is.
+
+THORIN
+Is there no end to this accursed forest!
+
+DORI
+Look, a tobacco pouch. There's Dwarves in these woods.
+
+BOFUR
+Dwarves from the Blue Mountains, no less. This is exactly the same as mine.
+
+BILBO
+Because it is yours, do you understand? We're going around in circles, we are lost!
+
+THORIN
+We are not lost. We keep heading east.
+
+DWALIN
+But which way is the east? We've lost the sun!
+
+BILBO
+The sun. We have to find the sun.
+Up there. We need to-
+
+THORIN
+Enough! Quiet! All of you! We are being watched.
+
+BILBO
+I can see a lake! And a river. And the Lonely Mountain!
+
+BILBO
+We're almost there!
+
+BILBO
+Can you hear me? I know which way to go!
+Hello? Look, come on!
+
+STOP
+
+SPIDER #1
+Kill them. Kill them! Eat them now while all their blood is running.
+
+SPIDER #2
+Their hide is tough. This could be juicy inside.
+
+SPIDER #1
+Stick it again. Stick it again. Finish it off.
+
+SPIDER #2
+The meat's alive and kicking.
+
+SPIDER #1
+Kill them, kill them now. Let us feast, feast, feast. Feast, feast!
+
+SPIDER #2
+Kill them now!
+
+SPIDER #1
+Feast! Feast!
+
+SPIDER #1
+What is it? What is it? What is it?
+
+SPIDER #2
+Fat and juicy! Just a little taste.
+
+SPIDER #2
+Curse it! Where is it? Where is it?
+
+BILBO
+Here!
+
+SPIDER #2
+It stings! It stings!
+
+BILBO
+Sting. That's a good name. Sting.
+
+BOFUR
+Where's Bilbo?
+
+BILBO
+I'm up here!
+
+BILBO
+Where is it? Where is it? Come on! Where is it?
+
+BILBO
+No! No! No!
+
+THORIN
+Dwalin! Kill it! Kill it!
+
+DWALIN
+Come on, keep up!
+
+THORIN
+Clear!
+
+STOP
+
+LEGOLAS
+Do not think I won't kill you, Dwarf. It would be my pleasure.
+
+KILI
+Throw me a dagger! Quick!
+
+TAURIEL
+If you think I'm giving you a weapon, Dwarf, you are mistaken!
+
+STOP
+
+LEGOLAS
+Search them!
+
+GLOIN
+Hey, give it back! That's private!
+
+LEGOLAS
+Who is this? Your brother?
+
+GLOIN
+That is my wife!
+
+LEGOLAS
+And what is this horrid creature? A Goblin Mutant?
+
+GLOIN
+That's my wee lad, Gimli!
+
+LEGOLAS
+Are the spiders dead?
+
+TAURIEL
+Yes, but more will come. They're growing bolder.
+
+LEGOLAS
+This is an ancient Elvish blade. Forged by my kin.
+
+LEGOLAS
+Where did you get this?
+
+THORIN
+It was given to me.
+
+LEGOLAS
+Not just a thief, but a liar as well.
+
+STOP
+
+BOFUR
+Thorin, where's Bilbo?
+
+LEGOLAS
+Close the gates.
+
+STOP
+
+DWALIN
+This is not the end of it! Do you hear me?
+
+BIFUR
+Let us out of here!
+
+KILI
+Aren't you going to search me? I could have anything down my trousers?
+
+TAURIEL
+Or nothing.
+
+LEGOLAS
+Why does that Dwarf stare at you, Tauriel?
+
+TAURIEL
+Who can say? He's quite tall for a Dwarf. Do you not think?
+
+LEGOLAS
+Taller than some.
+
+LEGOLAS
+but no less ugly.
+
+GLOIN
+Arhhg, again!
+
+BALIN
+Leave it! There is no way out! This is no Orc dungeon. These are the Halls of the Woodland realm.
+No one leaves here, but, by the King's consent.
+
+STOP
+
+THRANDUIL
+Some may imagine that a Noble quest is at hand. A Quest to reclaim a homeland and slay a dragon.
+I myself, suspect a more prosaic motive. Attempted burglary, or something of that ilk.
+
+THRANDUIL
+You have found a way in. You seek that which would bestow upon you the right to rule.
+A King's jewel. The Arkenstone. It is precious to you beyond measure, I understand that.
+There are gems in the mountain that I too desire. White gems of pure starlight. I offer you my help.
+
+THORIN
+I am listening.
+
+THRANDUIL
+I will let you go, if you but return what is mine.
+
+THORIN
+A favor for a favor.
+
+THRANDUIL
+You have my word. One King to another.
+
+THORIN
+I would not trust, Thranduil, the great King, to only his word. Till the end of all days be upon us!
+You lack all honor! I have seen how you treat your friends! We came to you once, starving, homeless;
+seeking your help. But you turned your back!
+You, turned away from the suffering of my people and the inferno that destroyed us!
+
+THORIN
+May you die in dragon fire!
+
+THRANDUIL
+Do not talk to me of dragon fire! I know its wrath and ruin. I have faced the great serpents of the North.
+
+THRANDUIL
+I warned your grandfather of what his greed would summon, but he would not listen.
+
+THRANDUIL
+You are just like him.
+
+THRANDUIL
+Stay here if you will, and rot. A hundred years is a mere blink in a life of an Elf. I'm patient. I can wait.
+
+STOP
+
+BALIN
+Did he offer you a deal?
+
+THORIN
+He did. I told him he could go ishkh khakfe andu null. Him and all his kin!
+
+BALIN
+Well, that's that then. The deal was our only hope.
+
+THORIN
+It's not our only hope.
+
+STOP
+
+THRANDUIL
+I know you're there.
+
+THRANDUIL
+Why do you linger in the shadows?
+
+TAURIEL
+I was coming to report to you.
+
+THRANDUIL
+I thought I ordered that nest to be destroyed not two moons past.
+
+TAURIEL
+We cleared the forest as ordered, my Lord. But more spiders keep coming up from the south.
+They are spawning in the ruins of Dol Guldur, if we could kill them at their source-
+
+THRANDUIL
+That fortress lies beyond our borders. Keep our lands clear of those foul creatures, that is your task.
+
+TAURIEL
+And when we drive them off, what then? Will they not spread to other lands?
+
+THRANDUIL
+Other lands are not my concern. The fortunes of the world will rise and fall, but here in this kingdom, we will endure.
+Legolas said you fought well today. He's grown very fond of you.
+
+TAURIEL
+I assure, my Lord, Legolas thinks of me as not more than a Captain of the Guard.
+
+THRANDUIL
+Perhaps he did once. Now I'm not so sure.
+
+TAURIEL
+I do not think that you would allow your son to pledge himself to a lowly Silvan Elf.
+
+THRANDUIL
+No, you are right, l would not. Still, he cares about you. Do not give him hope where there is none.
+
+STOP
+
+NARZUG
+The gates are guarded.
+
+BOLG
+Not all of them. Follow me.
+
+STOP
+
+TAURIEL
+The stone in your hand, what is it?
+
+KILI
+It is a Talisman.
+
+KILI
+A powerful spell lies upon it, if any but a dwarf reads the runes on this stone they will be forever cursed!
+
+KILI
+Or not. Depending on whether you believe in that kind of thing. It's just a token.
+A Rune Stone. My mother gave me it to me so I'd remember my promise.
+
+TAURIEL
+What promise?
+
+KILI
+That I would come back to her. She worries. She thinks I'm reckless.
+
+TAURIEL
+Are you?
+
+KILI
+Nah.
+
+KILI
+Sounds like quite a party you're having up there.
+
+TAURIEL
+It is Mereth Nuin Giliath; The Feast of Starlight. All light is sacred to the Eldar, but the Wood Elves love best the light of the stars.
+
+KILI
+I always thought it is a cold light, remote and far away.
+
+TAURIEL
+It is memory, precious and pure.
+
+TAURIEL
+Like your promise.
+
+TAURIEL
+I have walked there sometimes, beyond the forest and up into the night.
+I have seen the world fall away and the white light forever fill the air.
+
+KILI
+I saw a fire moon once. It rose over the pass near Dunland.
+Huge! Red and gold it was, it filled the sky. We were an escort for some merchants from Ered Luin,
+they were trading in silverwork for furs. We took the Greenway south, keeping the mountain to our left,
+and then it appeared. This huge fire moon lighting our path. I wish I could show you-
+
+STOP
+
+LETHUIN
+Galion, you old rogue! We're running out of drink.
+
+ELROS
+These empty barrels should have been sent to Esgaroth hours ago. The party have been waiting for them.
+
+LETHUIN
+Say what you like about our ill tempered King he has excellent taste in wine. Come, Elros, try it.
+
+ELROS
+I have the dwarves in my charge.
+
+LETHUIN
+They're locked up, where can they go?
+
+STOP
+
+BOFUR
+I'll wager the sun in on the rise. Must be nearly dawn.
+
+ORI
+We're never gonna reach the mountain, are we?
+
+BILBO
+Not stuck in here you're not.
+
+BALIN
+Bilbo!
+
+BILBO
+Ssh! There are guards, nearby!
+Not that way. Down here, follow me!
+
+BOMBUR
+Which way?
+
+BILBO
+Come on! This way. Come on!
+
+KILI
+I don't believe it, we're in the cellars!
+
+BOFUR
+You're supposed to be leading us out not further in!
+
+BILBO
+I know what I'm doing!
+Okay, this way. This way.
+
+BILBO
+Everyone, climb into the barrels, quickly!
+
+DWALIN
+Are you mad? They'll find us!
+
+BILBO
+No, no. They won't! I promise you. Please, please, you must trust me!
+
+THORIN
+Do as he says!
+
+BOFUR
+What do we do now?
+
+BILBO
+Hold your breath.
+
+BOFUR
+Hold my breath? What do you mean?
+
+STOP
+
+TAURIEL
+Where is the keeper of the keys?
+
+STOP
+
+THORIN
+Well done, Master Baggins.
+
+THORIN
+Go, come on let's go!
+
+BALIN
+Hold on!
+
+LEGOLAS
+Shut the gate!
+
+THORIN
+No!
+
+BOFUR
+Watch out!
+
+BOLG
+Slay them all!
+
+THORIN
+Get over the bridge!
+
+BOLG
+Kill her! Kill the She-Elf!
+After them!
+
+LEGOLAS
+Tauriel, wait! This one we keep alive.
+
+BOLG
+After them! Cut them off!
+
+STOP
+
+GANDALF
+Oh, it's you.
+
+RADAGAST
+Why am I here, Gandalf?
+
+GANDALF
+Trust me, Radagast, I would not have called you here without good reason.
+
+RADAGAST
+This is not a nice place to meet.
+
+GANDALF
+No, it is not.
+
+RADAGAST
+These are dark spells, Gandalf. Old and full of hate. Who's buried here?
+
+GANDALF
+If he had a name, it's long since been lost. He would've been known only as a servant of evil. One of a number. One of nine.
+
+RADAGAST
+Why now, Gandalf? I don't understand.
+
+GANDALF
+The Ringwraiths have been summoned to Dol Guldur.
+
+RADAGAST
+But it cannot be the Necromancer. A human sorcerer could not summon such evil.
+
+GANDALF
+Who said it was human? The nine only answer to one master. We've been blind, Radagast. And in our blindness, the enemy has returned. He is summoning his servants. Azog the Defiler is no ordinary hunter. He is a commander, a commander of legions. The enemy is preparing for war. It will begin in the east. His mind is set upon that mountain.
+
+RADAGAST
+Where are you going?
+
+GANDALF
+To rejoin the others.
+
+RADAGAST
+Gandalf!
+
+GANDALF
+I started this, I cannot forsake them. They are in grave danger.
+
+RADAGAST
+If what you say is true, the world is in grave danger. The power in that fortress will only grow stronger.
+
+GANDALF
+You want me to cast my friends aside.
+
+STOP
+
+THORIN
+Anything behind us?
+
+BALIN
+Not that I can see.
+
+BOFUR
+I think we've outrun the Orcs.
+
+THORIN
+Not for long, we've lost the current.
+
+DWALIN
+We almost half drowned!
+
+THORIN
+Make for the shore!
+
+DWALIN
+Aye.
+
+THORIN
+Come on, let's go!
+
+KILI
+I'm fine, it's nothing.
+
+THORIN
+On your feet.
+
+FILI
+Kili's wounded, his leg needs binding.
+
+THORIN
+There's an Orc pack at our tail. We keep moving.
+
+BALIN
+To where?
+
+BILBO
+To the mountain, we're so close.
+
+BALIN
+A lake lies between us and that mountain, we have no way to cross it.
+
+BILBO
+So then we go around.
+
+DWALIN
+The Orcs will run us down as sure as daylight. We've no weapons to defend ourselves.
+
+THORIN
+Bind his leg, quickly. You have two minutes.
+
+STOP
+
+BARD
+Do it again and you're dead.
+
+BALIN
+Excuse me, but you're from Lake-town, if I'm not mistaken? That barge over there, it wouldn't be available for hire by any chance?
+
+BARD
+What makes you think I would help you?
+
+BALIN
+Those boots have seen better days, as has that coat.
+
+BALIN
+No doubt you have some hungry mouths to feed? How many bairns?
+
+BARD
+A boy and two girls.
+
+BALIN
+And your wife, I imagine, she's a beauty?
+
+BARD
+Aye, she was.
+
+BALIN
+I'm sorry, I didn't mean to-
+
+DWALIN
+Oh, come on, come on. Enough with the niceties.
+
+BARD
+What's your hurry?
+
+DWALIN
+What's it to you?
+
+BARD
+I would like to know who you are, and what you were doing in these lands.
+
+BALIN
+We are simple merchants from the Blue Mountains, journeying to see our kin in the Iron Hills.
+
+BARD
+Simple merchants, you say?
+
+THORIN
+We need food, supplies, weapons. Can you help us?
+
+BARD
+I know where these barrels came from.
+
+THORIN
+What of it?
+
+BARD
+I don't know what business you had with the elves, but I don't think it ended well.
+No one enters Lake-town but by lead of the master. All his wealth comes from trade with the Woodland realm.
+He would see you in irons before risking the wrath of king Thranduil.
+
+BALIN
+I'll wager there are ways to enter that town unseen.
+
+BARD
+Aye. But for that you would need a smuggler.
+
+BALIN
+For which we would pay double.
+
+STOP
+
+THRANDUIL
+Such is the nature of evil. Out there in the vast ignorance of the world it festers and spreads.
+A shadow that grows in the dark. A sleepless malice as black as the oncoming wall of night.
+So it ever was. So will it always be. In time all foul things come forth.
+
+LEGOLAS
+You were tracking a company of thirteen dwarves. Why?
+
+NARZUG
+Not thirteen, not anymore. The young one, the blackhead archer, we stuck him with a Morgul shaft.
+The poison's in his blood, he'll be choking on it soon.
+
+TAURIEL
+Answer the question, filth.
+
+NARZUG
+I do not answer to dogs, She-Elf!
+
+LEGOLAS
+I would not antagonize her.
+
+TAURIEL
+You like killing things, Orc? You like death? Then let me give it to you!
+
+THRANDUIL
+Enough! Tauriel, leave! Go now.
+
+THRANDUIL
+I do not care about one dead dwarf. Answer the question, you have nothing to fear.
+Tell us what you know and I will set you free.
+
+LEGOLAS
+You had orders to kill them, why? What is Thorin Oakenshield to you?
+
+NARZUG
+The Dwarf runt will never be King!
+
+LEGOLAS
+King? There is no King under the mountain, nor will there ever be.
+None would dare to enter Erebor Whilst the dragon lives.
+
+NARZUG
+You know nothing. You're world will burn.
+
+LEGOLAS
+What are you talking about? Speak!
+
+NARZUG
+Your time has come again. My master serves the one.
+Do you understand now, Elfling? Death is upon you. The flames of war are upon you.
+
+LEGOLAS
+Why did you do that? You promised to set him free.
+
+THRANDUIL
+And I did. I freed his wretched head from his miserable shoulders.
+
+LEGOLAS
+There was more the Orc could tell us.
+
+THRANDUIL
+There was nothing more he could tell me.
+
+LEGOLAS
+What did he mean by the flames of war?
+
+THRANDUIL
+It means they intend to unleash a weapon so great it will destroy all before it.
+
+THRANDUIL
+I want the watch doubled at our borders, all roads, all rivers. Nothing moves but I hear of No one enters this kingdom and no one leaves it.
+
+LEGOLAS
+Close the gate! Keep it sealed by order of the King.
+
+ELROS
+What about Tauriel?
+
+LEGOLAS
+What about her?
+
+ELROS
+She went into the forest armed with her bow and blade. She has not returned.
+
+STOP
+
+HUNTER ORC
+Dwarf blood! They were here!
+
+BOLG
+There is another scent.
+
+BOLG
+Man flesh!
+
+BOLG
+They have found a way to cross the lake.
+
+STOP
+
+BOFUR
+Watch out!
+
+THORIN
+What are you trying to do? Drown us?
+
+BARD
+I was born and bred on these waters, Master Dwarf. If I wanted to drown you, I would not do it here.
+
+DWALIN
+Oh, I've had enough of this lippy lake-man. I say we throw him over the side and be done with him.
+
+BILBO
+Oh, Bard. He's name's Bard.
+
+DWALIN
+How do you know?
+
+BILBO
+I asked him.
+
+DWALIN
+I don't care what he calls himself, I don't like him.
+
+BALIN
+We do not have to like him, we simply have to pay him.
+
+BALIN
+Come on, now, lads. Turn out your pockets.
+
+DWALIN
+How do we know he won't betray us?
+
+THORIN
+We don't.
+
+BALIN
+There's just a wee problem. We're ten coins short.
+
+THORIN
+Gloin, come on. Give us what you have.
+
+GLOIN
+Don't look to me. I have been bled dry by this venture! What have I seen for my investment? Naught but misery and grief and-
+
+GLOIN
+Bless my beard.
+Take it. Take all of it.
+
+BARD
+The money, quick. Give it to me.
+
+THORIN
+We will pay you when we get our provisions, but not before.
+
+BARD
+If you value your freedom, you'll do as I say. There are guards ahead.
+
+DWALIN
+Ssh. What's he doing?
+
+BILBO
+He's talking to someone. He's pointing right at us. Now they're shaking hands.
+
+THORIN
+What?
+
+DWALIN
+He's selling us out.
+
+STOP
+
+BARD
+Quiet! We're approaching the toll gate.
+
+PERCY
+Halt! Goods inspection. Papers please!
+
+PERCY
+Oh, it's you, Bard!
+
+BARD
+Morning, Percy.
+
+PERCY
+Anything to declare?
+
+BARD
+Nothing. But I am cold and tired, and ready for home.
+
+PERCY
+You and me both.
+
+PERCY
+There we are, all in order.
+
+ALFRID
+Not so fast.
+
+ALFRID
+Consignment of empty barrels from the Woodland realm.
+
+ALFRID
+Only they're not empty. Are they Bard? If I recall correctly, you're licensed as a bargeman. Not a fisherman.
+
+BARD
+That's none of your business.
+
+ALFRID
+Wrong. It's the Master's business, which makes it my business.
+
+BARD
+Oh, come on, Alfrid. Have a heart, people need to eat.
+
+ALFRID
+These fish are illegal.
+
+ALFRID
+Empty the barrels over the side.
+
+BRAGA
+You heard him, in the canal.
+
+BRAGA
+Come on. Get a move on.
+
+BARD
+Folk in this town are struggling. Times are hard. Food is scarce.
+
+ALFRID
+That's not my problem.
+
+BARD
+And when the people hear the Master is dumping fish back in the lake? When the rioting starts? Will it be your problem then?
+
+ALFRID
+Stop! Ever the people's champion, hey, Bard? Protector of the common folk.
+You might have their favor now, bargeman, but it won't last.
+
+PERCY
+Raise the gate!
+
+ALFRID
+The Master has his eye on you. You'll do well to remember, we know where you live.
+
+BARD
+It's a small town, Alfrid. Everyone knows where everyone lives.
+
+STOP
+
+ALFRID
+All this talk of civil unrest, someone's been stirring the pot, Sire. Gout playing out, Sire?
+
+MASTER OF LAKE-TOWN
+It's the damp! It's the only possible explanation. Now, get me a brandy.
+
+ALFRID
+The mood of the people, Sire, it's turning ugly.
+
+MASTER OF LAKE-TOWN
+They're commoners, Alfrid. They've always been ugly.
+It's not my fault they live in a place that stinks of fish-oil and tar.
+Jobs, shelter, food. It's all they ever bleat about.
+
+ALFRID
+It's my belief, Sire. They're being led on by troublemakers.
+
+MASTER OF LAKE-TOWN
+Then we must find these troublemakers and arrest them.
+
+ALFRID
+My thoughts exactly, Sire.
+
+MASTER OF LAKE-TOWN
+And all this talk of a change must be suppressed. We can't afford to let the rabble band together,
+start making noises. The next you know, they'll start asking questions, forming committees.
+Launching inquiries.
+
+ALFRID
+Out with the old, in with the new.
+
+MASTER OF LAKE-TOWN
+What?
+
+ALFRID
+That's what they've been saying, Sire. There is even talk of an election.
+
+MASTER OF LAKE-TOWN
+An election? That's absurd! I won't stand for it.
+
+ALFRID
+I don't think they'd ask you to stand, Sire.
+
+MASTER OF LAKE-TOWN
+Shirkers, ingrates, rabble rousers!
+Who would have the nerve to question my authority? Who would dare? Who-?
+
+MASTER OF LAKE-TOWN
+Bard. You mark my words, that trouble making bargeman is behind all this.
+
+STOP
+
+DWALIN
+Get your hands off me.
+
+BARD
+You didn't see them, they were never here. The fish you can have for nothing.
+
+BARD
+Follow me.
+
+BAIN
+Da, our house! It's being watched.
+
+BARD
+You can tell the Master I'm done for the day.
+
+TILDA
+Da! Where have you been?
+
+SIGRID
+Father, there you are. I was worried.
+
+BARD
+Here, Sigrid.
+
+BARD
+Bain, get them in.
+
+DWALIN
+If you speak of this to anyone, I'll rip your arms off.
+
+DWALIN
+Get off.
+
+BAIN
+Up there.
+
+SIGRID
+Da, why are there dwarves coming out of our toilet?
+
+TILDA
+Will they bring us luck?
+
+BARD
+They may not be the best fit, but they'll keep you warm.
+
+BILBO
+Oh, thank you.
+
+STOP
+
+THORIN
+The Dwarvish Wind-Lance!
+
+BILBO
+You look like you've seen a ghost.
+
+BALIN
+He has. The last time we saw such a weapon the city was on fire. It was a day the dragon came. The day that Smaug destroyed Dale.
+
+BALIN
+Girion, the lord of the city, rallied his bowmen to fire upon the beast. But a dragon's hide is tough, tougher than the strongest armor. Only a Black Arrow fired from a wind-lance could have pierced the dragon's hide. And few of those arrows were ever made.
+
+BALIN
+The store was running low when Girion made his last stand.
+
+THORIN
+If the aim of men had been true that day, much would've been different.
+
+BARD
+You speak as if you were there.
+
+THORIN
+All Dwarves know the tale.
+
+BAIN
+Then you would know that Girion hit the dragon. He loosened his scale under the left wing, one more shot and he would've killed the beast.
+
+DWALIN
+That's a fairy story, lad. Nothing more.
+
+THORIN
+You took our money. Where are the weapons?
+
+BARD
+Wait here.
+
+STOP
+
+THORIN
+Tomorrow begins the last days of Autumn.
+
+BALIN
+Durin's Day falls the morning after next. We must reach the mountain before then.
+
+KILI
+And if we do not? If we fail to find the hidden door before that time?
+
+FILI
+Then this quest has been for nothing.
+
+THORIN
+What is this?
+
+BARD
+Pike hook. Made from an old harpoon.
+
+KILI
+And this?
+
+BARD
+A crow bill, we call it. Fashioned from a smithy's hammer. It's heavy in a hand, I grant.
+But in defense of your life, these will serve you better than none.
+
+GLOIN
+We paid for weapons. Iron forged, swords and axes!
+
+BOFUR
+It's a joke!
+
+BARD
+You won't find better outside the city armory. All iron forged weapons are held there under lock and key.
+
+BALIN
+Thorin, why not take what's on offer and go. I've made do with less, so have you. I say we leave now.
+
+BARD
+You're not going anywhere.
+
+DWALIN
+What did you say?
+
+BARD
+There are spies watching this house and probably every dock and wharf in the town. We must wait till nightfall.
+Thorin.
+
+BAIN
+Da?
+
+BARD
+Don't let them leave.
+
+STOP
+
+TAURIEL
+I thought you were an Orc.
+
+LEGOLAS
+If I were an Orc you would be dead.
+
+LEGOLAS
+Tauriel, you cannot hunt thirty Orcs on your own.
+
+TAURIEL
+But I'm not on my own.
+
+LEGOLAS
+You knew I would come.
+
+LEGOLAS
+The King is angry, Tauriel. For six hundred years my father has protected you, favored you. You defied his orders, you betrayed his trust.
+
+LEGOLAS
+Come back with me, he will forgive you.
+
+TAURIEL
+But I will not. If I go back, I will not forgive myself.
+
+TAURIEL
+The King has never let Orc filth roam our lands. Yet he would let this Orc pack cross our borders and kill our prisoners.
+
+LEGOLAS
+It is not our fight.
+
+TAURIEL
+It is our fight. It will not end here. With every victory this evil will grow. If your father has his way, we will do nothing. We will hide within our walls, live our lives away from the light and let darkness descend. Are we are not part of this world? Tell me, mellon, when did we let evil become stronger than us?
+
+STOP
+
+STALLKEEPER
+Hello, Bard. What are you after?
+
+BARD
+There was a tapestry. An old one. Where's it gone?
+
+STALLKEEPER
+What tapestry are you talking about?
+
+BARD
+This one.
+
+LAKE-TOWN FEMALE #1
+They were dwarves I tell you. Appeared out of nowhere. Full beards, fierce eyes. I've never seen the like.
+
+LAKE-TOWN MALE #1
+What are dwarves doing in these parts?
+
+LAKE-TOWN MALE #2
+It's the prophecy.
+
+LAKE-TOWN MALE #1
+Prophecy?
+
+LAKE-TOWN MALE #2
+Prophecy of Durin's folk.
+
+BARD
+A prophecy?
+
+LAKE-TOWN MALE #3
+The old tales have come true.
+
+LAKE-TOWN FEMALE #2
+Vast halls of treasure!
+
+LAKE-TOWN FEMALE #3
+Can it really be true? Has the Lord of Silver Fountains returned?
+
+BARD
+The Lord of Silver Fountains. The King of Carven Stone. The King Beneath the Mountain, shall come into his own.
+And the bells shall ring in gladness at the Mountain King's return.
+But all shall fade in sadness. And the lake will shine and burn.
+
+STOP
+
+BAIN
+Da! I tried to stop them.
+
+BARD
+How long have they been gone?
+
+STOP
+
+DWALIN
+Shh. Keep it down.
+
+THORIN
+As soon as we have the weapons, we'll make straight for the mountain.
+
+THORIN
+Go, go, go.
+You alright?
+
+KILI
+I can manage. Let's just get out of here.
+
+STOP
+
+MASTER OF LAKE-TOWN
+What is the meaning of this?
+
+BRAGA
+We caught 'em stealing weapons, Sire.
+
+MASTER OF LAKE-TOWN
+Ah! Enemies of the state, huh?
+
+ALFRID
+A desperate bunch of mercenaries, if ever there was, Sire.
+
+DWALIN
+Hold your tongue!
+
+DWALIN
+You do not know to whom you speak. This is no common criminal. This is Thorin. Son of Thrain, son of Thror!
+
+THORIN
+We are the dwarves of Erebor. We have come to reclaim our homeland.
+
+THORIN
+I remember this town in the great days of old. Fleets of boats lay at harbor, filled with silks and fine gems. This was no forsaken town on a lake. This was the center of all trade in the north!
+
+THORIN
+I would see those days return. I would relight the great forges of the dwarves and send wealth and riches flowing once more from the halls of Erebor!
+
+BARD
+Death! That is what you'll bring upon us.
+
+BARD
+Dragonfire and ruin. If you awaken that beast, it will destroy us all.
+
+THORIN
+You can listen to this naysayer, but I promise you this; if we succeed all will share in the wealth of the mountain.
+
+THORIN
+You will have enough gold to rebuild Esgaroth ten times over!
+
+BARD
+All of you! Listen to me, you must listen! Have you forgotten what happened to Dale?
+Have you forgotten those who died in the firestorm? And for what purpose?
+The blind ambition of a Mountain King, so driven by greed, he could not see beyond his own desire!
+
+MASTER OF LAKE-TOWN
+Now. Now. We must not, any of us, be too quick to lay blame. Let us not forget,
+that it was Girion, Lord of Dale, your ancestor, who failed to kill the beast. Hm!
+
+ALFRID
+It's true, Sire. We all know the story. Arrow after arrow, he shot. Each one missing its mark.
+
+BARD
+You have no right. No right to enter that mountain.
+
+THORIN
+I have the only right.
+
+THORIN
+I speak to the Master of the men of the lake. Will you see the prophecy fulfilled?
+Will you share in the great wealth of our people?
+
+THORIN
+What say you?
+
+MASTER OF LAKE-TOWN
+I say unto you: Welcome!
+
+MASTER OF LAKE-TOWN
+Welcome and rise! Welcome, King Under the Mountain!
+
+STOP
+
+BILBO
+You do know we're one short? Where's Bofur?
+
+THORIN
+If he's not here, we leave him behind.
+
+BALIN
+We'll have to, if we're to find the door before nightfall. We can risk no more delays.
+
+THORIN
+Not you. We must travel at speed, you will slow us down.
+
+KILI
+What are you talking about? I'm coming with you.
+
+THORIN
+No, no.
+
+KILI
+I'm going to be there when that door's opened. When we first look upon the halls of our fathers, Thorin-
+
+THORIN
+Kili, stay here. Rest. Join us when you're healed.
+
+OIN
+I'll stay with the lad. My duty lies with the wounded.
+
+FILI
+Uncle, we grew up on tales of the mountain. Tales you told us.
+You cannot take that away from him! I will carry him if I must!
+
+THORIN
+One day you will be King and you will understand.
+I cannot risk the fate of this quest for the sake of one dwarf. Not even my own kin.
+
+THORIN
+Fili, don't be a fool. You belong with the company.
+
+FILI
+I belong with my brother.
+
+STOP
+
+BOFUR
+By my beard, is that the time!
+
+MASTER OF LAKE-TOWN
+Go now with our good will.
+
+BOFUR
+Wait!
+
+MASTER OF LAKE-TOWN
+And may your return bring fortune to all!
+
+BOFUR
+No! Did you miss the boat as well?
+
+FILI
+Kili? Kili!
+
+STOP
+
+BARD
+No. I'm done with dwarves, go away!
+
+BOFUR
+No! No! No one will help us. Kili's sick. He's very sick.
+
+STOP
+
+BILBO
+What is this place?
+
+BALIN
+It was once the city of Dale. Now it is a ruin. The Desolation of Smaug.
+
+THORIN
+The sun will soon reach midday. We must find the hidden door into the mountain before it sets. This way.
+
+BILBO
+Wait. Is this the overlook? Gandalf said to meet him here, on no account were we to-
+
+THORIN
+Do you see him? We have no time to wait upon the wizard. We're on our own. Come.
+
+STOP
+
+GANDALF
+Dol Guldur. The hill of sorcery.
+
+RADAGAST
+It looks completely abandoned.
+
+GANDALF
+As it is meant to. A spell of concealment lies over this place. Which means our enemy is not yet ready to reveal himself. He has not regained his full strength. Radagast, I need you to carry a message to the Lady Galadriel. Tell her, we must force his hand.
+
+RADAGAST
+What do you mean?
+
+GANDALF
+I'm going in alone. On no account come after me.
+
+GANDALF
+Do I have your word?
+
+RADAGAST
+Yes, yes, yes, yes!
+
+RADAGAST
+Wait, Gandalf! What if it's a trap?
+
+GANDALF
+Turn around and do not come back.
+
+GANDALF
+It's undoubtedly a trap.
+
+GANDALF
+The evil that is hidden here, I command it to come forth! I command it to reveal itself!
+
+AZOG
+The Wizard has come.
+
+ORC
+He is lifting the spell. He will find us!
+
+AZOG
+Yes, he will!
+
+STOP
+
+THORIN
+Anything?
+
+DWALIN
+Nothing!
+
+THORIN
+If the map is true, the hidden door lies directly above us. Up here!
+
+THORIN
+You have keen eyes, Master Baggins.
+
+THORIN
+This must be it. The hidden door.
+Let all those who doubted us, rue this day!
+
+DWALIN
+Hey, we have a key.
+
+DWALIN
+Which means there's somewhere there is a keyhole.
+
+THORIN
+The last light of Durin's Day will shine upon the keyhole.
+We're losing the light. Come on!
+
+NORI
+Be quiet. I can't hear when you're thumping!
+
+DWALIN
+I can't find it. It's not here! It's not here!
+
+THORIN
+Break it down!
+
+THORIN
+Come on!
+
+THORIN
+We lost the light.
+
+BALIN
+It's no good! The door's sealed! Can't be open by force. Powerful magic on it.
+
+THORIN
+No! The last light of Durin's Day will shine upon the keyhole.
+
+THORIN
+That's what it says. What did we miss?
+
+THORIN
+What did we miss? Balin.
+
+BALIN
+We've lost the light. There's no more to be done. We had but one chance. Come away, lads. It's over.
+
+BILBO
+Wait a minute, what? Where are they going?
+
+BILBO
+You can't give up now!
+Thorin. You can't give up now.
+
+BILBO
+Stand by the grey stone. When the thrush knocks, and the setting sun.
+And the last light of Durin's Day will shine.
+
+BILBO
+The last light. The last light!
+
+BILBO
+The keyhole! Come back! Come back!
+It's the light of the moon! The last moon of Autumn!
+
+BILBO
+Where's the key? Where's the key? Where's the-?
+It was here. Come on. It was here It was just-
+
+STOP
+
+THORIN
+Erebor. I know these walls. These halls. This stone.
+You remember it, Balin. Chambers filled with golden light.
+
+BALIN
+I remember.
+
+GLOIN
+Herein lies the seventh kingdom of Durin's folk.
+May the heart of the mountain unite all dwarves in defense of this home.
+
+BALIN
+The throne of the king.
+
+BILBO
+And what's that above it?
+
+BALIN
+The Arkenstone.
+
+BILBO
+The Arkenstone. And what's that?
+
+THORIN
+That, Master Burglar, is why you are here.
+
+stopped
+
+BOFUR
+Can you not do something?
+
+OIN
+I need herbs, something to bring down his fever.
+
+BARD
+We have nightshade, feverfew-
+
+OIN
+They're no use to me. Do you have any Kingsfoil?
+
+BARD
+No, it's a weed. We feed it to the pigs.
+
+BOFUR
+Pigs?
+
+BOFUR
+Weed? Right.
+
+BOFUR
+Don't move.
+
+STOP
+
+BILBO
+You want me to find a jewel?
+
+BALIN
+A large white jewel, yes.
+
+BILBO
+That-that's it? Only I imagine there's quite a few down there.
+
+BALIN
+There is only one Arkenstone. And you'll know it when you see it.
+
+BILBO
+Right.
+
+BALIN
+In truth, lad. I do not know what you will find down there. You needn't go if you don't want to. There's no dishonor in turning back.
+
+BILBO
+No. Balin, I promised I would do this. And I think I must try.
+
+BALIN
+It never ceases to amaze me.
+
+BILBO
+What's that?
+
+BALIN
+The courage of hobbits. Go now, with as much luck as you can muster.
+
+BALIN
+Oh, and, Bilbo.
+
+BILBO
+Mm?
+
+BALIN
+If there is in fact a- a live dragon down there: Don't waken it.
+
+STOP
+
+AZOG
+You have come too late, Wizard! It is done.
+
+GANDALF
+Where is your master? Where is he?
+
+AZOG
+He is everywhere. We are legion!
+
+AZOG
+It is over.
+
+AZOG
+Run him down!
+
+THE NECROMANCER
+There is no light, Wizard, that can defeat darkness.
+
+GANDALF
+Sauron.
+
+STOP
+
+BILBO
+Hello? He's not at home. Not at home. Good. Good, good, good.
+
+BILBO
+Arkenstone. Arkenstone. A large, white jewel. Very helpful.
+
+SMAUG
+Well, thief-
+
+SMAUG
+I smell you. I hear your breath. I feel your air. Where are you? Where are you?
+Come, now. Don't be shy. Step into the light.
+
+SMAUG
+Mm. There is something about you. Something you carry. Something made of gold. But far more - precious.
+
+SMAUG
+There you are, thief in the shadows.
+
+BILBO
+I did not come to steal from you, oh Smaug, the unaccessibly wealthy.
+I merely wanted to gaze upon your magnificence.
+To see if you really were as great as the old tales say. I did not believe them.
+
+SMAUG
+And do you now?
+
+BILBO
+Truly. The tales and songs fall utterly short of your enormity, oh Smaug, the stupendous.
+
+SMAUG
+Do you think flattery will keep you alive?
+
+BILBO
+No. No.
+
+SMAUG
+No indeed. You seem familiar with my name. But I don't remember smelling your kind before.
+Who are you and where do you come from, may I ask?
+
+BILBO
+I come from under the hill.
+
+SMAUG
+Underhill?
+
+BILBO
+And under hills and over hills my path has led. And and through the air, I am he who walks unseen.
+
+SMAUG
+Impressive, what else do you claim to be?
+
+BILBO
+I am luck wearer, r-riddle maker.
+
+SMAUG
+Lovely titles. Go on.
+
+BILBO
+Barrel rider.
+
+SMAUG
+Barrels? Now that is interesting. And what about your little dwarf friends? Where are they hiding?
+
+BILBO
+Dwarves? No. No, no. No dwarves here. You've got that all wrong.
+
+SMAUG
+Oh, I don't think so, barrel rider. They sent you in here to do their dirty work while they skulk about outside.
+
+BILBO
+Truly, you are mistaken, oh Smaug, chiefest and greatest of calamities.
+
+SMAUG
+You have nice manners for a thief and a liar. I know the smell and taste of Dwarf.
+No one better. It is the gold, they are drawn to treasure like flies to dead flesh.
+
+SMAUG
+Did you think I did not know this day would come? That a pack of canting dwarves would come crawling back to the mountain.
+
+STOP
+
+ORI
+Was that an earthquake?
+
+BALIN
+That, my lad, was a dragon.
+
+STOP
+
+SIGRID
+Da?
+
+BAIN
+It's coming from the mountain.
+
+FILI
+You should leave us. Take your children and get out of here.
+
+BARD
+And go where? There is nowhere to go.
+
+TILDA
+Are we going to die, Da?
+
+BARD
+No, darling.
+
+TILDA
+The dragon, it's going to kill us.
+
+BARD
+Not if I kill it first.
+
+Stop
+
+SMAUG
+The King Under the Mountain is dead. I took his throne, I ate his people like a wolf among sheep.
+
+SMAUG
+I kill where I wish, when I wish. My armor is iron. No blade can pierce me!
+
+STOP
+
+BARD
+Alright.
+
+BAIN
+A Black Arrow. Why did you never tell me?
+
+BARD
+Because you did not need to know.
+
+BARD
+Listen to me carefully, I need you to distract the guards.
+Once I'm at the top of the tower, I'll slip the arrow to the bow.
+
+LAKE-TOWN GUARD
+There he is! Guards, after him!
+
+BARD
+Quickly! Down there! Go!
+
+LAKE-TOWN GUARD
+Stop him!
+
+BARD
+Bain! Keep it safe. Don't let anyone find it.
+
+BAIN
+No.
+
+BARD
+I'll deal with them!
+
+BAIN
+I'm not leaving!
+
+BARD
+Go!
+
+BARD
+Braga.
+
+BRAGA
+You're under arrest.
+
+BARD
+On what charge?
+
+BRAGA
+Any charge the Master chooses.
+
+STOP
+
+ORI
+What about Bilbo?
+
+THORIN
+Give him more time.
+
+BALIN
+Time to do what? To be killed?
+
+THORIN
+You're afraid.
+
+BALIN
+Yes, I'm afraid. I fear for you. A sickness lies upon that treasure horde.
+A sickness which drove your grandfather mad.
+
+THORIN
+I am not my grandfather.
+
+BALIN
+You're not yourself. The Thorin I know would not hesitate to go in there.
+
+THORIN
+I will not risk this quest for the life of one burglar.
+
+BALIN
+Bilbo. His name is Bilbo.
+
+STOP
+
+SMAUG
+It's Oakenshield. That filthy dwarvish usurper. He sent you in here for the Arkenstone, didn't he?
+
+BILBO
+No! No, no, no. I don't know what you're talking about.
+
+SMAUG
+Don't bother denying it. I guessed his foul purpose some time ago. But it matters not. Oakenshield's quest will fail. A darkness is coming. It will spread to every corner of the land.
+
+SMAUG
+You are being used, thief in the shadows. You were only ever a means to an end. The coward Oakenshield has weighed the value of your life and found it worth nothing.
+
+BILBO
+No. No, you're lying.
+
+SMAUG
+What did he promise you? A share of the treasure? As if it was his to give. I will not part with a single coin. Not one piece of it!
+
+SMAUG
+My teeth are swords, my claws are spears. My wings are a hurricane!
+
+BILBO
+So it is true. The Black Arrow found its mark.
+
+SMAUG
+What did you say?
+
+BILBO
+I was just saying, your reputation precedes you, oh Smaug, the tyrannical. Truly, you have no equal on this earth.
+
+SMAUG
+I am almost tempted to let you take it, if only to see Oakenshield suffer.
+Watch it destroy him, watch it corrupt his heart and drive him mad.
+But I think not, I think our little game ends here. So tell me, thief. How do you choose to die?
+
+STOP
+
+SIGRID
+Da? Is that you, Da?
+
+ORC
+Oakenshield has gone!
+
+BOLG
+Fall back! Regroup at the bridge!
+
+BAIN
+You killed them all.
+
+LEGOLAS
+There are others. Tauriel, come.
+
+OIN
+We're losing him!
+
+BOFUR
+What are you doing?
+
+TAURIEL
+I'm going to save him.
+
+STOP
+
+THORIN
+You're alive.
+
+BILBO
+Not for much longer.
+
+THORIN
+Did you find the Arkenstone?
+
+BILBO
+The dragon's coming!
+
+THORIN
+The Arkenstone? Did you find it?
+
+BILBO
+No, we have to get out.
+
+SMAUG
+You will burn!
+
+THORIN
+Come on!
+
+BALIN
+Come on, Bilbo!
+
+THORIN
+Come on.
+
+STOP
+
+TAURIEL
+Hold him down.
+
+SIGRID
+Tilda!
+
+STOP
+
+THORIN
+Ssh. Ssh-ssh.
+
+DORI
+We've given him the slip.
+
+DWALIN
+No, he's too cunning for that.
+
+BILBO
+So where to now?
+
+THORIN
+The western guard room. There may be a way out.
+
+BALIN
+It's too high. There's no chance that way.
+
+THORIN
+It's our only chance. We'll have to try.
+
+THORIN
+Come on.
+
+STOP
+
+OIN
+I've heard tale of the wonders of elvish medicine. That was a privilege to witness.
+
+KILI
+Tauriel.
+
+TAURIEL
+Lie still.
+
+KILI
+You cannot be her. She is far away. She is far, far away from me.
+She walks in starlight in another world. It was just a dream.
+
+KILI
+Do you think she could've loved me?
+
+STOP
+
+THORIN
+Stay close.
+
+DWALIN
+That's it then. There's no way out.
+
+BALIN
+The last of our kin. They must've come here, hoping beyond hope.
+
+BALIN
+We could try to reach the mines. We might last a few days.
+
+THORIN
+No. I will not die like this. Cowering, clawing for breath.
+
+THORIN
+We make for the forges.
+
+DWALIN
+He'll see us, sure as death.
+
+THORIN
+Not if we split up.
+
+BALIN
+Thorin, we'll never make it.
+
+THORIN
+Some of us might. Lead him to the forges. We kill the dragon. If this is to end in fire, then we will all burn together.
+
+THORIN
+This way!
+
+SMAUG
+Flee! Flee! Run for your lives! There is nowhere to hide.
+
+ORI
+Behind you!
+
+DORI
+Come on!
+
+DORI
+Run!
+
+DWALIN
+Hey, you! Here!
+
+STOP
+
+BOLG
+Send word to Dol Guldur, Oakenshield has reached the Mountain!
+
+BOLG
+Go. You! Come with me.
+
+STOP
+
+BALIN
+This way! It's this way! Come on!
+
+THORIN
+Follow Balin!
+
+BALIN
+Come on!
+
+DWALIN
+Thorin! Hold on! The plan's not gonna work.
+These furnaces are stone cold.
+
+BALIN
+He's right. We've no fire hot enough to set them ablaze.
+
+THORIN
+Have we not?
+
+STOP
+
+THORIN
+I did not look to see you so easily outwitted!
+You have grown slow and fat in your dotage. Slug!
+
+THORIN
+Take cover. Go!
+
+THORIN
+Bombur! Get those billows working! Go!
+Bilbo! Up there. On my mark, pull that lever.
+
+THORIN
+Balin, can you still mix a flash flame?
+
+BALIN
+Aye, it will only take a jiffy!
+
+BALIN
+Come on!
+
+DWALIN
+We don't have a jiffy.
+
+DORI
+Where's the sulfur? Are you sure you know what you're doing? Come on!
+
+THORIN
+Now!
+
+THORIN
+Lead him to the Gallery of the Kings.
+
+THORIN
+Keep going, Bilbo! Run!
+
+SMAUG
+You think you can deceive me, barrel rider? You have come from Lake-town.
+This is some sordid scheme hatched between these filthy dwarves and those miserable trading lakemen.
+Those sniveling cowards with their long bows and black arrows. Perhaps it is time I paid them a visit.
+
+BILBO
+Oh no!
+
+BILBO
+This isn't their fault! Wait! You cannot go to Lake-town!
+
+SMAUG
+You care about them, do you? Good. Then you can watch them die!
+
+THORIN
+Here! You witless worm!
+
+SMAUG
+You.
+
+THORIN
+I am taking back what you stole.
+
+SMAUG
+You will take nothing from me, Dwarf. I laid low your warriors of old.
+I instill terror in the hearts of men. I am King Under the Mountain.
+
+THORIN
+This is not your kingdom. These are Dwarf lands. This is Dwarf gold. And we will have our revenge.
+
+SMAUG
+Ah, revenge! Revenge! I will show you revenge!
+
+BARD
+Listen to me! Do you not know what is coming?
+
+SMAUG
+I am fire. I am - death!
+
+BILBO
+What have we done?
+
+STOP
+
+MASTER OF LAKE-TOWN
+I warned you! Did I not warn you what would come of dealing with Dwarves? Now they've done it! They've woken the dragon;
+they've brought the apocalypse upon our heads! Come on, quickly, quickly! Faster now, I'm trying to evacuate myself here!
+Careful with that. Never mind the books! Get on, get the rest of it.
+
+ALFRID
+But, Sire, should we not try to save the town?
+
+MASTER OF LAKE-TOWN
+The town is lost, save the gold!
+
+LAKE-TOWNER
+Pile 'em up!
+
+TAURIEL
+We have no time, we must leave.
+
+STOP
+
+FILI
+Get him up.
+
+FILI
+Come on, brother. Come on, come on, let's go.
+
+KILI
+I'm fine, I can walk.
+
+TAURIEL
+As fast as you can.
+
+BAIN
+We're not leaving, not without our father.
+
+TAURIEL
+If you stay here, your sisters will die. Is that what your father would want?
+
+BARD
+Open this door! Do you hear me!
+
+BOFUR
+Down here, now!
+
+OIN
+Give me your hand.
+
+BOFUR
+Come on, we gotta go!
+
+TAURIEL
+Quickly now, hurry!
+
+FILI
+Kili, come on!
+
+STOP
+
+MASTER OF LAKE-TOWN
+Come on! Come On! Faster! Faster!
+
+MASTER OF LAKE-TOWN
+If only we could take more of these poor people with us. But they're hardly worth it.
+
+ALFRID
+I quite agree.
+
+BOFUR
+Look out!
+
+MASTER OF LAKE-TOWN
+Move it! Move it! Come on! Faster!
+
+MASTER OF LAKE-TOWN
+My gold! My gold!
+
+ALFRID
+We carry too much weight. We need to dump something.
+
+MASTER OF LAKE-TOWN
+Quite right, Alfrid. Faster, faster!
+
+STOP
+
+BALIN
+Poor souls.
+
+KILI
+He hit it! He hit the dragon!
+
+TAURIEL
+No.
+
+KILI
+He did, he hit its mark, I saw!
+
+TAURIEL
+These arrows cannot pierce its hide. I fear nothing will.
+
+BOFUR
+What are you doing?
+
+FILI
+Come back! Bain! Come back! Come back here!
+
+TAURIEL
+Leave him! We cannot go back.
+
+STOP
+
+BARD
+Bain! What are you doing? Why didn't you leave? You were supposed to leave!
+
+BAIN
+I came to help you.
+
+BARD
+No! Nothing can stop it now.
+
+BAIN
+This might.
+
+BARD
+Bain, you go back. You get out of here now.
+
+STOP
+
+MASTER OF LAKE-TOWN
+Stop, stop! Halt! Halt!
+
+SMAUG
+Who are you that would stand against me?
+
+SMAUG
+Now that is a pity. What will you do now, bowman? You are forsaken. No help will come.
+
+MASTER OF LAKE-TOWN
+Now's our chance! Go now! Head to the open water!
+
+SMAUG
+Hmm. Is that your child? You cannot save him from the fire. He will burn!
+
+BARD
+Stay still, son. Stay still.
+
+SMAUG
+Tell me, wretch, how now shall you challenge me?
+
+SMAUG
+You have nothing left but your death!
+
+BARD
+Bain. Look at me. You look at me. A little to your left.
+
+BARD
+That's it.
+
+BARD
+Bain! Hold on!
+
+STOP
+
+ORI
+What was that? What happened?
+
+BILBO BAGGINS
+It fell, I saw it. It's dead.
+
+BILBO BAGGINS
+Smaug is dead.
+
+GLOIN
+By my beard, I think he's right!
+
+GLOIN
+Look there! The Ravens of Erebor are returning to the Mountain.
+
+BALIN
+Aye, word will spread. Before long, every soul in Middle Earth will know the Dragon is dead!
+
+STOP
+
+LAKE-TOWNER
+Will somebody help me! Don't let me go.
+
+ALFRID
+Help! Ahh! Why me?
+
+FILI
+Kili, come on. We're leaving.
+
+TAURIEL
+They are your people, you must go.
+
+KILI
+Come with me. I know how I feel, I'm not afraid. You make me feel alive.
+
+TAURIEL
+No, I can't.
+
+KILI
+Tauriel. Amrâlimê.
+
+TAURIEL
+I don't know what that means.
+
+KILI
+I think you do.
+
+TAURIEL
+My Lord Legolas.
+
+LEGOLAS
+Take your leave of the Dwarf. You are needed elsewhere.
+
+KILI
+Keep it, as a promise.
+
+STOP
+
+LAKE-TOWN WOMAN
+These are dry. You'll need them.
+
+LAKE-TOWN REFUGEE
+Thank you.
+
+ALFRID
+Oi! Give me one of them. I'll take my death in this cold!
+
+LAKE-TOWN WOMAN
+Oh, find your own! You're not in charge now, Alfrid Lickspittle.
+
+ALFRID
+That is where you are wrong. In the absence of the Master the powers seethes to his deputy,
+which in this instance is my good self. Now give me that blanket!
+
+LAKE-TOWN WOMAN
+Master's Deputy? Don't make me laugh. You're a sneak thief, more like.
+I'll be dead before I answer to the likes of you.
+
+ALFRID
+Maybe that can be arranged.
+
+BARD
+I wouldn't go turning on your own, Alfrid. Not now.
+
+TILDA
+Da!
+
+BARD
+Come here.
+
+SIGRID
+You're alive!
+
+BARD
+It's alright.
+
+LAKE-TOWN MAN
+It was Bard! He killed the dragon! I saw it with me own eyes. He brought the beast down. Struck him dead with a Black Arrow!
+
+LAKE-TOWNER
+You've saved us all, bless you.
+
+ALFRID
+All hail to the Dragon-slayer! All hail King Bard!
+I have said it many times, this is a man of noble stock. A born leader.
+
+BARD
+Do not call me that. I'm not the Master of this town.
+
+BARD
+Where is he? Where's the master?
+
+LAKE-TOWN WOMAN
+Half way down the Anduin, with all our coin, I don't doubt.
+
+LAKE-TOWN WOMAN
+You would know. You helped him empty the treasury.
+
+ALFRID
+No. I tried to stop him.
+
+LAKE-TOWNER #1
+Liar!
+
+LAKE-TOWNER #2
+Thief!
+
+LAKE-TOWNER #3
+You're a mongrel!
+
+ALFRID
+I begged, I pleaded-
+
+LAKE-TOWNER #4
+Do away with him!
+
+ALFRID
+I said:"Master, no!"
+
+ALFRID
+Think of the children.
+Will nobody think of the children?
+
+LAKE-TOWNER #1
+Hang him!
+
+LAKE-TOWNER #5
+To the tree with him!
+
+BARD
+Enough, Let him go! Let him go!
+Look around you! Have you not had your fill of death?
+
+BARD
+Winter is upon us. We must look to our own, to the sick and the helpless.
+Those who can stand, tend to the wounded, and those who have strength left, follow me.
+We must salvage what we can.
+
+LAKE-TOWN WOMAN
+And what then? What do we do then?
+
+BARD
+We find shelter.
+
+STOP
+
+BOFUR
+Hello! Bombur? Bifur? Anybody?
+
+BILBO BAGGINS
+Wait! Wait!
+
+BOFUR
+It's Bilbo. He's alive!
+
+BILBO BAGGINS
+Stop! Stop! Stop! You need to leave. We all need to leave.
+
+BOFUR
+We only just got here.
+
+BILBO BAGGINS
+I tried talking to him, but he won't listen.
+
+OIN
+What do you mean, laddie?
+
+BILBO BAGGINS
+Thorin! Thorin. Thorin, he's been down there for days. He doesn't sleep, he barely eats.
+He's not been himself, not at all. It's this place. I think a sickness lies upon it.
+
+KILI
+A sickness? What kind of sickness?
+
+BILBO BAGGINS
+Fili? Fili!
+
+STOP
+
+THORIN
+Gold. Gold beyond measure, beyond sorrow and grieve.
+
+THORIN
+Behold, the great treasure hoard of Thrór.
+
+THORIN
+Welcome, my sister's sons, to the Kingdom of Erebor.
+
+BOMBUR
+You're alive!
+
+THORIN
+Any sign of it?
+
+BIFUR
+Nothing here.
+
+ORI
+Nothing here.
+
+THORIN
+Keep searching!
+That jewel could be anywhere.
+
+THORIN
+The Arkenstone is in these halls. Find it!
+
+DWALIN
+You heard him, keep looking.
+
+THORIN
+All of you! No one rests until it is found!
+
+STOP
+
+BARD
+Take only what you need, we have a long march ahead.
+
+LEGOLAS
+Where will you go?
+
+BARD
+There is only one place.
+
+ALFRID
+The Mountain? You are a genius, Sire. We can take refuge inside the Mountain.
+It might smell a bit of dragon, but the women could clean that up.
+It's be safe and warm and dry, and full of stores, bedding and clothing, the odd bit of gold.
+
+BARD
+What gold is in that Mountain is cursed. We will take only what was promised to us, only what we need to rebuild our lives.
+
+ALFRID
+Here, pull your weight.
+
+LEGOLAS
+News of the death of Smaug will have spread through the lands.
+
+BARD
+Aye.
+
+LEGOLAS
+Others will now look to the Mountain for its wealth or its position.
+
+BARD
+What is it you know?
+
+LEGOLAS
+Nothing for certain. It's what I fear may come.
+
+STOP
+
+BOLG
+Woodland Elves! The King's son and a She-elf, they tracked us to Lake-town.
+
+AZOG
+And you killed them?
+
+BOLG
+They fled, squealing like cowards.
+
+AZOG
+You fool! They will return with an Army of Elves at their backs! Ride to Gundabad. Let the Legions come forth.
+
+AZOG
+Elves! Men! Dwarves! The Mountain will be their tomb! To war!
+
+STOP
+
+TAURIEL
+You saw something out there?
+
+LEGOLAS
+The Orc I pursued out of Lake-town, I know who he is. Bolg, the spawn of Azog the Defiler. A Wargpack was waiting for him on the outskirts of Esgorath. They fled into the north. These Orcs were different from the others, they bore a mark I had not seen for a long time. The mark of Gundabad.
+
+TAURIEL
+Gundabad?
+
+LEGOLAS
+An Orc stronghold in the far north of the Misty Mountains.
+
+FEREN
+My Lord Legolas. I bring word from your Father. You are to return to him immediately.
+
+LEGOLAS
+Come, Tauriel.
+
+FEREN
+My Lord- Tauriel is banished.
+
+LEGOLAS
+Banished?
+
+LEGOLAS
+You may tell my father if there is no place for Tauriel, there is no place for me.
+
+TAURIEL
+Legolas, it is your King's command.
+
+LEGOLAS
+Yes, he is my King, but he does not command my heart.
+
+LEGOLAS
+I ride north. Will you come with me?
+
+TAURIEL
+To where?
+
+LEGOLAS
+To Gundabad.
+
+STOP
+
+KEEPER OF THE DUNGEONS
+Spells will not save you, old man.
+
+KEEPER OF THE DUNGEONS
+This is my master's domain. Die now, Wizard!
+
+NECROMANCER
+Three Rings for the Elven-kings under the sky. Seven for the Dwarv-lords in their halls of stone.
+
+GALADRIEL
+Nine for mortal men doomed to die.
+
+NECROMANCER
+You cannot fight the shadow. Even now you fade. One light alone in the darkness.
+
+GALADRIEL
+I am not alone.
+
+SARUMAN
+Are you in need of assistance, My Lady?
+
+ELROND
+You should have stayed dead!
+
+GALADRIEL
+Mithrandir, come back.
+
+GANDALF
+He - is here.
+
+GALADRIEL
+Yes. The darkness has returned.
+
+RADAGAST
+Gandalf! Gandalf, climb on!
+
+GALADRIEL
+He is weak. He cannot remain here, it is straining his life.
+
+GALADRIEL
+Go, quickly!
+
+GANDALF
+Come with me, My Lady.
+
+GALADRIEL
+Go!
+
+NECROMANCER
+It has begun. The East will fall. So shall the Kingdom of Angmar rise.
+The time of the Elves is over. The Age of the Orc has come.
+
+GALADRIEL
+You have no power here, servant of Mordor. You are nameless, faceless, formless!
+Go back to the void from whence you came!
+
+ELROND
+We were deceived.
+
+GALADRIEL
+The spirit of Sauron endured.
+
+SARUMAN
+And has been banished.
+
+GALADRIEL
+He will flee into the East.
+
+ELROND
+Gondor should be warned. They must set a watch on the walls of Mordor.
+
+SARUMAN
+No. Look after the Lady Galadriel. She has spent much of her powers, her strength is failing. Take her to Lothlórien.
+
+ELROND
+My Lord Saruman, he must be hunted down and destroyed, once and for all.
+
+SARUMAN
+Without the Ring of Power, Sauron can never again hold dominion over Middle Earth. Go now. Leave Sauron to me.
+
+GANDALF
+I need a horse.
+
+RADAGAST
+What? Gandalf, where are you going?
+
+GANDALF
+To warn Erebor. They have no idea what is coming. I saw them with my own eyes. Rank upon rank of Moria Orcs.
+You must summon our friends, bird and beast. The battle for the Mountain is about to begin.
+
+STOP
+
+THORIN
+It is here in these halls, I know it.
+
+DWALIN
+We have searched and searched.
+
+THORIN
+Not well enough.
+
+DWALIN
+Thorin, we all would see the stone returned.
+
+THORIN
+And yet it's still not found!
+
+BALIN
+Do you doubt the loyalty of anyone here?
+
+BALIN
+The Arkenstone is the birthright of our people.
+
+THORIN
+It is the King's jewel. Am I not the King?!
+
+THORIN
+Know this, if anyone should find it and withhold it from me, I will be avenged.
+
+BALIN
+Dragon sickness. I've seen it before. That look, the terrible need. It is a fierce and jealous love, Bilbo. It sent his grandfather mad.
+
+BILBO BAGGINS
+Balin, if Thorin had the Arkenstone. Well, if it was found, would it help?
+
+BALIN
+That stone crowns all. It's the summit of this great wealth, bestowing power upon he who bears it.
+But stay his madness? No, lad. I fear it would make him worse. Perhaps it is best it remains lost.
+
+STOP
+
+THORIN
+What is that? In your hand.
+
+BILBO BAGGINS
+It's nothing.
+
+THORIN
+Show me.
+
+BILBO BAGGINS
+It- I picked it up in Beorn's garden.
+
+THORIN
+You've carried it all this way?
+
+BILBO BAGGINS
+I'm going to plant it in my garden. In Bag End.
+
+THORIN
+It's a poor prize to take back to the Shire.
+
+BILBO BAGGINS
+One day it'll grow, and every time I look at it, I'll remember. Remember everything that happened:
+the good, the bad and how lucky I am that I made it home.
+
+BILBO BAGGINS
+Thorin, I-
+
+DWALIN
+Thorin, the survivors from Lake-town, they're streaming into Dale. There's hundreds of them.
+
+THORIN
+Call everyone to the gate.
+
+THORIN
+To the gate. Now!
+
+STOP
+
+BARD
+Come on, keep moving.
+
+ALFRID
+Sire! Sire! Up here!
+
+ALFRID
+Look Sire! The braziers are lit.
+
+BARD
+So, the company of Thorin Oakenshield survived.
+
+ALFRID
+Survived? You mean there's a bunch of Dwarves in there with all that gold?
+
+BARD
+I shouldn't worry, Alfrid. There's gold enough in that Mountain for all.
+
+BARD
+Make camp here tonight. Find what shelter you can. Get some fires going.
+
+LAKE-TOWNER
+Come on, hurry along now.
+
+BARD
+Alfrid, you take the night watch.
+
+STOP
+
+THORIN
+I want this Fortress made safe by sun-up. This Mountain was hard-won, I will not see it taken again.
+
+KILI
+The people of Lake-town have nothing. They came to us in need. They have lost everything.
+
+THORIN
+Do not tell me what they have lost. I know well enough of hardship.
+Those who've lived through dragon fire should rejoice! They have much to be grateful for.
+
+THORIN
+More stone! Bring more stone to the gate!
+
+STOP
+
+PERCY
+These children are starving. We need food. We won't last three days. Bard, we don't have enough.
+
+BARD
+Do what you can, Percy.
+
+PERCY
+It will be all right, don't worry.
+
+LAKE-TOWN WOMAN
+We need more water.
+
+BARD
+The children, the wounded and the women come first.
+
+BARD
+Morning, Alfrid. What news from the night watch?
+
+ALFRID
+All quiet, Sire. Not much to report. Nothing gets past me.
+
+BARD
+Except an army of Elves, it would seem.
+
+BARD
+My Lord Thranduil, we did not look to see you here.
+
+THRANDUIL
+I heard you needed aid.
+
+BARD
+You have saved us. I do not know how to thank you.
+
+THRANDUIL
+Your gratitude is misplaced. I did not come on your behalf. I came to reclaim something of mine.
+There are gems in the Mountain that I too desire. White gems of pure starlight.
+
+THORIN
+The White gems of Lasgalen. I know an Elf-lord who will pay a pretty price for these.
+
+BARD
+Wait! Please, wait! You will go to war over a handful of gems?
+
+THRANDUIL
+The heirlooms of my people are not lightly forsaken.
+
+BARD
+We are allies in this. My people also have claim upon the riches in that Mountain. Let me speak with Thorin.
+
+THRANDUIL
+You would try to reason with the Dwarf.
+
+BARD
+To avoid war? Yes.
+
+STOP
+
+THORIN
+Nice going lads, nice work. Come on!
+
+BARD
+Hail Thorin, son of Thrain. We are glad to find you alive beyond hope.
+
+THORIN
+Why do you come to gates of the King under the Mountain armed for war?
+
+BARD
+Why does the King under the Mountain fence himself in like a robber in his hole?
+
+THORIN
+Perhaps it is because I'm expecting to be robbed.
+
+BARD
+My Lord, we have not come to rob you, but to seek fair settlement. Will you not speak with me?
+
+THORIN
+I'm listening.
+
+BARD
+On behalf of the people of Lake-town, I ask that you honor your pledge. A share of the treasure, so that they might rebuild their lives.
+
+THORIN
+I will not treat with any man, while an armed host lies before my door.
+
+BARD
+That armed host will attack this mountain if we do not come to terms.
+
+THORIN
+And your threats do not sway me.
+
+BARD
+What of your conscience?
+
+THORIN
+Does it not tell you our cause is just? My people offered you help and in return you brought upon them only ruin and death.
+
+BARD
+When did the men of Lake-town come to our aid but for the promise of rich reward. A bargain was struck!
+
+THORIN
+A bargain? What choice did we have but to barter our birthright for blankets and food. To ransom our future in exchange for our freedom. You call that a fair trade? Tell me, Bard the dragon-slayer, why should I honor such terms?
+
+BARD
+Because you gave us your word. Does that mean nothing?
+
+THORIN
+Begone! Ere our arrows fly!
+
+BILBO BAGGINS
+What are you doing? You cannot go to war.
+
+THORIN
+This does not concern you.
+
+BILBO BAGGINS
+Excuse me, but just in case you haven't noticed, there is an army of Elves out there.
+Not to mention several hundred angry fishermen. We are in fact outnumbered.
+
+THORIN
+Not for much longer.
+
+BILBO BAGGINS
+What does that mean?
+
+THORIN
+It means, Master Baggins, you should never underestimate Dwarves. We have reclaimed Erebor. Now we defend it.
+
+STOP
+
+BARD
+He will give us nothing.
+
+THRANDUIL
+Such a pity. But still you tried.
+
+BARD
+I do not understand. Why? Why would he risk war?
+
+THRANDUIL
+It is fruitless to reason with them. They understand only one thing.
+
+THRANDUIL
+We attack at dawn.
+
+THRANDUIL
+Are you with us?
+
+STOP
+
+THORIN
+Master Baggins, come here. You're going to need this. Put it on.
+
+THORIN
+This vest is made of silver steel. Mithril it was called by my forebears. No blade can pierce it.
+
+BILBO BAGGINS
+I look absurd. I'm not a warrior, I'm a Hobbit.
+
+THORIN
+It is a gift, a token of our friendship. True friends are hard to come by.
+
+THORIN
+I have been blind, but now I'm beginning to see. I am betrayed!
+
+BILBO BAGGINS
+Betrayed?
+
+THORIN
+The Arkenstone- one of them has taken it. One of them is false.
+
+BILBO BAGGINS
+Thorin, the quest is fulfilled, you've won the Mountain. Is that not enough?
+
+THORIN
+Betrayed by my own kin.
+
+BILBO BAGGINS
+No, you made a promise to the people of Lake-town.
+Now is this treasure truly worth more than your honor?nOur honor, Thorin. I was also there, I gave my word.
+
+THORIN
+For that, I'm grateful. It was nobly done.
+But the treasure in this Mountain does not belong to the people of Lake-town. This gold is ours, and ours alone.
+
+THORIN
+With my life I will not part with a single coin. Not one piece of it.
+
+STOP
+
+TAURIEL
+Gundabad. What lies beyond?
+
+LEGOLAS
+An old enemy. The ancient Kingdom of Angmar. And this fortress was once its stronghold.
+It is where they kept their great armories, forged their weapons of war.
+
+TAURIEL
+A light. I saw movement.
+
+LEGOLAS
+We wait for the cover of night. It is a fell place, Tauriel. In another age our people waged war on those lands.
+
+LEGOLAS
+My mother died there. My father does not speak of it. There is no grave, no memory, nothing.
+
+STOP
+
+GANDALF
+Let me through! Make way!
+
+ALFRID
+No, no, no! Oi, you! Pointy hat! Yes, you. We don't want no tramps, beggars nor vagabonds around here.
+We've got enough trouble without the likes of you. Off you go. On your horse.
+
+GANDALF
+Who's in charge here?
+
+BARD
+Who is asking?
+
+GANDALF
+You must set aside your petty grievances with the Dwarves. War is coming.
+The cesspits of Dol Guldur have been emptied. You're all in mortal danger.
+
+BARD
+What are you talking about?
+
+THRANDUIL
+I can see you know nothing of wizards. They are like winter thunder on a wild wind,
+rolling in from a distance breaking hard in alarm. But sometimes a storm is just a storm.
+
+GANDALF
+Not this time. Armies of Orcs are on the move. These are fighters,
+they have been bred for war. Our enemy has summoned his full strength.
+
+THRANDUIL
+Why show his hand now?
+
+GANDALF
+Because we forced him. We forced him when the company of Thorin Oakenshield set out to reclaim their homeland.
+The Dwarves were never meant to reach Erebor, Azog the Defiler was sent to kill them. His master seeks control of the Mountain,
+not just for the treasure within, but for where it lies, its strategic position.
+This is the gateway to reclaiming the lands of Angmar in the North. If that fell Kingdom should rise again Rivendell,
+Lórien, the Shire even Gondor itself will fall.
+
+THRANDUIL
+These Orc armies you speak of, Mithrandir, where are they?
+
+STOP
+
+RAGASH
+Our army will be in position by dawn. The attack will be sudden and swift!
+
+AZOG
+The fools! They have forgotten what lives beneath these lands. They have forgotten the great Earth-eaters.
+
+STOP
+
+TAURIEL
+If we are going in we should move now.
+
+TAURIEL
+They are swarming.
+
+LEGOLAS
+These bats are bred for one purpose.
+
+TAURIEL
+For what?
+
+LEGOLAS
+For war.
+
+TAURIEL
+We must warn the others.
+
+LEGOLAS
+We may be too late – hurry!
+
+STOP
+
+GANDALF
+Since when has my council counted for so little? What do you think I'm trying to do?
+
+THRANDUIL
+I think you're trying to save your Dwarvish friends. And I admire your loyalty to them.
+But it does not dissuade me from my cause. You started this, Mithrandir, you will forgive me if I finish it.
+
+THRANDUIL
+Are the archers in position?
+
+ELF
+Yes, My Lord.
+
+THRANDUIL
+Give the order. If anything moves on that mountain, kill it. The Dwarves are out of time.
+
+GANDALF
+You, bowman! Do you agree with this? Is gold so important to you? Would you buy it with the blood of Dwarves?
+
+BARD
+It will not come to that. This is a fight they cannot win.
+
+BILBO BAGGINS
+That won't stop them. You think the Dwarves will surrender? They won't. They will fight to the death to defend their own.
+
+GANDALF
+Bilbo Baggins!
+
+THRANDUIL
+If I'm not mistaken, this is the Halfling who stole the keys to my dungeons from under the nose of my guards.
+
+BILBO BAGGINS
+Yes. Sorry about that. I came to give you this.
+
+THRANDUIL
+The Heart of the Mountain. The King's jewel.
+
+BARD
+And worth a king's ransom. How is this yours to give?
+
+BILBO BAGGINS
+I took it as my fourteenth share of the treasure.
+
+BARD
+Why would you do this? You owe us no loyalty.
+
+BILBO BAGGINS
+I'm not doing it for you. I know that Dwarves can be obstinate and pigheaded and difficult.
+And suspicious and secretive with the worst manners you can possibly imagine,
+but they are also brave and kind and loyal to a fault. I've grown very fond of them, and I would save them if I can.
+But Thorin values this stone above all else. In exchange for its return, I believe he will give you what you were owed.
+There will be no need for war.
+
+GANDALF
+Rest up tonight. You must leave on the morrow.
+
+BILBO BAGGINS
+What?
+
+GANDALF
+Get as far away from here as possible.
+
+BILBO BAGGINS
+I'm not leaving.
+
+GANDALF
+Oh?
+
+BILBO BAGGINS
+You picked me as the fourteenth man. I'm not about to leave the company now.
+
+GANDALF
+There is no company, not any more. And I don't like to think what Thorin would do when he finds out what you've done.
+
+BILBO BAGGINS
+I'm not afraid of Thorin.
+
+GANDALF
+Well, you should be. Don't underestimate the evil of gold. Gold over which a serpent had long brooded.
+Dragon-sickness seeps into the hearts of all who came to this Mountain. Almost all.
+
+GANDALF
+You there! Find this Hobbit a bed and fill his belly with hot food. He's earned it.
+
+GANDALF
+Hey. Keep an eye on him. If he should try to leave, you tell me.
+
+ALFRID
+Move it. Stupid Hobbit.
+
+STOP
+
+ALFRID
+Wakey, wakey, Hobbit. Up you - get?
+
+STOP
+
+THORIN
+I will put the next one between your eyes.
+
+THRANDUIL
+We've come to tell you payment of your debt has been offered and accepted.
+
+THORIN
+What payment? I gave you nothing. You have nothing.
+
+BARD
+We have this.
+
+KILI
+They have the Arkenstone. Thieves! How came you by the heirloom of our house? That stone belongs to the king.
+
+BARD
+The King may have it, with our good will.
+
+BARD
+But first he must honor his word.
+
+THORIN
+They're taking us for fools. This is a ruse, and a filthy lie. The Arkenstone is in this Mountain, it is a trick!
+
+BILBO BAGGINS
+It's no trick. The stone is real. I gave it to them.
+
+THORIN
+You?
+
+BILBO BAGGINS
+I took it as my fourteenth share.
+
+THORIN
+You would steel from me?
+
+BILBO BAGGINS
+Steel from you? No, no. I may be a burglar, but I like to think I'm an honest one.
+I'm willing to let it stand against my claim.
+
+THORIN
+Against your claim?
+
+THORIN
+Your claim? You have no claim over me, you miserable rat!
+
+BILBO BAGGINS
+I was going to give it to you. Many times I wanted to, but-
+
+THORIN
+But what, thief?
+
+BILBO BAGGINS
+You are changed, Thorin. The Dwarf I met in Bag End would never have gone back on his word,
+would never have doubted the loyalty of his kin.
+
+THORIN
+Do not speak to me of loyalty. Throw him from the rampart!
+
+THORIN
+Did you not hear me?! I will do it myself.
+
+THORIN
+I curse you!
+
+FILI
+No!
+
+THORIN
+Cursed be the wizard that forced you on this company!
+
+GANDALF
+If you don't like my burglar, then please don't damage him. Return him to me. You're not making a very splendid figure as King under the Mountain, are you, Thorin, son of Thrain?
+
+THORIN
+Never again will I have dealings with wizards!
+
+BOFUR
+Go.
+
+THORIN
+Or Shire rats!
+
+BARD
+Are we resolved? The return of the Arkenstone for what was promised.
+
+BARD
+Give us your answer. Will you have peace or war?
+
+THORIN
+I will have war.
+
+GANDALF
+Ironfoot.
+
+DWARVES
+Dain! Dain! Dain!
+
+BILBO BAGGINS
+Who is that? He doesn't look very happy.
+
+GANDALF
+It is Dain, Lord of the Iron Hills. Thorin's cousin.
+
+BILBO BAGGINS
+Are they alike?
+
+GANDALF
+I've always found Thorin the more reasonable of the two.
+
+STOP
+
+DAIN
+Good morning! How are we all? I have a wee proposition,
+if you wouldn't mind giving me a few moments of your time. Would you consider-
+
+DAIN
+Just sodding off?!
+
+DAIN
+All of you! Right now!
+
+BARD
+Stand fast!
+
+GANDALF
+Come now, Lord Dain.
+
+DAIN
+Gandalf the Grey. Tell this rabble to leave, or I'll water the ground with their blood.
+
+GANDALF
+There is no need for war between Dwarves, Men and Elves. A legion of Orcs march on the Mountain. Stand your army down.
+
+DAIN
+I will not stand down before any Elf. Not least this faithless woodland sprite. He wishes nothing but ill upon my people.
+If he chooses to stand between me and my kin, I'll split his pretty head open! See if he's still smirking then.
+
+DWARVES
+Dain!
+
+THRANDUIL
+He's clearly mad, like his cousin.
+
+DAIN
+You hear that, lads? We're on! Let's give these bastards a good hammering!
+
+STOP
+
+GANDALF
+Were-worms!
+
+DAIN
+Oh, come on!
+
+AZOG
+Come forth my Armies!
+
+DAIN
+The Hordes of Hell are upon us! To battle! To battle, sons of Durin!
+
+STOP
+
+KILI
+I'm going over the wall, who's coming with me?
+
+DWARVES
+Aye! Yes!
+
+FILI
+Come on, let's go.
+
+THORIN
+Stand down.
+
+FILI
+What? Are we to do nothing?
+
+THORIN
+I said stand down!
+
+STOP
+
+BILBO BAGGINS
+The Elves, will they not fight?
+
+GANDALF
+Thranduil! This is madness!
+
+BILBO BAGGINS
+Uh, Gandalf, is this a good place to stand?
+
+STOP
+
+AZOG
+Send in the War Beasts!
+
+AZOG
+They cannot fight on two fronts. Now we make our move. Attack the city!
+
+GANDALF
+Azog. He's trying to cut us off.
+
+BARD
+All of you, fall back to Dale! Now!
+
+GANDALF
+To the city! People, this way!
+
+STOP
+
+BAIN
+Sigrid! Tilda! My children! Where are my children?
+
+LAKE-TOWN WOMAN
+I saw them, they were down in the Old Market!
+
+BARD
+The Market? Where are they now? Tilda! Sigrid!
+
+PERCY
+Bard, Orcs are storming over the Causeway.
+
+BARD
+Get the bowmen to the eastern parapet. Hold them of for as long as you can.
+
+PERCY
+Archers, this way!
+
+LAKE-TOWNER MALE
+The Orcs have taken Stone Street, the Market's overrun!
+
+BARD
+The rest of you, follow me!
+
+ALFRID
+Charge! Onward! To the death!
+
+SIGRID
+Over here!
+
+TILDA
+Da we're here!
+
+BARD
+Tilda! Bain! Sigrid! Get down!
+
+BARD
+Listen, I need you to gather the women and children, take them to the Great Hall and barricade the door.
+You understand? You must not come out for any reason.
+
+TILDA
+We want to stay with you.
+
+ALFRID
+Show your father some respect. You leave it to me, Sire.
+
+ALFRID
+You heard him, we make to the Great Hall.
+
+BARD
+Alfrid, women and children only. I need every man fighting. See that you return.
+
+ALFRID
+I'll get them to safety, Sire. Then my sword is yours to command.
+
+ALFRID
+Get up!
+
+BARD
+Look after them.
+
+BAIN
+I will.
+
+ALFRID
+Shift it, granny.
+
+BAIN
+Make for the Great Hall.
+
+ALFRID
+Out of my way! Abandon the cripples!
+
+STOP
+
+AZOG
+They cannot hold the city! The Dwarves are almost spent.
+
+DAIN
+Yer buggers!
+
+DAIN
+Thorin! Where's Thorin? We need him. Where is he?
+
+AZOG
+Let these lands run with blood! Slaughter them all.
+
+STOP
+
+BARD
+Fall back!
+
+DWALIN
+Since when do we forsake our own people? Thorin, they are dying out there.
+
+THORIN
+There are holes beneath holes within this Mountain, places we can fortify.
+Shore up, make safe? Yes. Yes, that is it. We must move the gold further underground to safety.
+
+DWALIN
+Did you not hear me? Dain is surrounded. They're being slaughtered, Thorin.
+
+THORIN
+Many die in war, life is cheap. But a treasure such as this cannot be counted in lives lost.
+It is worth all the blood we can spend.
+
+DWALIN
+You sit here in these vast halls with a crown upon your head,
+and yet you are lesser now than you have ever been.
+
+THORIN
+Do not speak to me as if I were some lowly Dwarf Lord.
+As is if I were still Thorin Oakenshield. I am your King!
+
+DWALIN
+You were always my King. You used to know that once. You were always my King.
+You used to know that once. You cannot see what you have become.
+
+THORIN
+Go. Get out, before I kill you.
+
+STOP
+
+DAIN
+Fall back! Fall back! Back to the Mountain! Fall back!
+
+AZOG
+Now comes their end. Prepare for the final assault.
+
+KILI
+I will not hide behind a wall of stone,
+while others fight our battles for us! It is not in my blood, Thorin.
+
+THORIN
+No, it is not. We are sons of Durin, and Durin's folk do not flee from a fight.
+
+THORIN
+I have no right to ask this of any of you, but will you follow me, one last time?
+
+STOP
+
+AZOG
+Not yet! Wait, wait. Attack - now!
+
+BILBO BAGGINS
+Thorin.
+
+DAIN
+To the King! To the King!
+
+BILBO BAGGINS
+The Dwarves, they're rallying.
+
+GANDALF
+They're rallying to their King.
+
+STOP
+
+BARD
+Any man who wants to give their last, follow me!
+
+LAKE-TOWN WOMAN #1
+I say we stand with our men in life and in death.
+
+LAKE-TOWN WOMAN #2
+I'm with ya.
+
+BAIN
+Arm yourselves!
+
+LAKE-TOWN WOMAN #3
+Come with us, love.
+
+ALFRID
+No, no, no. You leave an old woman be.
+
+LAKE-TOWN WOMAN #3
+Don't be afraid.
+
+ALFRID
+I said get off!
+
+LAKE-TOWN WOMAN #1
+Alfrid Lickspittle, you are a coward.
+
+ALFRID
+A Coward? Not every man is brave enough to wear a corset.
+
+LAKE-TOWN WOMAN #1
+You're not a man, you're a weasel.
+
+STOP
+
+THORIN
+Dain!
+
+DAIN
+Thorin! Hold on! I'm coming!
+
+DAIN
+Hey, cousin, what took you so long?
+
+DAIN
+There's too many of these buggers, Thorin. I hope you've got a plan.
+
+THORIN
+Aye, we're going to take out their leader.
+
+DAIN
+Azog?
+
+THORIN
+I'm going to kill that piece of filth.
+
+DWALIN
+Lead on!
+
+STOP
+
+GANDALF
+We may yet survive this.
+
+BILBO BAGGINS
+Gandalf!
+
+BILBO BAGGINS
+It's Thorin.
+
+GANDALF
+And Fili and Kili and Dwalin. He's taking his best warriors.
+
+BILBO BAGGINS
+To do what?
+
+GANDALF
+To cut the head of the snake.
+
+STOP
+
+LEGOLAS
+Gandalf! There is a second army. Bolg leads a force of Gundabad Orcs. They are almost upon us.
+
+GANDALF
+Gundabad? Ahh. This was their plan all along. Azog engages our forces, then Bolg sweeps in from the north.
+
+BILBO BAGGINS
+What? The north? Where is the north exactly?
+
+GANDALF
+Ravenhill.
+
+BILBO BAGGINS
+Ravenhill? Thorin is up there. And Fili and Kili! They're all up there!
+
+STOP
+
+FILI
+Where is he? It looks empty. I think Azog has fled.
+
+THORIN
+I don't think so.
+
+THORIN
+Fili, take your brother. Scout out the towers. Keep low and out of sight. If you see something, report back, do not engage. Do you understand?
+
+DWALIN
+We have company. Goblin mercenaries. No more than a hundred.
+
+THORIN
+We'll take care of them.
+
+THORIN
+Go! Go!
+
+THRANDUIL
+Recall your company.
+
+GANDALF
+My Lord, disperse this force to Ravenhill, the Dwarves are about to be overrun. Thorin must be warned.
+
+THRANDUIL
+By all means, warn him. I've spent enough Elvish blood in defense of this accursed land. No more!
+
+GANDALF
+Thranduil?
+
+BILBO BAGGINS
+I'll go.
+
+GANDALF
+Don't be ridiculous, you'll never make it.
+
+BILBO BAGGINS
+Why not?
+
+GANDALF
+Because they will see you coming, and kill you!
+
+BILBO BAGGINS
+No, they won't. They won't see me.
+
+GANDALF
+It's out of the question. I won't allow it.
+
+BILBO BAGGINS
+I'm not asking you to allow it, Gandalf.
+
+STOP
+
+TAURIEL
+You will go no further.
+
+TAURIEL
+You will not turn away. Not this time.
+
+THRANDUIL
+Get out of my way.
+
+TAURIEL
+The Dwarves will be slaughtered.
+
+THRANDUIL
+Yes, they will die. Today, tomorrow, one year hence,
+a hundred years from now. What does it matter? They are mortal.
+
+TAURIEL
+You think your life is worth more than theirs,
+while there is no love in it? There is no love in you.
+
+THRANDUIL
+What do you know of love? Nothing. What you feel for that Dwarf is not real.
+You think it is love? Are you ready to die for it?
+
+LEGOLAS
+If you harm her you will have to kill me.
+
+LEGOLAS
+I will go with you.
+
+STOP
+
+BARD
+Get up.
+
+ALFRID
+Get away from me. I don't take orders from you. People trusted you, they listened to you.
+The Master's mantle was there for the taking and you threw it all away. For what?
+
+BARD
+Alfrid, your slip is showing.
+
+STOP
+
+FILI
+Stay here, search the lower levels. I've got this.
+
+DWALIN
+Where is that Orc filth?
+
+BILBO BAGGINS
+Thorin!
+
+THORIN
+Bilbo.
+
+BILBO BAGGINS
+You have to leave here. Now! Azog has another army, attacking from the north.
+This watchtower will be completely surrounded, there'll be no way out.
+
+DWALIN
+We are so close. That Orc scum is in there. I say we push on.
+
+THORIN
+No! That's what he wants. He wants to draw us in. This is a trap.
+
+THORIN
+Find Fili and Kili, call them back.
+
+DWALIN
+Thorin, are you sure about this?
+
+THORIN
+Do it. We live to fight another day.
+
+BILBO BAGGINS
+Oh no.
+
+AZOG
+This one dies first. Then the brother. Then you, Oakenshield. You will die last.
+
+FILI
+Go. Run!
+
+AZOG
+Here ends your filthy bloodline!
+
+THORIN
+Kili!
+
+DWALIN
+Thorin! Thorin, no.
+
+BOLG
+Slay them all!
+
+STOP
+
+TAURIEL
+No. Kili!
+
+AZOG
+Go in for the kill! Finish him!
+
+TAURIEL
+No, No! No.
+
+STOP
+
+BILBO BAGGINS
+The eagles are coming.
+
+THORIN
+Bilbo.
+
+BILBO BAGGINS
+No, don't look. Don't move. Lie still.
+
+THORIN
+I'm glad you're here.
+
+BILBO BAGGINS
+Shh, shh, shh, shh-
+
+THORIN
+I wish to part from you in friendship.
+
+BILBO BAGGINS
+No, you are not going anywhere, Thorin, you're going to live.
+
+THORIN
+I would take back my words and my deeds at the gate.
+You did what only a true friend would do. Forgive me.
+I was too blind to see. I am so sorry that I have led you into such peril.
+
+BILBO BAGGINS
+No, I'm glad to have shared in your perils, Thorin.
+Each and every one of them. It is far more than any Baggins deserves.
+
+THORIN
+Farewell, Master Burglar. Go back to your books and your armchair. Plant your trees, watch them grow.
+If more people valued home above gold, this world would be a merrier place.
+
+BILBO BAGGINS
+No! No, no, no, no! No! Thorin! Thorin, don't you dare-
+Thorin? Look, Thorin. Thorin, hold on. You hold on.
+You see, the Eagles- the Eagles, the Eagles are here. Thorin, the Eag-
+
+STOP
+
+LEGOLAS
+I cannot go back.
+
+THRANDUIL
+Where will you go?
+
+LEGOLAS
+I do not know.
+
+THRANDUIL
+Go north. Find the Dunedain. There is a young ranger amongst them, you should meet him.
+His father Arathorn was a good man. His son might grow to be a great one.
+
+LEGOLAS
+What is his name?
+
+THRANDUIL
+He is known in the wild as Strider. His true name you must discover for yourself.
+
+THRANDUIL
+Legolas, your mother loved you, more than anyone, more than life.
+
+STOP
+
+TAURIEL
+I want to bury him.
+
+THRANDUIL
+Yes.
+
+TAURIEL
+If this is love, I do not want it. Take it from me, please! Why does it hurt so much?
+
+THRANDUIL
+Because it was real.
+
+STOP
+
+BALIN
+There is to be a great feast tonight. Songs will be sung,
+tales will be told, and Thorin Oakenshield will pass into legend.
+
+BILBO BAGGINS
+I know that's how you must honor him, but to me, he was never that. He was to me- he was-
+
+BILBO BAGGINS
+Well, I think I'll slip quietly away, will you tell the others I said goodbye?
+
+BALIN
+You can tell them yourself.
+
+BILBO BAGGINS
+If any of you are ever passing Bag-End, tea is at four.
+There's plenty of it, you are welcome any time. Don't bother knocking.
+
+STOP
+
+GANDALF
+Ah, the borders of the Shire. It is here I must leave you.
+
+BILBO BAGGINS
+That's a shame. I quite liked having a wizard around. It seems they bring good luck.
+
+GANDALF
+You don't really suppose, do you, that all your adventures and escapes were managed by mere luck.
+Magic rings should not be used lightly, Bilbo. Don't take me for a fool, I know you found one-
+
+BILBO BAGGINS
+No.
+
+GANDALF
+In the Goblin tunnels, and I've kept my eye on you ever since.
+
+BILBO BAGGINS
+Well, thank goodness. Farewell, Gandalf.
+
+GANDALF
+Farewell.
+
+BILBO BAGGINS
+You, uh, you needn't worry about that ring, it fell out of my pocket during the battle. I lost it.
+
+GANDALF
+You're a very fine person, Mr Baggins, and I'm very fond of you.
+But you're only quite a little fellow in a wide world after all.
+
+STOP
+
+BILBO BAGGINS
+Wait a minute, that my mother's glory box. And that's my dining chair.
+
+BILBO BAGGINS
+Put that poof down! What is going on?
+
+MASTER WORRYWORT
+Hello, mister Bilbo. You're not supposed to be here.
+
+BILBO BAGGINS
+What do you mean?
+
+MASTER WORRYWORT
+On account of you being presumed dead and all.
+
+BILBO BAGGINS
+I am not dead, presumed or otherwise.
+
+MASTER WORRYWORT
+I'm not sure that's permitted! Mister Bilbo!
+
+TOSSER GRUB
+-anyone. Any advance on twenty-one? Any advance on twenty-one? Sold to Mrs. Bolder! Somewhere for Fatty to put his feet on.
+
+TOSSER GRUB
+So do I have any bids for this. This is Shire-made. None of your Dwarvish reproductions here, honestly.
+
+BILBO BAGGINS
+Stop! Stop! There's been a mistake!
+
+LOBELIA SACKVILLE BAGGINS
+Who are you?
+
+BILBO BAGGINS
+What do you mean "who am I?" You know perfectly well who I am, Lobelia Sackville Baggins.
+This is my home. And those are my spoons, thank you very much.
+
+TOSSER GRUB
+This is most irregular. It's been more than thirteen months since the disappearance,
+if you are in fact Bilbo Baggins and un-deceased. Can you prove it?
+
+BILBO BAGGINS
+What?
+
+TOSSER GRUB
+Well, uh, something official with your name on it would suffice.
+
+BILBO BAGGINS
+Alright. Right!
+
+BILBO BAGGINS
+A contract of employment as a bur-. Never mind as to what.
+
+BILBO BAGGINS
+There, my signature.
+
+TOSSER GRUB
+Yes, well. Oh, it certainly seems to be in order. Yes, it seems there can be no doubt.
+
+TOSSER GRUB
+Who is this person you pledged your service to? Thorin Oakenshield?
+
+BILBO BAGGINS
+He was my friend.

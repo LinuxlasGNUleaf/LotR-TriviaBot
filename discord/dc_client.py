@@ -159,9 +159,9 @@ class LotrBot(discord.Client):
 
 #==============================================================================
         elif self.do_autoscript and not is_dm:
-            await minigames.find_similar_from_script(channel,
-                                                     message,
-                                                     self.script_condensed,
-                                                     self.script,
-                                                     self.settings,
-                                                     self.config)
+            await minigames.run_autoscript(channel,
+                                           message,
+                                           self.script_condensed,
+                                           self.script,
+                                           self.settings,
+                                           self.config)

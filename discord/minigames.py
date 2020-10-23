@@ -128,23 +128,27 @@ def prepare_trivia_question(user, count, config):
     '''
     picks a trivia question and prepares the embed
     '''
-    # get random question
-    with open('questions.csv', 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        content = random.choice(list(csvreader))
+    correct_index = -1
+    while correct_index < 0:
+        # get random question
+        with open('questions.csv', 'r') as csvfile:
+            csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+            content = random.choice(list(csvreader))
 
-    # pop the source and the question (first element)
-    source = content.pop(0)
-    question = content.pop(0)
-    # shuffle answers
-    random.shuffle(content)
+        # pop the source and the question (first element)
+        source = content.pop(0)
+        question = content.pop(0)
+        # shuffle answers
+        random.shuffle(content)
 
-    answers = content.copy()
-    for i, item in enumerate(answers):
-        if item.startswith(config['discord']['trivia']['marker']):
-            answers[i] = item[1:]
-            correct_index = i+1
-            break
+        answers = content.copy()
+        for i, item in enumerate(answers):
+            if item.startswith(config['discord']['trivia']['marker']):
+                answers[i] = item[1:]
+                correct_index = i+1
+                break
+        if correct_index < 0:
+            print('Invalid question found: {}'.format(question))
 
     # create author info
     author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
@@ -467,8 +471,8 @@ async def display_help(channel, config):
     displays the help message for the usage of the LotR-Trivia-Bot spcififed in the config
     '''
     embed = create_embed(title='LotR Trivia Bot help',
-                         content=config['discord']['help']['text'],
-                         footnote=config['discord']['help']['footer'])
+                         content=config['discord']['help']['text'].format(config['general']['key']),
+                         footnote=config['discord']['help']['footer'].format(config['general']['version']))
     await channel.send(embed=embed)
 
 
@@ -584,14 +588,14 @@ def parse_script(config, arr, condensed_arr):
                 temp += line
                 if last:
                     temp += ' '
-                if not last and line != 'STOP':
+                if not last and 'STOP' not in line:
                     temp += '|'
 
             last = line
 
     for line in arr:
-        if line.startswith('STOP'):
-            condensed_arr.append('STOP')
+        if 'STOP' in line:
+            condensed_arr.append(line.strip())
             continue
 
         line = line.lower().split('|', 1)[1]
@@ -611,7 +615,7 @@ def parse_script(config, arr, condensed_arr):
         condensed_arr.append(temp_arr)
 
 
-async def find_similar_from_script(channel, message, condensed_arr, script, settings, config):
+async def run_autoscript(channel, message, condensed_arr, script, settings, config):
     '''
     attempts to find similar line from script and formats it, if found.
     '''
@@ -648,7 +652,7 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
             if not line:
                 continue
             if isinstance(line, str):
-                if line == 'STOP':
+                if line == 'STOP' or line == 'HARDSTOP':
                     continue
 
             # iterate through sentences in the line
@@ -668,18 +672,22 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
                     elif len(msg_part.split(' ')) > 1:
                         log[line_ind] = (1, round(ratio, 2), part_ind)
 
+    # log entries have the following scheme: [line index]: number-of-found-parts, confidence, part index
+
     if log:
+        # I swear I'm not insane, but this next part might look like I am :)
+
         # sort results by found parts
         ranking = sorted(log, key=lambda x: log[x][0])[::-1]
-
         # filter the results that have the same amount of found parts as the top one
         filtered_dict = dict(filter(lambda item: item[1][0] == log[ranking[0]][0], log.items()))
-
         # sort these by the confidence
         filtered_ranking = sorted(filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
+        # aaand select all those entries that have the same conf level as the highest ranked one.
+        super_filtered_ranking = dict(filter(lambda item: filtered_dict[item[0]][1] == filtered_dict[filtered_ranking[0]][1], filtered_dict.items()))
 
-        # pick the top one
-        line_ind = filtered_ranking[0]
+        # pick a random one
+        line_ind = random.choice(list(super_filtered_ranking.keys()))
         part_ind = log[line_ind][2]
 
         parts = []
@@ -714,21 +722,35 @@ async def find_similar_from_script(channel, message, condensed_arr, script, sett
                 return_text += '**{}:** ... {}\n'.format(author.title(), temp)
 
             # if the line is not the last one of the script, add the next one
-            if line_ind < len(script)-1:
-                if script[line_ind+1] != 'STOP':
-                    author, text = script[line_ind+1].split('|')
-                    return_text += '**{}:** {}\n'.format(author.title(), text)
-
-                # if a scene STOP is before the next line,
-                # continue only if configured to do so.
-                elif not config['discord']['autoscript']['scene_end_interrupt'] \
-                     and line_ind < len(script)-2:
-                    return_text += '**`[NEXT SCENE]`**\n'
-                    author, text = script[line_ind+2].split('|')
-                    return_text += '**{}:** {}'.format(author.title(), text)
+            skipped_lines = 0
+            i = 0
+            while i < config['discord']['autoscript']['dialog_count']+skipped_lines:
+                i += 1
+                if line_ind+i <= len(script)-1:
+                    if script[line_ind+i] != 'HARDSTOP':
+                        # if a scene STOP is before the next line,
+                        # continue only if configured to do so.
+                        if script[line_ind+i] == 'STOP':
+                            if config['discord']['autoscript']['scene_end_interrupt'] and line_ind+i >= len(script)-1:
+                                break
+                            i += 1
+                            skipped_lines += 1
+                            return_text += '**`[NEXT SCENE]`**\n'
+                            author, text = script[line_ind+i].split('|')
+                            return_text += '**{}:** {}\n'.format(author.title(), text)
+                        else:
+                            author, text = script[line_ind+i].split('|')
+                            return_text += '**{}:** {}\n'.format(author.title(), text)
+                    else:
+                        break
 
             if channel.permissions_for(channel.guild.me).add_reactions:
                 await message.add_reaction('✅')
+
+            # to prevent discord from complaining about too long messages.
+            while len(return_text) >= 2000:
+                return_text = '\n'.join(return_text.split('\n')[:-1])
+
             await channel.send(return_text.strip())
 
 

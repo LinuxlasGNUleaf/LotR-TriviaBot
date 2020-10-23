@@ -5,7 +5,7 @@ general:
     path: os.path.join(os.getenv('HOME'), '.config/discord/bots/lotr-bot/')
     superusers:
         - 277083306087022592
-    autosave: 60
+    autosave: 300
 
 reddit:
     subreddit: lotrmemes
@@ -99,6 +99,7 @@ discord:
         scene_end_interrupt: False
         punctuation_chars: ['?','!','.',':',';']
         elimination_chars: ["'",","]
+        dialog_count: 2
 
     status:
         - Boromir not simply walk into Mordor
