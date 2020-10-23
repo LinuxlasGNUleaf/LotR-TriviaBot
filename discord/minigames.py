@@ -765,6 +765,7 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
     ch_id = channel.id if isinstance(channel, discord.channel.DMChannel) else channel.guild.id
     subreddit = random.choice(subreddits)
 
+    print(subreddit)
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'Meme by u/{} from r/{}'.format(submission.author.name, subreddit)
