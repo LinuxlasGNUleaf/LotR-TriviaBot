@@ -69,6 +69,7 @@ with open("config.yaml", 'r') as cfg_stream:
 config['discord']['trivia']['cache'] = update_cache_path(config['discord']['trivia']['cache'])
 config['discord']['settings']['cache'] = update_cache_path(config['discord']['settings']['cache'])
 config['reddit']['cache'] = update_cache_path(config['reddit']['cache'])
+config['discord']['trivia']['stats_file'] = update_cache_path(config['discord']['trivia']['stats_file'])
 
 try:
     with open(config['discord']['trivia']['stats_file'], 'rb') as stats_file:
