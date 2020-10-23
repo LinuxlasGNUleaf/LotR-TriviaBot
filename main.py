@@ -70,6 +70,13 @@ config['discord']['trivia']['cache'] = update_cache_path(config['discord']['triv
 config['discord']['settings']['cache'] = update_cache_path(config['discord']['settings']['cache'])
 config['reddit']['cache'] = update_cache_path(config['reddit']['cache'])
 
+try:
+    with open(config['discord']['trivia']['stats_file'], 'rb') as stats_file:
+        pickle.load(stats_file)
+except (FileNotFoundError, EOFError):
+    with open(config['discord']['trivia']['stats_file'], 'wb') as stats_file:
+        pickle.dump({}, stats_file)
+
 scoreboard = get_cache(config['discord']['trivia']['cache'], 'Scoreboard Cache')
 settings = get_cache(config['discord']['settings']['cache'], 'Settings Cache')
 memelog = get_cache(config['reddit']['cache'], 'Reddit Cache')

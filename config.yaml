@@ -78,6 +78,7 @@ discord:
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
         tip_probability: 0.05
         scoreboard_max: 15
+        stats_file: 'questions_stats.txt'
     
     hangman:
         timeout: 20
