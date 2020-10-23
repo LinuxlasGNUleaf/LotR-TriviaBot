@@ -754,7 +754,7 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
             await channel.send(return_text.strip())
 
 
-async def reddit_meme(channel, reddit_client, subreddit, config, settings):
+async def reddit_meme(channel, reddit_client, subreddits, config, settings):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
@@ -763,10 +763,11 @@ async def reddit_meme(channel, reddit_client, subreddit, config, settings):
         return
 
     ch_id = channel.id if isinstance(channel, discord.channel.DMChannel) else channel.guild.id
+    subreddit = random.choice(subreddits)
 
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
-    footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
+    footnote = 'Meme by u/{} from r/{}'.format(submission.author.name, subreddit)
 
     parent = reddit_client.get_crosspost_parent(submission)
     if parent:

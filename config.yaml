@@ -8,7 +8,7 @@ general:
     autosave: 300
 
 reddit:
-    subreddit: lotrmemes
+    subreddits: ["lotrmemes","hobbitmemes"]
     cache: meme_log.pyobj
     token: reddit.tk
 
