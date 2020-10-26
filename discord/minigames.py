@@ -173,7 +173,8 @@ def prepare_trivia_question(user, count, config):
     # send the trivia question
     return (create_embed(question, author_info=author_info, content=embed_text),
             correct_index,
-            timeout)
+            timeout,
+            question)
 
 
 async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scoreboard):
@@ -193,9 +194,10 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     def check(chk_msg):
         return chk_msg.author == user and chk_msg.channel == channel
 
-    embed, correct_index, timeout = prepare_trivia_question(user, count, config)
+    embed, correct_index, timeout, question = prepare_trivia_question(user, count, config)
     trivia_embed = await channel.send(embed=embed)
 
+    correct = False
     # block user from sending any commands
     blocked.append(user.id)
     try:
@@ -204,7 +206,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
             msg = int(msg.content)
             if msg == correct_index:
                 # right answer
-                wins += 1
+                correct = True
                 ret_string = create_reply(user, False, config)
             else:
                 # invalid digit
@@ -220,8 +222,17 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     # unblock user afterwards
     blocked.remove(user.id)
 
+    with open(config['discord']['trivia']['stats_file'], 'rb') as stats_file:
+        stats = pickle.load(stats_file)
+    if question in stats:
+        temp = stats[question]
+    else:
+        temp = (1, int(correct))
+    stats[question] = (temp[0]+1, temp[1]+int(correct))
+    with open(config['discord']['trivia']['stats_file'], 'wb') as stats_file:
+        pickle.dump(stats, stats_file)
     # update scoreboard, send reply and delete the question
-    scoreboard[user.id] = (count, wins)
+    scoreboard[user.id] = (count, wins+int(correct))
     await channel.send(ret_string)
     await trivia_embed.delete()
 
@@ -743,7 +754,7 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
             await channel.send(return_text.strip())
 
 
-async def reddit_meme(channel, reddit_client, subreddit, config, settings):
+async def reddit_meme(channel, reddit_client, subreddits, config, settings):
     '''
     outputs a reddit meme from LOTR subreddit
     '''
@@ -752,10 +763,11 @@ async def reddit_meme(channel, reddit_client, subreddit, config, settings):
         return
 
     ch_id = channel.id if isinstance(channel, discord.channel.DMChannel) else channel.guild.id
+    subreddit = random.choice(subreddits)
 
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
-    footnote = 'This meme is certified to be {}% dank'.format(submission.upvote_ratio*100)
+    footnote = 'Meme by u/{} from r/{}'.format(submission.author.name, subreddit)
 
     parent = reddit_client.get_crosspost_parent(submission)
     if parent:

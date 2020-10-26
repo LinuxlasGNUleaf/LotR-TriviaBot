@@ -101,7 +101,7 @@ class LotrBot(discord.Client):
         elif self.is_command(content, 'meme'):
             await minigames.reddit_meme(channel,
                                         self.reddit_client,
-                                        self.config['reddit']['subreddit'],
+                                        self.config['reddit']['subreddits'],
                                         self.config,
                                         self.settings)
 
