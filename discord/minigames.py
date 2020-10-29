@@ -343,12 +343,12 @@ async def lotr_battle(channel, bot, user, content, config, settings):
 
     # fetch the tagged user, exit conditions for bots / same user
     try:
-        players = [user, await bot.fetch_user(content.split('<@')[-1][:-1])]
+        players = [user, await bot.fetch_user(content.split('<@')[-1][1:-1])]
         if players[1].bot or players[1] == user:
             await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
     except (discord.errors.HTTPException, IndexError):
-        await channel.send('Please tag a valid **online** user here you want to battle.')
+        await channel.send('Please tag a valid user here you want to battle.')
         return
 
     await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
@@ -361,12 +361,13 @@ async def lotr_battle(channel, bot, user, content, config, settings):
 
     bot.blocked.append(players[1].id)
     try:
-        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
+        msg = await bot.wait_for('message', check=ready_check, round_timeout=bot.config['discord']['battle']['timeout'])
 
         if msg.content.lower() == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
         elif msg.content.lower() == 'no':
             await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
+            return
         else:
             await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
             return
@@ -404,7 +405,7 @@ Answer it in time and continue to do so until the game is over. Then return to t
 
     score_msg = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
     round_ind = 0
-    timeout = 3
+    round_timeout = 3
 
     while True:
         # reset / manage round variables
@@ -419,23 +420,26 @@ Answer it in time and continue to do so until the game is over. Then return to t
 
         # try to get an answer from all pending players
         try:
-            await bot.wait_for('message', check=answer_check, timeout=question[2])
+            await bot.wait_for('message', check=answer_check, round_timeout=question[2])
         except asyncio.TimeoutError:
             pass
 
         # if both players failed or won
         if answers[0] == answers[1]:
-            for player in players:
-                if answers[0] == 1: # both got it right
+            if answers[0] == 1: # both got it right
+                for player in players:
                     await player.dm_channel.send('Well done! You both answered correctly.')
-                elif answers[0] == 0:
+            elif answers[0] == 0:
+                for player in players:
                     await player.dm_channel.send('You fools! Both of you answered incorrectly.')
-                else:
-                    timeout -= 1
-                    await player.dm_channel.send('You both did not answer in time! Timeout in {} rounds.'.format(timeout))
-                    if timeout < 1:
+            else:
+                round_timeout -= 1
+                for player in players:
+                    await player.dm_channel.send('You both did not answer in time! Timeout in {} rounds.'.format(round_timeout))
+                if round_timeout < 1:
+                    for player in players:
                         await channel.send('You both did not answer multiple times... timing out.')
-                        return
+                    return
 
             footnote = 'Players drawed the {} round.'.format(ordinal(round_ind))
 
@@ -1038,7 +1042,7 @@ async def quote_battle(channel, bot, user, content, config, settings):
 
     # fetch the tagged user, exit conditions for bots / same user
     try:
-        players = [user, await bot.fetch_user(content.split('<@')[-1][:-1])]
+        players = [user, await bot.fetch_user(content.split('<@')[-1][1:-1])]
         if players[1].bot or players[1] == user:
             await channel.send(':x: I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
