@@ -1006,9 +1006,10 @@ async def quote_battle(channel, bot, user, content, config, settings):
     if server_id not in settings.keys():
         settings[server_id] = {}
 
-    if 'unset-channel' in content:
+    if 'server-unset' in content:
         settings[server_id]['quote-battle'] = ''
         await channel.send(':white_check_mark: Quote channel unset.')
+        return
 
     try:
         channel = await bot.fetch_channel(settings[server_id]['quote-battle'])
@@ -1018,29 +1019,31 @@ async def quote_battle(channel, bot, user, content, config, settings):
             return
         await channel.send('Quote-battle channel not specified or invalid!\nMention the channel here to be registered as the quote channel.')
 
+        bot.blocked.append(user)
+
         def check(chk_msg):
             return chk_msg.author == user and chk_msg.channel == channel
 
         try:
             msg = await bot.wait_for('message', check=check, timeout=60)
-            settings[server_id]['quote-battle'] = await bot.fetch_channel(msg.content.split('<#')[-1][:-1])
-            await channel.send(':white_check_mark: Quote channel set. To unset, use `{} quote-battle unset-channel`'.format(config['general']['key']))
-            return
+            settings[server_id]['quote-battle'] = (await bot.fetch_channel(msg.content.split('<#')[-1][:-1])).id
+            await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(config['general']['key']))
         except (discord.errors.HTTPException, IndexError):
             await channel.send(':x: Boi what is this? Tag a valid channel please.')
-            return
         except asyncio.TimeoutError:
             await channel.send(':x: Well, I take that as a no.')
-            return
+
+        bot.blocked.remove(user)
+        return
 
     # fetch the tagged user, exit conditions for bots / same user
     try:
         players = [user, await bot.fetch_user(content.split('<@')[-1][:-1])]
         if players[1].bot or players[1] == user:
-            await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
+            await channel.send(':x: I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
     except (discord.errors.HTTPException, IndexError):
-        await channel.send('Please tag a valid user here you want to battle.')
+        await channel.send(':x: Please tag a valid user here you want to battle.')
         return
 
     await channel.send('{}, are you ready to quote-battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
@@ -1066,21 +1069,3 @@ async def quote_battle(channel, bot, user, content, config, settings):
         await channel.send('{}, your opponent did not respond.'.format(user.mention))
         return
     bot.blocked.remove(players[1].id)
-
-    # create user DMs, in case they did not yet exist
-    for player in players:
-        if not player.dm_channel:
-            await player.create_dm()
-
-    def answer_check(chk_msg):
-        # check whether author is opponent and channel is the corresponding DM
-        if chk_msg.author in pending and chk_msg.channel == chk_msg.author.dm_channel:
-            pending.remove(chk_msg.author)
-            if chk_msg.content.strip().isdigit():
-                answers[players.index(chk_msg.author)] = (int(chk_msg.content.strip()) == question[1])
-
-        # return true if pending is empty
-        return not pending
-
-    await channel.send('I will send you both a trivia question in a few seconds.\
-Answer it in time and continue to do so until the game is over. Then return to this chat to see who won.')
