@@ -158,6 +158,15 @@ class LotrBot(discord.Client):
                                         self.settings)
 
 #==============================================================================
+        elif self.is_command(content, 'qbattle') and not is_dm:
+            await minigames.quote_battle(channel,
+                                         self,
+                                         user,
+                                         content,
+                                         self.config,
+                                         self.settings)
+
+#==============================================================================
         elif self.do_autoscript and not is_dm:
             await minigames.run_autoscript(channel,
                                            message,
