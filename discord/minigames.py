@@ -1002,24 +1002,36 @@ async def edit_settings(cmd, settings, channel):
         await channel.send('state `{}` not recognized'.format(cmd[1]))
 
 
-async def quote_battle(channel, bot, user, content, config, settings):
+async def quote_battle(channel, bot, user, content):
     '''
     initiates and manages a trivia battle between two users
     '''
+    server_me = channel.guild.me
+    if not channel.permissions_for(server_me).manage_messages:
+        await channel.send('I need the permission `Manage Messages` for this feature to work.')
+        return
+
+    if not channel.permissions_for(server_me).manage_channels:
+        await channel.send('I need the permission `Manage Channels` for this feature to work.')
+        return
+
     server_id = channel.guild.id
-    if server_id not in settings.keys():
-        settings[server_id] = {}
+    if server_id not in bot.settings.keys():
+        bot.settings[server_id] = {}
 
     if 'server-unset' in content:
-        settings[server_id]['quote-battle'] = ''
+        bot.settings[server_id]['quote-battle'] = ''
         await channel.send(':white_check_mark: Quote channel unset.')
         return
 
     try:
-        channel = await bot.fetch_channel(settings[server_id]['quote-battle'])
+        channel = await bot.fetch_channel(bot.settings[server_id]['quote-battle'])
+        if not channel.permissions_for(server_me).send_messages:
+            await channel.send(':x: I don\'t have permission to send messages in the specified channel.')
+            return
     except (KeyError, discord.errors.HTTPException):
         if not channel.permissions_for(user).manage_channels:
-            await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(config['general']['key']))
+            await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(bot.config['general']['key']))
             return
         await channel.send('Quote-battle channel not specified or invalid!\nMention the channel here to be registered as the quote channel.')
 
@@ -1030,7 +1042,9 @@ async def quote_battle(channel, bot, user, content, config, settings):
 
         try:
             msg = await bot.wait_for('message', check=check, timeout=60)
-            settings[server_id]['quote-battle'] = (await bot.fetch_channel(msg.content.split('<#')[-1][:-1])).id
+            bot.settings[server_id]['quote-battle'] = (await bot.fetch_channel(msg.content.split('<#')[-1][:-1])).id
+            if not channel.permissions_for(bot.user).send_messages():
+                await channel.send(':warning: I don\'t have permission to send messages in this channel.\nThis feature won\'t work until you allow me to send messages in the channel you specified.')
             await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(config['general']['key']))
         except (discord.errors.HTTPException, IndexError):
             await channel.send(':x: Boi what is this? Tag a valid channel please.')
@@ -1073,3 +1087,26 @@ async def quote_battle(channel, bot, user, content, config, settings):
         await channel.send('{}, your opponent did not respond.'.format(user.mention))
         return
     bot.blocked.remove(players[1].id)
+
+
+async def quote_battle_handler(channel, bot, users):
+    def quote_check(msg):
+        return msg.channel == channel and msg.author in users
+
+    rounds = bot.config['discord']['quote_battle']['rounds']*2
+    orig_rounds = rounds
+    random.shuffle(users)
+    act_user_ind = 0
+
+    while rounds > 0:
+        try:
+            msg = await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout'])
+        except asyncio.TimeoutError:
+            await channel.send('Fool of a {}! You did not answer in time. The battle ended.')
+        if msg.author != users[act_user_ind]:
+            if act_user_ind+1 % len(users):
+                rounds -= 1
+                if rounds == orig_rounds//2:
+                    await channel.send('Half-time! {} rounds to go!'.format(rounds))
+            act_user_ind = act_user_ind+1 % len(users)
+            
