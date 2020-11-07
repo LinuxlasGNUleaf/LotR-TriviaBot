@@ -66,6 +66,11 @@ discord:
     battle:
         timeout: 45
 
+    quote_battle:
+        timeout: 300
+        rounds: 2
+        voting_time: 60
+
     trivia:
         multiplier: 12
         extra_time: 5.0

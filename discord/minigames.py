@@ -1011,8 +1011,8 @@ async def quote_battle(channel, bot, user, content):
         await channel.send('I need the permission `Manage Messages` for this feature to work.')
         return
 
-    if not channel.permissions_for(server_me).manage_channels:
-        await channel.send('I need the permission `Manage Channels` for this feature to work.')
+    if not channel.permissions_for(server_me).manage_roles:
+        await channel.send('I need the permission `Manage Roles` for this feature to work.')
         return
 
     server_id = channel.guild.id
@@ -1024,35 +1024,35 @@ async def quote_battle(channel, bot, user, content):
         await channel.send(':white_check_mark: Quote channel unset.')
         return
 
+    # try to retrieve the quotebattle channel from the settings for this server
     try:
-        channel = await bot.fetch_channel(bot.settings[server_id]['quote-battle'])
-        if not channel.permissions_for(server_me).send_messages:
-            await channel.send(':x: I don\'t have permission to send messages in the specified channel.')
-            return
+        quote_channel = await bot.fetch_channel(bot.settings[server_id]['quote-battle'])
     except (KeyError, discord.errors.HTTPException):
         if not channel.permissions_for(user).manage_channels:
             await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(bot.config['general']['key']))
             return
         await channel.send('Quote-battle channel not specified or invalid!\nMention the channel here to be registered as the quote channel.')
 
-        bot.blocked.append(user)
-
         def check(chk_msg):
             return chk_msg.author == user and chk_msg.channel == channel
 
+        bot.blocked.append(user)
         try:
             msg = await bot.wait_for('message', check=check, timeout=60)
-            bot.settings[server_id]['quote-battle'] = (await bot.fetch_channel(msg.content.split('<#')[-1][:-1])).id
-            if not channel.permissions_for(bot.user).send_messages():
-                await channel.send(':warning: I don\'t have permission to send messages in this channel.\nThis feature won\'t work until you allow me to send messages in the channel you specified.')
-            await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(config['general']['key']))
+            quote_channel = await bot.fetch_channel(msg.content.split('<#')[-1][:-1])
+            bot.settings[server_id]['quote-battle'] = quote_channel.id
+            await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(bot.config['general']['key']))
         except (discord.errors.HTTPException, IndexError):
             await channel.send(':x: Boi what is this? Tag a valid channel please.')
         except asyncio.TimeoutError:
             await channel.send(':x: Well, I take that as a no.')
-
         bot.blocked.remove(user)
         return
+    
+    if not quote_channel.permissions_for(server_me).send_messages:
+        await channel.send(':warning: I don\'t have permission to send messages in this channel.\nUpdating permissions...')
+        await quote_channel.set_permissions(server_me, send_messages=True, reason='Neccessary changes for the LotR quote battle')
+        await channel.send('Done.')
 
     # fetch the tagged user, exit conditions for bots / same user
     try:
@@ -1088,25 +1088,62 @@ async def quote_battle(channel, bot, user, content):
         return
     bot.blocked.remove(players[1].id)
 
+    asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
 
 async def quote_battle_handler(channel, bot, users):
+    perms_changed = []
+    for user in users:
+        bot.blocked.append(user.id)
+        if not channel.permissions_for(user).send_messages:
+            perms_changed.append(user)
+            await channel.set_permissions(user, send_messages=True, reason='Quote battle')
+
     def quote_check(msg):
         return msg.channel == channel and msg.author in users
 
-    rounds = bot.config['discord']['quote_battle']['rounds']*2
+    rounds = (bot.config['discord']['quote_battle']['rounds']*2)-1
     orig_rounds = rounds
     random.shuffle(users)
-    act_user_ind = 0
+    act_user = random.choice(users)
+    first_round = True
+    await channel.send('{} starts! Prepare for battle!'.format(act_user.mention))
 
     while rounds > 0:
+        if rounds == orig_rounds//2:
+            await channel.send('Half-time! {} rounds to go!'.format(rounds), delete_after=10)
         try:
-            msg = await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout'])
+            msg = await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout']//2)
         except asyncio.TimeoutError:
-            await channel.send('Fool of a {}! You did not answer in time. The battle ended.')
-        if msg.author != users[act_user_ind]:
-            if act_user_ind+1 % len(users):
-                rounds -= 1
-                if rounds == orig_rounds//2:
-                    await channel.send('Half-time! {} rounds to go!'.format(rounds))
-            act_user_ind = act_user_ind+1 % len(users)
-            
+            msg = await channel.send('Careful both of you, half of your time to respond has passed!', delete_after=30)
+            try:
+                await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout']//2)
+            except asyncio.TimeoutError:
+                await channel.send('You did not answer in time. The battle ended.')
+                break
+        if first_round:
+            if msg.author == act_user:
+                first_round = False
+            else:
+                await channel.send('Hey, wait for {} to start the battle!'.format(act_user.display_name), delete_after=10)
+                await msg.delete()
+                continue
+
+        if msg.author != act_user:
+            rounds -= 1
+            act_user = msg.author
+
+    score_msg = await channel.send('The quote battle between {} and {} ended.\nVote :one: for {} and :two: for {}'\
+                                   .format(users[0].display_name,
+                                           users[1].display_name,
+                                           users[0].mention,
+                                           users[1].mention))
+    await score_msg.add_reaction('1️⃣')
+    await score_msg.add_reaction('2️⃣')
+    await asyncio.sleep(bot.config['discord']['quote_battle']['voting_time'])
+    voting = score_msg.reactions
+    print(voting)
+
+    for user in users:
+        bot.blocked.remove(user.id)
+        if user in perms_changed:
+            await channel.set_permissions(user, send_messages=None, reason='Quote battle')
