@@ -1048,7 +1048,7 @@ async def quote_battle(channel, bot, user, content):
             await channel.send(':x: Well, I take that as a no.')
         bot.blocked.remove(user)
         return
-    
+
     if not quote_channel.permissions_for(server_me).send_messages:
         await channel.send(':warning: I don\'t have permission to send messages in this channel.\nUpdating permissions...')
         await quote_channel.set_permissions(server_me, send_messages=True, reason='Neccessary changes for the LotR quote battle')
@@ -1091,7 +1091,9 @@ async def quote_battle(channel, bot, user, content):
     asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
 
 async def quote_battle_handler(channel, bot, users):
+    server_me = channel.guild.me
     perms_changed = []
+
     for user in users:
         bot.blocked.append(user.id)
         if not channel.permissions_for(user).send_messages:
@@ -1106,11 +1108,9 @@ async def quote_battle_handler(channel, bot, users):
     random.shuffle(users)
     act_user = random.choice(users)
     first_round = True
-    await channel.send('{} starts! Prepare for battle!'.format(act_user.mention))
+    await channel.send('Welcome to the epic quote battle between {} and {}!\n{} starts! Prepare for battle!'.format(*(user.mention for user in users), act_user.display_name))
 
     while rounds > 0:
-        if rounds == orig_rounds//2:
-            await channel.send('Half-time! {} rounds to go!'.format(rounds), delete_after=10)
         try:
             msg = await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout']//2)
         except asyncio.TimeoutError:
@@ -1120,6 +1120,7 @@ async def quote_battle_handler(channel, bot, users):
             except asyncio.TimeoutError:
                 await channel.send('You did not answer in time. The battle ended.')
                 break
+
         if first_round:
             if msg.author == act_user:
                 first_round = False
@@ -1131,19 +1132,57 @@ async def quote_battle_handler(channel, bot, users):
         if msg.author != act_user:
             rounds -= 1
             act_user = msg.author
+            if rounds-1 == orig_rounds//2:
+                await channel.send('Half-time! {} rounds to go!'.format(rounds))
 
     score_msg = await channel.send('The quote battle between {} and {} ended.\nVote :one: for {} and :two: for {}'\
                                    .format(users[0].display_name,
                                            users[1].display_name,
                                            users[0].mention,
                                            users[1].mention))
-    await score_msg.add_reaction('1️⃣')
-    await score_msg.add_reaction('2️⃣')
+
+    await score_msg.add_reaction('1️⃣') # number 1
+    await score_msg.add_reaction('2️⃣') # number 2
     await asyncio.sleep(bot.config['discord']['quote_battle']['voting_time'])
-    voting = score_msg.reactions
-    print(voting)
+
+    try:
+        #refetch message
+        score_msg = await channel.fetch_message(score_msg.id)
+        await score_msg.add_reaction('🛑') #stop-sign
+
+        # remove bot reactions, and remove self-votes
+        await score_msg.remove_reaction('1️⃣', server_me)
+        try:
+            await score_msg.remove_reaction('1️⃣', users[0])
+        except discord.errors.NotFound:
+            pass
+
+        await score_msg.remove_reaction('2️⃣', server_me)
+        try:
+            await score_msg.remove_reaction('2️⃣', users[1])
+        except discord.errors.NotFound:
+            pass
+
+        # refetch message again
+        score_msg = await channel.fetch_message(score_msg.id)
+
+        voting = [0, 0]
+        for item in score_msg.reactions:
+            if item.emoji == '1️⃣':
+                voting[0] = item.count
+            elif item.emoji == '2️⃣':
+                voting[1] = item.count
+
+        if voting[0] == voting[1]:
+            await channel.send('{} vs {} votes\nDraw! Congratulations, {} and {}, you did well.'.format(*voting, *(user.mention for user in users)))
+        else:
+            winner = voting[voting[0] < voting[1]]
+            await channel.send('{} vs {} votes\n{} wins the quote battle! What a fight!'.format(*voting, winner.mention))
+
+    except discord.errors.HTTPException:
+        await channel.send(':x: An error occured while counting the votes. Sorry for that.')
 
     for user in users:
         bot.blocked.remove(user.id)
         if user in perms_changed:
-            await channel.set_permissions(user, send_messages=None, reason='Quote battle')
+            await channel.set_permissions(user, send_messages=False, reason='Quote battle')
