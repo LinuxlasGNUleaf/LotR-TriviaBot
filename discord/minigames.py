@@ -771,7 +771,7 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
 
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
-    footnote = 'Meme by u/{} from r/{}'.format(submission.author.name, subreddit)
+    footnote = 'Meme by u/{} from r/{}'.format(submission.author.name if submission.author else '[deleted]', subreddit)
 
     parent = reddit_client.get_crosspost_parent(submission)
     if parent:
