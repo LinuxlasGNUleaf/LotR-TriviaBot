@@ -1160,13 +1160,13 @@ async def quote_battle_handler(channel, bot, players):
         # remove bot reactions, and remove self-votes
         await score_msg.remove_reaction('1️⃣', server.me)
         try:
-            await score_msg.remove_reaction('1️⃣', players[0])
+            await score_msg.remove_reaction('1️⃣', server.get_member(players[0].id))
         except discord.errors.NotFound:
             pass
 
         await score_msg.remove_reaction('2️⃣', server.me)
         try:
-            await score_msg.remove_reaction('2️⃣', players[1])
+            await score_msg.remove_reaction('2️⃣', server.get_member(players[1].id))
         except discord.errors.NotFound:
             pass
 
