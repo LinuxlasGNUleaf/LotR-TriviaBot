@@ -1007,9 +1007,6 @@ async def quote_battle(channel, bot, user, content):
     initiates and manages a trivia battle between two users
     '''
     server_me = channel.guild.me
-    if not channel.permissions_for(server_me).manage_messages:
-        await channel.send('I need the permission `Manage Messages` for this feature to work.')
-        return
 
     if not channel.permissions_for(server_me).manage_roles:
         await channel.send('I need the permission `Manage Roles` for this feature to work.')
