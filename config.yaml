@@ -68,8 +68,8 @@ discord:
 
     quote_battle:
         timeout: 300
-        rounds: 2
-        voting_time: 60
+        rounds: 5
+        voting_time: 600
 
     trivia:
         multiplier: 12

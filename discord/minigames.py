@@ -1025,9 +1025,11 @@ async def quote_battle(channel, bot, user, content):
     try:
         quote_channel = await bot.fetch_channel(bot.settings[server_id]['quote-battle'])
     except (KeyError, discord.errors.HTTPException):
-        if not channel.permissions_for(user).manage_channels:
+        if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
             await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(bot.config['general']['key']))
             return
+        if user.id in config['general']['superusers']:
+            await channel.send(':desktop: Superuser detected, overriding permissions...')
         await channel.send('Quote-battle channel not specified or invalid!\nMention the channel here to be registered as the quote channel.')
 
         def check(chk_msg):
