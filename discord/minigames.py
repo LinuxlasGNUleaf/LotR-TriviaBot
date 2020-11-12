@@ -1129,14 +1129,14 @@ async def quote_battle_handler(channel, bot, players):
                 break
 
         if first_round:
-            if msg.author == act_player:
+            if msg.author.id == act_player.id:
                 first_round = False
             else:
                 await channel.send('Hey, wait for {} to start the battle!'.format(act_player.display_name), delete_after=10)
                 await msg.delete()
                 continue
 
-        if msg.author != act_player:
+        if msg.author.id != act_player.id:
             rounds -= 1
             act_player = msg.author
             if rounds-1 == orig_rounds//2:
