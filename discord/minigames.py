@@ -1098,25 +1098,25 @@ async def quote_battle(channel, bot, user, content):
 
     asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
 
-async def quote_battle_handler(channel, bot, users):
+async def quote_battle_handler(channel, bot, players):
     server_me = channel.guild.me
     perms_changed = []
 
-    for user in users:
-        bot.blocked.append(user.id)
-        if not channel.permissions_for(user).send_messages:
-            perms_changed.append(user)
-            await channel.set_permissions(user, send_messages=True, reason='Quote battle')
+    for player in players:
+        bot.blocked.append(player.id)
+        if not channel.permissions_for(player).send_messages:
+            perms_changed.append(player)
+            await channel.set_permissions(player, send_messages=True, reason='Quote battle')
 
     def quote_check(msg):
-        return msg.channel == channel and msg.author in users
+        return msg.channel == channel and msg.author in players
 
     rounds = (bot.config['discord']['quote_battle']['rounds']*2)-1
     orig_rounds = rounds
-    random.shuffle(users)
-    act_user = random.choice(users)
+    random.shuffle(players)
+    act_player = random.choice(players)
     first_round = True
-    await channel.send('Welcome to the epic quote battle between {} and {}!\n{} starts! Prepare for battle!'.format(*(user.mention for user in users), act_user.display_name))
+    await channel.send('Welcome to the epic quote battle between {} and {}!\n{} starts! Prepare for battle!'.format(*(player.mention for player in players), act_player.display_name))
 
     while rounds > 0:
         try:
@@ -1130,24 +1130,24 @@ async def quote_battle_handler(channel, bot, users):
                 break
 
         if first_round:
-            if msg.author == act_user:
+            if msg.author == act_player:
                 first_round = False
             else:
-                await channel.send('Hey, wait for {} to start the battle!'.format(act_user.display_name), delete_after=10)
+                await channel.send('Hey, wait for {} to start the battle!'.format(act_player.display_name), delete_after=10)
                 await msg.delete()
                 continue
 
-        if msg.author != act_user:
+        if msg.author != act_player:
             rounds -= 1
-            act_user = msg.author
+            act_player = msg.author
             if rounds-1 == orig_rounds//2:
                 await channel.send('Half-time! {} rounds to go!'.format(rounds))
 
     score_msg = await channel.send('The quote battle between {} and {} ended.\nVote :one: for {} and :two: for {}'\
-                                   .format(users[0].display_name,
-                                           users[1].display_name,
-                                           users[0].mention,
-                                           users[1].mention))
+                                   .format(players[0].display_name,
+                                           players[1].display_name,
+                                           players[0].mention,
+                                           players[1].mention))
 
     await score_msg.add_reaction('1️⃣') # number 1
     await score_msg.add_reaction('2️⃣') # number 2
@@ -1161,13 +1161,13 @@ async def quote_battle_handler(channel, bot, users):
         # remove bot reactions, and remove self-votes
         await score_msg.remove_reaction('1️⃣', server_me)
         try:
-            await score_msg.remove_reaction('1️⃣', users[0])
+            await score_msg.remove_reaction('1️⃣', players[0])
         except discord.errors.NotFound:
             pass
 
         await score_msg.remove_reaction('2️⃣', server_me)
         try:
-            await score_msg.remove_reaction('2️⃣', users[1])
+            await score_msg.remove_reaction('2️⃣', players[1])
         except discord.errors.NotFound:
             pass
 
@@ -1182,7 +1182,7 @@ async def quote_battle_handler(channel, bot, users):
                 voting[1] = item.count
 
         if voting[0] == voting[1]:
-            await channel.send('{} vs {} votes\nDraw! Congratulations, {} and {}, you did well.'.format(*voting, *(user.mention for user in users)))
+            await channel.send('{} vs {} votes\nDraw! Congratulations, {} and {}, you did well.'.format(*voting, *(player.mention for player in players)))
         else:
             winner = voting[voting[0] < voting[1]]
             await channel.send('{} vs {} votes\n{} wins the quote battle! What a fight!'.format(*voting, winner.mention))
@@ -1190,7 +1190,7 @@ async def quote_battle_handler(channel, bot, users):
     except discord.errors.HTTPException:
         await channel.send(':x: An error occured while counting the votes. Sorry for that.')
 
-    for user in users:
-        bot.blocked.remove(user.id)
-        if user in perms_changed:
-            await channel.set_permissions(user, send_messages=False, reason='Quote battle')
+    for player in players:
+        bot.blocked.remove(player.id)
+        if player in perms_changed:
+            await channel.set_permissions(player, send_messages=False, reason='Quote battle')
