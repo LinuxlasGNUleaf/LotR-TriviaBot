@@ -1006,7 +1006,7 @@ async def quote_battle(channel, bot, user, content):
     '''
     initiates and manages a trivia battle between two users
     '''
-    server_me = channel.guild.me
+    server = channel.guild
 
     if not channel.permissions_for(server_me).manage_roles:
         await channel.send('I need the permission `Manage Roles` for this feature to work.')
@@ -1016,9 +1016,8 @@ async def quote_battle(channel, bot, user, content):
         await channel.send('I need the permission `Manage Messages` for this feature to work.')
         return
 
-    server_id = channel.guild.id
-    if server_id not in bot.settings.keys():
-        bot.settings[server_id] = {}
+    if server.id not in bot.settings.keys():
+        bot.settings[server.id] = {}
 
     if 'server-unset' in content:
         if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
@@ -1026,13 +1025,13 @@ async def quote_battle(channel, bot, user, content):
             return
         if user.id in bot.config['general']['superusers']:
             await channel.send(':desktop: Superuser detected, overriding permissions...')
-        bot.settings[server_id]['quote-battle'] = ''
+        bot.settings[server.id]['quote-battle'] = ''
         await channel.send(':white_check_mark: Quote channel unset.')
         return
 
     # try to retrieve the quotebattle channel from the settings for this server
     try:
-        quote_channel = await bot.fetch_channel(bot.settings[server_id]['quote-battle'])
+        quote_channel = await bot.fetch_channel(bot.settings[server.id]['quote-battle'])
     except (KeyError, discord.errors.HTTPException):
         if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
             await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(bot.config['general']['key']))
@@ -1048,7 +1047,7 @@ async def quote_battle(channel, bot, user, content):
         try:
             msg = await bot.wait_for('message', check=check, timeout=60)
             quote_channel = await bot.fetch_channel(msg.content.split('<#')[-1][:-1])
-            bot.settings[server_id]['quote-battle'] = quote_channel.id
+            bot.settings[server.id]['quote-battle'] = quote_channel.id
             await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(bot.config['general']['key']))
         except (discord.errors.HTTPException, IndexError):
             await channel.send(':x: Boi what is this? Tag a valid channel please.')
@@ -1057,9 +1056,9 @@ async def quote_battle(channel, bot, user, content):
         bot.blocked.remove(user)
         return
 
-    if not quote_channel.permissions_for(server_me).send_messages:
+    if not quote_channel.permissions_for(server.me).send_messages:
         await channel.send(':warning: I don\'t have permission to send messages in this channel.\nUpdating permissions...')
-        await quote_channel.set_permissions(server_me, send_messages=True, reason='Neccessary changes for the LotR quote battle')
+        await quote_channel.set_permissions(server.me, send_messages=True, reason='Neccessary changes for the LotR quote battle')
         await channel.send('Done.')
 
     # fetch the tagged user, exit conditions for bots / same user
@@ -1099,12 +1098,12 @@ async def quote_battle(channel, bot, user, content):
     asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
 
 async def quote_battle_handler(channel, bot, players):
-    server_me = channel.guild.me
+    server = channel.guild
     perms_changed = []
 
     for player in players:
         bot.blocked.append(player.id)
-        if not channel.permissions_for(player).send_messages:
+        if not channel.permissions_for(server.get_member(player.id)).send_messages:
             perms_changed.append(player)
             await channel.set_permissions(player, send_messages=True, reason='Quote battle')
 
@@ -1159,13 +1158,13 @@ async def quote_battle_handler(channel, bot, players):
         await score_msg.add_reaction('🛑') #stop-sign
 
         # remove bot reactions, and remove self-votes
-        await score_msg.remove_reaction('1️⃣', server_me)
+        await score_msg.remove_reaction('1️⃣', server.me)
         try:
             await score_msg.remove_reaction('1️⃣', players[0])
         except discord.errors.NotFound:
             pass
 
-        await score_msg.remove_reaction('2️⃣', server_me)
+        await score_msg.remove_reaction('2️⃣', server.me)
         try:
             await score_msg.remove_reaction('2️⃣', players[1])
         except discord.errors.NotFound:
@@ -1193,4 +1192,4 @@ async def quote_battle_handler(channel, bot, players):
     for player in players:
         bot.blocked.remove(player.id)
         if player in perms_changed:
-            await channel.set_permissions(player, send_messages=False, reason='Quote battle')
+            await channel.set_permissions(server.get_member(player.id), send_messages=False, reason='Quote battle')
