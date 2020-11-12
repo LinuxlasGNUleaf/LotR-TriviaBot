@@ -1011,6 +1011,10 @@ async def quote_battle(channel, bot, user, content):
     if not channel.permissions_for(server_me).manage_roles:
         await channel.send('I need the permission `Manage Roles` for this feature to work.')
         return
+    
+    if not channel.permissions_for(server_me).manage_messages:
+        await channel.send('I need the permission `Manage Messages` for this feature to work.')
+        return
 
     server_id = channel.guild.id
     if server_id not in bot.settings.keys():
