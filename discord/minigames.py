@@ -1017,6 +1017,11 @@ async def quote_battle(channel, bot, user, content):
         bot.settings[server_id] = {}
 
     if 'server-unset' in content:
+        if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
+            await channel.send(':x: Ask a server moderator to unset the quote-channel with `{} qbattle server-unset`'.format(bot.config['general']['key']))
+            return
+        if user.id in bot.config['general']['superusers']:
+            await channel.send(':desktop: Superuser detected, overriding permissions...')
         bot.settings[server_id]['quote-battle'] = ''
         await channel.send(':white_check_mark: Quote channel unset.')
         return
