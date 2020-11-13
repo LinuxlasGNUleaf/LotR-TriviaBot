@@ -1180,11 +1180,12 @@ async def quote_battle_handler(channel, bot, players):
             elif item.emoji == '2️⃣':
                 voting[1] = item.count
 
+        ret_str = 'The vote for the battle between {} and {} concluded with {} vs {} votes'.format(*voting, *(player.mention for player in players))
         if voting[0] == voting[1]:
-            await channel.send('{} vs {} votes\nDraw! Congratulations, {} and {}, you did well.'.format(*voting, *(player.mention for player in players)))
+            await channel.send(ret_str+'\nDraw! Congratulations, both of you did well.')
         else:
             winner = voting[voting[0] < voting[1]]
-            await channel.send('{} vs {} votes\n{} wins the quote battle! What a fight!'.format(*voting, winner.mention))
+            await channel.send(ret_str+'\n{} wins the quote battle! What a fight!'.format(winner.mention))
 
     except discord.errors.HTTPException:
         await channel.send(':x: An error occured while counting the votes. Sorry for that.')
