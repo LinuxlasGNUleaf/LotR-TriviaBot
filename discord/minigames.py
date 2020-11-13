@@ -1011,7 +1011,7 @@ async def quote_battle(channel, bot, user, content):
     if not channel.permissions_for(server.me).manage_roles:
         await channel.send('I need the permission `Manage Roles` for this feature to work.')
         return
-    
+
     if not channel.permissions_for(server.me).manage_messages:
         await channel.send('I need the permission `Manage Messages` for this feature to work.')
         return
@@ -1080,22 +1080,23 @@ async def quote_battle(channel, bot, user, content):
                 chk_msg.channel == channel)
 
     bot.blocked.append(players[1].id)
+    game = False
     try:
         msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
 
         if msg.content.lower() == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
+            game = True
         elif msg.content.lower() == 'no':
             await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
         else:
             await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
-            return
     except asyncio.TimeoutError:
         await channel.send('{}, your opponent did not respond.'.format(user.mention))
-        return
     bot.blocked.remove(players[1].id)
 
-    asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
+    if game:
+        asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
 
 async def quote_battle_handler(channel, bot, players):
     server = channel.guild
