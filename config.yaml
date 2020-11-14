@@ -68,7 +68,7 @@ discord:
 
     quote_battle:
         timeout: 300
-        rounds: 5
+        rounds: 10
         voting_time: 600
 
     trivia:
