@@ -1186,7 +1186,7 @@ async def quote_battle_handler(channel, bot, players):
             await channel.send(ret_str+'\nDraw! Congratulations, both of you did well.')
         else:
             winner = voting[voting[0] < voting[1]]
-            await channel.send(ret_str+'\n{} wins the quote battle! What a fight!'.format(winner.mention))
+            await channel.send(ret_str+'\n{} wins the quote battle! What a fight!'.format(players[winner].mention))
 
     except discord.errors.HTTPException:
         await channel.send(':x: An error occured while counting the votes. Sorry for that.')
