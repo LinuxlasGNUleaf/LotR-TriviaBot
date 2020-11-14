@@ -1002,7 +1002,7 @@ async def edit_settings(cmd, settings, channel):
         await channel.send('state `{}` not recognized'.format(cmd[1]))
 
 
-async def quote_battle(channel, bot, user, content):
+async def quote_battle(channel, bot, user, message):
     '''
     initiates and manages a trivia battle between two users
     '''
@@ -1019,7 +1019,7 @@ async def quote_battle(channel, bot, user, content):
     if server.id not in bot.settings.keys():
         bot.settings[server.id] = {}
 
-    if 'server-unset' in content:
+    if 'server-unset' in message.content:
         if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
             await channel.send(':x: Ask a server moderator to unset the quote-channel with `{} qbattle server-unset`'.format(bot.config['general']['key']))
             return
@@ -1062,13 +1062,13 @@ async def quote_battle(channel, bot, user, content):
         await channel.send('Done.')
 
     # fetch the tagged user, exit conditions for bots / same user
-    try:
-        players = [user, await bot.fetch_user(content.split('<@')[-1][1:-1])]
+    if len(message.mentions) != 1:
+        players = [user, message.mentions[0]]
         if players[1].bot or players[1] == user:
             await channel.send(':x: I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
-    except (discord.errors.HTTPException, IndexError):
-        await channel.send(':x: Please tag a valid user here you want to battle.')
+    else:
+        await channel.send(':x: Please tag exactly one user on this server you want to battle.')
         return
 
     await channel.send('{}, are you ready to quote-battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\

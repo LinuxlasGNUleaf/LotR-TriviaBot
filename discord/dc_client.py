@@ -165,7 +165,7 @@ class LotrBot(discord.Client):
             await minigames.quote_battle(channel,
                                          self,
                                          user,
-                                         content)
+                                         message)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm:
