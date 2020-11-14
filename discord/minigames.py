@@ -1062,6 +1062,7 @@ async def quote_battle(channel, bot, user, message):
         await channel.send('Done.')
 
     # fetch the tagged user, exit conditions for bots / same user
+    print(len(message.mentions))
     if len(message.mentions) == 1:
         players = [server.get_member(user.id), message.mentions[0]]
         if players[1].bot or players[1] == user:
