@@ -334,7 +334,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     await channel.send(embed=create_embed(title=title, content=scoreboard_string))
 
 
-async def lotr_battle(channel, bot, user, content, config, settings):
+async def lotr_battle(channel, bot, user, message, config, settings):
     '''
     initiates and manages a trivia battle between two users
     '''
@@ -342,17 +342,17 @@ async def lotr_battle(channel, bot, user, content, config, settings):
         return
 
     # fetch the tagged user, exit conditions for bots / same user
-    try:
-        players = [user, await bot.fetch_user(content.split('<@')[-1][1:-1])]
+    if len(message.mentions) == 1:
+        players = [channel.guild.get_member(user.id), message.mentions[0]]
         if players[1].bot or players[1] == user:
             await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
-    except (discord.errors.HTTPException, IndexError):
-        await channel.send('Please tag a valid user here you want to battle.')
+    else:
+        await channel.send(':x: Please tag exactly one user on this server you want to battle.')
         return
 
     await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
-                       .format(players[1].display_name, players[0].display_name))
+                       .format(*(player.display_name for player in players[::-1])))
 
     # waiting for a response by the opponent
     def ready_check(chk_msg):
@@ -1062,9 +1062,8 @@ async def quote_battle(channel, bot, user, message):
         await channel.send('Done.')
 
     # fetch the tagged user, exit conditions for bots / same user
-    print(message.mentions)
-    if len(message.mentions) != 1:
-        players = [user, message.mentions[0]]
+    if len(message.mentions) == 1:
+        players = [server.get_member(user.id), message.mentions[0]]
         if players[1].bot or players[1] == user:
             await channel.send(':x: I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
             return
@@ -1073,7 +1072,7 @@ async def quote_battle(channel, bot, user, message):
         return
 
     await channel.send('{}, are you ready to quote-battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
-                       .format(players[1].display_name, players[0].display_name))
+                       .format(*(player.display_name for player in players[::-1])))
 
     # waiting for a response by the opponent
     def ready_check(chk_msg):
@@ -1105,7 +1104,7 @@ async def quote_battle_handler(channel, bot, players):
 
     for player in players:
         bot.blocked.append(player.id)
-        if not channel.permissions_for(server.get_member(player.id)).send_messages:
+        if not channel.permissions_for(player).send_messages:
             perms_changed.append(player)
             await channel.set_permissions(player, send_messages=True, reason='Quote battle')
 
@@ -1162,13 +1161,13 @@ async def quote_battle_handler(channel, bot, players):
         # remove bot reactions, and remove self-votes
         await score_msg.remove_reaction('1️⃣', server.me)
         try:
-            await score_msg.remove_reaction('1️⃣', server.get_member(players[0].id))
+            await score_msg.remove_reaction('1️⃣', players[0])
         except discord.errors.NotFound:
             pass
 
         await score_msg.remove_reaction('2️⃣', server.me)
         try:
-            await score_msg.remove_reaction('2️⃣', server.get_member(players[1].id))
+            await score_msg.remove_reaction('2️⃣', players[1])
         except discord.errors.NotFound:
             pass
 
@@ -1195,4 +1194,4 @@ async def quote_battle_handler(channel, bot, players):
     for player in players:
         bot.blocked.remove(player.id)
         if player in perms_changed:
-            await channel.set_permissions(server.get_member(player.id), send_messages=False, reason='Quote battle')
+            await channel.set_permissions(player, send_messages=False, reason='Quote battle')
