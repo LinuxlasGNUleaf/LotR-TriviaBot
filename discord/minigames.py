@@ -772,11 +772,9 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
     submission = reddit_client.get_meme(ch_id, subreddit)
     post_url = 'https://reddit.com/'+submission.id
     footnote = 'Meme by u/{} from r/{}'.format(submission.author.name if submission.author else '[deleted]', subreddit)
-
     parent = reddit_client.get_crosspost_parent(submission)
     if parent:
         submission = parent
-
     if submission.is_self: # is text-only
         text = submission.selftext
         if len(text) > 2000:
@@ -1143,6 +1141,11 @@ async def quote_battle_handler(channel, bot, players):
             if rounds-1 == orig_rounds//2:
                 await channel.send('Half-time! {} rounds to go!'.format(rounds))
 
+    for player in players:
+        bot.blocked.remove(player.id)
+        if player in perms_changed:
+            await channel.set_permissions(player, send_messages=False, reason='Quote battle')
+
     score_msg = await channel.send('The quote battle between {} and {} ended.\nVote :one: for {} and :two: for {}'\
                                    .format(players[0].display_name,
                                            players[1].display_name,
@@ -1185,13 +1188,8 @@ async def quote_battle_handler(channel, bot, players):
         if voting[0] == voting[1]:
             await channel.send(ret_str+'\nDraw! Congratulations, both of you did well.')
         else:
-            winner = voting[voting[0] < voting[1]]
+            winner = voting[0] < voting[1]
             await channel.send(ret_str+'\n{} wins the quote battle! What a fight!'.format(players[winner].mention))
 
     except discord.errors.HTTPException:
         await channel.send(':x: An error occured while counting the votes. Sorry for that.')
-
-    for player in players:
-        bot.blocked.remove(player.id)
-        if player in perms_changed:
-            await channel.set_permissions(player, send_messages=False, reason='Quote battle')

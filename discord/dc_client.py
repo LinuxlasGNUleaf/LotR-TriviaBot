@@ -6,6 +6,7 @@ import random
 import asyncio
 import discord
 import minigames
+from time import strftime
 
 class LotrBot(discord.Client):
     '''
@@ -25,6 +26,7 @@ class LotrBot(discord.Client):
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
         self.google_search_client = google_search_client
+        self.started = False
         minigames.parse_script(config, self.script, self.script_condensed)
         intents = discord.Intents.default()
         intents.members = True  # Subscribe to the privileged members intent.
@@ -42,19 +44,19 @@ class LotrBot(discord.Client):
         '''
         init function for discord bot
         '''
-        print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
             (type=discord.ActivityType.watching,
              name=random.choice(self.config['discord']['status'])))
 
-        asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
-                                                                 self.scoreboard,
-                                                                 self.memelog,
-                                                                 self.settings))
-
-        print('[SYSTEM]: online. All systems operational.')
-        print('||>----------- O N L I N E ------------>||')
-
+        if not self.started:
+            asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
+                                                                     self.scoreboard,
+                                                                     self.memelog,
+                                                                     self.settings))
+            print('[SYSTEM]: online. All systems operational.')
+            self.started = True
+        else:
+            print('[SYSTEM]: RESUME request probably failed. Reconnected at {}.'.format(strftime('Last Autosave: %X on %a %d/%m/%y')))
 
     async def on_message(self, message):
         '''
