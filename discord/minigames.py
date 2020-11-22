@@ -10,6 +10,7 @@ from html import unescape
 from time import strftime
 import asyncio
 import pickle
+import math
 
 import discord
 
@@ -315,6 +316,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
     user_str = '**[{} pts]** {} ({}%)'
     count = 0
+    max_ind = math.ceil((len(found_users))*config['discord']['trivia']['scoreboard_percent'])
     for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
         count += 1
         temp = user_str.format(*user)
@@ -323,8 +325,8 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
             scoreboard_string += medals[i].format(temp)+'\n'
         else:
             scoreboard_string += medals[-1].format(temp)+'\n'
-
-        if count >= config['discord']['trivia']['scoreboard_max']:
+        print(len(found_users), max_ind)
+        if count >= max_ind:
             break
 
     if count > 1:

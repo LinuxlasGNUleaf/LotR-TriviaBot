@@ -82,7 +82,7 @@ discord:
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
         tip_probability: 0.05
-        scoreboard_max: 15
+        scoreboard_percent: 0.75
         stats_file: 'questions_stats.txt'
     
     hangman:
