@@ -330,7 +330,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
             break
 
     if count > 1:
-        title = 'Top {} Trivia Players in *{}*'.format(count, server)
+        title = 'Top {}% of Trivia Players in *{}*'.format(config['discord']['trivia']['scoreboard_percent']*100, server)
     else:
         title = 'The Best Trivia Player in *{}*'.format(server)
     await channel.send(embed=create_embed(title=title, content=scoreboard_string))
