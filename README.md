@@ -54,6 +54,7 @@ you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 * Teh Lurd of Hogwarts
 * Savior of teh White Tree
 * Lord HellRaiser
+* Hobbz45 The Orange
 
 ## Help wanted
 You want to help? Great! There are currently the following tasks (apart from coding) that you could help with:
