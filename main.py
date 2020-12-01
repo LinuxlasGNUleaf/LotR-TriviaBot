@@ -44,6 +44,7 @@ def get_cache(path, name):
     except (FileNotFoundError, EOFError):
         print('[WARN]: could not unserialize {}! Creating empty one instead.'.format(name))
         open(path, 'w').close()
+        return {}
 
 def update_cache_path(path):
     return os.path.join(config['general']['path'], path)

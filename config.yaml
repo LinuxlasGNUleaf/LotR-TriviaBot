@@ -66,6 +66,11 @@ discord:
     battle:
         timeout: 45
 
+    quote_battle:
+        timeout: 300
+        rounds: 10
+        voting_time: 3600
+
     trivia:
         multiplier: 12
         extra_time: 5.0
@@ -77,7 +82,7 @@ discord:
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
         tip_probability: 0.05
-        scoreboard_max: 15
+        scoreboard_percent: 0.75
         stats_file: 'questions_stats.txt'
     
     hangman:
@@ -191,8 +196,8 @@ discord:
             `{0} fight @User`"
 
         footer: |
-            "LICENSE:
+            LICENSE:
             LotR Trivia Bot version {}, Copyright (C) 2020 JaWs
             LotR Trivia Bot comes with ABSOLUTELY NO WARRANTY.
             This is free software, and you are welcome to redistribute it
-            under certain conditions; see the GPL License for details."
+            under certain conditions; see the GPL License for details.

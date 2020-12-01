@@ -6,6 +6,7 @@ import random
 import asyncio
 import discord
 import minigames
+from time import strftime
 
 class LotrBot(discord.Client):
     '''
@@ -13,6 +14,7 @@ class LotrBot(discord.Client):
     '''
     def __init__(self, config, scoreboard, settings, memelog, reddit_client,
                  yt_api_client, google_search_client):
+        print('important information: using version {} of the discord API'.format(discord.__version__))
         self.config = config
         self.scoreboard = scoreboard
         self.blocked = []
@@ -24,8 +26,11 @@ class LotrBot(discord.Client):
         self.reddit_client = reddit_client
         self.yt_api_client = yt_api_client
         self.google_search_client = google_search_client
+        self.started = False
         minigames.parse_script(config, self.script, self.script_condensed)
-        super().__init__()
+        intents = discord.Intents.default()
+        intents.members = True  # Subscribe to the privileged members intent.
+        super().__init__(intents=intents)
 
 
     def is_command(self, msg, cmdlet):
@@ -39,19 +44,19 @@ class LotrBot(discord.Client):
         '''
         init function for discord bot
         '''
-        print('[INFO]: Setting rich presence...')
         await self.change_presence(activity=discord.Activity\
             (type=discord.ActivityType.watching,
              name=random.choice(self.config['discord']['status'])))
 
-        asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
-                                                                 self.scoreboard,
-                                                                 self.memelog,
-                                                                 self.settings))
-
-        print('[SYSTEM]: online. All systems operational.')
-        print('||>----------- O N L I N E ------------>||')
-
+        if not self.started:
+            asyncio.get_event_loop().create_task(minigames.auto_save(self.config,
+                                                                     self.scoreboard,
+                                                                     self.memelog,
+                                                                     self.settings))
+            print('[SYSTEM]: online. All systems operational.')
+            self.started = True
+        else:
+            print('[SYSTEM]: RESUME request probably failed. Reconnected at {}.'.format(strftime('Last Autosave: %X on %a %d/%m/%y')))
 
     async def on_message(self, message):
         '''
@@ -156,6 +161,13 @@ class LotrBot(discord.Client):
                                         content,
                                         self.config,
                                         self.settings)
+
+#==============================================================================
+        elif self.is_command(content, 'qbattle') and not is_dm:
+            await minigames.quote_battle(channel,
+                                         self,
+                                         user,
+                                         message)
 
 #==============================================================================
         elif self.do_autoscript and not is_dm:
