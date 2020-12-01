@@ -7,9 +7,10 @@ with open('questions.csv', 'r') as csvfile:
             print("Unusal number of arguments in this question: "+question[1])
         if '?' not in question[1]:
             print("No question mark in this question: "+question[1])
+        count = 0
         for item in question:
             if item.startswith('*'):
-                break
-        else:
-            print("Question without correct answer: "+question[1])
+                count += 1
+        if count != 1:
+            print("Too many or not enough ({}) correct answers marked: {}".format(count,question[1]))
     print("done.")
