@@ -203,7 +203,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     blocked.append(user.id)
     try:
         msg = await bot.wait_for('message', check=check, timeout=timeout)
-        if msg.content.isdigit():
+        if msg.content.isdecimal():
             msg = int(msg.content)
             if msg == correct_index:
                 # right answer
@@ -385,7 +385,7 @@ async def lotr_battle(channel, bot, user, message, config, settings):
         # check whether author is opponent and channel is the corresponding DM
         if chk_msg.author in pending and chk_msg.channel == chk_msg.author.dm_channel:
             pending.remove(chk_msg.author)
-            if chk_msg.content.strip().isdigit():
+            if chk_msg.content.strip().isdecimal():
                 answers[players.index(chk_msg.author)] = (int(chk_msg.content.strip()) == question[1])
 
         # return true if pending is empty
@@ -854,9 +854,9 @@ async def search_youtube(channel, user, raw_content, google_client, config, sett
         end = raw_content.find('"', start + 1)
         if end != -1:
             query = raw_content[start+1:end]
-            if raw_content[:start].strip().isdigit():
+            if raw_content[:start].strip().isdecimal():
                 num = max(1, int(raw_content[:start].strip()))
-            elif raw_content[end+1:].strip().isdigit():
+            elif raw_content[end+1:].strip().isdecimal():
                 num = max(1, int(raw_content[end+1:].strip()))
             else:
                 num = 1

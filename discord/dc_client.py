@@ -56,7 +56,7 @@ class LotrBot(discord.Client):
             print('[SYSTEM]: online. All systems operational.')
             self.started = True
         else:
-            print('[SYSTEM]: RESUME request probably failed. Reconnected at {}.'.format(strftime('Last Autosave: %X on %a %d/%m/%y')))
+            print('[SYSTEM]: RESUME request probably failed. (Reconnected at {}.'.format(strftime('%X on %a %d/%m/%y)')))
 
     async def on_message(self, message):
         '''
