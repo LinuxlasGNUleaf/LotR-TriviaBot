@@ -62,3 +62,5 @@ You want to help? Great! There are currently the following tasks (apart from cod
 * **Adding new words to `words.csv`** This is the source for the hangman game. The format is pretty simple, but you can ask me ofc.
 
 **TO SUBMIT NEW QUESTIONS, FILL OUT THIS [FORM](https://forms.gle/k4oMTiyUEJgntMyb9)**
+
+**INVITE LINK: [click here](https://discord.com/oauth2/authorize?client_id=694837766504316948&scope=bot&permissions=268495936) or do it yourself with the [perms calculator](https://discordapi.com/permissions.html) and the client_id `694837766504316948`**
