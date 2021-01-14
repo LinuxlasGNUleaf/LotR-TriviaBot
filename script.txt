@@ -8273,8 +8273,6 @@ DENETHOR
 Farewell Peregrin, son of Paladin.
 I release you from my service.
 
-DENETHOR throws PIPPIN outside!
-
 DENETHOR
 Go now and die in what way seems best to you.
 
