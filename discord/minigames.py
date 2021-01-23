@@ -5,15 +5,18 @@ import random
 import csv
 import string
 import sys
+import math
+from io import BytesIO
 from difflib import SequenceMatcher
 from html import unescape
 from time import strftime
-import asyncio
 import pickle
-import math
-
+import asyncio
+import numpy as np
+import matplotlib.pyplot as plt
 import discord
 
+plt.rcdefaults()
 ordinal = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10%10 != 1)*(n%10 < 4)*n%10::4])
 
 async def auto_save(config, scoreboard, memelog, settings):
@@ -106,6 +109,7 @@ async def create_hangman_game(channel, bot, user, settings, config, blocked):
 
 
 async def display_profile(channel, user, settings, config, scoreboard):
+    #TODO: rework
     '''
     creates a profile for the user and displays it.
     '''
@@ -302,36 +306,44 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     '''
     display a trivia scoreboard for the server
     '''
-    if not feature_allowed('trivia-quiz', channel, settings, config):
-        return
+    with channel.typing():
+        if not feature_allowed('trivia-quiz', channel, settings, config):
+            return
 
-    users = server.members
-    found_users = []
-    scoreboard_string = ''
-    for user in users:
-        if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
-            found_users.append([scoreboard[user.id][1], user.name,
-                                round((scoreboard[user.id][1] / scoreboard[user.id][0])*100, 1)])
+        found_users = []
+        for user in server.members:
+            if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
+                found_users.append([(user.name[:30] + '..') if len(user.name) > 32 else user.name, *scoreboard[user.id]])
 
-    medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
-    user_str = '**[{} pts]** {} ({}%)'
-    count = 0
-    for i, user in enumerate(sorted(found_users, key=lambda x: x[0])[::-1]):
-        count += 1
-        temp = user_str.format(*user)
+        found_users = sorted(found_users, key=lambda x: x[2])[-15:]
+        len_users = len(found_users)
+        names, g_taken, g_won = list(zip(*found_users))
+        index = np.arange(len_users)
+        g_ratio = []
+        max_val = max(g_won)+1
 
-        if i < len(medals):
-            scoreboard_string += medals[i].format(temp)+'\n'
-        else:
-            scoreboard_string += medals[-1].format(temp)+'\n'
-        if count >= math.ceil((len(found_users))*config['discord']['trivia']['scoreboard_percent']):
-            break
+        for i in range(len_users):
+            val = map_vals(g_won[i]/g_taken[i], 0.25, 1, 0, 1)
+            g_ratio.append([1-val, val, 0])
 
-    if count > 1:
-        title = 'Top {}% of Trivia Players in *{}*'.format(config['discord']['trivia']['scoreboard_percent']*100, server)
-    else:
-        title = 'The Best Trivia Player in *{}*'.format(server)
-    await channel.send(embed=create_embed(title=title, content=scoreboard_string))
+        fig = plt.figure()
+
+        # create plot
+        plt.barh(index, g_won, color=g_ratio, label='Games won')
+        plt.xlabel('Games won')
+        plt.title('Trivia Scoreboard for {}'.format(server.name))
+        plt.yticks(index, names)
+        plt.xticks(np.arange(max_val, step=round(max_val/5, -(int(math.log10(max_val)-1)))))
+        plt.annotate('Note: The greener the bar, the higher the winrate of the player.', (0, 0), (0, -40), xycoords='axes fraction', fontsize=8, textcoords='offset points', va='top')
+        plt.tight_layout()
+
+        buffer = BytesIO()
+        fig.savefig(buffer, dpi=1000)
+        buffer.seek(0)
+        await channel.send(file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(server.id)))
+        buffer.close()
+        plt.clf()
+
 
 
 async def lotr_battle(channel, bot, user, message, config, settings):
