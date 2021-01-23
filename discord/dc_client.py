@@ -2,11 +2,11 @@
 Main discord bot class, includes minigames.py for all the extra functionality
 '''
 
+from time import strftime
 import random
 import asyncio
 import discord
 import minigames
-from time import strftime
 
 class LotrBot(discord.Client):
     '''
