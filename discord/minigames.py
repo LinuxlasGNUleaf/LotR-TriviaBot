@@ -316,32 +316,32 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
                 found_users.append([(user.name[:30] + '..') if len(user.name) > 32 else user.name, *scoreboard[user.id]])
 
         found_users = sorted(found_users, key=lambda x: x[2])
-        top_users = found_users[-15:]
-        len_users = len(top_users)
-        names, g_taken, g_won = list(zip(*top_users))
-        index = np.arange(len_users)
-        g_ratio = []
-        max_val = max(g_won)+1
+        if len(found_users) >= 10:
+            top_users = found_users[-15:]
+            len_users = len(top_users)
+            names, g_taken, g_won = list(zip(*top_users))
+            index = np.arange(len_users)
+            g_ratio = []
+            max_val = max(g_won)+1
 
-        for i in range(len_users):
-            val = map_vals(g_won[i]/g_taken[i], 0.25, 1, 0, 1)
-            g_ratio.append([1-val, val, 0])
+            for i in range(len_users):
+                val = map_vals(g_won[i]/g_taken[i], 0.25, 1, 0, 1)
+                g_ratio.append([1-val, val, 0])
 
-        fig = plt.figure()
+            fig = plt.figure()
 
-        # create plot
-        plt.barh(index, g_won, color=g_ratio, label='Games won')
-        plt.xlabel('Games won')
-        plt.title('Trivia Scoreboard for {}'.format(server.name))
-        plt.yticks(index, names)
-        plt.xticks(np.arange(max_val, step=round(max_val/5, -(int(math.log10(max_val)-1)))))
-        plt.annotate('Note: The greener the bar, the higher the winrate of the player.', (0, 0), (0, -40), xycoords='axes fraction', fontsize=8, textcoords='offset points', va='top')
-        plt.tight_layout()
+            # create plot
+            plt.barh(index, g_won, color=g_ratio, label='Games won')
+            plt.xlabel('Games won')
+            plt.title('Trivia Scoreboard for {}'.format(server.name))
+            plt.yticks(index, names)
+            plt.xticks(np.arange(max_val, step=round(max_val/5, -(int(math.log10(max_val)-1)))))
+            plt.annotate('Note: The greener the bar, the higher the winrate of the player.', (0, 0), (0, -40), xycoords='axes fraction', fontsize=8, textcoords='offset points', va='top')
+            plt.tight_layout()
 
-        buffer = BytesIO()
-        fig.savefig(buffer, dpi=1000)
-        buffer.seek(0)
-
+            buffer = BytesIO()
+            fig.savefig(buffer, dpi=1000)
+            buffer.seek(0)
 
         scoreboard_string = ''
         medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
@@ -363,9 +363,12 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
         else:
             title = 'The Best Trivia Player in *{}*'.format(server)
 
-        await channel.send(embed=create_embed(title=title, content=scoreboard_string),file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(server.id)))
-        buffer.close()
-        plt.clf()
+        if len(found_users) >= 10:
+            await channel.send(embed=create_embed(title=title, content=scoreboard_string), file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(server.id)))
+            buffer.close()
+            plt.clf()
+        else:
+            await channel.send(embed=create_embed(title=title, content=scoreboard_string))
 
 
 

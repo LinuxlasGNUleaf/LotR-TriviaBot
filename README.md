@@ -63,4 +63,12 @@ You want to help? Great! There are currently the following tasks (apart from cod
 
 **TO SUBMIT NEW QUESTIONS, FILL OUT THIS [FORM](https://forms.gle/k4oMTiyUEJgntMyb9)**
 
-**INVITE LINK: [click here](https://discord.com/oauth2/authorize?client_id=694837766504316948&scope=bot&permissions=268495936) or do it yourself with the [perms calculator](https://discordapi.com/permissions.html) and the client_id `694837766504316948`**
+# Developer Informations
+## To add the bot to your Discord Server:
+Want to add the bot to your server? Use this link: [click here](https://discord.com/oauth2/authorize?client_id=694837766504316948&scope=bot&permissions=268495936) or do it yourself with the [perms calculator](https://discordapi.com/permissions.html) and the client_id `694837766504316948`
+
+## To host the bot yourself:
+Install python3 on your OS, clone this repository and run `pip3 install -r requirements.txt` to install the necessary packages.
+The bot will create cache files. **Changing the default directory is mandatory on Windows**, on Linux you will probably have to create the subdirectory in `~/.config/discord` To change the direcotry, see the `config.yaml`.
+Run the bot with: `python3 main.py`, preferrably in a Terminal Multiplexer like screen or tmux.
+To stop the bot, hit `Ctrl+C` **once**.
