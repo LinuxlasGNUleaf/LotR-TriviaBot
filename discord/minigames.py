@@ -315,6 +315,8 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
             if user.id in scoreboard.keys() and scoreboard[user.id][1] > 0:
                 found_users.append([(user.name[:30] + '..') if len(user.name) > 32 else user.name, *scoreboard[user.id]])
 
+
+        buffer = BytesIO()
         found_users = sorted(found_users, key=lambda x: x[2])
         if len(found_users) >= 10:
             top_users = found_users[-15:]
@@ -339,7 +341,6 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
             plt.annotate('Note: The greener the bar, the higher the winrate of the player.', (0, 0), (0, -40), xycoords='axes fraction', fontsize=8, textcoords='offset points', va='top')
             plt.tight_layout()
 
-            buffer = BytesIO()
             fig.savefig(buffer, dpi=1000)
             buffer.seek(0)
 
@@ -365,10 +366,10 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
 
         if len(found_users) >= 10:
             await channel.send(embed=create_embed(title=title, content=scoreboard_string), file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(server.id)))
-            buffer.close()
-            plt.clf()
         else:
             await channel.send(embed=create_embed(title=title, content=scoreboard_string))
+        buffer.close()
+        plt.clf()
 
 
 
@@ -701,7 +702,7 @@ async def run_autoscript(channel, message, condensed_arr, script, settings, conf
             for part_ind, part in enumerate(line):
                 # get the matching ratio
                 ratio = SequenceMatcher(None, part, msg_part).ratio()
-                if ratio > 0.8:
+                if ratio > config['discord']['autoscript']['threshold']:
                     # if line has already been found
                     if line_ind in log.keys():
                         num, found_conf, highest_part_ind = log[line_ind]

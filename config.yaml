@@ -104,6 +104,7 @@ discord:
         scene_end_interrupt: False
         punctuation_chars: ['?','!','.',':',';']
         elimination_chars: ["'",","]
+        threshold: 0.85 
         dialog_count: 2
 
     status:
@@ -135,10 +136,11 @@ discord:
 
     compliments:
         - "Well done, my dear {}!"
-        - "{}, you should be counted amongst the wise of middleearth."
+        - "{}, you should be counted amongst the wise of Middle Earth."
         - "Very good {}, I could not have done it better myself!"
         - "Bombur approves. Well done, {}!"
         - "May the wind under your wings bear you where the sun sails and the moon walks."
+        - "May the stars shine upon your face!"
 
     help:
         text: |
