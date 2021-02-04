@@ -158,7 +158,7 @@ class LotrBot(discord.Client):
             await minigames.lotr_battle(channel,
                                         self,
                                         user,
-                                        content,
+                                        message,
                                         self.config,
                                         self.settings)
 

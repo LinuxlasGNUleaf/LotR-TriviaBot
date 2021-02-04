@@ -258,6 +258,9 @@ async def manage_config(channel, user, content, config, settings):
         content[i] = item.strip()
 
     # user wants to change the settings
+    if not content:
+        await channel.send(':x: Use one of the following commands:')
+        await channel.send(config['discord']['settings']['help'].format(config['general']['key']))
     if content[0] in config['discord']['settings']['features']:
         if channel.permissions_for(user).manage_channels or \
             user.id in config['general']['superusers']:
