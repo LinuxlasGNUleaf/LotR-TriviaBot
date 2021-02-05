@@ -119,13 +119,14 @@ async def display_profile(channel, user, settings, config, scoreboard):
         await channel.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(config['general']['key']))
         return
 
-    played, wins = scoreboard[user.id]
+    played, wins, streak = scoreboard[user.id]
     color = (map_vals(wins/played, 0, 1, 255, 0), map_vals(wins/played, 0, 1, 0, 255), 0)
 
     title = '{}\'s results'.format(user.display_name)
     content = 'Trivia games played: {}\nTrivia games won: {}\n\
-               Win/Played ratio: {}%'\
-              .format(played, wins, round(wins/played*100, 2))
+               Win/Played ratio: {}%\n\
+               Current Streak: {}'\
+              .format(played, wins, round(wins/played*100, 2), streak)
     await channel.send(embed=create_embed(title, content=content, color=color))
 
 
@@ -190,7 +191,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
         return
 
     if user.id in scoreboard.keys():
-        count, wins = scoreboard[user.id]
+        count, wins, streak = scoreboard[user.id]
         count += 1
     else:
         count, wins = (1, 0)
@@ -212,10 +213,18 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
             if msg == correct_index:
                 # right answer
                 correct = True
-                ret_string = create_reply(user, False, config)
+                streak += 1
+                if streak % 5 == 0:
+                    ret_string = create_reply(user, False, config) + '\n:dart: Streak of **{} wins**! Keep it up!'.format(streak)
+                else:
+                    ret_string = create_reply(user, False, config)
             else:
                 # invalid digit
-                ret_string = create_reply(user, True, config)
+                if streak >= 5:
+                    ret_string = create_reply(user, True, config) + '\n:no_entry_sign: Your streak ended...'
+                else:
+                    ret_string = create_reply(user, True, config)
+                streak = 0
         else:
             # not a digit
             ret_string = create_reply(user, True, config) + \
@@ -237,7 +246,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
     with open(config['discord']['trivia']['stats_file'], 'wb') as stats_file:
         pickle.dump(stats, stats_file)
     # update scoreboard, send reply and delete the question
-    scoreboard[user.id] = (count, wins+int(correct))
+    scoreboard[user.id] = (count, wins+int(correct), streak)
     await channel.send(ret_string)
     await trivia_embed.delete()
 
@@ -350,10 +359,14 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
         scoreboard_string = ''
         medals = ['🥇 **Eru Ilúvatar:**\n{}', '🥈 **Manwë:**\n{}', '🥉 Gandalf:\n{}\n', '👏 {}']
         user_str = '**[{} pts]** {} ({}%)'
+        user_str2 = '**[{} pts]** {} ({}%) *Streak of {}*'
         count = 0
         for i, user in enumerate(found_users[::-1]):
             count += 1
-            temp = user_str.format(user[2], user[0], round(user[2]/user[1]*100, 1))
+            if user[3] > 5: # if user has an active streak
+                temp = user_str2.format(user[2], user[0], round(user[2]/user[1]*100, 1), user[3])
+            else:
+                temp = user_str.format(user[2], user[0], round(user[2]/user[1]*100, 1))
 
             if i < len(medals):
                 scoreboard_string += medals[i].format(temp)+'\n'

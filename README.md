@@ -51,8 +51,8 @@ you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 ## Trivia Questions Contributors
 * MC4dden
 * Eldarion
-* Teh Lurd of Hogwarts
 * Savior of teh White Tree
+* Teh Lurd of Hogwarts
 * Lord HellRaiser
 * Hobbz45 The Orange
 
