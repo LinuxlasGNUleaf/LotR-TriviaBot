@@ -22,8 +22,6 @@ config['discord']['trivia']['cache'] = update_cache_path(config['discord']['triv
 with open(config['discord']['trivia']['cache'], 'rb') as SC_FILE:
     scoreboard = pickle.load(SC_FILE)
 
-copyfile(config['discord']['trivia']['cache'], config['discord']['trivia']['cache']+'.bak')
-
 for user, value in scoreboard.items():
     if len(value) != 2:
         print('Scoreboard length invalid!')
@@ -32,6 +30,8 @@ for user, value in scoreboard.items():
     value.append(0)
     print(user, value)
     scoreboard[user] = value
+
+copyfile(config['discord']['trivia']['cache'], config['discord']['trivia']['cache']+'.bak')
 
 with open(config['discord']['trivia']['cache'], 'wb') as SC_FILE:
     scoreboard = pickle.dump(scoreboard, SC_FILE)
