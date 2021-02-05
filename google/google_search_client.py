@@ -5,6 +5,6 @@ class GoogleSearchClient:
         '''
         searches for a specific query
         '''
-        return search(query='{} {}'.format('site:'+site if site else '', query).strip(),
+        return search('{} {}'.format('site:'+site if site else '', query).strip(),
                       tld='co.in', lang='en',
                       num=10, stop=1, pause=1)
