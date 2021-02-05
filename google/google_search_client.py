@@ -7,4 +7,4 @@ class GoogleSearchClient:
         '''
         query = '{} {}'.format('site:'+site if site else '', query).strip()
         print(query)
-        return googlesearch.search(query, tld='co.in', lang='en', stop=1, pause=1)
+        return googlesearch.search(query, lang='en', num_results=1)
