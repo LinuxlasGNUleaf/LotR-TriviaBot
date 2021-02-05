@@ -332,7 +332,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
     if len(found_users) >= 10:
         top_users = found_users[-15:]
         len_users = len(top_users)
-        names, g_taken, g_won = list(zip(*top_users))
+        names, g_taken, g_won, _ = list(zip(*top_users))
         index = np.arange(len_users)
         g_ratio = []
         max_val = max(g_won)+1
