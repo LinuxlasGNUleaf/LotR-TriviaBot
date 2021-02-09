@@ -194,7 +194,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
         count, wins, streak = scoreboard[user.id]
         count += 1
     else:
-        count, wins = (1, 0)
+        count, wins, streak = (1, 0, 0)
 
     # function to check whether the user's reply is valid
     def check(chk_msg):
@@ -214,7 +214,7 @@ async def create_trivia_quiz(channel, bot, user, settings, config, blocked, scor
                 # right answer
                 correct = True
                 streak += 1
-                if streak % 5 == 0:
+                if streak and streak % 5 == 0:
                     ret_string = create_reply(user, False, config) + '\n:dart: Streak of **{} wins**! Keep it up!'.format(streak)
                 else:
                     ret_string = create_reply(user, False, config)
