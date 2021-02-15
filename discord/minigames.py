@@ -415,7 +415,7 @@ async def lotr_battle(channel, bot, user, message, config, settings):
 
     bot.blocked.append(players[1].id)
     try:
-        msg = await bot.wait_for('message', check=ready_check, round_timeout=bot.config['discord']['battle']['timeout'])
+        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
 
         if msg.content.lower() == 'yes':
             await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
@@ -821,16 +821,11 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
         return
 
     ch_id = channel.id if isinstance(channel, discord.channel.DMChannel) else channel.guild.id
-    subreddit = random.choice(subreddits)
-
-    submission = reddit_client.get_meme(ch_id, subreddit)
-    post_url = 'https://reddit.com/'+submission.id
-    footnote = 'Meme by u/{} from r/{}'.format(submission.author.name if submission.author else '[deleted]', subreddit)
-    parent = reddit_client.get_crosspost_parent(submission)
-    if parent:
-        submission = parent
-    if submission.is_self: # is text-only
-        text = submission.selftext
+    submission = await reddit_client.get_meme(ch_id, subreddits)
+    post_url = 'https://reddit.com/'+submission['id']
+    footnote = 'Meme by u/{}'.format(submission['author'] if submission['author'] else '[deleted]')
+    if submission['is_self']: # is text-only
+        text = submission['selftext']
         if len(text) > 2000:
             text = text[:2000]
             text += '...'
@@ -841,9 +836,9 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
             footnote=footnote)
 
     # has embedded media
-    embed = create_embed(title=(':repeat: Crosspost: ' if parent else '') + submission.title,
+    embed = create_embed(title=submission['title'],
                          embed_url=post_url,
-                         link_url=submission.url,
+                         link_url=submission['url'],
                          footnote=footnote)
     await channel.send(embed=embed)
 

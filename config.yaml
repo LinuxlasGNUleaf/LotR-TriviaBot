@@ -10,7 +10,8 @@ general:
 reddit:
     subreddits: ["lotrmemes","Hobbit_Memes"]
     cache: meme_log.pyobj
-    token: reddit.tk
+    json_timeout: 15
+    query_limit: 15
 
 youtube:
     max_video_count: 3

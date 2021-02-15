@@ -1,43 +1,51 @@
-import praw
+import aiohttp
+import yaml
+from datetime import datetime
 
 class RedditClient():
     '''
     Reddit Client for fetching memes.
     '''
-    def __init__(self, info, meme_log):
+    def __init__(self, meme_log, config):
         self.meme_log = meme_log
-        client_id, client_secret, username, password = info
-        self.reddit = praw.Reddit(client_id=client_id,
-                                  client_secret=client_secret,
-                                  password=password,
-                                  user_agent='reddit post yoinker by /u/_LegolasGreenleaf',
-                                  username=username)
+        self.json = []
+        self.default_limit = config['reddit']['query_limit']
+        self.limit = self.default_limit
+        self.timestamp_old = datetime.now()
+        self.limit_inc = self.default_limit
+        self.json_timeout = config['reddit']['json_timeout']
+        self.sub_attributes = ['id','title','author','url','is_self','selftext']
 
-    def get_meme(self, ch_id, subreddit):
+    async def get_meme(self, ch_id, target_subs):
         '''
         finds unseen meme for the given server
         '''
-        if ch_id in self.meme_log.keys():
-            used_ids = self.meme_log[ch_id]
-        else:
-            used_ids = []
+        if ch_id not in self.meme_log.keys():
+            self.meme_log[ch_id] = []
 
-        meme = ''
-        limit = 100
-        steps = 100
-        while not meme:
-            for submission in self.reddit.subreddit(subreddit).hot(limit=limit):
-                if not submission.id in used_ids:
-                    meme = submission
-                    used_ids.append(submission.id)
-                    break
-            limit += steps
+        difference = datetime.now() - self.timestamp_old
 
-        self.meme_log[ch_id] = used_ids
-        return meme
+        if not self.json or difference.total_seconds()/60 > self.json_timeout:
+            await self.refreshJSON(target_subs)
+            self.limit = self.default_limit
+            self.timestamp_old = datetime.now()
 
-    def get_crosspost_parent(self, submission):
-        if hasattr(submission, 'crosspost_parent'):
-            return praw.models.Submission(self.reddit, submission.crosspost_parent.split('_')[1])
-        else:
-            return False
+        while True:
+            for i,submission in enumerate(self.json):
+                if not submission['id'] in self.meme_log[ch_id]:
+                    self.meme_log[ch_id].append(submission['id'])
+                    return submission
+
+            self.limit += self.limit_inc
+            self.timestamp_old = datetime.now()
+            await self.refreshJSON(target_subs)
+
+    async def refreshJSON(self, target_subs):
+        async with aiohttp.ClientSession() as session:
+            async with session.get('https://www.reddit.com/r/{}/hot.json?limit={}'.format('+'.join(target_subs),self.limit)) as result:
+                temp = await result.json()
+                temp = temp['data']['children']
+                self.json = []
+                for i,submission in enumerate(temp):
+                    filtered_submission = {k:v for k,v in submission['data'].items() if k in self.sub_attributes}
+                    self.json.append(filtered_submission)

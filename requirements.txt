@@ -3,5 +3,4 @@ discord
 matplotlib
 googlesearch-python
 google-api-python-client
-praw
 pyyaml

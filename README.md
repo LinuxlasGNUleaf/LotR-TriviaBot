@@ -10,7 +10,7 @@ Features the classic hangman game with LotR terms.
 * **Random Silmarillion quote**
 Output a random Silmarillion quote on demand.
 * **Reddit meme**
-Outputs a dank meme from r/lotrmemes.
+Outputs a dank meme from r/lotrmemes or r/hobbit_memes.
 * **Autoscript feature**
 Recognizes lines from the movie script and in the case of a 85% match, completes the sentence and prints the next dialog line
 * **Youtube videos**
@@ -22,7 +22,7 @@ The wiki URL is set in the config file.
 * **Configuration**
 Adding easy-to-use config to control use of features channel- and server-wide
 * **LotR Battle**
-A new experimental feature, where you battle people in LotR trivia.
+Challenge your friends to a battle in LotR trivia!
 
 # Checklist
 
@@ -31,13 +31,12 @@ A new experimental feature, where you battle people in LotR trivia.
 - [x] LotR hangman with words from Middleearth
 - [x] Silmarillion quotes on demand
 - [x] Autoscript feature
-- [X] Reddit memes from r/lotrmemes (not yet finished)
+- [X] Reddit memes from r/lotrmemes and r/hobbit_memes
 - [x] Pylint refactoring
 - [X] Youtube API
-- [X] parsing all three movies for autoscript feature... took ages
-- [x] *Keeping the API credentials out of the repository*
-they old ones are all invalid by now, so don't even bother :)
+- [X] parsing all three movies for autoscript feature
 - [x] Adding config to control use of features channel- and server-wide
+- [x] Switched from overkill PRAW reddit API to simple read-only JSON api for massive performance boost
 
 ## QOL Improvements
 - [x] Fixing DM issues
@@ -47,7 +46,7 @@ they old ones are all invalid by now, so don't even bother :)
 
 # Code Contributors
 Well, that would be me. If you want to contact me,
-you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
+you can also send me a DM on Discord: `Linuxlas GNUleaf#1169`
 ## Trivia Questions Contributors
 * MC4dden
 * Eldarion
@@ -59,7 +58,7 @@ you can also send me a DM on discord: `Linuxlas GNUleaf#1169`
 ## Help wanted
 You want to help? Great! There are currently the following tasks (apart from coding) that you could help with:
 * **Adding new questions to `questions.csv`** If the format of the file confuses you, contact me and I will explain how it gets parsed.
-* **Adding new words to `words.csv`** This is the source for the hangman game. The format is pretty simple, but you can ask me ofc.
+* **Adding new words to `words.csv`** This is the source for the hangman game. The format is pretty self-explanatory.
 
 **TO SUBMIT NEW QUESTIONS, FILL OUT THIS [FORM](https://forms.gle/k4oMTiyUEJgntMyb9)**
 
@@ -69,6 +68,6 @@ Want to add the bot to your server? Use this link: [click here](https://discord.
 
 ## To host the bot yourself:
 Install python3 on your OS, clone this repository and run `pip3 install -r requirements.txt` to install the necessary packages.
-The bot will create cache files. **Changing the default directory is mandatory on Windows**, on Linux you will probably have to create the subdirectory in `~/.config/discord` To change the direcotry, see the `config.yaml`.
+The bot will create cache files. **Changing the default directory is mandatory on Windows**, on Linux you will have to create the directory `~/.config/discord/bots/lotr-bot`. To change the direcotry, see the `config.yaml`.
 Run the bot with: `python3 main.py`, preferrably in a Terminal Multiplexer like screen or tmux.
 To stop the bot, hit `Ctrl+C` **once**.
