@@ -43,9 +43,7 @@ class RedditClient():
     async def refreshJSON(self, target_subs):
         async with aiohttp.ClientSession() as session:
             async with session.get('https://www.reddit.com/r/{}/hot.json?limit={}'.format('+'.join(target_subs),self.limit)) as result:
-                temp = await result.json()
-                temp = temp['data']['children']
                 self.json = []
-                for i,submission in enumerate(temp):
-                    filtered_submission = {k:v for k,v in submission['data'].items() if k in self.sub_attributes}
-                    self.json.append(filtered_submission)
+                for submission in (await result.json())['data']['children']:
+                    self.json.append({k:v for k,v in submission['data'].items() if k in self.sub_attributes})
+            await session.close()
