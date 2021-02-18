@@ -39,7 +39,7 @@ def get_cache(path, name):
     try:
         with open(path, 'rb') as cache_file:
             obj = pickle.load(cache_file)
-            print('[INFO]: unserialized {} cache.'.format(name))
+            print('[INFO]: unserialized {}.'.format(name))
             return obj
     except (FileNotFoundError, EOFError):
         print('[WARN]: could not unserialize {}! Creating empty one instead.'.format(name))
