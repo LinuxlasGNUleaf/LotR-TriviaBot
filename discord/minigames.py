@@ -831,7 +831,7 @@ async def reddit_meme(channel, reddit_client, subreddits, config, settings):
             text = text[:2000]
             text += '...'
         return create_embed(
-            submission.title,
+            submission['title'],
             embed_url=post_url,
             content=text,
             footnote=footnote)
