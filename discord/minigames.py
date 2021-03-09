@@ -270,6 +270,7 @@ async def manage_config(channel, user, content, config, settings):
     if not content:
         await channel.send(':x: Use one of the following commands:')
         await channel.send(config['discord']['settings']['help'].format(config['general']['key']))
+        return
     if content[0] in config['discord']['settings']['features']:
         if channel.permissions_for(user).manage_channels or \
             user.id in config['general']['superusers']:
@@ -307,7 +308,7 @@ async def manage_config(channel, user, content, config, settings):
             content += 'Server: {} Channel: {} Effective: {}\n\n'\
                     .format(server_setting, channel_setting, effective)
 
-        embed = create_embed(title=title, content=content, footnote=config['general']['footer'].format(config['general']['key']))
+        embed = create_embed(title=title, content=content)
         await channel.send(embed=embed)
     else:
         await channel.send('Unknown Feature `{}`! Try one of the following:\n`'.format(content[0])+'`, `'
@@ -367,7 +368,7 @@ async def display_scoreboard(channel, server, settings, config, scoreboard):
             max_val = max(g_won)+1
 
             for i in range(len_users):
-                val = map_vals(g_won[i]/g_taken[i], 0.25, 1, 0, 1)
+                val = map_vals(g_won[i]/g_taken[i], .2, 1, 0, 1)
                 g_ratio.append([1-val, val, 0])
 
             fig = plt.figure()
