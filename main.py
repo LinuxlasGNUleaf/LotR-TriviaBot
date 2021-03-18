@@ -47,7 +47,7 @@ def get_cache(path, name):
         return {}
 
 def update_cache_path(path):
-    return os.path.join(config['general']['path'], path)
+    return os.path.join(config['general']['cache_path'], path)
 
 if __name__ == '__main__':
     # ==========================> LISTS <==================================
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         try:
             sys.stdout.write('parsing config file...')
             config = yaml.safe_load(cfg_stream)
-            config['general']['path'] = eval(config['general']['path'])
+            config['general']['cache_path'] = eval(config['general']['cache_path'])
             print('done.')
         except yaml.YAMLError as exc:
             print("While parsing the config file, the following error occured: "+exc)

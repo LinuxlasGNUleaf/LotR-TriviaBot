@@ -27,12 +27,18 @@ async def auto_save(config, scoreboard, memelog, settings):
     msg_len = 0
     while True:
         await asyncio.sleep(config['general']['autosave'])
-        with open(config['discord']['trivia']['cache'], 'wb') as sc_file:
-            pickle.dump(scoreboard, sc_file)
-        with open(config['reddit']['cache'], 'wb') as meme_file:
-            pickle.dump(memelog, meme_file)
-        with open(config['discord']['settings']['cache'], 'wb') as set_file:
-            pickle.dump(settings, set_file)
+
+        sc_file = open(config['discord']['trivia']['cache'], 'wb')
+        pickle.dump(scoreboard, sc_file)
+        sc_file.close()
+
+        meme_file = open(config['reddit']['cache'], 'wb')
+        pickle.dump(memelog, meme_file)
+        meme_file.close()
+
+        set_file = open(config['discord']['settings']['cache'], 'wb')
+        pickle.dump(settings, set_file)
+        set_file.close()
 
         msg = strftime('Last Autosave: %X on %a %d/%m/%y')
         msg_len = max(msg_len, len(msg))
@@ -476,7 +482,7 @@ Answer it in time and continue to do so until the game is over. Then return to t
 
         # try to get an answer from all pending players
         try:
-            await bot.wait_for('message', check=answer_check, round_timeout=question[2])
+            await bot.wait_for('message', check=answer_check, timeout=question[2])
         except asyncio.TimeoutError:
             pass
 

@@ -1,35 +1,57 @@
+# general settings for the bot
 general:
-    version: 2.5
+    # version of the bot
+    version: 2.6
+    # prefix for bot commands such as "X trivia", where X is the key specified below
     key: lotr
-    footer: A discord bot written in Python by JaWs
-    path: os.path.join(os.getenv('HOME'), '.config/discord/bots/lotr-bot/')
+    # python command to return the vaild path for the cache folder, will be evaluated on startup
+    cache_path: os.path.join(os.getenv('HOME'), '.config/discord/bots/lotr-bot/')
+    # discord user-ids for superusers, those will be able to change the bot configs on any server no matter their permissions (use with care) 
     superusers:
         - 277083306087022592
+    # autosave interval in seconds
     autosave: 300
 
+# settings for the reddit API used for pulling memes and stuff
 reddit:
+    # list of subreddits to pull posts from
     subreddits: ["lotrmemes","Hobbit_Memes"]
+    # cache file for the list of pulled posts (located in general/cache_path)
     cache: meme_log.pyobj
+    # timeout in minutes before the pulled JSON file is considered outdated and is renewed
     json_timeout: 15
+    # number of posts to pull when renewing the JSON file, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
     query_limit: 15
 
+# settings for the youtube data API for searching for YT videos
 youtube:
-    max_video_count: 3
-    token: google.tk
+    # channel id for video search
     channel_id: UCYXpatz5Z4ek0M_5VR-Qt1A
+    # number of search results to display
+    max_video_count: 3
+    # token file for the authentication (located in general/cache_path)
+    token: google.tk
+    # blacklist to remove obsolete lines from description 
     desc_blacklist: [teh lurd of teh reings youtube channel, media, shop, facebook.com,
                      instagram.com, music used, ♫, just a facebook page, pardun us,
                      for ur, donation, discord, we post, like, follow, luminous,
                      outro, sub, sale, bit.ly, playlist, editor, channel]
 
+# settings for google search API
 google:
+    # "site:"-argument to use in google search 
     site: tolkiengateway.net
 
+# settings for the discord bot, all the DC-related minigames and configs
 discord:
+    # token file for authentication of the bot (located in general/cache_path)
     token: discord.tk
 
+    # settings for the discord config, which is used for example for configuring channels for bot memes 
     settings:
+        # cache file for storing the settings specified for different servers (located in general/cache_path)
         cache: dc_settings.pyobj
+        # help message displayed when working with the config command
         help: |
             **How the config works:**
             You can set preferences for a server or a channel (DMs excluded),
@@ -50,6 +72,7 @@ discord:
             `{0} config <feature> server-unset` to **UNSET** the server default for <feature>
             (the channel preferences are used, or if these are not set, directly the defaults.)
 
+        # list of config features (for internal use only, don't edit)
         features:
             - autoscript
             - memes
@@ -57,37 +80,61 @@ discord:
             - yt-search
             - hangman
             - squote
-
+        
+        # fallback permissions, used when no config is set on the server at all
         defaults: {autoscript: 1, memes: 1, trivia-quiz: 1, yt-search: 1, hangman: 1, squote: 1}
-
+    
+    # silmarillion quote settings
     silmarillion:
+        # file containing the Silmarillion
         file: silmarillion.txt
+        # number of sentences to be displayed
         sentence_count: 2
 
+    # trivia battle settings
     battle:
+        # time limit in which both of the participants have to answer (in seconds)
         timeout: 45
 
+    # quote battle settings
     quote_battle:
+        # time limit for the other participant to respond
         timeout: 300
+        # number of rounds for quote battle
         rounds: 10
+        # voting time for non-participants
         voting_time: 3600
 
+    # trivia game settings
     trivia:
+        # determines the timeout duration (X characters per second)
         multiplier: 12
+        # extra-time added to the timeout (in seconds) without regard of the length of the question
         extra_time: 5.0
+        # marker used to mark correct answer
         marker: '*'
+        # cache file for storing the trivia scoreboard (located in general/cache_path)
         cache: scoreboard.pyobj
+        # link to trivia form to submit new questions
         link: https://forms.gle/k4oMTiyUEJgntMyb9
+        # tips added when the link is displayed
         tips:
+            - "You shel submit ur questions here: {}"
             - "Thought of a cool new trivia question? Great! Submit it here: {}"
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
+        # probability to display the link and a tip
         tip_probability: 0.05
+        # top X percent of players to show on the scoreboard
         scoreboard_percent: 0.75
+        # file for storing anonymous statistics about the trivia games (located in general/cache_path)
         stats_file: 'questions_stats.txt'
     
+    # hangman game settings
     hangman:
+        # time limit for each guess
         timeout: 20
+        # ascii-art for the hangman game 
         ongoing_states:
             - "``` \n \n \n \n \nililililillllililii```"
             - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
@@ -100,14 +147,21 @@ discord:
             - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
             - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"
 
+    # autoscript settings
     autoscript:
+        # script file for autoscript
         file: script.txt
+        # determines whether the autoscript should stop at the end of a scene
         scene_end_interrupt: False
+        # settings for the condensed script (for internal use only)
         punctuation_chars: ['?','!','.',':',';']
         elimination_chars: ["'",","]
+        # threshold for the SequenceMatcher a message has to meet to be accepted as a quote input
         threshold: 0.85 
+        # number of lines of the script that will be outputted
         dialog_count: 2
 
+    # status messages for the bot
     status:
         - Boromir not simply walk into Mordor
         - Viggo Mortensen break his toe
@@ -122,6 +176,7 @@ discord:
         - Aragorn charging for Frodo
         - Tom Bombadil singing
 
+    # insults for failed trivia games or invalid queries
     insults:
         - "Stupid fat {}!"
         - "Fool of a {}! Stay quiet next time and rid us of your stupidity!"
@@ -135,6 +190,7 @@ discord:
         - "You stinking two-faced sneak!"
         - "What are you doing, you useless scum?"
 
+    # compliments for won trivia games
     compliments:
         - "Well done, my dear {}!"
         - "{}, you should be counted amongst the wise of Middle Earth."
@@ -143,6 +199,7 @@ discord:
         - "May the wind under your wings bear you where the sun sails and the moon walks."
         - "May the stars shine upon your face!"
 
+    # help text to display
     help:
         text: |
             "Welcome to the *LotR Trivia Bot*!
