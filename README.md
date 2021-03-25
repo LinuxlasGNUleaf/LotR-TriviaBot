@@ -1,7 +1,7 @@
 # LotR-TriviaBot
 This is a discord bot written in Python 3.
 It utilizes the Discord, Reddit and Youtube Data API.
-The bot features mutliple minigames, including:
+The bot features multiple minigames, including:
 * **LotR - Trivia Game**
 In this game you get asked trivia questions from LotR, the Hobbit, the Silmarillion and the Extended Lore. You have four possible answers, your score is tracked.
 Additional features include profile and server-wide scoreboard creation.

@@ -3,9 +3,9 @@ general:
     # version of the bot
     version: 2.6
     # prefix for bot commands such as "X trivia", where X is the key specified below
-    key: lotr
-    # python command to return the vaild path for the cache folder, will be evaluated on startup
-    cache_path: os.path.join(os.getenv('HOME'), '.config/discord/bots/lotr-bot/')
+    prefix: lotr
+    # python command to return the vaild path for the cache folder
+    cache_path: $HOME/.config/discord/bots/lotr-bot/
     # discord user-ids for superusers, those will be able to change the bot configs on any server no matter their permissions (use with care) 
     superusers:
         - 277083306087022592
@@ -125,10 +125,12 @@ discord:
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
         # probability to display the link and a tip
         tip_probability: 0.05
-        # top X percent of players to show on the scoreboard
-        scoreboard_percent: 0.75
+        # top X players to show on the scoreboard
+        scoreboard_max: 20
+        # minimum number of players in a server necessary to create a graphical scoreboard
+        graphical_scoreboard_min: 10 
         # file for storing anonymous statistics about the trivia games (located in general/cache_path)
-        stats_file: 'questions_stats.txt'
+        stats_cache: 'questions_stats.txt'
     
     # hangman game settings
     hangman:
@@ -161,6 +163,28 @@ discord:
         # number of lines of the script that will be outputted
         dialog_count: 2
 
+
+    #color codes for Embeds
+    colors: {'WHITE': 0xFFFFFF,
+             'AQUA': 0x1ABC9C,
+             'GREEN': 0x2ECC71,
+             'BLUE': 0x3498DB,
+             'PURPLE': 0x9B59B6,
+             'LUMINOUS_VIVID_PINK': 0xE91E63,
+             'GOLD': 0xF1C40F,
+             'ORANGE': 0xE67E22,
+             'RED': 0xE74C3C,
+             'NAVY': 0x34495E,
+             'DARK_AQUA': 0x11806A,
+             'DARK_GREEN': 0x1F8B4C,
+             'DARK_BLUE': 0x206694,
+             'DARK_PURPLE': 0x71368A,
+             'DARK_VIVID_PINK': 0xAD1457,
+             'DARK_GOLD': 0xC27C0E,
+             'DARK_ORANGE': 0xA84300,
+             'DARK_RED': 0x992D22,
+             'DARK_NAVY': 0x2C3E50}
+    
     # status messages for the bot
     status:
         - Boromir not simply walk into Mordor

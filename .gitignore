@@ -3,3 +3,4 @@
 __pycache__
 .python-version
 questions_stats.txt
+.pylintrc
