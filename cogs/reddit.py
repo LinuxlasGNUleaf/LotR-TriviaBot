@@ -1,11 +1,13 @@
 from datetime import datetime
 import aiohttp
+import logging
 from discord.ext import commands
 import discord
 
 class Reddit(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
         self.json = []
         self.old_timestamp = datetime.now()
         self.default_query_size = self.bot.config['reddit']['query_limit']
@@ -16,9 +18,10 @@ class Reddit(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command()
+    @commands.cooldown(5,10)
     async def meme(self, ctx):
         '''
         posts a LotR or Hobbit-related meme in the channel
@@ -43,7 +46,7 @@ class Reddit(commands.Cog):
                     embed.set_image(url=submission['url'])
                     embed.set_author(name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
                     embed.url = 'https://www.reddit.com/'+submission['id']
-                    embed.set_footer(text='Author: u/{:20} Subreddit: r/{:20}'.format(submission['author'],submission['subreddit']))
+                    embed.set_footer(text='Author: u/'+submission['author'])
                     await ctx.send(embed=embed)
                     break
             self.query_size += self.default_query_size

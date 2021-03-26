@@ -2,6 +2,7 @@
 Hangman cog for the LotR-Trivia Bot
 '''
 import random
+import logging
 import string
 import asyncio
 from discord.ext import commands
@@ -14,10 +15,11 @@ class Hangman(commands.Cog):
     '''
     def __init__(self, bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command(name='hangman')
     async def create_hangman_game(self, ctx):

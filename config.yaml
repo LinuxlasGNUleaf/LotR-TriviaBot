@@ -6,11 +6,17 @@ general:
     prefix: lotr
     # python command to return the vaild path for the cache folder
     cache_path: $HOME/.config/discord/bots/lotr-bot/
+    # logfile location (in cache directory)
+    logfile: dcbot.log
     # discord user-ids for superusers, those will be able to change the bot configs on any server no matter their permissions (use with care) 
     superusers:
         - 277083306087022592
     # autosave interval in seconds
     autosave: 300
+    # developer id
+    developer_id: 277083306087022592
+    # github-repo link
+    github_repo: https://github.com/LinuxlasGNUleaf/LotR-TriviaBot
 
 # settings for the reddit API used for pulling memes and stuff
 reddit:

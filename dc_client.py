@@ -1,12 +1,10 @@
 
 import pickle
 import os
-import sys
 import logging
 import random
 import asyncio
-#import platform
-from time import strftime
+from datetime import datetime
 import discord
 from discord.ext import commands
 
@@ -45,6 +43,7 @@ class LotrBot(commands.Bot):
 
         # getting misc stuff from config
         self.color_list = [c for c in self.config['discord']['colors'].values()]
+        self.start_time = datetime.now()
 
         # starting autosave
         asyncio.get_event_loop().create_task(self.auto_save())
@@ -60,33 +59,15 @@ class LotrBot(commands.Bot):
         '''
         autosave feature
         '''
-        sys.stdout.write('\nAutosave initialized.')
-        msg_len = 0
+        self.logger.info('Autosave initialized.')
         while True:
             await asyncio.sleep(self.config['general']['autosave'])
-
-            sc_file = open(self.config['discord']['trivia']['cache'], 'wb')
-            pickle.dump(self.scoreboard, sc_file)
-            sc_file.close()
-
-            meme_file = open(self.config['reddit']['cache'], 'wb')
-            pickle.dump(self.meme_cache, meme_file)
-            meme_file.close()
-
-            set_file = open(self.config['discord']['settings']['cache'], 'wb')
-            pickle.dump(self.settings, set_file)
-            set_file.close()
-
-            msg = strftime('Last Autosave: %X on %a %d/%m/%y')
-            msg_len = max(msg_len, len(msg))
-            sys.stdout.write('\r{}{}'.format(msg, ((msg_len-len(msg))*' ')))
-
+            self.saveCaches()
+            self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     async def on_ready(self):
         if not self.started:
-            print(f"-----\nLogged in as: {self.user.name} : {self.user.id}\n-----\nMy current prefix is: {self.config['general']['prefix']}\n-----")
-        else:
-            print('[SYSTEM]: RESUME request probably failed. (Reconnected at {}.'.format(strftime('%X on %a %d/%m/%y)')))
+            self.logger.info('Logged in as: %s : %s', self.user.name, self.user.id)
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,name=random.choice(self.config['discord']['status'])))
 
 
@@ -105,28 +86,6 @@ class LotrBot(commands.Bot):
 
         await self.process_commands(message)
 
-
-    async def on_command_error(self, ctx, error):
-        #Ignore these errors
-        ignored = (commands.CommandNotFound, commands.UserInputError)
-        if isinstance(error, ignored):
-            return
-
-        if isinstance(error, commands.CommandOnCooldown):
-            # If the command is currently on cooldown trip this
-            m, s = divmod(error.retry_after, 60)
-            h, m = divmod(m, 60)
-            if int(h) == 0 and int(m) == 0:
-                await ctx.send(f' You must wait {int(s)} seconds to use this command!')
-            elif int(h) == 0 and int(m) != 0:
-                await ctx.send(f' You must wait {int(m)} minutes and {int(s)} seconds to use this command!')
-            else:
-                await ctx.send(f' You must wait {int(h)} hours, {int(m)} minutes and {int(s)} seconds to use this command!')
-        elif isinstance(error, commands.CheckFailure):
-            # If the command has failed a check, trip this
-            await ctx.send("Hey! You lack permission to use this command.")
-        raise error
-
     def update_cache_path(self, path):
         return os.path.join(self.config['general']['cache_path'],path)
     
@@ -138,10 +97,10 @@ class LotrBot(commands.Bot):
         try:
             with open(path, 'rb') as cache_file:
                 obj = pickle.load(cache_file)
-                print('[INFO]: unserialized {}.'.format(name))
+                self.logger.info('successfully deserialized %s.',name)
                 return obj
         except (FileNotFoundError, EOFError):
-            print('[WARN]: could not unserialize {}! Creating empty one instead.'.format(name))
+            self.logger.warning('could not deserialize %s! Ignoring.',name)
             open(path, 'w').close()
             return {}
 
@@ -159,5 +118,20 @@ class LotrBot(commands.Bot):
                     temp[i] = item.strip()
                 return temp
         except (FileNotFoundError, EOFError) as token_error:
-            msg = '[ERROR]: {} not found!'.format(name)
-            raise EOFError(msg) from token_error
+            self.logger.error('%s not found!',name)
+            raise token_error
+    
+    def saveCaches(self):
+        with open(self.config['discord']['trivia']['cache'], 'wb') as sc_file:
+            pickle.dump(self.scoreboard, sc_file)
+
+        with open(self.config['reddit']['cache'], 'wb') as meme_file:
+            pickle.dump(self.meme_cache, meme_file)
+
+        with open(self.config['discord']['settings']['cache'], 'wb') as set_file:
+            pickle.dump(self.settings, set_file)
+        
+        with open(self.config['discord']['trivia']['stats_cache'], 'wb') as stats_file:
+            pickle.dump(self.stats_cache, stats_file)
+        
+        self.logger.debug('Successfully saved all cache files.')

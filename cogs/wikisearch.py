@@ -1,14 +1,16 @@
-from discord.ext import commands
+import logging
 from googlesearch import search
+from discord.ext import commands
 import cogs
 
 class WikiSearch(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command(name='search')
     async def lotr_search(self, ctx, *, query):

@@ -1,12 +1,13 @@
 '''
 Hangman cog for the LotR-Trivia Bot
 '''
-import csv
-from random import shuffle, choice, random
 import asyncio
-import math
-import matplotlib.pyplot as plt
+import csv
 from io import BytesIO
+import math
+import logging
+import random
+import matplotlib.pyplot as plt
 import numpy as np
 import discord
 from discord.ext import commands
@@ -17,10 +18,12 @@ plt.rcdefaults()
 class Trivia(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
+
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command(name='profile')
     async def display_profile(self, ctx):
@@ -28,7 +31,7 @@ class Trivia(commands.Cog):
         creates a profile for the ctx.author and displays it.
         '''
         if not ctx.author.id in self.bot.scoreboard.keys():
-            await ctx.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['key']))
+            await ctx.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['prefix']))
             return
 
         player_stats = self.getScoreboard(ctx.author)
@@ -55,50 +58,45 @@ class Trivia(commands.Cog):
             # get random question
             with open('questions.csv', 'r') as csvfile:
                 csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-                content = choice(list(csvreader))
+                content = random.choice(list(csvreader))
 
             # pop the source and the question (first element)
             source = content.pop(0)
             question = content.pop(0)
             # shuffle answers
-            shuffle(content)
+            random.shuffle(content)
 
             answers = content.copy()
             for i, item in enumerate(answers):
                 if item.startswith(self.bot.config['discord']['trivia']['marker']):
                     answers[i] = item[1:]
                     correct_index = i+1
-                    if question in self.bot.stats_cache:
-                        qstats = self.bot.stats_cache[question]
-                        qstats[0] += 1
-                    else:
-                        qstats = (1, 0)
                     break
             if correct_index < 0:
                 print('Invalid question found: {}'.format(question))
 
-        # create author info
-        author_name = '{}\'s {} trial in the Arts of Middle Earth trivia'\
-            .format(ctx.author.display_name, cogs._dcutils.ordinal(player_stats[0]))
-        author_info = (author_name, ctx.author.avatar_url)
-
-        # create the embed text
-        embed_text = '```markdown\n'
+        embed = discord.Embed(title=question)
+        embed.set_author(name=f'{ctx.author.display_name}\'s {cogs._dcutils.ordinal(player_stats[0])} trial in the Arts of Middle Earth trivia',url=ctx.author.avatar_url)
+        text = ''
         char_count = len(question)
         for num, answer in enumerate(answers):
-            embed_text += '{}. {}\n'.format(num+1, answer)
+            text += f'**{num+1}.)** {answer}\n'
             char_count += len(answer)
+        embed.description = text
 
         # calculate the timeout
         timeout = round(char_count / self.bot.config['discord']['trivia']['multiplier'] + \
-                        self.bot.config['discord']['trivia']['extra_time'], 1)
+                        self.bot.config['discord']['trivia']['extra_time'])
 
-        # add source and timeout to embed text
-        embed_text += '```\nsource: {}'.format(source)
-        embed_text += '\n:stopwatch: {} seconds'.format(round(timeout))
+        embed.add_field(name=':stopwatch: Timeout:',value=f'{timeout} seconds')
+        embed.add_field(name=':book: Source:',value=source)
+        await ctx.send(embed=embed)
 
-        await ctx.send(embed=cogs._dcutils.create_embed(question, author_info=author_info, content=embed_text), delete_after=timeout)
-
+        if question in self.bot.stats_cache:
+            qstats = list(self.bot.stats_cache[question])
+            qstats[0] += 1
+        else:
+            qstats = [1, 0]
         # block user from sending any commands
         self.bot.blocked.append(ctx.author.id)
         try:
@@ -106,12 +104,12 @@ class Trivia(commands.Cog):
             def check(chk_msg):
                 return chk_msg.author == ctx.author and chk_msg.channel == ctx.channel
 
-            msg = await self.bot.bot.wait_for('message', check=check, timeout=timeout)
+            msg = await self.bot.wait_for('message', check=check, timeout=timeout)
 
             if not msg.content.isdecimal(): # not a digit
                 await self.trivia_reply(ctx, False, '\nWhat is that supposed to be? Clearly not a digit...')
 
-            elif int(msg) == correct_index: # right answer
+            elif int(msg.content) == correct_index: # right answer
                 player_stats[1] += 1 # add one win
                 player_stats[2] += 1 # add one to the streak
                 qstats[1] += 1       # mark question as correctly answered
@@ -133,12 +131,12 @@ class Trivia(commands.Cog):
         # unblock user
         self.bot.blocked.remove(ctx.author.id)
 
-        self.bot.stats_cache[question] = qstats
+        self.bot.stats_cache[question] = tuple(qstats)
         self.setScoreboard(ctx.author,player_stats)
 
         # certain chance to send a small tip
-        if random() <= self.bot.config['discord']['trivia']['tip_probability']:
-            tip = choice(self.bot.config['discord']['trivia']['tips'])
+        if random.random() <= self.bot.config['discord']['trivia']['tip_probability']:
+            tip = random.choice(self.bot.config['discord']['trivia']['tips'])
             await ctx.send(tip.format(self.bot.config['discord']['trivia']['link']), delete_after=30)
 
 
@@ -152,7 +150,7 @@ class Trivia(commands.Cog):
         found_users = []
         for user in ctx.guild.members:
             if user.id in self.bot.scoreboard.keys() and self.bot.scoreboard[user.id][1] > 0:
-                found_users.append(user.name, *self.bot.scoreboard[user.id])
+                found_users.append([user.name, *self.bot.scoreboard[user.id]])
         found_users = sorted(found_users, key=lambda x: x[2])
 
         #prepare trivia embed
@@ -178,9 +176,10 @@ class Trivia(commands.Cog):
         if count > 1:
             title = 'Top {} Trivia Players in *{}*'.format(self.bot.config['discord']['trivia']['scoreboard_percent']*100, ctx.guild)
         elif count == 1:
-            await ctx.send('More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use `{} profile`'.format(self.bot.config['general']['key']))
+            await ctx.send('More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use `{} profile`'.format(self.bot.config['general']['prefix']))
+            return
         else:
-            await ctx.send('You have to play a game of trivia before a scoreboard can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['key']))
+            await ctx.send('You have to play a game of trivia before a scoreboard can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['prefix']))
             return
 
         #prepare trivia scoreboard
@@ -216,12 +215,12 @@ class Trivia(commands.Cog):
 
     def getScoreboard(self, user):
         if user.id in self.bot.scoreboard.keys():
-            return self.bot.scoreboard[user.id]
+            return list(self.bot.scoreboard[user.id])
         else:
-            return  (0, 0, 0) # count, wins, streak
+            return  [0, 0, 0] # count, wins, streak
 
     def setScoreboard(self, user, player_stats):
-        self.bot.scoreboard[user.id] = player_stats
+        self.bot.scoreboard[user.id] = tuple(player_stats)
 
     async def trivia_reply(self,ctx, won, text=''):
         '''

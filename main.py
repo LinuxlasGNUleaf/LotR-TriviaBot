@@ -4,25 +4,36 @@ import os
 import sys
 import logging
 import yaml
-
+import discord
 import dc_client
+
 
 # ==========================> LOAD YAML FILE <==================================
 with open("config.yaml", 'r') as cfg_stream:
     try:
-        sys.stdout.write('parsing config file...')
+        print('parsing config file...')
         config = yaml.safe_load(cfg_stream)
-        print('done.')
     except yaml.YAMLError as exc:
-        print("While parsing the config file, the following error occured: "+exc)
+        print(f'While parsing the config file, the following error occured:\n{exc}')
         sys.exit()
 # ==============================================================================
+logfile = os.path.join(os.path.expandvars(config['general']['cache_path']),config['general']['logfile'])
+print(f'logging events to: {logfile}')
+logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-10s]: %(message)s', level=logging.INFO, handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', level=logging.INFO)
 bot = dc_client.LotrBot(config)
 
 if __name__ == '__main__':
-    for file in os.listdir(os.path.join(os.getcwd(),'cogs')):
-        if file.endswith(".py") and not file.startswith("_"):
-            bot.load_extension(f"cogs.{file[:-3]}")
-    bot.run(bot.token)
+    logging.info('--- Loading cogs...')
+    for ext in os.listdir(os.path.join(os.getcwd(),'cogs')):
+        try:
+            if ext.endswith(".py") and not ext.startswith("_"):
+                bot.load_extension(f"cogs.{ext[:-3]}")
+        except discord.ext.commands.errors.ExtensionFailed as exc:
+            logging.error('Unable to load extension %s... ignoring.', ext)
+    try:
+        bot.run(bot.token)
+    except Exception:
+        logging.warning('Bot exited with error, ignoring.')
+    bot.saveCaches()
+    logging.info('bot shutdown sequence complete.\n\n')

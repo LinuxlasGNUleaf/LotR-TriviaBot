@@ -1,16 +1,18 @@
+import logging
+import discord
 from discord.ext import commands
 from googleapiclient.discovery import build
-import discord
 import cogs
 
 class YoutubeSearch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.youtube = build('youtube', 'v3', developerKey=self.bot.yt_credentials[0])
+        self.logger = logging.getLogger(__name__)
+        self.youtube = build('youtube', 'v3', developerKey=self.bot.yt_credentials[0], cache_discovery=False)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command(name='ytsearch',aliases=['yt','yt-search','ysearch','youtube'])
     async def search_youtube(self, ctx, *query):
@@ -26,7 +28,7 @@ class YoutubeSearch(commands.Cog):
         query = ' '.join(query)
 
         if not query:
-            await ctx.send('\nTry providing a query next time! The correct syntax is: `{} yt <keywords> (<number of results>)`'.format(self.bot.config['general']['key']))
+            await ctx.send('\nTry providing a query next time! The correct syntax is: `{} yt <keywords> (<number of results>)`'.format(self.bot.config['general']['prefix']))
 
         vid_request = self.youtube.search().list(
             q=query,

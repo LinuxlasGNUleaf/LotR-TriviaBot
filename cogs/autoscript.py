@@ -1,5 +1,6 @@
 from difflib import SequenceMatcher
 from random import choice
+import logging
 from discord.ext import commands
 
 class Autoscript(commands.Cog):
@@ -8,10 +9,11 @@ class Autoscript(commands.Cog):
         self.script = []
         self.condensed_script = []
         self.parse_script(self.script, self.condensed_script)
+        self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f'{self.__class__.__name__} Cog has been loaded.')
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
