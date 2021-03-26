@@ -174,7 +174,7 @@ class Trivia(commands.Cog):
                 break
 
         if count > 1:
-            title = 'Top {} Trivia Players in *{}*'.format(self.bot.config['discord']['trivia']['scoreboard_percent']*100, ctx.guild)
+            title = 'Top {} Trivia Players in *{}*'.format(self.bot.config['discord']['trivia']['scoreboard_max'], ctx.guild)
         elif count == 1:
             await ctx.send('More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use `{} profile`'.format(self.bot.config['general']['prefix']))
             return
