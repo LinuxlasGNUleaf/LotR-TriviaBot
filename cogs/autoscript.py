@@ -4,6 +4,9 @@ import logging
 from discord.ext import commands
 
 class Autoscript(commands.Cog):
+    '''
+    handles the Autoscript integration of the Bot
+    '''
     def __init__(self,bot):
         self.bot = bot
         self.script = []

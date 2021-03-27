@@ -1,7 +1,10 @@
-from discord.ext import commands
 import logging
+from discord.ext import commands
 
 class REPLACE(commands.Cog):
+    '''
+    TEMPLATE DOCSTRING
+    '''
     def __init__(self,bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)

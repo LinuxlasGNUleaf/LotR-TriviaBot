@@ -9,6 +9,9 @@ import discord
 from discord.ext import commands
 
 class LotrBot(commands.Bot):
+    '''
+    The LotR-Bot. Subclass of discord.ext.commands.Bot
+    '''
     def __init__(self, config):
         self.started = False
         self.logger = logging.getLogger(__name__)
@@ -62,7 +65,7 @@ class LotrBot(commands.Bot):
         self.logger.info('Autosave initialized.')
         while True:
             await asyncio.sleep(self.config['general']['autosave'])
-            self.saveCaches()
+            self.save_caches()
             self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     async def on_ready(self):
@@ -87,8 +90,11 @@ class LotrBot(commands.Bot):
         await self.process_commands(message)
 
     def update_cache_path(self, path):
+        '''
+        preprends the cache directory to any given path
+        '''
         return os.path.join(self.config['general']['cache_path'],path)
-    
+
     def get_cache(self, path, name):
         '''
         loads cache located in the specified directory into memory,
@@ -120,8 +126,8 @@ class LotrBot(commands.Bot):
         except (FileNotFoundError, EOFError) as token_error:
             self.logger.error('%s not found!',name)
             raise token_error
-    
-    def saveCaches(self):
+
+    def save_caches(self):
         with open(self.config['discord']['trivia']['cache'], 'wb') as sc_file:
             pickle.dump(self.scoreboard, sc_file)
 
@@ -130,8 +136,8 @@ class LotrBot(commands.Bot):
 
         with open(self.config['discord']['settings']['cache'], 'wb') as set_file:
             pickle.dump(self.settings, set_file)
-        
+
         with open(self.config['discord']['trivia']['stats_cache'], 'wb') as stats_file:
             pickle.dump(self.stats_cache, stats_file)
-        
-        self.logger.debug('Successfully saved all cache files.')
+
+        self.logger.info('Successfully saved all cache files.')

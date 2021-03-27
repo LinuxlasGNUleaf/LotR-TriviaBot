@@ -1,10 +1,13 @@
 from datetime import datetime
-import aiohttp
 import logging
+import aiohttp
 from discord.ext import commands
 import discord
 
 class Reddit(commands.Cog):
+    '''
+    handles the Reddit integration (JSON API) for the Bot
+    '''
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
@@ -32,7 +35,7 @@ class Reddit(commands.Cog):
         difference = datetime.now() - self.old_timestamp
 
         if not self.json or difference.total_seconds()/60 > self.json_timeout:
-            await self.refreshJSON()
+            await self.refresh_json()
             self.query_size = self.default_query_size
             self.old_timestamp = datetime.now()
 
@@ -51,9 +54,9 @@ class Reddit(commands.Cog):
                     break
             self.query_size += self.default_query_size
             self.old_timestamp = datetime.now()
-            await self.refreshJSON()
+            await self.refresh_json()
 
-    async def refreshJSON(self):
+    async def refresh_json(self):
         async with aiohttp.ClientSession() as session:
             async with session.get('https://www.reddit.com/r/{}/hot.json?limit={}'.format('+'.join(self.bot.config['reddit']['subreddits']),self.query_size)) as result:
                 self.json = []

@@ -16,6 +16,9 @@ import cogs._dcutils
 plt.rcdefaults()
 
 class Trivia(commands.Cog):
+    '''
+    handles the LotR-Trivia integration for the bot, including profile / scoreboards
+    '''
     def __init__(self,bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
@@ -28,29 +31,30 @@ class Trivia(commands.Cog):
     @commands.command(name='profile')
     async def display_profile(self, ctx):
         '''
-        creates a profile for the ctx.author and displays it.
+        creates a profile for the user and displays it.
         '''
         if not ctx.author.id in self.bot.scoreboard.keys():
             await ctx.send('You have to play a game of trivia before a profile can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['prefix']))
             return
 
-        player_stats = self.getScoreboard(ctx.author)
-        win_ratio = player_stats[1]/player_stats[0]
-        color = (cogs._dcutils.map_vals(win_ratio, 0, 1, 255, 0), cogs._dcutils.map_vals(win_ratio, 0, 1, 0, 255), 0)
+        embed = discord.Embed(title=f'{ctx.author.display_name}\'s profile')
+        embed.set_thumbnail(url=ctx.author.avatar_url)
+        embed.color = random.choice(self.bot.color_list)
 
-        title = '{}\'s results'.format(ctx.author.display_name)
-        content = 'Trivia games played: {}\nTrivia games won: {}\n\
-                Win/Played ratio: {}%\n\
-                Current Streak: {}'\
-                .format(player_stats[0], player_stats[1], round(win_ratio*100, 2), player_stats[2])
-        await ctx.send(embed=cogs._dcutils.create_embed(title, content=content, color=color))
+        player_stats = self.get_scoreboard(ctx.author)
+
+        win_ratio = player_stats[1]/player_stats[0]
+        embed.add_field(name=':abacus: Trivia games played:',value=player_stats[0],inline=False)
+        embed.add_field(name=':chart_with_upwards_trend: Percentage of games won:',value=str(round(win_ratio*100,1))+'%',inline=False)
+        embed.add_field(name=':dart: Current streak:',value=player_stats[2],inline=False)
+        await ctx.send(embed=embed)
 
     @commands.command(name='trivia')
     async def create_trivia_quiz(self, ctx):
         '''
         a multiple-choice trivia quiz with ME-related questions
         '''
-        player_stats = self.getScoreboard(ctx.author)
+        player_stats = self.get_scoreboard(ctx.author)
         player_stats[0] += 1
 
         correct_index = -1
@@ -90,7 +94,9 @@ class Trivia(commands.Cog):
 
         embed.add_field(name=':stopwatch: Timeout:',value=f'{timeout} seconds')
         embed.add_field(name=':book: Source:',value=source)
-        await ctx.send(embed=embed)
+        embed.color = random.choice(self.bot.color_list)
+
+        await ctx.send(embed=embed, delete_after=timeout)
 
         if question in self.bot.stats_cache:
             qstats = list(self.bot.stats_cache[question])
@@ -132,7 +138,7 @@ class Trivia(commands.Cog):
         self.bot.blocked.remove(ctx.author.id)
 
         self.bot.stats_cache[question] = tuple(qstats)
-        self.setScoreboard(ctx.author,player_stats)
+        self.set_scoreboard(ctx.author,player_stats)
 
         # certain chance to send a small tip
         if random.random() <= self.bot.config['discord']['trivia']['tip_probability']:
@@ -182,6 +188,7 @@ class Trivia(commands.Cog):
             await ctx.send('You have to play a game of trivia before a scoreboard can be generated! Use `{} trivia` to take a quiz!'.format(self.bot.config['general']['prefix']))
             return
 
+        embed = discord.Embed(title=title, description=scoreboard_string, color=random.choice(self.bot.color_list))
         #prepare trivia scoreboard
         if len(found_users) >= self.bot.config['discord']['trivia']['graphical_scoreboard_min']:
             with BytesIO() as buffer:
@@ -208,18 +215,18 @@ class Trivia(commands.Cog):
 
                 fig.savefig(buffer, dpi=800)
                 buffer.seek(0)
-                await ctx.send(embed=cogs._dcutils.create_embed(title=title, content=scoreboard_string), file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(ctx.guild.id)))
+                await ctx.send(embed=embed, file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(ctx.guild.id)))
                 plt.close('all')
         else:
-            await ctx.send(embed=cogs._dcutils.create_embed(title=title, content=scoreboard_string))
+            await ctx.send(embed=embed)
 
-    def getScoreboard(self, user):
+    def get_scoreboard(self, user):
         if user.id in self.bot.scoreboard.keys():
             return list(self.bot.scoreboard[user.id])
         else:
             return  [0, 0, 0] # count, wins, streak
 
-    def setScoreboard(self, user, player_stats):
+    def set_scoreboard(self, user, player_stats):
         self.bot.scoreboard[user.id] = tuple(player_stats)
 
     async def trivia_reply(self,ctx, won, text=''):

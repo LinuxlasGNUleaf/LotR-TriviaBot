@@ -8,6 +8,9 @@ from discord.ext import commands
 import discord
 
 class Utils(commands.Cog):
+    '''
+    Utilities commands for the Bot.
+    '''
     def __init__(self,bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
@@ -32,10 +35,10 @@ class Utils(commands.Cog):
         else:
             cogs = os.listdir('./cogs/')
             title = ':clock10: Reloading all cogs...'
-        
+
         embed = discord.Embed(title=title,description='Please wait, this can take a moment...')
         embed_msg = await ctx.send(embed=embed)
-        
+
         for ext in cogs:
             try:
                 if ext.endswith('.py') and not ext.startswith('_'):
@@ -56,23 +59,26 @@ class Utils(commands.Cog):
 
         if isinstance(error, commands.CommandOnCooldown):
             # If the command is currently on cooldown trip this
-            m, s = divmod(error.retry_after, 60)
-            h, m = divmod(m, 60)
-            if int(h) == 0 and int(m) == 0:
-                await ctx.send(f' You must wait {int(s)} seconds to use this command!')
-            elif int(h) == 0 and int(m) != 0:
-                await ctx.send(f' You must wait {int(m)} minutes and {int(s)} seconds to use this command!')
+            minutes, secs = divmod(error.retry_after, 60)
+            hours, minutes = divmod(minutes, 60)
+            if not hours and not minutes:
+                await ctx.send(f' You must wait {secs} seconds to use this command!')
+            elif not hours and minutes:
+                await ctx.send(f' You must wait {minutes} minutes and {secs} seconds to use this command!')
             else:
-                await ctx.send(f' You must wait {int(h)} hours, {int(m)} minutes and {int(s)} seconds to use this command!')
+                await ctx.send(f' You must wait {hours} hours, {minutes} minutes and {secs} seconds to use this command!')
         elif isinstance(error, (commands.CheckFailure, commands.NotOwner)):
             # If the command has failed a check, trip this
             await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
         else:
             raise error
-    
+
     @commands.cooldown(1,60)
     @commands.command()
     async def stats(self, ctx):
+        '''
+        displays misc. statistics about the bot
+        '''
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
         embed.colour = random.choice(self.bot.color_list)
 

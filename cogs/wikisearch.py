@@ -4,6 +4,9 @@ from discord.ext import commands
 import cogs
 
 class WikiSearch(commands.Cog):
+    '''
+    GoogleSearch integration for the Bot
+    '''
     def __init__(self,bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)

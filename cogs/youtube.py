@@ -1,10 +1,13 @@
 import logging
+from googleapiclient.discovery import build
 import discord
 from discord.ext import commands
-from googleapiclient.discovery import build
 import cogs
 
 class YoutubeSearch(commands.Cog):
+    '''
+    handles the YT-Data API integration of the Bot
+    '''
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
@@ -41,7 +44,7 @@ class YoutubeSearch(commands.Cog):
         if not vid_request:
             await ctx.send('*\'I have no memory of this place\'* ~Gandalf\nYour query `{}` yielded no results!'.format(query))
             return
-        
+
         for i, video in enumerate(vid_request):
             embed = discord.Embed(
                 title=video['snippet']['title'],

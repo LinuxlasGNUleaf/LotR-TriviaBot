@@ -36,7 +36,7 @@ if __name__ == '__main__':
         bot.run(bot.token)
     except Exception as exc:
         logging.warning('Bot exited with error, ignoring.')
-        bot.saveCaches()
+        bot.save_caches()
         raise exc
-    bot.saveCaches()
+    bot.save_caches()
     logging.info('bot shutdown sequence complete.\n\n')
