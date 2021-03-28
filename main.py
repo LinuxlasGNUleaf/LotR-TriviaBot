@@ -32,11 +32,7 @@ if __name__ == '__main__':
                 bot.load_extension(f"cogs.{ext[:-3]}")
         except discord.ext.commands.errors.ExtensionFailed as exc:
             logging.error('Unable to load extension %s... ignoring.', ext)
-    try:
-        bot.run(bot.token)
-    except Exception as exc:
-        logging.warning('Bot exited with error, ignoring.')
-        bot.save_caches()
-        raise exc
+
+    bot.run(bot.token)
     bot.save_caches()
     logging.info('bot shutdown sequence complete.\n\n')

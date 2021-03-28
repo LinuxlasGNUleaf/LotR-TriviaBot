@@ -66,7 +66,7 @@ class LotrBot(commands.Bot):
         while True:
             await asyncio.sleep(self.config['general']['autosave'])
             self.save_caches()
-            self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
+            self.logger.debug(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     async def on_ready(self):
         if not self.started:

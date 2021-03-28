@@ -18,6 +18,7 @@ class Autoscript(commands.Cog):
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
+    @commands.has_permissions(send_messages=True)
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
         '''
