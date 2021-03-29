@@ -2,9 +2,9 @@
 general:
     # version of the bot
     version: 2.6
-    # prefix for bot commands such as "X trivia", where X is the key specified below
-    prefix: lotr
-    # python command to return the vaild path for the cache folder
+    # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
+    prefix: ["lotr ","Lotr ","LOTR "]
+    # python command to return the valid path for the cache folder
     cache_path: $HOME/.config/discord/bots/lotr-bot/
     # logfile location (in cache directory)
     logfile: dcbot.log

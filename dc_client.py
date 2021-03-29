@@ -53,7 +53,7 @@ class LotrBot(commands.Bot):
 
         # calling the Base Constructor
         super().__init__(
-            command_prefix=config['general']['prefix']+' ',
+            command_prefix=config['general']['prefix'],
             intents=intents,
             case_insensitive=True
         )
