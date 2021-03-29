@@ -1,0 +1,453 @@
+async def lotr_battle(channel, bot, user, message, config, settings):
+    '''
+    initiates and manages a trivia battle between two users
+    '''
+
+    # fetch the tagged user, exit conditions for bots / same user
+    if len(message.mentions) == 1:
+        players = [channel.guild.get_member(user.id), message.mentions[0]]
+        if players[1].bot or players[1] == user:
+            await channel.send('I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
+            return
+    else:
+        await channel.send(':x: Please tag exactly one user on this server you want to battle.')
+        return
+
+    await channel.send('{}, are you ready to battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
+                       .format(*(player.display_name for player in players[::-1])))
+
+    # waiting for a response by the opponent
+    def ready_check(chk_msg):
+        return (chk_msg.author == players[1] and
+                chk_msg.channel == channel)
+
+    bot.blocked.append(players[1].id)
+    try:
+        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
+
+        if msg.content.lower() == 'yes':
+            await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
+        elif msg.content.lower() == 'no':
+            await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
+            return
+        else:
+            await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
+            return
+    except asyncio.TimeoutError:
+        await channel.send('{}, your opponent did not respond.'.format(user.mention))
+        return
+    bot.blocked.remove(players[1].id)
+
+    # create user DMs, in case they did not yet exist
+    for player in players:
+        if not player.dm_channel:
+            await player.create_dm()
+
+    def answer_check(chk_msg):
+        # check whether author is opponent and channel is the corresponding DM
+        if chk_msg.author in pending and chk_msg.channel == chk_msg.author.dm_channel:
+            pending.remove(chk_msg.author)
+            if chk_msg.content.strip().isdecimal():
+                answers[players.index(chk_msg.author)] = (int(chk_msg.content.strip()) == question[1])
+
+        # return true if pending is empty
+        return not pending
+
+    await channel.send('I will send you both a trivia question in a few seconds.\
+Answer it in time and continue to do so until the game is over. Then return to this chat to see who won.')
+
+
+    # preparing score embed
+    score = [0, 0]
+    max_char = max(len(players[0].display_name), len(players[1].display_name))
+    content = '```\n{0}: {2}\n{1}: {3}```'\
+              .format(players[0].display_name.ljust(max_char+1),
+                      players[1].display_name.ljust(max_char+1),
+                      score[0], score[1])
+
+    score_msg = await channel.send(embed=create_embed(title='LotR Battle Score', color=(255, 0, 0), content=content))
+    round_ind = 0
+    round_timeout = 3
+
+    while True:
+        # reset / manage round variables
+        round_ind += 1
+        pending = players.copy()
+        answers = [-1]*len(players)
+
+        # get new trivia question and distribute it
+        question = prepare_trivia_question(player, 0, config)
+        for player in players:
+            await player.dm_channel.send(embed=question[0])
+
+        # try to get an answer from all pending players
+        try:
+            await bot.wait_for('message', check=answer_check, timeout=question[2])
+        except asyncio.TimeoutError:
+            pass
+
+        # if both players failed or won
+        if answers[0] == answers[1]:
+            if answers[0] == 1: # both got it right
+                for player in players:
+                    await player.dm_channel.send('Well done! You both answered correctly.')
+            elif answers[0] == 0:
+                for player in players:
+                    await player.dm_channel.send('You fools! Both of you answered incorrectly.')
+            else:
+                round_timeout -= 1
+                for player in players:
+                    await player.dm_channel.send('You both did not answer in time! Timeout in {} rounds.'.format(round_timeout))
+                if round_timeout < 1:
+                    for player in players:
+                        await channel.send('You both did not answer multiple times... timing out.')
+                    return
+
+            footnote = 'Players drawed the {} round.'.format(ordinal(round_ind))
+
+        # if there is a clear winner
+        else:
+            winner = answers[1]
+            await players[winner].dm_channel.send(create_reply(user, False, config))
+            await players[not winner].dm_channel.send(create_reply(user, True, config))
+            footnote = '{} won the {} round!'.format(players[winner].display_name, ordinal(round_ind))
+            score[winner] += 1
+
+        # update score embed
+        content = '```\n{0}: {2}\n{1}: {3}```'\
+              .format(players[0].display_name.ljust(max_char+1),
+                      players[1].display_name.ljust(max_char+1),
+                      score[0], score[1])
+
+        new_score = create_embed(title='LotR Battle Score',
+                                 color=(255, 0, 0),
+                                 content=content,
+                                 footnote=footnote)
+        await score_msg.edit(embed=new_score)
+
+        # exit condition
+        if abs(score[0]-score[1]) > 1 and score[0]+score[1] > 2:
+            winner = (players[0] if score[0] > score[1] else players[1])
+            await channel.send('Congratulations, {} You won the game!\n'.format(winner.mention))
+            return
+
+
+
+def feature_allowed(feature, channel, settings, config):
+    '''
+    checks the settings whether the feature is allowed in this channel
+    '''
+    if isinstance(channel, discord.channel.DMChannel):
+        return 1
+    server = channel.guild
+    if channel.id in settings.keys():
+        if feature in settings[channel.id]:
+            return settings[channel.id][feature]
+    if server.id in settings.keys():
+        if feature in settings[server.id]:
+            return settings[server.id][feature]
+    if feature in config['discord']['settings']['defaults'].keys():
+        return config['discord']['settings']['defaults'][feature]
+    return 1
+
+
+async def edit_settings(cmd, settings, channel):
+    '''
+    edits the settings for the server or channel based on the given command
+    '''
+    if len(cmd) == 1:
+        await channel.send('You have to provide a state! Valid states are:\n `on`, `off`, `unset`, `server-on`, `server-off`, `server-unset`')
+
+    elif len(cmd) != 2:
+        await channel.send('You provided too much arguments! You can only provide one of the following states:\n`on`, `off`, `unset`, `server-on`, `server-off`, `server-unset`')
+
+    elif cmd[1] == 'on' or cmd[1] == 'off' or cmd[1] == 'unset':
+        channel_id = channel.id
+        if not channel_id in settings.keys():
+            settings[channel_id] = {}
+
+        if cmd[1] == 'on':
+            settings[channel_id][cmd[0]] = 1
+            await channel.send('feature `{}` for this channel was turned **on**'.format(cmd[0]))
+        elif cmd[1] == 'off':
+            settings[channel_id][cmd[0]] = 0
+            await channel.send('feature `{}` for this channel was turned **off**'.format(cmd[0]))
+        elif cmd[1] == 'unset':
+            if cmd[0] in settings[channel_id].keys():
+                del settings[channel_id][cmd[0]]
+                await channel.send('feature `{}` for this channel was **unset**'.format(cmd[0]))
+            else:
+                await channel.send('feature `{}` for this channel was not yet set'.format(cmd[0]))
+
+    elif cmd[1] == 'server-on' or cmd[1] == 'server-off' or cmd[1] == 'server-unset':
+        server = channel.guild.id
+        if not server in settings.keys():
+            settings[server] = {}
+
+        if cmd[1] == 'server-on':
+            settings[server][cmd[0]] = 1
+            await channel.send('feature `{}` for this server was turned **on**'.format(cmd[0]))
+        elif cmd[1] == 'server-off':
+            settings[server][cmd[0]] = 0
+            await channel.send('feature `{}` for this server was turned **off**'.format(cmd[0]))
+        elif cmd[1] == 'server-unset':
+            if cmd[0] in settings[server].keys():
+                del settings[server][cmd[0]]
+                await channel.send('feature `{}` for this server was **unset**'.format(cmd[0]))
+            await channel.send('feature `{}` for this server was not yet set'.format(cmd[0]))
+
+    else:
+        await channel.send('state `{}` not recognized'.format(cmd[1]))
+
+
+async def quote_battle(channel, bot, user, message):
+    '''
+    initiates and manages a trivia battle between two users
+    '''
+    server = channel.guild
+
+    if not channel.permissions_for(server.me).manage_roles:
+        await channel.send('I need the permission `Manage Roles` for this feature to work.')
+        return
+
+    if not channel.permissions_for(server.me).manage_messages:
+        await channel.send('I need the permission `Manage Messages` for this feature to work.')
+        return
+
+    if server.id not in bot.settings.keys():
+        bot.settings[server.id] = {}
+
+    if 'server-unset' in message.content:
+        if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
+            await channel.send(':x: Ask a server moderator to unset the quote-channel with `{} qbattle server-unset`'.format(bot.config['general']['key']))
+            return
+        if user.id in bot.config['general']['superusers']:
+            await channel.send(':desktop: Superuser detected, overriding permissions...')
+        bot.settings[server.id]['quote-battle'] = ''
+        await channel.send(':white_check_mark: Quote channel unset.')
+        return
+
+    # try to retrieve the quotebattle channel from the settings for this server
+    try:
+        quote_channel = await bot.fetch_channel(bot.settings[server.id]['quote-battle'])
+    except (KeyError, discord.errors.HTTPException):
+        if not channel.permissions_for(user).manage_channels and user.id not in bot.config['general']['superusers']:
+            await channel.send(':x: Ask a server moderator to set the quote-channel with `{} qbattle`'.format(bot.config['general']['key']))
+            return
+        if user.id in bot.config['general']['superusers']:
+            await channel.send(':desktop: Superuser detected, overriding permissions...')
+        await channel.send('Quote-battle channel not specified or invalid!\nMention the channel here to be registered as the quote channel.')
+
+        def check(chk_msg):
+            return chk_msg.author == user and chk_msg.channel == channel
+
+        bot.blocked.append(user)
+        try:
+            msg = await bot.wait_for('message', check=check, timeout=60)
+            quote_channel = await bot.fetch_channel(msg.content.split('<#')[-1][:-1])
+            bot.settings[server.id]['quote-battle'] = quote_channel.id
+            await channel.send(':white_check_mark: Quote channel set. To unset, use `{} qbattle server-unset`'.format(bot.config['general']['key']))
+        except (discord.errors.HTTPException, IndexError):
+            await channel.send(':x: Boi what is this? Tag a valid channel please.')
+        except asyncio.TimeoutError:
+            await channel.send(':x: Well, I take that as a no.')
+        bot.blocked.remove(user)
+        return
+
+    if not quote_channel.permissions_for(server.me).send_messages:
+        await channel.send(':warning: I don\'t have permission to send messages in this channel.\nUpdating permissions...')
+        await quote_channel.set_permissions(server.me, send_messages=True, reason='Neccessary changes for the LotR quote battle')
+        await channel.send('Done.')
+
+    # fetch the tagged user, exit conditions for bots / same user
+    if len(message.mentions) == 1:
+        players = [server.get_member(user.id), message.mentions[0]]
+        if players[1].bot or players[1] == user:
+            await channel.send(':x: I suppose you think that was terribly clever.\nYou can\'t fight yourself or a bot! Tag someone else!')
+            return
+    else:
+        await channel.send(':x: Please tag exactly one user on this server you want to battle.')
+        return
+
+    await channel.send('{}, are you ready to quote-battle {}? If so, respond with `yes`, otherwise do nothing or respond with `no`'\
+                       .format(*(player.display_name for player in players[::-1])))
+
+    # waiting for a response by the opponent
+    def ready_check(chk_msg):
+        return (chk_msg.author == players[1] and
+                chk_msg.channel == channel)
+
+    bot.blocked.append(players[1].id)
+    game = False
+    try:
+        msg = await bot.wait_for('message', check=ready_check, timeout=bot.config['discord']['battle']['timeout'])
+
+        if msg.content.lower() == 'yes':
+            await channel.send('{}, your opponent is ready. Let the game begin!'.format(user.mention))
+            game = True
+        elif msg.content.lower() == 'no':
+            await channel.send('{}, your opponent is not ready to battle just yet.'.format(user.mention))
+        else:
+            await channel.send('... well, I will take that as a no. {}, your opponent is not ready to battle just yet.'.format(user.mention))
+    except asyncio.TimeoutError:
+        await channel.send('{}, your opponent did not respond.'.format(user.mention))
+    bot.blocked.remove(players[1].id)
+
+    if game:
+        asyncio.get_event_loop().create_task(quote_battle_handler(quote_channel, bot, players))
+
+async def quote_battle_handler(channel, bot, players):
+    server = channel.guild
+    perms_changed = []
+
+    for player in players:
+        bot.blocked.append(player.id)
+        if not channel.permissions_for(player).send_messages:
+            perms_changed.append(player)
+            await channel.set_permissions(player, send_messages=True, reason='Quote battle')
+
+    def quote_check(msg):
+        return msg.channel == channel and msg.author in players
+
+    rounds = (bot.config['discord']['quote_battle']['rounds']*2)-1
+    orig_rounds = rounds
+    random.shuffle(players)
+    act_player = random.choice(players)
+    first_round = True
+    await channel.send('Welcome to the epic quote battle between {} and {}!\n{} starts! Prepare for battle!'.format(*(player.mention for player in players), act_player.display_name))
+
+    while rounds > 0:
+        try:
+            msg = await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout']//2)
+        except asyncio.TimeoutError:
+            msg = await channel.send('Careful both of you, half of your time to respond has passed!', delete_after=30)
+            try:
+                await bot.wait_for('message', check=quote_check, timeout=bot.config['discord']['quote_battle']['timeout']//2)
+            except asyncio.TimeoutError:
+                await channel.send('You did not answer in time. The battle ended.')
+                break
+
+        if first_round:
+            if msg.author.id == act_player.id:
+                first_round = False
+            else:
+                await channel.send('Hey, wait for {} to start the battle!'.format(act_player.display_name), delete_after=10)
+                await msg.delete()
+                continue
+
+        if msg.author.id != act_player.id:
+            rounds -= 1
+            act_player = msg.author
+            if rounds-1 == orig_rounds//2:
+                await channel.send('Half-time! {} rounds to go!'.format(rounds))
+
+    for player in players:
+        bot.blocked.remove(player.id)
+        if player in perms_changed:
+            await channel.set_permissions(player, send_messages=False, reason='Quote battle')
+
+    score_msg = await channel.send('The quote battle between {} and {} ended.\nVote :one: for {} and :two: for {}'\
+                                   .format(players[0].display_name,
+                                           players[1].display_name,
+                                           players[0].mention,
+                                           players[1].mention))
+
+    await score_msg.add_reaction('1️⃣') # number 1
+    await score_msg.add_reaction('2️⃣') # number 2
+    await asyncio.sleep(bot.config['discord']['quote_battle']['voting_time'])
+
+    try:
+        #refetch message
+        score_msg = await channel.fetch_message(score_msg.id)
+        await score_msg.add_reaction('🛑') #stop-sign
+
+        # remove bot reactions, and remove self-votes
+        await score_msg.remove_reaction('1️⃣', server.me)
+        try:
+            await score_msg.remove_reaction('1️⃣', players[0])
+        except discord.errors.NotFound:
+            pass
+
+        await score_msg.remove_reaction('2️⃣', server.me)
+        try:
+            await score_msg.remove_reaction('2️⃣', players[1])
+        except discord.errors.NotFound:
+            pass
+
+        # refetch message again
+        score_msg = await channel.fetch_message(score_msg.id)
+
+        voting = [0, 0]
+        for item in score_msg.reactions:
+            if item.emoji == '1️⃣':
+                voting[0] = item.count
+            elif item.emoji == '2️⃣':
+                voting[1] = item.count
+
+        ret_str = 'The vote for the battle between {} and {} concluded with {} vs {} votes'.format(*voting, *(player.mention for player in players))
+        if voting[0] == voting[1]:
+            await channel.send(ret_str+'\nDraw! Congratulations, both of you did well.')
+        else:
+            winner = voting[0] < voting[1]
+            await channel.send(ret_str+'\n{} wins the quote battle! What a fight!'.format(players[winner].mention))
+
+    except discord.errors.HTTPException:
+        await channel.send(':x: An error occured while counting the votes. Sorry for that.')
+
+async def manage_config(channel, user, content, config, settings):
+    '''
+    manages the settings for this channel/server
+    '''
+    content = content.split(' ')[2:]
+    server = channel.guild
+
+    for i, item in enumerate(content):
+        content[i] = item.strip()
+
+    # user wants to change the settings
+    if not content:
+        await channel.send(':x: Use one of the following commands:')
+        await channel.send(config['discord']['settings']['help'].format(config['general']['key']))
+        return
+    if content[0] in config['discord']['settings']['features']:
+        if channel.permissions_for(user).manage_channels or \
+            user.id in config['general']['superusers']:
+            if user.id in config['general']['superusers']:
+                await channel.send(':desktop: Superuser detected, overriding permissions...')
+            await edit_settings(content, settings, channel)
+        else:
+            await channel.send(':x: You do not have permission to change these settings!')
+
+    # user wants to see the help message
+    elif content[0] == 'help':
+        await channel.send(config['discord']['settings']['help'].format(config['general']['key']))
+
+    # user wants to see the config embed
+    elif content[0] == 'show':
+        title = 'Config for #{}, Server: {}'.format(channel, server)
+        content = ''
+        for feature in config['discord']['settings']['features']:
+            content += '**Feature `{}`:**\n'.format(feature)
+
+            server_setting = ':grey_question:'
+            if server.id in settings.keys():
+                if feature in settings[server.id]:
+                    server_setting = ':white_check_mark:' if settings[server.id][feature] else ':x:'
+
+            channel_setting = ':grey_question:'
+            if channel.id in settings.keys():
+                if feature in settings[channel.id]:
+                    channel_setting = ':white_check_mark:' if settings[channel.id][feature] else ':x:'
+
+            effective = ':white_check_mark:' if feature_allowed(feature,
+                                                                channel,
+                                                                settings,
+                                                                config) else ':x:'
+            content += 'Server: {} Channel: {} Effective: {}\n\n'\
+                    .format(server_setting, channel_setting, effective)
+
+        embed = cogs._dcutils.create_embed(title=title, content=content)
+        await channel.send(embed=embed)
+    else:
+        await channel.send('Unknown Feature `{}`! Try one of the following:\n`'.format(content[0])+'`, `'
+                           .join(config['discord']['settings']['features']+['help', 'show'])+'`')
