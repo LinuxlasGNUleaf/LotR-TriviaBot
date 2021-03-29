@@ -66,7 +66,7 @@ class LotrBot(commands.Bot):
         while True:
             await asyncio.sleep(self.config['general']['autosave'])
             self.save_caches()
-            self.logger.debug(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
+            self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     async def on_ready(self):
         if not self.started:
@@ -81,10 +81,8 @@ class LotrBot(commands.Bot):
         if message.author == self.user or message.author.id in self.blocked or message.author.bot:
             return
         channel = message.channel
-        is_dm = isinstance(channel, discord.channel.DMChannel)
-        if not is_dm:
-            server = channel.guild
-            if not channel.permissions_for(server.me).send_messages:
+        if not isinstance(channel, discord.channel.DMChannel):
+            if not channel.permissions_for(channel.guild.me).send_messages:
                 return
 
         await self.process_commands(message)
@@ -109,7 +107,6 @@ class LotrBot(commands.Bot):
             self.logger.warning('could not deserialize %s! Ignoring.',name)
             open(path, 'w').close()
             return {}
-
 
     def get_token(self, path, name):
         '''
@@ -140,4 +137,4 @@ class LotrBot(commands.Bot):
         with open(self.config['discord']['trivia']['stats_cache'], 'wb') as stats_file:
             pickle.dump(self.stats_cache, stats_file)
 
-        self.logger.info('Successfully saved all cache files.')
+        self.logger.debug('Successfully saved all cache files.')

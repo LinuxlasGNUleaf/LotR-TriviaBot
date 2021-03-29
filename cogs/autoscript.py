@@ -2,6 +2,7 @@ from difflib import SequenceMatcher
 from random import choice
 import logging
 from discord.ext import commands
+import discord
 
 class Autoscript(commands.Cog):
     '''
@@ -18,7 +19,6 @@ class Autoscript(commands.Cog):
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
-    @commands.has_permissions(send_messages=True)
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
         '''
@@ -29,6 +29,11 @@ class Autoscript(commands.Cog):
         # format message string
         content = message.content.lower().strip()
         channel = message.channel
+
+        if isinstance(channel, discord.channel.DMChannel):
+            return
+        if not channel.permissions_for(channel.guild.me).send_messages:
+            return
 
         # stop if the message is shorter than 2 words
         if len(content.split(' ')) < 2:
