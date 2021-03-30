@@ -23,5 +23,5 @@ with open(fpath, 'r') as csvfile:
             if item.startswith('*'):
                 count += 1
         if count != 1:
-            print(question_str+"Too many or not enough ({}) correct answers marked: {}".format(count,question[1]))
+            print(question_str+ ("Too many"if count else "No") + " correct answers marked: "+question[1])
     print("done.")

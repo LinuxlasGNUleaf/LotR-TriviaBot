@@ -49,11 +49,16 @@ Well, that would be me. If you want to contact me,
 you can also send me a DM on Discord: `Linuxlas GNUleaf#1169`
 ## Trivia Questions Contributors
 * MC4dden
-* Eldarion
 * Savior of teh White Tree
+* Eldarion
 * Teh Lurd of Hogwarts
 * Lord HellRaiser
 * Hobbz45 The Orange
+* Teh Lurd of the Megma
+* Tuna
+* Gamedalf
+* Zizi.14
+* asky78936
 
 ## Help wanted
 You want to help? Great! There are currently the following tasks (apart from coding) that you could help with:
