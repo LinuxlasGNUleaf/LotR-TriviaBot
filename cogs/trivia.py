@@ -120,7 +120,7 @@ class Trivia(commands.Cog):
                 player_stats[2] += 1 # add one to the streak
                 qstats[1] += 1       # mark question as correctly answered
                 if player_stats[2] and player_stats[2] % 5 == 0:
-                    await self.trivia_reply(ctx, True, '\n:dart: Streak of **{player_stats[2]} wins**! Keep it up!')
+                    await self.trivia_reply(ctx, True, f'\n:dart: Streak of **{player_stats[2]} wins**! Keep it up!')
                 else:
                     await self.trivia_reply(ctx, True)
 
