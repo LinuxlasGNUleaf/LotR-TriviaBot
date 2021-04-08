@@ -28,6 +28,8 @@ reddit:
     json_timeout: 15
     # number of posts to pull when renewing the JSON file, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
     query_limit: 15
+    # video thumbnail url for video posts
+    video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
 
 # settings for the youtube data API for searching for YT videos
 youtube:

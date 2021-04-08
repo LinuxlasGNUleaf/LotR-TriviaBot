@@ -46,10 +46,11 @@ class Reddit(commands.Cog):
                     found_meme = True
                     self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     embed = discord.Embed(title=submission['title'])
-                    if submission['url'] in ['jpeg','jpg','gif','png']:
+                    ftype = submission['url'].split('.')[-1]
+                    if ftype in ['jpeg','jpg','gif','png'] or 'i.redd.it' in submission['url']:
                         embed.set_image(url=submission['url'])
-                    else:
-                        embed.set_thumbnail(url='cdn.onlinewebfonts.com/svg/download_349409.png')
+                    elif 'v.redd.it' in submission['url']:
+                        embed.set_thumbnail(url=self.bot.config['reddit']['video_thumbnail'])
                     embed.set_author(name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
                     embed.url = 'https://www.reddit.com/'+submission['id']
                     embed.set_footer(text='Author: u/'+submission['author'])
