@@ -62,11 +62,11 @@ class Utils(commands.Cog):
             minutes, secs = divmod(error.retry_after, 60)
             hours, minutes = divmod(minutes, 60)
             if not hours and not minutes:
-                await ctx.send(f' You must wait {secs} seconds to use this command!')
+                await ctx.send(f' You must wait {round(secs)} seconds to use this command!')
             elif not hours and minutes:
-                await ctx.send(f' You must wait {minutes} minutes and {secs} seconds to use this command!')
+                await ctx.send(f' You must wait {round(minutes)} minutes and {round(secs)} seconds to use this command!')
             else:
-                await ctx.send(f' You must wait {hours} hours, {minutes} minutes and {secs} seconds to use this command!')
+                await ctx.send(f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
         elif isinstance(error, (commands.CheckFailure, commands.NotOwner)):
             # If the command has failed a check, trip this
             await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
