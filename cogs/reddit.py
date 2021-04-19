@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+from urllib.parse import urlparse
 import aiohttp
 from discord.ext import commands
 import discord
@@ -43,22 +44,35 @@ class Reddit(commands.Cog):
         while not found_meme:
             for submission in self.json:
                 if not submission['id'] in self.bot.meme_cache[ctx.channel.id]:
+                    # checking if that entry is still available
+                    async with aiohttp.ClientSession() as session:
+                        async with session.get('https://www.reddit.com/comments/{}/.json'.format(submission['id'])) as result:
+                            result = await result.json()
+                            if result[0]['data']['children'][0]['data']['selftext'] == '[deleted]':
+                                logging.info('Deleted post with id %s found, skipping.',submission['id'])
+                                continue
+                    #processing meme, determinig whether it's an image or not, yada yada yada
                     found_meme = True
                     self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     embed = discord.Embed(title=submission['title'])
+                    submission['url'] = urlparse(submission['url'])._replace(query=None).geturl()
+                    print(submission['url'])
                     ftype = submission['url'].split('.')[-1]
+                    print(ftype)
                     if ftype in ['jpeg','jpg','gif','png'] or 'i.redd.it' in submission['url']:
                         embed.set_image(url=submission['url'])
-                    elif 'v.redd.it' in submission['url']:
+                        print('image set.')
+                    elif ftype in ['gifv','mp4','avi','webm'] or 'v.redd.it' in submission['url']:
                         embed.set_thumbnail(url=self.bot.config['reddit']['video_thumbnail'])
                     embed.set_author(name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
                     embed.url = 'https://www.reddit.com/'+submission['id']
                     embed.set_footer(text='Author: u/'+submission['author'])
                     await ctx.send(embed=embed)
                     break
-            self.query_size += self.default_query_size
-            self.old_timestamp = datetime.now()
-            await self.refresh_json()
+            if not found_meme:
+                self.query_size += self.default_query_size
+                self.old_timestamp = datetime.now()
+                await self.refresh_json()
 
     async def refresh_json(self):
         async with aiohttp.ClientSession() as session:

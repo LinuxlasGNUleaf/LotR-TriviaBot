@@ -15450,10 +15450,10 @@ BILBO BAGGINS
 I took it as my fourteenth share.
 
 THORIN
-You would steel from me?
+You would steal from me?
 
 BILBO BAGGINS
-Steel from you? No, no. I may be a burglar, but I like to think I'm an honest one.
+Steal from you? No, no. I may be a burglar, but I like to think I'm an honest one.
 I'm willing to let it stand against my claim.
 
 THORIN
