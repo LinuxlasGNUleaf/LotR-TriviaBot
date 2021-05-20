@@ -20,7 +20,7 @@ with open("config.yaml", 'r') as cfg_stream:
 logfile = os.path.join(os.path.expandvars(config['general']['cache_path']),config['general']['logfile'])
 print(f'logging events to: {logfile}')
 
-logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-10s]: %(message)s', level=logging.INFO, handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
+logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-11s]: %(message)s', level=logging.INFO, handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
 
 bot = dc_client.LotrBot(config)
 
@@ -31,7 +31,9 @@ if __name__ == '__main__':
             if ext.endswith(".py") and not ext.startswith("_"):
                 bot.load_extension(f"cogs.{ext[:-3]}")
         except discord.ext.commands.errors.ExtensionFailed as exc:
-            logging.error('Unable to load extension %s... ignoring.', ext)
+            logging.error('Unable to load %s extension. TRACEBACK:', ext)
+            logging.exception(exc)
+            logging.info('End of TRACEBACK.')
 
     bot.run(bot.token)
     bot.save_caches()

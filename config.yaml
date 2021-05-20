@@ -55,6 +55,8 @@ discord:
     # token file for authentication of the bot (located in general/cache_path)
     token: discord.tk
 
+    # emojis for visual indicators
+    indicators: [':x:',':white_check_mark:']
     # settings for the discord config, which is used for example for configuring channels for bot memes 
     settings:
         # cache file for storing the settings specified for different servers (located in general/cache_path)
@@ -98,9 +100,12 @@ discord:
         file: silmarillion.txt
         # number of sentences to be displayed
         sentence_count: 2
+    
+    # time for all participants of a battle to check in
+    ready_check_timeout: 180
 
     # trivia battle settings
-    battle:
+    trivia_battle:
         # time limit in which both of the participants have to answer (in seconds)
         timeout: 45
 
@@ -127,16 +132,23 @@ discord:
         link: https://forms.gle/k4oMTiyUEJgntMyb9
         # tips added when the link is displayed
         tips:
-            - "You shel submit ur questions here: {}"
+            - "U shel submit ur questions here: {}"
             - "Thought of a cool new trivia question? Great! Submit it here: {}"
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
+        
+        medals: ['🥇 __Eru Ilúvatar:__\n{}', '🥈 __Manwë:__\n{}', '🥉 __Galadriel:__\n{}\n', '{}']
+
+        scoreboard_line: '**[{} pts / {}%]** {}'
+        scoreboard_streak: ' :dart: *Streak of {} wins*'
         # probability to display the link and a tip
         tip_probability: 0.05
         # top X players to show on the scoreboard
         scoreboard_max: 20
         # minimum number of players in a server necessary to create a graphical scoreboard
-        graphical_scoreboard_min: 10 
+        gscoreboard_min: 10 
+        # maximum number of players to display on the graphical scoreboard
+        gscoreboard_max: 10 
         # file for storing anonymous statistics about the trivia games (located in general/cache_path)
         stats_cache: 'questions_stats.txt'
     
@@ -215,12 +227,11 @@ discord:
         - "I would cut off your head {}... if it stood but a little higher from the ground."
         - "Dotard! What is the house of {} but a thatched barn where brigands drink in the reek,and their brats roll on the floor among the dogs?"
         - "Hey, {}! Don't go getting too far behind. ~Sam"
-        - "Feanor gave up because of your stupidity, {}!"
         - "Feanor did nothing wrong, but the same can not be said about you, {}!"
         - "Bombur does not approve."
         - "Stop your squeaking you dunghill rat, {}!"
         - "You stinking two-faced sneak!"
-        - "What are you doing, you useless scum?"
+        - "The wise speak only of what they know, {}. A witless worm have you become. Therefore be silent, and keep your forked tongue behind your teeth!s"
 
     # compliments for won trivia games
     compliments:
@@ -230,6 +241,7 @@ discord:
         - "Bombur approves. Well done, {}!"
         - "May the wind under your wings bear you where the sun sails and the moon walks."
         - "May the stars shine upon your face!"
+        - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
 
     # help text to display
     help:

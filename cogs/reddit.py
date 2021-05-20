@@ -25,7 +25,7 @@ class Reddit(commands.Cog):
         self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
 
     @commands.command()
-    @commands.cooldown(5,10)
+    @commands.cooldown(10,10)
     async def meme(self, ctx):
         '''
         posts a LotR or Hobbit-related meme in the channel
@@ -56,12 +56,9 @@ class Reddit(commands.Cog):
                     self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     embed = discord.Embed(title=submission['title'])
                     submission['url'] = urlparse(submission['url'])._replace(query=None).geturl()
-                    print(submission['url'])
                     ftype = submission['url'].split('.')[-1]
-                    print(ftype)
                     if ftype in ['jpeg','jpg','gif','png'] or 'i.redd.it' in submission['url']:
                         embed.set_image(url=submission['url'])
-                        print('image set.')
                     elif ftype in ['gifv','mp4','avi','webm'] or 'v.redd.it' in submission['url']:
                         embed.set_thumbnail(url=self.bot.config['reddit']['video_thumbnail'])
                     embed.set_author(name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
