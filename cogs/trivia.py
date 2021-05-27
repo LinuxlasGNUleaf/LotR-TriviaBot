@@ -106,7 +106,7 @@ class Trivia(commands.Cog):
                 player_stats[2] = 0
 
         except asyncio.TimeoutError:
-            await ctx.send(self.reply(False, '\nYou took too long to answer!'))
+            await ctx.send(self.reply(False, ctx.author, '\nYou took too long to answer!'))
 
         # unblock user
         self.bot.blocked.remove(ctx.author.id)
