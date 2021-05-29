@@ -1526,7 +1526,6 @@ Strider.
 PIPPIN
 Baggins? Sure, I know a Baggins! He's
 over there!
-
 Frodo Baggins. He's my second cousin,
 once removed on his mother's side
 and my third cousin, twice removed on
@@ -2022,8 +2021,7 @@ FRODO
 Packed already?
 
 SAM
-No harm in being prepared. Frodo strolls
-to the edge of the Balcony.
+No harm in being prepared.
 
 FRODO
 I thought you wanted to see the Elves,
@@ -2267,7 +2265,7 @@ lingered. A voice was crying, "Our
 doom is near at hand! Isildur's
 Bane is found."
 
-Boromir
+BOROMIR
 Isildur's Bane.
 
 ELROND
@@ -8070,7 +8068,6 @@ And Minas Morgul is his lair.
 STOP
 
 GOLLUM
-
 The Dead City, very nasty place, full of enemies.
 
 GOLLUM
@@ -14857,7 +14854,7 @@ The dragon, it's going to kill us.
 BARD
 Not if I kill it first.
 
-Stop
+STOP
 
 SMAUG
 The King Under the Mountain is dead. I took his throne, I ate his people like a wolf among sheep.

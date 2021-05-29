@@ -139,7 +139,7 @@ class Trivia(commands.Cog):
         count = 1
         for i, user in enumerate(found_users[::-1]):
             # create a formatted line for the user containing info about their games
-            temp = scoreboard_line.format(user[2], user[0], round(user[2]/user[1]*100, 1))
+            temp = scoreboard_line.format(user[2], round(user[2]/user[1]*100, 1), user[0])
 
             if user[3] >= 5:  # if user has an active streak, add a not to the line
                 temp += self.bot.config['discord']['trivia']['scoreboard_streak'].format(user[3])
