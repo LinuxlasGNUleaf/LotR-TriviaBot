@@ -136,8 +136,8 @@ discord:
             - "Thought of a cool new trivia question? Great! Submit it here: {}"
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
-        
-        medals: ['🥇 __Eru Ilúvatar:__\n{}', '🥈 __Manwë:__\n{}', '🥉 __Galadriel:__\n{}\n', '{}']
+        # Double quotes ("") are important here, otherwise the escape sequence \n is not recognized
+        medals: ["🥇 __Eru Ilúvatar:__ \n{}", "🥈 __Manwë:__\n{}", "🥉 __Galadriel:__\n{}\n", "{}"]
 
         scoreboard_line: '**[{} pts / {}%]** {}'
         scoreboard_streak: ' :dart: *Streak of {} wins*'
