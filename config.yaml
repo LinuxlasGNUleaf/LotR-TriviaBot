@@ -144,7 +144,7 @@ discord:
         # probability to display the link and a tip
         tip_probability: 0.05
         # top X players to show on the scoreboard
-        scoreboard_max: 20
+        scoreboard_max: 25
         # minimum number of players in a server necessary to create a graphical scoreboard
         gscoreboard_min: 10 
         # maximum number of players to display on the graphical scoreboard

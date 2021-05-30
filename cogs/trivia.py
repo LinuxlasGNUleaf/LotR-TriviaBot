@@ -149,7 +149,7 @@ class Trivia(commands.Cog):
             count += 1
 
             # break after X users (defined in config)
-            if count >= self.bot.config['discord']['trivia']['scoreboard_max']:
+            if count > self.bot.config['discord']['trivia']['scoreboard_max']:
                 break
 
         # determine title, abort if fewer than two players have played a game yet
