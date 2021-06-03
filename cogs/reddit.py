@@ -44,6 +44,8 @@ class Reddit(commands.Cog):
         while not found_meme:
             for submission in self.json:
                 if not submission['id'] in self.bot.meme_cache[ctx.channel.id]:
+                    # append id to meme cache as early as possible to prevent another function call to pick the same submission 
+                    self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     # checking if that entry is still available
                     async with aiohttp.ClientSession() as session:
                         async with session.get('https://www.reddit.com/comments/{}/.json'.format(submission['id'])) as result:
@@ -53,7 +55,6 @@ class Reddit(commands.Cog):
                                 continue
                     #processing meme, determinig whether it's an image or not, yada yada yada
                     found_meme = True
-                    self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     embed = discord.Embed(title=submission['title'])
                     submission['url'] = urlparse(submission['url'])._replace(query=None).geturl()
                     ftype = submission['url'].split('.')[-1]

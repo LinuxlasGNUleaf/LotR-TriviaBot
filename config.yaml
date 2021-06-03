@@ -148,7 +148,7 @@ discord:
         # minimum number of players in a server necessary to create a graphical scoreboard
         gscoreboard_min: 10 
         # maximum number of players to display on the graphical scoreboard
-        gscoreboard_max: 10 
+        gscoreboard_max: 15
         # file for storing anonymous statistics about the trivia games (located in general/cache_path)
         stats_cache: 'questions_stats.txt'
     
@@ -218,7 +218,7 @@ discord:
         - Frodo getting stabbed by Shelob
         - Smeagol smacc Sam with a stone
         - Aragorn charging for Frodo
-        - Tom Bombadil singing
+        - Tom Bombadil singing and stomping through the Old Forest
 
     # insults for failed trivia games or invalid queries
     insults:
@@ -242,66 +242,3 @@ discord:
         - "May the wind under your wings bear you where the sun sails and the moon walks."
         - "May the stars shine upon your face!"
         - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
-
-    # help text to display
-    help:
-        text: |
-            "Welcome to the *LotR Trivia Bot*!
-            This is a discord bot written in Python 3.
-            It utilizes the Discord, Reddit, and Youtube Data API.
-            The bot features mutliple minigames, including:
-
-            **- LotR - Trivia Game**
-            In this game you get asked trivia questions from LotR, the Hobbit,
-            the Silmarillion, Extended Lore or the Life of Tolkien.
-            You have four possible answers, your score is tracked.
-            *to play a game:*
-            `{0} trivia`
-            *to see your score:*
-            `{0} profile`
-            *to create a scoreboard for the whole server:*
-            `{0} scoreboard`
-
-            **- LotR - Hangman**
-            Features the classic hangman game with LotR terms.
-            *to play a game:*
-            `{0} hangman`
-
-            **- Random Silmarillion quote**
-            Output a random Silmarillion quote on demand.
-            *to get a quote:*
-            `{0} squote`
-
-            **- Reddit meme**
-            Outputs a dank meme from r/lotrmemes.
-            *to get a meme:*
-            `{0} meme`
-
-            **- Autoscript feature**
-            Recognizes lines from the movie script and completes the dialog line.
-            Send any __whole sentence from the LotR movies__, the bot will respond.
-
-            **- Youtube Video Search**
-            Search the videos of a specific channel.
-            *to search for videos:*
-            `{0} yt "query"`
-            (note the "quotes". you can also provide a video count before or after the query)
-
-            **- LotR Wiki Search**
-            Allows you to search the wiki for a specific topic.
-            *to search the wiki:*
-            `{0} search <keywords>`
-
-            **- LotR Fight
-            * **LotR Battle**
-            A new experimental feature, where you battle people in LotR trivia.
-            You both respond to trivia questions the bot send you via DM.
-            *to fight someone:*
-            `{0} fight @User`"
-
-        footer: |
-            LICENSE:
-            LotR Trivia Bot version {}, Copyright (C) 2020 JaWs
-            LotR Trivia Bot comes with ABSOLUTELY NO WARRANTY.
-            This is free software, and you are welcome to redistribute it
-            under certain conditions; see the GPL License for details.
