@@ -55,7 +55,10 @@ class Reddit(commands.Cog):
                                 continue
                     #processing meme, determinig whether it's an image or not, yada yada yada
                     found_meme = True
-                    embed = discord.Embed(title=submission['title'])
+                    if len(submission['title']) > 256:
+                        embed = discord.Embed(title=submission['title'][:253]+'...')
+                    else:
+                        embed = discord.Embed(title=submission['title'])
                     submission['url'] = urlparse(submission['url'])._replace(query=None).geturl()
                     ftype = submission['url'].split('.')[-1]
                     if ftype in ['jpeg','jpg','gif','png'] or 'i.redd.it' in submission['url']:

@@ -114,7 +114,7 @@ discord:
         # time limit for the other participant to respond
         timeout: 300
         # number of rounds for quote battle
-        rounds: 10
+        rounds: 8
         # voting time for non-participants
         voting_time: 3600
 

@@ -92,8 +92,8 @@ async def handle_ready_check(bot, ctx, player_count=0):
                 name=player.display_name, value=bot.config["discord"]["indicators"][ready])
             ready_count += ready
         ready_embed.description = f':stopwatch: Timeout in: {timeout//60}m,{timeout%60}s.'
-        if all(ready for ready in ready_list.values()):
-            ready_embed.title = f'Ready Check complete: {ready_count}/{len(players)} players ready.'
+        if not all(ready for ready in ready_list.values()):
+            ready_embed.title = f'Ready Check in progress: {ready_count}/{len(players)} players ready.'
             ready_embed.set_footer(text='Send "Ready" to complete the Ready Check!')
         else:
             ready_embed.title = f':white_check_mark: Ready Check complete. {len(players)} players ready.'
@@ -106,7 +106,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
     # create the Ready Check Embed
     ready_msg = await manage_check_embed()
 
-    # check function for the Ready Check, wraps manage_check_embed
+    # check function for the Ready Check
     def ready_check(chk_msg):
         if chk_msg.author in players and chk_msg.content.lower() in ['ready','positive','yes','ye','yup']:
             ready_list[chk_msg.author] = 1
