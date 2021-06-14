@@ -73,8 +73,11 @@ class QuoteBattle(commands.Cog):
         #     self.bot.blocked.remove(player.id)
         #     if player in perms_changed:
         #         await ctx.set_permissions(player, send_messages=False, reason='Quote battle')
-
-        score_msg = await ctx.send(f'The quote battle between {players[0].display_name} and {players[1].display_name} ended.\nVote :one: for {players[0].mention} and :two: for {players[1].mention}')
+        msg_text = 'The quote battle between {} and {} ended.\n{} :one: for {} and :two: for {}'
+        if server.id in self.bot.config['discord']['quote_battle']['voting_roles']:
+            score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, f"Hey <@&{self.bot.config['discord']['quote_battle']['voting_roles'][server.id]}>, vote", players[0].mention, players[1].mention))
+        else:
+            score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, 'Vote', players[0].mention, players[1].mention))
 
         await score_msg.add_reaction('1️⃣') # number 1
         await score_msg.add_reaction('2️⃣') # number 2

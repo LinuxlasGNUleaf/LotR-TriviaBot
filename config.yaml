@@ -117,6 +117,8 @@ discord:
         rounds: 8
         # voting time for non-participants
         voting_time: 3600
+        # dict of roles to ping for voting, format is: {server_id: role_id, server_id2: role_id2, ...}
+        voting_roles: {566219783377518592: 854003662891647006, 333978604763348993: 854006900042498078}
 
     # trivia game settings
     trivia:
