@@ -222,13 +222,23 @@ class Utils(commands.Cog):
                 await ctx.send(f' You must wait {round(minutes)} minutes and {round(secs)} seconds to use this command!')
             else:
                 await ctx.send(f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
+
         elif isinstance(error, cogs._dcutils.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.', delete_after=15)
+
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
             await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
+
+        elif isinstance(error, cogs._dcutils.ChannelBusy):
+            if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
+                await error.orig_message.delete()
+            await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.', delete_after=10)
+
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} An internal error occured while parsing this command. Please contact the developer.')
+            self.logger.warning('Unknown CheckFailure occured, type is: %s',type(error))
+
         else:
             raise error
 

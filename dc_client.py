@@ -35,6 +35,7 @@ class LotrBot(commands.Bot):
         self.meme_cache = self.get_cache(config['reddit']['cache'], 'Reddit Cache')
         self.stats_cache = self.get_cache(config['discord']['trivia']['stats_cache'], 'Trivia Game Statistics')
         self.blocked = []
+        self.busy_channels = []
 
         # retrieving tokens from files, exiting if invalid
         self.token = self.get_token(config['discord']['token'], 'Discord Token')[0].strip()

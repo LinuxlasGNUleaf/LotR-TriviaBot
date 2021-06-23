@@ -23,6 +23,7 @@ class QuoteBattle(commands.Cog):
 
 
     @cogs._dcutils.category_check('battles')
+    @cogs._dcutils.channel_busy_check()
     @commands.guild_only()
     @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
     async def quote_battle_handler(self, ctx):
@@ -46,6 +47,7 @@ class QuoteBattle(commands.Cog):
         def quote_check(msg):
             return msg.channel == ctx.channel and msg.author in players
 
+        self.bot.busy_channels.append(ctx.channel.id)
         orig_rounds = self.bot.config['discord']['quote_battle']['rounds']*2
         rounds_left = orig_rounds-1
         random.shuffle(players)
@@ -82,6 +84,9 @@ class QuoteBattle(commands.Cog):
         #     self.bot.blocked.remove(player.id)
         #     if player in perms_changed:
         #         await ctx.set_permissions(player, send_messages=False, reason='Quote battle')
+        if ctx.channel.id in self.bot.busy_channels:
+            self.bot.busy_channels.remove(ctx.channel.id)
+
         msg_text = 'The quote battle between {} and {} ended.\n{} :one: for {} and :two: for {}'
         if server.id in self.bot.config['discord']['quote_battle']['voting_roles']:
             score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, f"Hey <@&{self.bot.config['discord']['quote_battle']['voting_roles'][server.id]}>, vote", players[0].mention, players[1].mention))

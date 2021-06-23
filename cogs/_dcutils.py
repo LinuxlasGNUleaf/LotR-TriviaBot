@@ -160,6 +160,14 @@ class CategoryNotAllowed(commands.CheckFailure):
         self.category = category
         super().__init__()
 
+class ChannelBusy(commands.CheckFailure):
+    '''
+    custom error that is raised when the channel is currently busy
+    '''
+    def __init__(self, message):
+        self.orig_message = message
+        super().__init__()
+
 def category_check(category):
     '''
     checks whether the given category is allowed in this context
@@ -169,4 +177,15 @@ def category_check(category):
             return True
         else:
             raise CategoryNotAllowed(category)
+    return commands.check(predicate)
+
+def channel_busy_check():
+    '''
+    checks whether the channel is currently busy
+    '''
+    async def predicate(ctx):
+        if ctx.channel.id in ctx.bot.busy_channels:
+            raise ChannelBusy(ctx.message)
+        else:
+            return True
     return commands.check(predicate)
