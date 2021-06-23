@@ -3,18 +3,22 @@ from googlesearch import search
 from discord.ext import commands
 import cogs
 
+
 class WikiSearch(commands.Cog):
     '''
     GoogleSearch integration for the Bot
     '''
-    def __init__(self,bot):
+
+    def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
+    @cogs._dcutils.category_check('lore')
     @commands.command(name='search')
     async def lotr_search(self, ctx, *, query):
         '''
@@ -29,6 +33,7 @@ class WikiSearch(commands.Cog):
         content = content[0]
         title = f':mag: 1st result for `{query}` on  *{site}* :'
         await ctx.send(embed=cogs._dcutils.create_embed(title=title, content=content))
+
 
 def setup(bot):
     bot.add_cog(WikiSearch(bot))

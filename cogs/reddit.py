@@ -4,11 +4,13 @@ from urllib.parse import urlparse
 import aiohttp
 from discord.ext import commands
 import discord
+import cogs._dcutils
 
 class Reddit(commands.Cog):
     '''
     handles the Reddit integration (JSON API) for the Bot
     '''
+
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
@@ -17,15 +19,20 @@ class Reddit(commands.Cog):
         self.default_query_size = self.bot.config['reddit']['query_limit']
         self.query_size = self.default_query_size
         self.json_timeout = self.bot.config['reddit']['json_timeout']
-        self.sub_attributes = ['id','title','author','url','is_self','selftext','subreddit']
+        self.sub_attributes = ['id', 'title', 'author',
+                               'url', 'is_self', 'selftext', 'subreddit']
         self.sub_imgs = {}
+
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
+
+    @cogs._dcutils.category_check('memes')
     @commands.command()
-    @commands.cooldown(10,10)
+    @commands.cooldown(10, 10)
     async def meme(self, ctx):
         '''
         posts a LotR or Hobbit-related meme in the channel
@@ -44,28 +51,31 @@ class Reddit(commands.Cog):
         while not found_meme:
             for submission in self.json:
                 if not submission['id'] in self.bot.meme_cache[ctx.channel.id]:
-                    # append id to meme cache as early as possible to prevent another function call to pick the same submission 
+                    # append id to meme cache as early as possible to prevent another function call to pick the same submission
                     self.bot.meme_cache[ctx.channel.id].append(submission['id'])
                     # checking if that entry is still available
                     async with aiohttp.ClientSession() as session:
                         async with session.get('https://www.reddit.com/comments/{}/.json'.format(submission['id'])) as result:
                             result = await result.json()
                             if result[0]['data']['children'][0]['data']['selftext'] == '[deleted]':
-                                logging.info('Deleted post with id %s found, skipping.',submission['id'])
+                                logging.info('Deleted post with id %s found, skipping.', submission['id'])
                                 continue
-                    #processing meme, determinig whether it's an image or not, yada yada yada
+                    # processing meme, determinig whether it's an image or not, yada yada yada
                     found_meme = True
                     if len(submission['title']) > 256:
                         embed = discord.Embed(title=submission['title'][:253]+'...')
                     else:
                         embed = discord.Embed(title=submission['title'])
-                    submission['url'] = urlparse(submission['url'])._replace(query=None).geturl()
+                    submission['url'] = urlparse(
+                        submission['url'])._replace(query=None).geturl()
                     ftype = submission['url'].split('.')[-1]
-                    if ftype in ['jpeg','jpg','gif','png'] or 'i.redd.it' in submission['url']:
+                    if ftype in ['jpeg', 'jpg', 'gif', 'png'] or 'i.redd.it' in submission['url']:
                         embed.set_image(url=submission['url'])
-                    elif ftype in ['gifv','mp4','avi','webm'] or 'v.redd.it' in submission['url']:
-                        embed.set_thumbnail(url=self.bot.config['reddit']['video_thumbnail'])
-                    embed.set_author(name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
+                    elif ftype in ['gifv', 'mp4', 'avi', 'webm'] or 'v.redd.it' in submission['url']:
+                        embed.set_thumbnail(
+                            url=self.bot.config['reddit']['video_thumbnail'])
+                    embed.set_author(
+                        name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
                     embed.url = 'https://www.reddit.com/'+submission['id']
                     embed.set_footer(text='Author: u/'+submission['author'])
                     await ctx.send(embed=embed)
@@ -75,12 +85,18 @@ class Reddit(commands.Cog):
                 self.old_timestamp = datetime.now()
                 await self.refresh_json()
 
+
     async def refresh_json(self):
+        '''
+        refetches the .json file from reddit.com,
+        containing a list of posts
+        '''
         async with aiohttp.ClientSession() as session:
-            async with session.get('https://www.reddit.com/r/{}/hot.json?limit={}'.format('+'.join(self.bot.config['reddit']['subreddits']),self.query_size)) as result:
+            subs = "+".join(self.bot.config["reddit"]["subreddits"])
+            async with session.get(f'https://www.reddit.com/r/{subs}/hot.json?limit={self.query_size}') as result:
                 self.json = []
                 for submission in (await result.json())['data']['children']:
-                    temp = {k:v for k,v in submission['data'].items() if k in self.sub_attributes}
+                    temp = {k: v for k, v in submission['data'].items() if k in self.sub_attributes}
                     if temp['subreddit'] in self.sub_imgs.keys():
                         temp['sub_img'] = self.sub_imgs[temp['subreddit']]
                     else:

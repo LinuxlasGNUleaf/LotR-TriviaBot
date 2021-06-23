@@ -13,18 +13,23 @@ class Hangman(commands.Cog):
     '''
     Cog for the ME-related hangman game
     '''
+
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
 
+
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
+
+    @cogs._dcutils.category_check('minigames')
     @commands.command(name='hangman')
     async def create_hangman_game(self, ctx):
         '''
-        Hangman game with Middle Earth related characters and places
+        hangman game with ME-related characters and places
         '''
 
         with open('words.csv', 'r') as csvfile:
@@ -37,10 +42,11 @@ class Hangman(commands.Cog):
         end_states = self.bot.config['discord']['hangman']['end_states']
 
         used_chars = []  # used characters array
-        max_ind = len(game_states)-1 # max index
+        max_ind = len(game_states)-1  # max index
         ind = 0
 
-        h_embed = create_hangman_embed(ctx.message.author, word, game_states[0], 0, [], True)
+        h_embed = create_hangman_embed(
+            ctx.message.author, word, game_states[0], 0, [], True)
         hangman = await ctx.send(embed=h_embed)
 
         def check(chk_msg):
@@ -54,7 +60,8 @@ class Hangman(commands.Cog):
                 msg = msg.content.lower()
 
             except asyncio.TimeoutError:
-                h_embed = create_hangman_embed(ctx.message.author, word, end_states[0], 8, used_chars, False)
+                h_embed = create_hangman_embed(
+                    ctx.message.author, word, end_states[0], 8, used_chars, False)
                 await hangman.edit(embed=h_embed)
                 await ctx.send('Game over! You took too long to answer!')
                 break
@@ -67,7 +74,8 @@ class Hangman(commands.Cog):
             used_chars.sort()
 
             if ind > max_ind:
-                h_embed = create_hangman_embed(ctx.message.author, word, end_states[0], 8, used_chars, False)
+                h_embed = create_hangman_embed(
+                    ctx.message.author, word, end_states[0], 8, used_chars, False)
                 await hangman.edit(embed=h_embed)
                 await ctx.send('Game over! You lost all your lives!')
                 break
@@ -76,15 +84,18 @@ class Hangman(commands.Cog):
                 if char not in used_chars and char.isalpha():
                     break
             else:
-                h_embed = create_hangman_embed(ctx.message.author, word, end_states[1], 0, used_chars, False)
+                h_embed = create_hangman_embed(
+                    ctx.message.author, word, end_states[1], 0, used_chars, False)
                 await hangman.edit(embed=h_embed)
                 await ctx.send('Congratulations! You won the game!')
                 break
 
-            h_embed = create_hangman_embed(ctx.author, word, game_states[ind], ind, used_chars, True)
+            h_embed = create_hangman_embed(
+                ctx.author, word, game_states[ind], ind, used_chars, True)
             await hangman.edit(embed=h_embed)
 
         self.bot.blocked.remove(ctx.author.id)
+
 
 def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
     '''
@@ -111,10 +122,10 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
     else:
         used = ''
 
-    author_info = ('{}\'s hangman game'.format(user.display_name), user.avatar_url)
+    author_info = (f'{user.display_name}\'s hangman game', user.avatar_url)
 
     color = (cogs._dcutils.map_vals(ind, 0, 8, 0, 255),
-            cogs._dcutils.map_vals(ind, 0, 8, 255, 0), 0)
+             cogs._dcutils.map_vals(ind, 0, 8, 255, 0), 0)
 
     return cogs._dcutils.create_embed(hangman, author_info=author_info, content=used + state, color=color)
 

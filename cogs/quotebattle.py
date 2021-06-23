@@ -5,21 +5,30 @@ import discord
 from discord.ext import commands
 import cogs
 
+
 class QuoteBattle(commands.Cog):
     '''
-    Manages a quotebattle between two users
+    manages a quotebattle between two users
     '''
-    def __init__(self,bot):
+
+    def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
 
+
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
+
+    @cogs._dcutils.category_check('battles')
     @commands.guild_only()
     @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
     async def quote_battle_handler(self, ctx):
+        '''
+        starts a quote battle with subsequent voting
+        '''
         server = ctx.guild
         # perms_changed = []
 
@@ -79,14 +88,14 @@ class QuoteBattle(commands.Cog):
         else:
             score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, 'Vote', players[0].mention, players[1].mention))
 
-        await score_msg.add_reaction('1️⃣') # number 1
-        await score_msg.add_reaction('2️⃣') # number 2
+        await score_msg.add_reaction('1️⃣')  # number 1
+        await score_msg.add_reaction('2️⃣')  # number 2
         await asyncio.sleep(self.bot.config['discord']['quote_battle']['voting_time'])
 
         try:
-            #refetch message
+            # refetch message
             score_msg = await ctx.fetch_message(score_msg.id)
-            await score_msg.add_reaction('🛑') #stop-sign
+            await score_msg.add_reaction('🛑')  # stop-sign
 
             # remove bot reactions, and remove self-votes
             await score_msg.remove_reaction('1️⃣', server.me)
@@ -111,7 +120,7 @@ class QuoteBattle(commands.Cog):
                 elif item.emoji == '2️⃣':
                     voting[1] = item.count
 
-            ret_str = 'The vote for the battle between {} and {} concluded.\n'.format(*(player.mention for player in players))
+            ret_str = f'The vote for the battle between {players[0].mention} and {players[1].mention} concluded.\n'
             if voting[0] == voting[1]:
                 await ctx.send(ret_str+'Draw! Congratulations, both of you did well!')
             else:

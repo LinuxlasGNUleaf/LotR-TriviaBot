@@ -8,12 +8,9 @@ general:
     cache_path: $HOME/.config/discord/bots/lotr-bot/
     # logfile location (in cache directory)
     logfile: dcbot.log
-    # discord user-ids for superusers, those will be able to change the bot configs on any server no matter their permissions (use with care) 
-    superusers:
-        - 277083306087022592
     # autosave interval in seconds
     autosave: 300
-    # developer id
+    # user id of the developer
     developer_id: 277083306087022592
     # github-repo link
     github_repo: https://github.com/LinuxlasGNUleaf/LotR-TriviaBot
@@ -57,42 +54,47 @@ discord:
 
     # emojis for visual indicators
     indicators: [':x:',':white_check_mark:']
-    # settings for the discord config, which is used for example for configuring channels for bot memes 
+    # settings for the bot
     settings:
         # cache file for storing the settings specified for different servers (located in general/cache_path)
         cache: dc_settings.pyobj
-        # help message displayed when working with the config command
+        # help message displayed when working with the settings command
         help: |
-            **How the config works:**
-            You can set preferences for a server or a channel (DMs excluded),
-            which means you set the feature to on / off.
-            If set, the channel preference for a feature will __always__ be preferred.
-            If the channel preference for this feature is not set, the server-preference will be used.
-            If the server-preference is not set either, the the feature is allowed by default.
+            **How the settings work:**
+            You can use the settings command in cases where you want to enable / disable specific categories.
+            *Please note: If you want to completely turn off the bot in some parts of your server, use Channel Settings
+            to disallow the bot to prevent the bot from sending messages there.*
+            
+            You can set preferences for a server or a channel (DMs excluded), which means you set the category to on / off.
+            If set, the *channel preference* for a category will __always__ be preferred.
+            If the *channel preference* for this category is not set, the server-preference will be used.
+            If the *server preference* is not set either, the hardcoded fallback values are used.
+            Refer to the attached image for further clarification. 
+
 
             **How to use the config command:**
-            `{0} config <feature> on` to turn <feature> **ON** for this channel
-            `{0} config <feature> off` to turn <feature> **OFF** for this channel
-            `{0} config <feature> unset` to **UNSET** <feature> setting for this channel
-            (the server preferences are used, or if these are not set either, the defaults.)
+            Syntax: `{0}setting [channel/server] [category] [on/off/reset]`
+            - *First argument*: Edit channel-wide or server-wide settings?
 
-            `{0} config <feature> server-on` to set the server default for <feature> to **ON**
-            (all channels where the bot has send_messages permission)
-            `{0} config <feature> server-off` to set the server default for <feature> to **OFF**
-            `{0} config <feature> server-unset` to **UNSET** the server default for <feature>
-            (the channel preferences are used, or if these are not set, directly the defaults.)
+            - *Second argument*: Which category do you want to edit?
+            These are the categories that are available:
+            {1}
 
-        # list of config features (for internal use only, don't edit)
-        features:
+            - *Third argument*: What mode do you want the setting to have?
+            These are the modes that are available:
+            `on`,`off`,`reset`
+            Note: `reset` deletes the server/channel-preference, which makes the bot fall back to the next layer (see attached image) 
+
+        # list of config categories (for internal use only, don't edit)
+        categories:
             - autoscript
             - memes
-            - trivia-quiz
-            - yt-search
-            - hangman
-            - squote
+            - minigames
+            - lore
+            - battles
         
-        # fallback permissions, used when no config is set on the server at all
-        defaults: {autoscript: 1, memes: 1, trivia-quiz: 1, yt-search: 1, hangman: 1, squote: 1}
+        # fallback permissions, used when no relevant config is set at all
+        defaults: {autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0}
     
     # silmarillion quote settings
     silmarillion:

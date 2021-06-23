@@ -3,9 +3,11 @@ frequently used utils for the LotR-Trivia Bot
 '''
 import random
 from datetime import datetime, timedelta
+import logging
 
 import asyncio
 import discord
+from discord.ext import commands
 
 
 ordinal = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4])
@@ -125,3 +127,46 @@ async def handle_ready_check(bot, ctx, player_count=0):
     except (asyncio.TimeoutError, TimeoutError):
         await ctx.send(':x: Ready Check failed. Make sure your opponent is online and ready to battle.')
         return (False, [])
+
+def is_category_allowed(ctx, category, settings, defaults):
+    # return true if in a DM-channel
+    if isinstance(ctx.channel, discord.channel.DMChannel):
+        return 1
+    # is there a channel-specific setting available?
+    if ctx.channel.id in settings.keys():
+        # check if the given category is defined
+        if category in settings[ctx.channel.id].keys():
+            return settings[ctx.channel.id][category]
+
+    # is there a channel-specific setting available?
+    if ctx.guild.id in settings.keys():
+        # check if the given category is defined
+        if category in settings[ctx.guild.id].keys():
+            return settings[ctx.guild.id][category]
+
+    # try to fetch the default value
+    if category in defaults.keys():
+        return defaults[category]
+
+    # if everything fails, just allow it lol
+    logging.getLogger(__name__).error('Category "%s" not found, allowing it by default.', category)
+    return 1
+
+class CategoryNotAllowed(commands.CheckFailure):
+    '''
+    custom error that is raised when the command used belongs to a disabled category
+    '''
+    def __init__(self, category):
+        self.category = category
+        super().__init__()
+
+def category_check(category):
+    '''
+    checks whether the given category is allowed in this context
+    '''
+    async def predicate(ctx):
+        if is_category_allowed(ctx, category, ctx.bot.settings, ctx.bot.config['discord']['settings']['defaults']):
+            return True
+        else:
+            raise CategoryNotAllowed(category)
+    return commands.check(predicate)

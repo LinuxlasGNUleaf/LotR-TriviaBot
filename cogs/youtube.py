@@ -4,27 +4,37 @@ import discord
 from discord.ext import commands
 import cogs
 
+
 class YoutubeSearch(commands.Cog):
     '''
     handles the YT-Data API integration of the Bot
     '''
+
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
-        self.youtube = build('youtube', 'v3', developerKey=self.bot.yt_credentials[0], cache_discovery=False)
+        self.youtube = build('youtube',
+                             'v3',
+                             developerKey=self.bot.yt_credentials[0],
+                             cache_discovery=False)
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
-    @commands.command(name='ytsearch',aliases=['yt','yt-search','ysearch','youtube'])
+
+    @cogs._dcutils.category_check('lore')
+    @commands.command(name='ytsearch', aliases=['yt', 'yt-search', 'ysearch', 'youtube'])
     async def search_youtube(self, ctx, *query):
         '''
-        returns a give number of Youtube Video embeds for a specific channel
+        searches youtube for videos by a specific channel
         '''
+
         query = list(query)
         if query[-1].isdecimal():
-            num = max(min(int(query[-1]),self.bot.config['youtube']['max_video_count']),1)
+            num = max(
+                min(int(query[-1]), self.bot.config['youtube']['max_video_count']), 1)
             del query[-1]
         else:
             num = 1
@@ -48,11 +58,12 @@ class YoutubeSearch(commands.Cog):
         for i, video in enumerate(vid_request):
             embed = discord.Embed(
                 title=video['snippet']['title'],
-                url='https://www.youtube.com/watch?v={}'.format(video['id']['videoId'])
+                url=f'https://www.youtube.com/watch?v={video["id"]["videoId"]}'
             )
-            vid_info = self.youtube.videos().list(part='snippet,statistics', id=video['id']['videoId']).execute()['items'][0]
+            vid_info = self.youtube.videos().list(part='snippet,statistics',
+                                                  id=video['id']['videoId']).execute()['items'][0]
 
-            embed.set_author(name='🔍 {} Search Result'.format(cogs._dcutils.ordinal(i+1)))
+            embed.set_author(name=f'🔍 {cogs._dcutils.ordinal(i+1)} Search Result')
             embed.set_image(url=video['snippet']['thumbnails']['medium']['url'])
 
             description = ''
@@ -67,10 +78,13 @@ class YoutubeSearch(commands.Cog):
                     description += line+'\n'
 
             embed.description = description.strip()
-            embed.set_footer(text=('Published: ' + '/'.join(video['snippet']['publishedAt'][:10].split('-')[::-1])))
-            embed.add_field(name=':play_pause: Views:', value='{:,}'.format(int(vid_info['statistics']['viewCount'])), inline=True)
-            embed.add_field(name=':thumbsup: Likes:', value='{:,}'.format(int(vid_info['statistics']['likeCount'])), inline=True)
-            embed.add_field(name=':speech_balloon: Comments:', value='{:,}'.format(int(vid_info['statistics']['commentCount'])), inline=True)
+            embed.set_footer(text='Published: ' + '/'.join(video['snippet']['publishedAt'][:10].split('-')[::-1]))
+            embed.add_field(name=':play_pause: Views:', value='{:,}'.format(int(vid_info['statistics']['viewCount'])),
+                            inline=True)
+            embed.add_field(name=':thumbsup: Likes:', value='{:,}'.format(int(vid_info['statistics']['likeCount'])),
+                            inline=True)
+            embed.add_field(name=':speech_balloon: Comments:', value='{:,}'.format(int(vid_info['statistics']['commentCount'])),
+                            inline=True)
             await ctx.send(embed=embed)
 
 

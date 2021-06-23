@@ -4,11 +4,14 @@ import logging
 from discord.ext import commands
 import discord
 
+import cogs._dcutils
+
+
 class Autoscript(commands.Cog):
     '''
     handles the Autoscript integration of the Bot
     '''
-    def __init__(self,bot):
+    def __init__(self, bot):
         self.bot = bot
         self.script = []
         self.condensed_script = []
@@ -17,7 +20,8 @@ class Autoscript(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.',
+                         self.__class__.__name__.title())
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
@@ -33,6 +37,8 @@ class Autoscript(commands.Cog):
         if isinstance(channel, discord.channel.DMChannel):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
+            return
+        if not cogs._dcutils.is_category_allowed(message, 'autoscript', self.bot.settings, self.bot.config['discord']['settings']['defaults']):
             return
 
         # stop if the message is shorter than 2 words
@@ -73,9 +79,9 @@ class Autoscript(commands.Cog):
                         # if line has already been found
                         if line_ind in log.keys():
                             num, found_conf, highest_part_ind = log[line_ind]
-                            log[line_ind] = (num+1, # found-parts
-                                            round((found_conf*num+ratio)/num+1, 2), # conf
-                                            max(highest_part_ind, part_ind)) # part-ind
+                            log[line_ind] = (num+1,  # found-parts
+                                             round((found_conf*num+ratio)/num+1, 2),  # conf
+                                             max(highest_part_ind, part_ind))  # part-ind
 
                         # if line was not yet found, only add it if the sentence is longer than
                         # one word. This prevents the bot from reacting to very short sentences.
@@ -89,11 +95,14 @@ class Autoscript(commands.Cog):
             # sort results by found parts
             ranking = sorted(log, key=lambda x: log[x][0])[::-1]
             # filter the results that have the same amount of found parts as the top one
-            filtered_dict = dict(filter(lambda item: item[1][0] == log[ranking[0]][0], log.items()))
+            filtered_dict = dict(
+                filter(lambda item: item[1][0] == log[ranking[0]][0], log.items()))
             # sort these by the confidence
-            filtered_ranking = sorted(filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
+            filtered_ranking = sorted(
+                filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
             # aaand select all those entries that have the same conf level as the highest ranked one.
-            super_filtered_ranking = dict(filter(lambda item: filtered_dict[item[0]][1] == filtered_dict[filtered_ranking[0]][1], filtered_dict.items()))
+            super_filtered_ranking = dict(filter(
+                lambda item: filtered_dict[item[0]][1] == filtered_dict[filtered_ranking[0]][1], filtered_dict.items()))
 
             # pick a random one
             line_ind = choice(list(super_filtered_ranking.keys()))
@@ -126,7 +135,7 @@ class Autoscript(commands.Cog):
                     temp = ''
                     for part in parts[part_ind+1:]:
                         temp += part+' '
-                    return_text += '**{}:** ... {}\n'.format(author.title(), temp)
+                    return_text += f'**{author.title()}:** ... {temp}\n'
 
                 # if the line is not the last one of the script, add the next one
                 skipped_lines = 0
@@ -143,11 +152,11 @@ class Autoscript(commands.Cog):
                                 i += 1
                                 skipped_lines += 1
                                 return_text += '**`[NEXT SCENE]`**\n'
-                                author, text = self.script[line_ind+i].split('|')
-                                return_text += '**{}:** {}\n'.format(author.title(), text)
+                                author, text = self.script[line_ind + i].split('|')
+                                return_text += f'**{author.title()}:** {text}\n'
                             else:
-                                author, text = self.script[line_ind+i].split('|')
-                                return_text += '**{}:** {}\n'.format(author.title(), text)
+                                author, text = self.script[line_ind + i].split('|')
+                                return_text += f'**{author.title()}:** {text}\n'
                         else:
                             break
 
@@ -203,6 +212,7 @@ class Autoscript(commands.Cog):
                     temp = ''
                 temp += char
             condensed_script.append(temp_arr)
+
 
 def setup(bot):
     bot.add_cog(Autoscript(bot))

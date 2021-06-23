@@ -15,6 +15,7 @@ import cogs._dcutils
 
 plt.rcdefaults()
 
+
 class Trivia(commands.Cog):
     '''
     handles the LotR-Trivia integration for the bot, including profile / scoreboards
@@ -26,18 +27,20 @@ class Trivia(commands.Cog):
         self.reply = (lambda won, author, text='': self.bot.config['discord']['indicators'][won] + ' ' + random.choice(
             self.bot.config['discord']['compliments'] if won else self.bot.config['discord']['insults']).format(author.display_name) + text)
 
+
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
+
+    @cogs._dcutils.category_check('minigames')
     @commands.command(name='profile')
     async def display_profile(self, ctx):
         '''
-        creates a profile for the user and displays it.
+        displays the user's profile (concerning the trivia minigame)
         '''
         user = ctx.author
-
         if not user.id in self.bot.scoreboard.keys():
             await ctx.send(f'You have to play a game of trivia before a profile can be generated! Use `{self.bot.config["general"]["prefix"]} trivia` to take a quiz!')
             return
@@ -59,7 +62,9 @@ class Trivia(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(name='trivia', aliases=['tr','triv','quiz'])
+
+    @cogs._dcutils.category_check('minigames')
+    @commands.command(name='trivia', aliases=['tr', 'triv', 'quiz'])
     async def trivia_quiz(self, ctx):
         '''
         a multiple-choice trivia quiz with ME-related questions
@@ -119,15 +124,17 @@ class Trivia(commands.Cog):
             tip = random.choice(self.bot.config['discord']['trivia']['tips'])
             await ctx.send(tip.format(self.bot.config['discord']['trivia']['link']), delete_after=30)
 
+
+    @cogs._dcutils.category_check('minigames')
     @commands.command(name='scoreboard')
     @commands.guild_only()
     async def display_scoreboard(self, ctx):
         '''
-        display a trivia scoreboard for the server
+        displays a trivia scoreboard for the server
         '''
-
         # fetching intersection of guild members and users on scoreboard
-        found_users = [[user.name, *self.bot.scoreboard[user.id]] for user in ctx.guild.members if user.id in self.bot.scoreboard.keys() and self.bot.scoreboard[user.id][1] > 0]
+        found_users = [[user.name, *self.bot.scoreboard[user.id]]
+                       for user in ctx.guild.members if user.id in self.bot.scoreboard.keys() and self.bot.scoreboard[user.id][1] > 0]
         # sort users from best to worst
         found_users = sorted(found_users, key=lambda x: x[2])
 
@@ -145,7 +152,7 @@ class Trivia(commands.Cog):
                 temp += self.bot.config['discord']['trivia']['scoreboard_streak'].format(user[3])
 
             # add a medal if necessary and append line to the scoreboard
-            scoreboard += medals[min(i,len(medals)-1)].format(temp)+'\n'
+            scoreboard += medals[min(i, len(medals)-1)].format(temp)+'\n'
             count += 1
 
             # break after X users (defined in config)
@@ -162,7 +169,7 @@ class Trivia(commands.Cog):
             await ctx.send(f'You have to play a game of trivia before a scoreboard can be generated! Use `{self.bot.config["general"]["prefix"]} trivia` to take a quiz!')
             return
 
-        #finish the scoreboard embed
+        # finish the scoreboard embed
         embed = discord.Embed(title=title, description=scoreboard,
                               color=random.choice(self.bot.color_list))
 
@@ -207,38 +214,42 @@ class Trivia(commands.Cog):
         else:
             await ctx.send(embed=embed)
 
+
     def get_scoreboard(self, user):
         if user.id in self.bot.scoreboard.keys():
             return list(self.bot.scoreboard[user.id])
         else:
             return [0, 0, 0]  # count, wins, streak
 
+
     def set_scoreboard(self, user, player_stats):
         self.bot.scoreboard[user.id] = tuple(player_stats)
 
+
+    @cogs._dcutils.category_check('battles')
     @commands.command(name='triviabattle', aliases=['tbattle', 'tb', 'trivia-battle', 'triviafight', 'tfight', 'tf'])
     @commands.guild_only()
     async def quote_battle(self, ctx):
         '''
-        initiates and manages a trivia battle between two users
+        starts a trivia battle between two users
         '''
-
         # use the util to get a ready check from everyone involved
         result, players = await cogs._dcutils.handle_ready_check(self.bot, ctx)
         if not result:
             return
 
         # create user DMs, in case they did not yet exist
-        scoreboard = {player:0 for player in players}
+        scoreboard = {player: 0 for player in players}
         max_char = 0
         for player in players:
-            max_char = max(len(player.display_name),max_char)
+            max_char = max(len(player.display_name), max_char)
             if not player.dm_channel:
                 await player.create_dm()
 
         lead = [0, 0]
         # preparing score embed
-        embed = discord.Embed(title='LotR Triviabattle', color=self.bot.config['discord']['colors']['DARK_RED'])
+        embed = discord.Embed(title='LotR Triviabattle',
+                              color=self.bot.config['discord']['colors']['DARK_RED'])
         embed.description = '```\n'
         for player, score in scoreboard.items():
             embed.description += f'{player.display_name.ljust(max_char+1)}: {score}\n'
@@ -263,7 +274,7 @@ class Trivia(commands.Cog):
             # reset / manage round variables
             round_ind += 1
             pending = players.copy()
-            answers = {player:-1 for player in players}
+            answers = {player: -1 for player in players}
 
             # get new trivia question and distribute it
             embed, _, correct_index, timeout = self.get_trivia_question()
@@ -315,7 +326,8 @@ class Trivia(commands.Cog):
                 embed.set_footer('')
             await score_msg.edit(embed=embed)
 
-            if lead[0] > lead[1]+1 > 1 and lead[0]+lead[1] > 2: #exit condition
+            # exit condition
+            if lead[0] > lead[1]+1 > 1 and lead[0]+lead[1] > 2:
                 for player, score in scoreboard:
                     if score == lead[0]:
                         await ctx.send(f'Congratulations, {player.mention} You won the game!\n')
@@ -324,6 +336,9 @@ class Trivia(commands.Cog):
 
 
     def get_trivia_question(self, player=None, player_stats=None):
+        '''
+        retrieves question from .csv file
+        '''
         correct_index = -1
         while correct_index < 0:
             # get random question
@@ -366,7 +381,8 @@ class Trivia(commands.Cog):
 
         embed.add_field(name=':stopwatch: Timeout:',
                         value=f'{timeout} seconds')
-        embed.add_field(name=':book: Source:', value=source)
+        embed.add_field(name=':book: Source:',
+                        value=source)
         embed.color = random.choice(self.bot.color_list)
         return (embed, question, correct_index, timeout)
 
