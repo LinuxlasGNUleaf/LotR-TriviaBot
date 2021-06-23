@@ -96,7 +96,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @commands.has_permissions(manage_channels=True)
+    @commands.has_permissions(manage_roles=True)
     @commands.group(name='settings', aliases=['setting', 'config'], invoke_without_command=True)
     async def settings(self, ctx):
         '''
@@ -129,7 +129,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @commands.has_permissions(manage_channels=True)
+    @commands.has_permissions(manage_roles=True)
     @settings.command(name='channel', aliases=['c', 'ch', 'local'])
     async def channel_settings(self, ctx, *args):
         '''
@@ -138,7 +138,7 @@ class Utils(commands.Cog):
         await self.edit_settings(ctx, args, True)
 
 
-    @commands.has_permissions(manage_channels=True)
+    @commands.has_permissions(manage_roles=True)
     @settings.command(name='server', aliases=['s', 'srv', 'global'])
     async def server_settings(self, ctx, *args):
         '''
@@ -147,7 +147,7 @@ class Utils(commands.Cog):
         await self.edit_settings(ctx, args, False)
 
 
-    @commands.has_permissions(manage_channels=True)
+    @commands.has_permissions(manage_roles=True)
     @settings.command(name='info', aliases=['?'], invoke_without_command=True)
     async def help_settings(self, ctx):
         '''
