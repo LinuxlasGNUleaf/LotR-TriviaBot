@@ -5,7 +5,8 @@ general:
     # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
     prefix: ["lotr ","Lotr ","LOTR "]
     # python command to return the valid path for the cache folder
-    cache_path: $HOME/.config/discord/bots/lotr-bot/
+    cache_path: {'linux':'$HOME/.config/discord/bots/lotr-bot/',
+                 'win32':'$appdata\discord\bots\lotr-bot\'}
     # logfile location (in cache directory)
     logfile: dcbot.log
     # autosave interval in seconds

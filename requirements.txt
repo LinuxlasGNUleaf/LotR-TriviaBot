@@ -1,7 +1,6 @@
 numpy
-discord==1.0.1
-matplotlib==3.3.4
-googlesearch-python==2020.0.2
-google-api-python-client==1.12.8
-PyYAML==5.4.1
-rsa==4.7
+discord
+matplotlib
+google-api-python-client
+PyYAML
+aiohttp

@@ -174,7 +174,7 @@ class Autoscript(commands.Cog):
         reads the LOTR script to array.
         Also outputs a condensed version for faster searching.
         '''
-        with open(self.bot.config['discord']['autoscript']['file'], 'r') as script_file:
+        with open(self.bot.config['discord']['autoscript']['file'], 'r', encoding='utf8') as script_file:
             temp = ''
             last = ''
             for line in script_file:
