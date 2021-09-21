@@ -92,7 +92,7 @@ class Utils(commands.Cog):
         embed.add_field(name=':card_box: Github:',
                         value=self.bot.config['general']['github_repo'])
         embed.add_field(name=':floppy_disk: Developer:',
-                        value='<@{}>'.format(self.bot.config['general']['developer_id']))
+                        value=f'<@{self.bot.config["general"]["developer_id"]}>')
         await ctx.send(embed=embed)
 
 
@@ -125,7 +125,7 @@ class Utils(commands.Cog):
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
         embed.set_footer(
-            text='Tip: If you want to change the settings, you need to provide arguments. Type "{} settings help" for more info.')
+            text=f'Tip: If you want to change the settings, you need to provide arguments. Type "{self.bot.config["general"]["prefix"][0]} settings help" for more info.')
         await ctx.send(embed=embed)
 
 
