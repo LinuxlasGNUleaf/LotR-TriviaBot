@@ -3,7 +3,7 @@ import random
 import asyncio
 import discord
 from discord.ext import commands
-import cogs
+from cogs import _dcutils
 
 
 class QuoteBattle(commands.Cog):
@@ -22,8 +22,8 @@ class QuoteBattle(commands.Cog):
                          self.__class__.__name__.title())
 
 
-    @cogs._dcutils.category_check('battles')
-    @cogs._dcutils.channel_busy_check()
+    @_dcutils.category_check('battles')
+    @_dcutils.channel_busy_check()
     @commands.guild_only()
     @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
     async def quote_battle_handler(self, ctx):
@@ -33,7 +33,7 @@ class QuoteBattle(commands.Cog):
         server = ctx.guild
         # perms_changed = []
 
-        result, players = await cogs._dcutils.handle_ready_check(self.bot, ctx, player_count=2)
+        result, players = await _dcutils.handle_ready_check(self.bot, ctx, player_count=2)
 
         if not result:
             return
@@ -53,7 +53,7 @@ class QuoteBattle(commands.Cog):
         random.shuffle(players)
         act_player = players[0]
         first_round = True
-        await ctx.send('Welcome to the epic quote battle between {} and {}!\n{} starts! Prepare for battle!'.format(*(player.mention for player in players), act_player.display_name))
+        await ctx.send(f'Welcome to the epic quote battle between {players[0].mention} and {players[1].mention}!\n{act_player.display_name} starts! Prepare for battle!')
 
         while rounds_left > 0:
             try:
@@ -70,7 +70,7 @@ class QuoteBattle(commands.Cog):
                 if msg.author.id == act_player.id:
                     first_round = False
                 else:
-                    await ctx.send('Hey, wait for {} to start the battle!'.format(act_player.display_name), delete_after=10)
+                    await ctx.send(f'Hey, wait for {act_player.display_name} to start the battle!', delete_after=10)
                     await msg.delete()
                     continue
 
@@ -78,7 +78,7 @@ class QuoteBattle(commands.Cog):
                 rounds_left -= 1
                 act_player = msg.author
                 if rounds_left == orig_rounds//2:
-                    await ctx.send('Half-time! {} rounds to go!'.format(rounds_left))
+                    await ctx.send(f'Half-time! {rounds_left} rounds to go!')
 
         # for player in players:
         #     self.bot.blocked.remove(player.id)

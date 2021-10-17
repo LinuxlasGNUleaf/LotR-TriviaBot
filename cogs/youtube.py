@@ -2,7 +2,7 @@ import logging
 from googleapiclient.discovery import build
 import discord
 from discord.ext import commands
-import cogs
+from cogs import _dcutils
 
 
 class YoutubeSearch(commands.Cog):
@@ -24,7 +24,7 @@ class YoutubeSearch(commands.Cog):
                          self.__class__.__name__.title())
 
 
-    @cogs._dcutils.category_check('lore')
+    @_dcutils.category_check('lore')
     @commands.command(name='ytsearch', aliases=['yt', 'yt-search', 'ysearch', 'youtube'])
     async def search_youtube(self, ctx, *query):
         '''
@@ -41,7 +41,7 @@ class YoutubeSearch(commands.Cog):
         query = ' '.join(query)
 
         if not query:
-            await ctx.send('\nTry providing a query next time! The correct syntax is: `{} yt <keywords> (<number of results>)`'.format(self.bot.config['general']['prefix']))
+            await ctx.send(f'\nTry providing a query next time! The correct syntax is: `{self.bot.config["general"]["prefix"]} yt <keywords> (<number of results>)`')
 
         vid_request = self.youtube.search().list(
             q=query,
@@ -52,7 +52,7 @@ class YoutubeSearch(commands.Cog):
         ).execute()['items']
 
         if not vid_request:
-            await ctx.send('*\'I have no memory of this place\'* ~Gandalf\nYour query `{}` yielded no results!'.format(query))
+            await ctx.send(f'*\'I have no memory of this place\'* ~Gandalf\nYour query `{query}` yielded no results!')
             return
 
         for i, video in enumerate(vid_request):
@@ -63,7 +63,7 @@ class YoutubeSearch(commands.Cog):
             vid_info = self.youtube.videos().list(part='snippet,statistics',
                                                   id=video['id']['videoId']).execute()['items'][0]
 
-            embed.set_author(name=f'🔍 {cogs._dcutils.ordinal(i+1)} Search Result')
+            embed.set_author(name=f'🔍 {_dcutils.ordinal(i+1)} Search Result')
             embed.set_image(url=video['snippet']['thumbnails']['medium']['url'])
 
             description = ''
@@ -79,11 +79,11 @@ class YoutubeSearch(commands.Cog):
 
             embed.description = description.strip()
             embed.set_footer(text='Published: ' + '/'.join(video['snippet']['publishedAt'][:10].split('-')[::-1]))
-            embed.add_field(name=':play_pause: Views:', value='{:,}'.format(int(vid_info['statistics']['viewCount'])),
+            embed.add_field(name=':play_pause: Views:', value=f'{int(vid_info["statistics"]["viewCount"]):,}',
                             inline=True)
-            embed.add_field(name=':thumbsup: Likes:', value='{:,}'.format(int(vid_info['statistics']['likeCount'])),
+            embed.add_field(name=':thumbsup: Likes:', value=f'{int(vid_info["statistics"]["likeCount"]):,}',
                             inline=True)
-            embed.add_field(name=':speech_balloon: Comments:', value='{:,}'.format(int(vid_info['statistics']['commentCount'])),
+            embed.add_field(name=':speech_balloon: Comments:', value=f'{int(vid_info["statistics"]["commentCount"]):,}',
                             inline=True)
             await ctx.send(embed=embed)
 

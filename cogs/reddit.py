@@ -1,10 +1,11 @@
 from datetime import datetime
 import logging
-from urllib.parse import urlparse
-import aiohttp
+import asyncio
 from discord.ext import commands
+import asyncpraw
 import discord
-import cogs._dcutils
+from cogs import _dcutils
+
 
 class Reddit(commands.Cog):
     '''
@@ -14,96 +15,84 @@ class Reddit(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
-        self.json = []
+        self.posts = []
         self.old_timestamp = datetime.now()
         self.default_query_size = self.bot.config['reddit']['query_limit']
         self.query_size = self.default_query_size
-        self.json_timeout = self.bot.config['reddit']['json_timeout']
-        self.sub_attributes = ['id', 'title', 'author',
-                               'url', 'is_self', 'selftext', 'subreddit']
-        self.sub_imgs = {}
-
+        self.subreddits = 0
+        self.sub_thumbnails = {}
+        self.reddit = asyncpraw.Reddit(
+            client_id=self.bot.reddit_credentials[0],
+            client_secret=self.bot.reddit_credentials[1],
+            user_agent=self.bot.config['reddit']['useragent']
+        )
+        self.subreddit = 0
+        # starting autofetching posts
+        self.autofetch_task = asyncio.get_event_loop().create_task(self.auto_fetch())
 
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
+    def cog_unload(self):
+        asyncio.get_event_loop().create_task(self.reddit.close())
+        asyncio.get_event_loop().create_task(self.autofetch_task.close())
 
-    @cogs._dcutils.category_check('memes')
+    @_dcutils.category_check('memes')
     @commands.command()
     @commands.cooldown(10, 10)
     async def meme(self, ctx):
-        '''
-        posts a LotR or Hobbit-related meme in the channel
-        '''
-        if ctx.channel.id not in self.bot.meme_cache.keys():
-            self.bot.meme_cache[ctx.channel.id] = []
+        if not self.posts or (datetime.now() - self.old_timestamp).total_seconds()/60 > self.bot.config['reddit']['query_limit']:
+            await self.refetch_posts()
 
-        difference = datetime.now() - self.old_timestamp
-
-        if not self.json or difference.total_seconds()/60 > self.json_timeout:
-            await self.refresh_json()
-            self.query_size = self.default_query_size
-            self.old_timestamp = datetime.now()
-
-        found_meme = False
-        while not found_meme:
-            for submission in self.json:
-                if not submission['id'] in self.bot.meme_cache[ctx.channel.id]:
-                    # append id to meme cache as early as possible to prevent another function call to pick the same submission
-                    self.bot.meme_cache[ctx.channel.id].append(submission['id'])
-                    # checking if that entry is still available
-                    async with aiohttp.ClientSession() as session:
-                        async with session.get('https://www.reddit.com/comments/{}/.json'.format(submission['id'])) as result:
-                            result = await result.json()
-                            if result[0]['data']['children'][0]['data']['selftext'] == '[deleted]':
-                                logging.info('Deleted post with id %s found, skipping.', submission['id'])
-                                continue
-                    # processing meme, determinig whether it's an image or not, yada yada yada
-                    found_meme = True
-                    if len(submission['title']) > 256:
-                        embed = discord.Embed(title=submission['title'][:253]+'...')
-                    else:
-                        embed = discord.Embed(title=submission['title'])
-                    submission['url'] = urlparse(
-                        submission['url'])._replace(query=None).geturl()
-                    ftype = submission['url'].split('.')[-1]
-                    if ftype in ['jpeg', 'jpg', 'gif', 'png'] or 'i.redd.it' in submission['url']:
-                        embed.set_image(url=submission['url'])
-                    elif ftype in ['gifv', 'mp4', 'avi', 'webm'] or 'v.redd.it' in submission['url']:
-                        embed.set_thumbnail(
-                            url=self.bot.config['reddit']['video_thumbnail'])
-                    embed.set_author(
-                        name='r/'+submission['subreddit'], icon_url=submission['sub_img'])
-                    embed.url = 'https://www.reddit.com/'+submission['id']
-                    embed.set_footer(text='Author: u/'+submission['author'])
-                    await ctx.send(embed=embed)
-                    break
-            if not found_meme:
+        while True:
+            for post in self.posts:
+                if post.id in self.bot.meme_cache[ctx.channel.id]:
+                    continue
+                self.bot.meme_cache[ctx.channel.id].append(post.id)
+                # processing meme, determinig whether it's an image or not, yada yada yada
+                embed = discord.Embed(title=post.title if len(post.title) <= 256 else post.title[:253]+'...')
+                ftype = post.url.split('.')[-1]
+                if ftype in ['jpeg', 'jpg', 'gif', 'png'] or post.domain == 'i.redd.it':
+                    embed.set_image(url=post.url)
+                elif ftype in ['gifv', 'mp4', 'avi', 'webm', 'mov'] or post.domain == 'v.redd.it':
+                    embed.set_thumbnail(
+                        url=self.bot.config['reddit']['video_thumbnail'])
+                embed.set_author(
+                    name=post.subreddit_name_prefixed, icon_url=self.sub_thumbnails[post.subreddit_name_prefixed])
+                embed.url = f'https://reddit.com{post.permalink}'
+                embed.set_footer(text='Author: u/'+post.author.name)
+                await ctx.send(embed=embed)
+                break
+            else:
                 self.query_size += self.default_query_size
-                self.old_timestamp = datetime.now()
-                await self.refresh_json()
+                await self.refetch_posts()
+                continue
+            break
 
+    async def auto_fetch(self):
+        '''
+        autosave feature
+        '''
+        self.logger.info('Autofetching posts initialized.')
+        while True:
+            self.logger.info(datetime.now().strftime(
+                'Autofetching new posts %X on %a %d/%m/%y'))
+            self.query_size = self.default_query_size
+            await self.refetch_posts()
+            await asyncio.sleep(self.bot.config['reddit']['refresh_interval']*60)
 
-    async def refresh_json(self):
-        '''
-        refetches the .json file from reddit.com,
-        containing a list of posts
-        '''
-        async with aiohttp.ClientSession() as session:
-            subs = "+".join(self.bot.config["reddit"]["subreddits"])
-            async with session.get(f'https://www.reddit.com/r/{subs}/hot.json?limit={self.query_size}') as result:
-                self.json = []
-                for submission in (await result.json())['data']['children']:
-                    temp = {k: v for k, v in submission['data'].items() if k in self.sub_attributes}
-                    if temp['subreddit'] in self.sub_imgs.keys():
-                        temp['sub_img'] = self.sub_imgs[temp['subreddit']]
-                    else:
-                        async with session.get('https://www.reddit.com/r/{}/about.json'.format(temp['subreddit'])) as sub_info:
-                            temp['sub_img'] = (await sub_info.json())['data']['icon_img']
-                            self.sub_imgs[temp['subreddit']] = temp['sub_img']
-                    self.json.append(temp)
+    async def refetch_posts(self):
+        for subreddit in self.bot.config['reddit']['subreddits']:
+            if f'r/{subreddit}' not in self.sub_thumbnails:
+                temp_sub = await self.reddit.subreddit(subreddit, fetch=True)
+                self.sub_thumbnails[f'r/{subreddit}'] = temp_sub.icon_img
+        self.subreddit = await self.reddit.subreddit('+'.join(self.bot.config['reddit']['subreddits']))
+        self.posts = []
+        async for submission in self.subreddit.hot(limit=self.query_size):
+            self.posts.append(submission)
+        self.old_timestamp = datetime.now()
 
 
 def setup(bot):

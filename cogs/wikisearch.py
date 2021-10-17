@@ -1,7 +1,7 @@
 import logging
 from googlesearch import search
 from discord.ext import commands
-import cogs
+from cogs import _dcutils
 
 
 class WikiSearch(commands.Cog):
@@ -18,7 +18,7 @@ class WikiSearch(commands.Cog):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @cogs._dcutils.category_check('lore')
+    @_dcutils.category_check('lore')
     @commands.command(name='search')
     async def lotr_search(self, ctx, *, query):
         '''
@@ -28,11 +28,11 @@ class WikiSearch(commands.Cog):
         content = list(search(f'{query} site:{site}', lang='en', num_results=1))
 
         if not content:
-            await ctx.send(':x: No results for `{}` on  *{}*.'.format(query, site))
+            await ctx.send(f':x: No results for `{query}` on  *{site}*.')
             return
         content = content[0]
         title = f':mag: 1st result for `{query}` on  *{site}* :'
-        await ctx.send(embed=cogs._dcutils.create_embed(title=title, content=content))
+        await ctx.send(embed=_dcutils.create_embed(title=title, content=content))
 
 
 def setup(bot):

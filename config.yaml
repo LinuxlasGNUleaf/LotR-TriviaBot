@@ -18,13 +18,17 @@ general:
 
 # settings for the reddit API used for pulling memes and stuff
 reddit:
+    # token file for authentication of the bot (located in general/cache_path)
+    token: 'reddit.tk'
+    # useragent string for authenticating
+    useragent: 'post fetcher by /u/LotR-Fan42'
     # list of subreddits to pull posts from
     subreddits: ["lotrmemes","Hobbit_Memes"]
     # cache file for the list of pulled posts (located in general/cache_path)
     cache: meme_log.pyobj
-    # timeout in minutes before the pulled JSON file is considered outdated and is renewed
-    json_timeout: 15
-    # number of posts to pull when renewing the JSON file, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
+    # interval in minutes before the pulled posts are considered outdated and are refetched
+    refresh_interval: 15
+    # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
     query_limit: 15
     # video thumbnail url for video posts
     video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png

@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import discord
 from discord.ext import commands
-import cogs._dcutils
+from cogs import _dcutils
 
 plt.rcdefaults()
 
@@ -34,7 +34,7 @@ class Trivia(commands.Cog):
                          self.__class__.__name__.title())
 
 
-    @cogs._dcutils.category_check('minigames')
+    @_dcutils.category_check('minigames')
     @commands.command(name='profile')
     async def display_profile(self, ctx):
         '''
@@ -63,7 +63,7 @@ class Trivia(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @cogs._dcutils.category_check('minigames')
+    @_dcutils.category_check('minigames')
     @commands.command(name='trivia', aliases=['tr', 'triv', 'quiz'])
     async def trivia_quiz(self, ctx):
         '''
@@ -125,7 +125,7 @@ class Trivia(commands.Cog):
             await ctx.send(tip.format(self.bot.config['discord']['trivia']['link']), delete_after=30)
 
 
-    @cogs._dcutils.category_check('minigames')
+    @_dcutils.category_check('minigames')
     @commands.command(name='scoreboard')
     @commands.guild_only()
     async def display_scoreboard(self, ctx):
@@ -183,7 +183,7 @@ class Trivia(commands.Cog):
             max_val = max(g_won)+1
 
             for i in range(len_users):
-                val = cogs._dcutils.map_vals(
+                val = _dcutils.map_vals(
                     g_won[i]/g_taken[i], .2, 1, 0, 1)
                 g_ratio.append([1-val, val, 0])
 
@@ -195,7 +195,7 @@ class Trivia(commands.Cog):
 
             # label axes, title plot
             plt.xlabel('Games won')
-            plt.title('Trivia Scoreboard for {}'.format(ctx.guild.name))
+            plt.title(f'Trivia Scoreboard for {ctx.guild.name}')
             plt.yticks(index, names)
             plt.xticks(np.arange(max_val, step=round(
                 math.ceil(max_val/5), -(int(math.log10(max_val)-1)))))
@@ -209,7 +209,7 @@ class Trivia(commands.Cog):
             with BytesIO() as buffer:
                 fig.savefig(buffer, dpi=800)
                 buffer.seek(0)
-                await ctx.send(embed=embed, file=discord.File(fp=buffer, filename="scoreboard_{}.png".format(ctx.guild.id)))
+                await ctx.send(embed=embed, file=discord.File(fp=buffer, filename=f"scoreboard_{ctx.guild.id}.png"))
                 plt.close('all')
         else:
             await ctx.send(embed=embed)
@@ -226,7 +226,7 @@ class Trivia(commands.Cog):
         self.bot.scoreboard[user.id] = tuple(player_stats)
 
 
-    @cogs._dcutils.category_check('battles')
+    @_dcutils.category_check('battles')
     @commands.command(name='triviabattle', aliases=['tbattle', 'tb', 'trivia-battle', 'triviafight', 'tfight', 'tf'])
     @commands.guild_only()
     async def quote_battle(self, ctx):
@@ -234,7 +234,7 @@ class Trivia(commands.Cog):
         starts a trivia battle between two users
         '''
         # use the util to get a ready check from everyone involved
-        result, players = await cogs._dcutils.handle_ready_check(self.bot, ctx)
+        result, players = await _dcutils.handle_ready_check(self.bot, ctx)
         if not result:
             return
 
@@ -321,9 +321,9 @@ class Trivia(commands.Cog):
                 embed.description += f'{player.display_name.ljust(max_char+1)}: {score}\n'
             embed.description += '```'
             if lead[0] > lead[1]:
-                embed.set_footer('Matchpoint!')
+                embed.set_footer(text='Matchpoint!')
             else:
-                embed.set_footer('')
+                embed.set_footer(text='')
             await score_msg.edit(embed=embed)
 
             # exit condition
@@ -342,7 +342,7 @@ class Trivia(commands.Cog):
         correct_index = -1
         while correct_index < 0:
             # get random question
-            with open('questions.csv', 'r') as csvfile:
+            with open('questions.csv', 'r', encoding='utf-8') as csvfile:
                 csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
                 content = random.choice(list(csvreader))
 
@@ -359,12 +359,12 @@ class Trivia(commands.Cog):
                     correct_index = i+1
                     break
             if correct_index < 0:
-                print('Invalid question found: {}'.format(question))
+                print(f'Invalid question found: {question}')
 
         embed = discord.Embed(title=question)
         if player_stats and player:
             embed.set_author(
-                name=f'{player.display_name}\'s {cogs._dcutils.ordinal(player_stats[0])} trial in the Arts of Middle Earth trivia', url=player.avatar_url)
+                name=f'{player.display_name}\'s {_dcutils.ordinal(player_stats[0])} trial in the Arts of Middle Earth trivia', url=player.avatar_url)
         else:
             embed.set_author(
                 name='Your trial in the Arts of Middle Earth trivia')

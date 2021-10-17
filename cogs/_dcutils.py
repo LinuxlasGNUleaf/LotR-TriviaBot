@@ -10,7 +10,7 @@ import discord
 from discord.ext import commands
 
 
-ordinal = lambda n: '%d%s' % (n, 'tsnrhtdd'[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4])
+ordinal = lambda n: f'{n}{"tsnrhtdd"[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4]}'
 
 
 def map_vals(val, in_min, in_max, out_min, out_max):
@@ -168,7 +168,7 @@ class ChannelBusy(commands.CheckFailure):
         self.orig_message = message
         super().__init__()
 
-def category_check(category):
+def category_check(category:str):
     '''
     checks whether the given category is allowed in this context
     '''

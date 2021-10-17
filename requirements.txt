@@ -2,5 +2,6 @@ numpy
 discord
 matplotlib
 google-api-python-client
+googlesearch-python
+asyncpraw
 PyYAML
-aiohttp

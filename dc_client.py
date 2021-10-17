@@ -1,4 +1,3 @@
-
 import pickle
 import os
 import logging
@@ -28,6 +27,7 @@ class LotrBot(commands.Bot):
 
         config['discord']['token'] = self.update_cache_path(config['discord']['token'])
         config['youtube']['token'] = self.update_cache_path(config['youtube']['token'])
+        config['reddit']['token'] = self.update_cache_path(config['reddit']['token'])
 
         # retrieving the cache files, creating empyt ones if necessary
         self.scoreboard = self.get_cache(config['discord']['trivia']['cache'], 'Scoreboard Cache')
@@ -40,13 +40,15 @@ class LotrBot(commands.Bot):
         # retrieving tokens from files, exiting if invalid
         self.token = self.get_token(config['discord']['token'], 'Discord Token')[0].strip()
         self.yt_credentials = self.get_token(config['youtube']['token'], 'Youtube API Credentials')
+        self.reddit_credentials = self.get_token(config['reddit']['token'], 'Reddit API Credentials')
 
         # setting intents
         intents = discord.Intents.default()
+        #pylint:disable=assigning-non-slot
         intents.members = True
 
         # getting misc stuff from config
-        self.color_list = [c for c in self.config['discord']['colors'].values()]
+        self.color_list = list(c for c in self.config['discord']['colors'].values())
         self.start_time = datetime.now()
 
         # starting autosave
@@ -106,7 +108,7 @@ class LotrBot(commands.Bot):
                 return obj
         except (FileNotFoundError, EOFError):
             self.logger.warning('could not deserialize %s! Ignoring.',name)
-            open(path, 'w').close()
+            open(path, 'wb').close()
             return {}
 
     def get_token(self, path, name):
@@ -114,13 +116,11 @@ class LotrBot(commands.Bot):
         returns token from a given tokenfile location, and raises an error if not valid.
         '''
         try:
-            with open(path, 'r') as infofile:
+            with open(path, 'r', encoding='utf-8') as infofile:
                 temp = infofile.readlines()
                 if not temp:
                     raise EOFError
-                for i, item in enumerate(temp):
-                    temp[i] = item.strip()
-                return temp
+                return [x.strip() for x in temp]
         except (FileNotFoundError, EOFError) as token_error:
             self.logger.error('%s not found!',name)
             raise token_error

@@ -7,7 +7,7 @@ import typing
 from discord.ext import commands
 import discord
 
-import cogs._dcutils
+from cogs import _dcutils
 
 
 class Utils(commands.Cog):
@@ -48,18 +48,21 @@ class Utils(commands.Cog):
         embed_msg = await ctx.send(embed=embed)
 
         for ext in dc_cogs:
-            try:
-                if ext.endswith('.py') and not ext.startswith('_'):
-                    self.bot.unload_extension(f'cogs.{ext[:-3]}')
-                    self.bot.load_extension(f'cogs.{ext[:-3]}')
+            if ext.endswith('.py') and not ext.startswith('_'):
+                try:
+                    self.logger.info('Reloading %s...',ext)
+                    if ext[:-3] in [x.split('.')[-1] for x in self.bot.extensions.keys()]:
+                        self.bot.reload_extension(f'cogs.{ext[:-3]}')
+                    else:
+                        self.bot.load_extension(f'cogs.{ext[:-3]}')
                     embed.add_field(name=':white_check_mark: Reloaded:',
                                     value=ext[:-3],
                                     inline=True)
-            except commands.errors.ExtensionFailed as exc:
-                embed.add_field(name=':x: Failed:',
-                                value=ext[:-3],
-                                inline=True)
-                print(exc)
+                except commands.errors.ExtensionFailed as exc:
+                    embed.add_field(name=':x: Failed:',
+                                    value=ext[:-3],
+                                    inline=True)
+                    print(exc)
         await embed_msg.edit(embed=embed)
 
 
@@ -119,7 +122,7 @@ class Utils(commands.Cog):
                     channel_setting = self.bot.config['discord']['indicators'][
                         self.bot.settings[ctx.channel.id][category]]
 
-            effective = self.bot.config['discord']['indicators'][cogs._dcutils.is_category_allowed(
+            effective = self.bot.config['discord']['indicators'][_dcutils.is_category_allowed(
                 ctx, category, self.bot.settings, self.bot.config['discord']['settings']['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
@@ -223,14 +226,14 @@ class Utils(commands.Cog):
             else:
                 await ctx.send(f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
 
-        elif isinstance(error, cogs._dcutils.CategoryNotAllowed):
+        elif isinstance(error, _dcutils.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.', delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
             await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
 
-        elif isinstance(error, cogs._dcutils.ChannelBusy):
+        elif isinstance(error, _dcutils.ChannelBusy):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.', delete_after=10)

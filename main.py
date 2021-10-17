@@ -9,7 +9,7 @@ import dc_client
 
 
 # ==========================> LOAD YAML FILE <==================================
-with open("config.yaml", 'r') as cfg_stream:
+with open("config.yaml", 'r', encoding='utf-8') as cfg_stream:
     try:
         print('parsing config file...')
         config = yaml.safe_load(cfg_stream)
@@ -22,12 +22,14 @@ if sys.platform in config['general']['cache_path'].keys():
     os.makedirs(config['general']['cache_path'],exist_ok=True)
 else:
     print(f'\'{sys.platform}\' is not a supported platform. Add your system in the cache_dir field in config.yaml.')
-    exit(0)
+    sys.exit(0)
 # ==============================================================================
 logfile = os.path.join(config['general']['cache_path'],config['general']['logfile'])
 print(f'logging events to: {logfile}')
 
-logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-11s]: %(message)s', level=logging.INFO, handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
+logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-11s]: %(message)s',
+                    level=logging.INFO,
+                    handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
 
 bot = dc_client.LotrBot(config)
 
