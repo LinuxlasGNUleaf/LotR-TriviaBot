@@ -27,9 +27,6 @@ class Reddit(commands.Cog):
             user_agent=self.bot.config['reddit']['useragent']
         )
         self.subreddit = 0
-        # starting autofetching posts
-        self.autofetch_task = asyncio.get_event_loop().create_task(self.auto_fetch())
-        self.fetch_lock = False
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -38,16 +35,19 @@ class Reddit(commands.Cog):
 
     def cog_unload(self):
         asyncio.get_event_loop().create_task(self.reddit.close())
-        asyncio.get_event_loop().create_task(self.autofetch_task.close())
 
     @_dcutils.category_check('memes')
     @commands.command()
     @commands.cooldown(10, 10)
     async def meme(self, ctx):
-        if not self.posts or (datetime.now() - self.old_timestamp).total_seconds()/60 > self.bot.config['reddit']['query_limit']:
-            await self.refetch_posts()
-
         start_time = datetime.utcnow()
+
+        if not self.posts or (datetime.now() - self.old_timestamp).total_seconds()/60 > self.bot.config['reddit']['query_limit']:
+            self.logger.info('Refetching subreddits due to outdated or missing data.')
+            self.query_size = self.default_query_size
+            await self.refetch_posts()
+            self.logger.info('Done refetching (for updated data).')
+
 
         while True:
             for post in self.posts:
@@ -70,25 +70,11 @@ class Reddit(commands.Cog):
                 self.logger.info('Meme sent %f s after being detected by the bot and %f s after being sent.',(datetime.utcnow() - start_time).total_seconds(),(datetime.utcnow()-ctx.message.created_at).total_seconds())
                 break
             else:
+                self.logger.info('Refetching subreddits due to lack of new submissions.')
                 self.query_size += self.default_query_size
-                if not self.fetch_lock:
-                    await self.refetch_posts()
-                continue
+                await self.refetch_posts()
+                self.logger.info('Done refetching (for new submissions).')
             break
-
-    async def auto_fetch(self):
-        '''
-        autosave feature
-        '''
-        self.logger.info('Autofetching posts initialized.')
-        while True:
-            self.logger.info(datetime.now().strftime(
-                'Autofetching new posts %X on %a %d/%m/%y'))
-            self.query_size = self.default_query_size
-            self.fetch_lock = True
-            await self.refetch_posts()
-            self.fetch_lock = False
-            await asyncio.sleep(self.bot.config['reddit']['refresh_interval']*60)
 
     async def refetch_posts(self):
         for subreddit in self.bot.config['reddit']['subreddits']:
