@@ -64,6 +64,7 @@ class Utils(commands.Cog):
                                     inline=True)
                     print(exc)
         await embed_msg.edit(embed=embed)
+        self.logger.info('Done reloading.')
 
 
     @commands.cooldown(1, 60)

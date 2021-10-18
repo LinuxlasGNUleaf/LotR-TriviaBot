@@ -27,9 +27,9 @@ reddit:
     # cache file for the list of pulled posts (located in general/cache_path)
     cache: meme_log.pyobj
     # interval in minutes before the pulled posts are considered outdated and are refetched
-    refresh_interval: 15
+    refresh_interval: 300
     # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
-    query_limit: 15
+    query_limit: 50
     # video thumbnail url for video posts
     video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
 
