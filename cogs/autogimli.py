@@ -38,6 +38,9 @@ class Autogimli(commands.Cog):
         except ValueError:
             return
 
+        if not(float(gimli_count).is_integer()) or gimli_count <= 2:
+            return
+
         if msg.guild.id == '566219783377518592':
             try:
                 await msg.add_reaction('Gumli:596753586147426355')
