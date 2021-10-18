@@ -31,7 +31,13 @@ class Autogimli(commands.Cog):
         if not msg.channel.permissions_for(msg.channel.guild.me).send_messages:
             return
 
-        content = ''.join(list(filter(lambda x: x in self.allowed,msg.content)))
+        content = ''.join(filter(lambda x: x in self.allowed,msg.content)).split(' ')
+
+        for i,word in enumerate(content):
+            if word.strip().isdigit():
+                content[i] = self.inflect.number_to_words(int(word.strip()))
+
+        content = ' '.join(content)
 
         try:
             gimli_count = w2n.word_to_num(content)
