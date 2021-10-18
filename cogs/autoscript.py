@@ -4,7 +4,7 @@ import logging
 from discord.ext import commands
 import discord
 
-import cogs._dcutils
+from cogs import _dcutils
 
 
 class Autoscript(commands.Cog):
@@ -38,7 +38,7 @@ class Autoscript(commands.Cog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not cogs._dcutils.is_category_allowed(message, 'autoscript', self.bot.settings, self.bot.config['discord']['settings']['defaults']):
+        if not _dcutils.is_category_allowed(message, 'autoscript', self.bot.settings, self.bot.config['discord']['settings']['defaults']):
             return
 
         # stop if the message is shorter than 2 words

@@ -5,3 +5,5 @@ google-api-python-client
 googlesearch-python
 asyncpraw
 PyYAML
+inflect
+word2number
