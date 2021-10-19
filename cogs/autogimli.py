@@ -2,6 +2,7 @@ import logging
 from discord.ext import commands
 import discord
 import inflect
+import string
 from word2number import w2n
 
 
@@ -30,17 +31,16 @@ class Autogimli(commands.Cog):
             return
 
         content = msg.content.split(' ')
-
-        for i,word in enumerate(content):
-            if word.strip().isdigit():
-                content[i] = self.inflect.number_to_words(int(word.strip()))
-
-        content = ' '.join(content)
-
-        try:
-            gimli_count = w2n.word_to_num(content)
-        except ValueError:
-            return
+        for word in content:
+            word = ''.join(filter(lambda x: x in string.digits,word))
+            if word.isdigit():
+                gimli_count = int(word.strip())
+                break
+        else:
+            try:
+                gimli_count = w2n.word_to_num(' '.join(content))
+            except ValueError:
+                return
 
         if not(float(gimli_count).is_integer()) or gimli_count < 1:
             return
