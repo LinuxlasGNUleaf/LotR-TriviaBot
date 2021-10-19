@@ -31,7 +31,6 @@ class Autogimli(commands.Cog):
         if msg.author.id in self.cooldown_list:
             if (datetime.now() - self.cooldown_list[msg.author.id]).total_seconds() < self.bot.config['discord']['autogimli']['cooldown']:
                 return
-        self.cooldown_list[msg.author.id] = datetime.now()
 
         if isinstance(msg.channel, discord.channel.DMChannel):
             return
@@ -69,7 +68,7 @@ class Autogimli(commands.Cog):
             await msg.channel.send('That still only counts as one!')
         else:
             await msg.channel.send(f'{self.inflect.number_to_words(gimli_count).title()}? Oh, that\'s not bad for a pointy-eared elvish princeling. Hmph! I myself am sitting pretty on **{self.inflect.number_to_words(gimli_count+1).upper()}**!')
-
+        self.cooldown_list[msg.author.id] = datetime.now()
 
 def setup(bot):
     bot.add_cog(Autogimli(bot))
