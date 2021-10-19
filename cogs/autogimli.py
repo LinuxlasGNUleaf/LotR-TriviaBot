@@ -20,8 +20,8 @@ class Autogimli(commands.Cog):
                          self.__class__.__name__.title())
 
     @commands.Cog.listener('on_message')
-    async def autoscript(self, msg):
-        if msg.author.bot or msg.embeds or msg.attachments:
+    async def autogimli(self, msg):
+        if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked:
             return
 
         if isinstance(msg.channel, discord.channel.DMChannel):
