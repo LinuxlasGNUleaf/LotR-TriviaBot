@@ -1,5 +1,4 @@
 import logging
-import string
 from discord.ext import commands
 import discord
 import inflect
@@ -13,7 +12,6 @@ class Autogimli(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
-        self.allowed = string.ascii_letters + string.digits + ' '
         self.inflect = inflect.engine()
 
     @commands.Cog.listener()
@@ -31,7 +29,7 @@ class Autogimli(commands.Cog):
         if not msg.channel.permissions_for(msg.channel.guild.me).send_messages:
             return
 
-        content = ''.join(filter(lambda x: x in self.allowed,msg.content)).split(' ')
+        content = msg.content.split(' ')
 
         for i,word in enumerate(content):
             if word.strip().isdigit():
