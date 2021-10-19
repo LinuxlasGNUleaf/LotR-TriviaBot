@@ -23,7 +23,7 @@ class Autogimli(commands.Cog):
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, msg):
-        if msg.author.bot:
+        if msg.author.bot or msg.embeds or msg.attachments:
             return
 
         if isinstance(msg.channel, discord.channel.DMChannel):
@@ -44,7 +44,7 @@ class Autogimli(commands.Cog):
         except ValueError:
             return
 
-        if not(float(gimli_count).is_integer()) or gimli_count <= 2:
+        if not(float(gimli_count).is_integer()) or gimli_count < 1:
             return
 
         if msg.guild.id == '566219783377518592':
