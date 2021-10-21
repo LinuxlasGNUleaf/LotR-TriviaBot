@@ -1,4 +1,5 @@
 import logging
+import random
 from discord.ext import commands
 import discord
 import inflect
@@ -25,6 +26,8 @@ class Autogimli(commands.Cog):
     @commands.cooldown(10, 10)
     @commands.Cog.listener('on_message')
     async def autogimli(self, msg):
+        if random.randint(0, self.bot.config['discord']['autogimli']['chance']-1) != 0:
+            return
         if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked:
             return
 

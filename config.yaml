@@ -194,7 +194,9 @@ discord:
 
     autogimli:
         # interval in which autogimli will be triggered
-        interval: [2,99999]
+        interval: [2,100000]
+        # chance an autogimli event will happen (1 in x, 1/x)
+        chance: 100
         # cooldown in seconds before autogimli will react to the same user again
         cooldown: 300
         # custom emojis to react with on messages, server-specific
