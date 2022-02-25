@@ -61,7 +61,7 @@ class Autogimli(commands.Cog):
                 return
 
 
-        if msg.guild.id in self.bot.config['discord']['autogimli']['special_reactions']:
+        if msg.guild.id in self.bot.config['discord']['autogimli']['special_reactions'].keys():
             try:
                 await msg.add_reaction(self.bot.config['discord']['autogimli']['special_reactions'][msg.guild.id])
             except discord.errors.HTTPException:

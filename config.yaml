@@ -205,6 +205,56 @@ discord:
         number_two_special_message: True
 
 
+    autorepost:
+        # match threshold for the repost msg to trigger
+        threshold: 0.91
+        # servers where this function will be active
+        servers: [566219783377518592, 333978604763348993]
+        # reactions to add to the message
+        reactions: ['⛔','🚨','🤡','♻️']
+        # trigger words to look for
+        trigger_words:
+            - repost
+            - reposting
+            - reposted
+        # cooldown in seconds before autorepost will react to the same user again
+        cooldown: 300
+        # messages to add to the embed
+        message:
+            - 🤖 Beep. Boop. repost detected, opinion rejected.
+            - Yep. Pretty sure I used to know a guy that said he saw a Facebook post that linked to a YouTube comment referencing a guy's post on Tumblr who talked about this guy's teacher's cousin's sister's daughter's dog's roommate's dentist's cousin's step brother who knows a guy who knows a guy who knows a guy who knows a guy who knows this guy's cousin that once posted that EXACT thing on a forum that got taken down in 2009 therefore making it a repost. I'll bring the pitchforks if someone else brings the torches let's get op and burn him at the stake.
+            - Never apologize to repost police. Thousands of people have never seen this before. Many of us do not live on reddit day in and day out. Reddit is not a static environment. Repost police exist to suck the joy out of OPs and whine about having to scroll for an extra seven milliseconds.
+            - I've finally figured it out. The world is slowly getting worse, and this... thing that you just reposted proves it. According to even the bible itself, the world will grow worse and worse and you're living proof of that. I was a staunch atheist all my life. I attended atheist megachurches, converted over 300 Christians to atheism, and currently have an outstanding IQ of over 150. I studied every bible and bible type book ever and they all seemed ridiculous and debunk able. I've even converted people with a doctorate in ministry. But what you just copied is so bad it proved to me that Satan exists. And I just had a thought; if Satan exists, God must, too. Your absolute mistake against humanity is so much so that it proves the existence of God, and even I'm wondering how we ended up in this place. How did God create you in this way? Or were you a creation of Satan? Or maybe you're a demon who somehow found a way onto a computer with the sole intention of spreading evil around the world to corrupt it. Honestly I have no idea. Whatever you are, I am personally going to attend church for the first time and beg God to protect me from the evil you have plagued my mind with and hopefully either exorcise the demon out of you or, if you really are a demon, exorcise you in general. Have a rotten day.
+        # authors of the embed
+        author:
+            - General Reposti
+            - Darth Stealious
+            - Zero effort the Hutt
+            - Jango Theft
+            - Commander Copy
+            - Reposter Rex
+            - Darth Plagiarism the Unwise
+            - Clone Trooper
+            - Duplikit fisto
+            - Ki Fraudi Mundi
+            - Master Stealfo dyas
+            - Anakin Stealwalker
+            - Count Twoku
+            - Master Olda
+            - Grabba The Hutt
+            - Viceroy Not Again Ray
+            - Thieve Palpatine
+        author_pfp:
+            - 'https://wiki.soyjak.party/images/d/df/SoyWojak_gape.png'
+            - 'https://wiki.soyjak.party/images/thumb/d/d5/ETB_Soyjak.png/600px-ETB_Soyjak.png'
+            - 'https://wiki.soyjak.party/index.php?title=File:SoyWojak_Gape.png'
+        media:
+            - 'https://c.tenor.com/jcxlwCGt5YwAAAAS/jurassic-park-repost.gif'
+            - 'https://c.tenor.com/wziKCIFwyxcAAAAC/repost-running.gif'
+            - 'https://c.tenor.com/YFyrK_pv48wAAAAS/doug-walker.gif'
+            - 'https://i.kym-cdn.com/photos/images/newsfeed/002/173/133/6cc.png'
+
+
     #color codes for Embeds
     colors: {'WHITE': 0xFFFFFF,
              'AQUA': 0x1ABC9C,
