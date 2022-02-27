@@ -229,11 +229,11 @@ discord:
         cooldown: 300
         # authors of the embed
         media:
-            - 'https://c.tenor.com/jcxlwCGt5YwAAAAS/jurassic-park-repost.gif'
+            - 'https://c.tenor.com/jcxlwCGt5YwAAAAC/jurassic-park-repost.gif'
             - 'https://c.tenor.com/wziKCIFwyxcAAAAC/repost-running.gif'
-            - 'https://c.tenor.com/YFyrK_pv48wAAAAS/doug-walker.gif'
+            - 'https://c.tenor.com/YFyrK_pv48wAAAAC/doug-walker.gif'
             - 'https://i.kym-cdn.com/photos/images/newsfeed/002/173/133/6cc.png'
-            - 'https://c.tenor.com/BgnsxdrEVYoAAAAS/lord-of-the-rings-frodo.gif'
+            - 'https://c.tenor.com/BgnsxdrEVYoAAAAC/lord-of-the-rings-frodo.gif'
             - 'https://c.tenor.com/kJ8qxgXdg2AAAAAd/monkey-repost-for-monkey-ignore-for-human.gif'
             - 'https://c.tenor.com/I4ckOlVhnqkAAAAd/older-meme-sir-let-it-be.gif'
 
