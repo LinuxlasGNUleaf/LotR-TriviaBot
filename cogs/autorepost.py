@@ -23,6 +23,9 @@ class AutoRepost(commands.Cog):
     async def autorepost(self, msg):
         if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked:
             return
+        perms = msg.guild.me.permissions_in(msg.channel)
+        if not (perms.send_messages and perms.attach_files and perms.embed_links):
+            return
         
         if msg.guild.id not in self.bot.config['discord']['autorepost']['servers']:
             return
@@ -37,18 +40,21 @@ class AutoRepost(commands.Cog):
             word = word.lower().strip()
             for trigger_word in self.bot.config['discord']['autorepost']['trigger_words']:
                 if SequenceMatcher(None, word, trigger_word).ratio() >= self.bot.config['discord']['autorepost']['threshold']:
-                    embed = discord.Embed(title='🚨REPOST ALERT🚨')
-                    embed.set_author(name=random.choice(self.bot.config['discord']['autorepost']['author']),
-                                     icon_url=random.choice(self.bot.config['discord']['autorepost']['author_pfp']))
-                    embed.description = random.choice(self.bot.config['discord']['autorepost']['message'])
-                    embed.set_image(url=random.choice(self.bot.config['discord']['autorepost']['media']))
+                    text = '🚨"REPOST" REPOST ALERT🚨'
+                    image = random.choice(self.bot.config['discord']['autorepost']['media'])
                     self.cooldown_list[msg.author.id] = datetime.now()
-                    await msg.reply(embed=embed)
-                    for reaction in self.bot.config['discord']['autorepost']['reactions']:
-                        try:
-                            await msg.add_reaction(reaction)
-                        except discord.errors.HTTPException:
-                            pass
+                    if msg.channel.slowmode_delay:
+                        await msg.reply(f'{text}\n{image}')
+                    else:
+                        await msg.reply(text)
+                        await msg.channel.send(image)
+                    if perms.add_reactions:
+                        reactions = self.bot.config['discord']['autorepost']['reactions'] + self.bot.config['discord']['autorepost']['special_reactions'].setdefault(msg.guild.id,[])
+                        for reaction in random.sample(reactions,random.randint(1,len(reactions)-1)):
+                            try:
+                                await msg.add_reaction(reaction)
+                            except discord.errors.HTTPException:
+                                pass
                     break
 
 
