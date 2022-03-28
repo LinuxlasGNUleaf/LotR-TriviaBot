@@ -3,6 +3,7 @@ import random
 import yaml
 import discord
 from discord.ext import commands
+from cogs import _dcutils
 
 
 class QuoteGenerator(commands.Cog):
@@ -19,6 +20,7 @@ class QuoteGenerator(commands.Cog):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
+    @_dcutils.category_check('minigames')
     @commands.command(aliases=['qgen', 'quotegen'])
     async def quote(self, ctx, *players):
         char_range = self.bot.config['discord']['quotegen']['character_range']

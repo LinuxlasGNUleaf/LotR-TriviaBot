@@ -1,9 +1,9 @@
 import logging
 import random
-import discord
 from datetime import datetime
-from discord.ext import commands
 from difflib import SequenceMatcher
+import discord
+from discord.ext import commands
 
 class AutoRepost(commands.Cog):
     '''
@@ -26,10 +26,10 @@ class AutoRepost(commands.Cog):
         perms = msg.guild.me.permissions_in(msg.channel)
         if not (perms.send_messages and perms.attach_files and perms.embed_links):
             return
-        
+
         if msg.guild.id not in self.bot.config['discord']['autorepost']['servers']:
             return
-        
+
         if msg.author.id in self.cooldown_list:
             if (datetime.now() - self.cooldown_list[msg.author.id]).total_seconds() < self.bot.config['discord']['autorepost']['cooldown']:
                 return
