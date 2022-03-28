@@ -30,6 +30,7 @@ class Autogimli(commands.Cog):
             return
         if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked:
             return
+        perms = msg.guild.me.permissions_in(msg.channel)
 
         if msg.author.id in self.cooldown_list:
             if (datetime.now() - self.cooldown_list[msg.author.id]).total_seconds() < self.bot.config['discord']['autogimli']['cooldown']:
@@ -61,11 +62,12 @@ class Autogimli(commands.Cog):
                 return
 
 
-        if msg.guild.id in self.bot.config['discord']['autogimli']['special_reactions'].keys():
-            try:
-                await msg.add_reaction(self.bot.config['discord']['autogimli']['special_reactions'][msg.guild.id])
-            except discord.errors.HTTPException:
-                pass
+        if perms.add_reactions:
+            for reaction in self.bot.config['discord']['autogimli']['special_reactions'].setdefault(msg.guild.id,[]):
+                try:
+                    await msg.add_reaction(reaction)
+                except discord.errors.HTTPException:
+                    pass
 
         if gimli_count == 2 and self.bot.config['discord']['autogimli']['number_two_special_message']:
             await msg.channel.send('That still only counts as one!')

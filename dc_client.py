@@ -22,11 +22,10 @@ class LotrBot(commands.Bot):
         # updating the cache directories
         config['discord']['trivia']['cache'] = self.update_cache_path(config['discord']['trivia']['cache'])
         config['discord']['settings']['cache'] = self.update_cache_path(config['discord']['settings']['cache'])
-        config['reddit']['cache'] = self.update_cache_path(config['reddit']['cache'])
         config['discord']['trivia']['stats_cache'] = self.update_cache_path(config['discord']['trivia']['stats_cache'])
-
         config['discord']['token'] = self.update_cache_path(config['discord']['token'])
-        config['youtube']['token'] = self.update_cache_path(config['youtube']['token'])
+
+        config['reddit']['cache'] = self.update_cache_path(config['reddit']['cache'])
         config['reddit']['token'] = self.update_cache_path(config['reddit']['token'])
 
         # retrieving the cache files, creating empyt ones if necessary
@@ -39,7 +38,6 @@ class LotrBot(commands.Bot):
 
         # retrieving tokens from files, exiting if invalid
         self.token = self.get_token(config['discord']['token'], 'Discord Token')[0].strip()
-        self.yt_credentials = self.get_token(config['youtube']['token'], 'Youtube API Credentials')
         self.reddit_credentials = self.get_token(config['reddit']['token'], 'Reddit API Credentials')
 
         # setting intents

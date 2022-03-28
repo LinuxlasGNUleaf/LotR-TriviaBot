@@ -3,10 +3,13 @@ general:
     # version of the bot
     version: 2.6
     # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
-    prefix: ["lotr ","Lotr ","LOTR "]
+    prefix: ["lotr ", "Lotr ", "LOTR "]
     # python command to return the valid path for the cache folder
-    cache_path: {'linux':'$HOME/.config/discord/bots/lotr-bot/',
-                 'win32':'$appdata\discord\bots\lotr-bot\'}
+    cache_path:
+        {
+            "linux": "$HOME/.config/discord/bots/lotr-bot/",
+            "win32": '$appdata\discord\bots\lotr-bot\',
+        }
     # logfile location (in cache directory)
     logfile: dcbot.log
     # autosave interval in seconds
@@ -19,11 +22,11 @@ general:
 # settings for the reddit API used for pulling memes and stuff
 reddit:
     # token file for authentication of the bot (located in general/cache_path)
-    token: 'reddit.tk'
+    token: "reddit.tk"
     # useragent string for authenticating
-    useragent: 'post fetcher by /u/LotR-Fan42'
+    useragent: "post fetcher by /u/LotR-Fan42"
     # list of subreddits to pull posts from
-    subreddits: ["lotrmemes","Hobbit_Memes"]
+    subreddits: ["lotrmemes", "Hobbit_Memes"]
     # cache file for the list of pulled posts (located in general/cache_path)
     cache: meme_log.pyobj
     # interval in minutes before the pulled posts are considered outdated and are refetched
@@ -33,32 +36,13 @@ reddit:
     # video thumbnail url for video posts
     video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
 
-# settings for the youtube data API for searching for YT videos
-youtube:
-    # channel id for video search
-    channel_id: UCYXpatz5Z4ek0M_5VR-Qt1A
-    # number of search results to display
-    max_video_count: 3
-    # token file for the authentication (located in general/cache_path)
-    token: google.tk
-    # blacklist to remove obsolete lines from description 
-    desc_blacklist: [teh lurd of teh reings youtube channel, media, shop, facebook.com,
-                     instagram.com, music used, ♫, just a facebook page, pardun us,
-                     for ur, donation, discord, we post, like, follow, luminous,
-                     outro, sub, sale, bit.ly, playlist, editor, channel]
-
-# settings for google search API
-google:
-    # "site:"-argument to use in google search 
-    site: tolkiengateway.net
-
 # settings for the discord bot, all the DC-related minigames and configs
 discord:
     # token file for authentication of the bot (located in general/cache_path)
     token: discord.tk
 
     # emojis for visual indicators
-    indicators: [':x:',':white_check_mark:']
+    indicators: [":x:", ":white_check_mark:"]
     # settings for the bot
     settings:
         # cache file for storing the settings specified for different servers (located in general/cache_path)
@@ -69,7 +53,7 @@ discord:
             You can use the settings command in cases where you want to enable / disable specific categories.
             *Please note: If you want to completely turn off the bot in some parts of your server, use Channel Settings
             to disallow the bot to prevent the bot from sending messages there.*
-            
+
             You can set preferences for a server or a channel (DMs excluded), which means you set the category to on / off.
             If set, the *channel preference* for a category will __always__ be preferred.
             If the *channel preference* for this category is not set, the server-preference will be used.
@@ -88,7 +72,7 @@ discord:
             - *Third argument*: What mode do you want the setting to have?
             These are the modes that are available:
             `on`,`off`,`reset`
-            Note: `reset` deletes the server/channel-preference, which makes the bot fall back to the next layer (see attached image) 
+            Note: `reset` deletes the server/channel-preference, which makes the bot fall back to the next layer (see attached image)
 
         # list of config categories (for internal use only, don't edit)
         categories:
@@ -97,17 +81,10 @@ discord:
             - minigames
             - lore
             - battles
-        
+
         # fallback permissions, used when no relevant config is set at all
-        defaults: {autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0}
-    
-    # silmarillion quote settings
-    silmarillion:
-        # file containing the Silmarillion
-        file: silmarillion.txt
-        # number of sentences to be displayed
-        sentence_count: 2
-    
+        defaults: { autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0 }
+
     # time for all participants of a battle to check in
     ready_check_timeout: 180
 
@@ -125,7 +102,11 @@ discord:
         # voting time for non-participants
         voting_time: 3600
         # dict of roles to ping for voting, format is: {server_id: role_id, server_id2: role_id2, ...}
-        voting_roles: {566219783377518592: 854003662891647006, 333978604763348993: 854006900042498078}
+        voting_roles:
+            {
+                566219783377518592: 854003662891647006,
+                333978604763348993: 854006900042498078,
+            }
 
     # trivia game settings
     trivia:
@@ -134,7 +115,7 @@ discord:
         # extra-time added to the timeout (in seconds) without regard of the length of the question
         extra_time: 5.0
         # marker used to mark correct answer
-        marker: '*'
+        marker: "*"
         # cache file for storing the trivia scoreboard (located in general/cache_path)
         cache: scoreboard.pyobj
         # link to trivia form to submit new questions
@@ -146,26 +127,32 @@ discord:
             - "Are these questions 2 ez 4 u? Submit new ones here: {}"
             - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
         # Double quotes ("") are important here, otherwise the escape sequence \n is not recognized
-        medals: ["🥇 __Eru Ilúvatar:__ \n{}", "🥈 __Manwë:__\n{}", "🥉 __Galadriel:__\n{}\n", "{}"]
+        medals:
+            [
+                "🥇 __Eru Ilúvatar:__ \n{}",
+                "🥈 __Manwë:__\n{}",
+                "🥉 __Galadriel:__\n{}\n",
+                "{}",
+            ]
 
-        scoreboard_line: '**[{} pts / {}%]** {}'
-        scoreboard_streak: ' :dart: *Streak of {} wins*'
+        scoreboard_line: "**[{} pts / {}%]** {}"
+        scoreboard_streak: " :dart: *Streak of {} wins*"
         # probability to display the link and a tip
         tip_probability: 0.05
         # top X players to show on the scoreboard
         scoreboard_max: 25
         # minimum number of players in a server necessary to create a graphical scoreboard
-        gscoreboard_min: 10 
+        gscoreboard_min: 10
         # maximum number of players to display on the graphical scoreboard
         gscoreboard_max: 15
         # file for storing anonymous statistics about the trivia games (located in general/cache_path)
-        stats_cache: 'questions_stats.txt'
-    
+        stats_cache: "questions_stats.txt"
+
     # hangman game settings
     hangman:
         # time limit for each guess
         timeout: 20
-        # ascii-art for the hangman game 
+        # ascii-art for the hangman game
         ongoing_states:
             - "``` \n \n \n \n \nililililillllililii```"
             - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
@@ -178,6 +165,26 @@ discord:
             - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
             - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"
 
+    # quote generator settings
+    quotegen:
+        # the min/max numbers of characters allowed
+        character_range: [1, 6]
+        # dict to translate number to word
+        num2word:
+            {
+                1: 'single',
+                2: 'double',
+                3: 'triple',
+                4: 'quad',
+                5: 'penta',
+                6: 'hexa',
+            }
+        # include nsfw-quotes
+        include_nsfw: true
+
+        # source url for the generator
+        generator_url: 'https://perchance.org/incorrect-quote-generator'
+
     # autoscript settings
     autoscript:
         # script file for autoscript
@@ -185,80 +192,49 @@ discord:
         # determines whether the autoscript should stop at the end of a scene
         scene_end_interrupt: False
         # settings for the condensed script (for internal use only)
-        punctuation_chars: ['?','!','.',':',';']
-        elimination_chars: ["'",","]
+        punctuation_chars: ["?", "!", ".", ":", ";"]
+        elimination_chars: ["'", ","]
         # threshold for the SequenceMatcher a message has to meet to be accepted as a quote input
-        threshold: 0.85 
+        threshold: 0.85
         # number of lines of the script that will be outputted
         dialog_count: 2
 
     autogimli:
         # interval in which autogimli will be triggered
-        interval: [2,100000]
+        interval: [2, 100000]
         # chance an autogimli event will happen (1 in x, 1/x)
-        chance: 100
+        chance: 10
         # cooldown in seconds before autogimli will react to the same user again
         cooldown: 300
         # custom emojis to react with on messages, server-specific
-        special_reactions: {566219783377518592 : '<:Gumli:596753586147426355>'}
+        special_reactions: { 566219783377518592: "<:Gumli:596753586147426355>" }
         # whether or not a special message is displayed if the number 2 (two) is detected
         number_two_special_message: True
 
-
-    autorepost:
-        # match threshold for the repost msg to trigger
-        threshold: 0.91
-        # servers where this function will be active
-        servers: [566219783377518592, 333978604763348993]
-        # reactions to add to the message
-        reactions: ['⛔','🚨','🤡','♻️','🗿','💀','🙅','🔁']
-        special_reactions: {
-            566219783377518592 : [
-                '<:Merry_Cursed:907358928608854046>',
-                '<:wtf:885251412131471440>',
-                '<:thoREEn:907360935973380096>',
-                '<:Nezgul:596753590899572772>'
-                ]
-            }
-        # trigger words to look for
-        trigger_words:
-            - repost
-            - reposting
-            - reposted
-        # cooldown in seconds before autorepost will react to the same user again
-        cooldown: 300
-        # authors of the embed
-        media:
-            - 'https://c.tenor.com/jcxlwCGt5YwAAAAC/jurassic-park-repost.gif'
-            - 'https://c.tenor.com/wziKCIFwyxcAAAAC/repost-running.gif'
-            - 'https://c.tenor.com/YFyrK_pv48wAAAAC/doug-walker.gif'
-            - 'https://i.kym-cdn.com/photos/images/newsfeed/002/173/133/6cc.png'
-            - 'https://c.tenor.com/BgnsxdrEVYoAAAAC/lord-of-the-rings-frodo.gif'
-            - 'https://c.tenor.com/kJ8qxgXdg2AAAAAd/monkey-repost-for-monkey-ignore-for-human.gif'
-            - 'https://c.tenor.com/I4ckOlVhnqkAAAAd/older-meme-sir-let-it-be.gif'
-
-
     #color codes for Embeds
-    colors: {'WHITE': 0xFFFFFF,
-             'AQUA': 0x1ABC9C,
-             'GREEN': 0x2ECC71,
-             'BLUE': 0x3498DB,
-             'PURPLE': 0x9B59B6,
-             'LUMINOUS_VIVID_PINK': 0xE91E63,
-             'GOLD': 0xF1C40F,
-             'ORANGE': 0xE67E22,
-             'RED': 0xE74C3C,
-             'NAVY': 0x34495E,
-             'DARK_AQUA': 0x11806A,
-             'DARK_GREEN': 0x1F8B4C,
-             'DARK_BLUE': 0x206694,
-             'DARK_PURPLE': 0x71368A,
-             'DARK_VIVID_PINK': 0xAD1457,
-             'DARK_GOLD': 0xC27C0E,
-             'DARK_ORANGE': 0xA84300,
-             'DARK_RED': 0x992D22,
-             'DARK_NAVY': 0x2C3E50}
-    
+    colors:
+        {
+            "WHITE": 0xFFFFFF,
+            "AQUA": 0x1ABC9C,
+            "GREEN": 0x2ECC71,
+            "BLUE": 0x3498DB,
+            "PURPLE": 0x9B59B6,
+            "LUMINOUS_VIVID_PINK": 0xE91E63,
+            "GOLD": 0xF1C40F,
+            "ORANGE": 0xE67E22,
+            "RED": 0xE74C3C,
+            "NAVY": 0x34495E,
+            "DARK_AQUA": 0x11806A,
+            "DARK_GREEN": 0x1F8B4C,
+            "DARK_BLUE": 0x206694,
+            "DARK_PURPLE": 0x71368A,
+            "DARK_VIVID_PINK": 0xAD1457,
+            "DARK_GOLD": 0xC27C0E,
+            "DARK_ORANGE": 0xA84300,
+            "DARK_RED": 0x992D22,
+            "DARK_NAVY": 0x2C3E50,
+        }
+
     # status messages for the bot
     status:
         - Boromir not simply walk into Mordor
@@ -273,6 +249,7 @@ discord:
         - Smeagol smacc Sam with a stone
         - Aragorn charging for Frodo
         - Tom Bombadil singing and stomping through the Old Forest
+        - Bombur devouring the universe
 
     # insults for failed trivia games or invalid queries
     insults:
