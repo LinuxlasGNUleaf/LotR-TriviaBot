@@ -21,7 +21,7 @@ class QuoteGenerator(commands.Cog):
                          self.__class__.__name__.title())
 
     @_dcutils.category_check('minigames')
-    @commands.command(aliases=['qgen', 'quotegen'])
+    @commands.command(aliases=['qgen', 'quotegen','story','sgen'])
     async def quote(self, ctx, *players):
         char_range = self.bot.config['discord']['quotegen']['character_range']
         if len(players) not in range(char_range[0],char_range[1]+1):
@@ -35,7 +35,7 @@ class QuoteGenerator(commands.Cog):
             title_str += ', '.join(players[:-1]) + ' and '+players[-1]
         embed = discord.Embed()
         embed.set_author(name=title_str, icon_url=ctx.author.avatar_url, url=self.bot.config['discord']['quotegen']['generator_url'])
-        embed.set_footer(text='Please check out the original generator (link is in title), it\'s pretty epic 😎')
+        embed.set_footer(text='-'*100+'\nPlease check out the original generator (link is in title), it\'s pretty epic 😎')
 
         players = list(players)
         random.shuffle(players)
