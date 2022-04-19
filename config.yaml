@@ -203,11 +203,11 @@ discord:
         # interval in which autogimli will be triggered
         interval: [2, 100000]
         # chance an autogimli event will happen (1 in x, 1/x)
-        chance: 10
+        chance: 100
         # cooldown in seconds before autogimli will react to the same user again
         cooldown: 300
         # custom emojis to react with on messages, server-specific
-        special_reactions: { 566219783377518592: "<:Gumli:596753586147426355>" }
+        special_reactions: { 566219783377518592: ["<:Gumli:596753586147426355>"] }
         # whether or not a special message is displayed if the number 2 (two) is detected
         number_two_special_message: True
 

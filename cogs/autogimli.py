@@ -23,7 +23,6 @@ class Autogimli(commands.Cog):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @commands.cooldown(10, 10)
     @commands.Cog.listener('on_message')
     async def autogimli(self, msg):
         if random.randint(0, self.bot.config['discord']['autogimli']['chance']-1) != 0:
