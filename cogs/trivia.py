@@ -7,11 +7,14 @@ from io import BytesIO
 import math
 import logging
 import random
+from socket import timeout
 import matplotlib.pyplot as plt
 import numpy as np
 import discord
 from discord.ext import commands
-from cogs import _dcutils
+from discord import ui
+import backend_utils
+import dc_utils
 
 plt.rcdefaults()
 
@@ -24,17 +27,14 @@ class Trivia(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
-        self.reply = (lambda won, author, text='': self.bot.config['discord']['indicators'][won] + ' ' + random.choice(
-            self.bot.config['discord']['compliments'] if won else self.bot.config['discord']['insults']).format(author.display_name) + text)
 
 
-    @commands.Cog.listener()
-    async def on_ready(self):
+    async def cog_load(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
 
-    @_dcutils.category_check('minigames')
+    @dc_utils.category_check('minigames')
     @commands.command(name='profile')
     async def display_profile(self, ctx):
         '''
@@ -42,11 +42,11 @@ class Trivia(commands.Cog):
         '''
         user = ctx.author
         if not user.id in self.bot.scoreboard.keys():
-            await ctx.send(f'You have to play a game of trivia before a profile can be generated! Use `{self.bot.config["general"]["prefix"]} trivia` to take a quiz!')
+            await ctx.send(f'You have to play a game of trivia before a profile can be generated! Use `{self.bot.config["discord"]["prefix"]} trivia` to take a quiz!')
             return
 
         embed = discord.Embed(title=f'{user.display_name}\'s profile')
-        embed.set_thumbnail(url=user.avatar_url)
+        embed.set_thumbnail(url=user.avatar.url)
         embed.color = random.choice(self.bot.color_list)
 
         player_stats = self.get_scoreboard(user)
@@ -63,69 +63,16 @@ class Trivia(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @_dcutils.category_check('minigames')
+    @dc_utils.category_check('minigames')
     @commands.command(name='trivia', aliases=['tr', 'triv', 'quiz'])
     async def trivia_quiz(self, ctx):
         '''
         a multiple-choice trivia quiz with ME-related questions
         '''
-        player_stats = self.get_scoreboard(ctx.author)
-        player_stats[0] += 1
-
-        embed, question, correct_index, timeout = self.get_trivia_question(
-            ctx.author, player_stats)
-        await ctx.send(embed=embed, delete_after=timeout)
-
-        if question in self.bot.stats_cache:
-            qstats = list(self.bot.stats_cache[question])
-            qstats[0] += 1
-        else:
-            qstats = [1, 0]
-
-        # block user from sending any commands
-        self.bot.blocked.append(ctx.author.id)
-        try:
-            # function to check whether the users's reply is valid
-            def check(chk_msg):
-                return chk_msg.author == ctx.author and chk_msg.channel == ctx.channel
-
-            msg = await self.bot.wait_for('message', check=check, timeout=timeout)
-
-            if not msg.content.isdecimal():  # not a digit
-                await ctx.send(self.reply(False, ctx.author, '\nWhat is that supposed to be? Clearly not a digit...'))
-
-            elif int(msg.content) == correct_index:  # right answer
-                player_stats[1] += 1  # add one win
-                player_stats[2] += 1  # add one to the streak
-                qstats[1] += 1       # mark question as correctly answered
-                if player_stats[2] and player_stats[2] % 5 == 0:
-                    await ctx.send(self.reply(True, ctx.author, f'\n:dart: Streak of **{player_stats[2]} wins**! Keep it up!'))
-                else:
-                    await ctx.send(self.reply(True, ctx.author))
-
-            else:  # invalid digit
-                if player_stats[2] >= 5:
-                    await ctx.send(self.reply(False, ctx.author, '\n:no_entry_sign: Your streak ended...'))
-                else:
-                    await ctx.send(self.reply(False, ctx.author))
-                player_stats[2] = 0
-
-        except asyncio.TimeoutError:
-            await ctx.send(self.reply(False, ctx.author, '\nYou took too long to answer!'))
-
-        # unblock user
-        self.bot.blocked.remove(ctx.author.id)
-
-        self.bot.stats_cache[question] = tuple(qstats)
-        self.set_scoreboard(ctx.author, player_stats)
-
-        # certain chance to send a small tip
-        if random.random() <= self.bot.config['discord']['trivia']['tip_probability']:
-            tip = random.choice(self.bot.config['discord']['trivia']['tips'])
-            await ctx.send(tip.format(self.bot.config['discord']['trivia']['link']), delete_after=30)
+        view = TriviaView(ctx, self)
 
 
-    @_dcutils.category_check('minigames')
+    @dc_utils.category_check('minigames')
     @commands.command(name='scoreboard')
     @commands.guild_only()
     async def display_scoreboard(self, ctx):
@@ -140,33 +87,33 @@ class Trivia(commands.Cog):
 
         # prepare trivia embed
         scoreboard = ''
-        medals = self.bot.config['discord']['trivia']['medals']
-        scoreboard_line = self.bot.config['discord']['trivia']['scoreboard_line']
+        medals = self.bot.config['trivia_quiz']['medals']
+        scoreboard_line = self.bot.config['trivia_quiz']['scoreboard_line']
 
         count = 1
         for i, user in enumerate(found_users[::-1]):
             # create a formatted line for the user containing info about their games
             temp = scoreboard_line.format(user[2], round(user[2]/user[1]*100, 1), user[0])
 
-            if user[3] >= 5:  # if user has an active streak, add a not to the line
-                temp += self.bot.config['discord']['trivia']['scoreboard_streak'].format(user[3])
+            if user[3] >= 5:  # if user has an active streak, add a note to the line
+                temp += self.bot.config['trivia_quiz']['scoreboard_streak'].format(user[3])
 
             # add a medal if necessary and append line to the scoreboard
             scoreboard += medals[min(i, len(medals)-1)].format(temp)+'\n'
             count += 1
 
             # break after X users (defined in config)
-            if count > self.bot.config['discord']['trivia']['scoreboard_max']:
+            if count > self.bot.config['trivia_quiz']['scoreboard_max']:
                 break
 
         # determine title, abort if fewer than two players have played a game yet
         if count > 1:
             title = f'Top {count} Trivia Players in *{ctx.guild}*'
         elif count == 1:
-            await ctx.send(f'More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use `{self.bot.config["general"]["prefix"]} profile`')
+            await ctx.send(f'More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use `{self.bot.config["discord"]["prefix"]} profile`')
             return
         else:
-            await ctx.send(f'You have to play a game of trivia before a scoreboard can be generated! Use `{self.bot.config["general"]["prefix"]} trivia` to take a quiz!')
+            await ctx.send(f'You have to play a game of trivia before a scoreboard can be generated! Use `{self.bot.config["discord"]["prefix"]} trivia` to take a quiz!')
             return
 
         # finish the scoreboard embed
@@ -174,8 +121,8 @@ class Trivia(commands.Cog):
                               color=random.choice(self.bot.color_list))
 
         # only create a graphical scoreboard if more than the defined minimum of players played a game yet
-        if len(found_users) >= self.bot.config['discord']['trivia']['gscoreboard_min']:
-            top_users = found_users[-1 * self.bot.config['discord']['trivia']['gscoreboard_max']:]
+        if len(found_users) >= self.bot.config['trivia_quiz']['gscoreboard_min']:
+            top_users = found_users[-1 * self.bot.config['trivia_quiz']['gscoreboard_max']:]
             len_users = len(top_users)
             names, g_taken, g_won, _ = list(zip(*top_users))
             index = np.arange(len_users)
@@ -183,8 +130,7 @@ class Trivia(commands.Cog):
             max_val = max(g_won)+1
 
             for i in range(len_users):
-                val = _dcutils.map_vals(
-                    g_won[i]/g_taken[i], .2, 1, 0, 1)
+                val = dc_utils.map_vals(g_won[i]/g_taken[i], .2, 1, 0, 1)
                 g_ratio.append([1-val, val, 0])
 
             # create plot
@@ -216,126 +162,20 @@ class Trivia(commands.Cog):
 
 
     def get_scoreboard(self, user):
-        if user.id in self.bot.scoreboard.keys():
-            return list(self.bot.scoreboard[user.id])
-        else:
-            return [0, 0, 0]  # count, wins, streak
-
-
-    def set_scoreboard(self, user, player_stats):
-        self.bot.scoreboard[user.id] = tuple(player_stats)
-
-
-    @_dcutils.category_check('battles')
-    @commands.command(name='triviabattle', aliases=['tbattle', 'tb', 'trivia-battle', 'triviafight', 'tfight', 'tf'])
-    @commands.guild_only()
-    async def quote_battle(self, ctx):
         '''
-        starts a trivia battle between two users
+        retrieves [count, wins, streak] for the userfrom the scoreboard
         '''
-        # use the util to get a ready check from everyone involved
-        result, players = await _dcutils.handle_ready_check(self.bot, ctx)
-        if not result:
-            return
-
-        # create user DMs, in case they did not yet exist
-        scoreboard = {player: 0 for player in players}
-        max_char = 0
-        for player in players:
-            max_char = max(len(player.display_name), max_char)
-            if not player.dm_channel:
-                await player.create_dm()
-
-        lead = [0, 0]
-        # preparing score embed
-        embed = discord.Embed(title='LotR Triviabattle',
-                              color=self.bot.config['discord']['colors']['DARK_RED'])
-        embed.description = '```\n'
-        for player, score in scoreboard.items():
-            embed.description += f'{player.display_name.ljust(max_char+1)}: {score}\n'
-        embed.description += '```'
-
-        score_msg = await ctx.send(embed=embed)
-        round_ind = 0
-        timeout_rounds = 3
-
-        def answer_check(chk_msg):
-            # check whether author is opponent and channel is the corresponding DM
-            if chk_msg.author in pending and chk_msg.channel == chk_msg.author.dm_channel:
-                # remove user from pending
-                pending.remove(chk_msg.author)
-                if chk_msg.content.strip().isdecimal():
-                    # save whether the answer is correct in answers
-                    answers[player] = (int(chk_msg.content.strip()) == correct_index)
-            # return true if pending is empty
-            return not pending
-
-        while True:
-            # reset / manage round variables
-            round_ind += 1
-            pending = players.copy()
-            answers = {player: -1 for player in players}
-
-            # get new trivia question and distribute it
-            embed, _, correct_index, timeout = self.get_trivia_question()
-            for player in players:
-                await player.dm_channel.send(embed=embed)
-
-            # try to get an answer from all pending players
-            try:
-                await self.bot.wait_for('message', check=answer_check, timeout=timeout)
-            except asyncio.TimeoutError:
-                pass
-
-            correct_answers = 0
-            for player, won in answers:
-                if won != -1:
-                    correct_answers += won
-                    scoreboard[player] += won
-                    await player.dm_channel.send(self.reply(won, player))
-                else:
-                    await player.dm_channel.send(self.reply(False, player) + 'You didn\'t answer in time!')
-
-            if correct_answers == 0:
-                timeout_rounds -= 1
-                if not timeout_rounds:
-                    await ctx.send(self.bot.config['discord']['indicators'][0] + ' Game timed out.')
-                    return
-            else:
-                timeout_rounds = 3
-                for player in players:
-                    await player.dm_channel.send(f'Round concluded. {correct_answers} out of {len(players)} players gave the right answer.')
-
-            # determining leading two players
-            lead = [0, 0]
-            for score in scoreboard.values():
-                if score > lead[0]:
-                    lead.insert(0, score)
-                elif score > lead[1]:
-                    lead.insert(1, score)
-                lead = lead[:2]
-
-            # update score embed
-            embed.description = '```\n'
-            for player, score in scoreboard.items():
-                embed.description += f'{player.display_name.ljust(max_char+1)}: {score}\n'
-            embed.description += '```'
-            if lead[0] > lead[1]:
-                embed.set_footer(text='Matchpoint!')
-            else:
-                embed.set_footer(text='')
-            await score_msg.edit(embed=embed)
-
-            # exit condition
-            if lead[0] > lead[1]+1 > 1 and lead[0]+lead[1] > 2:
-                for player, score in scoreboard:
-                    if score == lead[0]:
-                        await ctx.send(f'Congratulations, {player.mention} You won the game!\n')
-                        return
-                await ctx.send(self.bot.config['discord']['indicators'][0] + ' Error while determining winner. Aborting.')
+        return self.bot.caches['trivia_scores'].setdefault(user.id, [0,0,0])
 
 
-    def get_trivia_question(self, player=None, player_stats=None):
+    def set_scoreboard(self, user, count, wins, streak):
+        '''
+        writes [count, wins, streak] for the user to the scoreboard
+        '''
+        self.bot.caches['trivia_scores'][user.id] = [count, wins, streak]
+
+
+    def get_trivia_question(self, player, count):
         '''
         retrieves question from .csv file
         '''
@@ -354,17 +194,17 @@ class Trivia(commands.Cog):
 
             answers = content.copy()
             for i, item in enumerate(answers):
-                if item.startswith(self.bot.config['discord']['trivia']['marker']):
+                if item.startswith(self.bot.config['trivia_quiz']['marker']):
                     answers[i] = item[1:]
-                    correct_index = i+1
+                    correct_index = i
                     break
             if correct_index < 0:
                 print(f'Invalid question found: {question}')
 
         embed = discord.Embed(title=question)
-        if player_stats and player:
+        if player:
             embed.set_author(
-                name=f'{player.display_name}\'s {_dcutils.ordinal(player_stats[0])} trial in the Arts of Middle Earth trivia', url=player.avatar_url)
+                name=f'{player.display_name}\'s {backend_utils.ordinal(count)} trial in the Arts of Middle Earth trivia', url=player.avatar.url)
         else:
             embed.set_author(
                 name='Your trial in the Arts of Middle Earth trivia')
@@ -376,16 +216,88 @@ class Trivia(commands.Cog):
         embed.description = text
 
         # calculate the timeout
-        timeout = round(char_count / self.bot.config['discord']['trivia']['multiplier'] +
-                        self.bot.config['discord']['trivia']['extra_time'])
+        timeout = round(char_count / self.bot.config['trivia_quiz']['multiplier'] +
+                        self.bot.config['trivia_quiz']['extra_time'])
 
         embed.add_field(name=':stopwatch: Timeout:',
                         value=f'{timeout} seconds')
         embed.add_field(name=':book: Source:',
                         value=source)
-        embed.color = random.choice(self.bot.color_list)
-        return (embed, question, correct_index, timeout)
+        embed.color = self.bot.colors['AQUA']
+        return (embed, len(answers), correct_index, timeout)
 
+class TriviaQuizButton(discord.ui.Button['TriviaView']):
+    def __init__(self, style: discord.ButtonStyle, i: int):
+        self.index = i
+        super().__init__(style=style, label=i+1)
 
-def setup(bot):
-    bot.add_cog(Trivia(bot))
+    async def callback(self, _):
+        await self.view.check_answer(self.index)
+
+class TriviaSelectButton(discord.ui.Button['TriviaView']):
+    def __init__(self, style: discord.ButtonStyle, i: int, correct: bool):
+        self.index = i
+        self.correct = correct
+        super().__init__(style=style, label=i+1)
+
+    async def callback(self, interaction: discord.Interaction):
+        self.view.check_answer(self.index, self.correct)
+
+class TriviaView(discord.ui.View):
+    QUIZ = 1
+    SELECT = 0
+    WAIT = 2
+
+    def __init__(self, context, cog):
+        super().__init__()
+        self.ctx = context
+        self.bot = context.bot
+        self.cog = cog
+
+        self.trivia_msg = None
+
+        self.trivia_buttons = []
+        self.userstats = self.cog.get_scoreboard(self.ctx.author)
+        self.correct_index = -1
+
+        self.select_buttons = []
+
+        self.setup_question()
+    
+    def setup_question(self):
+        self.userstats[0] += 1
+        # send trivia embed
+        embed, answer_count, self.correct_index, timeout = self.cog.get_trivia_question(self.ctx.author, self.userstats[0])
+        
+        for i in range(answer_count):
+            new_button = TriviaQuizButton(discord.ButtonStyle.blurple, i)
+            self.add_item(new_button)
+            self.trivia_buttons.append(new_button)
+        self.game_state = self.QUIZ
+        self.bot.loop.create_task(self.waitfor_response(embed, timeout))
+
+    async def waitfor_response(self, embed, timeout):
+        self.trivia_msg = await self.ctx.send(embed=embed, view=self)
+        await asyncio.sleep(timeout)
+        if self.game_state == self.QUIZ:
+            await self.display_result(False)
+    
+    async def display_result(self, correct):
+        await self.trivia_msg.edit(content=dc_utils.create_response(self.bot.config, self.ctx.author, correct),view=self)
+        
+    async def check_answer(self, button_index):
+        if self.game_state == self.QUIZ:
+            self.game_state == self.WAIT
+        else:
+            return
+        correct = self.correct_index == button_index
+
+        for i, button in enumerate(self.trivia_buttons):
+            if i == button_index:
+                button.style = discord.ButtonStyle.green if correct else discord.ButtonStyle.red
+            button.disabled = True
+
+        await self.display_result(correct)
+        
+async def setup(bot):
+    await bot.add_cog(Trivia(bot))

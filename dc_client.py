@@ -5,96 +5,176 @@ import random
 import asyncio
 from datetime import datetime
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
+
+import backend_utils
 
 class LotrBot(commands.Bot):
     '''
     The LotR-Bot. Subclass of discord.ext.commands.Bot
     '''
-    def __init__(self, config):
+    def __init__(self, config, script_dir, work_dir):
         self.started = False
         self.logger = logging.getLogger(__name__)
-        # evaluating cache directory
-        config['general']['cache_path'] = os.path.expandvars(config['general']['cache_path'])
+
+        self.script_dir = script_dir
+        self.cog_dir = os.path.join(script_dir, *config['backend']['cog_dir'])
+        self.cog_prefix =  '.'.join(config['backend']['cog_dir'])+'.'
+
+        self.work_dir = work_dir
+        self.script_dir = script_dir
+        self.token_dir = os.path.join(work_dir, config['backend']['token_dir']) 
+        self.cache_dir = os.path.join(work_dir, config['backend']['cache_dir'])
+        os.makedirs(self.token_dir, exist_ok=True)
+        os.makedirs(self.cache_dir, exist_ok=True)
 
         self.config = config
+        self.caches = {}
+        self.tokens = {}
 
-        # updating the cache directories
-        config['discord']['trivia']['cache'] = self.update_cache_path(config['discord']['trivia']['cache'])
-        config['discord']['settings']['cache'] = self.update_cache_path(config['discord']['settings']['cache'])
-        config['discord']['trivia']['stats_cache'] = self.update_cache_path(config['discord']['trivia']['stats_cache'])
-        config['discord']['token'] = self.update_cache_path(config['discord']['token'])
+        # load tokens
+        with backend_utils.LogManager(self.logger, logging.INFO, 'token loading', self.config['backend']['log_width']):
+            for token, tfile in self.config['backend']['tokens'].items():
+                tname = tfile
+                tfile = os.path.join(self.token_dir,tfile)
+                self.tokens[token] = self.load_token(tfile, tname)
 
-        config['reddit']['cache'] = self.update_cache_path(config['reddit']['cache'])
-        config['reddit']['token'] = self.update_cache_path(config['reddit']['token'])
+        # load caches
+        with backend_utils.LogManager(self.logger, logging.INFO, 'cache loading', self.config['backend']['log_width']):
+            for cache, cfile in self.config['backend']['caches'].items():
+                cname = cfile
+                cfile = os.path.join(self.cache_dir,cfile)
+                self.caches[cache] = self.load_cache(cfile, cname)
 
-        # retrieving the cache files, creating empyt ones if necessary
-        self.scoreboard = self.get_cache(config['discord']['trivia']['cache'], 'Scoreboard Cache')
-        self.settings = self.get_cache(config['discord']['settings']['cache'], 'Settings Cache')
-        self.meme_cache = self.get_cache(config['reddit']['cache'], 'Reddit Cache')
-        self.stats_cache = self.get_cache(config['discord']['trivia']['stats_cache'], 'Trivia Game Statistics')
-        self.blocked = []
+        self.blocked_users = []
         self.busy_channels = []
-
-        # retrieving tokens from files, exiting if invalid
-        self.token = self.get_token(config['discord']['token'], 'Discord Token')[0].strip()
-        self.reddit_credentials = self.get_token(config['reddit']['token'], 'Reddit API Credentials')
+        self.colors = config['discord']['colors']
 
         # setting intents
-        intents = discord.Intents.default()
-        #pylint:disable=assigning-non-slot
-        intents.members = True
+        intents = discord.Intents.all()
 
-        # getting misc stuff from config
-        self.color_list = list(c for c in self.config['discord']['colors'].values())
-        self.start_time = datetime.now()
-
-        # starting autosave
-        asyncio.get_event_loop().create_task(self.auto_save())
-
-        # calling the Base Constructor
+        # calling the Superclass-Constructor
         super().__init__(
-            command_prefix=config['general']['prefix'],
+            command_prefix=config['discord']['prefix'],
             intents=intents,
-            case_insensitive=True
+            case_insensitive=True,
+            activity=self.get_random_presence()
         )
-
-    async def auto_save(self):
-        '''
-        autosave feature
-        '''
-        self.logger.info('Autosave initialized.')
-        while True:
-            await asyncio.sleep(self.config['general']['autosave'])
-            self.save_caches()
-            self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
-
+    
     async def on_ready(self):
         if not self.started:
             self.logger.info('Logged in as: %s : %s', self.user.name, self.user.id)
-        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,name=random.choice(self.config['discord']['status'])))
+    
+    async def start(self, *, reconnect: bool = True):
+        # load cogs
+        await self.load_cogs()
 
+        # adjust task intervals
+        self.autosave.change_interval(minutes=self.config['backend']['autosave'])
+        self.autopresence.change_interval(minutes=self.config['discord']['autopresence'])
+
+        # start tasks
+        self.autosave.start()
+        self.autopresence.start()
+
+        # save startup time
+        self.start_time = datetime.now()
+
+        # start connection
+        await super().start(token=self.tokens['discord'][0], reconnect=reconnect)
+
+    async def load_cogs(self, cog_list = []):
+        cog_list = cog_list if cog_list else self.get_all_cogs()
+        status = {x:'' for x in cog_list}
+        with backend_utils.LogManager(self.logger, logging.INFO, 'cog loading', self.config['backend']['log_width']):
+            for cog in cog_list:
+                try:
+                    logging.info(f'Attempting to load {cog}...')
+                    await self.load_extension(cog)
+                except commands.ExtensionFailed as exc:
+                    logging.error(f'{cog} failed with the following exception:')
+                    with backend_utils.LogManager(self.logger, logging.ERROR, 'EXCEPTION', self.config['backend']['log_width']):
+                        logging.exception(exc)
+        return status
+    
+    async def unload_cogs(self, cog_list = []):
+        cog_list = cog_list if cog_list else self.get_all_cogs()
+        status = {x:'' for x in cog_list}
+        with backend_utils.LogManager(self.logger, logging.INFO, 'cog unloading', self.config['backend']['log_width']):
+            for cog in cog_list:
+                try:
+                    logging.info(f'Attempting to unload {cog}...')
+                    await self.unload_extension(cog)
+                except commands.ExtensionNotFound:
+                    logging.error(f'{cog} could not be found in this package and will be skipped.')
+                    status[cog] = 'N/A'
+                except commands.ExtensionNotLoaded:
+                    logging.error(f'{cog} was not loaded and will be skipped.')
+        return status
+
+    async def reload_cogs(self, cog_list = []):
+        print(f'Active cogs: {self.get_active_cogs()}')
+        print(f'All cogs: {self.get_all_cogs()}')
+        cog_list = cog_list if cog_list else set(self.get_active_cogs()+self.get_all_cogs())  
+        status = {x:'' for x in cog_list}
+        with backend_utils.LogManager(self.logger, logging.INFO, 'cog reloading', self.config['backend']['log_width']):    
+            for cog in cog_list:
+                logging.info(f'Attempting to reload {cog} ...')
+                try:
+                    await self.unload_extension(cog)
+                    await self.load_extension(cog)
+                    status[cog] = 'OK'
+                except commands.ExtensionNotFound:
+                    logging.warning(f'{cog} could not be found and will be skipped.')
+                    status[cog] = 'N/A'
+                except (commands.ExtensionFailed, commands.NoEntryPointError) as exc:
+                    logging.error(f'{cog} failed with the following exception:')
+                    with backend_utils.LogManager(self.logger, logging.ERROR, 'EXCEPTION', self.config['backend']['log_width']):
+                        logging.exception(exc)
+                    status[cog] = "FAIL"
+                except commands.ExtensionNotLoaded:
+                    logging.info(f'{cog} was not loaded before and will be loaded instead of reloaded.')
+                    await self.load_cogs([cog])
+                    status[cog] = "NEW"
+        
+        return status
+
+    @tasks.loop()
+    async def autosave(self):
+        self.save_caches()
+        self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
+
+    @autosave.before_loop
+    async def before_autosave(self):
+        self.logger.info(f'Autosave is ready and will start in {int(self.autosave.minutes)} minutes.')
+        await asyncio.sleep(self.autosave.minutes*60)
+
+    @tasks.loop()
+    async def autopresence(self):
+        newActivity = self.get_random_presence()
+        self.logger.info(f'Changing presence to: "Watching {newActivity.name}"')
+        self.change_presence(activity=newActivity)
+    
+    @autopresence.before_loop
+    async def before_autopresence(self):
+        self.logger.info('Waiting for the bot to finish startup before changing presence...')
+        await self.wait_until_ready()
+        self.logger.info(f'Startup complete, presence will be updated in {int(self.autopresence.minutes)} minutes.')
+        await asyncio.sleep(self.autopresence.minutes * 60)
 
     async def on_message(self, message):
         '''
         main function to recognize a bot command
         '''
-        if message.author == self.user or message.author.id in self.blocked or message.author.bot:
+        if message.author == self.user or message.author.id in self.blocked_users or message.author.bot:
             return
         channel = message.channel
         if not isinstance(channel, discord.channel.DMChannel):
             if not channel.permissions_for(channel.guild.me).send_messages:
                 return
-
         await self.process_commands(message)
 
-    def update_cache_path(self, path):
-        '''
-        preprends the cache directory to any given path
-        '''
-        return os.path.join(self.config['general']['cache_path'],path)
-
-    def get_cache(self, path, name):
+    def load_cache(self, path, name):
         '''
         loads cache located in the specified directory into memory,
         and creates an empty one if not valid.
@@ -102,14 +182,14 @@ class LotrBot(commands.Bot):
         try:
             with open(path, 'rb') as cache_file:
                 obj = pickle.load(cache_file)
-                self.logger.info('successfully deserialized %s.',name)
+                self.logger.info(f'successfully deserialized "{name}"')
                 return obj
         except (FileNotFoundError, EOFError):
-            self.logger.warning('could not deserialize %s! Ignoring.',name)
+            self.logger.warning(f'could not deserialize "{name}"! creating empty cache.')
             open(path, 'wb').close()
             return {}
 
-    def get_token(self, path, name):
+    def load_token(self, path, name):
         '''
         returns token from a given tokenfile location, and raises an error if not valid.
         '''
@@ -118,22 +198,25 @@ class LotrBot(commands.Bot):
                 temp = infofile.readlines()
                 if not temp:
                     raise EOFError
+                self.logger.info(f'successfully read "{name}"')
                 return [x.strip() for x in temp]
         except (FileNotFoundError, EOFError) as token_error:
-            self.logger.error('%s not found!',name)
+            self.logger.fatal(f'token "{name}" not found!')
             raise token_error
 
     def save_caches(self):
-        with open(self.config['discord']['trivia']['cache'], 'wb') as sc_file:
-            pickle.dump(self.scoreboard, sc_file)
+        for cache, cfile in self.config['backend']['caches'].items():
+            cfile = os.path.join(self.cache_dir,cfile)
+            with open(cfile, 'wb') as cfile:
+                pickle.dump(self.caches[cache], cfile)
+        self.logger.debug('successfully serialized all caches.')
 
-        with open(self.config['reddit']['cache'], 'wb') as meme_file:
-            pickle.dump(self.meme_cache, meme_file)
+    def get_random_presence(self):
+        return discord.Activity(type=discord.ActivityType.watching,
+                                name=random.choice(self.config['discord']['status']))
 
-        with open(self.config['discord']['settings']['cache'], 'wb') as set_file:
-            pickle.dump(self.settings, set_file)
+    def get_all_cogs(self):
+        return [self.cog_prefix+cog[:-3].lower() for cog in os.listdir(self.cog_dir) if cog.endswith(".py") and not cog.startswith("_")]
 
-        with open(self.config['discord']['trivia']['stats_cache'], 'wb') as stats_file:
-            pickle.dump(self.stats_cache, stats_file)
-
-        self.logger.debug('Successfully saved all cache files.')
+    def get_active_cogs(self):
+        return [self.cog_prefix+cog.lower() for cog in self.cogs.keys()]

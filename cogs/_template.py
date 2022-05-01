@@ -16,5 +16,5 @@ class REPLACE(commands.Cog):
     #@commands.command()
 
 
-def setup(bot):
-    bot.add_cog(REPLACE(bot))
+async def setup(bot):
+    await bot.add_cog(REPLACE(bot))

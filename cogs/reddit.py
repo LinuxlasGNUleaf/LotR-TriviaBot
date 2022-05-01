@@ -96,5 +96,5 @@ class Reddit(commands.Cog):
         self.old_timestamp = datetime.now()
 
 
-def setup(bot):
-    bot.add_cog(Reddit(bot))
+async def setup(bot):
+    await bot.add_cog(Reddit(bot))

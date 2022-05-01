@@ -8,7 +8,7 @@ from cogs import _dcutils
 
 class QuoteGenerator(commands.Cog):
     '''
-    TEMPLATE DOCSTRING
+    Generates quotes with a specified set of people, using quotes from a large online database
     '''
 
     def __init__(self, bot):
@@ -60,5 +60,5 @@ class QuoteGenerator(commands.Cog):
         return return_quotes
 
 
-def setup(bot):
-    bot.add_cog(QuoteGenerator(bot))
+async def setup(bot):
+    await bot.add_cog(QuoteGenerator(bot))

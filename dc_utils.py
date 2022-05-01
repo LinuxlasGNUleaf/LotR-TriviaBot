@@ -1,5 +1,5 @@
 '''
-frequently used utils for the LotR-Trivia Bot
+frequently used utils for the discord interface of the bot
 '''
 import random
 from datetime import datetime, timedelta
@@ -8,18 +8,6 @@ import logging
 import asyncio
 import discord
 from discord.ext import commands
-
-
-ordinal = lambda n: f'{n}{"tsnrhtdd"[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4]}'
-
-
-def map_vals(val, in_min, in_max, out_min, out_max):
-    '''
-    maps a value in a range to another range
-    '''
-    val = min(max(val, in_min), in_max)
-    return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-
 
 def create_embed(title=False, content=False, embed_url=False, link_url=False,
                  footnote=False, color=False, author_info=False):
@@ -173,7 +161,7 @@ def category_check(category:str):
     checks whether the given category is allowed in this context
     '''
     async def predicate(ctx):
-        if is_category_allowed(ctx, category, ctx.bot.settings, ctx.bot.config['discord']['settings']['defaults']):
+        if is_category_allowed(ctx, category, ctx.bot.caches['discord_settings'], ctx.bot.config['discord']['settings']['defaults']):
             return True
         else:
             raise CategoryNotAllowed(category)
@@ -189,3 +177,7 @@ def channel_busy_check():
         else:
             return True
     return commands.check(predicate)
+
+def create_response(config, user, positive):
+    msg = random.choice(config['trivia_quiz']['compliments'] if positive else config['trivia_quiz']['insults'])
+    return msg.format(user.display_name)

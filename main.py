@@ -4,9 +4,8 @@ import os
 import sys
 import logging
 import yaml
-import discord
+import asyncio
 import dc_client
-
 
 # ==========================> LOAD YAML FILE <==================================
 with open("config.yaml", 'r', encoding='utf-8') as cfg_stream:
@@ -17,33 +16,32 @@ with open("config.yaml", 'r', encoding='utf-8') as cfg_stream:
         print(f'While parsing the config file, the following error occured:\n{exc}')
         sys.exit()
 
-if sys.platform in config['general']['cache_path'].keys():
-    config['general']['cache_path'] = os.path.expandvars(config['general']['cache_path'][sys.platform])
-    os.makedirs(config['general']['cache_path'],exist_ok=True)
+if sys.platform in config['backend']['bot_dir'].keys():
+    work_dir = config['backend']['bot_dir']
+    work_dir = os.path.expandvars(work_dir[sys.platform])
+    os.makedirs(work_dir, exist_ok=True)
 else:
     print(f'\'{sys.platform}\' is not a supported platform. Add your system in the cache_dir field in config.yaml.')
     sys.exit(0)
 # ==============================================================================
-logfile = os.path.join(config['general']['cache_path'],config['general']['logfile'])
+
+logfile = os.path.join(work_dir, config['backend']['logfile'])
 print(f'logging events to: {logfile}')
 
 logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-11s]: %(message)s',
                     level=logging.INFO,
                     handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
 
-bot = dc_client.LotrBot(config)
+script_dir = os.path.dirname(os.path.realpath(__file__))
+bot = dc_client.LotrBot(config, script_dir, work_dir)
+
+async def main():
+    await bot.start()
 
 if __name__ == '__main__':
-    logging.info('--- Loading cogs...')
-    for ext in os.listdir(os.path.join(os.getcwd(),'cogs')):
-        try:
-            if ext.endswith(".py") and not ext.startswith("_"):
-                bot.load_extension(f"cogs.{ext[:-3]}")
-        except discord.ext.commands.errors.ExtensionFailed as exc:
-            logging.error('Unable to load %s extension. TRACEBACK:', ext)
-            logging.exception(exc)
-            logging.info('End of TRACEBACK.')
-
-    bot.run(bot.token)
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logging.info('keyboard interrupt detected, exiting.')
     bot.save_caches()
-    logging.info('bot shutdown sequence complete.\n\n')
+    logging.info('saved caches sucessfully.\n\n')

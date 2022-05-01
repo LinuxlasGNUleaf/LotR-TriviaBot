@@ -136,5 +136,5 @@ class QuoteBattle(commands.Cog):
             await ctx.send(self.bot.config['discord']['indicators'][0] + ' An error occured while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
 
 
-def setup(bot):
-    bot.add_cog(QuoteBattle(bot))
+async def setup(bot):
+    await bot.add_cog(QuoteBattle(bot))

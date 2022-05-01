@@ -214,5 +214,5 @@ class Autoscript(commands.Cog):
             condensed_script.append(temp_arr)
 
 
-def setup(bot):
-    bot.add_cog(Autoscript(bot))
+async def setup(bot):
+    await bot.add_cog(Autoscript(bot))

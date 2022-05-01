@@ -1,27 +1,25 @@
+from calendar import c
 from datetime import datetime
 import logging
-import os
 import platform
 import random
 import typing
 from discord.ext import commands
 import discord
 
-from cogs import _dcutils
+import dc_utils
 
 
 class Utils(commands.Cog):
     '''
-    Utilities commands for the Bot.
+    Utility commands for the Bot.
     '''
 
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
 
-
-    @commands.Cog.listener()
-    async def on_ready(self):
+    async def cog_load(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
@@ -32,39 +30,38 @@ class Utils(commands.Cog):
         '''
         reloads all or one specific cog
         '''
+
         if cog:
-            if os.path.isfile(f'./cogs/{cog}.py'):
-                dc_cogs = [f'{cog}.py']
+            # if cog is active, select that cog
+            if cog.lower() in [x.lower() for x in self.bot.cogs.keys()]:
+                cog_list = [self.bot.cog_prefix+cog.lower()]
                 title = f':clock10: Reloading `{cog}`'
             else:
                 await ctx.send(':x: There is no cog with that name!')
                 return
         else:
-            dc_cogs = os.listdir('./cogs/')
+            # select all cogs currently loaded
+            cog_list = []
             title = ':clock10: Reloading all cogs...'
 
         embed = discord.Embed(title=title,
                               description='Please wait, this will take a moment...')
         embed_msg = await ctx.send(embed=embed)
 
-        for ext in dc_cogs:
-            if ext.endswith('.py') and not ext.startswith('_'):
-                try:
-                    self.logger.info('Reloading %s...',ext)
-                    if ext[:-3] in [x.split('.')[-1] for x in self.bot.extensions.keys()]:
-                        self.bot.reload_extension(f'cogs.{ext[:-3]}')
-                    else:
-                        self.bot.load_extension(f'cogs.{ext[:-3]}')
-                    embed.add_field(name=':white_check_mark: Reloaded:',
-                                    value=ext[:-3],
-                                    inline=True)
-                except commands.errors.ExtensionFailed as exc:
-                    embed.add_field(name=':x: Failed:',
-                                    value=ext[:-3],
-                                    inline=True)
-                    print(exc)
+        result = await self.bot.reload_cogs(cog_list)
+        for cog, status in result.items():
+            if status == 'OK':
+                name = ':white_check_mark: Reloaded:'
+            elif status == 'FAIL':
+                name = ':x: Failed:'
+            elif status == 'N/A':
+                name = ':grey_question: Not found / available'
+            elif status == 'NEW':
+                name = ':new: New and loaded'
+            embed.add_field(name=name,
+                            value=cog,
+                            inline=True)
         await embed_msg.edit(embed=embed)
-        self.logger.info('Done reloading.')
 
 
     @commands.cooldown(1, 60)
@@ -76,7 +73,7 @@ class Utils(commands.Cog):
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
         embed.colour = random.choice(self.bot.color_list)
 
-        dtime = datetime.now() - self.bot.start_time
+        uptime = datetime.now() - self.bot.start_time
         embed.add_field(name=':snake: Python Version:',
                         value=platform.python_version())
         embed.add_field(name=':robot: Discord API Version:',
@@ -84,7 +81,7 @@ class Utils(commands.Cog):
         embed.add_field(name=':stopwatch: Latency:',
                         value=f'{round(self.bot.latency*1000)}ms')
         embed.add_field(name=':alarm_clock: Uptime:', value=(
-            f'{dtime.days}d,{dtime.seconds//3600}h,{dtime.seconds%3600//60}m,{dtime.seconds % 60}s'))
+            f'{uptime.days}d,{uptime.seconds//3600}h,{uptime.seconds%3600//60}m,{uptime.seconds % 60}s'))
         embed.add_field(name=':shield: Guild Count:',
                         value=len(self.bot.guilds))
         embed.add_field(name=':technologist: Member Count:',
@@ -123,13 +120,13 @@ class Utils(commands.Cog):
                     channel_setting = self.bot.config['discord']['indicators'][
                         self.bot.settings[ctx.channel.id][category]]
 
-            effective = self.bot.config['discord']['indicators'][_dcutils.is_category_allowed(
+            effective = self.bot.config['discord']['indicators'][dc_utils.is_category_allowed(
                 ctx, category, self.bot.settings, self.bot.config['discord']['settings']['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
         embed.set_footer(
-            text=f'Tip: If you want to change the settings, you need to provide arguments. Type "{self.bot.config["general"]["prefix"][0]} settings help" for more info.')
+            text=f'Tip: If you want to change the settings, you need to provide arguments. Type "{self.bot.config["discord"]["prefix"][0]} settings help" for more info.')
         await ctx.send(embed=embed)
 
 
@@ -157,7 +154,7 @@ class Utils(commands.Cog):
         '''
         displays info about the settings
         '''
-        text = self.bot.config['discord']['settings']['help'].format(self.bot.config['general']['prefix'][0],
+        text = self.bot.config['discord']['settings']['help'].format(self.bot.config['discord']['prefix'][0],
                                                                      '`' + '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`')
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
@@ -177,8 +174,7 @@ class Utils(commands.Cog):
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                '`, `'.join(self.bot.config['discord']
-                            ['settings']['categories']) + '`\n'
+                '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return
@@ -227,14 +223,14 @@ class Utils(commands.Cog):
             else:
                 await ctx.send(f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
 
-        elif isinstance(error, _dcutils.CategoryNotAllowed):
+        elif isinstance(error, dc_utils.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.', delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
             await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
 
-        elif isinstance(error, _dcutils.ChannelBusy):
+        elif isinstance(error, dc_utils.ChannelBusy):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.', delete_after=10)
@@ -247,5 +243,5 @@ class Utils(commands.Cog):
             raise error
 
 
-def setup(bot):
-    bot.add_cog(Utils(bot))
+async def setup(bot):
+    await bot.add_cog(Utils(bot))

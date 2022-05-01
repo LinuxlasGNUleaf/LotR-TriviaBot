@@ -130,5 +130,5 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
     return cogs._dcutils.create_embed(hangman, author_info=author_info, content=used + state, color=color)
 
 
-def setup(bot):
-    bot.add_cog(Hangman(bot))
+async def setup(bot):
+    await bot.add_cog(Hangman(bot))

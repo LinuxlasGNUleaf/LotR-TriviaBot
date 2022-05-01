@@ -1,46 +1,52 @@
-# general settings for the bot
-general:
-    # version of the bot
-    version: 2.6
-    # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
-    prefix: ["lotr ", "Lotr ", "LOTR "]
-    # python command to return the valid path for the cache folder
-    cache_path:
+# backend settings for the bot
+backend:
+    # the root directory for caches, tokens and configs for the bot.
+    # this is platform-specific, environment variables will be expanded
+    bot_dir:
         {
-            "linux": "$HOME/.config/discord/bots/lotr-bot/",
+            "linux": '$HOME/.config/discord/bots/lotr-bot/',
             "win32": '$appdata\discord\bots\lotr-bot\',
         }
+
+    # token directory RELATIVE TO bot_dir
+    token_dir: 'tokens'        
+    
+    # token files for API authentication. These paths are relative to config_dir
+    tokens: {
+        "discord":  "discord.tk",
+        "reddit":   "reddit.tk",
+    }
+
+    # cache directory RELATIVE TO bot_dir
+    cache_dir: 'caches'
+
+    # caches for various features
+    caches: {
+        "discord_settings": "dc_settings.cache",
+        "trivia_scores": "trivia_scores.cache",
+        "reddit_posts": "reddit_posts.cache"
+    }
+    
+    # cog directory RELATIVE TO CWD, use seperate entries for subdirs: assets/cogs -> ["assets","cogs"]
+    cog_dir: ["cogs"]
+
     # logfile location (in cache directory)
     logfile: dcbot.log
-    # autosave interval in seconds
-    autosave: 300
+    # logging width for headers
+    log_width: 60
+    # autosave interval in minutes
+    autosave: 5
     # user id of the developer
     developer_id: 277083306087022592
     # github-repo link
     github_repo: https://github.com/LinuxlasGNUleaf/LotR-TriviaBot
 
-# settings for the reddit API used for pulling memes and stuff
-reddit:
-    # token file for authentication of the bot (located in general/cache_path)
-    token: "reddit.tk"
-    # useragent string for authenticating
-    useragent: "post fetcher by /u/LotR-Fan42"
-    # list of subreddits to pull posts from
-    subreddits: ["lotrmemes", "Hobbit_Memes"]
-    # cache file for the list of pulled posts (located in general/cache_path)
-    cache: meme_log.pyobj
-    # interval in minutes before the pulled posts are considered outdated and are refetched
-    refresh_interval: 300
-    # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
-    query_limit: 50
-    # video thumbnail url for video posts
-    video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
-
 # settings for the discord bot, all the DC-related minigames and configs
 discord:
-    # token file for authentication of the bot (located in general/cache_path)
-    token: discord.tk
-
+    # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
+    prefix: ["lotr ", "Lotr ", "LOTR "]
+    # time in minutes until the presence will be updated
+    autopresence: 30
     # emojis for visual indicators
     indicators: [":x:", ":white_check_mark:"]
     # settings for the bot
@@ -88,129 +94,6 @@ discord:
     # time for all participants of a battle to check in
     ready_check_timeout: 180
 
-    # trivia battle settings
-    trivia_battle:
-        # time limit in which both of the participants have to answer (in seconds)
-        timeout: 45
-
-    # quote battle settings
-    quote_battle:
-        # time limit for the other participant to respond
-        timeout: 300
-        # number of rounds for quote battle
-        rounds: 8
-        # voting time for non-participants
-        voting_time: 3600
-        # dict of roles to ping for voting, format is: {server_id: role_id, server_id2: role_id2, ...}
-        voting_roles:
-            {
-                566219783377518592: 854003662891647006,
-                333978604763348993: 854006900042498078,
-            }
-
-    # trivia game settings
-    trivia:
-        # determines the timeout duration (X characters per second)
-        multiplier: 12
-        # extra-time added to the timeout (in seconds) without regard of the length of the question
-        extra_time: 5.0
-        # marker used to mark correct answer
-        marker: "*"
-        # cache file for storing the trivia scoreboard (located in general/cache_path)
-        cache: scoreboard.pyobj
-        # link to trivia form to submit new questions
-        link: https://forms.gle/k4oMTiyUEJgntMyb9
-        # tips added when the link is displayed
-        tips:
-            - "U shel submit ur questions here: {}"
-            - "Thought of a cool new trivia question? Great! Submit it here: {}"
-            - "Are these questions 2 ez 4 u? Submit new ones here: {}"
-            - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
-        # Double quotes ("") are important here, otherwise the escape sequence \n is not recognized
-        medals:
-            [
-                "🥇 __Eru Ilúvatar:__ \n{}",
-                "🥈 __Manwë:__\n{}",
-                "🥉 __Galadriel:__\n{}\n",
-                "{}",
-            ]
-
-        scoreboard_line: "**[{} pts / {}%]** {}"
-        scoreboard_streak: " :dart: *Streak of {} wins*"
-        # probability to display the link and a tip
-        tip_probability: 0.05
-        # top X players to show on the scoreboard
-        scoreboard_max: 25
-        # minimum number of players in a server necessary to create a graphical scoreboard
-        gscoreboard_min: 10
-        # maximum number of players to display on the graphical scoreboard
-        gscoreboard_max: 15
-        # file for storing anonymous statistics about the trivia games (located in general/cache_path)
-        stats_cache: "questions_stats.txt"
-
-    # hangman game settings
-    hangman:
-        # time limit for each guess
-        timeout: 20
-        # ascii-art for the hangman game
-        ongoing_states:
-            - "``` \n \n \n \n \nililililillllililii```"
-            - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
-            - "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```"
-            - "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```"
-            - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii```"
-            - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||\n    ||\n    ||\nililililillllililii```"
-            - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii```"
-        end_states:
-            - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
-            - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"
-
-    # quote generator settings
-    quotegen:
-        # the min/max numbers of characters allowed
-        character_range: [1, 6]
-        # dict to translate number to word
-        num2word:
-            {
-                1: 'single',
-                2: 'double',
-                3: 'triple',
-                4: 'quad',
-                5: 'penta',
-                6: 'hexa',
-            }
-        # include nsfw-quotes
-        include_nsfw: true
-
-        # source url for the generator
-        generator_url: 'https://perchance.org/incorrect-quote-generator'
-
-    # autoscript settings
-    autoscript:
-        # script file for autoscript
-        file: script.txt
-        # determines whether the autoscript should stop at the end of a scene
-        scene_end_interrupt: False
-        # settings for the condensed script (for internal use only)
-        punctuation_chars: ["?", "!", ".", ":", ";"]
-        elimination_chars: ["'", ","]
-        # threshold for the SequenceMatcher a message has to meet to be accepted as a quote input
-        threshold: 0.85
-        # number of lines of the script that will be outputted
-        dialog_count: 2
-
-    autogimli:
-        # interval in which autogimli will be triggered
-        interval: [2, 100000]
-        # chance an autogimli event will happen (1 in x, 1/x)
-        chance: 100
-        # cooldown in seconds before autogimli will react to the same user again
-        cooldown: 300
-        # custom emojis to react with on messages, server-specific
-        special_reactions: { 566219783377518592: ["<:Gumli:596753586147426355>"] }
-        # whether or not a special message is displayed if the number 2 (two) is detected
-        number_two_special_message: True
-
     #color codes for Embeds
     colors:
         {
@@ -251,7 +134,42 @@ discord:
         - Tom Bombadil singing and stomping through the Old Forest
         - Bombur devouring the universe
 
-    # insults for failed trivia games or invalid queries
+
+# quote battle minigame settings
+quote_battle:
+    # time limit for the other participant to respond
+    timeout: 300
+    # number of rounds for quote battle
+    rounds: 8
+    # voting time for non-participants
+    voting_time: 3600
+    # dict of roles to ping for voting, format is: {server_id: role_id, server_id2: role_id2, ...}
+    voting_roles:
+        {
+            566219783377518592: 854003662891647006,
+            333978604763348993: 854006900042498078,
+        }
+
+# trivia minigame settings
+trivia_quiz:
+    # determines the timeout duration (X characters per second)
+    multiplier: 12
+    # extra-time added to the timeout (in seconds) without regard of the length of the question
+    extra_time: 5.0
+    # marker used to mark correct answer
+    marker: "*"
+    # cache file for storing the trivia scoreboard (located in general/cache_path)
+    cache: scoreboard.pyobj
+    # link to trivia form to submit new questions
+    link: https://forms.gle/k4oMTiyUEJgntMyb9
+    # tips added when the link is displayed
+    tips:
+        - "U shel submit ur questions here: {}"
+        - "Thought of a cool new trivia question? Great! Submit it here: {}"
+        - "Are these questions 2 ez 4 u? Submit new ones here: {}"
+        - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
+
+    # insults for failed trivia questions
     insults:
         - "Stupid fat {}!"
         - "Fool of a {}! Stay quiet next time and rid us of your stupidity!"
@@ -262,7 +180,7 @@ discord:
         - "Bombur does not approve."
         - "Stop your squeaking you dunghill rat, {}!"
         - "You stinking two-faced sneak!"
-        - "The wise speak only of what they know, {}. A witless worm have you become. Therefore be silent, and keep your forked tongue behind your teeth!s"
+        - "The wise speak only of what they know, {}. A witless worm have you become. Therefore be silent, and keep your forked tongue behind your teeth!"
 
     # compliments for won trivia games
     compliments:
@@ -273,3 +191,99 @@ discord:
         - "May the wind under your wings bear you where the sun sails and the moon walks."
         - "May the stars shine upon your face!"
         - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
+    
+    # Double quotes ("") are important here, otherwise the escape sequence \n is not recognized
+    medals:
+        [
+            "🥇 __Eru Ilúvatar:__ \n{}",
+            "🥈 __Manwë:__\n{}",
+            "🥉 __Galadriel:__\n{}\n",
+            "{}",
+        ]
+
+    scoreboard_line: "**[{} pts / {}%]** {}"
+    scoreboard_streak: " :dart: *Streak of {} wins*"
+    # probability to display the link and a tip
+    tip_probability: 0.05
+    # top X players to show on the scoreboard
+    scoreboard_max: 25
+    # minimum number of players in a server necessary to create a graphical scoreboard
+    gscoreboard_min: 10
+    # maximum number of players to display on the graphical scoreboard
+    gscoreboard_max: 15
+
+# hangman minigame settings
+hangman:
+    # time limit for each guess
+    timeout: 20
+    # ascii-art for the hangman game
+    ongoing_states:
+        - "``` \n \n \n \n \nililililillllililii```"
+        - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
+        - "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```"
+        - "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```"
+        - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii```"
+        - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||\n    ||\n    ||\nililililillllililii```"
+        - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii```"
+    end_states:
+        - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
+        - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"
+
+# quote generator settings
+quotegen:
+    # the min/max numbers of characters allowed
+    character_range: [1, 6]
+    # dict to translate number to word
+    num2word:
+        {
+            1: 'single',
+            2: 'double',
+            3: 'triple',
+            4: 'quad',
+            5: 'penta',
+            6: 'hexa',
+        }
+    # include nsfw-quotes
+    include_nsfw: true
+
+    # source url for the generator
+    generator_url: 'https://perchance.org/incorrect-quote-generator'
+
+# autoscript settings
+autoscript:
+    # script file for autoscript
+    file: script.txt
+    # determines whether the autoscript should stop at the end of a scene
+    scene_end_interrupt: False
+    # settings for the condensed script (for internal use only)
+    punctuation_chars: ["?", "!", ".", ":", ";"]
+    elimination_chars: ["'", ","]
+    # threshold for the SequenceMatcher a message has to meet to be accepted as a quote input
+    threshold: 0.85
+    # number of lines of the script that will be outputted
+    dialog_count: 2
+
+autogimli:
+    # interval in which autogimli will be triggered
+    interval: [2, 100000]
+    # chance an autogimli event will happen (1 in x, 1/x)
+    chance: 100
+    # cooldown in seconds before autogimli will react to the same user again
+    cooldown: 300
+    # custom emojis to react with on messages, server-specific
+    special_reactions: { 566219783377518592: ["<:Gumli:596753586147426355>"] }
+    # whether or not a special message is displayed if the number 2 (two) is detected
+    number_two_special_message: True
+
+# settings for the reddit API used for pulling memes and stuff
+reddit:
+    # useragent string for authenticating
+    useragent: "post fetcher by /u/LotR-Fan42"
+    # list of subreddits to pull posts from
+    subreddits: ["lotrmemes", "hobbit_memes"]
+    # interval in minutes before the pulled posts are considered outdated and are refetched
+    refresh_interval: 300
+    # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
+    query_limit: 50
+    # video thumbnail url for video posts
+    video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png

@@ -74,5 +74,5 @@ class Autogimli(commands.Cog):
             await msg.channel.send(f'{self.inflect.number_to_words(gimli_count).title()}? Oh, that\'s not bad for a pointy-eared elvish princeling. Hmph! I myself am sitting pretty on **{self.inflect.number_to_words(gimli_count+1).upper()}**!')
         self.cooldown_list[msg.author.id] = datetime.now()
 
-def setup(bot):
-    bot.add_cog(Autogimli(bot))
+async def setup(bot):
+    await bot.add_cog(Autogimli(bot))
