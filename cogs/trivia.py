@@ -69,7 +69,7 @@ class Trivia(commands.Cog):
         '''
         a multiple-choice trivia quiz with ME-related questions
         '''
-        view = TriviaView(ctx, self)
+        view = TriviaGameUI(ctx, self)
 
 
     @dc_utils.category_check('minigames')
@@ -243,7 +243,7 @@ class TriviaSelectButton(discord.ui.Button['TriviaView']):
     async def callback(self, interaction: discord.Interaction):
         self.view.check_answer(self.index, self.correct)
 
-class TriviaView(discord.ui.View):
+class TriviaGameUI(discord.ui.View):
     QUIZ = 1
     SELECT = 0
     WAIT = 2
@@ -256,11 +256,9 @@ class TriviaView(discord.ui.View):
 
         self.trivia_msg = None
 
-        self.trivia_buttons = []
+        self.buttons = []
         self.userstats = self.cog.get_scoreboard(self.ctx.author)
         self.correct_index = -1
-
-        self.select_buttons = []
 
         self.setup_question()
     
@@ -272,11 +270,11 @@ class TriviaView(discord.ui.View):
         for i in range(answer_count):
             new_button = TriviaQuizButton(discord.ButtonStyle.blurple, i)
             self.add_item(new_button)
-            self.trivia_buttons.append(new_button)
+            self.buttons.append(new_button)
         self.game_state = self.QUIZ
-        self.bot.loop.create_task(self.waitfor_response(embed, timeout))
+        self.bot.loop.create_task(self.runQuiz(embed, timeout))
 
-    async def waitfor_response(self, embed, timeout):
+    async def runQuiz(self, embed, timeout):
         self.trivia_msg = await self.ctx.send(embed=embed, view=self)
         await asyncio.sleep(timeout)
         if self.game_state == self.QUIZ:
@@ -290,9 +288,13 @@ class TriviaView(discord.ui.View):
             self.game_state == self.WAIT
         else:
             return
+        
+        # determine whether player won, and adjust win count accordingly
         correct = self.correct_index == button_index
+        self.userstats[1] += correct
 
-        for i, button in enumerate(self.trivia_buttons):
+        # disable all buttons and highlight the selected button in the right color
+        for i, button in enumerate(self.buttons):
             if i == button_index:
                 button.style = discord.ButtonStyle.green if correct else discord.ButtonStyle.red
             button.disabled = True
