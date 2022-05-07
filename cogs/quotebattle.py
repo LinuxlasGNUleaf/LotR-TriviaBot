@@ -1,39 +1,39 @@
+import asyncio
 import logging
 import random
-import asyncio
+
 import discord
 from discord.ext import commands
-from cogs import _dcutils
+
+import dc_utils
 
 
 class QuoteBattle(commands.Cog):
-    '''
+    """
     manages a quotebattle between two users
-    '''
+    """
 
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
-
 
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-
-    @_dcutils.category_check('battles')
-    @_dcutils.channel_busy_check()
+    @dc_utils.category_check('battles')
+    @dc_utils.channel_busy_check()
     @commands.guild_only()
     @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
     async def quote_battle_handler(self, ctx):
-        '''
+        """
         starts a quote battle with subsequent voting
-        '''
+        """
         server = ctx.guild
         # perms_changed = []
 
-        result, players = await _dcutils.handle_ready_check(self.bot, ctx, player_count=2)
+        result, players = await dc_utils.handle_ready_check(self.bot, ctx, player_count=2)
 
         if not result:
             return
@@ -44,24 +44,27 @@ class QuoteBattle(commands.Cog):
         #         perms_changed.append(player)
         #         await ctx.channel.set_permissions(player, send_messages=True, reason='Quote battle')
 
-        def quote_check(msg):
-            return msg.channel == ctx.channel and msg.author in players
+        def quote_check(chk_msg):
+            return chk_msg.channel == ctx.channel and chk_msg.author in players
 
         self.bot.busy_channels.append(ctx.channel.id)
-        orig_rounds = self.bot.config['discord']['quote_battle']['rounds']*2
-        rounds_left = orig_rounds-1
+        orig_rounds = self.bot.config['discord']['quote_battle']['rounds'] * 2
+        rounds_left = orig_rounds - 1
         random.shuffle(players)
         act_player = players[0]
         first_round = True
-        await ctx.send(f'Welcome to the epic quote battle between {players[0].mention} and {players[1].mention}!\n{act_player.display_name} starts! Prepare for battle!')
+        await ctx.send(
+            f'Welcome to the epic quote battle between {players[0].mention} and {players[1].mention}!\n{act_player.display_name} starts! Prepare for battle!')
 
         while rounds_left > 0:
             try:
-                msg = await self.bot.wait_for('message', check=quote_check, timeout=self.bot.config['discord']['quote_battle']['timeout']//2)
+                msg = await self.bot.wait_for('message', check=quote_check,
+                                              timeout=self.bot.config['discord']['quote_battle']['timeout'] // 2)
             except asyncio.TimeoutError:
                 msg = await ctx.send('Careful both of you, half of your time to respond has passed!', delete_after=30)
                 try:
-                    await self.bot.wait_for('message', check=quote_check, timeout=self.bot.config['discord']['quote_battle']['timeout']//2)
+                    await self.bot.wait_for('message', check=quote_check,
+                                            timeout=self.bot.config['discord']['quote_battle']['timeout'] // 2)
                 except asyncio.TimeoutError:
                     await ctx.send('You did not answer in time. The battle ended.')
                     break
@@ -77,7 +80,7 @@ class QuoteBattle(commands.Cog):
             if msg.author.id != act_player.id:
                 rounds_left -= 1
                 act_player = msg.author
-                if rounds_left == orig_rounds//2:
+                if rounds_left == orig_rounds // 2:
                     await ctx.send(f'Half-time! {rounds_left} rounds to go!')
 
         # for player in players:
@@ -89,9 +92,13 @@ class QuoteBattle(commands.Cog):
 
         msg_text = 'The quote battle between {} and {} ended.\n{} :one: for {} and :two: for {}'
         if server.id in self.bot.config['discord']['quote_battle']['voting_roles']:
-            score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, f"Hey <@&{self.bot.config['discord']['quote_battle']['voting_roles'][server.id]}>, vote", players[0].mention, players[1].mention))
+            score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name,
+                                                       f"Hey <@&{self.bot.config['discord']['quote_battle']['voting_roles'][server.id]}>, vote",
+                                                       players[0].mention, players[1].mention))
         else:
-            score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name, 'Vote', players[0].mention, players[1].mention))
+            score_msg = await ctx.send(
+                msg_text.format(players[0].display_name, players[1].display_name, 'Vote', players[0].mention,
+                                players[1].mention))
 
         await score_msg.add_reaction('1️⃣')  # number 1
         await score_msg.add_reaction('2️⃣')  # number 2
@@ -115,7 +122,7 @@ class QuoteBattle(commands.Cog):
             except discord.errors.NotFound:
                 pass
 
-            # refetch message again
+            # re-fetch message again
             score_msg = await ctx.fetch_message(score_msg.id)
 
             voting = [0, 0]
@@ -127,10 +134,10 @@ class QuoteBattle(commands.Cog):
 
             ret_str = f'The vote for the battle between {players[0].mention} and {players[1].mention} concluded.\n'
             if voting[0] == voting[1]:
-                await ctx.send(ret_str+'Draw! Congratulations, both of you did well!')
+                await ctx.send(ret_str + 'Draw! Congratulations, both of you did well!')
             else:
                 winner = voting[0] < voting[1]
-                await ctx.send(ret_str+f'{players[winner].mention} wins the quote battle! What a fight!')
+                await ctx.send(ret_str + f'{players[winner].mention} wins the quote battle! What a fight!')
 
         except discord.errors.HTTPException:
             await ctx.send(self.bot.config['discord']['indicators'][0] + ' An error occured while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')

@@ -1,21 +1,24 @@
+import logging
 from difflib import SequenceMatcher
 from random import choice
-import logging
-from discord.ext import commands
-import discord
 
-from cogs import _dcutils
+import discord
+from discord.ext import commands
+
+import dc_utils
 
 
 class Autoscript(commands.Cog):
-    '''
+    """
     handles the Autoscript integration of the Bot
-    '''
+    """
+
     def __init__(self, bot):
         self.bot = bot
+        self.options = self.bot.config['autoscript']
         self.script = []
         self.condensed_script = []
-        self.parse_script(self.script, self.condensed_script)
+        # self.parse_script(self.script, self.condensed_script)
         self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()
@@ -25,11 +28,13 @@ class Autoscript(commands.Cog):
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
-        '''
+        """
         attempts to find similar line from script and formats it, if found.
-        '''
+        """
         if message.author.bot:
             return
+
+        return
         # format message string
         content = message.content.lower().strip()
         channel = message.channel
@@ -38,16 +43,17 @@ class Autoscript(commands.Cog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not _dcutils.is_category_allowed(message, 'autoscript', self.bot.settings, self.bot.config['discord']['settings']['defaults']):
+        if not dc_utils.is_category_allowed(message, 'autoscript', self.bot.settings,
+                                            self.bot.config['discord']['settings']['defaults']):
             return
 
         # stop if the message is shorter than 2 words
         if len(content.split(' ')) < 2:
             return
 
-        for char in self.bot.config['discord']['autoscript']['punctuation_chars']:
+        for char in self.options['punctuation_chars']:
             content = content.replace(char, '.')
-        for char in self.bot.config['discord']['autoscript']['elimination_chars']:
+        for char in self.options['elimination_chars']:
             content = content.replace(char, '')
         content = content.split('.')
 
@@ -75,12 +81,12 @@ class Autoscript(commands.Cog):
                 for part_ind, part in enumerate(line):
                     # get the matching ratio
                     ratio = SequenceMatcher(None, part, msg_part).ratio()
-                    if ratio > self.bot.config['discord']['autoscript']['threshold']:
+                    if ratio > self.options['threshold']:
                         # if line has already been found
                         if line_ind in log.keys():
                             num, found_conf, highest_part_ind = log[line_ind]
-                            log[line_ind] = (num+1,  # found-parts
-                                             round((found_conf*num+ratio)/num+1, 2),  # conf
+                            log[line_ind] = (num + 1,  # found-parts
+                                             round((found_conf * num + ratio) / num + 1, 2),  # conf
                                              max(highest_part_ind, part_ind))  # part-ind
 
                         # if line was not yet found, only add it if the sentence is longer than
@@ -100,7 +106,7 @@ class Autoscript(commands.Cog):
             # sort these by the confidence
             filtered_ranking = sorted(
                 filtered_dict, key=lambda x: filtered_dict[x][1])[::-1]
-            # aaand select all those entries that have the same conf level as the highest ranked one.
+            # and select all those entries that have the same conf level as the highest ranked one.
             super_filtered_ranking = dict(filter(
                 lambda item: filtered_dict[item[0]][1] == filtered_dict[filtered_ranking[0]][1], filtered_dict.items()))
 
@@ -117,7 +123,7 @@ class Autoscript(commands.Cog):
 
             # try to split the sentence by punctuations (to find the correct point to continue)
             for char in line:
-                if char in self.bot.config['discord']['autoscript']['punctuation_chars']:
+                if char in self.options['punctuation_chars']:
                     punctuation_found = True
                 elif punctuation_found:
                     punctuation_found = False
@@ -128,26 +134,27 @@ class Autoscript(commands.Cog):
                 parts[-1] += temp
 
             # if there is something after this line, print it
-            if part_ind < len(parts)-1 or line_ind < len(self.script)-1:
+            if part_ind < len(parts) - 1 or line_ind < len(self.script) - 1:
                 return_text = ''
                 # if there is a part of the line that is missing, complete it
-                if part_ind < len(parts)-1:
+                if part_ind < len(parts) - 1:
                     temp = ''
-                    for part in parts[part_ind+1:]:
-                        temp += part+' '
+                    for part in parts[part_ind + 1:]:
+                        temp += part + ' '
                     return_text += f'**{author.title()}:** ... {temp}\n'
 
                 # if the line is not the last one of the script, add the next one
                 skipped_lines = 0
                 i = 0
-                while i < self.bot.config['discord']['autoscript']['dialog_count']+skipped_lines:
+                while i < self.options['dialog_count'] + skipped_lines:
                     i += 1
-                    if line_ind+i <= len(self.script)-1:
-                        if self.script[line_ind+i] != 'HARDSTOP':
+                    if line_ind + i <= len(self.script) - 1:
+                        if self.script[line_ind + i] != 'HARDSTOP':
                             # if a scene STOP is before the next line,
                             # continue only if configured to do so.
-                            if self.script[line_ind+i] == 'STOP':
-                                if self.bot.config['discord']['autoscript']['scene_end_interrupt'] and line_ind+i >= len(self.script)-1:
+                            if self.script[line_ind + i] == 'STOP':
+                                if self.options['scene_end_interrupt'] and \
+                                        line_ind + i >= len(self.script) - 1:
                                     break
                                 i += 1
                                 skipped_lines += 1
@@ -170,11 +177,11 @@ class Autoscript(commands.Cog):
                 await channel.send(return_text.strip())
 
     def parse_script(self, script, condensed_script):
-        '''
-        reads the LOTR script to array.
+        """
+        reads the LOTR script to an array.
         Also outputs a condensed version for faster searching.
-        '''
-        with open(self.bot.config['discord']['autoscript']['file'], 'r', encoding='utf8') as script_file:
+        """
+        with open(self.options['file'], 'r', encoding='utf8') as script_file:
             temp = ''
             last = ''
             for line in script_file:
@@ -202,9 +209,9 @@ class Autoscript(commands.Cog):
             temp_arr = []
 
             for char in line:
-                if char in self.bot.config['discord']['autoscript']['elimination_chars']:
+                if char in self.options['elimination_chars']:
                     continue
-                if char in self.bot.config['discord']['autoscript']['punctuation_chars']:
+                if char in self.options['punctuation_chars']:
                     punctuation_found = True
                 elif punctuation_found:
                     punctuation_found = False

@@ -1,19 +1,19 @@
-from calendar import c
-from datetime import datetime
 import logging
 import platform
 import random
 import typing
-from discord.ext import commands
+from datetime import datetime
+
 import discord
+from discord.ext import commands
 
 import dc_utils
 
 
 class Utils(commands.Cog):
-    '''
+    """
     Utility commands for the Bot.
-    '''
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -23,18 +23,17 @@ class Utils(commands.Cog):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-
     @commands.is_owner()
     @commands.command()
     async def reload(self, ctx, cog: typing.Optional[str] = ''):
-        '''
+        """
         reloads all or one specific cog
-        '''
+        """
 
         if cog:
             # if cog is active, select that cog
             if cog.lower() in [x.lower() for x in self.bot.cogs.keys()]:
-                cog_list = [self.bot.cog_prefix+cog.lower()]
+                cog_list = [self.bot.cog_prefix + cog.lower()]
                 title = f':clock10: Reloading `{cog}`'
             else:
                 await ctx.send(':x: There is no cog with that name!')
@@ -63,13 +62,12 @@ class Utils(commands.Cog):
                             inline=True)
         await embed_msg.edit(embed=embed)
 
-
     @commands.cooldown(1, 60)
     @commands.command()
     async def stats(self, ctx):
-        '''
+        """
         displays misc. statistics about the bot
-        '''
+        """
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
         embed.colour = random.choice(self.bot.color_list)
 
@@ -79,9 +77,9 @@ class Utils(commands.Cog):
         embed.add_field(name=':robot: Discord API Version:',
                         value=discord.__version__)
         embed.add_field(name=':stopwatch: Latency:',
-                        value=f'{round(self.bot.latency*1000)}ms')
+                        value=f'{round(self.bot.latency * 1000)}ms')
         embed.add_field(name=':alarm_clock: Uptime:', value=(
-            f'{uptime.days}d,{uptime.seconds//3600}h,{uptime.seconds%3600//60}m,{uptime.seconds % 60}s'))
+            f'{uptime.days}d,{uptime.seconds // 3600}h,{uptime.seconds % 3600 // 60}m,{uptime.seconds % 60}s'))
         embed.add_field(name=':shield: Guild Count:',
                         value=len(self.bot.guilds))
         embed.add_field(name=':technologist: Member Count:',
@@ -96,13 +94,12 @@ class Utils(commands.Cog):
                         value=f'<@{self.bot.config["general"]["developer_id"]}>')
         await ctx.send(embed=embed)
 
-
     @commands.has_permissions(manage_roles=True)
     @commands.group(name='settings', aliases=['setting', 'config'], invoke_without_command=True)
     async def settings(self, ctx):
-        '''
+        """
         configures which categories are activated.
-        '''
+        """
         # user wants to see the config embed:
         embed = discord.Embed(
             title=f'Config for #{ctx.channel} in {ctx.guild}')
@@ -129,40 +126,38 @@ class Utils(commands.Cog):
             text=f'Tip: If you want to change the settings, you need to provide arguments. Type "{self.bot.config["discord"]["prefix"][0]} settings help" for more info.')
         await ctx.send(embed=embed)
 
-
     @commands.has_permissions(manage_roles=True)
     @settings.command(name='channel', aliases=['c', 'ch', 'local'])
     async def channel_settings(self, ctx, *args):
-        '''
+        """
         selects settings for the channel
-        '''
+        """
         await self.edit_settings(ctx, args, True)
-
 
     @commands.has_permissions(manage_roles=True)
     @settings.command(name='server', aliases=['s', 'srv', 'global'])
     async def server_settings(self, ctx, *args):
-        '''
+        """
         selects settings for the server
-        '''
+        """
         await self.edit_settings(ctx, args, False)
-
 
     @commands.has_permissions(manage_roles=True)
     @settings.command(name='info', aliases=['?'], invoke_without_command=True)
     async def help_settings(self, ctx):
-        '''
+        """
         displays info about the settings
-        '''
+        """
         text = self.bot.config['discord']['settings']['help'].format(self.bot.config['discord']['prefix'][0],
-                                                                     '`' + '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`')
+                                                                     '`' + '`, `'.join(
+                                                                         self.bot.config['discord']['settings'][
+                                                                             'categories']) + '`')
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
-
     async def edit_settings(self, ctx, args, channel_mode):
-        '''
+        """
         edits the settings according to user input
-        '''
+        """
         error_str = ''
         if len(args) != 2:
             error_str = f'{self.bot.config["discord"]["indicators"][0]} You have to provide __two__ arguments!'
@@ -174,7 +169,7 @@ class Utils(commands.Cog):
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`\n'
+                         '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return
@@ -201,12 +196,11 @@ class Utils(commands.Cog):
             else:
                 await ctx.send(f'category `{category}`was not yet set for this {spec_word} .')
 
-
     @commands.Cog.listener('on_command_error')
     async def on_command_error(self, ctx, error):
-        '''
+        """
         An error handler that is called when an error is raised inside a command either through user input error, check failure, or an error in the code.
-        '''
+        """
         # Ignore these errors
         ignored = (commands.CommandNotFound, commands.UserInputError, commands.NoPrivateMessage)
         if isinstance(error, ignored):
@@ -219,25 +213,33 @@ class Utils(commands.Cog):
             if not hours and not minutes:
                 await ctx.send(f' You must wait {round(secs)} seconds to use this command!')
             elif not hours and minutes:
-                await ctx.send(f' You must wait {round(minutes)} minutes and {round(secs)} seconds to use this command!')
+                await ctx.send(
+                    f' You must wait {round(minutes)} minutes and {round(secs)} seconds to use this command!')
             else:
-                await ctx.send(f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
+                await ctx.send(
+                    f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
 
         elif isinstance(error, dc_utils.CategoryNotAllowed):
             # if the category is not allowed in this context
-            await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.', delete_after=15)
+            await ctx.send(
+                f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.',
+                delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
-            await ctx.send('*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
+            await ctx.send(
+                '*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
 
         elif isinstance(error, dc_utils.ChannelBusy):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
-            await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.', delete_after=10)
+            await ctx.send(
+                f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
+                delete_after=10)
 
         elif isinstance(error, commands.CheckFailure):
-            await ctx.send(f'{self.bot.config["discord"]["indicators"][0]} An internal error occured while parsing this command. Please contact the developer.')
-            self.logger.warning('Unknown CheckFailure occured, type is: %s',type(error))
+            await ctx.send(
+                f'{self.bot.config["discord"]["indicators"][0]} An internal error occured while parsing this command. Please contact the developer.')
+            self.logger.warning('Unknown CheckFailure occured, type is: %s', type(error))
 
         else:
             raise error
