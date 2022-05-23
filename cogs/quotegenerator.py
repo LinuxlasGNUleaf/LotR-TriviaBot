@@ -7,6 +7,7 @@ from discord.ext import commands
 
 import dc_utils
 
+
 class QuoteGenerator(commands.Cog):
     """
     Generates quotes with a specified set of people, using quotes from a large online database

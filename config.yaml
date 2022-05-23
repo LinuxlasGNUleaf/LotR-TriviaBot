@@ -157,21 +157,15 @@ quote_battle:
 
 # trivia minigame settings
 trivia_quiz:
-    # determines the timeout duration (X characters per second)
-    multiplier: 12
-    # extra-time added to the timeout (in seconds) without regard of the length of the question
-    extra_time: 5.0
+    # BACKEND SETTINGS
     # marker used to mark correct answer
-    marker: "*"
-    # link to trivia form to submit new questions
-    link: https://forms.gle/k4oMTiyUEJgntMyb9
-    # tips added when the link is displayed
-    tips:
-        - "U shel submit ur questions here: {}"
-        - "Thought of a cool new trivia question? Great! Submit it here: {}"
-        - "Are these questions 2 ez 4 u? Submit new ones here: {}"
-        - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
+    question_marker: "*"
 
+    # QUIZ SETTINGS
+    # time minimum added to the timeout (in seconds) without regard of the length of the question
+    min_read_time: 10.0
+    # reading speed for calculating the timeout
+    chars_per_seconds: 13
     # insults for failed trivia questions
     insults:
         - "Stupid fat {}!"
@@ -194,26 +188,42 @@ trivia_quiz:
         - "May the wind under your wings bear you where the sun sails and the moon walks."
         - "May the stars shine upon your face!"
         - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
-    
+
+    # TIMING SETTINGS
+    # timeout for the select screen
+    select_timeout: 10
+
+    # QUESTIONS FORM SETTINGS
+    # probability to display the link and a tip
+    tip_probability: 0.05
+    # link to trivia form to submit new questions
+    link: https://forms.gle/k4oMTiyUEJgntMyb9
+    # tips added when the link is displayed
+    tips:
+        - "U shel submit ur questions here: {}"
+        - "Thought of a cool new trivia question? Great! Submit it here: {}"
+        - "Are these questions 2 ez 4 u? Submit new ones here: {}"
+        - "Are you versed in the ways of Middle Earth trivia? And if that is the case, would you mind sharing it? Submit new questions here: {}"
+
+    # CLASSIC SCOREBOARD SETTINGS
     # Double quotes ("") are important here, otherwise the escape sequence \n is not recognized
-    medals:
+    scoreboard_medals:
         [
             "🥇 __Eru Ilúvatar:__ \n{}",
             "🥈 __Manwë:__\n{}",
             "🥉 __Galadriel:__\n{}\n",
             "{}",
         ]
-
-    scoreboard_line: "**[{} pts / {}%]** {}"
-    scoreboard_streak: " :dart: *Streak of {} wins*"
-    # probability to display the link and a tip
-    tip_probability: 0.05
+    scoreboard_entry: "**[{} pts / {}%]** {}"
+    scoreboard_streak_info: " :dart: *Streak of {} wins*"
     # top X players to show on the scoreboard
-    scoreboard_max: 25
+    scoreboard_length: 25
+
+    # GRAPHICAL SCOREBOARD SETTINGS
     # minimum number of players in a server necessary to create a graphical scoreboard
     gscoreboard_min: 10
-    # maximum number of players to display on the graphical scoreboard
-    gscoreboard_max: 15
+    # top X players to show on the graphical scoreboard
+    gscoreboard_length: 15
 
 # hangman minigame settings
 hangman:
@@ -282,7 +292,7 @@ reddit:
     useragent: "post fetcher by /u/LotR-Fan42"
     # list of subreddits to pull posts from
     subreddits: ["lotrmemes", "hobbit_memes"]
-    # interval in minutes before the pulled posts are considered outdated and are refetched
+    # interval in minutes before the pulled posts are considered outdated and are reloaded
     refresh_interval: 5
     # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
     default_query_size: 50
