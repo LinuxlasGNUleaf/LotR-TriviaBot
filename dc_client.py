@@ -1,4 +1,3 @@
-import pickle
 import os
 import logging
 import random
@@ -7,7 +6,8 @@ from datetime import datetime
 import discord
 from discord.ext import commands, tasks
 
-import backend_utils
+import backend_utils as bu
+
 
 
 class LotrBot(commands.Bot):
@@ -36,18 +36,18 @@ class LotrBot(commands.Bot):
         self.start_time = 0
 
         # load tokens
-        with backend_utils.LogManager(self.logger, logging.INFO, 'token loading', self.config['backend']['log_width']):
-            for token, tfile in self.config['backend']['tokens'].items():
-                tname = tfile
-                tfile = os.path.join(self.token_dir, tfile)
-                self.tokens[token] = self.load_token(tfile, tname)
+        with bu.LogManager(self.logger, logging.INFO, 'token loading', self.config['backend']['log_width']):
+            for token, token_file in self.config['backend']['tokens'].items():
+                token_name = token_file
+                token_file = os.path.join(self.token_dir, token_file)
+                self.tokens[token] = bu.load_token(token_file, token_name)
 
         # load caches
-        with backend_utils.LogManager(self.logger, logging.INFO, 'cache loading', self.config['backend']['log_width']):
-            for cache, cfile in self.config['backend']['caches'].items():
-                cname = cfile
-                cfile = os.path.join(self.cache_dir, cfile)
-                self.caches[cache] = self.load_cache(cfile, cname)
+        with bu.LogManager(self.logger, logging.INFO, 'cache loading', self.config['backend']['log_width']):
+            for cache, cache_file in self.config['backend']['caches'].items():
+                cname = cache_file
+                cache_file = os.path.join(self.cache_dir, cache_file)
+                self.caches[cache] = bu.load_cache(cache_file, cname)
 
         self.blocked_users = []
         self.busy_channels = []
@@ -90,22 +90,22 @@ class LotrBot(commands.Bot):
     async def load_cogs(self, cog_list=None):
         cog_list = cog_list if cog_list else self.get_all_cogs()
         status = {x: '' for x in cog_list}
-        with backend_utils.LogManager(self.logger, logging.INFO, 'cog loading', self.config['backend']['log_width']):
+        with bu.LogManager(self.logger, logging.INFO, 'cog loading', self.config['backend']['log_width']):
             for cog in cog_list:
                 try:
                     logging.info(f'Attempting to load {cog}...')
                     await self.load_extension(cog)
                 except commands.ExtensionFailed as exc:
                     logging.error(f'{cog} failed with the following exception:')
-                    with backend_utils.LogManager(self.logger, logging.ERROR, 'EXCEPTION',
-                                                  self.config['backend']['log_width']):
+                    with bu.LogManager(self.logger, logging.ERROR, 'EXCEPTION',
+                                       self.config['backend']['log_width']):
                         logging.exception(exc)
         return status
 
     async def unload_cogs(self, cog_list=None):
         cog_list = cog_list if cog_list else self.get_all_cogs()
         status = {x: '' for x in cog_list}
-        with backend_utils.LogManager(self.logger, logging.INFO, 'cog unloading', self.config['backend']['log_width']):
+        with bu.LogManager(self.logger, logging.INFO, 'cog unloading', self.config['backend']['log_width']):
             for cog in cog_list:
                 try:
                     logging.info(f'Attempting to unload {cog}...')
@@ -122,7 +122,7 @@ class LotrBot(commands.Bot):
         print(f'All cogs: {self.get_all_cogs()}')
         cog_list = cog_list if cog_list else set(self.get_active_cogs() + self.get_all_cogs())
         status = {x: '' for x in cog_list}
-        with backend_utils.LogManager(self.logger, logging.INFO, 'cog reloading', self.config['backend']['log_width']):
+        with bu.LogManager(self.logger, logging.INFO, 'cog reloading', self.config['backend']['log_width']):
             for cog in cog_list:
                 logging.info(f'Attempting to reload {cog} ...')
                 try:
@@ -134,8 +134,8 @@ class LotrBot(commands.Bot):
                     status[cog] = 'N/A'
                 except (commands.ExtensionFailed, commands.NoEntryPointError) as exc:
                     logging.error(f'{cog} failed with the following exception:')
-                    with backend_utils.LogManager(self.logger, logging.ERROR, 'EXCEPTION',
-                                                  self.config['backend']['log_width']):
+                    with bu.LogManager(self.logger, logging.ERROR, 'EXCEPTION',
+                                       self.config['backend']['log_width']):
                         logging.exception(exc)
                     status[cog] = "FAIL"
                 except commands.ExtensionNotLoaded:
@@ -147,7 +147,7 @@ class LotrBot(commands.Bot):
 
     @tasks.loop()
     async def autosave(self):
-        self.save_caches()
+        bu.save_caches(self.config, self.caches, self.cache_dir)
         self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     @autosave.before_loop
@@ -227,3 +227,6 @@ class LotrBot(commands.Bot):
 
     def get_active_cogs(self):
         return [self.cog_prefix + cog.lower() for cog in self.cogs.keys()]
+
+    def get_asset_name(self, name):
+        return os.path.join(self.script_dir, self.config['backend']['asset_dir'], self.config['backend']['assets'][name])

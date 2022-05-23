@@ -126,8 +126,8 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
 
     author_info = (f'{user.display_name}\'s hangman game', user.avatar_url)
 
-    color = (backend_utils.map_vals(ind, 0, 8, 0, 255),
-             backend_utils.map_vals(ind, 0, 8, 255, 0), 0)
+    color = (backend_utils.map_values(ind, 0, 8, 0, 255),
+             backend_utils.map_values(ind, 0, 8, 255, 0), 0)
 
     return dc_utils.create_embed(hangman, author_info=author_info, content=used + state, color=color)
 

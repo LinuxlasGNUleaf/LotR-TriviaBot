@@ -19,7 +19,7 @@ class AutoScript(commands.Cog):
         self.script_location = self.bot.config['backend']['assets']['script']
         self.script = []
         self.condensed_script = []
-        self.parse_script(self.script, self.condensed_script)
+        # self.parse_script(self.script, self.condensed_script)
         self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()

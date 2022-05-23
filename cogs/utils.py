@@ -1,18 +1,19 @@
-from datetime import datetime
 import logging
 import platform
 import random
 import typing
-from discord.ext import commands
+from datetime import datetime
+
 import discord
+from discord.ext import commands
 
 import dc_utils
 
 
 class Utils(commands.Cog):
-    '''
+    """
     Utility commands for the Bot.
-    '''
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -25,9 +26,9 @@ class Utils(commands.Cog):
     @commands.is_owner()
     @commands.command()
     async def reload(self, ctx, cog: typing.Optional[str] = ''):
-        '''
+        """
         reloads all or one specific cog
-        '''
+        """
 
         if cog:
             # if cog is active, select that cog
@@ -64,9 +65,9 @@ class Utils(commands.Cog):
     @commands.cooldown(1, 60)
     @commands.command()
     async def stats(self, ctx):
-        '''
+        """
         displays misc. statistics about the bot
-        '''
+        """
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
         embed.colour = random.choice(self.bot.color_list)
 

@@ -44,6 +44,7 @@ class Reddit(commands.Cog):
         self.auto_refresh.change_interval(minutes=self.options['refresh_interval'])
         self.auto_refresh.start()
 
+
     async def cog_unload(self):
         await self.reddit.close()
         self.auto_refresh.stop()
@@ -55,10 +56,10 @@ class Reddit(commands.Cog):
         # processing meme, determining whether it's an image or not, yada yada yada
         post = await self.get_post(ctx.channel.id)
         embed = discord.Embed(title=post.title if len(post.title) <= 256 else post.title[:253] + '...')
-        ftype = post.url.split('.')[-1]
-        if ftype in ['jpeg', 'jpg', 'gif', 'png'] or post.domain == 'i.redd.it':
+        file_type = post.url.split('.')[-1]
+        if file_type in ['jpeg', 'jpg', 'gif', 'png'] or post.domain == 'i.redd.it':
             embed.set_image(url=post.url)
-        elif ftype in ['gifv', 'mp4', 'avi', 'webm', 'mov'] or post.domain == 'v.redd.it':
+        elif file_type in ['gifv', 'mp4', 'avi', 'webm', 'mov'] or post.domain == 'v.redd.it':
             embed.set_thumbnail(
                 url=self.options['video_thumbnail'])
         embed.set_author(
