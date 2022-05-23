@@ -25,7 +25,7 @@ else:
     sys.exit(0)
 # ==============================================================================
 
-logfile = os.path.join(work_dir, config['backend']['logfile'])
+logfile = os.path.join(work_dir, config['backend']['caches']['logfile'])
 print(f'logging events to: {logfile}')
 
 logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-11s]: %(message)s',
@@ -44,4 +44,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         logging.info('keyboard interrupt detected, exiting.')
     bot.save_caches()
-    logging.info('saved caches sucessfully.\n\n')
+    logging.info('saved caches successfully.\n\n')

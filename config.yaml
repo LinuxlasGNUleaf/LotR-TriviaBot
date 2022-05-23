@@ -22,16 +22,21 @@ backend:
 
     # caches for various features
     caches: {
+        "logfile": "dcbot.log",
         "discord_settings": "dc_settings.cache",
         "trivia_scores": "trivia_scores.cache",
         "reddit_posts": "reddit_posts.cache"
     }
-    
-    # cog directory RELATIVE TO CWD, use seperate entries for subdirs: assets/cogs -> ["assets","cogs"]
-    cog_dir: ["cogs"]
 
-    # logfile location (in cache directory)
-    logfile: dcbot.log
+    # assets for various features
+    assets: {
+        "script": 'assets/script.txt',
+        "questions": 'assets/questions.csv',
+        "words": 'assets/words.csv'
+    }
+
+    # cog directory RELATIVE TO CWD, use separate entries for sub-dirs: assets/cogs -> ["assets","cogs"]
+    cog_dir: ["cogs"]
     # logging width for headers
     log_width: 60
     # autosave interval in minutes
@@ -158,8 +163,6 @@ trivia_quiz:
     extra_time: 5.0
     # marker used to mark correct answer
     marker: "*"
-    # cache file for storing the trivia scoreboard (located in general/cache_path)
-    cache: scoreboard.pyobj
     # link to trivia form to submit new questions
     link: https://forms.gle/k4oMTiyUEJgntMyb9
     # tips added when the link is displayed
@@ -251,8 +254,6 @@ quotegen:
 
 # autoscript settings
 autoscript:
-    # script file for autoscript
-    file: script.txt
     # determines whether the autoscript should stop at the end of a scene
     scene_end_interrupt: False
     # settings for the condensed script (for internal use only)
@@ -272,7 +273,7 @@ autogimli:
     cooldown: 300
     # custom emojis to react with on messages, server-specific
     special_reactions: { 566219783377518592: ["<:Gumli:596753586147426355>"] }
-    # whether or not a special message is displayed if the number 2 (two) is detected
+    # whether a special message is displayed if the number 2 (two) is detected
     number_two_special_message: True
 
 # settings for the reddit API used for pulling memes and stuff
@@ -282,8 +283,8 @@ reddit:
     # list of subreddits to pull posts from
     subreddits: ["lotrmemes", "hobbit_memes"]
     # interval in minutes before the pulled posts are considered outdated and are refetched
-    refresh_interval: 300
+    refresh_interval: 5
     # number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
-    query_limit: 50
+    default_query_size: 50
     # video thumbnail url for video posts
     video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
