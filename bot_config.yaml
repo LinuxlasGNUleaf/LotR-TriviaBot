@@ -1,0 +1,93 @@
+#  _           _   _____     _______   _       _       ____        _
+# | |         | | |  __ \   |__   __| (_)     (_)     |  _ \      | |
+# | |     ___ | |_| |__) |_____| |_ __ ___   ___  __ _| |_) | ___ | |_
+# | |    / _ \| __|  _  /______| | '__| \ \ / / |/ _` |  _ < / _ \| __|
+# | |___| (_) | |_| | \ \      | | |  | |\ V /| | (_| | |_) | (_) | |_
+# |______\___/ \__|_|  \_\     |_|_|  |_| \_/ |_|\__,_|____/ \___/ \__|
+
+# bot tokens, caches and assets
+tokens: {
+  "discord": "discord.tk"
+}
+caches: {
+  "discord_settings": "dc_settings.cache"
+}
+assets: {
+}
+
+# filesystem settings
+filesystem:
+  # the root directory for caches and tokens for the bot.
+  # this is platform-specific, environment variables will be expanded
+  bot_dir:
+    {
+      "linux": '$HOME/.config/discord/bots/lotr-bot/',
+      "win32": '$appdata\discord\bots\lotr-bot\',
+    }
+  # token, cache directories RELATIVE TO bot_dir
+  token_dir: 'tokens'
+  cache_dir: 'caches'
+
+  # asset directory RELATIVE TO CWD
+  asset_dir: 'assets'
+  # config directory RELATIVE TO CWD
+  config_dir: 'config'
+  # cog directory RELATIVE TO CWD, use separate entries for sub-dirs: assets/cogs -> ["assets","cogs"]
+  cog_dir: [ 'cogs' ]
+
+# logging settings
+logging:
+  # logging width for headers
+  log_width: 60
+  logfile: 'bot_log.txt'
+
+# settings for the discord bot
+discord:
+  # prefixes for bot commands such as "X trivia", where X is one of the keys specified below
+  prefix: [ "lotr ", "Lotr ", "LOTR " ]
+  # autosave interval in minutes
+  autosave: 5
+  # user id of the developer
+  developer_id: 277083306087022592
+  # github-repo link
+  github_repo: https://github.com/LinuxlasGNUleaf/LotR-TriviaBot
+
+  # settings for the bot
+  settings:
+    # help message displayed when working with the settings command
+    help: |
+      **How the settings work:**
+      You can use the settings command in cases where you want to enable / disable specific categories.
+      *Please note: If you want to completely turn off the bot in some parts of your server, use Channel Settings
+      to disallow the bot to prevent the bot from sending messages there.*
+
+      You can set preferences for a server or a channel (DMs excluded), which means you set the category to on / off.
+      If set, the *channel preference* for a category will __always__ be preferred.
+      If the *channel preference* for this category is not set, the server-preference will be used.
+      If the *server preference* is not set either, the hardcoded fallback values are used.
+      Refer to the attached image for further clarification. 
+
+
+      **How to use the config command:**
+      Syntax: `{0}setting [channel/server] [category] [on/off/reset]`
+      - *First argument*: Edit channel-wide or server-wide settings?
+
+      - *Second argument*: Which category do you want to edit?
+      These are the categories that are available:
+      {1}
+
+      - *Third argument*: What mode do you want the setting to have?
+      These are the modes that are available:
+      `on`,`off`,`reset`
+      Note: `reset` deletes the server/channel-preference, which makes the bot fall back to the next layer (see attached image)
+
+    # list of config categories (for internal use only, don't edit)
+    categories:
+      - autoscript
+      - memes
+      - minigames
+      - lore
+      - battles
+
+    # fallback permissions, used when no relevant config is set at all
+    defaults: { autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0 }

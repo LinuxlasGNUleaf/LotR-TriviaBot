@@ -1,26 +1,20 @@
-import logging
 from difflib import SequenceMatcher
 from random import choice
 
 import discord
 from discord.ext import commands
 
-import dc_utils
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class AutoScript(commands.Cog):
+class AutoScript(LotrCog):
     """
     handles the AutoScript integration of the Bot
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.options = self.bot.config['autoscript']
-        self.script_location = self.bot.config['backend']['assets']['script']
-        self.script = []
-        self.condensed_script = []
-        # self.parse_script(self.script, self.condensed_script)
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -42,7 +36,7 @@ class AutoScript(commands.Cog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not dc_utils.is_category_allowed(message, 'autoscript', self.bot.settings,
+        if not du.is_category_allowed(message, 'autoscript', self.bot.settings,
                                             self.bot.config['discord']['settings']['defaults']):
             return
 

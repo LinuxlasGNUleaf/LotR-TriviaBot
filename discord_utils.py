@@ -20,12 +20,12 @@ def create_embed(title=None, content=None, embed_url=None, link_url=None,
     else:
         embed = discord.Embed()
     if color:
-        embed.color = discord.Color.from_rgb(
+        embed.colour = discord.Color.from_rgb(
             int(color[0]),
             int(color[1]),
             int(color[2]))
     else:
-        embed.color = discord.Color.from_rgb(
+        embed.colour = discord.Color.from_rgb(
             random.randint(0, 255),
             random.randint(0, 255),
             random.randint(0, 255))
@@ -190,8 +190,3 @@ def channel_busy_check():
             return True
 
     return commands.check(predicate)
-
-
-def create_response(config, user, positive):
-    msg = random.choice(config['trivia_quiz']['compliments'] if positive else config['trivia_quiz']['insults'])
-    return msg.format(user.display_name)

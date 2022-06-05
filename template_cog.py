@@ -2,13 +2,15 @@ import logging
 from discord.ext import commands
 
 
-class REPLACE(commands.Cog):
+class LotrCog(commands.Cog):
     """
     TEMPLATE DOCSTRING
     """
 
     def __init__(self, bot):
         self.bot = bot
+        self.options = self.bot.load_config_for_cog(self.__cog_name__)
+        self.tokens, self.caches, self.assets = self.bot.load_files_for_context(self.options, self.__cog_name__)
         self.logger = logging.getLogger(__name__)
 
     @commands.Cog.listener()

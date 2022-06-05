@@ -1,27 +1,29 @@
-import logging
+import asyncio
 import platform
 import random
 import typing
 from datetime import datetime
 
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 
-import dc_utils
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class Utils(commands.Cog):
+class Utils(LotrCog):
     """
     Utility commands for the Bot.
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     async def cog_load(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
+        self.autopresence.change_interval(minutes=self.options['autopresence'])
+        self.autopresence.start()
 
     @commands.is_owner()
     @commands.command()
@@ -57,10 +59,29 @@ class Utils(commands.Cog):
                 name = ':grey_question: Not found / available'
             elif status == 'NEW':
                 name = ':new: New and loaded'
+            else:
+                continue
             embed.add_field(name=name,
                             value=cog,
                             inline=True)
         await embed_msg.edit(embed=embed)
+
+    def get_random_presence(self):
+        return discord.Activity(type=discord.ActivityType.watching,
+                                name=random.choice(self.options['status']))
+
+    @tasks.loop()
+    async def autopresence(self):
+        new_activity = self.get_random_presence()
+        self.logger.info(f'Changing presence to: "Watching {new_activity.name}"')
+        await self.bot.change_presence(activity=new_activity)
+
+    @autopresence.before_loop
+    async def before_autopresence(self):
+        self.logger.info('Waiting for the bot to finish startup before changing presence...')
+        await self.bot.wait_until_ready()
+        self.logger.info(f'Startup complete, presence will be updated in {int(self.autopresence.minutes)} minutes.')
+        await asyncio.sleep(self.autopresence.minutes * 60)
 
     @commands.cooldown(1, 60)
     @commands.command()
@@ -117,7 +138,7 @@ class Utils(commands.Cog):
                     channel_setting = self.bot.config['discord']['indicators'][
                         self.bot.settings[ctx.channel.id][category]]
 
-            effective = self.bot.config['discord']['indicators'][dc_utils.is_category_allowed(
+            effective = self.bot.config['discord']['indicators'][du.is_category_allowed(
                 ctx, category, self.bot.settings, self.bot.config['discord']['settings']['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
@@ -178,7 +199,7 @@ class Utils(commands.Cog):
         spec_word = 'channel' if channel_mode else 'server'
         category, mode = args
 
-        if not spec_id in self.bot.settings.keys():
+        if spec_id not in self.bot.settings.keys():
             self.bot.settings[spec_id] = {}
 
         if mode == 'on':
@@ -219,7 +240,7 @@ class Utils(commands.Cog):
                 await ctx.send(
                     f' You must wait {round(hours)} hours, {round(minutes)} minutes and {round(secs)} seconds to use this command!')
 
-        elif isinstance(error, dc_utils.CategoryNotAllowed):
+        elif isinstance(error, du.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(
                 f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.',
@@ -229,7 +250,7 @@ class Utils(commands.Cog):
             await ctx.send(
                 '*\'You cannot wield it. None of us can.\'* ~Aragorn\nYou lack permission to use this command!')
 
-        elif isinstance(error, dc_utils.ChannelBusy):
+        elif isinstance(error, du.ChannelBusy):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(
@@ -238,8 +259,8 @@ class Utils(commands.Cog):
 
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(
-                f'{self.bot.config["discord"]["indicators"][0]} An internal error occured while parsing this command. Please contact the developer.')
-            self.logger.warning('Unknown CheckFailure occured, type is: %s', type(error))
+                f'{self.bot.config["discord"]["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
+            self.logger.warning('Unknown CheckFailure occurred, type is: %s', type(error))
 
         else:
             raise error

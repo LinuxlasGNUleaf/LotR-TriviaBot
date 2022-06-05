@@ -1,29 +1,28 @@
 import asyncio
-import logging
 import random
 
 import discord
 from discord.ext import commands
 
-import dc_utils
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class QuoteBattle(commands.Cog):
+class QuoteBattle(LotrCog):
     """
-    manages a quotebattle between two users
+    manages a quote-battle between two users
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @dc_utils.category_check('battles')
-    @dc_utils.channel_busy_check()
+    @du.category_check('battles')
+    @du.channel_busy_check()
     @commands.guild_only()
     @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
     async def quote_battle_handler(self, ctx):
@@ -33,7 +32,7 @@ class QuoteBattle(commands.Cog):
         server = ctx.guild
         # perms_changed = []
 
-        result, players = await dc_utils.handle_ready_check(self.bot, ctx, player_count=2)
+        result, players = await du.handle_ready_check(self.bot, ctx, player_count=2)
 
         if not result:
             return
@@ -140,7 +139,8 @@ class QuoteBattle(commands.Cog):
                 await ctx.send(ret_str + f'{players[winner].mention} wins the quote battle! What a fight!')
 
         except discord.errors.HTTPException:
-            await ctx.send(self.bot.config['discord']['indicators'][0] + ' An error occured while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
+            await ctx.send(self.bot.config['discord']['indicators'][
+                               0] + ' An error occurred while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
 
 
 async def setup(bot):

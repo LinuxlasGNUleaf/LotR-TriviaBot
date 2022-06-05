@@ -1,22 +1,22 @@
-import logging
 import random
-from discord.ext import commands
-import discord
-import inflect
 import string
 from datetime import datetime
+
+import discord
+import inflect
+from discord.ext import commands
 from word2number import w2n
 
+from template_cog import LotrCog
 
-class Autogimli(commands.Cog):
+
+class AutoGimli(LotrCog):
     """
-    handles the Autogimli integration of the Bot
+    handles the AutoGimli integration of the Bot
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.options = self.bot.config['autogimli']
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
         self.inflect = inflect.engine()
         self.cooldown_list = {}
 
@@ -78,4 +78,4 @@ class Autogimli(commands.Cog):
 
 
 async def setup(bot):
-    await bot.add_cog(Autogimli(bot))
+    await bot.add_cog(AutoGimli(bot))

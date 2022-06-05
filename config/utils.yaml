@@ -1,0 +1,39 @@
+#  _    _ _   _ _
+# | |  | | | (_) |
+# | |  | | |_ _| |___
+# | |  | | __| | / __|
+# | |__| | |_| | \__ \
+#  \____/ \__|_|_|___/
+
+# cog-specific tokens, caches and assets
+tokens: {
+}
+caches: {
+  "discord_settings": "dc_settings.cache"
+}
+assets: {
+}
+
+# time in minutes until the presence will be updated
+autopresence: 30
+# emojis for visual indicators
+indicators: [ ":x:", ":white_check_mark:" ]
+
+# time for all participants of a battle to check in
+ready_check_timeout: 180
+
+# status messages for the bot
+status:
+  - Boromir not simply walk into Mordor
+  - Viggo Mortensen break his toe
+  - Gimli lose his shoe on the run
+  - Legolas no-scoping Orcs
+  - Merry and Pippin smoking pipe-weed
+  - Eowyn brewing a stew
+  - Gandalf bumping his head in Bag End twice
+  - Feanor doing nothing wrong
+  - Frodo getting stabbed by Shelob
+  - Smeagol smacc Sam with a stone
+  - Aragorn charging for Frodo
+  - Tom Bombadil singing and stomping through the Old Forest
+  - Bombur devouring the universe

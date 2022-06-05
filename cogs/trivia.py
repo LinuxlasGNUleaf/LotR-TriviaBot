@@ -3,7 +3,6 @@ Trivia cog for the LotR-Trivia Bot
 """
 import asyncio
 import csv
-import logging
 import math
 import random
 from io import BytesIO
@@ -13,42 +12,40 @@ import matplotlib.pyplot as plt
 import numpy as np
 from discord.ext import commands
 
-import backend_utils
-import dc_utils
+import backend_utils as bu
+import discord_utils as du
+from template_cog import LotrCog
 
 plt.rcdefaults()
 
 
-class Trivia(commands.Cog):
+class Trivia(LotrCog):
     """
-    handles the LotR-Trivia integration for the bot, including profile / scoreboards
+    handles the LotR-Trivia-Quiz integration for the bot, including profile / scoreboards
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.options = self.bot.config['trivia_quiz']
-        self.questions_location = self.bot.config['backend']['assets']['questions']
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     async def cog_load(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @dc_utils.category_check('minigames')
+    @du.category_check('minigames')
     @commands.command(name='profile')
     async def display_profile(self, ctx):
         """
         displays the user's profile (concerning the trivia minigame)
         """
         user = ctx.author
-        if user.id not in self.bot.scoreboard.keys():
+        if user.id not in self.caches['scores'].scoreboard.keys():
             await ctx.send(
-                f'You have to play a game of trivia before a profile can be generated! Use `{self.bot.config["discord"]["prefix"]} trivia` to take a quiz!')
+                f'You have to play a game of trivia before a profile can be generated! Use the `trivia` command to take a quiz!')
             return
 
         embed = discord.Embed(title=f'{user.display_name}\'s profile')
         embed.set_thumbnail(url=user.avatar.url)
-        embed.colour = random.choice(self.bot.color_list)
+        embed.colour = discord.Color.random()
 
         player_stats = self.get_scoreboard(user)
 
@@ -63,7 +60,7 @@ class Trivia(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @dc_utils.category_check('minigames')
+    @du.category_check('minigames')
     @commands.command(name='trivia', aliases=['tr', 'quiz'])
     async def trivia_quiz(self, ctx):
         """
@@ -71,7 +68,7 @@ class Trivia(commands.Cog):
         """
         TriviaGameUI(ctx, self)
 
-    @dc_utils.category_check('minigames')
+    @du.category_check('minigames')
     @commands.command(name='scoreboard')
     @commands.guild_only()
     async def display_scoreboard(self, ctx):
@@ -79,9 +76,9 @@ class Trivia(commands.Cog):
         displays a trivia scoreboard for the server
         """
         # fetching intersection of guild members and users on scoreboard
-        found_users = [[user.name, *self.bot.scoreboard[user.id]]
+        found_users = [[user.name, *self.caches['scores'][user.id]]
                        for user in ctx.guild.members if
-                       user.id in self.bot.scoreboard.keys() and self.bot.scoreboard[user.id][1] > 0]
+                       user.id in self.caches['scores'].keys() and self.caches['scores'][user.id][1] > 0]
         # sort users from best to worst
         found_users = sorted(found_users, key=lambda x: x[2])
 
@@ -120,7 +117,7 @@ class Trivia(commands.Cog):
 
         # finish the scoreboard embed
         embed = discord.Embed(title=title, description=scoreboard,
-                              color=random.choice(self.bot.color_list))
+                              color=discord.Color.random())
 
         # only create a graphical scoreboard if more than the defined minimum of players played a game yet
         if len(found_users) >= self.options['gscoreboard_min']:
@@ -132,7 +129,7 @@ class Trivia(commands.Cog):
             max_val = max(g_won) + 1
 
             for i in range(len_users):
-                val = backend_utils.map_vals(g_won[i] / g_taken[i], .2, 1, 0, 1)
+                val = bu.map_values(g_won[i] / g_taken[i], .2, 1, 0, 1)
                 g_ratio.append([1 - val, val, 0])
 
             # create plot
@@ -166,20 +163,20 @@ class Trivia(commands.Cog):
         """
         retrieves [count, wins, streak] for the user from the scoreboard
         """
-        return self.bot.caches['trivia_scores'].setdefault(user.id, [0, 0, 0])
+        return self.caches['scores'].setdefault(user.id, [0, 0, 0])
 
     def set_scoreboard(self, user, count, wins, streak):
         """
         writes [count, wins, streak] for the user to the scoreboard
         """
-        self.bot.caches['trivia_scores'][user.id] = [count, wins, streak]
+        self.caches['scores'][user.id] = [count, wins, streak]
 
     def get_trivia_question(self, player, count):
         """
         retrieves question from .csv file
         """
         # get random question
-        with open(self.questions_location, 'r', encoding='utf-8') as csvfile:
+        with open(self.assets['questions'], 'r', encoding='utf-8') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             content = random.choice(list(csvreader))
 
@@ -200,7 +197,7 @@ class Trivia(commands.Cog):
         embed = discord.Embed(title=question)
         if player:
             embed.set_author(
-                name=f'{player.display_name}\'s {backend_utils.ordinal(count)} trial in the Arts of Middle Earth trivia',
+                name=f'{player.display_name}\'s {bu.ordinal(count)} trial in the Arts of Middle Earth trivia',
                 url=player.avatar.url)
         else:
             embed.set_author(
@@ -223,8 +220,12 @@ class Trivia(commands.Cog):
         embed.add_field(name=':newspaper: Results of the last battle:',
                         value='```\n ```',
                         inline=False)
-        embed.colour = self.bot.colors['AQUA']
+        embed.colour = discord.Color.teal()
         return embed, len(answers), correct_index, timeout
+
+    def create_response(self, user, positive):
+        msg = random.choice(self.options['compliments'] if positive else self.options['insults'])
+        return msg.format(user.display_name)
 
 
 class TriviaQuizButton(discord.ui.Button['TriviaView']):
@@ -338,7 +339,7 @@ class TriviaGameUI(discord.ui.View):
         # adjust win count of player accordingly
         self.user_stats[1] += correct
 
-        self.trivia_note = dc_utils.create_response(self.bot.config, self.ctx.author, correct)
+        self.trivia_note = self.bot.create_response(self.bot.config, self.ctx.author, correct)
         if timeout:
             self.trivia_hint = "\nYou didn't answer in time!"
         elif random.uniform(0, 1) <= self.cog.options['tip_probability']:

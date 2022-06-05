@@ -2,7 +2,6 @@
 frequently used utils for the backend of the bot
 """
 
-import logging
 import os
 import pickle
 
@@ -19,7 +18,7 @@ def map_values(val, in_min, in_max, out_min, out_max):
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 
-def load_cache(path, name):
+def load_cache(path, name, logger):
     """
     loads cache located in the specified directory into memory,
     and creates an empty one if not valid.
@@ -27,15 +26,15 @@ def load_cache(path, name):
     try:
         with open(path, 'rb') as cache_file:
             obj = pickle.load(cache_file)
-            logging.getLogger(__name__).info(f'successfully deserialized "{name}"')
+            logger.info(f'successfully deserialized "{name}"')
             return obj
     except (FileNotFoundError, EOFError):
-        logging.getLogger(__name__).warning(f'could not deserialize "{name}"! creating empty cache.')
+        logger.warning(f'could not deserialize "{name}"! creating empty cache.')
         open(path, 'wb').close()
         return {}
 
 
-def load_token(path, name):
+def load_token(path, name, logger):
     """
     returns token from a given token location, and raises an error if not valid.
     """
@@ -44,19 +43,19 @@ def load_token(path, name):
             temp = info_file.readlines()
             if not temp:
                 raise EOFError
-            logging.getLogger(__name__).info(f'successfully read "{name}"')
+            logger.info(f'successfully read "{name}"')
             return [x.strip() for x in temp]
     except (FileNotFoundError, EOFError) as token_error:
-        logging.getLogger(__name__).fatal(f'token "{name}" not found!')
+        logger.fatal(f'token "{name}" not found!')
         raise token_error
 
 
-def save_caches(config, caches, cache_dir):
+def save_caches(config, caches, cache_dir, logger):
     for cache, cache_filename in config['backend']['caches'].items():
         cache_file = os.path.join(cache_dir, cache_filename)
         with open(cache_file, 'wb') as cache_file:
             pickle.dump(caches[cache], cache_file)
-    logging.getLogger(__name__).debug('successfully serialized all caches.')
+    logger.debug('successfully serialized all caches.')
 
 
 class LogManager:

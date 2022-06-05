@@ -1,28 +1,27 @@
-import logging
 import random
 
 import discord
 import yaml
 from discord.ext import commands
 
-import dc_utils
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class QuoteGenerator(commands.Cog):
+class QuoteGenerator(LotrCog):
     """
     Generates quotes with a specified set of people, using quotes from a large online database
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @dc_utils.category_check('minigames')
+    @du.category_check('minigames')
     @commands.command(aliases=['qgen', 'quotegen', 'story', 'sgen'])
     async def quote(self, ctx, *players):
         char_range = self.bot.config['discord']['quotegen']['character_range']
@@ -66,4 +65,4 @@ class QuoteGenerator(commands.Cog):
 
 
 async def setup(bot):
-    await bot.add_cog(QuoteGen(bot))
+    await bot.add_cog(QuoteGenerator(bot))

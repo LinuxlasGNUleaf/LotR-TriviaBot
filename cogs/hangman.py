@@ -2,31 +2,30 @@
 Hangman cog for the LotR-Trivia Bot
 """
 import asyncio
-import logging
 import random
 import string
 
 from discord.ext import commands
 
-import backend_utils
-import dc_utils
+import backend_utils as bu
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class Hangman(commands.Cog):
+class Hangman(LotrCog):
     """
     Cog for the ME-related hangman game
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
 
     @commands.Cog.listener()
     async def on_ready(self):
         self.logger.info('%s cog has been loaded.',
                          self.__class__.__name__.title())
 
-    @dc_utils.category_check('minigames')
+    @du.category_check('minigames')
     @commands.command(name='hangman')
     async def create_hangman_game(self, ctx):
         """
@@ -126,10 +125,10 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
 
     author_info = (f'{user.display_name}\'s hangman game', user.avatar_url)
 
-    color = (backend_utils.map_values(ind, 0, 8, 0, 255),
-             backend_utils.map_values(ind, 0, 8, 255, 0), 0)
+    color = (bu.map_values(ind, 0, 8, 0, 255),
+             bu.map_values(ind, 0, 8, 255, 0), 0)
 
-    return dc_utils.create_embed(hangman, author_info=author_info, content=used + state, color=color)
+    return du.create_embed(hangman, author_info=author_info, content=used + state, color=color)
 
 
 async def setup(bot):

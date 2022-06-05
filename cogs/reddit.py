@@ -1,24 +1,22 @@
 import asyncio
-import logging
 from datetime import datetime
 
 import asyncpraw
 import discord
 from discord.ext import commands, tasks
 
-import dc_utils
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class Reddit(commands.Cog):
+class Reddit(LotrCog):
     """
     handles the Reddit integration (JSON API) for the Bot
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.options = self.bot.config['reddit']
-        self.posts_cache = self.bot.caches['reddit_posts']
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
+
         self.posts = []
         self.old_timestamp = datetime.now()
         self.query_size = self.options['default_query_size']
@@ -36,20 +34,19 @@ class Reddit(commands.Cog):
 
     def cog_load(self):
         self.reddit = asyncpraw.Reddit(
-            client_id=self.bot.tokens['reddit'][0],
-            client_secret=self.bot.tokens['reddit'][1],
+            client_id=self.tokens['reddit'][0],
+            client_secret=self.tokens['reddit'][1],
             user_agent=self.options['useragent']
         )
         self.subreddit = None
         self.auto_refresh.change_interval(minutes=self.options['refresh_interval'])
         self.auto_refresh.start()
 
-
     async def cog_unload(self):
         await self.reddit.close()
         self.auto_refresh.stop()
 
-    @dc_utils.category_check('memes')
+    @du.category_check('memes')
     @commands.command()
     @commands.cooldown(10, 10)
     async def meme(self, ctx):
@@ -100,14 +97,14 @@ class Reddit(commands.Cog):
         self.old_timestamp = datetime.now()
 
     async def get_post(self, channel_id):
-        if channel_id not in self.posts_cache:
-            self.posts_cache[channel_id] = []
+        if channel_id not in self.caches['post_cache']:
+            self.caches['post_cache'][channel_id] = []
         async with self.get_post_lock:
             valid_post = None
             while not valid_post:
                 for post in self.posts:
-                    if post.id not in self.posts_cache[channel_id]:
-                        self.posts_cache[channel_id].append(post.id)
+                    if post.id not in self.caches['post_cache'][channel_id]:
+                        self.caches['post_cache'][channel_id].append(post.id)
                         return post
 
                 self.logger.info('Reloading subreddits due to lack of new submissions.')

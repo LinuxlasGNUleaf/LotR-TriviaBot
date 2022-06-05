@@ -1,0 +1,27 @@
+#  _____          _     _ _ _
+# |  __ \        | |   | (_) |
+# | |__) |___  __| | __| |_| |_
+# |  _  // _ \/ _` |/ _` | | __|
+# | | \ \  __/ (_| | (_| | | |_
+# |_|  \_\___|\__,_|\__,_|_|\__|
+
+# cog-specific tokens, caches and assets
+tokens: {
+  "reddit": "reddit.tk"
+}
+caches: {
+  "post_cache": "reddit_post.cache"
+}
+assets: {
+}
+
+# useragent string for authenticating
+useragent: "post fetcher by /u/LotR-Fan42"
+# list of subreddits to pull posts from
+subreddits: [ "lotrmemes", "hobbit_memes" ]
+# interval in minutes before the pulled posts are considered outdated and are refetched
+refresh_interval: 5
+# number of posts to pull when pulling new posts, if all the pulled posts were already used, this number is doubled/tripled/etc. until a new post is found
+default_query_size: 50
+# video thumbnail url for video posts
+video_thumbnail: https://cdn.onlinewebfonts.com/svg/download_349409.png
