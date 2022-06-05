@@ -16,19 +16,17 @@ assets: {
   "words": 'words.csv'
 }
 
-# hangman minigame settings
-hangman:
-  # time limit for each guess
-  timeout: 20
-  # ascii-art for the hangman game
-  ongoing_states:
-    - "``` \n \n \n \n \nililililillllililii```"
-    - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
-    - "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```"
-    - "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```"
-    - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii```"
-    - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||\n    ||\n    ||\nililililillllililii```"
-    - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii```"
-  end_states:
-    - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
-    - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"
+# time limit for each guess
+timeout: 20
+# ascii-art for the hangman game
+ongoing_states:
+  - "``` \n \n \n \n \nililililillllililii```"
+  - "```    //\n    ||\n    ||\n    ||\n    ||    \nililililillllililii```"
+  - "```    //====\\\n    ||\n    ||\n    ||\n    ||\n    ||\nililililillllililii```"
+  - "```    //====\\\n    ||    |\n    ||   (\")\n    ||\n    ||\n    ||\nililililillllililii```"
+  - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|\n    ||\n    ||\nililililillllililii```"
+  - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||\n    ||\n    ||\nililililillllililii```"
+  - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   /\n    ||\nililililillllililii```"
+end_states:
+  - "```    //====\\\n    ||    |\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\n    ||\nililililillllililii```"
+  - "```    //====\\\n    ||\n    ||\n    ||   (\")\n    ||   \\|/\n    ||    X\n    ||   / \\\nililililillllililii```"

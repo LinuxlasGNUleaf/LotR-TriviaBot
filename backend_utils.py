@@ -2,7 +2,6 @@
 frequently used utils for the backend of the bot
 """
 
-import os
 import pickle
 
 
@@ -50,12 +49,11 @@ def load_token(path, name, logger):
         raise token_error
 
 
-def save_caches(config, caches, cache_dir, logger):
-    for cache, cache_filename in config['backend']['caches'].items():
-        cache_file = os.path.join(cache_dir, cache_filename)
-        with open(cache_file, 'wb') as cache_file:
+def save_caches(caches, caches_locations, logger, cog_name):
+    for cache, cache_path in caches_locations.items():
+        with open(cache_path, 'wb') as cache_file:
             pickle.dump(caches[cache], cache_file)
-    logger.debug('successfully serialized all caches.')
+    logger.debug(f'successfully serialized all caches for {cog_name}.')
 
 
 class LogManager:

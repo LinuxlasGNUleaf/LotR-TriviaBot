@@ -339,7 +339,7 @@ class TriviaGameUI(discord.ui.View):
         # adjust win count of player accordingly
         self.user_stats[1] += correct
 
-        self.trivia_note = self.bot.create_response(self.bot.config, self.ctx.author, correct)
+        self.trivia_note = self.cog.create_response(self.ctx.author, correct)
         if timeout:
             self.trivia_hint = "\nYou didn't answer in time!"
         elif random.uniform(0, 1) <= self.cog.options['tip_probability']:

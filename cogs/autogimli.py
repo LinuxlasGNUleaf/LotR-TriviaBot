@@ -29,9 +29,9 @@ class AutoGimli(LotrCog):
     async def autogimli(self, msg):
         if random.randint(0, self.options['chance'] - 1) != 0:
             return
-        if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked:
+        if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked_users:
             return
-        perms = msg.guild.me.permissions_in(msg.channel)
+        perms = msg.channel.permissions_for(msg.guild.me)
 
         if msg.author.id in self.cooldown_list:
             if (datetime.now() - self.cooldown_list[msg.author.id]).total_seconds() < self.options['cooldown']:

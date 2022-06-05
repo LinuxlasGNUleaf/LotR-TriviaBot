@@ -1,13 +1,13 @@
 # coding=utf-8
 
+import asyncio
+import logging
 import os
 import sys
-import logging
-import yaml
-import asyncio
-import discord_client
 
-import backend_utils as bu
+import yaml
+
+import discord_client
 
 # ==========================> LOAD YAML FILE <==================================
 with open("bot_config.yaml", 'r', encoding='utf-8') as cfg_stream:
@@ -36,7 +36,7 @@ logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-14s]:
                     handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
 
 # create bot
-bot = dc_client.LotrBot(config, script_dir, work_dir)
+bot = discord_client.LotrBot(config, script_dir, work_dir)
 
 
 async def main():

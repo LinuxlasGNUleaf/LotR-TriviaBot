@@ -5,6 +5,7 @@ import asyncio
 import random
 import string
 
+import discord
 from discord.ext import commands
 
 import backend_utils as bu
@@ -32,14 +33,14 @@ class Hangman(LotrCog):
         hangman game with ME-related characters and places
         """
 
-        with open('words.csv', 'r') as csvfile:
+        with open(self.assets['words'], 'r') as csvfile:
             word = random.choice(csvfile.readlines()).strip()
         word_condensed = word.lower().replace(' ', '')
 
         steps = 2 if len(word_condensed) <= 6 else 1
 
-        game_states = self.bot.config['discord']['hangman']['ongoing_states']
-        end_states = self.bot.config['discord']['hangman']['end_states']
+        game_states = self.options['ongoing_states']
+        end_states = self.options['end_states']
 
         used_chars = []  # used characters array
         max_ind = len(game_states) - 1  # max index
@@ -52,12 +53,12 @@ class Hangman(LotrCog):
         def check(chk_msg):
             return chk_msg.author == ctx.message.author and chk_msg.channel == ctx.channel
 
-        self.bot.blocked.append(ctx.message.author.id)
+        self.bot.blocked_users.append(ctx.message.author.id)
 
         while True:
             try:
                 msg = await self.bot.wait_for('message', check=check,
-                                              timeout=self.bot.config['discord']['hangman']['timeout'])
+                                              timeout=self.options['timeout'])
                 msg = msg.content.lower()
 
             except asyncio.TimeoutError:
@@ -95,10 +96,10 @@ class Hangman(LotrCog):
                 ctx.author, word, game_states[ind], ind, used_chars, True)
             await hangman.edit(embed=h_embed)
 
-        self.bot.blocked.remove(ctx.author.id)
+        self.bot.blocked_users.remove(ctx.author.id)
 
 
-def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
+def create_hangman_embed(user: discord.Member, word, state, ind, used_chars, ongoing):
     """
     creates Hangman embed
     """
@@ -123,7 +124,7 @@ def create_hangman_embed(user, word, state, ind, used_chars, ongoing):
     else:
         used = ''
 
-    author_info = (f'{user.display_name}\'s hangman game', user.avatar_url)
+    author_info = (f'{user.display_name}\'s hangman game', user.avatar.url)
 
     color = (bu.map_values(ind, 0, 8, 0, 255),
              bu.map_values(ind, 0, 8, 255, 0), 0)

@@ -1,8 +1,8 @@
-import os
-import logging
-import pickle
 import asyncio
+import logging
+import os
 from datetime import datetime
+
 import discord
 import yaml
 from discord.ext import commands, tasks
@@ -30,9 +30,11 @@ class LotrBot(commands.Bot):
         os.makedirs(self.cache_dir, exist_ok=True)
 
         self.running_cogs = []
+        self.save_functions = {}
 
-        self.config = config
-        self.tokens, self.caches, self.assets = self.load_files_for_context(self.config, 'LotrBot')
+        self.options = config
+        self.tokens, self.caches, self.caches_locations, self.assets = self.load_files_for_context(self.options,
+                                                                                                   'LotrBot')
         self.start_time = 0
 
         self.blocked_users = []
@@ -53,7 +55,7 @@ class LotrBot(commands.Bot):
         await self.load_cogs()
 
         # adjust task intervals and start
-        self.autosave.change_interval(minutes=self.config['discord']['autosave'])
+        self.autosave.change_interval(minutes=self.options['discord']['autosave'])
         self.autosave.start()
 
         # save startup time
@@ -65,7 +67,7 @@ class LotrBot(commands.Bot):
     async def load_cogs(self, cog_list=None):
         cog_list = cog_list if cog_list else self.get_fs_cogs()
         status = {x: '' for x in cog_list}
-        with bu.LogManager(self.logger, logging.INFO, 'cog loading', self.config['logging']['log_width']):
+        with bu.LogManager(self.logger, logging.INFO, 'cog loading', self.options['logging']['log_width']):
             for cog in cog_list:
                 cog_name = cog.split('.')[-1]
                 try:
@@ -75,14 +77,14 @@ class LotrBot(commands.Bot):
                 except commands.ExtensionFailed as exc:
                     logging.error(f'{cog_name} failed with the following exception:')
                     with bu.LogManager(self.logger, logging.ERROR, 'EXCEPTION',
-                                       self.config['logging']['log_width']):
+                                       self.options['logging']['log_width']):
                         logging.exception(exc)
         return status
 
     async def unload_cogs(self, cog_list=None):
         cog_list = cog_list if cog_list else self.running_cogs
         status = {x: '' for x in cog_list}
-        with bu.LogManager(self.logger, logging.INFO, 'cog unloading', self.config['logging']['log_width']):
+        with bu.LogManager(self.logger, logging.INFO, 'cog unloading', self.options['logging']['log_width']):
             for cog in cog_list:
                 cog_name = cog.split('.')[-1]
                 try:
@@ -126,7 +128,8 @@ class LotrBot(commands.Bot):
                 raise exc
 
     def load_files_for_context(self, config, name):
-        tokens, caches, assets = {}, {}, {}
+        tokens, caches, caches_locations, assets = {}, {}, {}, {}
+
         if config['tokens']:
             self.logger.info(f"Loading tokens for {name}...")
             # load tokens
@@ -142,6 +145,7 @@ class LotrBot(commands.Bot):
                 cname = cache_file
                 cache_file = os.path.join(self.cache_dir, cache_file)
                 caches[cache] = bu.load_cache(cache_file, cname, self.logger)
+                caches_locations[cache] = cache_file
 
         if config['assets']:
             self.logger.info(f"Resolving assets for {name}...")
@@ -149,11 +153,11 @@ class LotrBot(commands.Bot):
             for asset, asset_file in config['assets'].items():
                 assets[asset] = self.get_asset_location(asset_file)
 
-        return tokens, caches, assets
+        return tokens, caches, caches_locations, assets
 
     @tasks.loop()
     async def autosave(self):
-        bu.save_caches(self.config, self.caches, self.cache_dir, self.logger)
+        self.save_caches()
         self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     @autosave.before_loop
@@ -173,21 +177,22 @@ class LotrBot(commands.Bot):
                 return
         await self.process_commands(message)
 
-    def save_caches(self, caches):
-        for cache, cfile in caches.items():
-            cfile = os.path.join(self.cache_dir, cfile)
-            with open(cfile, 'wb') as cache_file:
-                pickle.dump(self.caches[cache], cache_file)
-        self.logger.debug('successfully serialized all caches.')
+    def save_caches(self):
+        # save caches for bot itself
+        bu.save_caches(self.caches, self.caches_locations, self.logger, 'LotrBot')
+        # save caches of all registered cogs
+        for save_func in self.save_functions.values():
+            save_func()
+        self.logger.debug('successfully saved all caches.')
 
     def get_fs_cogs(self):
         return [self.cog_prefix + str(cog)[:-3].lower() for cog in os.listdir(self.cog_dir) if
                 str(cog).endswith(".py") and not str(cog).startswith("_")]
 
     def get_asset_location(self, name):
-        return os.path.join(self.script_dir, self.config['filesystem']['asset_dir'],
+        return os.path.join(self.script_dir, self.options['filesystem']['asset_dir'],
                             name)
 
     def get_config_location(self, name):
-        return os.path.join(self.script_dir, self.config['filesystem']['config_dir'],
+        return os.path.join(self.script_dir, self.options['filesystem']['config_dir'],
                             f'{name.lower()}.yaml')

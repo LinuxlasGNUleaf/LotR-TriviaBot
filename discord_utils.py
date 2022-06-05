@@ -72,7 +72,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
     ready_list = {player: 0 for player in players}
     # set the initiator to ready, HAS TO BE THE FIRST ELEMENT IN THE PLAYERS LIST
     ready_list[players[0]] = 1
-    timeout = bot.config['discord']['ready_check_timeout']
+    timeout = bot.options['discord']['ready_check_timeout']
 
     # func to creates / updates Ready Check
     async def manage_check_embed(ready_chk_msg=None):
@@ -80,7 +80,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
         ready_count = 0
         for ready_player, ready in ready_list.items():
             ready_embed.add_field(
-                name=ready_player.display_name, value=bot.config["discord"]["indicators"][ready])
+                name=ready_player.display_name, value=bot.options["discord"]["indicators"][ready])
             ready_count += ready
         ready_embed.description = f':stopwatch: Timeout in: {timeout // 60}m,{timeout % 60}s.'
         if not all(ready for ready in ready_list.values()):
@@ -170,7 +170,7 @@ def category_check(category: str):
 
     async def predicate(ctx):
         if is_category_allowed(ctx, category, ctx.bot.caches['discord_settings'],
-                               ctx.bot.config['discord']['settings']['defaults']):
+                               ctx.bot.options['discord']['settings']['defaults']):
             return True
         else:
             raise CategoryNotAllowed(category)
