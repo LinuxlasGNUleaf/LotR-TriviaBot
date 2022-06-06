@@ -163,7 +163,7 @@ class Trivia(LotrCog):
         """
         retrieves [count, wins, streak] for the user from the scoreboard
         """
-        return self.caches['scores'].setdefault(user.id, [0, 0, 0])
+        return list(self.caches['scores'].setdefault(user.id, [0, 0, 0]))
 
     def set_scoreboard(self, user, count, wins, streak):
         """
