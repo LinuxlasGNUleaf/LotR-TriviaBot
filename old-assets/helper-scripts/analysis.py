@@ -14,15 +14,14 @@ for i, key in enumerate(stats):
 
 sorted_stats = sorted(count_asked.items(), key=lambda x: x[0])
 
-xvalues = np.array(range(1, sorted_stats[-1][0]+1))
-yvalues1 = np.zeros(np.size(xvalues))
+x_values = np.array(range(1, sorted_stats[-1][0] + 1))
+y_values1 = np.zeros(np.size(x_values))
 
 for element in sorted_stats:
-    yvalues1[element[0]-1] = element[1]
+    y_values1[element[0] - 1] = element[1]
 
-
-plt.plot(xvalues, yvalues1)
-plt.axis([xvalues.min(), xvalues.max(), 0, yvalues1.max()*1.2])
+plt.plot(x_values, y_values1)
+plt.axis([min(x_values), max(x_values), 0, max(y_values1) * 1.2])
 plt.ylabel('question count')
 plt.xlabel('times asked')
 plt.show()

@@ -1,47 +1,43 @@
-import logging
-from googleapiclient.discovery import build
 import discord
 from discord.ext import commands
-from cogs import _dcutils
+from googleapiclient.discovery import build
+
+import backend_utils as bu
+import discord_utils as du
+from template_cog import LotrCog
 
 
-class YoutubeSearch(commands.Cog):
-    '''
+class YoutubeSearch(LotrCog):
+    """
     handles the YT-Data API integration of the Bot
-    '''
+    """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.logger = logging.getLogger(__name__)
+        super().__init__(bot)
         self.youtube = build('youtube',
                              'v3',
                              developerKey=self.bot.yt_credentials[0],
                              cache_discovery=False)
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
-
-    @_dcutils.category_check('lore')
+    @du.category_check('lore')
     @commands.command(name='ytsearch', aliases=['yt', 'yt-search', 'ysearch', 'youtube'])
     async def search_youtube(self, ctx, *query):
-        '''
-        searches youtube for videos by a specific channel
-        '''
+        """
+        searches YouTube for videos by a specific channel
+        """
 
         query = list(query)
         if query[-1].isdecimal():
             num = max(
-                min(int(query[-1]), self.bot.config['youtube']['max_video_count']), 1)
+                min(int(query[-1]), self.options['max_video_count']), 1)
             del query[-1]
         else:
             num = 1
         query = ' '.join(query)
 
         if not query:
-            await ctx.send(f'\nTry providing a query next time! The correct syntax is: `{self.bot.config["general"]["prefix"]} yt <keywords> (<number of results>)`')
+            await ctx.send(
+                f'\nTry providing a query next time! The correct syntax is: `{self.bot.options["discord"]["prefix"]} yt <keywords> (<number of results>)`')
 
         vid_request = self.youtube.search().list(
             q=query,
@@ -63,7 +59,7 @@ class YoutubeSearch(commands.Cog):
             vid_info = self.youtube.videos().list(part='snippet,statistics',
                                                   id=video['id']['videoId']).execute()['items'][0]
 
-            embed.set_author(name=f'🔍 {_dcutils.ordinal(i+1)} Search Result')
+            embed.set_author(name=f'🔍 {bu.ordinal(i + 1)} Search Result')
             embed.set_image(url=video['snippet']['thumbnails']['medium']['url'])
 
             description = ''
@@ -71,11 +67,11 @@ class YoutubeSearch(commands.Cog):
                 line = line.strip().lower()
                 if not line:
                     continue
-                for item in self.bot.config['youtube']['desc_blacklist']:
+                for item in self.options['desc_blacklist']:
                     if item in line:
                         break
                 else:
-                    description += line+'\n'
+                    description += line + '\n'
 
             embed.description = description.strip()
             embed.set_footer(text='Published: ' + '/'.join(video['snippet']['publishedAt'][:10].split('-')[::-1]))

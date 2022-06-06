@@ -68,7 +68,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
             await ctx.send(':x: You have to tag *at least* 1 valid user, not including yourself.')
             return False, []
 
-    # initializing a list that tracks who is ready and who is not.
+    # initializing a list that is tracking who is ready and who is not.
     ready_list = {player: 0 for player in players}
     # set the initiator to ready, HAS TO BE THE FIRST ELEMENT IN THE PLAYERS LIST
     ready_list[players[0]] = 1

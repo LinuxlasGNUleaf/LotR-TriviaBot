@@ -9,7 +9,7 @@ with open(txt.format(''), 'r') as from_file:
             if '[' in line:
                 start = line.index('[')
                 end = line.index(']')
-                if not(start >= 0 and end > start):
+                if not(0 <= start < end):
                     print('Faulty line: {}\nstart:{}\nend:{}'.format(line, start, end))
                     raise Exception("Error in line: {} invalid square brackets. Please remove.".format(ind+1))
                 if start == 0 and end == len(line)-1:

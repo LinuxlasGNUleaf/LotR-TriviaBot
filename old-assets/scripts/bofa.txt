@@ -270,7 +270,7 @@ BARD
 Where is he? Where's the master?
 
 LAKE-TOWN WOMAN
-Half way down the Anduin, with all our coin, I don't doubt.
+Halfway down the Anduin, with all our coin, I don't doubt.
 
 LAKE-TOWN WOMAN
 You would know. You helped him empty the treasury.
@@ -404,7 +404,7 @@ There is only one place.
 ALFRID
 The Mountain? You are a genius, Sire. We can take refuge inside the Mountain.
 It might smell a bit of dragon, but the women could clean that up.
-It's be safe and warm and dry, and full of stores, bedding and clothing, the odd bit of gold.
+It's gonna be safe and warm and dry, and full of stores, bedding and clothing, the odd bit of gold.
 
 BARD
 What gold is in that Mountain is cursed. We will take only what was promised to us, only what we need to rebuild our lives.
@@ -768,7 +768,7 @@ BARD
 Hail Thorin, son of Thrain. We are glad to find you alive beyond hope.
 
 THORIN
-Why do you come to gates of the King under the Mountain armed for war?
+Why do you come to the gates of the King under the Mountain armed for war?
 
 BARD
 Why does the King under the Mountain fence himself in like a robber in his hole?
@@ -1057,7 +1057,7 @@ BILBO BAGGINS
 You picked me as the fourteenth man. I'm not about to leave the company now.
 
 GANDALF
-There is no company, not any more. And I don't like to think what Thorin would do when he finds out what you've done.
+There is no company, not anymore. And I don't like to think what Thorin would do when he finds out what you've done.
 
 BILBO BAGGINS
 I'm not afraid of Thorin.

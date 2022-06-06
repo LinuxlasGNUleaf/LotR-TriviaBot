@@ -1,8 +1,8 @@
 import csv, os
 from difflib import SequenceMatcher
 
-fname = 'questions.csv'
-fpath = os.path.abspath(fname)
+f_name = 'questions.csv'
+fpath = os.path.abspath(f_name)
 
 WHOLE_QUESTIONS = False
 
