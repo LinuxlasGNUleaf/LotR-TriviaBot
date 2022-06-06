@@ -36,7 +36,7 @@ class QuoteGenerator(LotrCog):
         else:
             title_str += ', '.join(players[:-1]) + ' and ' + players[-1]
         embed = discord.Embed()
-        embed.set_author(name=title_str, icon_url=ctx.author.avatar_url,
+        embed.set_author(name=title_str, icon_url=(ctx.author.avatar if ctx.author.avatar else ctx.author.default_avatar).url,
                          url=self.bot.config['discord']['quotegen']['generator_url'])
         embed.set_footer(
             text='-' * 100 + '\nPlease check out the original generator (link is in title), it\'s pretty epic 😎')

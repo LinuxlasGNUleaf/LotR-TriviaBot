@@ -26,6 +26,7 @@ class AutoScript(LotrCog):
         """
         attempts to find similar line from script and formats it, if found.
         """
+        return
         if message.author.bot:
             return
         # format message string

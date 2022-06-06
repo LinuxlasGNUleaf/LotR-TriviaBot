@@ -194,20 +194,20 @@ class Trivia(LotrCog):
                 correct_index = i
                 break
 
-        embed = discord.Embed(title=question)
-        if player:
-            embed.set_author(
-                name=f'{player.display_name}\'s {bu.ordinal(count)} trial in the Arts of Middle Earth trivia',
-                url=player.avatar.url)
-        else:
-            embed.set_author(
-                name='Your trial in the Arts of Middle Earth trivia')
         text = ''
         char_count = len(question)
         for num, answer in enumerate(answers):
             text += f'**{num + 1}.)** {answer}\n'
             char_count += len(answer)
-        embed.description = text
+
+        author_field = (
+            f'{player.display_name}\'s {bu.ordinal(count)}trial in the Arts of Middle Earth trivia' if player
+            else 'Your trial in the Arts of Middle Earth trivia',
+            None,
+            (player.avatar if player.avatar else player.default_avatar).url
+        )
+
+        embed = du.create_embed(title=question, author_field=author_field, content=text, color=discord.Color.teal())
 
         # calculate the timeout
         timeout = round(char_count / self.options['chars_per_seconds'] +
@@ -220,7 +220,6 @@ class Trivia(LotrCog):
         embed.add_field(name=':newspaper: Results of the last battle:',
                         value='```\n ```',
                         inline=False)
-        embed.colour = discord.Color.teal()
         return embed, len(answers), correct_index, timeout
 
     def create_response(self, user, positive):
@@ -235,9 +234,15 @@ class TriviaQuizButton(discord.ui.Button['TriviaView']):
         super().__init__(style=style, label=str(i + 1))
 
     async def callback(self, interaction: discord.Interaction):
-        await interaction.response.defer()
-        self.style = discord.ButtonStyle.green if self.correct else discord.ButtonStyle.red
-        await self.view.finish_quiz(self.correct)
+        if interaction.user.id == self.view.ctx.author.id:
+            await interaction.response.defer()
+            self.style = discord.ButtonStyle.green if self.correct else discord.ButtonStyle.red
+            await self.view.finish_quiz(self.correct)
+        elif interaction.user.id not in self.view.warned_users:
+            self.view.warned_users.append(interaction.user.id)
+            await interaction.response.send_message("You are not the user that started this quiz!", ephemeral=True)
+        else:
+            await interaction.response.defer()
 
 
 class TriviaSelectButton(discord.ui.Button['TriviaView']):
@@ -246,14 +251,20 @@ class TriviaSelectButton(discord.ui.Button['TriviaView']):
         super().__init__(style=style, label=title, row=2)
 
     async def callback(self, interaction: discord.Interaction):
-        await interaction.response.defer()
-        if self.continue_game:
-            self.view.delete_all_buttons()
-            self.view.setup_quiz()
+        if interaction.user.id == self.view.ctx.author.id:
+            await interaction.response.defer()
+            if self.continue_game:
+                self.view.delete_all_buttons()
+                self.view.setup_quiz()
+            else:
+                self.view.delete_all_buttons()
+                await self.view.update_message()
+                self.view.stop()
+        elif interaction.user.id not in self.view.warned_users:
+            self.view.warned_users.append(interaction.user.id)
+            await interaction.response.send_message("You are not the user that started this quiz!", ephemeral=True)
         else:
-            self.view.delete_all_buttons()
-            await self.view.update_message()
-            self.view.stop()
+            await interaction.response.defer()
 
 
 class TriviaGameUI(discord.ui.View):
@@ -273,6 +284,7 @@ class TriviaGameUI(discord.ui.View):
         self.quiz_counter = 0
 
         self.buttons = []
+        self.warned_users = []
         self.user_stats = self.cog.get_scoreboard(self.ctx.author)
         self.correct_index = -1
 

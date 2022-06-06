@@ -124,12 +124,12 @@ def create_hangman_embed(user: discord.Member, word, state, ind, used_chars, ong
     else:
         used = ''
 
-    author_info = (f'{user.display_name}\'s hangman game', user.avatar.url)
+    author_field = (f'{user.display_name}\'s hangman game', (user.avatar if user.avatar else user.default_avatar).url)
 
-    color = (bu.map_values(ind, 0, 8, 0, 255),
-             bu.map_values(ind, 0, 8, 255, 0), 0)
+    color = discord.Color.from_rgb(bu.map_values(ind, 0, 8, 0, 255),
+                                   bu.map_values(ind, 0, 8, 255, 0), 0)
 
-    return du.create_embed(hangman, author_info=author_info, content=used + state, color=color)
+    return du.create_embed(hangman, content=used + state, color=color, author_field=author_field)
 
 
 async def setup(bot):
