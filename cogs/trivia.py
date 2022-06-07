@@ -217,7 +217,7 @@ class Trivia(LotrCog):
                         value=f'{timeout} seconds')
         embed.add_field(name=':book: Source:',
                         value=source)
-        embed.add_field(name=':newspaper: Results of the last battle:',
+        embed.add_field(name=':newspaper: Results of the last quiz:',
                         value='```\n ```',
                         inline=False)
         return embed, len(answers), correct_index, timeout
