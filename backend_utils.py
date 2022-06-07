@@ -9,7 +9,7 @@ def ordinal(n):
     return f'{n}{"tsnrhtdd"[(n / 10 % 10 != 1) * (n % 10 < 4) * n % 10::4]}'
 
 
-def map_values(val, in_min, in_max, out_min, out_max):
+def map_values(val: float, in_min: float, in_max: float, out_min: float, out_max: float) -> float:
     """
     maps a value in a range to another range
     """

@@ -78,10 +78,10 @@ class Utils(LotrCog):
 
     @autopresence.before_loop
     async def before_autopresence(self):
-        self.logger.info('Waiting for the bot to finish startup before changing presence...')
-        await self.bot.wait_until_ready()
-        self.logger.info(f'Startup complete, presence will be updated in {int(self.autopresence.minutes)} minutes.')
-        await asyncio.sleep(self.autopresence.minutes * 60)
+        if not self.bot.is_ready():
+            self.logger.info('Waiting for the bot to finish startup before changing presence...')
+            await self.bot.wait_until_ready()
+            self.logger.info(f'Startup complete, presence will now be updated.')
 
     @commands.cooldown(1, 60)
     @commands.command()
