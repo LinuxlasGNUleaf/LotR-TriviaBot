@@ -201,7 +201,7 @@ class Trivia(LotrCog):
             char_count += len(answer)
 
         author_field = (
-            f'{player.display_name}\'s {bu.ordinal(count)}trial in the Arts of Middle Earth trivia' if player
+            f'{player.display_name}\'s {bu.ordinal(count)} trial in the Arts of Middle Earth trivia' if player
             else 'Your trial in the Arts of Middle Earth trivia',
             None,
             (player.avatar if player.avatar else player.default_avatar).url
@@ -217,7 +217,7 @@ class Trivia(LotrCog):
                         value=f'{timeout} seconds')
         embed.add_field(name=':book: Source:',
                         value=source)
-        embed.add_field(name=':newspaper: Results of the last battle:',
+        embed.add_field(name=':newspaper: Results of the last quiz:',
                         value='```\n ```',
                         inline=False)
         return embed, len(answers), correct_index, timeout
