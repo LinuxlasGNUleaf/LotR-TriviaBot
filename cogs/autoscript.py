@@ -26,6 +26,8 @@ class AutoScript(LotrCog):
         """
         attempts to find similar line from script and formats it, if found.
         """
+        if message.mentions:
+            self.logger.warn(f'\n{"="*30}\n{message.author.display_name}#{message.author.discriminator} mentioned '+', '.join([a.display_name + message.author.discriminator for a in message.mentions])+"\n" + "="*30)
         return
         if message.author.bot:
             return
