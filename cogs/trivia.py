@@ -32,13 +32,13 @@ class Trivia(LotrCog):
                          self.__class__.__name__.title())
 
     @du.category_check('minigames')
-    @commands.command(name='profile')
+    @commands.command(name='profile', aliases=['tp', 'tstat'])
     async def display_profile(self, ctx):
         """
         displays the user's profile (concerning the trivia minigame)
         """
         user = ctx.author
-        if user.id not in self.caches['scores'].scoreboard.keys():
+        if user.id not in self.caches['scores']:
             await ctx.send(
                 f'You have to play a game of trivia before a profile can be generated! Use the `trivia` command to take a quiz!')
             return
@@ -272,6 +272,7 @@ class TriviaGameUI(discord.ui.View):
     def __init__(self, context, cog):
         super().__init__()
         self.ctx = context
+        self.user = context.author
         self.bot = context.bot
         self.cog = cog
 
@@ -285,7 +286,7 @@ class TriviaGameUI(discord.ui.View):
 
         self.buttons = []
         self.warned_users = []
-        self.user_stats = self.cog.get_scoreboard(self.ctx.author)
+        self.user_stats = self.cog.get_scoreboard(self.user)
         self.correct_index = -1
 
         self.setup_quiz()
@@ -319,9 +320,10 @@ class TriviaGameUI(discord.ui.View):
 
     def setup_quiz(self):
         self.user_stats[0] += 1
+        self.cog.set_scoreboard(self.user, *self.user_stats)
         self.quiz_counter += 1
         # send trivia embed
-        self.trivia_embed, answer_count, self.correct_index, timeout = self.cog.get_trivia_question(self.ctx.author,
+        self.trivia_embed, answer_count, self.correct_index, timeout = self.cog.get_trivia_question(self.user,
                                                                                                     self.user_stats[0])
 
         # setup trivia question buttons
@@ -350,6 +352,7 @@ class TriviaGameUI(discord.ui.View):
 
         # adjust win count of player accordingly
         self.user_stats[1] += correct
+        self.cog.set_scoreboard(self.user, *self.user_stats)
 
         self.trivia_note = self.cog.create_response(self.ctx.author, correct)
         if timeout:
