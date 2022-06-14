@@ -11,6 +11,7 @@ tokens: {
 caches: {
 }
 assets: {
+    quotes: "quotes.yaml"
 }
 
 # the min/max numbers of characters allowed

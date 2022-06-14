@@ -24,7 +24,7 @@ class QuoteGenerator(LotrCog):
     @du.category_check('minigames')
     @commands.command(aliases=['qgen', 'quotegen', 'story', 'sgen'])
     async def quote(self, ctx, *players):
-        char_range = self.bot.config['discord']['quotegen']['character_range']
+        char_range = self.options['character_range']
         if len(players) not in range(char_range[0], char_range[1] + 1):
             await ctx.send(
                 f':x: Please provide anywhere between {char_range[0]} and {char_range[1]} arguments / characters for the quote.')
@@ -37,7 +37,7 @@ class QuoteGenerator(LotrCog):
             title_str += ', '.join(players[:-1]) + ' and ' + players[-1]
         embed = discord.Embed()
         embed.set_author(name=title_str, icon_url=(ctx.author.avatar if ctx.author.avatar else ctx.author.default_avatar).url,
-                         url=self.bot.config['discord']['quotegen']['generator_url'])
+                         url=self.options['generator_url'])
         embed.set_footer(
             text='-' * 100 + '\nPlease check out the original generator (link is in title), it\'s pretty epic 😎')
 
@@ -45,14 +45,14 @@ class QuoteGenerator(LotrCog):
         random.shuffle(players)
 
         quote = random.choice(self.get_quotes(
-            len(players), self.bot.config['discord']['quotegen']['include_nsfw']))
+            len(players), self.options['include_nsfw']))
         embed.description = quote.format(*players, ast='*')
         await ctx.send(embed=embed)
 
     def get_quotes(self, num, nsfw):
-        with open('quotes.yaml', 'r', encoding='utf-8') as qfile:
+        with open(self.assets['quotes'], 'r', encoding='utf-8') as qfile:
             questions = yaml.safe_load(
-                qfile)[f'{self.bot.config["discord"]["quotegen"]["num2word"][num]}Quotes']
+                qfile)[f'{self.options["num2word"][num]}Quotes']
         shipping_quotes = questions['shipping']
         non_shipping_quotes = questions['nonshipping']
 
