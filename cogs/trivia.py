@@ -5,6 +5,7 @@ import asyncio
 import csv
 import math
 import random
+import warnings
 from io import BytesIO
 
 import discord
@@ -150,12 +151,14 @@ class Trivia(LotrCog):
                 0, -40), xycoords='axes fraction', fontsize=8, textcoords='offset points', va='top')
             plt.tight_layout()
 
-            # send plot
-            with BytesIO() as buffer:
-                fig.savefig(buffer, dpi=800)
-                buffer.seek(0)
-                await ctx.send(embed=embed, file=discord.File(fp=buffer, filename=f"scoreboard_{ctx.guild.id}.png"))
-                plt.close('all')
+            with warnings.catch_warnings():
+                warnings.simplefilter('ignore', category=UserWarning)
+                # send plot
+                with BytesIO() as buffer:
+                    fig.savefig(buffer, dpi=800)
+                    buffer.seek(0)
+                    await ctx.send(embed=embed, file=discord.File(fp=buffer, filename=f"scoreboard_{ctx.guild.id}.png"))
+                    plt.close('all')
         else:
             await ctx.send(embed=embed)
 
