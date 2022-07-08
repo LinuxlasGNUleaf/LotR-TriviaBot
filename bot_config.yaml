@@ -47,3 +47,43 @@ discord:
   prefix: [ "lotr ", "Lotr ", "LOTR " ]
   # autosave interval in minutes
   autosave: 5
+
+  # settings for the bot
+  settings:
+    # help message displayed when working with the settings command
+    help: |
+      **How the settings work:**
+      You can use the settings command in cases where you want to enable / disable specific categories.
+      *Please note: If you want to completely turn off the bot in some parts of your server, use Channel Settings
+      to disallow the bot to prevent the bot from sending messages there.*
+
+      You can set preferences for a server or a channel (DMs excluded), which means you set the category to on / off.
+      If set, the *channel preference* for a category will __always__ be preferred.
+      If the *channel preference* for this category is not set, the server-preference will be used.
+      If the *server preference* is not set either, the hardcoded fallback values are used.
+      Refer to the attached image for further clarification. 
+
+
+      **How to use the config command:**
+      Syntax: `{0}setting [channel/server] [category] [on/off/reset]`
+      - *First argument*: Edit channel-wide or server-wide settings?
+
+      - *Second argument*: Which category do you want to edit?
+      These are the categories that are available:
+      {1}
+
+      - *Third argument*: What mode do you want the setting to have?
+      These are the modes that are available:
+      `on`,`off`,`reset`
+      Note: `reset` deletes the server/channel-preference, which makes the bot fall back to the next layer (see attached image)
+
+    # list of config categories (for internal use only, don't edit)
+    categories:
+      - autoscript
+      - memes
+      - minigames
+      - lore
+      - battles
+
+    # fallback permissions, used when no relevant config is set at all
+    defaults: { autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0 }

@@ -125,21 +125,20 @@ class Utils(LotrCog):
         embed = discord.Embed(
             title=f'Config for #{ctx.channel} in {ctx.guild}')
 
-        for category in self.options['settings']['categories']:
+        for category in self.dc_settings['categories']:
 
             server_setting = ':grey_question:'
-            if ctx.guild.id in self.bot.settings.keys():
-                if category in self.bot.settings[ctx.guild.id]:
-                    server_setting = self.options['indicators'][self.bot.settings[ctx.guild.id][category]]
+            if ctx.guild.id in self.dc_settings_cache.keys():
+                if category in self.dc_settings_cache[ctx.guild.id]:
+                    server_setting = self.options['indicators'][self.dc_settings_cache[ctx.guild.id][category]]
 
             channel_setting = ':grey_question:'
-            if ctx.channel.id in self.bot.settings.keys():
-                if category in self.bot.settings[ctx.channel.id]:
-                    channel_setting = self.options['indicators'][
-                        self.bot.settings[ctx.channel.id][category]]
+            if ctx.channel.id in self.dc_settings_cache.keys():
+                if category in self.dc_settings_cache[ctx.channel.id]:
+                    channel_setting = self.options['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
 
-            effective = self.bot.options['indicators'][du.is_category_allowed(
-                ctx, category, self.bot.settings, self.options['settings']['defaults'])]
+            effective = self.options['indicators'][du.is_category_allowed(
+                ctx, category, self.dc_settings_cache, self.dc_settings['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
@@ -169,8 +168,8 @@ class Utils(LotrCog):
         """
         displays info about the settings
         """
-        categories_str = '`' + '`, `'.join(self.options['settings']['categories']) + '`'
-        text = self.options['settings']['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
+        categories_str = '`' + '`, `'.join(self.dc_settings['categories']) + '`'
+        text = self.dc_settings['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
     async def edit_settings(self, ctx, args, channel_mode):
@@ -180,7 +179,7 @@ class Utils(LotrCog):
         error_str = ''
         if len(args) != 2:
             error_str = f'{self.options["indicators"][0]} You have to provide __two__ arguments!'
-        elif args[0].lower() not in self.options['settings']['categories']:
+        elif args[0].lower() not in self.dc_settings['categories']:
             error_str = f'{self.options["indicators"][0]} Invalid category!'
         elif args[1].lower() not in ['on', 'off', 'reset']:
             error_str = f'{self.options["indicators"][0]} Invalid mode!'
@@ -188,7 +187,7 @@ class Utils(LotrCog):
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                         '`, `'.join(self.options['settings']['categories']) + '`\n'
+                         '`, `'.join(self.dc_settings['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return
@@ -197,20 +196,20 @@ class Utils(LotrCog):
         spec_word = 'channel' if channel_mode else 'server'
         category, mode = args
 
-        if spec_id not in self.bot.settings.keys():
-            self.bot.settings[spec_id] = {}
+        if spec_id not in self.dc_settings_cache.keys():
+            self.dc_settings_cache[spec_id] = {}
 
         if mode == 'on':
-            self.bot.settings[spec_id][category] = 1
+            self.dc_settings_cache[spec_id][category] = 1
             await ctx.send(f'category `{category}` was turned **on** for this {spec_word}.')
 
         elif mode == 'off':
-            self.bot.settings[spec_id][category] = 0
+            self.dc_settings_cache[spec_id][category] = 0
             await ctx.send(f'category `{category}` was turned **off** for this {spec_word}.')
 
         elif mode == 'reset':
-            if category in self.bot.settings[spec_id].keys():
-                del self.bot.settings[spec_id][category]
+            if category in self.dc_settings_cache[spec_id].keys():
+                del self.dc_settings_cache[spec_id][category]
                 await ctx.send(f'category `{category}` was **unset** for this {spec_word}.')
             else:
                 await ctx.send(f'category `{category}`was not yet set for this {spec_word} .')
