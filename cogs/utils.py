@@ -110,9 +110,9 @@ class Utils(LotrCog):
         embed.add_field(name=':gear: Active Cogs:',
                         value=len(set(self.bot.cogs)))
         embed.add_field(name=':card_box: Github:',
-                        value=self.bot.config['general']['github_repo'])
+                        value=self.options['github_repo'])
         embed.add_field(name=':floppy_disk: Developer:',
-                        value=f'<@{self.bot.config["general"]["developer_id"]}>')
+                        value=f'<@{self.options["developer_id"]}>')
         await ctx.send(embed=embed)
 
     @commands.has_permissions(manage_roles=True)
@@ -125,26 +125,26 @@ class Utils(LotrCog):
         embed = discord.Embed(
             title=f'Config for #{ctx.channel} in {ctx.guild}')
 
-        for category in self.bot.config['discord']['settings']['categories']:
+        for category in self.options['settings']['categories']:
 
             server_setting = ':grey_question:'
             if ctx.guild.id in self.bot.settings.keys():
                 if category in self.bot.settings[ctx.guild.id]:
-                    server_setting = self.bot.config['discord']['indicators'][self.bot.settings[ctx.guild.id][category]]
+                    server_setting = self.options['indicators'][self.bot.settings[ctx.guild.id][category]]
 
             channel_setting = ':grey_question:'
             if ctx.channel.id in self.bot.settings.keys():
                 if category in self.bot.settings[ctx.channel.id]:
-                    channel_setting = self.bot.config['discord']['indicators'][
+                    channel_setting = self.options['indicators'][
                         self.bot.settings[ctx.channel.id][category]]
 
-            effective = self.bot.config['discord']['indicators'][du.is_category_allowed(
-                ctx, category, self.bot.settings, self.bot.config['discord']['settings']['defaults'])]
+            effective = self.bot.options['indicators'][du.is_category_allowed(
+                ctx, category, self.bot.settings, self.options['settings']['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
         embed.set_footer(
-            text=f'Tip: If you want to change the settings, you need to provide arguments. Type "{self.bot.config["discord"]["prefix"][0]} settings help" for more info.')
+            text=f'Tip: If you want to change the settings, you need to provide arguments. Type `{self.bot.options["discord"]["prefix"][0]} settings help` for more info.')
         await ctx.send(embed=embed)
 
     @commands.has_permissions(manage_roles=True)
@@ -169,10 +169,8 @@ class Utils(LotrCog):
         """
         displays info about the settings
         """
-        text = self.bot.config['discord']['settings']['help'].format(self.bot.config['discord']['prefix'][0],
-                                                                     '`' + '`, `'.join(
-                                                                         self.bot.config['discord']['settings'][
-                                                                             'categories']) + '`')
+        categories_str = '`' + '`, `'.join(self.options['settings']['categories']) + '`'
+        text = self.options['settings']['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
     async def edit_settings(self, ctx, args, channel_mode):
@@ -181,16 +179,16 @@ class Utils(LotrCog):
         """
         error_str = ''
         if len(args) != 2:
-            error_str = f'{self.bot.config["discord"]["indicators"][0]} You have to provide __two__ arguments!'
-        elif args[0].lower() not in self.bot.config['discord']['settings']['categories']:
-            error_str = f'{self.bot.config["discord"]["indicators"][0]} Invalid category!'
+            error_str = f'{self.options["indicators"][0]} You have to provide __two__ arguments!'
+        elif args[0].lower() not in self.options['settings']['categories']:
+            error_str = f'{self.options["indicators"][0]} Invalid category!'
         elif args[1].lower() not in ['on', 'off', 'reset']:
-            error_str = f'{self.bot.config["discord"]["indicators"][0]} Invalid mode!'
+            error_str = f'{self.options["indicators"][0]} Invalid mode!'
 
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                         '`, `'.join(self.bot.config['discord']['settings']['categories']) + '`\n'
+                         '`, `'.join(self.options['settings']['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return
@@ -243,7 +241,7 @@ class Utils(LotrCog):
         elif isinstance(error, du.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(
-                f'{self.bot.config["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.',
+                f'{self.options["indicators"][0]} The category `{error.category}` is disabled in this context.',
                 delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
@@ -254,12 +252,12 @@ class Utils(LotrCog):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(
-                f'{self.bot.config["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
+                f'{self.options["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
                 delete_after=10)
 
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(
-                f'{self.bot.config["discord"]["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
+                f'{self.options["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
             self.logger.warning('Unknown CheckFailure occurred, type is: %s', type(error))
 
         else:
