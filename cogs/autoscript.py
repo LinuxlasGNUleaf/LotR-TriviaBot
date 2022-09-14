@@ -15,6 +15,9 @@ class AutoScript(LotrCog):
 
     def __init__(self, bot):
         super().__init__(bot)
+        self.script = []
+        self.condensed_script = []
+        self.parse_script()
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -26,7 +29,7 @@ class AutoScript(LotrCog):
         """
         attempts to find similar line from script and formats it, if found.
         """
-        return
+
         if message.author.bot:
             return
         # format message string
@@ -37,7 +40,7 @@ class AutoScript(LotrCog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not du.is_category_allowed(message, 'autoscript', *self.discord_settings):
+        if not du.is_category_allowed(message, 'autoscript', self.dc_settings, self.bot.options['discord']['settings']['defaults']):
             return
 
         # stop if the message is shorter than 2 words
@@ -169,19 +172,19 @@ class AutoScript(LotrCog):
 
                 await channel.send(return_text.strip())
 
-    def parse_script(self, script, condensed_script):
+    def parse_script(self):
         """
         reads the Lord of the Rings script to an array.
         Also outputs a condensed version for faster searching.
         """
-        with open(self.script_location, 'r', encoding='utf8') as script_file:
+        with open(self.assets['script'], 'r', encoding='utf8') as script_file:
             temp = ''
             last = ''
             for line in script_file:
                 line = line.strip()
 
                 if not line and temp:
-                    script.append(temp)
+                    self.script.append(temp)
                     temp = ''
                 else:
                     temp += line
@@ -192,9 +195,9 @@ class AutoScript(LotrCog):
 
                 last = line
 
-        for line in script:
+        for line in self.script:
             if 'STOP' in line:
-                condensed_script.append(line.strip())
+                self.condensed_script.append(line.strip())
                 continue
 
             line = line.lower().split('|', 1)[1]
@@ -211,7 +214,7 @@ class AutoScript(LotrCog):
                     temp_arr.append(temp.strip())
                     temp = ''
                 temp += char
-            condensed_script.append(temp_arr)
+            self.condensed_script.append(temp_arr)
 
 
 async def setup(bot):
