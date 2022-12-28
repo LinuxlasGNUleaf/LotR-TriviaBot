@@ -81,12 +81,11 @@ class LotrBot(commands.Bot):
                         logging.exception(exc)
         return status
 
-    async def unload_cogs(self, cog_list=None):
-        cog_list = cog_list if cog_list else self.running_cogs
+    async def unload_cogs(self, cog_list):
         status = {x: '' for x in cog_list}
         with bu.LogManager(self.logger, logging.INFO, 'cog unloading', self.options['logging']['log_width']):
             for cog in cog_list:
-                cog_name = cog.split('.')[-1]
+                cog_name = cog.split('.')[-1].upper()
                 try:
                     if cog in self.running_cogs:
                         self.running_cogs.remove(cog)
@@ -104,8 +103,8 @@ class LotrBot(commands.Bot):
     async def reload_cogs(self, cog_list=None):
         self.logger.info(f'Active cogs: {self.running_cogs}')
         self.logger.info(f'Filesystem cogs: {self.get_fs_cogs()}')
-        unload_list = cog_list if cog_list else self.running_cogs
-        load_list = cog_list if cog_list else self.get_fs_cogs()
+        unload_list = cog_list if cog_list else self.running_cogs.copy()
+        load_list = cog_list if cog_list else self.get_fs_cogs().copy()
         await self.unload_cogs(unload_list)
         load_status = await self.load_cogs(load_list)
         status = {}

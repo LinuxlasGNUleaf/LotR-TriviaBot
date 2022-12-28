@@ -16,11 +16,6 @@ class QuoteGenerator(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @du.category_check('minigames')
     @commands.command(aliases=['qgen', 'quotegen', 'story', 'sgen'])
     async def quote(self, ctx, *players):
