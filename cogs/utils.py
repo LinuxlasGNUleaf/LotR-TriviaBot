@@ -1,4 +1,3 @@
-import asyncio
 import platform
 import random
 import typing
@@ -20,8 +19,7 @@ class Utils(LotrCog):
         super().__init__(bot)
 
     async def cog_load(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
+        await super().on_ready()
         self.autopresence.change_interval(minutes=self.options['autopresence'])
         self.autopresence.start()
 

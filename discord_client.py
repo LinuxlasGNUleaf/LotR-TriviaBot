@@ -69,7 +69,7 @@ class LotrBot(commands.Bot):
         status = {x: '' for x in cog_list}
         with bu.LogManager(self.logger, logging.INFO, 'cog loading', self.options['logging']['log_width']):
             for cog in cog_list:
-                cog_name = cog.split('.')[-1]
+                cog_name = cog.split('.')[-1].upper()
                 try:
                     logging.info(f'Attempting to load {cog_name}...')
                     await self.load_extension(cog)
@@ -121,7 +121,7 @@ class LotrBot(commands.Bot):
     def load_config_for_cog(self, cog):
         with open(self.get_config_location(cog), 'r', encoding='utf-8') as cfg_stream:
             try:
-                self.logger.info(f'parsing config file for {cog.lower()}...')
+                self.logger.info(f'parsing config file for {cog.upper()}...')
                 return yaml.safe_load(cfg_stream)
             except yaml.YAMLError as exc:
                 self.logger.info(f'While parsing the config file, the following error occurred:')
@@ -131,7 +131,7 @@ class LotrBot(commands.Bot):
         tokens, caches, caches_locations, assets = {}, {}, {}, {}
 
         if config['tokens']:
-            self.logger.info(f"Loading tokens for {name}...")
+            self.logger.info(f"Loading tokens for {name.upper()}...")
             # load tokens
             for token, token_file in config['tokens'].items():
                 token_name = token_file
@@ -139,7 +139,7 @@ class LotrBot(commands.Bot):
                 tokens[token] = bu.load_token(token_file, token_name, self.logger)
 
         if config['caches']:
-            self.logger.info(f"Loading caches for {name}...")
+            self.logger.info(f"Loading caches for {name.upper()}...")
             # load caches
             for cache, cache_file in config['caches'].items():
                 cname = cache_file
@@ -148,7 +148,7 @@ class LotrBot(commands.Bot):
                 caches_locations[cache] = cache_file
 
         if config['assets']:
-            self.logger.info(f"Resolving assets for {name}...")
+            self.logger.info(f"Resolving assets for {name.upper()}...")
             # resolve asset names
             for asset, asset_file in config['assets'].items():
                 assets[asset] = self.get_asset_location(asset_file)

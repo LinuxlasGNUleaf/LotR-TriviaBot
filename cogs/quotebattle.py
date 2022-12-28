@@ -16,11 +16,6 @@ class QuoteBattle(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @du.category_check('battles')
     @du.channel_busy_check()
     @commands.guild_only()

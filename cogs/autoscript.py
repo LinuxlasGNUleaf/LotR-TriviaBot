@@ -17,12 +17,6 @@ class AutoScript(LotrCog):
         super().__init__(bot)
         self.script = []
         self.condensed_script = []
-        self.parse_script()
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):

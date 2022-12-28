@@ -28,10 +28,6 @@ class Trivia(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
 
-    async def cog_load(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @du.category_check('minigames')
     @commands.command(name='profile', aliases=['tp', 'tstat'])
     async def display_profile(self, ctx):

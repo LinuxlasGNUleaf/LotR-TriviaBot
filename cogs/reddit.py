@@ -27,11 +27,6 @@ class Reddit(LotrCog):
         self.subreddit = None
         self.get_post_lock = asyncio.Lock()
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     def cog_load(self):
         self.reddit = asyncpraw.Reddit(
             client_id=self.tokens['reddit'][0],

@@ -20,7 +20,7 @@ class LotrCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.logger.info('%s cog has been loaded.', self.__class__.__name__.title())
+        self.logger.info('%s cog has been loaded.', self.__class__.__name__.upper())
 
     def save_caches(self):
         bu.save_caches(self.caches, self.caches_locations, self.logger, self.__cog_name__)
