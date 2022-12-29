@@ -10,7 +10,6 @@
 tokens: {
 }
 caches: {
-  "birthdays": "birthdays.ics"
 }
 assets: {
 }

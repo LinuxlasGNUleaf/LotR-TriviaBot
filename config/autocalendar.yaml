@@ -10,6 +10,35 @@
 tokens: {
 }
 caches: {
+  "birthdays": "birthdays.cache",
+  "congrats": "congrats_log.cache"
 }
 assets: {
 }
+
+# the channel to do the announcements in
+announcement_channel: 741671249138286602 #1008676191449919528
+
+# the check interval, in minutes
+check_interval: 5
+
+# the standard discord emoji to put in the message
+emoji: 🥳
+
+core_messages:
+  - "The day has come: **It's the birthday of {user}!**"
+  - "Long awaited, it is finally here: **The birthday of the man, the myth, the legend: {user}!**"
+  - "Dark have been my dreams of late, but I feel as one new-awakened. **For there is a new birthday on the horizon: {user}!**"
+
+birthday_wishes:
+  - "May the wind under your wings bear you where the sun sails and the moon walks!"
+  - "May the stars shine upon your face!"
+  - "A day may come where we stop celebrating your birthday! But it is not this day!"
+  - "Happy birthday, you stupid fat hobbit!"
+  - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
+
+ics_wrapper:
+  "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:LotR-TriviaBot\n{}END:VCALENDAR"
+
+ics_event:
+  "BEGIN:VEVENT\nUID:{uid}\nSUMMARY:{name}\nRRULE:FREQ=YEARLY\nDTSTART;VALUE=DATE:{start}\nDTEND;VALUE=DATE:{end}\nEND:VEVENT\n"

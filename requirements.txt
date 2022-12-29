@@ -8,4 +8,3 @@ asyncpraw>=7.5.0
 PyYAML>=6.0
 inflect>=5.6.0
 word2number>=1.1
-ics>=0.7.2
