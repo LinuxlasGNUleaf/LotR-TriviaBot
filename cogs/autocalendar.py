@@ -1,18 +1,19 @@
 import random
+import secrets
 from datetime import datetime, timedelta
 from io import BytesIO
 
 import discord.errors
 from discord.ext import tasks, commands
-import secrets
 
+import discord_utils as du
 from template_cog import LotrCog
 
 
 class AutoCalendar(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
-        self.check.change_interval(seconds=self.options['check_interval'])
+        self.check.change_interval(minutes=self.options['check_interval'])
         self.check.start()
 
     def check_for_birthday(self):
@@ -58,6 +59,7 @@ class AutoCalendar(LotrCog):
         channel = await self.bot.fetch_channel(self.options['announcement_channel'])
         await channel.send(msg)
 
+    @du.category_check('privileged')
     @commands.command()
     async def calendar(self, ctx):
         now = datetime.now()
@@ -75,6 +77,7 @@ class AutoCalendar(LotrCog):
         cal_str = self.options['ics_wrapper'].format(event_str)
         embed = discord.Embed(
             title=f'Birthday Calendar for {ctx.guild.name.title()}',
+            description=f'This calendar contains the birthdays of {len(self.caches["birthdays"])} people!\nCreated on: **{datetime.now().strftime("%d/%m/%Y")}**',
             color=discord.Color.random())
         embed.set_thumbnail(url=ctx.guild.icon.url)
         await ctx.send(embed=embed)

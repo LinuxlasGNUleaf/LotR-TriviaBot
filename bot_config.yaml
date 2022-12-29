@@ -84,6 +84,7 @@ discord:
       - minigames
       - lore
       - battles
+      - privileged
 
     # fallback permissions, used when no relevant config is set at all
-    defaults: { autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0 }
+    defaults: { autoscript: 1, memes: 1, minigames: 1, lore: 1, battles: 0, privileged: 0}
