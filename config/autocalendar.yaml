@@ -16,8 +16,8 @@ caches: {
 assets: {
 }
 
-# the channel to do the announcements in
-announcement_channel: 741671249138286602 #1008676191449919528
+# the channel to do the birthday announcements in
+announcement_channel: 1008676191449919528
 
 # the check interval, in minutes
 check_interval: 5
@@ -25,11 +25,13 @@ check_interval: 5
 # the standard discord emoji to put in the message
 emoji: 🥳
 
+# the core of the birthday congrats message, which the emoji will be put on on either side
 core_messages:
   - "The day has come: **It's the birthday of {user}!**"
   - "Long awaited, it is finally here: **The birthday of the man, the myth, the legend: {user}!**"
   - "Dark have been my dreams of late, but I feel as one new-awakened. **For there is a new birthday on the horizon: {user}!**"
 
+# additional birthday wish :)
 birthday_wishes:
   - "May the wind under your wings bear you where the sun sails and the moon walks!"
   - "May the stars shine upon your face!"
@@ -37,8 +39,10 @@ birthday_wishes:
   - "Happy birthday, you stupid fat hobbit!"
   - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
 
+# ics header & footer, contains version and author info
 ics_wrapper:
   "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:LotR-TriviaBot\n{}END:VCALENDAR"
 
+# event paragraph for a yearly repeating event that lasts exactly one whole day (aka a birthday)
 ics_event:
   "BEGIN:VEVENT\nUID:{uid}\nSUMMARY:{name}\nRRULE:FREQ=YEARLY\nDTSTART;VALUE=DATE:{start}\nDTEND;VALUE=DATE:{end}\nEND:VEVENT\n"
