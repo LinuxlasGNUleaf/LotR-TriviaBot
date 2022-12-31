@@ -46,3 +46,6 @@ ics_wrapper:
 # event paragraph for a yearly repeating event that lasts exactly one whole day (aka a birthday)
 ics_event:
   "BEGIN:VEVENT\nUID:{uid}\nSUMMARY:{name}\nRRULE:FREQ=YEARLY\nDTSTART;VALUE=DATE:{start}\nDTEND;VALUE=DATE:{end}\nEND:VEVENT\n"
+
+next_birthday_msg:
+  "The next upcoming birthday is:\n__{name}__ on the **{day} of {month}**.\nThat's <t:{timestamp}:R>."

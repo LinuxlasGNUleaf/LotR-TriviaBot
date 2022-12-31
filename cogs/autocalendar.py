@@ -7,6 +7,7 @@ import discord.errors
 from discord.ext import tasks, commands
 
 import discord_utils as du
+import backend_utils as bu
 from template_cog import LotrCog
 
 
@@ -43,24 +44,21 @@ class AutoCalendar(LotrCog):
             return
         name, uid = result
 
-        user = ''
-        if uid:
-            try:
-                user = f'__{(await self.bot.fetch_user(uid)).mention}__'
-            except (discord.errors.NotFound, discord.errors.HTTPException):
-                self.logger.warning('Could not resolve UID, reverting to name.')
-                pass
-        if not user:
-            user = f'__{name}__'
+        mention = f'__{await self.retrieve_name(name=name, uid=uid, mention=True)}__'
 
-        intro = random.choice(self.options["core_messages"]).format(user=user)
+        intro = random.choice(self.options["core_messages"]).format(user=mention)
         wishes = random.choice(self.options["birthday_wishes"])
         msg = f'{self.options["emoji"]} {intro} {self.options["emoji"]}\n{wishes}'
         channel = await self.bot.fetch_channel(self.options['announcement_channel'])
         await channel.send(msg)
 
     @du.category_check('privileged')
-    @commands.command()
+    @commands.group(invoke_without_command=True)
+    async def birthday(self, ctx):
+        await ctx.send("The following subcommands are available:\n`register`, `upcoming`, `delete`")
+
+    @du.category_check('privileged')
+    @birthday.command(aliases=['list', 'download', 'get'])
     async def calendar(self, ctx):
         now = datetime.now()
         event_str = ""
@@ -86,6 +84,34 @@ class AutoCalendar(LotrCog):
             buffer.seek(0)
             filename = f'{ctx.guild.name.title().replace(" ", "_")}.ics'
             await ctx.send(file=discord.File(fp=buffer, filename=filename))
+
+    @du.category_check('privileged')
+    @birthday.command(aliases=['next'])
+    async def upcoming(self, ctx):
+        now = datetime.now()
+        dates = []
+        for i, [month, day, name, uid] in enumerate(self.caches['birthdays']):
+            birthday = datetime(year=now.year, month=month, day=day)
+            if birthday < now:
+                birthday = datetime(year=now.year+1, month=month, day=day)
+            dates.append((birthday, name, uid))
+        next_birthday = sorted(dates, key=lambda x: x[0])[0]
+        name = await self.retrieve_name(next_birthday[1], next_birthday[2])
+        await ctx.send(self.options['next_birthday_msg'].format(
+            name=name,
+            day=bu.ordinal(next_birthday[0].day),
+            month=next_birthday[0].strftime("%B"),
+            timestamp=int(next_birthday[0].timestamp())
+        ))
+
+    async def retrieve_name(self, name, uid, mention=False):
+        if uid:
+            try:
+                user = await self.bot.fetch_user(uid)
+                return user.mention if mention else user.name
+            except (discord.errors.NotFound, discord.errors.HTTPException):
+                self.logger.warning('Could not resolve UID, reverting to name.')
+        return name
 
 
 async def setup(bot):
