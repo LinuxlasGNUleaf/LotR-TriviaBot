@@ -25,6 +25,12 @@ check_interval: 5
 # the standard discord emoji to put in the message
 emoji: 🥳
 
+subcommands:
+  - register
+  - next
+  - delete
+  - download
+
 # the core of the birthday congrats message, which the emoji will be put on on either side
 core_messages:
   - "The day has come: **It's the birthday of {user}!**"
@@ -47,5 +53,5 @@ ics_wrapper:
 ics_event:
   "BEGIN:VEVENT\nUID:{uid}\nSUMMARY:{name}\nRRULE:FREQ=YEARLY\nDTSTART;VALUE=DATE:{start}\nDTEND;VALUE=DATE:{end}\nEND:VEVENT\n"
 
-next_birthday_msg:
-  "The next upcoming birthday is:\n__{name}__ on the **{day} of {month}**.\nThat's <t:{timestamp}:R>."
+birthday_embed:
+  "On the **{day} of {month}**.\nTimestamp: {timestamp}"
