@@ -99,7 +99,7 @@ class QuoteBattle(LotrCog):
         await asyncio.sleep(self.bot.config['discord']['quote_battle']['voting_time'])
 
         try:
-            # refetch message
+            # re-fetch message
             score_msg = await ctx.fetch_message(score_msg.id)
             await score_msg.add_reaction('🛑')  # stop-sign
 

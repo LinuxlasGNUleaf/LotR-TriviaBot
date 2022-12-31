@@ -48,6 +48,9 @@ discord:
   # autosave interval in minutes
   autosave: 5
 
+  # emojis for visual indicators
+  indicators: [ ":x:", ":white_check_mark:" ]
+
   # settings for the bot
   settings:
     # help message displayed when working with the settings command

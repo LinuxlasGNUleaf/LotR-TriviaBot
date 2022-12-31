@@ -88,7 +88,7 @@ class Utils(LotrCog):
         displays misc. statistics about the bot
         """
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
-        embed.colour = random.choice(self.bot.color_list)
+        embed.colour = discord.Colour.random()
 
         uptime = datetime.now() - self.bot.start_time
         embed.add_field(name=':snake: Python Version:',
@@ -128,14 +128,14 @@ class Utils(LotrCog):
             server_setting = ':grey_question:'
             if ctx.guild.id in self.dc_settings_cache.keys():
                 if category in self.dc_settings_cache[ctx.guild.id]:
-                    server_setting = self.options['indicators'][self.dc_settings_cache[ctx.guild.id][category]]
+                    server_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.guild.id][category]]
 
             channel_setting = ':grey_question:'
             if ctx.channel.id in self.dc_settings_cache.keys():
                 if category in self.dc_settings_cache[ctx.channel.id]:
-                    channel_setting = self.options['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
+                    channel_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
 
-            effective = self.options['indicators'][du.is_category_allowed(
+            effective = self.bot.options['discord']['indicators'][du.is_category_allowed(
                 ctx, category, self.dc_settings_cache, self.dc_settings['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
@@ -176,11 +176,11 @@ class Utils(LotrCog):
         """
         error_str = ''
         if len(args) != 2:
-            error_str = f'{self.options["indicators"][0]} You have to provide __two__ arguments!'
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} You have to provide __two__ arguments!'
         elif args[0].lower() not in self.dc_settings['categories']:
-            error_str = f'{self.options["indicators"][0]} Invalid category!'
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid category!'
         elif args[1].lower() not in ['on', 'off', 'reset']:
-            error_str = f'{self.options["indicators"][0]} Invalid mode!'
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid mode!'
 
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
@@ -238,7 +238,7 @@ class Utils(LotrCog):
         elif isinstance(error, du.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(
-                f'{self.options["indicators"][0]} The category `{error.category}` is disabled in this context.',
+                f'{self.bot.options["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.',
                 delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
@@ -249,12 +249,12 @@ class Utils(LotrCog):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(
-                f'{self.options["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
+                f'{self.bot.options["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
                 delete_after=10)
 
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(
-                f'{self.options["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
+                f'{self.bot.options["discord"]["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
             self.logger.warning('Unknown CheckFailure occurred, type is: %s', type(error))
 
         else:

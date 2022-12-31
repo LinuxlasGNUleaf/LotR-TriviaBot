@@ -40,7 +40,7 @@ class Trivia(LotrCog):
                 f'You have to play a game of trivia before a profile can be generated! Use the `trivia` command to take a quiz!')
             return
 
-        embed = discord.Embed(title=f'{user.display_name}\'s profile')
+        embed = discord.Embed(title=f'{bu.genitive(user.display_name)} profile')
         embed.set_thumbnail(url=user.avatar.url)
         embed.colour = discord.Color.random()
 

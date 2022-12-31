@@ -22,6 +22,10 @@ def ordinal(n):
     return str(n) + suffix
 
 
+def genitive(word):
+    word = word.strip()
+    return f"{word}'" if word.endswith('s') else f"{word}'s"
+
 
 def map_values(val: float, in_min: float, in_max: float, out_min: float, out_max: float) -> float:
     """

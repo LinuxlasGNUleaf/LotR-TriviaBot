@@ -22,9 +22,6 @@ github_repo: https://github.com/LinuxlasGNUleaf/LotR-TriviaBot
 # time in minutes until the presence will be updated
 autopresence: 30
 
-# emojis for visual indicators
-indicators: [ ":x:", ":white_check_mark:" ]
-
 # time for all participants of a battle to check in
 ready_check_timeout: 180
 

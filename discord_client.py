@@ -157,7 +157,7 @@ class LotrBot(commands.Bot):
     @tasks.loop()
     async def autosave(self):
         self.save_caches()
-        self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
+        self.logger.debug(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     @autosave.before_loop
     async def before_autosave(self):

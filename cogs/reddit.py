@@ -86,7 +86,7 @@ class Reddit(LotrCog):
         self.posts = []
         self.subreddit = await self.reddit.subreddit('+'.join(self.options['subreddits']))
 
-        self.logger.info(f'Fetching the top {self.query_size * self.query_multiplier} hot submissions.')
+        self.logger.debug(f'Fetching the top {self.query_size * self.query_multiplier} hot submissions.')
         async for submission in self.subreddit.hot(limit=self.query_size * self.query_multiplier):
             self.posts.append(submission)
         self.old_timestamp = datetime.now()
