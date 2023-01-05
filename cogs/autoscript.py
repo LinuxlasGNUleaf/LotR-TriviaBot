@@ -17,6 +17,7 @@ class AutoScript(LotrCog):
         super().__init__(bot)
         self.script = []
         self.condensed_script = []
+        self.parse_script()
 
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
@@ -45,6 +46,10 @@ class AutoScript(LotrCog):
             content = content.replace(char, '.')
         for char in self.options['elimination_chars']:
             content = content.replace(char, '')
+        for char in self.options['empty_chars']:
+            content = content.replace(char, ' ')
+        while '  ' in content:
+            content = content.replace('  ', ' ')
         content = content.split('.')
 
         # searching condensed script for matching line

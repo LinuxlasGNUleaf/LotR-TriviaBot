@@ -19,8 +19,9 @@ assets: {
 # determines whether the autoscript should stop at the end of a scene
 scene_end_interrupt: False
 # settings for the condensed script (for internal use only)
-punctuation_chars: [ "?", "!", ".", ":", ";" ]
+punctuation_chars: [ "?", "!", ".", ":", ";", "-"]
 elimination_chars: [ "'", "," ]
+empty_chars: ["\n"]
 # threshold for the SequenceMatcher a message has to meet to be accepted as a quote input
 threshold: 0.85
 # number of lines of the script that will be outputted
