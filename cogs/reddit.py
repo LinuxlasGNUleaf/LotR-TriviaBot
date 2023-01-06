@@ -62,7 +62,7 @@ class Reddit(LotrCog):
 
     @tasks.loop()
     async def auto_refresh(self):
-        self.logger.debug('Auto-reloading posts...')
+        self.logger.debug('auto-reloading posts...')
 
         # reset query size
         self.query_multiplier = 1
@@ -70,10 +70,10 @@ class Reddit(LotrCog):
 
     @auto_refresh.before_loop
     async def before_refresh(self):
-        self.logger.info('Preloading posts before starting to autorefresh...')
+        self.logger.info('preloading posts before starting to autorefresh...')
         async with self.get_post_lock:
             await self.refresh_posts()
-        self.logger.info('Preloading of posts done.')
+        self.logger.info('preloading of posts done.')
         await asyncio.sleep(self.options['refresh_interval'] * 60)
 
     async def refresh_posts(self):
@@ -102,10 +102,10 @@ class Reddit(LotrCog):
                         self.caches['post_cache'][channel_id].append(post.id)
                         return post
 
-                self.logger.info('Reloading subreddits due to lack of new submissions.')
+                self.logger.info('reloading subreddits due to lack of new submissions.')
                 self.query_multiplier += 1
                 await self.refresh_posts()
-                self.logger.info('Done reloading (for new submissions).')
+                self.logger.info('done reloading (for new submissions).')
 
 
 async def setup(bot):

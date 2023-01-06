@@ -71,15 +71,15 @@ class Utils(LotrCog):
     @tasks.loop()
     async def autopresence(self):
         new_activity = self.get_random_presence()
-        self.logger.info(f'Changing presence to: "Watching {new_activity.name}"')
+        self.logger.info(f'changing presence to: "Watching {new_activity.name}"')
         await self.bot.change_presence(activity=new_activity)
 
     @autopresence.before_loop
     async def before_autopresence(self):
         if not self.bot.is_ready():
-            self.logger.info('Waiting for the bot to finish startup before changing presence...')
+            self.logger.info('waiting for the bot to finish startup before changing presence...')
             await self.bot.wait_until_ready()
-            self.logger.info(f'Startup complete, presence will now be updated.')
+            self.logger.info(f'startup complete, presence will now be updated.')
 
     @commands.cooldown(1, 60)
     @commands.command()
@@ -255,7 +255,7 @@ class Utils(LotrCog):
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(
                 f'{self.bot.options["discord"]["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
-            self.logger.warning('Unknown CheckFailure occurred, type is: %s', type(error))
+            self.logger.warning('unknown CheckFailure occurred, type is: %s', type(error))
 
         else:
             raise error
