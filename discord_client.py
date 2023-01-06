@@ -50,7 +50,7 @@ class LotrBot(commands.Bot):
             case_insensitive=True
         )
 
-    async def start(self, _, *, reconnect: bool = True):
+    async def start(self, _, reconnect: bool = True):
         # load cogs
         await self.load_cogs()
 

@@ -19,7 +19,6 @@ class Utils(LotrCog):
         super().__init__(bot)
 
     async def cog_load(self):
-        await super().on_ready()
         self.autopresence.change_interval(minutes=self.options['autopresence'])
         self.autopresence.start()
 
@@ -76,10 +75,7 @@ class Utils(LotrCog):
 
     @autopresence.before_loop
     async def before_autopresence(self):
-        if not self.bot.is_ready():
-            self.logger.info('waiting for the bot to finish startup before changing presence...')
-            await self.bot.wait_until_ready()
-            self.logger.info(f'startup complete, presence will now be updated.')
+        await self.bot.wait_until_ready()
 
     @commands.cooldown(1, 60)
     @commands.command()

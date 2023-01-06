@@ -143,7 +143,7 @@ class ChannelBusy(commands.CheckFailure):
     custom error that is raised when the channel is currently busy
     """
 
-    def __init__(self, message):
+    def __init__(self, message: discord.Message):
         self.orig_message = message
         super().__init__()
 
