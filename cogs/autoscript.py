@@ -26,7 +26,8 @@ class AutoScript(LotrCog):
         """
 
         if message.author.bot:
-            return
+            #return
+            pass
         # format message string
         content = message.content.lower().strip()
         channel = message.channel
