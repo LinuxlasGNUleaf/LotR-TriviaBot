@@ -22,6 +22,9 @@ announcement_channel: 1008676191449919528
 # the check interval, in minutes
 check_interval: 5
 
+# registration form timeout, in minutes
+registration_timeout: 60
+
 # the standard discord emoji to put in the message
 emoji: 🥳
 
@@ -55,3 +58,7 @@ ics_event:
 
 birthday_embed:
   "On the **{day} of {month}**.\nTimestamp: {timestamp}"
+
+# how many days each month has, for validation purposes
+days:
+  [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
