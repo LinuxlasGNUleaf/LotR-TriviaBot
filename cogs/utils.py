@@ -123,7 +123,7 @@ class Utils(LotrCog):
         embed = discord.Embed(
             title=f'Config for #{ctx.channel} in {ctx.guild}')
 
-        for category in self.dc_settings['categories']:
+        for category in self.dc_settings_options['categories']:
 
             server_setting = ':grey_question:'
             if ctx.guild.id in self.dc_settings_cache.keys():
@@ -136,7 +136,7 @@ class Utils(LotrCog):
                     channel_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
 
             effective = self.bot.options['discord']['indicators'][du.is_category_allowed(
-                ctx, category, self.dc_settings_cache, self.dc_settings['defaults'])]
+                ctx, category, self.dc_settings_cache, self.dc_settings_options['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
@@ -166,8 +166,8 @@ class Utils(LotrCog):
         """
         displays info about the settings
         """
-        categories_str = '`' + '`, `'.join(self.dc_settings['categories']) + '`'
-        text = self.dc_settings['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
+        categories_str = '`' + '`, `'.join(self.dc_settings_options['categories']) + '`'
+        text = self.dc_settings_options['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
     async def edit_settings(self, ctx, args, channel_mode):
@@ -177,7 +177,7 @@ class Utils(LotrCog):
         error_str = ''
         if len(args) != 2:
             error_str = f'{self.bot.options["discord"]["indicators"][0]} You have to provide __two__ arguments!'
-        elif args[0].lower() not in self.dc_settings['categories']:
+        elif args[0].lower() not in self.dc_settings_options['categories']:
             error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid category!'
         elif args[1].lower() not in ['on', 'off', 'reset']:
             error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid mode!'
@@ -185,7 +185,7 @@ class Utils(LotrCog):
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                         '`, `'.join(self.dc_settings['categories']) + '`\n'
+                         '`, `'.join(self.dc_settings_options['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return

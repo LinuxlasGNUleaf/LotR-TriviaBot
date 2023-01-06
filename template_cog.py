@@ -10,8 +10,18 @@ class LotrCog(commands.Cog):
     """
 
     def __init__(self, bot):
-        self.bot = bot
-        self.dc_settings_cache, self.dc_settings = (bot.caches['discord_settings'], bot.options['discord']['settings'])
+        self.bot: LotrBot
+        self.dc_settings_cache: dict
+        self.dc_settings_options: dict
+        self.options: dict
+        self.tokens: dict
+        self.caches: dict
+        self.caches_locations: dict
+        self.assets: dict
+        self.logger: logging.Logger
+
+        self.bot: LotrBot = bot
+        self.dc_settings_cache, self.dc_settings_options = (bot.caches['discord_settings'], bot.options['discord']['settings'])
         self.options = self.bot.load_config_for_cog(self.__cog_name__)
         self.tokens, self.caches, self.caches_locations, self.assets = self.bot.load_files_for_context(self.options,
                                                                                                        self.__cog_name__)
