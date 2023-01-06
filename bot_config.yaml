@@ -50,6 +50,7 @@ discord:
 
   # emojis for visual indicators
   indicators: [ ":x:", ":white_check_mark:" ]
+  unicode_indicators: [ "❌", "✅" ]
 
   # settings for the bot
   settings:

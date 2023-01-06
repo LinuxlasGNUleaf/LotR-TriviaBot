@@ -63,7 +63,7 @@ class Trivia(LotrCog):
         """
         a multiple-choice trivia quiz with ME-related questions
         """
-        TriviaGameUI(ctx, self)
+        TriviaView(ctx, self)
 
     @du.category_check('minigames')
     @commands.command(name='scoreboard')
@@ -266,7 +266,7 @@ class TriviaSelectButton(discord.ui.Button['TriviaView']):
             await interaction.response.defer()
 
 
-class TriviaGameUI(discord.ui.View):
+class TriviaView(discord.ui.View):
 
     def __init__(self, context, cog):
         super().__init__()

@@ -1,7 +1,9 @@
 import logging
+
 from discord.ext import commands
 
 import backend_utils as bu
+from discord_client import LotrBot
 
 
 class LotrCog(commands.Cog):
