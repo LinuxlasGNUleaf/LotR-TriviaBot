@@ -24,7 +24,7 @@ def get_next_date(month, day):
 class AutoCalendar(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
-        self.check.change_interval(minutes=self.options['check_interval'])
+        self.check.change_interval(minutes=self.options['check']['interval'])
         self.check.start()
 
         self.views = []
@@ -44,6 +44,8 @@ class AutoCalendar(LotrCog):
             self.caches['birthdays'][index] = new_entry
         else:
             self.caches['birthdays'].append(new_entry)
+
+        self.logger.info(f'{"Updated" if entry else "Registered"} {bu.genitive(name)} birthday to be: {day}.{month}.')
 
     def get_birthday_by_uid(self, uid):
         if uid not in [x[3] for x in self.caches['birthdays']]:
@@ -102,11 +104,12 @@ class AutoCalendar(LotrCog):
 
         mention = f'__{(await self.retrieve_user_info(name=name, uid=uid, mention=True))[0]}__'
 
-        intro = random.choice(self.options["core_messages"]).format(user=mention)
-        wishes = random.choice(self.options["birthday_wishes"])
-        msg = f'{self.options["emoji"]} {intro} {self.options["emoji"]}\n{wishes}'
+        msg = '{emoji} {intro} {emoji}\n{wishes}'.format(
+            emoji=self.options['check']['emoji'],
+            intro=random.choice(self.options['check']['messages']).format(user=mention),
+            wishes=random.choice(self.options['check']['wishes']))
 
-        channel = await self.bot.fetch_channel(self.options['announcement_channel'])
+        channel = await self.bot.fetch_channel(self.options['check']['channel'])
 
         if not (channel and channel.permissions_for(channel.guild.me).send_messages):
             self.logger.warning(f'missing permissions, could not congratulate {name} ({uid}) on his birthday.')
@@ -151,14 +154,14 @@ class AutoCalendar(LotrCog):
         for month, day, name, _ in self.caches['birthdays']:
             start = datetime(year=now.year, month=month, day=day)
             end = start + timedelta(days=1)
-            event_str += self.options['ics_event'].format(
+            event_str += self.options['ics']['event'].format(
                 uid=secrets.token_hex(8),
                 name=f'{name.strip()} - Birthday',
                 start=start.strftime('%Y%m%d'),
                 end=end.strftime('%Y%m%d')
             )
 
-        cal_str = self.options['ics_wrapper'].format(event_str)
+        cal_str = self.options['ics']['wrapper'].format(event_str)
         embed = discord.Embed(
             title=f'Birthday Calendar for {ctx.guild.name.title()}',
             description=f'This calendar contains the birthdays of {len(self.caches["birthdays"])} people!\nCreated on: **{datetime.now().strftime("%d/%m/%Y")}**',
@@ -207,15 +210,16 @@ class AutoCalendar(LotrCog):
 
 class RegisterView(ui.View):
     def __init__(self, context: commands.Context, cog: AutoCalendar):
-        super().__init__(timeout=cog.options['registration_timeout'] * 60)
+        super().__init__(timeout=cog.options['registration']['timeout'] * 60)
         self.msg = None
+        self.cog: AutoCalendar = cog
         self.ctx: commands.Context = context
         self.button = RegistrationButton(cog)
         self.add_item(self.button)
 
     async def run(self):
         self.msg = await self.ctx.send(
-            'Want to register your birthday? Click the button below to open the survey!\n__**Hint**__: Everyone can use **this** button to register their **own** birthday.',
+            self.cog.options['registration']['hint'],
             view=self)
 
     async def on_timeout(self):
@@ -230,7 +234,7 @@ class RegistrationButton(discord.ui.Button):
         self.cog: AutoCalendar = cog
         self.modals = []
         super().__init__(label='Birthday Registration',
-                         emoji='🎂')
+                         emoji=cog.options['registration']['unicode_emoji'])
 
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.send_modal(RegistrationModal(self.cog, interaction.user))
@@ -266,7 +270,7 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
 
         month: int = int(month)
 
-        if not day.isdigit() or int(day) - 1 not in range(self.cog.options['days'][month]):
+        if not day.isdigit() or int(day) - 1 not in range(self.cog.options['days_in_a_month'][month]):
             await interaction.response.send_message('Day not valid.',
                                                     ephemeral=True,
                                                     delete_after=10)
@@ -279,12 +283,19 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
                                                     delete_after=10)
             return
 
-        await interaction.response.send_message(
-            f'Your birthday has been {"updated" if self.old_entry else "registered"}.',
-            ephemeral=True,
-            delete_after=10)
         self.cog.register_birthday(name=name, month=month, day=day, uid=self.user.id)
 
+        embed = self.cog.create_birthday_embed(
+            name=name,
+            month=month,
+            day=day,
+            thumbnail_url=self.user.avatar.url
+        )
+
+        await interaction.response.send_message(
+            f'__**{self.user.name}**__ {"updated" if self.old_entry else "registered"} their birthday:',
+            embed=embed
+            )
 
 async def setup(bot):
     await bot.add_cog(AutoCalendar(bot))
