@@ -27,8 +27,6 @@ class AutoGimli(LotrCog):
 
     @commands.Cog.listener('on_message')
     async def autogimli(self, msg):
-        if random.randint(0, self.options['chance'] - 1) != 0:
-            return
         if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked_users:
             return
         perms = msg.channel.permissions_for(msg.guild.me)
@@ -69,6 +67,8 @@ class AutoGimli(LotrCog):
                 except discord.errors.HTTPException:
                     pass
 
+        if random.randint(0, self.options['chance'] - 1) != 0 and gimli_count != 7999:
+            return
         if gimli_count == 2 and self.options['number_two_special_message']:
             await msg.channel.send('That still only counts as one!')
         else:
