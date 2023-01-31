@@ -28,10 +28,6 @@ class Trivia(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
 
-    async def cog_load(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @du.category_check('minigames')
     @commands.command(name='profile', aliases=['tp', 'tstat'])
     async def display_profile(self, ctx):
@@ -44,7 +40,7 @@ class Trivia(LotrCog):
                 f'You have to play a game of trivia before a profile can be generated! Use the `trivia` command to take a quiz!')
             return
 
-        embed = discord.Embed(title=f'{user.display_name}\'s profile')
+        embed = discord.Embed(title=f'{bu.genitive(user.display_name)} profile')
         embed.set_thumbnail(url=user.avatar.url)
         embed.colour = discord.Color.random()
 
@@ -67,7 +63,7 @@ class Trivia(LotrCog):
         """
         a multiple-choice trivia quiz with ME-related questions
         """
-        TriviaGameUI(ctx, self)
+        TriviaView(ctx, self)
 
     @du.category_check('minigames')
     @commands.command(name='scoreboard')
@@ -270,7 +266,7 @@ class TriviaSelectButton(discord.ui.Button['TriviaView']):
             await interaction.response.defer()
 
 
-class TriviaGameUI(discord.ui.View):
+class TriviaView(discord.ui.View):
 
     def __init__(self, context, cog):
         super().__init__()

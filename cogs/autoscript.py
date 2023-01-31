@@ -19,11 +19,6 @@ class AutoScript(LotrCog):
         self.condensed_script = []
         self.parse_script()
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @commands.Cog.listener('on_message')
     async def autoscript(self, message):
         """
@@ -40,7 +35,7 @@ class AutoScript(LotrCog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not du.is_category_allowed(message, 'autoscript', self.dc_settings, self.bot.options['discord']['settings']['defaults']):
+        if not du.is_category_allowed(message, 'autoscript', self.dc_settings_cache, self.bot.options['discord']['settings']['defaults']):
             return
 
         # stop if the message is shorter than 2 words
@@ -51,6 +46,10 @@ class AutoScript(LotrCog):
             content = content.replace(char, '.')
         for char in self.options['elimination_chars']:
             content = content.replace(char, '')
+        for char in self.options['empty_chars']:
+            content = content.replace(char, ' ')
+        while '  ' in content:
+            content = content.replace('  ', ' ')
         content = content.split('.')
 
         # searching condensed script for matching line

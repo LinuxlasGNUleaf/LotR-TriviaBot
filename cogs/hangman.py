@@ -21,11 +21,6 @@ class Hangman(LotrCog):
     def __init__(self, bot):
         super().__init__(bot)
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @du.category_check('minigames')
     @commands.command(name='hangman')
     async def create_hangman_game(self, ctx):

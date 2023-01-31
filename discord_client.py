@@ -50,7 +50,7 @@ class LotrBot(commands.Bot):
             case_insensitive=True
         )
 
-    async def start(self, _, *, reconnect: bool = True):
+    async def start(self, _, reconnect: bool = True):
         # load cogs
         await self.load_cogs()
 
@@ -69,9 +69,9 @@ class LotrBot(commands.Bot):
         status = {x: '' for x in cog_list}
         with bu.LogManager(self.logger, logging.INFO, 'cog loading', self.options['logging']['log_width']):
             for cog in cog_list:
-                cog_name = cog.split('.')[-1]
+                cog_name = cog.split('.')[-1].upper()
                 try:
-                    logging.info(f'Attempting to load {cog_name}...')
+                    logging.info(f'attempting to load {cog_name}...')
                     await self.load_extension(cog)
                     self.running_cogs.append(cog)
                 except commands.ExtensionFailed as exc:
@@ -81,16 +81,15 @@ class LotrBot(commands.Bot):
                         logging.exception(exc)
         return status
 
-    async def unload_cogs(self, cog_list=None):
-        cog_list = cog_list if cog_list else self.running_cogs
+    async def unload_cogs(self, cog_list):
         status = {x: '' for x in cog_list}
         with bu.LogManager(self.logger, logging.INFO, 'cog unloading', self.options['logging']['log_width']):
             for cog in cog_list:
-                cog_name = cog.split('.')[-1]
+                cog_name = cog.split('.')[-1].upper()
                 try:
                     if cog in self.running_cogs:
                         self.running_cogs.remove(cog)
-                    logging.info(f'Attempting to unload {cog_name}...')
+                    logging.info(f'attempting to unload {cog_name}...')
                     await self.unload_extension(cog)
                     status[cog] = 'OK'
                 except commands.ExtensionNotFound:
@@ -102,10 +101,10 @@ class LotrBot(commands.Bot):
         return status
 
     async def reload_cogs(self, cog_list=None):
-        self.logger.info(f'Active cogs: {self.running_cogs}')
-        self.logger.info(f'Filesystem cogs: {self.get_fs_cogs()}')
-        unload_list = cog_list if cog_list else self.running_cogs
-        load_list = cog_list if cog_list else self.get_fs_cogs()
+        self.logger.info(f'active cogs: {self.running_cogs}')
+        self.logger.info(f'filesystem cogs: {self.get_fs_cogs()}')
+        unload_list = cog_list if cog_list else self.running_cogs.copy()
+        load_list = cog_list if cog_list else self.get_fs_cogs().copy()
         await self.unload_cogs(unload_list)
         load_status = await self.load_cogs(load_list)
         status = {}
@@ -121,17 +120,17 @@ class LotrBot(commands.Bot):
     def load_config_for_cog(self, cog):
         with open(self.get_config_location(cog), 'r', encoding='utf-8') as cfg_stream:
             try:
-                self.logger.info(f'parsing config file for {cog.lower()}...')
+                self.logger.info(f'parsing config file for {cog.upper()}...')
                 return yaml.safe_load(cfg_stream)
             except yaml.YAMLError as exc:
-                self.logger.info(f'While parsing the config file, the following error occurred:')
+                self.logger.info(f'while parsing the config file, the following error occurred:')
                 raise exc
 
     def load_files_for_context(self, config, name):
         tokens, caches, caches_locations, assets = {}, {}, {}, {}
 
         if config['tokens']:
-            self.logger.info(f"Loading tokens for {name}...")
+            self.logger.info(f'loading tokens for {name.upper()}...')
             # load tokens
             for token, token_file in config['tokens'].items():
                 token_name = token_file
@@ -139,7 +138,7 @@ class LotrBot(commands.Bot):
                 tokens[token] = bu.load_token(token_file, token_name, self.logger)
 
         if config['caches']:
-            self.logger.info(f"Loading caches for {name}...")
+            self.logger.info(f'loading caches for {name.upper()}...')
             # load caches
             for cache, cache_file in config['caches'].items():
                 cname = cache_file
@@ -148,7 +147,7 @@ class LotrBot(commands.Bot):
                 caches_locations[cache] = cache_file
 
         if config['assets']:
-            self.logger.info(f"Resolving assets for {name}...")
+            self.logger.info(f'resolving assets for {name.upper()}...')
             # resolve asset names
             for asset, asset_file in config['assets'].items():
                 assets[asset] = self.get_asset_location(asset_file)
@@ -158,11 +157,11 @@ class LotrBot(commands.Bot):
     @tasks.loop()
     async def autosave(self):
         self.save_caches()
-        self.logger.info(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
+        self.logger.debug(datetime.now().strftime('Autosave: %X on %a %d/%m/%y'))
 
     @autosave.before_loop
     async def before_autosave(self):
-        self.logger.info(f'Autosave is ready and will start in {int(self.autosave.minutes)} minutes.')
+        self.logger.info(f'autosave is ready and will start in {int(self.autosave.minutes)} minutes.')
         await asyncio.sleep(self.autosave.minutes * 60)
 
     async def on_message(self, message):

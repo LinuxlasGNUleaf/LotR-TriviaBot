@@ -1,10 +1,8 @@
-numpy>=1.22.3
-discord>=1.7.3
-discord.py @ git+https://github.com/Rapptz/discord.py@b9b6dc960f61d3187510e8908cae58512e8b3c94
-matplotlib>=3.5.2
-#google-api-python-client
-#googlesearch-python
-asyncpraw>=7.5.0
+numpy>=1.24.1
+discord>=2.1.0
+discord.py>=2.1.0
+matplotlib>=3.6.2
+asyncpraw>=7.6.1
 PyYAML>=6.0
-inflect>=5.6.0
+inflect>=6.0.2
 word2number>=1.1

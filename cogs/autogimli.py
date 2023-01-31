@@ -20,11 +20,6 @@ class AutoGimli(LotrCog):
         self.inflect = inflect.engine()
         self.cooldown_list = {}
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
-
     @commands.Cog.listener('on_message')
     async def autogimli(self, msg):
         if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked_users:

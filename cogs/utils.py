@@ -1,4 +1,3 @@
-import asyncio
 import platform
 import random
 import typing
@@ -20,8 +19,6 @@ class Utils(LotrCog):
         super().__init__(bot)
 
     async def cog_load(self):
-        self.logger.info('%s cog has been loaded.',
-                         self.__class__.__name__.title())
         self.autopresence.change_interval(minutes=self.options['autopresence'])
         self.autopresence.start()
 
@@ -73,15 +70,12 @@ class Utils(LotrCog):
     @tasks.loop()
     async def autopresence(self):
         new_activity = self.get_random_presence()
-        self.logger.info(f'Changing presence to: "Watching {new_activity.name}"')
+        self.logger.info(f'changing presence to: "Watching {new_activity.name}"')
         await self.bot.change_presence(activity=new_activity)
 
     @autopresence.before_loop
     async def before_autopresence(self):
-        if not self.bot.is_ready():
-            self.logger.info('Waiting for the bot to finish startup before changing presence...')
-            await self.bot.wait_until_ready()
-            self.logger.info(f'Startup complete, presence will now be updated.')
+        await self.bot.wait_until_ready()
 
     @commands.cooldown(1, 60)
     @commands.command()
@@ -90,7 +84,7 @@ class Utils(LotrCog):
         displays misc. statistics about the bot
         """
         embed = discord.Embed(title=f'Stats for {self.bot.user.name}')
-        embed.colour = random.choice(self.bot.color_list)
+        embed.colour = discord.Colour.random()
 
         uptime = datetime.now() - self.bot.start_time
         embed.add_field(name=':snake: Python Version:',
@@ -125,20 +119,20 @@ class Utils(LotrCog):
         embed = discord.Embed(
             title=f'Config for #{ctx.channel} in {ctx.guild}')
 
-        for category in self.dc_settings['categories']:
+        for category in self.dc_settings_options['categories']:
 
             server_setting = ':grey_question:'
             if ctx.guild.id in self.dc_settings_cache.keys():
                 if category in self.dc_settings_cache[ctx.guild.id]:
-                    server_setting = self.options['indicators'][self.dc_settings_cache[ctx.guild.id][category]]
+                    server_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.guild.id][category]]
 
             channel_setting = ':grey_question:'
             if ctx.channel.id in self.dc_settings_cache.keys():
                 if category in self.dc_settings_cache[ctx.channel.id]:
-                    channel_setting = self.options['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
+                    channel_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
 
-            effective = self.options['indicators'][du.is_category_allowed(
-                ctx, category, self.dc_settings_cache, self.dc_settings['defaults'])]
+            effective = self.bot.options['discord']['indicators'][du.is_category_allowed(
+                ctx, category, self.dc_settings_cache, self.dc_settings_options['defaults'])]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
@@ -168,8 +162,8 @@ class Utils(LotrCog):
         """
         displays info about the settings
         """
-        categories_str = '`' + '`, `'.join(self.dc_settings['categories']) + '`'
-        text = self.dc_settings['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
+        categories_str = '`' + '`, `'.join(self.dc_settings_options['categories']) + '`'
+        text = self.dc_settings_options['help'].format(self.bot.options['discord']['prefix'][0], categories_str)
         await ctx.send(text, file=discord.File('assets/infographic1.png'))
 
     async def edit_settings(self, ctx, args, channel_mode):
@@ -178,16 +172,16 @@ class Utils(LotrCog):
         """
         error_str = ''
         if len(args) != 2:
-            error_str = f'{self.options["indicators"][0]} You have to provide __two__ arguments!'
-        elif args[0].lower() not in self.dc_settings['categories']:
-            error_str = f'{self.options["indicators"][0]} Invalid category!'
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} You have to provide __two__ arguments!'
+        elif args[0].lower() not in self.dc_settings_options['categories']:
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid category!'
         elif args[1].lower() not in ['on', 'off', 'reset']:
-            error_str = f'{self.options["indicators"][0]} Invalid mode!'
+            error_str = f'{self.bot.options["discord"]["indicators"][0]} Invalid mode!'
 
         if error_str:
             error_str += 'You have to provide a category and a mode to edit. The categories are:\n'
             error_str += '`' + \
-                         '`, `'.join(self.dc_settings['categories']) + '`\n'
+                         '`, `'.join(self.dc_settings_options['categories']) + '`\n'
             error_str += 'The modes are:\n `on`, `off`, `reset`'
             await ctx.send(error_str)
             return
@@ -240,7 +234,7 @@ class Utils(LotrCog):
         elif isinstance(error, du.CategoryNotAllowed):
             # if the category is not allowed in this context
             await ctx.send(
-                f'{self.options["indicators"][0]} The category `{error.category}` is disabled in this context.',
+                f'{self.bot.options["discord"]["indicators"][0]} The category `{error.category}` is disabled in this context.',
                 delete_after=15)
 
         elif isinstance(error, (commands.MissingPermissions, commands.NotOwner)):
@@ -251,13 +245,13 @@ class Utils(LotrCog):
             if ctx.channel.permissions_for(ctx.guild.me).manage_messages:
                 await error.orig_message.delete()
             await ctx.send(
-                f'{self.options["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
+                f'{self.bot.options["discord"]["indicators"][0]} This channel is currently busy. Try again when no event is currently taking place.',
                 delete_after=10)
 
         elif isinstance(error, commands.CheckFailure):
             await ctx.send(
-                f'{self.options["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
-            self.logger.warning('Unknown CheckFailure occurred, type is: %s', type(error))
+                f'{self.bot.options["discord"]["indicators"][0]} An internal error occurred while parsing this command. Please contact the developer.')
+            self.logger.warning('unknown CheckFailure occurred, type is: %s', type(error))
 
         else:
             raise error

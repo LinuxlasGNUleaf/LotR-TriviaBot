@@ -1,0 +1,72 @@
+#                _         _____      _                _
+#     /\        | |       / ____|    | |              | |
+#    /  \  _   _| |_ ___ | |     __ _| | ___ _ __   __| | __ _ _ __
+#   / /\ \| | | | __/ _ \| |    / _` | |/ _ \ '_ \ / _` |/ _` | '__|
+#  / ____ \ |_| | || (_) | |___| (_| | |  __/ | | | (_| | (_| | |
+# /_/    \_\__,_|\__\___/ \_____\__,_|_|\___|_| |_|\__,_|\__,_|_|
+#
+
+# cog-specific tokens, caches and assets
+tokens: {
+}
+caches: {
+  "birthdays": "birthdays.cache",
+  "congrats": "congrats_log.cache"
+}
+assets: {
+}
+
+
+# automatic birthday check settings
+check:
+  # the check interval, in minutes
+  interval: 5
+  # the channel to do the birthday announcements in
+  channel: 1008676191449919528
+  # the standard discord emoji to put in the message
+  emoji: 🥳
+  # the core of the birthday congrats message, which the emoji will be put on on either side
+  messages:
+    - "The day has come: **It's the birthday of {user}!**"
+    - "Long awaited, it is finally here: **The birthday of the man, the myth, the legend: {user}!**"
+    - "Dark have been my dreams of late, but I feel as one new-awakened. **For there is a new birthday on the horizon: {user}!**"
+  # additional birthday wish :)
+  wishes:
+    - "May the wind under your wings bear you where the sun sails and the moon walks!"
+    - "May the stars shine upon your face!"
+    - "A day may come where we stop celebrating your birthday! But it is not this day!"
+    - "Happy birthday, you stupid fat hobbit!"
+    - "May your beer be laid under an enchantment of surpassing excellence for seven years!"
+
+
+# registration form settings
+registration:
+  # timeout, in minutes
+  timeout: 60
+  # hint to display with registration button
+  hint: |
+    Want to register your birthday? Click the button below to open the survey!
+    __**Hint**__: Everyone can use **this** button to register their **own** birthday.
+  # emoji for the button
+  unicode_emoji: '🎂'
+
+subcommands:
+  - register
+  - next
+  - delete
+  - download
+
+# ics calendar settings
+ics:
+  # ics header & footer, contains version and author info
+  wrapper: "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:LotR-TriviaBot\n{}END:VCALENDAR"
+
+  # event paragraph for a yearly repeating event that lasts exactly one whole day (aka a birthday)
+  event: "BEGIN:VEVENT\nUID:{uid}\nSUMMARY:{name}\nRRULE:FREQ=YEARLY\nDTSTART;VALUE=DATE:{start}\nDTEND;VALUE=DATE:{end}\nEND:VEVENT\n"
+
+birthday_embed:
+  "On the **{day} of {month}**.\nTimestamp: {timestamp}"
+
+# how many days each month has, for validation purposes
+days_in_a_month:
+  [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
