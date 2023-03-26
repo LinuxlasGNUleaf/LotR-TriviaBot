@@ -34,7 +34,7 @@ class QuoteGenerator(LotrCog):
         embed.set_author(name=title_str, icon_url=(ctx.author.avatar if ctx.author.avatar else ctx.author.default_avatar).url,
                          url=self.options['generator_url'])
         embed.set_footer(
-            text='-' * 100 + '\nPlease check out the original generator (link is in title), it\'s pretty epic 😎')
+            text='-' * 90 + '\nPlease check out the original generator (link is in title), it\'s pretty epic 😎')
 
         players = list(players)
         random.shuffle(players)
