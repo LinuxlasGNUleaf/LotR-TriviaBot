@@ -264,7 +264,7 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
         day: str
         name, month, day = (x.value for x in self.components)
 
-        if not month.isdigit()
+        if not month.isdigit():
             await interaction.response.send_message('Month not valid, must be a number.', ephemeral=True)
             return
 
