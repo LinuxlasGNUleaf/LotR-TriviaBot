@@ -264,18 +264,14 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
         day: str
         name, month, day = (x.value for x in self.components)
 
-        if not month.isdigit() or int(month) not in range(12):
-            await interaction.response.send_message('Month not valid.', ephemeral=True)
-            return
-
         if not month.isdigit()
-            await interaction.response.send_message('Month not valid.', ephemeral=True)
+            await interaction.response.send_message('Month not valid, must be a number.', ephemeral=True)
             return
 
         month: int = int(month)
 
         if not month in range(13):
-            await interaction.response.send_message('Month not valid.', ephemeral=True)
+            await interaction.response.send_message('Month not valid, must be between 1 and 12.', ephemeral=True)
             return
 
         if not day.isdigit() or int(day) - 1 not in range(self.cog.options['days_in_a_month'][month]):
