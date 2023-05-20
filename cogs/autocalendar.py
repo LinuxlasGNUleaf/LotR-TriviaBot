@@ -142,6 +142,8 @@ class AutoCalendar(LotrCog):
             )
             await ctx.send(embed=embed)
             return
+        if (ctx.author.id == 231149928393474049):
+            await ctx.send(f"**I swear to god {ctx.author.mention} if you don't use the commands I provide to you I will haunt your dreams.**")
         cmds = f'`{"`, `".join(self.options["subcommands"])}`'
         await ctx.send(
             f"If you want to fetch the birthday of someone, use `birthday @user` with a user __from this server__.\nThe following subcommands are available:\n{cmds}")
