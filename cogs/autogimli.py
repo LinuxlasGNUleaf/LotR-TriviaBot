@@ -62,7 +62,7 @@ class AutoGimli(LotrCog):
                 except discord.errors.HTTPException:
                     pass
 
-        if random.randint(0, self.options['chance'] - 1) != 0 and gimli_count != 7999:
+        if random.randint(0, self.options['chance'] - 1) != 0: # and gimli_count != 7999:
             return
         if gimli_count == 2 and self.options['number_two_special_message']:
             await msg.channel.send('That still only counts as one!')
