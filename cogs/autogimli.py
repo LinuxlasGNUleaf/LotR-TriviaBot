@@ -22,7 +22,7 @@ class AutoGimli(LotrCog):
 
     @commands.Cog.listener('on_message')
     async def autogimli(self, msg):
-        if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked_users:
+        if msg.author.bot or msg.embeds or msg.attachments or msg.author.id in self.bot.blocked_users or not msg.guild:
             return
         perms = msg.channel.permissions_for(msg.guild.me)
 
