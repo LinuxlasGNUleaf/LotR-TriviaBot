@@ -70,7 +70,7 @@ class Utils(LotrCog):
     @tasks.loop()
     async def autopresence(self):
         new_activity = self.get_random_presence()
-        self.logger.info(f'changing presence to: "Watching {new_activity.name}"')
+        # self.logger.info(f'changing presence to: "Watching {new_activity.name}"')
         await self.bot.change_presence(activity=new_activity)
 
     @autopresence.before_loop
