@@ -56,6 +56,11 @@ class Hangman(LotrCog):
                                               timeout=self.options['timeout'])
                 msg = msg.content.lower()
 
+                contains_emoji = msg.startswith(":") and msg.endswith(":")
+                if contains_emoji:
+                    await ctx.send('Emojis are not allowed in this game :thoreen:')
+                    continue
+
             except asyncio.TimeoutError:
                 h_embed = create_hangman_embed(
                     ctx.message.author, word, end_states[0], 8, used_chars, False)
@@ -119,7 +124,8 @@ def create_hangman_embed(user: discord.Member, word, state, ind, used_chars, ong
     else:
         used = ''
 
-    author_field = (f'{user.display_name}\'s hangman game', None, (user.avatar if user.avatar else user.default_avatar).url)
+    author_field = (
+    f'{user.display_name}\'s hangman game', None, (user.avatar if user.avatar else user.default_avatar).url)
 
     color = discord.Color.from_rgb(int(bu.map_values(ind, 0, 8, 0, 255)),
                                    int(bu.map_values(ind, 0, 8, 255, 0)),
