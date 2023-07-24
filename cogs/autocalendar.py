@@ -225,7 +225,6 @@ class RegisterView(ui.View):
             view=self)
 
     async def on_timeout(self):
-        print(2)
         for element in self.children:
             element.disabled = True
         await self.msg.edit(view=self)

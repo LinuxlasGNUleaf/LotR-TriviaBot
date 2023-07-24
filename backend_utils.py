@@ -82,9 +82,7 @@ class LogManager:
         self.width = width
 
     def __enter__(self):
-        print()
         self.logger.log(self.level, f'> START OF {self.title} <'.center(self.width, '='))
 
     def __exit__(self, *args):
         self.logger.log(self.level, f'> END OF {self.title} <'.center(self.width, '='))
-        print()

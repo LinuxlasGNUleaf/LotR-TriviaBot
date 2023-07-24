@@ -17,6 +17,7 @@ class LotrBot(commands.Bot):
 
     def __init__(self, config, script_dir, work_dir):
         self.logger = logging.getLogger(__name__)
+        self.logger.level = logging.INFO
 
         self.script_dir = script_dir
         self.cog_dir = os.path.join(script_dir, *config['filesystem']['cog_dir'])
@@ -62,6 +63,7 @@ class LotrBot(commands.Bot):
         self.start_time = datetime.now()
 
         # establish connection
+        self.logger.info("Logging in and connecting to gateway...")
         await super().start(token=self.tokens['discord'][0], reconnect=reconnect)
 
     async def load_cogs(self, cog_list=None):

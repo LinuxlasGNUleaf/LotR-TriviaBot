@@ -103,7 +103,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
         return False, []
 
 
-def is_category_allowed(ctx, category, settings, defaults):
+def is_category_allowed(ctx, category, settings, defaults, logger):
     # return true if in a DM-channel
     if isinstance(ctx.channel, discord.channel.DMChannel):
         return 1
@@ -124,7 +124,7 @@ def is_category_allowed(ctx, category, settings, defaults):
         return defaults[category]
 
     # if everything fails, just allow it lol
-    logging.getLogger(__name__).error('Category "%s" not found, allowing it by default.', category)
+    logger.error('Category "%s" not found, allowing it by default.', category)
     return 1
 
 
@@ -155,7 +155,8 @@ def category_check(category: str):
 
     async def predicate(ctx):
         if is_category_allowed(ctx, category, ctx.bot.caches['discord_settings'],
-                               ctx.bot.options['discord']['settings']['defaults']):
+                               ctx.bot.options['discord']['settings']['defaults'],
+                               ctx.bot.logger):
             return True
         else:
             raise CategoryNotAllowed(category)

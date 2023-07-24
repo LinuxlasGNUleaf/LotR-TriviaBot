@@ -35,7 +35,7 @@ class AutoScript(LotrCog):
             return
         if not channel.permissions_for(channel.guild.me).send_messages:
             return
-        if not du.is_category_allowed(message, 'autoscript', self.dc_settings_cache, self.bot.options['discord']['settings']['defaults']):
+        if not du.is_category_allowed(message, 'autoscript', self.dc_settings_cache, self.bot.options['discord']['settings']['defaults'], self.logger):
             return
 
         # stop if the message is shorter than 2 words

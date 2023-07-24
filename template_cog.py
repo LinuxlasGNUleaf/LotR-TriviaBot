@@ -29,6 +29,7 @@ class LotrCog(commands.Cog):
                                                                                                        self.__cog_name__)
         self.bot.save_functions[self.__cog_name__] = self.save_caches
         self.logger = logging.getLogger(__name__)
+        self.logger.level = logging.INFO
 
     def save_caches(self):
         bu.save_caches(self.caches, self.caches_locations, self.logger, self.__cog_name__)

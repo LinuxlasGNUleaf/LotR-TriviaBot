@@ -32,8 +32,10 @@ os.makedirs(work_dir, exist_ok=True)
 logfile = os.path.join(work_dir, config['logging']['logfile'])
 print(f'logging events to: {logfile}')
 logging.basicConfig(format='[%(asctime)s] [%(levelname)-8s] --- [%(module)-14s]: %(message)s',
-                    level=logging.INFO,
+                    level=logging.WARNING,
                     handlers=[logging.FileHandler(logfile), logging.StreamHandler()])
+logger = logging.getLogger(__name__)
+logger.level = logging.INFO
 
 # create bot
 bot = discord_client.LotrBot(config, script_dir, work_dir)
@@ -47,6 +49,6 @@ if __name__ == '__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logging.info('keyboard interrupt detected, exiting.')
+        logger.info('keyboard interrupt detected, exiting.')
     bot.save_caches()
-    logging.info('saved caches successfully.\n\n')
+    logger.info('saved caches successfully.\n\n')

@@ -132,7 +132,7 @@ class Utils(LotrCog):
                     channel_setting = self.bot.options['discord']['indicators'][self.dc_settings_cache[ctx.channel.id][category]]
 
             effective = self.bot.options['discord']['indicators'][du.is_category_allowed(
-                ctx, category, self.dc_settings_cache, self.dc_settings_options['defaults'])]
+                ctx, category, self.dc_settings_cache, self.dc_settings_options['defaults'], ctx.bot.logger)]
             embed.add_field(name=f'**Category `{category}`:**',
                             value=f'Server: {server_setting} Channel: {channel_setting} Effective: {effective}',
                             inline=False)
