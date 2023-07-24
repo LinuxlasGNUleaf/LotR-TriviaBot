@@ -4,6 +4,7 @@ Hangman cog for the LotR-Trivia Bot
 import asyncio
 import random
 import string
+import re
 
 import discord
 from discord.ext import commands
@@ -20,6 +21,7 @@ class Hangman(LotrCog):
 
     def __init__(self, bot):
         super().__init__(bot)
+        self.patterns = [re.compile(pattern) for pattern in self.options['ignored_regex']]
 
     @du.category_check('minigames')
     @commands.command(name='hangman')
@@ -55,6 +57,8 @@ class Hangman(LotrCog):
                 msg = await self.bot.wait_for('message', check=check,
                                               timeout=self.options['timeout'])
                 msg = msg.content.lower()
+                for pattern in self.patterns:
+                    msg = re.sub(pattern, '', msg)
 
             except asyncio.TimeoutError:
                 h_embed = create_hangman_embed(

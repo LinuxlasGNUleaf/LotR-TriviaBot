@@ -16,6 +16,9 @@ assets: {
   "words": 'words.csv'
 }
 
+# regex to remove from input, to prevent emojis and other stuff being recognized
+ignored_regex:
+  - "<.*>"
 # time limit for each guess
 timeout: 20
 # ascii-art for the hangman game
