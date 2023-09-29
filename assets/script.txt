@@ -3201,7 +3201,6 @@ I spit on your grave!
 ARAGORN
 That was not so courteous.
 
-
 HALDIR
 You bring great evil with you.
 You can go no further.
@@ -3527,7 +3526,6 @@ How many did you eat?
 PIPPIN
 Four.
 
-
 CELEBORN
 Every league you travel south, the
 danger will increase. Mordor Orcs now
@@ -3560,7 +3558,6 @@ our woodland kin.
 GALADRIEL
 These are the daggers of the Noldorin.
 They have already seen service in war.
-
 
 GALADRIEL
 Do not fear, young Peregrin Took.
@@ -3627,7 +3624,6 @@ Nadath nâ i moe cerich. Dan
 ú-'eveditham, Elessar.
 There is much you have yet to do.
 We shall not meet again, Elessar.
-
 
 GALADRIEL
 Farewell, Frodo Baggins.
