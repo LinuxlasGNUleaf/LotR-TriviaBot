@@ -1182,7 +1182,6 @@ going to be able to sleep out here.
 FRODO
 Me neither, Sam.
 
-
 SARUMAN
 Smoke rises once more from the mountain
 of doom. The shadow takes shape in the
