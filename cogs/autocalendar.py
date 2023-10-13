@@ -70,12 +70,12 @@ class AutoCalendar(LotrCog):
             # return the found pair
             return name, uid
 
-    def create_birthday_embed(self, name: str, month: int, day: int, thumbnail_url: str = None):
+    def create_birthday_embed(self, name: str, month: int, day: int, avatar=None):
         timestamp = get_next_date(month, day)
         embed = discord.Embed(title=f':birthday:  {bu.genitive(name)} birthday')
         embed.colour = discord.Colour.random()
-        if thumbnail_url:
-            embed.set_thumbnail(url=thumbnail_url)
+        if avatar:
+            embed.set_thumbnail(url=avatar.url)
         embed.description = self.options['birthday_embed'].format(
             day=bu.ordinal(timestamp.day),
             month=timestamp.strftime("%B"),
@@ -90,7 +90,7 @@ class AutoCalendar(LotrCog):
         if uid:
             try:
                 user = await self.bot.fetch_user(uid)
-                return user.mention if mention else user.name, user.avatar.url
+                return user.mention if mention else user.name, user.avatar
             except (discord.errors.NotFound, discord.errors.HTTPException):
                 self.logger.warning('could not resolve UID, reverting to name.')
         return name, None
@@ -138,12 +138,13 @@ class AutoCalendar(LotrCog):
                 name=member.name,
                 month=month,
                 day=day,
-                thumbnail_url=member.avatar.url
+                avatar=member.avatar
             )
             await ctx.send(embed=embed)
             return
-        if (ctx.author.id == 231149928393474049):
-            await ctx.send(f"**I swear to god {ctx.author.mention} if you don't use the commands I provide to you I will haunt your dreams.**")
+        if ctx.author.id == 231149928393474049:
+            await ctx.send(
+                f"**I swear to god {ctx.author.mention} if you don't use the commands I provide to you I will haunt your dreams.**")
         cmds = f'`{"`, `".join(self.options["subcommands"])}`'
         await ctx.send(
             f"If you want to fetch the birthday of someone, use `birthday @user` with a user __from this server__.\nThe following subcommands are available:\n{cmds}")
@@ -191,14 +192,14 @@ class AutoCalendar(LotrCog):
         date, name, uid = sorted(dates, key=lambda x: x[0])[0]
 
         # retrieve info about the user
-        username, avatar_url = await self.retrieve_user_info(name, uid)
+        username, avatar = await self.retrieve_user_info(name, uid)
 
         # create embed
         embed = self.create_birthday_embed(
             name=username,
             month=date.month,
             day=date.day,
-            thumbnail_url=avatar_url
+            avatar=avatar
         )
         await ctx.send("The next birthday is:",
                        embed=embed)
@@ -271,7 +272,7 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
 
         month: int = int(month)
 
-        if not month in range(13):
+        if month not in range(13):
             await interaction.response.send_message('Month not valid, must be between 1 and 12.', ephemeral=True)
             return
 
@@ -294,13 +295,14 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
             name=name,
             month=month,
             day=day,
-            thumbnail_url=self.user.avatar.url
+            avatar=self.user.avatar
         )
 
         await interaction.response.send_message(
             f'__**{self.user.name}**__ {"updated" if self.old_entry else "registered"} their birthday:',
             embed=embed
-            )
+        )
+
 
 async def setup(bot):
     await bot.add_cog(AutoCalendar(bot))
