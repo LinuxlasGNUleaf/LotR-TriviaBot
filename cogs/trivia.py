@@ -181,9 +181,9 @@ class Trivia(LotrCog):
 
         # pop the source and the question (first element)
         source = content.pop(0)
-        question = content.pop(0)
         #TODO: use the level info
         content.pop(0)
+        question = content.pop(0)
         # shuffle answers
         random.shuffle(content)
 
