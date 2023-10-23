@@ -14,7 +14,7 @@
 
 - Development:
     1. Build the app `docker-compose -f docker-compose.dev.yaml up -d --build`
-      - Stop the application with `docker-compose -f docker-compose.dev.yml down`
+      - Stop the application with `docker-compose -f docker-compose.dev.yaml down`
 
 ### Useful commands
 - Starting the application
