@@ -1,0 +1,12 @@
+version: '3'
+services:
+  lotr-triviabot:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: lotr-triviabot
+    volumes:
+      - ./docker-storage/root/pycache:/app/__pycache__
+      - ./docker-storage/cogs/pycache:/app/cogs/__pycache__
+      - ./docker-storage/root:/root/.config/discord/bots/lotr-bot/
+    restart: always
