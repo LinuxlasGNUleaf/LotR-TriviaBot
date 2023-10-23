@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile.dev
     container_name: lotr-triviabot-dev
     volumes:
-      - lotr-triviabot-storage-dev:/root/.config/discord/bots/lotr-bot/
+      - ./src:/app
     restart: always
 
 volumes:
-  lotr-triviabot-storage-dev:
+  lotr-triviabot-dev:
