@@ -1,0 +1,13 @@
+version: '3'
+services:
+  lotr-triviabot:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: lotr-triviabot
+    volumes:
+      - lotr-triviabot-storage:/root/.config/discord/bots/lotr-bot/
+    restart: always
+
+volumes:
+  lotr-triviabot-storage:

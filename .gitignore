@@ -2,3 +2,6 @@
 __pycache__
 .pylintrc
 .idea/discord.xml
+
+discord.tk
+*docker-storage
