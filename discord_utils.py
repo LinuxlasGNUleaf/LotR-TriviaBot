@@ -2,11 +2,12 @@
 frequently used utils for the discord interface of the bot
 """
 import asyncio
-import logging
 from datetime import datetime, timedelta
 
 import discord
 from discord.ext import commands
+
+import backend_utils
 
 
 def create_embed(title: str, author_field: tuple = None, content: str = None, embed_url: str = None,
@@ -33,7 +34,7 @@ def create_embed(title: str, author_field: tuple = None, content: str = None, em
     return embed
 
 
-async def handle_ready_check(bot, ctx, player_count=0):
+async def handle_ready_check(cog, ctx, player_count=0):
     # fetch the tagged user, exit conditions for bots / same user
     players = [ctx.channel.guild.get_member(ctx.author.id), *ctx.message.mentions]
     for player in players[1:][::-1]:
@@ -57,7 +58,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
     ready_list = {player: 0 for player in players}
     # set the initiator to ready, HAS TO BE THE FIRST ELEMENT IN THE PLAYERS LIST
     ready_list[players[0]] = 1
-    timeout = bot.options['discord']['ready_check_timeout']
+    timeout = cog.options['timeout']
 
     # func to creates / updates Ready Check
     async def manage_check_embed(ready_chk_msg=None):
@@ -65,7 +66,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
         ready_count = 0
         for ready_player, ready in ready_list.items():
             ready_embed.add_field(
-                name=ready_player.display_name, value=bot.options["discord"]["indicators"][ready])
+                name=ready_player.display_name, value=backend_utils.bool_emoji(ready))
             ready_count += ready
         ready_embed.description = f':stopwatch: Timeout in: {timeout // 60}m,{timeout % 60}s.'
         if not all(ready for ready in ready_list.values()):
@@ -92,7 +93,7 @@ async def handle_ready_check(bot, ctx, player_count=0):
     deadline = datetime.now() + timedelta(seconds=timeout)
     try:
         while not all(ready for ready in ready_list.values()):
-            await bot.wait_for('message', check=ready_check, timeout=(deadline - datetime.now()).seconds)
+            await cog.bot.wait_for('message', check=ready_check, timeout=(deadline - datetime.now()).seconds)
             await manage_check_embed(ready_msg)
             if (deadline - datetime.now()).seconds not in range(timeout):
                 raise TimeoutError

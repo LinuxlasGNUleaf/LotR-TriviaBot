@@ -9,10 +9,13 @@
 tokens: {
 }
 caches: {
+  "quoteday": "quote_days.cache"
 }
 assets: {
 }
 
+# timeout for the other participant to respond
+ready_timeout: 150
 # time limit for the other participant to respond
 timeout: 300
 # number of rounds for quote battle
@@ -24,4 +27,12 @@ voting_roles:
   {
     566219783377518592: 854003662891647006,
     333978604763348993: 854006900042498078,
+    1008668262264999966: 1167557001241448530
   }
+
+# ephemeral message sent to every person whose message got deleted on quote day because it had no attachment
+quoteday_reminder: "Stupid fat {mention}! It's glorious quote day, so make sure you have a quote image attached! You can download them here:\n{link}"
+# link to the gdrive folder
+quote_link: https://drive.google.com/drive/folders/1Jv-kgjFskoxEYitnQsz76V6NdFua9h3x
+# accepted image formats
+image_extensions: [jpeg, jpg, png, webp, gif]

@@ -4,6 +4,7 @@ import random
 import discord
 from discord.ext import commands
 
+import backend_utils
 import discord_utils as du
 from template_cog import LotrCog
 
@@ -19,46 +20,41 @@ class QuoteBattle(LotrCog):
     @du.category_check('battles')
     @du.channel_busy_check()
     @commands.guild_only()
-    @commands.command(name='quotebattle', aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf'])
+    @commands.command(name='quotebattle',
+                      aliases=['qbattle', 'qb', 'quote-battle', 'quotefight', 'qfight', 'qf', 'battle'])
     async def quote_battle_handler(self, ctx):
         """
         starts a quote battle with subsequent voting
         """
         server = ctx.guild
-        # perms_changed = []
 
-        result, players = await du.handle_ready_check(self.bot, ctx, player_count=2)
+        result, players = await du.handle_ready_check(self, ctx, player_count=2)
 
         if not result:
             return
-
-        # for player in players:
-        #     self.bot.blocked.append(player.id)
-        #     if not ctx.channel.permissions_for(player).send_messages:
-        #         perms_changed.append(player)
-        #         await ctx.channel.set_permissions(player, send_messages=True, reason='Quote battle')
 
         def quote_check(chk_msg):
             return chk_msg.channel == ctx.channel and chk_msg.author in players
 
         self.bot.busy_channels.append(ctx.channel.id)
-        orig_rounds = self.bot.config['discord']['quote_battle']['rounds'] * 2
+        orig_rounds = self.options['rounds'] * 2
         rounds_left = orig_rounds - 1
         random.shuffle(players)
         act_player = players[0]
         first_round = True
         await ctx.send(
-            f'Welcome to the epic quote battle between {players[0].mention} and {players[1].mention}!\n{act_player.display_name} starts! Prepare for battle!')
+            f'Welcome to the epic quote battle between {players[0].mention} and {players[1].mention}!\n{act_player.nick if act_player.nick else act_player.display_name} starts! Prepare for battle!')
 
         while rounds_left > 0:
             try:
                 msg = await self.bot.wait_for('message', check=quote_check,
-                                              timeout=self.bot.config['discord']['quote_battle']['timeout'] // 2)
+                                              timeout=self.options['timeout'] // 2)
             except asyncio.TimeoutError:
-                msg = await ctx.send('Careful both of you, half of your time to respond has passed!', delete_after=30)
+                msg = await ctx.send(f'Careful {act_player.mention}, half of your time to respond has passed!',
+                                     delete_after=30)
                 try:
                     await self.bot.wait_for('message', check=quote_check,
-                                            timeout=self.bot.config['discord']['quote_battle']['timeout'] // 2)
+                                            timeout=self.options['timeout'] // 2)
                 except asyncio.TimeoutError:
                     await ctx.send('You did not answer in time. The battle ended.')
                     break
@@ -77,17 +73,13 @@ class QuoteBattle(LotrCog):
                 if rounds_left == orig_rounds // 2:
                     await ctx.send(f'Half-time! {rounds_left} rounds to go!')
 
-        # for player in players:
-        #     self.bot.blocked.remove(player.id)
-        #     if player in perms_changed:
-        #         await ctx.set_permissions(player, send_messages=False, reason='Quote battle')
         if ctx.channel.id in self.bot.busy_channels:
             self.bot.busy_channels.remove(ctx.channel.id)
 
         msg_text = 'The quote battle between {} and {} ended.\n{} :one: for {} and :two: for {}'
-        if server.id in self.bot.config['discord']['quote_battle']['voting_roles']:
+        if server.id in self.options['voting_roles']:
             score_msg = await ctx.send(msg_text.format(players[0].display_name, players[1].display_name,
-                                                       f"Hey <@&{self.bot.config['discord']['quote_battle']['voting_roles'][server.id]}>, vote",
+                                                       f"Hey <@&{self.options['voting_roles'][server.id]}>, vote",
                                                        players[0].mention, players[1].mention))
         else:
             score_msg = await ctx.send(
@@ -96,7 +88,7 @@ class QuoteBattle(LotrCog):
 
         await score_msg.add_reaction('1️⃣')  # number 1
         await score_msg.add_reaction('2️⃣')  # number 2
-        await asyncio.sleep(self.bot.config['discord']['quote_battle']['voting_time'])
+        await asyncio.sleep(self.options['voting_time'])
 
         try:
             # re-fetch message
@@ -131,11 +123,68 @@ class QuoteBattle(LotrCog):
                 await ctx.send(ret_str + 'Draw! Congratulations, both of you did well!')
             else:
                 winner = voting[0] < voting[1]
-                await ctx.send(ret_str + f'{players[winner].mention} wins the quote battle! What a fight!')
+                await ctx.send(
+                    ret_str + f'{players[winner].mention} wins the quote battle {max(voting)}:{min(voting)}! What a fight!')
 
         except discord.errors.HTTPException:
-            await ctx.send(self.bot.config['discord']['indicators'][
-                               0] + ' An error occurred while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
+            await ctx.send(backend_utils.bool_emoji(
+                False) + ' An error occurred while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
+
+    @commands.guild_only()
+    @commands.has_permissions(manage_channels=True)
+    @commands.command()
+    async def quoteday(self, ctx):
+        state = ctx.message.content.split(' ')[-1].lower()
+
+        if state == 'off' or state == 'stop':
+            if ctx.guild.id in self.caches['quoteday']:
+                del self.caches['quoteday'][ctx.guild.id]
+            await ctx.send(':sunrise_over_mountains: Quoteday ended.')
+        elif state == 'on' or state == 'start':
+            self.caches['quoteday'][ctx.guild.id] = True
+            await ctx.send(':tada: Quoteday started! Everyone now has to attach images to their messages!')
+        elif state == 'quoteday':
+            await ctx.send(f'Quoteday status for this server: {backend_utils.bool_emoji(self.caches["quoteday"].get(ctx.guild.id, False))}')
+        else:
+            await ctx.send('Invalid state, state can be on/off or start/stop.')
+
+    @commands.Cog.listener('on_message')
+    async def quoteday_listener(self, msg):
+        if msg.author.bot or msg.embeds or msg.author.id in self.bot.blocked_users or not msg.guild:
+            return
+
+        if isinstance(msg.channel, discord.channel.DMChannel):
+            return
+
+        if not (msg.channel.permissions_for(msg.channel.guild.me).manage_messages and msg.channel.permissions_for(
+                msg.channel.guild.me).send_messages):
+            return
+
+        valid = False
+        extra_text = ''
+
+        if msg.attachments:
+            for file in msg.attachments:
+                ext = file.filename.split('.')[-1].lower()
+                if ext in self.options['image_extensions']:
+                    valid = True
+                else:
+                    extra_text = f'The file `{file.filename}` was not recognized as an image. If you believe this is a mistake, please punch {self.bot.application.owner.mention} :)'
+
+        if not valid:
+            try:
+                await msg.author.send(self.options['quoteday_reminder'].format(mention=msg.author.mention,
+                                                                               link=self.options['quote_link'],
+                                                                               delete_after=60))
+                if extra_text:
+                    await msg.author.send(extra_text, delete_after=60)
+            except discord.errors.Forbidden:
+                await msg.channel.send(self.options['quoteday_reminder'].format(mention=msg.author.mention,
+                                                                                link=self.options['quote_link'],
+                                                                                delete_after=60))
+                if extra_text:
+                    await msg.author.send(extra_text, delete_after=60)
+            await msg.delete()
 
 
 async def setup(bot):

@@ -5,6 +5,10 @@ frequently used utils for the backend of the bot
 import pickle
 
 
+def bool_emoji(val):
+    return '✅' if val else '❌'
+
+
 def ordinal(n):
     """
     Convert an integer into its ordinal representation::
