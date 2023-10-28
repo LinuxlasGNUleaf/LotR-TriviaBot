@@ -72,6 +72,8 @@ class QuoteBattle(LotrCog):
                 act_player = msg.author
                 if rounds_left == orig_rounds // 2:
                     await ctx.send(f'Half-time! {rounds_left} rounds to go!')
+                if rounds_left == 0:
+                    await asyncio.sleep(60)
 
         if ctx.channel.id in self.bot.busy_channels:
             self.bot.busy_channels.remove(ctx.channel.id)
@@ -144,7 +146,8 @@ class QuoteBattle(LotrCog):
             self.caches['quoteday'][ctx.guild.id] = True
             await ctx.send(':tada: Quoteday started! Everyone now has to attach images to their messages!')
         elif state == 'quoteday':
-            await ctx.send(f'Quoteday status for this server: {backend_utils.bool_emoji(self.caches["quoteday"].get(ctx.guild.id, False))}')
+            await ctx.send(
+                f'Quoteday status for this server: {backend_utils.bool_emoji(self.caches["quoteday"].get(ctx.guild.id, False))}')
         else:
             await ctx.send('Invalid state, state can be on/off or start/stop.')
 
@@ -158,6 +161,11 @@ class QuoteBattle(LotrCog):
 
         if not (msg.channel.permissions_for(msg.channel.guild.me).manage_messages and msg.channel.permissions_for(
                 msg.channel.guild.me).send_messages):
+            return
+
+        if du.is_category_allowed(msg, 'battles', self.bot.caches['discord_settings'],
+                                  self.bot.options['discord']['settings']['defaults'],
+                                  self.bot.logger):
             return
 
         valid = False
