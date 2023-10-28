@@ -159,8 +159,7 @@ class QuoteBattle(LotrCog):
         if isinstance(msg.channel, discord.channel.DMChannel):
             return
 
-        if not (msg.channel.permissions_for(msg.channel.guild.me).manage_messages and msg.channel.permissions_for(
-                msg.channel.guild.me).send_messages):
+        if not msg.channel.permissions_for(msg.channel.guild.me).manage_messages:
             return
 
         if du.is_category_allowed(msg, 'battles', self.bot.caches['discord_settings'],
@@ -187,11 +186,14 @@ class QuoteBattle(LotrCog):
                 if extra_text:
                     await msg.author.send(extra_text, delete_after=60)
             except discord.errors.Forbidden:
-                await msg.channel.send(self.options['quoteday_reminder'].format(mention=msg.author.mention,
-                                                                                link=self.options['quote_link'],
-                                                                                delete_after=60))
-                if extra_text:
-                    await msg.author.send(extra_text, delete_after=60)
+                try:
+                    await msg.channel.send(self.options['quoteday_reminder'].format(mention=msg.author.mention,
+                                                                                    link=self.options['quote_link'],
+                                                                                    delete_after=60))
+                    if extra_text:
+                        await msg.channel.send(extra_text, delete_after=60)
+                except discord.errors.Forbidden:
+                    pass
             await msg.delete()
 
 
