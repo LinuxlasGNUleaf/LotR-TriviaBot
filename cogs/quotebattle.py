@@ -159,15 +159,15 @@ class QuoteBattle(LotrCog):
         if isinstance(msg.channel, discord.channel.DMChannel):
             return
 
+        if msg.guild.id not in self.caches['quoteday']:
+            return
+
         if not msg.channel.permissions_for(msg.channel.guild.me).manage_messages:
             return
 
         if du.is_category_allowed(msg, 'battles', self.bot.caches['discord_settings'],
                                   self.bot.options['discord']['settings']['defaults'],
                                   self.bot.logger):
-            return
-
-        if not msg.guild.id not in self.caches['quoteday']:
             return
 
         valid = False
