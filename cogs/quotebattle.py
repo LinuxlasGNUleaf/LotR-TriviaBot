@@ -167,6 +167,9 @@ class QuoteBattle(LotrCog):
                                   self.bot.logger):
             return
 
+        if not msg.guild.id not in self.caches['quoteday']:
+            return
+
         valid = False
         extra_text = ''
 
