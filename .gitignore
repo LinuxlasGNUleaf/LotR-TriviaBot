@@ -1,6 +1,7 @@
 **/__pycache__
 __pycache__
 .pylintrc
-.idea/discord.xml
+.idea/
+.vscode/
 
 discord.tk
