@@ -1,13 +1,23 @@
-version: '3'
+version: '3.8'
 services:
-  lotr-triviabot:
+  bot:
     build:
       context: ./
       dockerfile: Dockerfile
     container_name: lotr-triviabot
-    volumes:
-      - lotr-triviabot-storage:/root/.config/discord/bots/lotr-bot/
+
+  postgres_db:
+    image: postgres:latest
+    container_name: postgres
     restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
 
 volumes:
-  lotr-triviabot-storage:
+  postgres_db:
+    driver: local

@@ -15,7 +15,7 @@
     - Stop the application with `docker-compose -f docker-compose.dev.yaml down`
 
 
-### Where is the persistant data located outside docker?
+### Where is the persistent data located outside docker?
   - `sudo docker volume inspect lotr-triviabot_lotr-triviabot-storage`
       - prints an object, look for Mountpoint value, e.g. `... "Mountpoint": "/var/lib/docker/volumes/lotr-triviabot_lotr-triviabot-storage/_data" ...`
 
