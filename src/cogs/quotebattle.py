@@ -4,7 +4,7 @@ import random
 import discord
 from discord.ext import commands
 
-import backend_utils
+import backend_utils as bu
 import discord_utils as du
 from template_cog import LotrCog
 
@@ -129,7 +129,7 @@ class QuoteBattle(LotrCog):
                     ret_str + f'{players[winner].mention} wins the quote battle {max(voting)}:{min(voting)}! What a fight!')
 
         except discord.errors.HTTPException:
-            await ctx.send(backend_utils.bool_emoji(
+            await ctx.send(bu.bool_emoji(
                 False) + ' An error occurred while counting the votes. Sorry for that. You can probably figure out who won yourself ;)')
 
     @commands.guild_only()
@@ -147,7 +147,7 @@ class QuoteBattle(LotrCog):
             await ctx.send(':tada: Quoteday started! Everyone now has to attach images to their messages!')
         elif state == 'quoteday':
             await ctx.send(
-                f'Quoteday status for this server: {backend_utils.bool_emoji(self.caches["quoteday"].get(ctx.guild.id, False))}')
+                f'Quoteday status for this server: {bu.bool_emoji(self.caches["quoteday"].get(ctx.guild.id, False))}')
         else:
             await ctx.send('Invalid state, state can be on/off or start/stop.')
 

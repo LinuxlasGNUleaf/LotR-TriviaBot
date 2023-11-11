@@ -3,7 +3,7 @@ import unittest
 
 
 class TriviaQuestionsTests(unittest.TestCase):
-    questions_file = '../assets/questions.csv'
+    questions_file = '../../assets/questions.csv'
 
     valid_sources = [
         "The Silmarillion (book)",

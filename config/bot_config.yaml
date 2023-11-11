@@ -19,11 +19,7 @@ assets: {
 filesystem:
   # the root directory for caches and tokens for the bot.
   # this is platform-specific, environment variables will be expanded
-  bot_dir:
-    {
-      "linux": '$HOME/.config/discord/bots/lotr-bot/',
-      "win32": '$appdata\discord\bots\lotr-bot\',
-    }
+  bot_dir: '/app'
   # token, cache directories RELATIVE TO bot_dir
   token_dir: 'tokens'
   cache_dir: 'caches'

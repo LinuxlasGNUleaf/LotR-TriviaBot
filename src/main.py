@@ -10,7 +10,7 @@ import yaml
 import discord_client
 
 # ==========================> LOAD YAML FILE <==================================
-with open("bot_config.yaml", 'r', encoding='utf-8') as cfg_stream:
+with open("./config/bot_config.yaml", 'r', encoding='utf-8') as cfg_stream:
     try:
         print('parsing config file...')
         config = yaml.safe_load(cfg_stream)
@@ -19,13 +19,9 @@ with open("bot_config.yaml", 'r', encoding='utf-8') as cfg_stream:
         sys.exit()
 # ==============================================================================
 
-if sys.platform not in config['filesystem']['bot_dir'].keys():
-    print(f'\'{sys.platform}\' is not a supported platform. Add your system in the cache_dir field in config.yaml.')
-    sys.exit(0)
-
 # resolve directories and create missing ones
 script_dir = os.path.dirname(os.path.realpath(__file__))
-work_dir = os.path.expandvars(config['filesystem']['bot_dir'][sys.platform])
+work_dir = os.path.expandvars(config['filesystem']['bot_dir'])
 os.makedirs(work_dir, exist_ok=True)
 
 # initialize logger

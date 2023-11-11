@@ -8,7 +8,7 @@ class ScriptTests(unittest.TestCase):
     # this regex finds paragraphs that have no header, i.e. no CAPITALIZED line in front of it.
     missing_speaker_regex = re.compile(r"\n\n\b[A-Z][a-z]+.*\b")
 
-    file_location = '../assets/script.txt'
+    file_location = '../../assets/script.txt'
 
     def test_newlines(self):
         with open(self.file_location, 'r') as f:

@@ -1,7 +1,7 @@
 import pickle
 import pathlib
 
-bd_file =  pathlib.posixpath.expandvars('/home/$USER/.config/discord/bots/lotr-bot/caches/birthdays.cache')
+bd_file = pathlib.posixpath.expandvars('/home/$USER/.config/discord/bots/lotr-bot/caches/birthdays.cache')
 with open(bd_file, 'rb') as infile:
     bdays = pickle.load(infile)
 
@@ -13,7 +13,7 @@ while (first or input('Continue? [Y/n]').lower() != 'n'):
     for i, content in enumerate(bdays):
         month, day, name, id = content
         print(fstring.format(i, name, day, month, id if id else "None"))
-    print("="*64)
+    print("=" * 64)
     delete_index = input(f"Enter index to delete (or use index {len(bdays)} to append): ")
     if not delete_index.isdecimal():
         print("Invalid input!")

@@ -4,7 +4,7 @@ import yaml
 
 
 class QuotesTests(unittest.TestCase):
-    quotes_file = '../assets/quotes.yaml'
+    quotes_file = '../../assets/quotes.yaml'
     greek_to_num = {
         1: 'single',
         2: 'double',
