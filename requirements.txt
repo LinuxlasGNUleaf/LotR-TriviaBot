@@ -7,3 +7,4 @@ PyYAML>=6.0
 inflect>=6.0.2
 word2number>=1.1
 openpyxl
+psycopg2
