@@ -18,11 +18,7 @@ services:
     networks:
       intercom:
     volumes:
-      - postgres_db:/var/lib/postgresql/data
-
-volumes:
-  postgres_db:
-    driver: local
+      - ./db:/var/lib/postgresql/data
 
 networks:
   intercom:
