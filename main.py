@@ -13,7 +13,7 @@ logger.level = logging.INFO
 # load config file
 with open("config/MAIN_CONFIG.yaml", 'r', encoding='utf-8') as cfg_stream:
     try:
-        logger.info('parsing config file...')
+        logger.info('parsing main config file')
         config = yaml.safe_load(cfg_stream)
     except yaml.YAMLError as exc:
         logger.error(f'While parsing the config file, the following error occurred:')

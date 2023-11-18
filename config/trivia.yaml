@@ -13,7 +13,7 @@ tables:
       default: 0
 
   stats:
-    qid:
+    uid:
       type: 'int primary key'
     asked:
       type: 'int'

@@ -7,7 +7,7 @@ def create_table_name(prefix: str, table_name: str):
 
 
 def create_schema_from_config(prefix: str, table_name: str, config: dict):
-    table_schema = config['tables'][table_name]
+    table_schema: dict = config['tables'][table_name]
     columns_str: str = ''
 
     for col_name, col_settings in table_schema.items():
@@ -23,11 +23,11 @@ def create_schema_from_config(prefix: str, table_name: str, config: dict):
         columns_str += ','
 
     columns_str = columns_str[:-1]
-    return f'create table {create_table_name(prefix, table_name)}({columns_str});'
+    return f'CREATE TABLE {create_table_name(prefix, table_name)}({columns_str});'
 
 
 class DataManager:
-    def __init__(self, bot_config):
+    def __init__(self, bot_config: dict):
         self.config = bot_config['data_manager']
         self.logger = logging.getLogger(__name__)
         self.logger.level = logging.INFO
@@ -50,17 +50,45 @@ class DataManager:
 
     def setup_cog(self, cog_name: str, working_config: dict):
         if 'tables' not in working_config:
-            self.logger.info(f'Skipping table setup for \'{cog_name}\' since there is no \'tables\' field in the config')
+            self.logger.info(
+                f'Skipping table setup for \'{cog_name}\' since there is no \'tables\' field in the config')
             return
+
+        # check if all configured tables exist and create them if necessary
+        self.logger.info(f'Checking configured tables for \'{cog_name}\'')
         for table_name in working_config['tables']:
             if not self.check_for_table(prefix=cog_name, table_name=table_name):
-                self.logger.warning(f'Table {create_table_name(prefix=cog_name, table_name=table_name)} not found, creating from schema')
+                self.logger.warning(
+                    f'Table {create_table_name(prefix=cog_name, table_name=table_name)} not found, creating from schema')
                 with self.connection.cursor() as cursor:
-                    cursor.execute(create_schema_from_config(prefix=cog_name, table_name=table_name, config=working_config))
+                    cursor.execute(
+                        create_schema_from_config(prefix=cog_name, table_name=table_name, config=working_config))
                 self.connection.commit()
-                self.logger.info(f'Creation of table {create_table_name(prefix=cog_name, table_name=table_name)} successful.')
+                self.logger.info(
+                    f'Creation of table {create_table_name(prefix=cog_name, table_name=table_name)} successful')
+
+        data = {}
+        for table_name in working_config['tables']:
+            data[table_name] = DataInterface(create_table_name(prefix=cog_name, table_name=table_name), self)
+        return data
 
     def check_for_table(self, prefix: str, table_name: str):
         with self.connection.cursor() as cursor:
-            cursor.execute(f'SELECT EXISTS (SELECT FROM pg_tables WHERE tablename  = \'{create_table_name(prefix, table_name)}\');')
-            return cursor.fetchone()
+            cursor.execute(
+                f'SELECT EXISTS (SELECT FROM pg_tables WHERE tablename  = \'{create_table_name(prefix, table_name)}\');')
+            return cursor.fetchone()[0]
+
+
+class DataInterface:
+    def __init__(self, table_name: str, data_mgr: DataManager):
+        self.table_name: str = table_name
+        self.data_mgr: DataManager = data_mgr
+
+    def __contains__(self, item: int):
+        return self.get_row(item) is not None
+
+    def get_row(self, uid: int):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f'SELECT * FROM {self.table_name} WHERE uid = {uid}')
+            res = cursor.fetchone()
+            return res[1:] if res else res

@@ -11,8 +11,8 @@ from src.DataManager import DataManager
 
 class LotrBot(commands.Bot):
     def __init__(self, config):
-        self.db_mgr = DataManager(bot_config=config)
-        self.db_mgr.setup_cog(cog_name='bot', working_config=config)
+        self.data_mgr = DataManager(bot_config=config)
+        self.data_mgr.setup_cog(cog_name='bot', working_config=config)
 
         self.asset_mgr = AssetManager(bot_config=config)
 
@@ -56,15 +56,26 @@ class LotrBot(commands.Bot):
         self.shutdown()
 
     def shutdown(self):
-        self.db_mgr.disconnect()
+        self.data_mgr.disconnect()
         for task in self.tasks:
             task.cancel()
         self.logger.info('Shutdown complete, goodbye.')
 
     async def on_ready(self):
+        await self.load_cogs()
         try:
             synced = await self.tree.sync()
             self.logger.info(f'Synced {len(synced)} command(s).')
         except Exception as e:
             self.logger.error('Sync failed with this exception:')
             raise e
+
+    async def load_cogs(self):
+        for cog_name, cog_qualifier in self.asset_mgr.get_existing_cogs().items():
+            try:
+                self.logger.info(f'//====> now loading \'{cog_name}\'')
+                await self.load_extension(cog_qualifier)
+                self.logger.info(f'\\\\====> load done for \'{cog_name}\'')
+            except commands.ExtensionFailed as exc:
+                self.logger.error(f'{cog_name} failed with the following exception:')
+                self.logger.exception(exc)
