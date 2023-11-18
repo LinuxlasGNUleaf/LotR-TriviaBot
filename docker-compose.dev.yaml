@@ -3,10 +3,15 @@ services:
   bot:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     container_name: lotr-triviabot
     secrets:
       - discord_token
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./assets:/app/assets
+      - ./main.py:/app/main.py
     networks:
       intercom:
 

@@ -1,0 +1,12 @@
+FROM python:3.10-alpine
+
+WORKDIR /app
+
+# install requirements
+ADD requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+ADD tools/idler.py /app/idler.py
+
+# run terminal
+CMD ["python", "idler.py"]
