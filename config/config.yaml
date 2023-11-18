@@ -1,0 +1,12 @@
+# the root directory for caches and tokens for the bot.
+# this is platform-specific, environment variables will be expanded
+root_dir: '/app'
+# subdirectories RELATIVE TO root_dir
+subdirs:
+  config: 'config'
+  tokens: 'tokens'
+  assets: 'assets'
+  cogs: 'cogs'
+
+# token directory
+token_dir: '/run/secrets'
