@@ -7,9 +7,11 @@ ADD requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
 # copy source code
-COPY src .
+ADD main.py main.py
+ADD src src
 ADD assets assets
 ADD config config
+
 
 # run bot
 CMD ["python", "main.py"]

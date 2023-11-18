@@ -47,7 +47,6 @@ class DataManager:
 
     def disconnect(self):
         self.connection.close()
-        self.connection = False
 
     def setup_cog(self, cog_name: str, working_config: dict):
         if 'tables' not in working_config:
