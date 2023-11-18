@@ -5,6 +5,8 @@ services:
       context: ./
       dockerfile: Dockerfile
     container_name: lotr-triviabot
+    secrets:
+      - discord_token
     networks:
       intercom:
 
@@ -24,3 +26,7 @@ services:
 
 networks:
   intercom:
+
+secrets:
+  discord_token:
+    file: tokens/discord.tk

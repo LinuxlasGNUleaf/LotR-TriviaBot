@@ -5,4 +5,4 @@ __pycache__
 .vscode/
 
 db/
-discord.tk
+tokens/

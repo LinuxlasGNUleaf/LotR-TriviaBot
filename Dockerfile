@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10-alpine
 
 WORKDIR /app
 
@@ -10,10 +10,6 @@ RUN pip install -r requirements.txt
 COPY src .
 ADD assets assets
 ADD config config
-
-# copy token files
-RUN mkdir -p tokens
-COPY discord.tk tokens/
 
 # run bot
 CMD ["python", "main.py"]
