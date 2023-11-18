@@ -11,7 +11,7 @@ ADD main.py main.py
 ADD src src
 ADD assets assets
 ADD config config
-
+ADD cogs cogs
 
 # run bot
 CMD ["python", "main.py"]

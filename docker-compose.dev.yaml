@@ -11,6 +11,7 @@ services:
       - ./src:/app/src
       - ./config:/app/config
       - ./assets:/app/assets
+      - ./cogs:/app/cogs
       - ./main.py:/app/main.py
     networks:
       intercom:
