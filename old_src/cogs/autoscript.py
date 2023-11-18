@@ -176,7 +176,7 @@ class AutoScript(LotrCog):
         reads the Lord of the Rings script to an array.
         Also outputs a condensed version for faster searching.
         """
-        with open(self.assets['script'], 'r', encoding='utf8') as script_file:
+        with open(self.assets['script'], 'r', encoding='utf-8') as script_file:
             temp = ''
             last = ''
             for line in script_file:
