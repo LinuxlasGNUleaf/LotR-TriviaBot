@@ -10,8 +10,10 @@ services:
     networks:
       intercom:
 
-  postgres_db:
-    image: postgres:latest
+  postgres:
+    build:
+      context: ./
+      dockerfile: Dockerfile-postgres
     container_name: postgres
     restart: on-failure
     environment:
@@ -20,8 +22,8 @@ services:
     networks:
       intercom:
     volumes:
-      - ./db:/var/lib/postgresql/data
-
+      - ./data/postgres_data:/var/lib/postgresql/data
+      - ./data/postgres_backup:/backup
 networks:
   intercom:
 

@@ -4,5 +4,5 @@ __pycache__
 .idea/
 .vscode/
 
-db/
+data/
 tokens/

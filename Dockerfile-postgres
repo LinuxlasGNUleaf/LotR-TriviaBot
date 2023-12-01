@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+COPY backup_db.sh /usr/local/bin/backup_db
+RUN chmod +x /usr/local/bin/backup_db
+RUN sed -i 's|if ! _is_sourced; then|if ! _is_sourced; then\n\t backup_db \& disown|g' /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["postgres"]

@@ -14,7 +14,7 @@ asset_manager:
 
 data_manager:
   # postgreSQL connection settings
-  host: 'postgres_db'
+  host: 'postgres'
   port: '5432'
   username: 'postgres'
   password: 'postgres123'
