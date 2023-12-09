@@ -1,4 +1,6 @@
 import logging
+from typing import Callable
+
 import psycopg2
 
 
@@ -26,6 +28,13 @@ def create_schema_from_config(prefix: str, table_name: str, config: dict):
     return f'CREATE TABLE {create_table_name(prefix, table_name)}({columns_str});'
 
 
+def wrap(obj: object):
+    if isinstance(obj, str):
+        return repr(obj)
+    else:
+        return str(obj)
+
+
 class DataManager:
     def __init__(self, bot_config: dict):
         self.config = bot_config['data_manager']
@@ -34,7 +43,7 @@ class DataManager:
         try:
             self.logger.info('Trying to connect to {user}@{host}:{port}'.format(
                 user=self.config['username'], host=self.config['host'], port=self.config['port']))
-            self.connection: psycopg2.connection = psycopg2.connect(
+            self.connection = psycopg2.connect(
                 database='postgres',
                 host=self.config['host'],
                 port=self.config['port'],
@@ -83,12 +92,55 @@ class DataInterface:
     def __init__(self, table_name: str, data_mgr: DataManager):
         self.table_name: str = table_name
         self.data_mgr: DataManager = data_mgr
+        self.connection = data_mgr.connection
 
     def __contains__(self, item: int):
         return self.get_row(item) is not None
 
-    def get_row(self, uid: int):
+    def get(self, uid: int, columns: list[str] | str):
+
+        if isinstance(columns, str):
+            columns: str = columns
+            return_single = True
+        else:
+            columns = ','.join(columns)
+            return_single = False
+
         with self.data_mgr.connection.cursor() as cursor:
-            cursor.execute(f'SELECT * FROM {self.table_name} WHERE uid = {uid}')
+            cursor.execute(f'SELECT {columns} FROM {self.table_name} WHERE uid = {uid}')
             res = cursor.fetchone()
-            return res[1:] if res else res
+            if return_single:
+                return res[0] if res else res
+            else:
+                return res
+
+    def get_row(self, uid: int):
+        return self.get(uid, '*')
+
+    def get_rows(self, uids: list[int]):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f'SELECT * FROM {self.table_name} WHERE uid = ({",".join(str(uid) for uid in uids)})')
+            return cursor.fetchall()
+
+    def keys(self):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f'SELECT uid FROM {self.table_name}')
+            return cursor.fetchall()
+
+    def set(self, uid: int, field: str, val: object):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f"UPDATE {self.table_name} SET {field}={wrap(val)} WHERE uid={uid}")
+        self.connection.commit()
+
+    def add(self, uid: int, field: str, delta: object):
+        """
+        adds delta to the column field for the specified UID
+        """
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f"UPDATE {self.table_name} SET {field}={field}+{delta} WHERE uid={uid}")
+        self.connection.commit()
+
+    def add_row(self, uid):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f"insert into {self.table_name} (uid) values ({uid})")
+        self.connection.commit()
