@@ -29,7 +29,7 @@ class TriviaCog(DefaultCog):
         member = member if member is not None else interaction.user
         if member.id not in self.data['scores']:
             await interaction.response.send_message(
-                f'{member.mention} hasn\'t played a game of trivia yet. To play, use the `/trivia` command!',
+                f"{member.mention} hasn't played a game of trivia yet. To play, use the `/trivia` command!",
                 ephemeral=True)
             return
         embed = discord.Embed(title=f'{utils.genitive(member.display_name)} profile')
@@ -37,7 +37,6 @@ class TriviaCog(DefaultCog):
         embed.colour = discord.Color.random()
 
         player_stats = self.data['scores'].get_row(member.id)
-        self.logger.info(player_stats)
 
         embed.add_field(name=':abacus: Trivia games played:',
                         value=player_stats[0],
@@ -59,19 +58,19 @@ class TriviaCog(DefaultCog):
 
     @app_commands.command(name='scoreboard')
     @app_commands.guild_only()
-    async def display_scoreboard(self, ctx):
+    async def display_scoreboard(self, interaction: discord.Interaction):
         """
         displays a trivia scoreboard for the server
         """
-        # fetching all user ids from DB
+        # fetching all player ids from DB
         player_ids = self.data['scores'].keys()
         players = []
 
-        for member in ctx.guild.members:
+        for member in interaction.guild.members:
             # if member hasn't played yet
             if member.id not in player_ids:
                 continue
-            temp_entry = [member.name, self.data['scores'].get(member.id, ['played', 'points', 'streak'])]
+            temp_entry = [member.name, *self.data['scores'].get(member.id, ['played', 'points', 'streak'])]
             # if member hasn't won a game yet
             if temp_entry[2] == 0:
                 continue
@@ -82,44 +81,49 @@ class TriviaCog(DefaultCog):
 
         # prepare trivia embed
         scoreboard = ''
-        medals = self.config['scoreboard_medals']
-        scoreboard_line = self.config['scoreboard_entry']
 
-        count = 1
-        for i, user in enumerate(players[::-1]):
-            # create a formatted line for the user containing info about their games
-            temp = scoreboard_line.format(user[2], round(user[2] / user[1] * 100, 1), user[0])
+        rank = 1
+        for player in players[::-1]:
+            # create a formatted line for the player containing info about their games
 
-            if user[3] >= 5:  # if user has an active streak, add a note to the line
-                temp += self.config['scoreboard_streak_info'].format(user[3])
-
-            # add a medal if necessary and append line to the scoreboard
-            scoreboard += medals[min(i, len(medals) - 1)].format(temp) + '\n'
-            count += 1
-
+            if player[3] < self.config['scoreboard']['min_streak']:
+                temp = (self.config['scoreboard']['default_template']
+                        .format(score=str(player[2]).rjust(5, ' '),
+                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(3, ' '),
+                                name=player[0]))
+            # if player has an active streak, note it on the scoreboard
+            else:
+                temp = (self.config['scoreboard']['streak_template']
+                        .format(score=str(player[2]).rjust(5, ' '),
+                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(3, ' '),
+                                name=player[0],
+                                streak=player[3]))
+            rank += 1
+            scoreboard += f'{temp}\n'
+            if rank and rank % 5 == 1:
+                scoreboard += '\n'
             # break after X users (defined in config)
-            if count > self.config['scoreboard_length']:
+            if rank > self.config['scoreboard']['length']:
                 break
 
         # determine title, abort if fewer than two players have played a game yet
-        if count > 1:
-            title = f'Top {count} Trivia Players in *{ctx.guild}*'
-        elif count == 1:
-            await ctx.send(
+        if rank > 1:
+            title = f'Top {rank} Trivia Players in *{interaction.guild}*'
+        elif rank == 1:
+            await interaction.response.send_message(
                 f'More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use the `profile` command.')
             return
         else:
-            await ctx.send(
+            await interaction.response.send_message(
                 f'You have to play a game of trivia before a scoreboard can be generated! Use the `trivia` command to take a quiz!')
             return
 
         # finish the scoreboard embed
-        embed = discord.Embed(title=title, description=scoreboard,
-                              color=discord.Color.random())
+        embed = discord.Embed(title=title, description=scoreboard, color=discord.Color.random())
 
         # only create a graphical scoreboard if more than the defined minimum of players played a game yet
-        if len(players) >= self.config['gscoreboard_min']:
-            top_users = players[-1 * self.config['gscoreboard_length']:]
+        if len(players) >= self.config['scoreplot']['players_range'][0]:
+            top_users = players[-1 * self.config['scoreplot']['players_range'][1]:]
             len_users = len(top_users)
             names, g_taken, g_won, _ = list(zip(*top_users))
             index = np.arange(len_users)
@@ -127,7 +131,7 @@ class TriviaCog(DefaultCog):
             max_val = max(g_won) + 1
 
             for i in range(len_users):
-                val = bu.map_values(g_won[i] / g_taken[i], .2, 1, 0, 1)
+                val = utils.map_values(g_won[i] / g_taken[i], .2, 1, 0, 1)
                 g_ratio.append([1 - val, val, 0])
 
             # create plot
@@ -138,7 +142,7 @@ class TriviaCog(DefaultCog):
 
             # label axes, title plot
             plt.xlabel('Games won')
-            plt.title(f'Trivia Scoreboard for {ctx.guild.name}')
+            plt.title(f'Trivia Scoreboard for {interaction.guild.name}')
             plt.yticks(index, names)
             plt.xticks(np.arange(max_val, step=round(
                 math.ceil(max_val / 5), -(int(math.log10(max_val) - 1)))))
@@ -154,10 +158,10 @@ class TriviaCog(DefaultCog):
                 with io.BytesIO() as buffer:
                     fig.savefig(buffer, dpi=800)
                     buffer.seek(0)
-                    await ctx.send(embed=embed, file=discord.File(fp=buffer, filename=f"scoreboard_{ctx.guild.id}.png"))
+                    await interaction.response.send_message(embed=embed, file=discord.File(fp=buffer, filename=f"scoreboard_{interaction.guild.id}.png"))
                     plt.close('all')
         else:
-            await ctx.send(embed=embed)
+            await interaction.response.send_message(embed=embed)
 
     def get_trivia_question(self, player, count):
         """
@@ -172,7 +176,7 @@ class TriviaCog(DefaultCog):
         source, level, question, *answers = content
         # TODO: use the level info
 
-        # new convention dictates that the first answer specifed is the correct one
+        # new convention dictates that the first answer specified is the correct one
         correct_answer = answers[0]
 
         # shuffle answers

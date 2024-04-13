@@ -98,8 +98,9 @@ class DataInterface:
         return self.get_row(item) is not None
 
     def get(self, uid: int, columns: list[str] | str):
-
-        if isinstance(columns, str):
+        if columns == '*':
+            pass
+        elif isinstance(columns, str):
             columns: str = columns
             return_single = True
         else:
@@ -109,7 +110,9 @@ class DataInterface:
         with self.data_mgr.connection.cursor() as cursor:
             cursor.execute(f'SELECT {columns} FROM {self.table_name} WHERE uid = {uid}')
             res = cursor.fetchone()
-            if return_single:
+            if columns == '*':
+                return res[1:]
+            elif return_single:
                 return res[0] if res else res
             else:
                 return res
@@ -125,7 +128,7 @@ class DataInterface:
     def keys(self):
         with self.data_mgr.connection.cursor() as cursor:
             cursor.execute(f'SELECT uid FROM {self.table_name}')
-            return cursor.fetchall()
+            return [element[0] for element in cursor.fetchall()]
 
     def set(self, uid: int, field: str, val: object):
         with self.data_mgr.connection.cursor() as cursor:
@@ -142,5 +145,5 @@ class DataInterface:
 
     def add_row(self, uid):
         with self.data_mgr.connection.cursor() as cursor:
-            cursor.execute(f"insert into {self.table_name} (uid) values ({uid})")
+            cursor.execute(f"INSERT INTO {self.table_name} (uid) VALUES ({uid})")
         self.connection.commit()
