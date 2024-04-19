@@ -1,21 +1,26 @@
-#                _         _____      _                _
-#     /\        | |       / ____|    | |              | |
-#    /  \  _   _| |_ ___ | |     __ _| | ___ _ __   __| | __ _ _ __
-#   / /\ \| | | | __/ _ \| |    / _` | |/ _ \ '_ \ / _` |/ _` | '__|
-#  / ____ \ |_| | || (_) | |___| (_| | |  __/ | | | (_| | (_| | |
-# /_/    \_\__,_|\__\___/ \_____\__,_|_|\___|_| |_|\__,_|\__,_|_|
-#
+tables:
+  dates:
+    name:
+      type: 'varchar(100) primary key'
+    uid:
+      type: 'bigint'
+    month:
+      type: 'int'
+      default: 0
+    day:
+      type: 'int'
+      default: 0
+    utc_offset:
+      type: 'int'
+      default: 0
 
-# cog-specific tokens, caches and assets
-tokens: {
-}
-caches: {
-  "birthdays": "birthdays.cache",
-  "congrats": "congrats_log.cache"
-}
-assets: {
-}
-
+  congratulations:
+    name:
+      type: 'varchar(100) primary key'
+    uid:
+      type: 'bigint'
+    year:
+      type: 'int'
 
 # automatic birthday check settings
 check:

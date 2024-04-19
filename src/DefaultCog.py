@@ -14,7 +14,7 @@ class DefaultCog(commands.Cog):
     def __init__(self, bot: LotrBot):
         self.bot: LotrBot = bot
 
-        self.name = self.__cog_name__.lower().replace('cog','')
+        self.name = self.__cog_name__.lower().replace('cog', '')
         # load cog config
         self.config: dict = bot.asset_mgr.load_config_for_cog(self.name)
         # load cog assets

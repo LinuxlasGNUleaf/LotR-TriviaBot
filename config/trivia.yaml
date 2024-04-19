@@ -14,7 +14,7 @@ tables:
 
   stats:
     uid:
-      type: 'int primary key'
+      type: 'bigint primary key'
     asked:
       type: 'int'
       default: 0
