@@ -15,10 +15,17 @@ from src import utils, DataManager
 from src.DefaultCog import DefaultCog
 
 
-class TriviaCog(DefaultCog):
+class TriviaCog(DefaultCog, group_name='trivia'):
     """
-    handles the LotR-Trivia-Quiz integration for the bot, including profile / scoreboards
+    lotr-themed trivia quiz, profile and scoreboard functions
     """
+
+    @app_commands.command(name='play')
+    async def trivia(self, interaction: discord.Interaction):
+        """
+        a multiple-choice trivia quiz with ME-related questions
+        """
+        TriviaView(interaction, self)
 
     @app_commands.command(name='profile')
     @app_commands.describe(member='The user you want to fetch the profile of')
@@ -48,13 +55,6 @@ class TriviaCog(DefaultCog):
                         value=player_stats[2],
                         inline=False)
         await interaction.response.send_message(embed=embed)
-
-    @app_commands.command(name='trivia')
-    async def trivia_quiz(self, interaction: discord.Interaction):
-        """
-        a multiple-choice trivia quiz with ME-related questions
-        """
-        TriviaView(interaction, self)
 
     @app_commands.command(name='scoreboard')
     @app_commands.guild_only()
@@ -89,13 +89,13 @@ class TriviaCog(DefaultCog):
             if player[3] < self.config['scoreboard']['min_streak']:
                 temp = (self.config['scoreboard']['default_template']
                         .format(score=str(player[2]).rjust(5, ' '),
-                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(3, ' '),
+                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(2, ' '),
                                 name=player[0]))
             # if player has an active streak, note it on the scoreboard
             else:
                 temp = (self.config['scoreboard']['streak_template']
                         .format(score=str(player[2]).rjust(5, ' '),
-                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(3, ' '),
+                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(2, ' '),
                                 name=player[0],
                                 streak=player[3]))
             rank += 1

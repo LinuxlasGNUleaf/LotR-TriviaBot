@@ -1,15 +1,19 @@
 import logging
 
+import discord
 from discord.ext import commands
+from discord import app_commands
 
 from src.DataManager import DataInterface
 from src.LotrBot import LotrBot
 
 
-class DefaultCog(commands.Cog):
+class DefaultCog(commands.GroupCog):
     """
     The super class all cogs for this bot have to inherit from
     """
+
+    cogGroup: app_commands.Group = None
 
     def __init__(self, bot: LotrBot):
         self.bot: LotrBot = bot

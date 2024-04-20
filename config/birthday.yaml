@@ -22,12 +22,16 @@ tables:
     year:
       type: 'int'
 
+  announcements:
+    server:
+      type: 'bigint'
+    channel:
+      type: 'bigint'
+
 # automatic birthday check settings
-check:
+autocheck:
   # the check interval, in minutes
   interval: 5
-  # the channel to do the birthday announcements in
-  channel: 1008676191449919528
   # the standard discord emoji to put in the message
   emoji: 🥳
   # the core of the birthday congrats message, which the emoji will be put on on either side

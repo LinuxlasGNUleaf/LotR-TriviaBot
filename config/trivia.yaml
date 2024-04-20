@@ -72,9 +72,9 @@ scoreboard:
   # top X players to show on the graphical scoreboard
   length: 15
   # line template for players without an active streak
-  default_template: '**[{score} pts / {rate}%]** {name}'
+  default_template: '**[{score} pts] / {rate}% -** {name}'
   # line template for players with active streak
-  streak_template: '**[{score} pts / {rate}%]** {name} :dart: *Streak of {streak}!*'
+  streak_template: '**[{score} pts] / {rate}% -** {name} :dart: *Streak of {streak}!*'
   # minimal consecutive wins to count as a streak
   min_streak: 5
 
