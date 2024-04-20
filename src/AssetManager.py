@@ -27,10 +27,9 @@ class AssetManager:
                 raise exc
 
     def load_assets(self, working_config):
-        assets = {}
-        for asset_name, asset_file in working_config['assets'].items():
-            assets[asset_name] = os.path.join(self.asset_dir, asset_file)
-        return assets
+        if 'assets' not in working_config or not working_config['assets']:
+            return {}
+        return {name: os.path.join(self.asset_dir, file) for name, file in working_config['assets'].items()}
 
     def load_tokens(self):
         tokens = {}
