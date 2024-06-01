@@ -110,19 +110,24 @@ class DataInterface:
         with self.data_mgr.connection.cursor() as cursor:
             cursor.execute(f'SELECT {columns} FROM {self.table_name} WHERE uid = {uid}')
             res = cursor.fetchone()
-            if columns == '*':
-                return res[1:]
-            elif return_single:
-                return res[0] if res else res
-            else:
-                return res
+
+        if columns == '*':
+            return res[1:] if res else res
+        elif return_single:
+            return res[0] if res else res
+        else:
+            return res
 
     def get_row(self, uid: int):
         return self.get(uid, '*')
 
-    def get_rows(self, uids: list[int]):
+    def get_rows(self, uids: list[int] = None):
         with self.data_mgr.connection.cursor() as cursor:
-            cursor.execute(f'SELECT * FROM {self.table_name} WHERE uid = ({",".join(str(uid) for uid in uids)})')
+            if uids:
+                cursor.execute(
+                    f'SELECT * FROM {self.table_name} WHERE {col_name} = ({",".join(str(uid) for uid in uids)})')
+            else:
+                cursor.execute(f'SELECT * FROM {self.table_name}')
             return cursor.fetchall()
 
     def keys(self):
