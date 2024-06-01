@@ -85,8 +85,6 @@ class BirthdayCog(DefaultCog, group_name='birthday'):
             month=timestamp.strftime("%B"),
             timestamp=discord.utils.format_dt(timestamp, 'R')
         )
-        self.logger.info(timestamp)
-        self.logger.info(pytz.timezone().utcoffset())
         return embed
 
 

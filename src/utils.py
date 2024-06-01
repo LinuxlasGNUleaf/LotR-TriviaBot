@@ -1,6 +1,8 @@
 import discord
 from datetime import datetime
 
+import pytz
+
 days_in_a_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -38,7 +40,8 @@ def map_values(val: float, in_min: float, in_max: float, out_min: float, out_max
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 
-def get_next_date(month, day, tz):
+def get_next_date(month: int, day: int, tz: pytz.timezone):
+    tz = tz.localize(datetime.now()).tzinfo
     now = datetime.now(tz=tz)
     try:
         birthday = datetime(year=now.year, month=month, day=day, tzinfo=tz)
