@@ -1,5 +1,8 @@
 import discord
+from datetime import datetime
 
+days_in_a_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 def bool_emoji(val):
     return '✅' if val else '❌'
@@ -33,6 +36,27 @@ def map_values(val: float, in_min: float, in_max: float, out_min: float, out_max
     """
     val = min(max(val, in_min), in_max)
     return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
+
+def get_next_date(month, day, tz):
+    now = datetime.now(tz=tz)
+    try:
+        birthday = datetime(year=now.year, month=month, day=day, tzinfo=tz)
+    except ValueError:
+        birthday = datetime(year=now.year, month=month + 1, day=1, tzinfo=tz)
+    if birthday < now:
+        birthday = datetime(year=now.year + 1, month=month, day=day, tzinfo=tz)
+    return birthday
+
+
+def validate_date_str(month: str | int, day: str | int):
+    if not str(month).isdigit() or int(month) not in range(1, 13):
+        return False, 'Invalid month, has to be a number between 1 and 12.'
+
+    if not str(day).isdigit() or int(day) not in range(1, days_in_a_month[int(month)] + 1):
+        return False, f'Invalid day for the specified month ({ordinal(int(day))} of {month_names[int(month)-1]}).'
+
+    return True, None
 
 
 def create_embed(title: str, author_field: tuple = None, content: str = None, embed_url: str = None,
