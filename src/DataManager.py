@@ -152,3 +152,8 @@ class DataInterface:
         with self.data_mgr.connection.cursor() as cursor:
             cursor.execute(f"INSERT INTO {self.table_name} (uid) VALUES ({uid})")
         self.connection.commit()
+
+    def delete_row(self, uid):
+        with self.data_mgr.connection.cursor() as cursor:
+            cursor.execute(f"DELETE FROM {self.table_name} WHERE uid={uid}")
+        self.connection.commit()

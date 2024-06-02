@@ -1,15 +1,16 @@
 import random
 from datetime import datetime, timezone, timedelta
 from typing import Optional
+from io import BytesIO
 
 import discord
 import discord.errors
 import pytz
+import secrets
 from discord import app_commands
-from discord import ui
-from discord.ext import commands
 
 from src.DefaultCog import DefaultCog
+from src.CustomUIs import BirthdayRegistrationView
 import src.utils as utils
 
 
@@ -60,19 +61,53 @@ class BirthdayCog(DefaultCog, group_name='birthday'):
     @app_commands.command(name='get')
     @app_commands.describe(user='the user you want to get the birthday of')
     async def birthday(self, interaction: discord.Interaction, user: Optional[discord.Member]):
-        pass
+        user = user if user is not None else interaction.user
+        if user.id not in self.data['dates']:
+            await interaction.response.send_message(
+                f'{"You have" if user.id == interaction.user.id else "This user has"} not registered their birthday yet.',
+                ephemeral=True)
+            return
 
     @app_commands.command(name='register')
     async def register(self, interaction: discord.Interaction):
-        await RegisterView(interaction, self).run()
+        await BirthdayRegistrationView(interaction, self).run()
 
     @app_commands.command(name='delete')
     async def delete(self, interaction: discord.Interaction):
-        pass
+        if interaction.user.id in self.data['dates']:
+            self.data['dates'].delete_row(interaction.user.id)
+            await interaction.response.send_message('Your birthday has been deleted from the register.', ephemeral=True)
+            return
+        await interaction.response.send_message('Your birthday was not yet registered, so it was not deleted either.',
+                                                ephemeral=True)
 
     @app_commands.command(name='download')
     async def download(self, interaction: discord.Interaction):
-        pass
+        now = datetime.now()
+        event_str = ""
+        entries = 0
+        for uid, name, month, day, tz, last_congrats in self.data['dates'].get_rows():
+            entries += 1
+            start = datetime(year=2020, month=month, day=day)
+            end = start + timedelta(days=1)
+            event_str += self.config['ics']['event'].format(
+                uid=secrets.token_hex(8),
+                name=f'{name.strip()} - Birthday',
+                start=f'{now.year}{start.month:02}{start.day:02}',
+                end=f'{now.year}{end.month:02}{end.day:02}' if end.year == start.year else f'{now.year+1}0101'
+            )
+
+        cal_str = self.config['ics']['wrapper'].format(event_str)
+        embed = discord.Embed(
+            title=f'Birthday Calendar for {interaction.guild.name.title()}',
+            description=f'This calendar contains the birthdays of {entries} people!\nCreated on: **{datetime.now().strftime("%d/%m/%Y")}**',
+            color=discord.Color.random())
+        embed.set_thumbnail(url=interaction.guild.icon.url)
+        with BytesIO() as buffer:
+            buffer.write(cal_str.encode('utf-8'))
+            buffer.seek(0)
+            filename = f'{interaction.guild.name.title().replace(" ", "_")}.ics'
+            await interaction.response.send_message(embed=embed, file=discord.File(fp=buffer, filename=filename))
 
     def create_birthday_embed(self, name: str, month: int, day: int, tz: pytz.timezone, avatar=None):
         timestamp = utils.get_next_date(month, day, tz)
@@ -86,97 +121,6 @@ class BirthdayCog(DefaultCog, group_name='birthday'):
             timestamp=discord.utils.format_dt(timestamp, 'R')
         )
         return embed
-
-
-class RegisterView(ui.View):
-    def __init__(self, interaction: discord.Interaction, cog: BirthdayCog):
-        super().__init__(timeout=cog.config['registration']['timeout'] * 60)
-        self.msg = None
-        self.cog: BirthdayCog = cog
-        self.interaction: discord.Interaction = interaction
-        self.button = RegistrationButton(cog)
-        self.add_item(self.button)
-
-    async def run(self):
-        self.msg = await self.interaction.response.send_message(
-            self.cog.config['registration']['hint'],
-            view=self)
-
-    async def on_timeout(self):
-        for element in self.children:
-            element.disabled = True
-        await self.msg.edit(view=self)
-
-
-class RegistrationButton(discord.ui.Button):
-    def __init__(self, cog: BirthdayCog):
-        self.cog: BirthdayCog = cog
-        self.modals = []
-        super().__init__(label='Birthday Registration',
-                         emoji=cog.config['registration']['unicode_emoji'])
-
-    async def callback(self, interaction: discord.Interaction):
-        await interaction.response.send_modal(RegistrationModal(self.cog, interaction.user))
-
-
-class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
-    def __init__(self, cog: BirthdayCog, user: discord.User):
-        super().__init__()
-        self.cog: BirthdayCog = cog
-        self.user = user
-        if self.user.id in self.cog.data['dates']:
-            self.old_entry = self.cog.data['dates'].get_row(user.id)
-            name, month, day, tz, _ = self.old_entry
-        else:
-            self.old_entry = None
-            name, month, day, tz = (user.name, 1, 1, 'UTC')
-
-        self.components = [
-            ui.TextInput(label='Name', min_length=1, max_length=32, default=name),
-            ui.TextInput(label='Month:', min_length=1, max_length=2, default=month),
-            ui.TextInput(label='Day of the Month:', min_length=1, max_length=2, default=day),
-            ui.TextInput(label='Timezone:', min_length=1, max_length=100, default=tz)
-        ]
-        for component in self.components:
-            self.add_item(component)
-
-    async def on_submit(self, interaction: discord.Interaction):
-        name: str
-        month: str
-        day: str
-        tz: str
-        name, month, day, tz = (x.value for x in self.components)
-
-        valid, msg = utils.validate_date_str(month, day)
-        if not valid:
-            await interaction.response.send_message(msg, ephemeral=True)
-            return
-        month: int = int(month)
-        day: int = int(day)
-
-        try:
-            pytz.timezone(tz)
-        except pytz.UnknownTimeZoneError:
-            await interaction.response.send_message(
-                'Timezone not valid. Choose a `TZ Identifier` from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List',
-                ephemeral=True,
-                delete_after=10)
-            return
-
-        self.cog.register_with_db(self.user.id, name, month, day, tz)
-
-        embed = self.cog.create_birthday_embed(
-            name=name,
-            month=month,
-            day=day,
-            tz=pytz.timezone(tz),
-            avatar=self.user.avatar
-        )
-
-        await interaction.response.send_message(
-            f'__**{self.user.name}**__ {"updated" if self.old_entry else "registered"} their birthday:',
-            embed=embed
-        )
 
 
 async def setup(bot):

@@ -3,8 +3,10 @@ from datetime import datetime
 
 import pytz
 
-days_in_a_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+days_in_a_month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+               'November', 'December']
+
 
 def bool_emoji(val):
     return '✅' if val else '❌'
@@ -56,8 +58,8 @@ def validate_date_str(month: str | int, day: str | int):
     if not str(month).isdigit() or int(month) not in range(1, 13):
         return False, 'Invalid month, has to be a number between 1 and 12.'
 
-    if not str(day).isdigit() or int(day) not in range(1, days_in_a_month[int(month)] + 1):
-        return False, f'Invalid day for the specified month ({ordinal(int(day))} of {month_names[int(month)-1]}).'
+    if not str(day).isdigit() or int(day) not in range(1, days_in_a_month[int(month) - 1] + 1):
+        return False, f'Invalid day for the specified month ({ordinal(int(day))} of {month_names[int(month) - 1]}).'
 
     return True, None
 
