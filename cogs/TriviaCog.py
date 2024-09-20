@@ -1,4 +1,3 @@
-import asyncio
 import csv
 import math
 import random
@@ -44,16 +43,16 @@ class TriviaCog(DefaultCog, group_name='trivia'):
         embed.set_thumbnail(url=member.avatar.url if member.avatar else member.default_avatar)
         embed.colour = discord.Color.random()
 
-        player_stats = self.data['scores'].get_row(member.id)
+        count, points, streak = self.data['scores'].get_row(member.id)
 
-        embed.add_field(name=':abacus: Trivia games played:',
-                        value=player_stats[0],
+        embed.add_field(name=':chart_with_upwards_trend: Points earned:',
+                        value=points,
                         inline=False)
-        embed.add_field(name=':chart_with_upwards_trend: Percentage of games won:',
-                        value=str(round((player_stats[1] / player_stats[0]) * 100, 1)) + '%',
+        embed.add_field(name=':abacus: Trivia games played:',
+                        value=count,
                         inline=False)
         embed.add_field(name=':dart: Current streak:',
-                        value=player_stats[2],
+                        value=streak,
                         inline=False)
         await interaction.response.send_message(embed=embed)
 
@@ -71,7 +70,7 @@ class TriviaCog(DefaultCog, group_name='trivia'):
             # if member hasn't played yet
             if member.id not in player_ids:
                 continue
-            temp_entry = [member.name, *self.data['scores'].get(member.id, ['played', 'points', 'streak'])]
+            temp_entry = [member.mention, *self.data['scores'].get(member.id, ['played', 'points', 'streak'])]
             # if member hasn't won a game yet
             if temp_entry[2] == 0:
                 continue
@@ -83,25 +82,23 @@ class TriviaCog(DefaultCog, group_name='trivia'):
         # prepare trivia embed
         scoreboard = ''
 
-        rank = 1
-        for player in players[::-1]:
+        rank = 0
+        for name, count, points, streak in players[::-1]:
             # create a formatted line for the player containing info about their games
 
-            if player[3] < self.config['scoreboard']['min_streak']:
+            if streak < self.config['scoreboard']['min_streak']:
                 temp = (self.config['scoreboard']['default_template']
-                        .format(score=str(player[2]).rjust(5, ' '),
-                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(2, ' '),
-                                name=player[0]))
+                        .format(score=str(points).rjust(5, ' '),
+                                name=name))
             # if player has an active streak, note it on the scoreboard
             else:
                 temp = (self.config['scoreboard']['streak_template']
-                        .format(score=str(player[2]).rjust(5, ' '),
-                                rate=str(int(round(player[2] / player[1] * 100, 1))).rjust(2, ' '),
-                                name=player[0],
-                                streak=player[3]))
+                        .format(score=str(points).rjust(5, ' '),
+                                name=name,
+                                streak=streak))
             rank += 1
             scoreboard += f'{temp}\n'
-            if rank and rank % 5 == 1:
+            if rank > 1 and rank % 5 == 1:
                 scoreboard += '\n'
             # break after X users (defined in config)
             if rank > self.config['scoreboard']['length']:
@@ -109,7 +106,7 @@ class TriviaCog(DefaultCog, group_name='trivia'):
 
         # determine title, abort if fewer than two players have played a game yet
         if rank > 1:
-            title = f'Top {rank} Trivia Players in *{interaction.guild}*'
+            title = f'Top {rank} Trivia Players in *`{interaction.guild}`*'
         elif rank == 1:
             await interaction.response.send_message(
                 f'More than one person has to do a trivia quiz before a scoreboard can be generated. To see you own stats instead, use the `profile` command.')
