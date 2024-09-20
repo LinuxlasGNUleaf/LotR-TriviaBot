@@ -16,14 +16,14 @@ for i, row in enumerate(all_rows):
     for ind, answer in enumerate(answers):
         if answer.startswith('*'):
             correct_index = ind
+            answers[ind] = answer[1:]
             break
     # if no answer is marked, mark the first one
     if correct_index == -1:
-        answers[0] = f'*{answers[0]}'
         correct_index = 0
 
     correct_answer = answers.pop(correct_index)
-    all_rows[i] = [source, lvl, question, *answers]
+    all_rows[i] = [source, lvl, question, correct_answer, *answers]
     print(all_rows[i])
 
 with open('assets/questions.csv', 'w', encoding='utf-8') as csv_file:
