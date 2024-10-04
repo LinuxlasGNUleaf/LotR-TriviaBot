@@ -1,11 +1,13 @@
 import asyncio
 import random
+import string
 
 import discord
 import pytz
 from discord import ui
 
 import src.utils as utils
+from src.utils import create_embed, genitive
 
 
 # =====> TRIVIA QUIZ UI
@@ -56,7 +58,7 @@ class TriviaView(ui.View):
         self.interaction: discord.Interaction = interaction
         self.player: discord.Member = interaction.user
         self.cog = cog
-        self.config = cog.config['game']
+        self.config: dict = cog.config['game']
         self.scoreboard: DataManager = cog.data['scores']
 
         self.trivia_msg = None
@@ -193,7 +195,6 @@ class BirthdayRegistrationView(ui.View):
 class BirthdayRegistrationButton(ui.Button):
     def __init__(self, cog):
         self.cog = cog
-        self.modals = []
         super().__init__(label='Birthday Registration',
                          emoji=cog.config['registration']['unicode_emoji'])
 
@@ -258,3 +259,109 @@ class BirthdayRegistrationModal(ui.Modal, title='Birthday Registration Form'):
             f'__**{self.user.name}**__ {"updated" if self.old_entry else "registered"} their birthday:',
             embed=embed
         )
+
+
+class HangmanButton(ui.Button['HangmanView']):
+    def __init__(self, letter: str, correct: bool, row: int):
+        self.letter = letter
+        self.correct = correct
+        super().__init__(style=discord.ButtonStyle.blurple, label=letter, row=row)
+
+    async def callback(self, interaction: discord.Interaction):
+        if interaction.user.id == self.view.player.id:
+            await interaction.response.defer()
+            self.style = discord.ButtonStyle.green if self.correct else discord.ButtonStyle.red
+            self.disabled = True
+            await self.view.register_letter(self.letter)
+        elif interaction.user.id not in self.view.warned_users:
+            self.view.warned_users.append(interaction.user.id)
+            await interaction.response.send_message("You are not the user that started this quiz!", ephemeral=True)
+        else:
+            await interaction.response.defer()
+
+
+class HangmanView(ui.View):
+    def __init__(self, interaction: discord.Interaction, cog, word: str):
+        super().__init__()
+        self.interaction: discord.Interaction = interaction
+        self.player: discord.Member = interaction.user
+        self.cog = cog
+        self.config: dict = cog.config['game']
+        self.scoreboard: DataManager = cog.data['scores']
+
+        self.word = word
+        self.correct_letters: set = set(word.upper()).intersection(string.ascii_uppercase)
+        self.guessed_letters: set = set()
+
+        self.buttons: list = []
+        self.warned_users: list = []
+
+        self.hangman_msg: discord.Message = None
+        self.hangman_embed: discord.Embed = None
+
+        self.strikes: int = 0
+        self.running: bool = False
+
+        self.setup_hangman()
+
+    def setup_hangman(self):
+        self.running = True
+        self.hangman_embed = create_embed(title=self.generate_hangman_string(),
+                                          author_field=(f'{genitive(self.player.name)} game of Hangman', None,
+                                                        self.player.avatar.url),
+                                          content=f"```{self.config['game_states'][self.strikes]}```",
+                                          footnote=self.config['footnote'])
+        for i, letter in enumerate(self.config['buttons']):
+            button = HangmanButton(letter, letter in self.correct_letters, i // 5)
+            self.add_item(button)
+            self.buttons.append(button)
+        self.cog.bot.loop.create_task(self.run_hangman())
+
+    def generate_hangman_string(self, uncover: bool = False) -> str:
+        hangman_string = ""
+        for letter in self.word:
+            if letter.upper() in self.guessed_letters or uncover:
+                hangman_string += f'__{letter}__ '
+            elif letter.upper() in string.ascii_uppercase:
+                hangman_string += '\_ '
+            else:
+                hangman_string += '  '
+        return hangman_string.strip()
+
+    async def run_hangman(self):
+        await self.interaction.response.send_message(embed=self.hangman_embed, view=self)
+        self.hangman_msg = await self.interaction.original_response()
+
+    async def register_letter(self, letters: str):
+        letters = [x for x in letters if x in string.ascii_uppercase]
+        new_guessed_letter = False
+        for letter in letters:
+            if letter not in self.guessed_letters:
+                self.guessed_letters.add(letter)
+                if letter in self.correct_letters:
+                    new_guessed_letter = True
+
+        if not new_guessed_letter:
+            self.strikes += 1
+
+        if self.strikes >= len(self.config['game_states']):
+            await self.finish_game(False)
+            return
+        if all([x in self.guessed_letters for x in self.correct_letters]):
+            await self.finish_game(True)
+            return
+
+        self.hangman_embed.title = self.generate_hangman_string()
+        self.hangman_embed.description = f"```{self.config['game_states'][self.strikes]}```"
+        await self.hangman_msg.edit(embed=self.hangman_embed, view=self)
+
+    async def finish_game(self, won: bool):
+        self.hangman_embed.title = self.generate_hangman_string(uncover=True)
+        state: str = self.config['game_won'] if won else self.config['game_over']
+        footer: str = self.config['footnote_won'] if won else self.config['footnote_lost']
+        self.hangman_embed.description = f"```{state}```"
+        self.hangman_embed.set_footer(text=footer)
+        for button in self.buttons:
+            self.remove_item(button)
+        await self.hangman_msg.edit(embed=self.hangman_embed, view=self)
+        self.stop()
