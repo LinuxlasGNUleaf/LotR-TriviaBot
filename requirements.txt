@@ -1,5 +1,5 @@
 numpy>=1.26.2
-discord.py>=2.3.2
+discord.py>=2.4.0
 matplotlib>=3.8.1
 PyYAML>=6.0.1
 inflect>=7.0.0
