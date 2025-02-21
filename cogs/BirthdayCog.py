@@ -61,12 +61,20 @@ class BirthdayCog(DefaultCog, group_name='birthday'):
     @app_commands.command(name='get')
     @app_commands.describe(user='the user you want to get the birthday of')
     async def birthday(self, interaction: discord.Interaction, user: Optional[discord.Member]):
-        user = user if user is not None else interaction.user
+        if user is None:
+            user = interaction.user
+
         if user.id not in self.data['dates']:
             await interaction.response.send_message(
                 f'{"You have" if user.id == interaction.user.id else "This user has"} not registered their birthday yet.',
                 ephemeral=True)
             return
+        name, month, day, tz = self.data['dates'].get(user.id, ['name','month', 'day', 'timezone'])
+        tz = pytz.timezone(tz)
+        await interaction.response.send_message(
+            f"{utils.genitive(name)} birthday:",
+            embed=self.create_birthday_embed(name, month, day, tz, avatar=user.avatar)
+        )
 
     @app_commands.command(name='register')
     async def register(self, interaction: discord.Interaction):
