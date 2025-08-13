@@ -73,7 +73,7 @@ class AutoGimli(LotrCog):
 
         if (not is_palindrome(gimli_count+1) or gimli_count < 100):
             if random.randint(0, self.options['chance'] - 1) != 0: 
-            return
+                return
         if gimli_count == 2 and self.options['number_two_special_message']:
             await msg.channel.send('That still only counts as one!')
         else:
