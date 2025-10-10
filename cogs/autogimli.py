@@ -9,6 +9,7 @@ from word2number import w2n
 
 from template_cog import LotrCog
 
+
 def is_palindrome(n: int) -> bool:
     if n < 0:
         return False  # negative numbers can't be palindromes due to the minus sign
@@ -18,6 +19,7 @@ def is_palindrome(n: int) -> bool:
         reversed_num = reversed_num * 10 + n % 10
         n //= 10
     return original == reversed_num
+
 
 class AutoGimli(LotrCog):
     """
@@ -71,9 +73,9 @@ class AutoGimli(LotrCog):
                 except discord.errors.HTTPException:
                     pass
 
-        if (not is_palindrome(gimli_count+1) or gimli_count < 100):
-            if random.randint(0, self.options['chance'] - 1) != 0: 
-                return
+        # if (not is_palindrome(gimli_count+1) or gimli_count < 100):
+        if random.randint(0, self.options['chance'] - 1) != 0:
+            return
         if gimli_count == 2 and self.options['number_two_special_message']:
             await msg.channel.send('That still only counts as one!')
         else:
