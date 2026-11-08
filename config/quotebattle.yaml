@@ -9,7 +9,7 @@
 tokens: {
 }
 caches: {
-  "quoteday": "quote_days.cache"
+  "quoteday": "quote_days.yaml"
 }
 assets: {
 }

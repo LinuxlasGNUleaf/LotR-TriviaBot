@@ -9,7 +9,7 @@
 tokens: {
 }
 caches: {
-  "scores": "trivia_scores.cache"
+  "scores": "trivia_scores.yaml"
 }
 assets: {
   "questions": 'questions.csv'

@@ -10,7 +10,7 @@ tokens: {
   "reddit": "reddit.tk"
 }
 caches: {
-  "post_cache": "reddit_post.cache"
+  "post_cache": "reddit_post.yaml"
 }
 assets: {
 }

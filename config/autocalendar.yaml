@@ -10,8 +10,8 @@
 tokens: {
 }
 caches: {
-  "birthdays": "birthdays.cache",
-  "congrats": "congrats_log.cache"
+  "birthdays": "birthdays.yaml",
+  "congrats": "congrats_log.yaml"
 }
 assets: {
 }

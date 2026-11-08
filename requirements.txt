@@ -1,9 +1,8 @@
-numpy>=1.24.1
-discord>=2.1.0
-discord.py>=2.1.0
-matplotlib>=3.6.2
-asyncpraw>=7.6.1
-PyYAML>=6.0
-inflect>=6.0.2
+numpy>=2.5.4
+discord.py>=2.7.1
+matplotlib>=3.11.2
+asyncpraw>=8.0.3
+PyYAML>=6.0.3
+inflect>=7.6.0
 word2number>=1.1
-openpyxl
+openpyxl>=3.1.5

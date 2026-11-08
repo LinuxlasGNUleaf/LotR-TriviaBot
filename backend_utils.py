@@ -2,7 +2,10 @@
 frequently used utils for the backend of the bot
 """
 
+import os
 import pickle
+
+import yaml
 
 
 def bool_emoji(val):
@@ -41,17 +44,34 @@ def map_values(val: float, in_min: float, in_max: float, out_min: float, out_max
 
 def load_cache(path, name, logger):
     """
-    loads cache located in the specified directory into memory,
-    and creates an empty one if not valid.
+    Loads a human-readable YAML cache and migrates the former pickle format
+    when it is encountered for the first time.
     """
+    legacy_path = os.path.splitext(path)[0] + '.cache'
+
     try:
-        with open(path, 'rb') as cache_file:
+        with open(path, 'r', encoding='utf-8') as cache_file:
+            obj = yaml.safe_load(cache_file)
+            logger.info(f'successfully loaded "{name}"')
+            return {} if obj is None else obj
+    except FileNotFoundError:
+        pass
+    except yaml.YAMLError:
+        logger.exception(f'could not parse cache "{name}"')
+        return {}
+
+    try:
+        with open(legacy_path, 'rb') as cache_file:
             obj = pickle.load(cache_file)
-            logger.info(f'successfully deserialized "{name}"')
-            return obj
-    except (FileNotFoundError, EOFError):
-        logger.warning(f'could not deserialize "{name}"! creating empty cache.')
-        open(path, 'wb').close()
+        logger.info(f'migrating legacy cache "{name}" to YAML')
+        _save_cache(path, obj)
+        return obj
+    except FileNotFoundError:
+        logger.warning(f'could not load "{name}"! creating an empty cache.')
+        _save_cache(path, {})
+        return {}
+    except (EOFError, pickle.UnpicklingError):
+        logger.exception(f'could not migrate legacy cache "{name}"')
         return {}
 
 
@@ -73,9 +93,13 @@ def load_token(path, name, logger):
 
 def save_caches(caches, caches_locations, logger, cog_name):
     for cache, cache_path in caches_locations.items():
-        with open(cache_path, 'wb') as cache_file:
-            pickle.dump(caches[cache], cache_file)
-    logger.debug(f'successfully serialized all caches for {cog_name}.')
+        _save_cache(cache_path, caches[cache])
+    logger.debug(f'successfully saved all caches for {cog_name}.')
+
+
+def _save_cache(path, value):
+    with open(path, 'w', encoding='utf-8') as cache_file:
+        yaml.safe_dump(value, cache_file, allow_unicode=True, sort_keys=False)
 
 
 class LogManager:

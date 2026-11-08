@@ -1,9 +1,10 @@
-import pickle
-import pathlib
+import os
 
-bd_file =  pathlib.posixpath.expandvars('/home/$USER/.config/discord/bots/lotr-bot/caches/birthdays.cache')
-with open(bd_file, 'rb') as infile:
-    bdays = pickle.load(infile)
+import yaml
+
+bd_file = os.path.expandvars('$HOME/.config/discord/bots/lotr-bot/caches/birthdays.yaml')
+with open(bd_file, 'r', encoding='utf-8') as infile:
+    bdays = yaml.safe_load(infile) or []
 
 first = True
 fstring = '{:>02}\t{:<32}\t{:>02}.{:>02}.\t{:>20}'
@@ -39,5 +40,5 @@ while (first or input('Continue? [Y/n]').lower() != 'n'):
         print("Index not in range!")
         continue
 
-with open(bd_file, 'wb') as outfile:
-    pickle.dump(bdays, outfile)
+with open(bd_file, 'w', encoding='utf-8') as outfile:
+    yaml.safe_dump(bdays, outfile, allow_unicode=True, sort_keys=False)

@@ -10,7 +10,7 @@ tokens: {
   "discord": "discord.tk"
 }
 caches: {
-  "discord_settings": "dc_settings.cache"
+  "discord_settings": "dc_settings.yaml"
 }
 assets: {
 }
