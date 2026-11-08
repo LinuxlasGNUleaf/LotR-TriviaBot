@@ -43,6 +43,8 @@ check:
 registration:
   # timeout, in minutes
   timeout: 60
+  # timezone field uses an IANA TZ identifier; blank values default to GMT
+  timezone_hint: 'For example: Europe/Berlin or America/New_York'
   # hint to display with registration button
   hint: |
     Want to register your birthday? Click the button below to open the survey!

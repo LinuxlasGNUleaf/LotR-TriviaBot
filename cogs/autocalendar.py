@@ -3,6 +3,7 @@ import secrets
 import typing
 from datetime import datetime, timedelta
 from io import BytesIO
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import discord.errors
 from discord import ui
@@ -13,11 +14,30 @@ import discord_utils as du
 from template_cog import LotrCog
 
 
-def get_next_date(month, day):
-    now = datetime.now()
-    birthday = datetime(year=now.year, month=month, day=day)
+DEFAULT_TIMEZONE = 'GMT'
+
+
+def get_timezone(name: str = DEFAULT_TIMEZONE):
+    try:
+        return ZoneInfo(name)
+    except (ZoneInfoNotFoundError, ValueError):
+        return ZoneInfo(DEFAULT_TIMEZONE)
+
+
+def is_valid_timezone(name: str):
+    try:
+        ZoneInfo(name)
+        return True
+    except (ZoneInfoNotFoundError, ValueError):
+        return False
+
+
+def get_next_date(month, day, timezone=DEFAULT_TIMEZONE):
+    tz = get_timezone(timezone) if isinstance(timezone, str) else timezone
+    now = datetime.now(tz=tz)
+    birthday = datetime(year=now.year, month=month, day=day, tzinfo=tz)
     if birthday < now:
-        birthday = datetime(year=now.year + 1, month=month, day=day)
+        birthday = datetime(year=now.year + 1, month=month, day=day, tzinfo=tz)
     return birthday
 
 
@@ -31,12 +51,25 @@ class AutoCalendar(LotrCog):
 
         if not self.caches['birthdays']:
             self.caches['birthdays'] = []
-        for i, [month, day, name, uid] in enumerate(self.caches['birthdays']):
-            self.caches['birthdays'][i] = [month, day, name, int(uid) if uid else uid]
+        cache_changed = False
+        for i, entry in enumerate(self.caches['birthdays']):
+            month, day, name, uid, *timezone = entry
+            timezone = timezone[0] if timezone else DEFAULT_TIMEZONE
+            normalized_entry = [month, day, name, int(uid) if uid else uid, timezone]
+            if not is_valid_timezone(timezone):
+                self.logger.warning(f'unknown timezone "{timezone}"; using {DEFAULT_TIMEZONE}.')
+                timezone = DEFAULT_TIMEZONE
+                normalized_entry[-1] = DEFAULT_TIMEZONE
+            if normalized_entry != entry:
+                cache_changed = True
+            self.caches['birthdays'][i] = normalized_entry
+        if cache_changed:
+            self.save_caches()
 
-    def register_birthday(self, month: int, day: int, name: str, uid: int = None):
+    def register_birthday(self, month: int, day: int, name: str, timezone: str = DEFAULT_TIMEZONE,
+                          uid: int = None):
         entry = self.get_birthday_by_uid(uid)
-        new_entry = [month, day, name, uid]
+        new_entry = [month, day, name, uid, timezone]
 
         # is user already registered?
         if entry:
@@ -45,7 +78,9 @@ class AutoCalendar(LotrCog):
         else:
             self.caches['birthdays'].append(new_entry)
 
-        self.logger.info(f'{"Updated" if entry else "Registered"} {bu.genitive(name)} birthday to be: {day}.{month}.')
+        self.logger.info(
+            f'{"Updated" if entry else "Registered"} {bu.genitive(name)} birthday to be: '
+            f'{day}.{month} ({timezone}).')
 
     def get_birthday_by_uid(self, uid):
         if uid not in [x[3] for x in self.caches['birthdays']]:
@@ -53,8 +88,8 @@ class AutoCalendar(LotrCog):
         return list(filter(lambda x: x[3] == uid, self.caches['birthdays']))[0]
 
     def check_for_birthday(self):
-        now = datetime.now()
-        for month, day, name, uid in self.caches['birthdays']:
+        for month, day, name, uid, timezone in self.caches['birthdays']:
+            now = datetime.now(tz=get_timezone(timezone))
             # check if date fits
             if month != now.month or day != now.day:
                 continue
@@ -68,10 +103,10 @@ class AutoCalendar(LotrCog):
             self.caches['congrats'][key] = entry
 
             # return the found pair
-            return name, uid
+            return name, uid, timezone
 
-    def create_birthday_embed(self, name: str, month: int, day: int, avatar=None):
-        timestamp = get_next_date(month, day)
+    def create_birthday_embed(self, name: str, month: int, day: int, timezone=DEFAULT_TIMEZONE, avatar=None):
+        timestamp = get_next_date(month, day, timezone)
         embed = discord.Embed(title=f':birthday:  {bu.genitive(name)} birthday')
         embed.colour = discord.Colour.random()
         if avatar:
@@ -100,7 +135,7 @@ class AutoCalendar(LotrCog):
         result = self.check_for_birthday()
         if not result:
             return
-        name, uid = result
+        name, uid, timezone = result
 
         mention = f'__{(await self.retrieve_user_info(name=name, uid=uid, mention=True))[0]}__'
 
@@ -118,7 +153,8 @@ class AutoCalendar(LotrCog):
         self.logger.info(f'congratulated {name} ({uid}) on his birthday.')
 
         # add user to congrats_log
-        self.caches['congrats'][uid if uid else name].append(datetime.now().year)
+        self.caches['congrats'][uid if uid else name].append(
+            datetime.now(tz=get_timezone(timezone)).year)
 
     @check.before_loop
     async def before_check(self):
@@ -133,11 +169,12 @@ class AutoCalendar(LotrCog):
                 await ctx.send(
                     f'{self.bot.options["discord"]["indicators"][0]} This member has not registered their birthday yet.')
                 return
-            month, day, name, uid = entry
+            month, day, name, uid, timezone = entry
             embed = self.create_birthday_embed(
                 name=member.name,
                 month=month,
                 day=day,
+                timezone=timezone,
                 avatar=member.avatar
             )
             await ctx.send(embed=embed)
@@ -154,7 +191,7 @@ class AutoCalendar(LotrCog):
     async def calendar(self, ctx):
         now = datetime.now()
         event_str = ""
-        for month, day, name, _ in self.caches['birthdays']:
+        for month, day, name, _, _ in self.caches['birthdays']:
             start = datetime(year=now.year, month=month, day=day)
             end = start + timedelta(days=1)
             event_str += self.options['ics']['event'].format(
@@ -181,7 +218,8 @@ class AutoCalendar(LotrCog):
     @birthday.command(aliases=['next'])
     async def upcoming(self, ctx):
         # calculate the next birthday dates for each registered user
-        dates = [(get_next_date(month, day), name, uid) for month, day, name, uid in self.caches['birthdays']]
+        dates = [(get_next_date(month, day, timezone), name, uid, timezone)
+             for month, day, name, uid, timezone in self.caches['birthdays']]
 
         if not dates:
             await ctx.send(
@@ -189,7 +227,7 @@ class AutoCalendar(LotrCog):
             return
 
         # sort the datetime objects and grab the "nearest"
-        date, name, uid = sorted(dates, key=lambda x: x[0])[0]
+        date, name, uid, timezone = sorted(dates, key=lambda x: x[0])[0]
 
         # retrieve info about the user
         username, avatar = await self.retrieve_user_info(name, uid)
@@ -199,6 +237,7 @@ class AutoCalendar(LotrCog):
             name=username,
             month=date.month,
             day=date.day,
+            timezone=timezone,
             avatar=avatar
         )
         await ctx.send("The next birthday is:",
@@ -249,13 +288,15 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
         self.user = user
         self.old_entry = self.cog.get_birthday_by_uid(user.id)
         if self.old_entry:
-            month, day, name, _ = self.old_entry
+            month, day, name, _, timezone = self.old_entry
         else:
-            month, day, name = (1, 1, user.name)
+            month, day, name, timezone = (1, 1, user.name, DEFAULT_TIMEZONE)
         self.components = [
             ui.TextInput(label='Name', min_length=1, max_length=32, default=name),
             ui.TextInput(label='Month:', min_length=1, max_length=2, default=month),
-            ui.TextInput(label='Day of the Month:', min_length=1, max_length=2, default=day)
+            ui.TextInput(label='Day of the Month:', min_length=1, max_length=2, default=day),
+            ui.TextInput(label='Timezone:', min_length=1, max_length=100, default=timezone,
+                         placeholder=self.cog.options['registration']['timezone_hint'])
         ]
         for component in self.components:
             self.add_item(component)
@@ -264,7 +305,8 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
         name: str
         month: str
         day: str
-        name, month, day = (x.value for x in self.components)
+        timezone: str
+        name, month, day, timezone = (x.value.strip() for x in self.components)
 
         if not month.isdigit():
             await interaction.response.send_message('Month not valid, must be a number.', ephemeral=True)
@@ -272,7 +314,7 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
 
         month: int = int(month)
 
-        if month not in range(13):
+        if month not in range(1, 13):
             await interaction.response.send_message('Month not valid, must be between 1 and 12.', ephemeral=True)
             return
 
@@ -283,18 +325,26 @@ class RegistrationModal(ui.Modal, title='Birthday Registration Form'):
             return
         day: int = int(day)
 
-        if self.old_entry and [month, day, name, self.old_entry[-1]] == self.old_entry:
+        if not is_valid_timezone(timezone):
+            await interaction.response.send_message(
+                'Timezone not valid. Choose a TZ Identifier from the '
+                'IANA list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List',
+                ephemeral=True)
+            return
+
+        if self.old_entry and [month, day, name, self.old_entry[-2], timezone] == self.old_entry:
             await interaction.response.send_message('No info was changed.',
                                                     ephemeral=True,
                                                     delete_after=10)
             return
 
-        self.cog.register_birthday(name=name, month=month, day=day, uid=self.user.id)
+        self.cog.register_birthday(name=name, month=month, day=day, timezone=timezone, uid=self.user.id)
 
         embed = self.cog.create_birthday_embed(
             name=name,
             month=month,
             day=day,
+            timezone=timezone,
             avatar=self.user.avatar
         )
 
